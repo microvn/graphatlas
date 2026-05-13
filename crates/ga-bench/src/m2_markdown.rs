@@ -167,6 +167,61 @@ fn render_aggregate(report: &M2Report) -> String {
         ));
     }
 
+    // Token-cost (efficiency). Public framing: GA vs BM25 — the IR floor.
+    // CRG/CM/CGC are intentionally omitted from this section; CRG is
+    // measured under a different task contract (per-commit, not per-symbol)
+    // and post-hoc adapter shims aren't apples-to-apples here. The accuracy
+    // table above shows all retrievers; this table is the targeted
+    // "structure vs lexical IR" comparison.
+    let ga = report.aggregate.iter().find(|e| e.retriever == "ga");
+    let bm25 = report.aggregate.iter().find(|e| e.retriever == "bm25");
+    md.push_str("\n## Token cost vs lexical IR baseline\n\n");
+    if let (Some(ga), Some(bm25)) = (ga, bm25) {
+        let reach_ratio = if bm25.pct_reached_100 > 0.0 {
+            ga.pct_reached_100 / bm25.pct_reached_100
+        } else {
+            0.0
+        };
+        let token_savings = if bm25.mean_tokens_to_100_when_reached > 0.0 {
+            1.0 - (ga.mean_tokens_to_100_when_reached / bm25.mean_tokens_to_100_when_reached)
+        } else {
+            0.0
+        };
+        md.push_str(&format!(
+            "**GA vs BM25:** resolves {:.2}× more regression-causing changes ({:.1}% vs {:.1}% reach 100% recall) using {:.0}% fewer tokens per successful retrieval ({:.0} vs {:.0}).\n\n",
+            reach_ratio,
+            ga.pct_reached_100 * 100.0,
+            bm25.pct_reached_100 * 100.0,
+            token_savings * 100.0,
+            ga.mean_tokens_to_100_when_reached,
+            bm25.mean_tokens_to_100_when_reached,
+        ));
+    }
+    md.push_str("Token cost = bytes/4 of files an agent reads, walking the retriever's ranked list, to reach the recall threshold. Means are **conditional on success** — failures aren't folded in, since a retriever that returns fewer files would otherwise look cheaper just for missing more.\n\n");
+    md.push_str("| Retriever | reached 50% | tokens→50% (when reached) | reached 100% | tokens→100% (when reached) | files returned |\n");
+    md.push_str("|-----------|------------:|--------------------------:|-------------:|---------------------------:|---------------:|\n");
+    let mut tc_sorted: Vec<&RetrieverEntry> = report
+        .aggregate
+        .iter()
+        .filter(|e| matches!(e.retriever.as_str(), "ga" | "bm25" | "ripgrep" | "random"))
+        .collect();
+    tc_sorted.sort_by(|a, b| {
+        b.pct_reached_100
+            .partial_cmp(&a.pct_reached_100)
+            .unwrap_or(std::cmp::Ordering::Equal)
+    });
+    for e in &tc_sorted {
+        md.push_str(&format!(
+            "| {:<9} | {:>10.1}% | {:>25.0} | {:>11.1}% | {:>26.0} | {:>14.1} |\n",
+            e.retriever,
+            e.pct_reached_50 * 100.0,
+            e.mean_tokens_to_50_when_reached,
+            e.pct_reached_100 * 100.0,
+            e.mean_tokens_to_100_when_reached,
+            e.mean_files_returned,
+        ));
+    }
+
     // Auto-generated tagline
     md.push_str("\n## Summary\n\n");
     if let Some(top) = sorted.first() {

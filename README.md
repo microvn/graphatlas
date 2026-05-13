@@ -1,31 +1,118 @@
 # GraphAtlas
 
-Graph-based code-context engine for AI coding agents — Rust workspace, MCP-native, dual-licensed MIT/Apache.
+Graph-based code-context engine for AI coding agents. Rust workspace, MCP-native, dual-licensed MIT/Apache.
 
----
+[![CI](https://github.com/microvn/GraphAtlas/actions/workflows/ci.yml/badge.svg)](https://github.com/microvn/GraphAtlas/actions)
+[![License: MIT/Apache-2.0](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](LICENSE-MIT)
+[![MCP](https://img.shields.io/badge/MCP-compatible-green.svg)](https://modelcontextprotocol.io)
+[![Rust](https://img.shields.io/badge/rust-stable-orange.svg)](rust-toolchain.toml)
 
-## Why
+> **GraphAtlas resolves 1.40× more regression-causing changes than BM25 using 19% fewer tokens** — on a 144-task git-mined benchmark across 12 OSS repos. Deterministic, MCP-native, no LLM in the loop.
 
-AI coding agents struggle with three things on a real codebase:
+## What it does
 
-1. **Blast radius is invisible.** Asked to change a function, the agent sees the file
-   it's in. It doesn't see the 12 callers, 3 test files, 2 re-exports, and the
-   override in another module. Without that, fixes ship with regressions or the
-   agent dumps the whole repo into the prompt and prays.
-2. **Tokens get wasted.** "Give me everything that touches `compute_total`" via grep
-   returns 200 hits across docs, tests, vendored deps, and string literals. Most
-   are noise. The model reads them all anyway, burning context window on irrelevance.
-3. **Understanding is slow.** Each new task starts with the agent re-reading the
-   same files, re-tracing the same imports, re-deriving the same call graph.
+AI coding agents struggle with blast radius. Asked to change a function, the agent sees the file it lives in — not the 12 callers, 3 test files, 2 re-exports, and the override in another module. So fixes ship with regressions, or the agent dumps the whole repo into the prompt and prays.
 
-GraphAtlas pre-computes the call/import/override/reference graph once, stores it in
-an embedded graph DB, and exposes graph queries as MCP tools. The agent asks
-"who calls this?" — gets a precise answer in milliseconds, with a tight token
-footprint. No LLM in the engine, no hallucination, deterministic results.
+GraphAtlas pre-computes the call / import / override / reference graph once, stores it in an embedded graph DB (LadybugDB), and exposes graph queries as MCP tools. The agent asks "who calls this?" — gets a precise answer in milliseconds, with a tight token footprint. No LLM in the engine, no hallucination, deterministic results.
 
-## What you get
+## A real agent flow
 
-**12 MCP tools backed by a real graph:**
+**Without GraphAtlas — agent has only Grep:**
+
+```
+> rg compute_total
+200 matches across 47 files — docs, tests, vendored deps, string literals.
+
+Agent reads all 47 files (~85K tokens). Still misses the override in
+subscription.rs because rg can't see the trait dispatch. Fix ships, the
+nightly suite catches a regression.
+```
+
+**With GraphAtlas — agent has `ga_callers`:**
+
+```jsonc
+> ga_callers --symbol compute_total --file src/order.rs
+{
+  "callers": [
+    { "symbol": "Order::finalize",                "file": "src/order.rs",        "line": 142, "edge": "call" },
+    { "symbol": "SubscriptionOrder::compute_total","file": "src/subscription.rs", "line":  88, "edge": "override" },
+    { "symbol": "test_order_total",               "file": "tests/order.rs",      "line":  23, "edge": "call" }
+  ],
+  "meta": { "max_depth": 2, "polymorphic_resolved": true }
+}
+12 callers in 14ms. Agent reads exactly the files that matter (~6K tokens).
+The override edge surfaces the subscription override no grep would catch.
+```
+
+## Honest numbers
+
+Git-mined benchmark across 12 OSS repos (axum, tokio, regex, django, gin, kotlinx-coroutines, kotlinx-serialization, mockito, nest, preact, MQTTnet, faraday). 144 tasks, each derived from a real fix commit. Full table in `bench-results/impact-aggregate.md`.
+
+| Retriever | Composite | Reach 100% recall | Tokens→100% (when reached) |
+|-----------|----------:|------------------:|---------------------------:|
+| **graphatlas** | **0.569** | **66.0%** | **14,308** |
+| BM25 | 0.286 | 47.2% | 17,715 |
+| ripgrep | 0.000 | 0.0% | — |
+| random | 0.031 | 2.8% | 13,460 |
+
+The three numbers that matter:
+
+- **2.0× BM25's composite quality** — composite = 0.4·test_recall + 0.3·completeness + 0.15·depth_F1 + 0.15·precision.
+- **1.40× more changes resolved** at full recall (66.0% vs 47.2%).
+- **19% fewer tokens** per successful retrieval (14,308 vs 17,715).
+
+Token cost = bytes/4 of files an agent reads, walking the retriever's ranked list, to reach the recall threshold. Means are conditional on success — a retriever that returns fewer files would otherwise look cheaper just for missing more.
+
+Reproducible from a fresh clone: `cargo test -p ga-bench --test m2_gate_impact -- --nocapture`. Pre-1.0 — gate pass rate is 41.7% at the strict composite ≥0.80 bar. Engine improvements track in `CHANGELOG.md`.
+
+## Vs. the alternatives
+
+|  | grep / ripgrep | BM25 / embeddings | AST-only | **GraphAtlas** |
+|--|:--:|:--:|:--:|:--:|
+| Resolves call / import edges | — | — | partial | ✓ |
+| Polymorphic dispatch | — | — | — | ✓ |
+| Re-export following | — | — | — | ✓ |
+| Tests-of-symbol surfacing | — | partial | — | ✓ |
+| Deterministic, no LLM | ✓ | ✓ | ✓ | ✓ |
+| Token-efficient on impact | — | — | partial | ✓ |
+| Indexes once, queries fast | ✓ | ✓ | ✓ | ✓ |
+| MCP-native | — | — | — | ✓ |
+
+## What it doesn't do
+
+- No embeddings, no vector search.
+- No LLM in the retrieval path.
+- No cloud, no telemetry — runs entirely local.
+- Not a code-review bot, not a linter, not a refactoring engine. It answers structural questions; downstream tools act on the answers.
+
+## Install
+
+```sh
+git clone https://github.com/microvn/GraphAtlas
+cd GraphAtlas
+cargo install --path .
+
+# Or one-shot installer (downloads release tarball + wires MCP config)
+curl -fsSL https://raw.githubusercontent.com/microvn/GraphAtlas/main/install.sh | bash
+```
+
+Requires Rust stable (toolchain pinned by `rust-toolchain.toml`) and `cmake` for `lbug`'s embedded graph engine.
+
+## Quickstart
+
+```sh
+cd /path/to/your/repo
+
+graphatlas init claude-code   # wire MCP + skill + CLAUDE.md into Claude Code
+graphatlas reindex             # build the graph index for this repo
+graphatlas doctor              # verify health
+```
+
+`init` supports 8 platforms — `claude-code`, `cursor`, `cline`, `codex`, `gemini`, `windsurf`, `continue`, `zed`. Run `graphatlas init` with no args for an interactive picker, or `graphatlas init --all` to wire every detected agent.
+
+`reindex` builds (or rebuilds) the on-disk graph for the current repo — the MCP server then serves queries against it. The agent sees `ga_impact`, `ga_callers`, `ga_minimal_context`, etc. as native tools; no extra prompting needed.
+
+## The 12 tools
 
 | Tool | What it answers |
 |------|----------------|
@@ -42,101 +129,20 @@ footprint. No LLM in the engine, no hallucination, deterministic results.
 | `ga_large_functions` | Functions over a complexity / line budget |
 | `ga_file_summary` | Per-file symbol + edge density overview |
 
-Plus `ga_symbols` (lookup), `ga_version`, `ga_query` (raw cypher).
+Plus `ga_symbols` (lookup), `ga_version`, `ga_query` (raw Cypher).
 
-## Honest numbers
+## Languages
 
-The engine is benchmarked against git-mined ground truth (real fix commits across
-12 OSS repos: axum, tokio, regex, django, gin, kotlinx-coroutines, kotlinx-serialization,
-mockito, nest, preact, MQTTnet, faraday). Dataset has 144 tasks; gate threshold
-is composite ≥ 0.80 across test_recall, completeness, depth_F1, precision, p95.
+Tree-sitter parsers ship for **Rust, TypeScript, JavaScript, Python, Go, Java, Kotlin, C#, Ruby, PHP** (10 languages). Each has a `LanguageSpec` impl in `crates/ga-parser/src/langs/` covering imports, calls, references, definitions, attributes/decorators, overrides, and re-exports.
 
-`bench-results/impact-aggregate.md` (auto-generated by `cargo run -p graphatlas -- bench`):
-
-| Retriever | Composite | Test Recall | Completeness | Precision |
-|-----------|-----------|-------------|--------------|-----------|
-| **graphatlas** | **0.569** | **0.531** | 0.748 | **0.136** |
-| (graph alternative) | 0.342 | 0.193 | 0.816 | 0.131 |
-| BM25 | 0.286 | 0.287 | 0.510 | 0.122 |
-| ripgrep / random | <0.05 | <0.05 | <0.04 | <0.01 |
-
-Pre-1.0 — gate pass rate is 41.7% at the strict ≥0.80 bar; engine improvements track in
-`CHANGELOG.md`. The bench harness is in-tree (`crates/ga-bench/`) — every claim above
-is reproducible from a fresh clone.
-
-## Install
-
-```sh
-# From source (recommended for now)
-git clone https://github.com/microvn/GraphAtlas
-cd GraphAtlas
-cargo install --path .
-
-# Or one-shot installer (downloads release tarball + wires MCP config)
-curl -fsSL https://raw.githubusercontent.com/microvn/GraphAtlas/main/install.sh | bash
-```
-
-Requirements: Rust stable (toolchain pinned by `rust-toolchain.toml`), `cmake`
-(used by `lbug` to build its embedded graph engine).
-
-## Quickstart
-
-```sh
-# 1. Index a repo (one-time per repo)
-graphatlas init /path/to/your/repo
-
-# 2. Run the MCP server (stdio transport)
-graphatlas mcp
-
-# 3. Or wire it into your AI client
-graphatlas install --client claude    # writes Claude Code MCP config
-graphatlas install --client cursor    # Cursor
-graphatlas doctor                     # verify health
-```
-
-In Claude Code (or any MCP-compatible client), the agent now sees `ga_impact`,
-`ga_callers`, `ga_minimal_context`, etc. as native tools — no extra prompting
-needed.
-
-## Supported languages
-
-Tree-sitter parsers ship for: **Rust, TypeScript, JavaScript, Python, Go, Java,
-Kotlin, Ruby, C**. Each language has a `LanguageSpec` impl in `crates/ga-parser/`
-covering imports, calls, references, definitions, attributes/decorators,
-overrides, and re-exports.
-
-Adding a language is a `LanguageSpec` impl + tree-sitter dependency.
-
-## Workspace layout
-
-```
-crates/
-  ga-core      shared types + error enum (zero deps beyond std + serde)
-  ga-parser    LanguageSpec trait + per-lang tree-sitter impls
-  ga-index     LadybugDB wrapper — File / Symbol nodes, typed edges
-  ga-query     12 graph-query tool implementations
-  ga-mcp       hand-rolled JSON-RPC MCP server (rmcp swap planned for v1.1)
-  ga-bench     per-UC benchmark harness + Markdown leaderboard generator
-src/           CLI binary (clap dispatcher) + library re-exports
-tests/         integration tests for the binary
-benches/       fixture submodules + git-mined ground-truth dataset
-bench-results/ auto-generated leaderboards (committed for visibility)
-```
+Adding a language is a `LanguageSpec` impl plus a tree-sitter dependency.
 
 ## Status
 
-Pre-1.0 — API and graph schema may change between minor versions until v1.0.0.
-See `CHANGELOG.md` for what's released vs in-flight. Issues + PRs welcome,
-see `CONTRIBUTING.md` for the build / test gates.
+Pre-1.0 — API and graph schema may change between minor versions until v1.0.0. See `CHANGELOG.md` for what's released vs in-flight, `CONTRIBUTING.md` for build / test gates, and `crates/` for the workspace breakdown.
+
+Issues and PRs welcome.
 
 ## License
 
-Dual-licensed under either:
-
-- [MIT License](LICENSE-MIT)
-- [Apache License 2.0](LICENSE-APACHE)
-
-at your option.
-
-Contributions intentionally submitted for inclusion in the work shall be
-dual-licensed as above, without any additional terms or conditions.
+Dual-licensed under either [MIT](LICENSE-MIT) or [Apache 2.0](LICENSE-APACHE) at your option. Contributions intentionally submitted for inclusion shall be dual-licensed as above, without any additional terms or conditions.
