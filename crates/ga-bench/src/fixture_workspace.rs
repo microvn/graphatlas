@@ -22,6 +22,54 @@ use crate::BenchError;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
+/// v1.2-php S-002 AS-020 — assert the fixture workspace is in a clean state
+/// before mining or scoring. Catches the `project_m3_submodule_drift` failure
+/// mode where an M3 HmcGitmine run leaves the scratch dirty and the next M2
+/// run silently inherits the dirty tree, producing biased numbers.
+///
+/// Returns `Err(BenchError::Other("FixtureCorrupted: ..."))` if:
+/// - `git status --porcelain` produces non-empty output (uncommitted changes)
+/// - `path` is not a git repo
+///
+/// Returns `Ok(())` if the workspace tree matches HEAD exactly. Callers
+/// should invoke this in M2 runner's `run()` entry point per-fixture, BEFORE
+/// the first per-task `base_commit` checkout.
+pub fn assert_workspace_clean(path: &Path) -> Result<(), BenchError> {
+    if !path.join(".git").exists() {
+        return Err(BenchError::Other(anyhow::anyhow!(
+            "FixtureCorrupted: not a git repo: {}",
+            path.display()
+        )));
+    }
+    let out = Command::new("git")
+        .arg("-C")
+        .arg(path)
+        .args(["status", "--porcelain"])
+        .output()
+        .map_err(|e| {
+            BenchError::Other(anyhow::anyhow!(
+                "FixtureCorrupted: git status -C {}: {e}",
+                path.display()
+            ))
+        })?;
+    if !out.status.success() {
+        return Err(BenchError::Other(anyhow::anyhow!(
+            "FixtureCorrupted: git status -C {} exited non-zero: {}",
+            path.display(),
+            String::from_utf8_lossy(&out.stderr)
+        )));
+    }
+    if !out.stdout.is_empty() {
+        return Err(BenchError::Other(anyhow::anyhow!(
+            "FixtureCorrupted: {} has uncommitted changes — likely M3-drift contamination per project_m3_submodule_drift memory. Run `git -C {} reset --hard` (or re-clone scratch) before continuing. \n--- git status --porcelain ---\n{}",
+            path.display(),
+            path.display(),
+            String::from_utf8_lossy(&out.stdout)
+        )));
+    }
+    Ok(())
+}
+
 /// Resolve (or create on first use) a per-gate scratch clone of `source`.
 /// `gate` is a short label (e.g. `"m2"`, `"m3"`). `source` should be the
 /// canonical submodule directory (`benches/fixtures/<repo>`). Returns the
