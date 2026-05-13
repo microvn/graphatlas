@@ -10,7 +10,7 @@
 //! Re-install replaces only entries with that tag; remove drops only
 //! those entries.
 
-use super::json_io::{atomic_write_json, read_json_or_empty};
+use super::json_io::{atomic_write_json, lock_file, read_json_or_empty};
 use anyhow::{anyhow, Result};
 use serde_json::{json, Value};
 use std::path::{Path, PathBuf};
@@ -31,6 +31,7 @@ pub enum SessionHookOutcome {
 /// Claude Code will exec; pass `std::env::current_exe()` in production.
 pub fn install_session_hook(project_root: &Path, binary_path: &Path) -> Result<SessionHookOutcome> {
     let target = project_root.join(".claude").join("settings.json");
+    let _lock = lock_file(&target)?;
     let existed = target.exists();
     let mut doc = read_json_or_empty(&target)?;
     let root = doc

@@ -100,6 +100,10 @@ ga-query = { workspace = true }
 ga-bench = { workspace = true }
 toml = "1"
 tempfile = "3"
+# Advisory flock for cross-process TOCTOU defense on .claude/settings.json.
+# Used by install/json_io::lock_file. fs4 is preferred over std::fs::File::lock
+# (stable 1.89) because GA's MSRV is 1.85.
+fs4 = "0.13"
 
 [dev-dependencies]
 ga-index = { workspace = true }

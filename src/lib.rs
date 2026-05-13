@@ -5,6 +5,7 @@
 pub mod bench_cmd;
 pub mod cmd_hook;
 pub mod cmd_init;
+pub mod cmd_reindex;
 pub mod doctor;
 pub mod install;
 pub mod mcp_cmd;

@@ -13,6 +13,7 @@ pub mod hook;
 pub mod json_io;
 pub mod mcp_config;
 pub mod permissions;
+pub mod platforms;
 pub mod session_hook;
 pub mod skill;
 

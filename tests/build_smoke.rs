@@ -64,12 +64,11 @@ fn stub_subcommands_exit_zero_with_hint() {
     // `list` graduated in S-003. `doctor` and `install` graduated in S-002.
     // `mcp` graduated in S-006 (rmcp stdio transport, infra:S-003 v1.1-M0).
     // `init` graduated in the LLM-adoption track. `cache` still a stub.
-    for sub in ["cache"] {
-        let out = Command::new(bin()).arg(sub).output().expect("spawn");
-        assert!(out.status.success(), "{sub} failed: {:?}", out);
-        let s = String::from_utf8_lossy(&out.stdout);
-        assert!(s.contains("S-001 stub"), "{sub} stdout: {s}");
-    }
+    let sub = "cache";
+    let out = Command::new(bin()).arg(sub).output().expect("spawn");
+    assert!(out.status.success(), "{sub} failed: {:?}", out);
+    let s = String::from_utf8_lossy(&out.stdout);
+    assert!(s.contains("S-001 stub"), "{sub} stdout: {s}");
 }
 
 #[test]
