@@ -109,7 +109,7 @@ jobs:
         run: bash scripts/run-lbug-empirical.sh
       - name: Upload empirical results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: lbug-empirical-${{ matrix.os }}
           path: target/lbug_lifecycle/*.json
