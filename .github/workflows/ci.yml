@@ -23,7 +23,7 @@ jobs:
     name: cargo fmt --check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt
@@ -36,7 +36,7 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: clippy
@@ -65,7 +65,7 @@ jobs:
     steps:
       - name: git config core.symlinks (Windows submodule prep)
         run: git config --global core.symlinks true
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           submodules: false
       - uses: dtolnay/rust-toolchain@stable
@@ -96,7 +96,7 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
       - name: Install cmake (macOS)
         if: runner.os == 'macOS'
@@ -109,7 +109,7 @@ jobs:
         run: bash scripts/run-lbug-empirical.sh
       - name: Upload empirical results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: lbug-empirical-${{ matrix.os }}
           path: target/lbug_lifecycle/*.json
@@ -126,7 +126,7 @@ jobs:
     name: Foundation-C13 placeholder gate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - run: bash scripts/check-no-placeholders.sh
 
   anti-tautology:
@@ -135,7 +135,7 @@ jobs:
     name: M3 bench anti-tautology gate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - run: bash scripts/check-anti-tautology.sh
 
   supply-chain:
@@ -145,7 +145,7 @@ jobs:
     name: supply-chain audit (cargo audit + deny)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
       - name: Install cmake
         run: sudo apt-get update && sudo apt-get install -y cmake

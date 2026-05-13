@@ -65,7 +65,7 @@ fn as_003_t2_sidecar_contains_task_count_and_sha256() {
 
     // Expected sha256 of payload computed independently
     use sha2::{Digest, Sha256};
-    let expected = format!("{:x}", Sha256::digest(payload));
+    let expected = ga_bench::manifest::hex_encode(&Sha256::digest(payload));
     assert_eq!(hex, expected, "sidecar sha256 must match content digest");
 }
 
@@ -102,8 +102,8 @@ fn as_003_t3_concurrent_writers_never_produce_partial_json() {
     // Sidecar sha256 must match whichever payload won.
     let sidecar = read_sidecar(&dir.path().join("gin.generated.json.sha256"));
     use sha2::{Digest, Sha256};
-    let hex_a = format!("{:x}", Sha256::digest(payload_a.as_slice()));
-    let hex_b = format!("{:x}", Sha256::digest(payload_b.as_slice()));
+    let hex_a = ga_bench::manifest::hex_encode(&Sha256::digest(payload_a.as_slice()));
+    let hex_b = ga_bench::manifest::hex_encode(&Sha256::digest(payload_b.as_slice()));
     let actual_hex = sidecar["sha256"].as_str().unwrap().to_string();
     assert!(
         actual_hex == hex_a || actual_hex == hex_b,

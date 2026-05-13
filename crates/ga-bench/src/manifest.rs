@@ -60,7 +60,7 @@ pub fn verify_sha256(data_path: &Path, sidecar_path: &Path) -> Result<(), BenchE
     Ok(())
 }
 
-fn hex_encode(bytes: &[u8]) -> String {
+pub fn hex_encode(bytes: &[u8]) -> String {
     const HEX: &[u8; 16] = b"0123456789abcdef";
     let mut out = String::with_capacity(bytes.len() * 2);
     for b in bytes {

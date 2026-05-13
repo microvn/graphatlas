@@ -246,7 +246,7 @@ pub fn verify_sha256_sidecar(file_path: &Path) -> Result<(), BenchError> {
         .to_lowercase();
 
     let payload = std::fs::read(file_path)?;
-    let actual = format!("{:x}", Sha256::digest(&payload));
+    let actual = crate::manifest::hex_encode(&Sha256::digest(&payload));
 
     if actual != expected {
         return Err(BenchError::Other(anyhow::anyhow!(
@@ -305,7 +305,7 @@ pub fn write_gt_atomic(
     }
     std::fs::rename(&tmp_path, final_path)?;
 
-    let hex = format!("{:x}", Sha256::digest(payload));
+    let hex = crate::manifest::hex_encode(&Sha256::digest(payload));
     let sidecar_path = final_path.with_file_name(format!(
         "{}.sha256",
         final_path

@@ -26,7 +26,7 @@ fn dump(conn: &lbug::Connection<'_>, label: &str, cypher: &str) -> Result<(usize
     let joined = rows.join("\n");
     let mut h = Sha256::new();
     h.update(joined.as_bytes());
-    let hash = format!("{:x}", h.finalize());
+    let hash = ga_bench::manifest::hex_encode(&h.finalize());
     Ok((rows.len(), hash))
 }
 

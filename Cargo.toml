@@ -98,7 +98,7 @@ tracing = { workspace = true }
 tracing-subscriber = { workspace = true }
 ga-query = { workspace = true }
 ga-bench = { workspace = true }
-toml = "0.8"
+toml = "1"
 tempfile = "3"
 
 [dev-dependencies]

@@ -1,19 +1,66 @@
 version: 2
 updates:
+  # ──────────────────────────────────────────────────────────────────
+  # Rust / Cargo
+  # ──────────────────────────────────────────────────────────────────
   - package-ecosystem: cargo
     directory: /
     schedule:
       interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Asia/Ho_Chi_Minh
     open-pull-requests-limit: 5
     labels:
       - dependencies
       - rust
+    # Group patch + minor non-breaking bumps into ONE rolling PR each so
+    # the inbox doesn't fill with 5–10 PRs when many deps tick on the
+    # same Monday. Majors stay individual — they need a human read of
+    # CHANGELOG before merge.
+    groups:
+      cargo-patch:
+        applies-to: version-updates
+        update-types:
+          - patch
+      cargo-minor:
+        applies-to: version-updates
+        update-types:
+          - minor
+      # Security alerts: collapse all severity tiers into one urgent PR
+      # so the dashboard signals "you have unmerged security fixes"
+      # rather than scattering them across N PRs.
+      cargo-security:
+        applies-to: security-updates
+    # Pinned engines stay locked — bumping requires a deliberate
+    # empirical re-validation, not a Dependabot automerge.
+    ignore:
+      - dependency-name: lbug                # graph DB; pinned =0.16.1 per lbug-engine-capabilities.md
+      - dependency-name: gix-hash            # Rust 1.95 upstream incompat per spike 2026-05-13
+      - dependency-name: gix
+      # tree-sitter language crates: minor bumps can change AST shape
+      # → break parser invariants. Surface as individual PRs (excluded
+      #  from groups) for explicit review on next major upgrade.
+      - dependency-name: tree-sitter
+        update-types: [version-update:semver-major]
 
+  # ──────────────────────────────────────────────────────────────────
+  # GitHub Actions
+  # ──────────────────────────────────────────────────────────────────
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
     open-pull-requests-limit: 3
     labels:
       - dependencies
       - github-actions
+    # GHA majors usually require a workflow YAML change (Node version,
+    # output syntax, etc.) so they stay individual PRs. Minors/patches
+    # roll up.
+    groups:
+      gha-minor-patch:
+        applies-to: version-updates
+        update-types:
+          - minor
+          - patch
