@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 /// Supported source languages. v1 scope per PLAN R15; v1.1-M4 (S-005a)
 /// extends with Java/Kotlin/CSharp/Ruby per Phase C languages spec.
 /// Extension mapping ported from rust-poc/src/main.rs:83-104.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum Lang {
     Python,
@@ -18,6 +18,8 @@ pub enum Lang {
     Kotlin,
     CSharp,
     Ruby,
+    // v1.2 S-001 — PHP support. Adapter at crates/ga-parser/src/langs/php.rs.
+    Php,
 }
 
 impl Lang {
@@ -32,6 +34,7 @@ impl Lang {
             "kt" | "kts" => Some(Self::Kotlin),
             "cs" => Some(Self::CSharp),
             "rb" => Some(Self::Ruby),
+            "php" => Some(Self::Php),
             _ => None,
         }
     }
@@ -47,6 +50,7 @@ impl Lang {
             Self::Kotlin => "kotlin",
             Self::CSharp => "csharp",
             Self::Ruby => "ruby",
+            Self::Php => "php",
         }
     }
 
@@ -68,6 +72,7 @@ impl Lang {
         Self::Kotlin,
         Self::CSharp,
         Self::Ruby,
+        Self::Php,
     ];
 }
 
