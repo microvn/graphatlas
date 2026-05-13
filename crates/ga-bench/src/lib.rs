@@ -25,6 +25,7 @@ pub mod retrievers;
 pub mod runner;
 pub mod score;
 pub mod signals;
+pub mod token_cost;
 
 pub use retriever::{ImpactActual, Retriever};
 

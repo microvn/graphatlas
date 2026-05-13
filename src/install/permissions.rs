@@ -6,7 +6,7 @@
 //! file: deep-merges only the `mcp.allowedTools` key. All other keys
 //! (`hooks`, `permissions`, custom entries) are preserved.
 
-use super::json_io::{atomic_write_json, read_json_or_empty};
+use super::json_io::{atomic_write_json, lock_file, read_json_or_empty};
 use anyhow::{anyhow, Result};
 use serde_json::{json, Value};
 use std::path::{Path, PathBuf};
@@ -22,6 +22,10 @@ pub enum PermissionsOutcome {
 
 pub fn install_permissions(project_root: &Path) -> Result<PermissionsOutcome> {
     let target = project_root.join(".claude").join("settings.json");
+    // TOCTOU defense: hold advisory flock for the read→modify→write
+    // window. Without this, parallel ga init runs (rare but possible)
+    // could lose one write — last-rename wins.
+    let _lock = lock_file(&target)?;
     let existed = target.exists();
     let mut doc = read_json_or_empty(&target)?;
 

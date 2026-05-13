@@ -49,3 +49,9 @@
 [submodule "benches/fixtures/regex"]
 	path = benches/fixtures/regex
 	url = https://github.com/rust-lang/regex
+[submodule "benches/fixtures/php-symfony-console"]
+	path = benches/fixtures/php-symfony-console
+	url = https://github.com/symfony/console.git
+[submodule "benches/fixtures/php-monolog"]
+	path = benches/fixtures/php-monolog
+	url = https://github.com/Seldaek/monolog.git

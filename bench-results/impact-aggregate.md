@@ -14,13 +14,26 @@
 
 | Retriever | Composite | Test Recall | Completeness | Precision | p95 ms | Pass Rate | Gate | BlastRadius | AdjPrec |
 |-----------|-----------|-------------|--------------|-----------|--------|-----------|------|-------------|----------|
-| ga        | 0.569 ⭐  | 0.531 ⭐    | 0.750       | 0.137 ⭐    | 2259   |   41.7%  | — | 0.524 ⭐      | 0.181    |
-| code-review-graph | 0.342    | 0.193      | 0.816 ⭐     | 0.131      | 1619   |    0.0%  | — | 0.515        | 0.179    |
+| ga        | 0.569 ⭐  | 0.531 ⭐    | 0.750       | 0.137 ⭐    | 5128   |   41.7%  | — | 0.539 ⭐      | 0.181    |
+| code-review-graph | 0.342    | 0.193      | 0.816 ⭐     | 0.131      | 1592   |    0.0%  | — | 0.515        | 0.179    |
 | bm25      | 0.286    | 0.287      | 0.510       | 0.122      | 0      |    0.0%  | — | 0.435        | 0.196 ⭐  |
 | random    | 0.031    | 0.046      | 0.039       | 0.006      | 0      |    0.0%  | — | 0.262        | 0.019    |
 | codebase-memory | 0.000    | 0.000      | 0.000       | 0.000      | 0      |    0.0%  | — | 0.236        | 0.000    |
 | codegraphcontext | 0.000    | 0.000      | 0.000       | 0.000      | 0      |    0.0%  | — | 0.236        | 0.000    |
 | ripgrep   | 0.000    | 0.000      | 0.000       | 0.000      | 0      |    0.0%  | — | 0.236        | 0.000    |
+
+## Token cost vs lexical IR baseline
+
+**GA vs BM25:** resolves 1.40× more regression-causing changes (66.0% vs 47.2% reach 100% recall) using 19% fewer tokens per successful retrieval (14308 vs 17715).
+
+Token cost = bytes/4 of files an agent reads, walking the retriever's ranked list, to reach the recall threshold. Means are **conditional on success** — failures aren't folded in, since a retriever that returns fewer files would otherwise look cheaper just for missing more.
+
+| Retriever | reached 50% | tokens→50% (when reached) | reached 100% | tokens→100% (when reached) | files returned |
+|-----------|------------:|--------------------------:|-------------:|---------------------------:|---------------:|
+| ga        |       79.2% |                     15105 |        66.0% |                      14308 |           35.5 |
+| bm25      |       52.8% |                     17174 |        47.2% |                      17715 |            9.8 |
+| random    |        4.2% |                     14478 |         2.8% |                      13460 |            7.2 |
+| ripgrep   |        0.0% |                         0 |         0.0% |                          0 |            0.0 |
 
 ## Summary
 

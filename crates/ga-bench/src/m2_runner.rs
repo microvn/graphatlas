@@ -17,6 +17,7 @@ use crate::retrievers::{
     RipgrepRetriever,
 };
 use crate::score::{impact_score, ImpactScore};
+use crate::token_cost::{self, TokenCost};
 use crate::BenchError;
 use serde::Serialize;
 use std::collections::BTreeMap;
@@ -52,6 +53,7 @@ pub struct TaskScore {
     pub repo: String,
     pub lang: String,
     pub score: ImpactScore,
+    pub token_cost: TokenCost,
     pub latency_ms: u64,
 }
 
@@ -71,6 +73,19 @@ pub struct RetrieverEntry {
     // Supplementary (not in composite):
     pub mean_blast_radius_coverage: f64,
     pub mean_adjusted_precision: f64,
+    // Token-cost dims (efficiency, decoupled from composite gate).
+    //
+    // CONDITIONAL means: averaged ONLY over tasks where the retriever
+    // reached the threshold. Mixing failures into the mean lets a retriever
+    // that returns *fewer* files look cheaper just because its "failure
+    // cost = total_returned" is smaller — punishing retrievers that try
+    // harder. Use the conditional means for cross-retriever comparison;
+    // pair them with `pct_reached_X` so the story stays honest.
+    pub mean_tokens_to_50_when_reached: f64,
+    pub mean_tokens_to_100_when_reached: f64,
+    pub pct_reached_50: f64,
+    pub pct_reached_100: f64,
+    pub mean_files_returned: f64,
 }
 
 #[derive(Debug, Clone, Serialize)]
@@ -158,6 +173,7 @@ fn run_retriever_on_tasks(
                     repo: task.repo.clone(),
                     lang: task.lang.clone(),
                     score: ImpactScore::default(),
+                    token_cost: TokenCost::default(),
                     latency_ms: 0,
                 });
                 continue;
@@ -199,12 +215,14 @@ fn run_retriever_on_tasks(
             task.max_expected_depth,
             &task.should_touch_files,
         );
+        let token_cost = token_cost::compute(&files, &task.expected_files, fixture_dir);
 
         out.push(TaskScore {
             task_id: task.task_id.clone(),
             repo: task.repo.clone(),
             lang: task.lang.clone(),
             score,
+            token_cost,
             latency_ms: latency,
         });
     }
@@ -235,6 +253,11 @@ fn aggregate_entry(retriever: &str, tasks: Vec<TaskScore>) -> RetrieverEntry {
             pass_rate: 0.0,
             mean_blast_radius_coverage: 0.0,
             mean_adjusted_precision: 0.0,
+            mean_tokens_to_50_when_reached: 0.0,
+            mean_tokens_to_100_when_reached: 0.0,
+            pct_reached_50: 0.0,
+            pct_reached_100: 0.0,
+            mean_files_returned: 0.0,
         };
     }
     let sum_c: f64 = tasks.iter().map(|t| t.score.composite).sum();
@@ -244,6 +267,24 @@ fn aggregate_entry(retriever: &str, tasks: Vec<TaskScore>) -> RetrieverEntry {
     let sum_p: f64 = tasks.iter().map(|t| t.score.precision).sum();
     let sum_brc: f64 = tasks.iter().map(|t| t.score.blast_radius_coverage).sum();
     let sum_ap: f64 = tasks.iter().map(|t| t.score.adjusted_precision).sum();
+    // Conditional means: only tasks where threshold was actually reached.
+    // Otherwise a retriever that returns fewer files looks "cheaper" simply
+    // because its failure-budget is smaller, which is backwards.
+    let (sum_t50_ok, n_t50_ok): (f64, u32) = tasks
+        .iter()
+        .filter(|t| t.token_cost.achieved_50)
+        .fold((0.0, 0), |(s, c), t| {
+            (s + t.token_cost.tokens_to_50 as f64, c + 1)
+        });
+    let (sum_t100_ok, n_t100_ok): (f64, u32) = tasks
+        .iter()
+        .filter(|t| t.token_cost.achieved_100)
+        .fold((0.0, 0), |(s, c), t| {
+            (s + t.token_cost.tokens_to_100 as f64, c + 1)
+        });
+    let reached_50 = n_t50_ok as f64;
+    let reached_100 = n_t100_ok as f64;
+    let sum_fr: f64 = tasks.iter().map(|t| t.token_cost.files_returned as f64).sum();
     let mut lats: Vec<u64> = tasks.iter().map(|t| t.latency_ms).collect();
     lats.sort_unstable();
     let idx = ((lats.len() as f64) * 0.95).ceil() as usize;
@@ -261,6 +302,19 @@ fn aggregate_entry(retriever: &str, tasks: Vec<TaskScore>) -> RetrieverEntry {
         pass_rate: passed / n,
         mean_blast_radius_coverage: sum_brc / n,
         mean_adjusted_precision: sum_ap / n,
+        mean_tokens_to_50_when_reached: if n_t50_ok > 0 {
+            sum_t50_ok / n_t50_ok as f64
+        } else {
+            0.0
+        },
+        mean_tokens_to_100_when_reached: if n_t100_ok > 0 {
+            sum_t100_ok / n_t100_ok as f64
+        } else {
+            0.0
+        },
+        pct_reached_50: reached_50 / n,
+        pct_reached_100: reached_100 / n,
+        mean_files_returned: sum_fr / n,
         tasks,
     }
 }
@@ -323,6 +377,17 @@ pub fn run(opts: RunOpts) -> Result<M2Report, BenchError> {
         } else {
             canonical.clone()
         };
+
+        // v1.2-php S-002 AS-020 — assert workspace is clean before mining/scoring.
+        // Catches the project_m3_submodule_drift failure mode where prior runs
+        // left the scratch in a dirty state. Loud-skip the fixture rather than
+        // silently producing biased numbers.
+        if fixture_dir.join(".git").exists() {
+            if let Err(e) = crate::fixture_workspace::assert_workspace_clean(&fixture_dir) {
+                eprintln!("  [{repo}] SKIP: FixtureCorrupted precondition failed: {e}");
+                continue;
+            }
+        }
         let lang = tasks[0].lang.clone();
         println!(
             "\n[{repo}] {} tasks ({lang}) — scratch={}",

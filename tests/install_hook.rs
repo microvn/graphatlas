@@ -74,15 +74,18 @@ fn as_001_install_preserves_existing_unrelated_keys() {
 
 #[test]
 fn as_001_atomic_write_leaves_file_at_target_path_only() {
-    // After install, only `settings.json` should exist — no leftover
+    // After install, only `settings.json` (+ advisory `.ga-lock`
+    // sidecar from the TOCTOU defense) should exist — no leftover
     // `.tmp.*` siblings (proving the rename completed atomically).
     let tmp = TempDir::new().unwrap();
     install_hook(HookClient::ClaudeCode, tmp.path(), false).unwrap();
-    let entries: Vec<_> = fs::read_dir(tmp.path().join(".claude"))
+    let mut entries: Vec<_> = fs::read_dir(tmp.path().join(".claude"))
         .unwrap()
         .filter_map(|e| e.ok())
         .map(|e| e.file_name().to_string_lossy().into_owned())
+        .filter(|n| !n.ends_with(".ga-lock"))
         .collect();
+    entries.sort();
     assert_eq!(entries, vec!["settings.json".to_string()]);
 }
 
@@ -269,20 +272,27 @@ fn install_refuses_corrupt_json_does_not_overwrite() {
 // =====================================================================
 
 #[test]
-fn as_005_install_for_cursor_writes_cursor_mcp_json() {
+fn as_005_install_for_cursor_writes_cursor_hooks_json() {
+    // Spec verified 2026-05: Cursor hooks live at `.cursor/hooks.json`
+    // (NOT `.cursor/mcp.json` — that's the MCP server registry). Key
+    // is camelCase `postToolUse` with shell `command`. Earlier shape
+    // (`PostToolUse` + `type: "mcp_tool"`) was silently ignored by Cursor.
     let tmp = TempDir::new().unwrap();
     let outcome = install_hook(HookClient::Cursor, tmp.path(), false).unwrap();
     let path = match outcome {
         HookOutcome::Created { path, .. } => path,
         other => panic!("AS-005: Cursor fresh install must return Created, got {other:?}"),
     };
-    assert_eq!(path, tmp.path().join(".cursor").join("mcp.json"));
+    assert_eq!(path, tmp.path().join(".cursor").join("hooks.json"));
     let v = read_json(&path);
-    assert_eq!(
-        v["hooks"]["PostToolUse"][0]["hooks"][0]["tool"],
-        "ga_reindex"
-    );
-    assert_eq!(v["hooks"]["PostToolUse"][0]["matcher"], "Edit|Write|Bash");
+    assert_eq!(v["version"], 1);
+    let post = v["hooks"]["postToolUse"].as_array().unwrap();
+    let ga = post
+        .iter()
+        .find(|e| e["_managed_by"] == "graphatlas")
+        .expect("GA-managed entry");
+    let cmd = ga["command"].as_str().unwrap();
+    assert!(cmd.ends_with(" reindex"));
 }
 
 #[test]
@@ -301,9 +311,11 @@ fn as_005_cursor_verify_after_install_is_ok() {
 
 #[test]
 fn as_006_install_for_codex_writes_toml_with_postrooluse_entry() {
-    // Use install_hook_at to avoid touching real $HOME — Codex's
-    // user-global path resolution is exercised separately by the
-    // `HookClient::config_path` unit test on a build that controls HOME.
+    // Spec verified 2026-05 against developers.openai.com/codex/hooks:
+    // Codex hooks use `type = "command"` (shell), NOT `mcp_tool`. The
+    // hook command invokes `<bin> reindex` rather than calling the MCP
+    // server directly. Matcher uses Codex's own tool names (Edit,
+    // Write, apply_patch).
     let tmp = TempDir::new().unwrap();
     let cfg = tmp.path().join(".codex").join("config.toml");
     let outcome = install_hook_at(HookClient::Codex, &cfg, false).unwrap();
@@ -312,16 +324,11 @@ fn as_006_install_for_codex_writes_toml_with_postrooluse_entry() {
         "AS-006: Codex fresh install must return Created; got {outcome:?}"
     );
     let body = fs::read_to_string(&cfg).unwrap();
+    assert!(body.contains("PostToolUse"), "TOML must include PostToolUse");
     assert!(
-        body.contains("PostToolUse"),
-        "AS-006: TOML must include PostToolUse; got {body}"
+        body.contains("type = \"command\""),
+        "Codex hooks use type=\"command\", not mcp_tool: {body}"
     );
-    assert!(
-        body.contains("ga_reindex"),
-        "AS-006: TOML must reference ga_reindex"
-    );
-    assert!(
-        body.contains("Edit|Write|Bash"),
-        "AS-006: TOML must include the matcher"
-    );
+    assert!(body.contains("reindex"), "command must invoke reindex");
+    assert!(body.contains("apply_patch"), "matcher must include apply_patch");
 }

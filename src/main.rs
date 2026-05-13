@@ -44,48 +44,54 @@ EXAMPLES:
 ")]
     Mcp,
 
-    /// Drop the GraphAtlas Claude Code skill + CLAUDE.md snippet +
-    /// MCP allow-list (and optionally a SessionStart hook) into the
-    /// current project so LLM agents prefer `ga_*` over Grep/Bash.
+    /// Configure LLM coding agents to prefer GraphAtlas's `ga_*` MCP
+    /// tools over Grep/Bash. Multi-platform: Claude Code / Cursor /
+    /// Cline / Codex / Gemini / Windsurf / Continue / Zed.
     #[command(long_about = "\
-Wire GraphAtlas into the current project for Claude Code:
-  • .claude/skills/graphatlas.md   — routing skill loaded by the agent.
-  • CLAUDE.md (managed block)      — code-navigation hint, always-on context.
-  • .claude/settings.json          — allow-list for mcp__graphatlas__* tools.
-  • [opt-in] SessionStart hook     — discovery protocol injected per session.
+Wire GraphAtlas into the current project for one or more LLM agents.
 
-EXAMPLES:
-  graphatlas init                       # skill + CLAUDE.md + permissions (no hook)
-  graphatlas init --with-hook           # also install SessionStart hook
-  graphatlas init --all                 # everything
-  graphatlas init --remove-hook         # remove the managed SessionStart hook
-  graphatlas init --project-root /repo  # operate on a specific path
+Each platform gets a tailored install:
+  claude-code  → skill + CLAUDE.md block + .claude/settings.json permissions
+                 (+ optional --with-hook for the SessionStart reminder)
+  cursor       → project .cursor/mcp.json + .cursor/rules/graphatlas.mdc
+  cline        → per-OS VS Code globalStorage MCP + .clinerules
+  codex        → project .codex/config.toml MCP + AGENTS.md block
+  gemini       → project .gemini/settings.json MCP + GEMINI.md block
+  windsurf     → ~/.codeium/windsurf/mcp_config.json + .windsurfrules
+  continue     → .continue/mcpServers/graphatlas.json (MCP-only)
+  zed          → project .zed/settings.json context_servers (MCP-only)
+
+Selection:
+  graphatlas init                            # interactive picker (TTY)
+  graphatlas init claude-code cursor zed     # explicit positional list
+  graphatlas init --all                      # all 8 platforms
+  graphatlas init --yes                      # auto-detect, no prompt
+  graphatlas init --with-hook                # also install Claude SessionStart hook
+  graphatlas init --remove-hook              # remove the managed SessionStart hook
 ")]
     Init {
-        /// Install the .claude/skills/graphatlas.md skill file.
-        #[arg(long)]
-        with_skill: bool,
-        /// Append the managed code-navigation block to CLAUDE.md.
-        #[arg(long)]
-        with_claudemd: bool,
-        /// Merge mcp__graphatlas__* into .claude/settings.json permissions.
-        #[arg(long)]
-        with_permissions: bool,
-        /// Install the SessionStart discovery-reminder hook (opt-in).
-        #[arg(long)]
-        with_hook: bool,
-        /// Install every component including the SessionStart hook.
+        /// Positional list of platform slugs (claude-code, cursor,
+        /// cline, codex, gemini). Empty → interactive picker on TTY.
+        #[arg(value_name = "PLATFORM")]
+        platforms: Vec<String>,
+        /// Install for every supported platform.
         #[arg(long)]
         all: bool,
-        /// Remove only the managed SessionStart hook entry. Preserves
-        /// every other entry in .claude/settings.json.
-        #[arg(long)]
-        remove_hook: bool,
-        /// Skip the interactive prompt and use defaults (skill +
-        /// CLAUDE.md + permissions, no hook). Required when running
-        /// from a non-TTY (CI, piped input).
+        /// Skip the interactive prompt. Required from non-TTY (CI, piped).
         #[arg(long, short = 'y')]
         yes: bool,
+        /// Install the Claude Code SessionStart discovery-reminder hook.
+        #[arg(long)]
+        with_hook: bool,
+        /// Remove only the managed Claude Code SessionStart hook entry.
+        /// Preserves every other entry in .claude/settings.json.
+        #[arg(long)]
+        remove_hook: bool,
+        /// Skip auto-install of the PostToolUse reindex hook (claude-code,
+        /// cursor, codex). By default the hook IS installed alongside MCP
+        /// + instruction file so edits trigger `ga_reindex` automatically.
+        #[arg(long)]
+        no_reindex_hook: bool,
         /// Operate on a project at this path instead of the cwd.
         #[arg(long, value_name = "PATH")]
         project_root: Option<PathBuf>,
@@ -96,6 +102,24 @@ EXAMPLES:
     Hook {
         #[command(subcommand)]
         subcommand: HookSubcommand,
+    },
+
+    /// Manually reindex the cache for a repo. Called by shell-command
+    /// hooks installed for Cline / Gemini CLI / Windsurf.
+    #[command(long_about = "\
+Rebuild the GraphAtlas index for a repository. Identical to the MCP
+`ga_reindex` tool but without the MCP server roundtrip — useful for
+shell-command post-tool hooks (Cline, Gemini CLI, Windsurf) and
+manual invocation from a terminal.
+
+EXAMPLES:
+  graphatlas reindex             # Reindex the current directory.
+  graphatlas reindex /path/repo  # Reindex a specific path.
+")]
+    Reindex {
+        /// Repo root to reindex. Defaults to the current directory.
+        #[arg(value_name = "PATH")]
+        repo: Option<PathBuf>,
     },
 
     /// Diagnose install + cache health (S-002).
@@ -281,28 +305,39 @@ fn main() -> Result<()> {
         Some(Command::Doctor) => cmd_doctor(),
         Some(Command::Mcp) => cmd_mcp(),
         Some(Command::Init {
-            with_skill,
-            with_claudemd,
-            with_permissions,
-            with_hook,
+            platforms,
             all,
-            remove_hook,
             yes,
-            project_root,
-        }) => graphatlas::cmd_init::cmd_init(graphatlas::cmd_init::InitOptions {
-            project_root,
-            with_skill,
-            with_claudemd,
-            with_permissions,
             with_hook,
-            all,
             remove_hook,
-            yes,
-            binary_path: None,
-        }),
+            no_reindex_hook,
+            project_root,
+        }) => {
+            let parsed: std::result::Result<Vec<_>, _> = platforms
+                .iter()
+                .map(|s| {
+                    graphatlas::install::platforms::Platform::from_slug(s)
+                        .ok_or_else(|| anyhow::anyhow!(
+                            "unknown platform `{s}` — supported: claude-code, cursor, cline, codex, gemini"
+                        ))
+                })
+                .collect();
+            let platforms = parsed?;
+            graphatlas::cmd_init::cmd_init(graphatlas::cmd_init::InitOptions {
+                project_root,
+                platforms,
+                all,
+                yes,
+                with_hook,
+                remove_hook,
+                no_reindex_hook,
+                binary_path: None,
+            })
+        }
         Some(Command::Hook { subcommand }) => match subcommand {
             HookSubcommand::SessionStart => graphatlas::cmd_hook::cmd_hook_session_start(),
         },
+        Some(Command::Reindex { repo }) => graphatlas::cmd_reindex::cmd_reindex(repo),
         Some(Command::Cache) => {
             println!("graphatlas cache: S-001 stub — not implemented.");
             println!("This subcommand is reserved per Foundation-C6 (8-subcommand lock).");
