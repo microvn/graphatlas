@@ -129,3 +129,26 @@ For more information, read the Bun API docs in `node_modules/bun-types/docs/**.m
 | `archive/rust-poc/` (2026-04-28) | Old standalone `graphatlas-poc` binary; superseded by workspace crates |
 | `archive/datasets/tasks-v6-*.jsonl` (2026-04-28) | LLM-generated (`contextbench-symbol-trace`) — accuracy too low for honest bench. Replaced by `benches/uc-impact/ground-truth.json` (git-mined). M3 minimal_context UC migrated to `Hmc-gitmine` rule reading the new dataset. |
 | `archive/ts-pipeline/` (2026-05-08) | TS eval/benchmark framework — superseded by `crates/ga-{core,parser,index,query,bench,mcp}/`. |
+
+<!-- graphatlas:begin -->
+## Code navigation
+
+This repo has a pre-built GraphAtlas index. Prefer `ga_*` MCP tools
+over Grep/Glob/Bash for symbol-level queries — the graph has typed
+CALL / IMPORT / CONTAINS edges that grep cannot see, distinguishes
+call sites from value references, and resolves polymorphic dispatch.
+
+See `.claude/skills/graphatlas.md` for the full routing table.
+
+Quick routing:
+
+- `who calls X` → `ga_callers`
+- `what does X call` → `ga_callees`
+- `impact of changing X` → `ga_impact`
+- `is renaming X to Y safe` → `ga_rename_safety`
+- `where is X` → `ga_symbols`
+- `architecture / orient me` → `ga_architecture`
+- `dead code` → `ga_dead_code`
+
+Use Grep/Bash only for non-code content (logs, configs, prose).
+<!-- graphatlas:end -->

@@ -17,19 +17,18 @@ const MAX_TOP_N: u32 = 100;
 pub(super) fn descriptor() -> ToolDescriptor {
     ToolDescriptor {
         name: "ga_bridges".to_string(),
-        description: "Top-N architectural chokepoints by betweenness centrality. Bridge nodes \
-             sit on the shortest paths between many other symbol pairs — if they break, \
-             multiple code regions lose connectivity. Different from `ga_hubs`: a hub \
-             has many direct neighbours; a bridge mediates between regions. Uses \
-             Brandes' algorithm with deterministic source-vertex sampling (k=500) \
-             when the graph exceeds 5000 nodes — `meta.sampled` reports when this \
-             approximation kicks in. Excludes external symbols. Hard cap `top_n ≤ 100`. \
+        description: "**Use when** the user asks `what are the chokepoints`, `coupling \
+             between modules`, `bridge nodes`, `glue code`, or wants to find symbols whose \
+             removal would split the codebase. Top-N by betweenness centrality (Brandes' \
+             algorithm) — bridges sit on shortest paths between many other symbol pairs. \
+             Different from `ga_hubs`: a hub has many direct neighbours; a bridge mediates \
+             between regions. Grep cannot compute centrality — this tool can. Source-vertex \
+             sampling (k=500) kicks in above 5000 nodes; `meta.sampled` reports this. \
+             Excludes external symbols. Hard cap `top_n ≤ 100`. \
              \
-             When `symbol` is provided, switches to rank-of-target lookup: returns just \
-             that symbol's entry plus `meta.target_rank` (1-based, against the FULL \
-             post-Brandes vec — NOT bounded by `top_n`). Unknown `symbol` returns empty \
-             `bridges[]` plus top-3 Levenshtein suggestions in `meta.suggestion`. \
-             Optional `file` disambiguates same-name symbols across files."
+             When `symbol` is provided, switches to rank-of-target lookup. Unknown \
+             `symbol` → empty `bridges[]` + top-3 suggestions. Optional `file` \
+             disambiguates same-name symbols."
             .to_string(),
         input_schema: json!({
             "type": "object",

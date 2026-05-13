@@ -10,12 +10,14 @@ use std::time::Instant;
 pub(super) fn descriptor() -> ToolDescriptor {
     ToolDescriptor {
         name: "ga_impact".to_string(),
-        description: "Flagship impact analysis. Given a symbol, a list of changed files, or a \
-             unified git diff, return impacted files (callers+callees to depth 3), affected tests, \
-             affected routes, affected configs, a 4-dim runtime risk score (test_gap, blast, depth, \
-             exposure — Tools-C18), and break points — everything an LLM needs to answer \"sửa X \
-             ảnh hưởng gì?\" in one round-trip. At least one of `symbol`, `changed_files`, `diff` \
-             is required; precedence symbol > changed_files > diff (Tools-C22)."
+        description: "**Use instead of grep when** the user asks `impact of changing X`, \
+             `blast radius`, `if I change X what breaks`, `what does this PR touch`, or wants \
+             impact analysis for a refactor. Flagship one-shot tool: given a symbol, changed \
+             files, or a unified git diff, returns impacted files (callers+callees to depth \
+             3), affected tests, affected routes, affected configs, a 4-dim runtime risk \
+             score (test_gap, blast, depth, exposure — Tools-C18), and break points. Replaces \
+             a chain of `grep -r` + manual cross-file reading. At least one of `symbol`, \
+             `changed_files`, `diff` is required; precedence symbol > changed_files > diff."
             .to_string(),
         input_schema: json!({
             "type": "object",

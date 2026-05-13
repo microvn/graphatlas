@@ -10,11 +10,14 @@ use std::time::Instant;
 pub(super) fn descriptor() -> ToolDescriptor {
     ToolDescriptor {
         name: "ga_callers".to_string(),
-        description: "List functions that call OR reference the given symbol. Use before \
-             refactoring to assess blast radius. Each entry has `kind: \"call\"` (direct \
-             invocation) or `kind: \"reference\"` (symbol held by value — dispatch map, \
-             callback array, shorthand property). Caller fields include file, symbol name, \
-             definition line, and call-site / reference-site line."
+        description: "**Use instead of grep when** the user asks `who calls X`, `callers of X`, \
+             `references to X`, `where is X used`, or wants the blast radius of a symbol. \
+             Reads typed CALL + REFERENCES edges from the indexed code graph — grep matches \
+             comments + strings + unrelated occurrences and inflates results. Each entry has \
+             `kind: \"call\"` (direct invocation) or `kind: \"reference\"` (symbol held by \
+             value — dispatch map, callback array, shorthand property), plus file, symbol \
+             name, definition line, and call-site / reference-site line. Polymorphic dispatch \
+             is resolved per Tools-C11."
             .to_string(),
         input_schema: json!({
             "type": "object",

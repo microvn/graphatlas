@@ -25,6 +25,12 @@ struct Cli {
 }
 
 #[derive(Subcommand)]
+enum HookSubcommand {
+    /// Print the SessionStart discovery-protocol reminder to stdout.
+    SessionStart,
+}
+
+#[derive(Subcommand)]
 enum Command {
     /// Run MCP server over stdio (S-006).
     #[command(long_about = "\
@@ -38,16 +44,59 @@ EXAMPLES:
 ")]
     Mcp,
 
-    /// Initialize + pre-index a repo (S-002).
+    /// Drop the GraphAtlas Claude Code skill + CLAUDE.md snippet +
+    /// MCP allow-list (and optionally a SessionStart hook) into the
+    /// current project so LLM agents prefer `ga_*` over Grep/Bash.
     #[command(long_about = "\
-Initialize the GraphAtlas cache for a repo and pre-build the graph index.
-Useful to warm up before the first MCP query so tools/call is fast.
+Wire GraphAtlas into the current project for Claude Code:
+  • .claude/skills/graphatlas.md   — routing skill loaded by the agent.
+  • CLAUDE.md (managed block)      — code-navigation hint, always-on context.
+  • .claude/settings.json          — allow-list for mcp__graphatlas__* tools.
+  • [opt-in] SessionStart hook     — discovery protocol injected per session.
 
 EXAMPLES:
-  graphatlas init                 # Index the current directory.
-  graphatlas init /path/to/repo   # (future) Index a specific path.
+  graphatlas init                       # skill + CLAUDE.md + permissions (no hook)
+  graphatlas init --with-hook           # also install SessionStart hook
+  graphatlas init --all                 # everything
+  graphatlas init --remove-hook         # remove the managed SessionStart hook
+  graphatlas init --project-root /repo  # operate on a specific path
 ")]
-    Init,
+    Init {
+        /// Install the .claude/skills/graphatlas.md skill file.
+        #[arg(long)]
+        with_skill: bool,
+        /// Append the managed code-navigation block to CLAUDE.md.
+        #[arg(long)]
+        with_claudemd: bool,
+        /// Merge mcp__graphatlas__* into .claude/settings.json permissions.
+        #[arg(long)]
+        with_permissions: bool,
+        /// Install the SessionStart discovery-reminder hook (opt-in).
+        #[arg(long)]
+        with_hook: bool,
+        /// Install every component including the SessionStart hook.
+        #[arg(long)]
+        all: bool,
+        /// Remove only the managed SessionStart hook entry. Preserves
+        /// every other entry in .claude/settings.json.
+        #[arg(long)]
+        remove_hook: bool,
+        /// Skip the interactive prompt and use defaults (skill +
+        /// CLAUDE.md + permissions, no hook). Required when running
+        /// from a non-TTY (CI, piped input).
+        #[arg(long, short = 'y')]
+        yes: bool,
+        /// Operate on a project at this path instead of the cwd.
+        #[arg(long, value_name = "PATH")]
+        project_root: Option<PathBuf>,
+    },
+
+    /// Hidden — invoked by Claude Code hooks installed via `ga init --with-hook`.
+    #[command(hide = true)]
+    Hook {
+        #[command(subcommand)]
+        subcommand: HookSubcommand,
+    },
 
     /// Diagnose install + cache health (S-002).
     #[command(long_about = "\
@@ -231,20 +280,31 @@ fn main() -> Result<()> {
         ),
         Some(Command::Doctor) => cmd_doctor(),
         Some(Command::Mcp) => cmd_mcp(),
-        Some(other) => {
-            let name = match other {
-                Command::Init => "init",
-                Command::Cache => "cache",
-                Command::Mcp
-                | Command::Bench { .. }
-                | Command::Doctor
-                | Command::Install { .. }
-                | Command::List
-                | Command::Update => {
-                    unreachable!()
-                }
-            };
-            println!("graphatlas {name}: S-001 stub — not implemented.");
+        Some(Command::Init {
+            with_skill,
+            with_claudemd,
+            with_permissions,
+            with_hook,
+            all,
+            remove_hook,
+            yes,
+            project_root,
+        }) => graphatlas::cmd_init::cmd_init(graphatlas::cmd_init::InitOptions {
+            project_root,
+            with_skill,
+            with_claudemd,
+            with_permissions,
+            with_hook,
+            all,
+            remove_hook,
+            yes,
+            binary_path: None,
+        }),
+        Some(Command::Hook { subcommand }) => match subcommand {
+            HookSubcommand::SessionStart => graphatlas::cmd_hook::cmd_hook_session_start(),
+        },
+        Some(Command::Cache) => {
+            println!("graphatlas cache: S-001 stub — not implemented.");
             println!("This subcommand is reserved per Foundation-C6 (8-subcommand lock).");
             println!("Implementation lands in its owning story; see docs/specs/graphatlas-v1/.");
             Ok(())

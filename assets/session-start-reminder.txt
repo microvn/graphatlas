@@ -1,0 +1,28 @@
+GraphAtlas code-graph available in this repo (MCP server `graphatlas`).
+
+Prefer `ga_*` MCP tools over Grep/Glob/Bash for code navigation — the
+graph has typed CALL / IMPORT / CONTAINS edges that grep cannot see,
+distinguishes call sites from value references, and resolves
+polymorphic dispatch.
+
+Routing for code-navigation queries:
+- "who calls X" / references to X        → ga_callers
+- "what does X call"                     → ga_callees
+- "impact of changing X" / blast radius  → ga_impact
+- "rename X to Y safe"                   → ga_rename_safety
+- "risk of touching X"                   → ga_risk
+- "where is X" / find symbol             → ga_symbols
+- "who imports F"                        → ga_importers
+- "what does file F do"                  → ga_file_summary
+- architecture / orient me               → ga_architecture
+- dead code / unused                     → ga_dead_code
+- hubs / hotspots / central files        → ga_hubs
+- bridges / coupling                     → ga_bridges
+- complex / large functions              → ga_large_functions
+- minimal context for X                  → ga_minimal_context
+
+Use Grep/Glob/Bash only for non-code content (logs, configs, prose,
+build output). The index covers source files only.
+
+If a symbol name is ambiguous, run `ga_symbols` first to resolve, then
+chain to the specific tool with the resolved name.

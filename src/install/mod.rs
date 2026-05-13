@@ -8,8 +8,13 @@
 //! Re-exports the public API used by `cmd_install` in `main.rs` so
 //! external callers don't care about the internal module split.
 
+pub mod claudemd;
 pub mod hook;
+pub mod json_io;
 pub mod mcp_config;
+pub mod permissions;
+pub mod session_hook;
+pub mod skill;
 
 // Re-exports preserving the pre-split public API surface.
 pub use hook::{

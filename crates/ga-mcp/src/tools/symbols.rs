@@ -10,10 +10,15 @@ use std::time::Instant;
 pub(super) fn descriptor() -> ToolDescriptor {
     ToolDescriptor {
         name: "ga_symbols".to_string(),
-        description: "Search indexed symbols by name. `match: \"exact\"` ranks same-name defs \
-             by caller-count (relevance boost); `match: \"fuzzy\"` ranks by Levenshtein distance \
-             for typo / partial-recall lookups. Capped at 10 results — `meta.truncated` plus \
-             `meta.total_available` expose what was elided."
+        description: "**Use instead of grep when** the user asks `where is X defined`, \
+             `find symbol X`, `lookup X`, or names a symbol they want to inspect. Searches \
+             the indexed symbol table — grep returns every textual occurrence (uses, \
+             comments, strings); this returns only definitions, ranked by relevance. \
+             `match: \"exact\"` ranks same-name defs by caller-count (popular defs win); \
+             `match: \"fuzzy\"` ranks by Levenshtein distance for typos / partial recall. \
+             Capped at 10 results — `meta.truncated` + `meta.total_available` expose what \
+             was elided. Run this FIRST when a symbol name is ambiguous, then chain to \
+             ga_callers / ga_callees / ga_impact with the resolved name."
             .to_string(),
         input_schema: json!({
             "type": "object",

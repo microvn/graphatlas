@@ -63,8 +63,8 @@ fn update_prints_manual_instructions_exits_zero() {
 fn stub_subcommands_exit_zero_with_hint() {
     // `list` graduated in S-003. `doctor` and `install` graduated in S-002.
     // `mcp` graduated in S-006 (rmcp stdio transport, infra:S-003 v1.1-M0).
-    // `init`, `cache` still stubs pending later milestones.
-    for sub in ["init", "cache"] {
+    // `init` graduated in the LLM-adoption track. `cache` still a stub.
+    for sub in ["cache"] {
         let out = Command::new(bin()).arg(sub).output().expect("spawn");
         assert!(out.status.success(), "{sub} failed: {:?}", out);
         let s = String::from_utf8_lossy(&out.stdout);

@@ -18,13 +18,15 @@ pub(super) fn descriptor() -> ToolDescriptor {
     ToolDescriptor {
         name: "ga_architecture".to_string(),
         description:
-            "Module map of the indexed repo. Returns `modules` (one per Python package / Cargo \
-             crate / npm workspace member, with `name`, `files`, `symbol_count`, `public_api`) \
-             and `edges` (inter-module CALLS / IMPORTS / EXTENDS aggregated by weight). Use BEFORE \
-             diving into a specific file when getting oriented on an unfamiliar repo. Optional \
-             `max_modules` caps the response to top-N by symbol_count; `meta.truncated` + \
-             `meta.total_modules` surface what was hidden. `meta.convention_used` names which \
-             discovery convention applied per Tools-C6."
+            "**Use instead of `ls` + Read when** the user asks `architecture of this repo`, \
+             `orient me`, `what are the main modules`, `getting started in this codebase`, \
+             or wants a top-down map before diving in. Module map of the indexed repo: \
+             `modules` (one per Python package / Cargo crate / npm workspace member, with \
+             `name`, `files`, `symbol_count`, `public_api`) + `edges` (inter-module CALLS / \
+             IMPORTS / EXTENDS aggregated by weight). Use BEFORE reading any file in an \
+             unfamiliar repo. Optional `max_modules` caps the response to top-N by \
+             symbol_count; `meta.truncated` + `meta.total_modules` surface what was hidden. \
+             `meta.convention_used` names which discovery convention applied per Tools-C6."
                 .to_string(),
         input_schema: json!({
             "type": "object",

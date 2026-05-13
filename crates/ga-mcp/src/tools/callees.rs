@@ -10,12 +10,14 @@ use std::time::Instant;
 pub(super) fn descriptor() -> ToolDescriptor {
     ToolDescriptor {
         name: "ga_callees".to_string(),
-        description: "List functions / methods the given symbol calls or references. \
-             Each entry has `kind: \"call\"` (direct invocation) or `kind: \"reference\"` \
-             (callee held by value — dispatch map, callback). Use to understand a symbol's \
-             dependencies before extracting, moving, or splitting it. External (stdlib / \
-             third-party) callees are flagged with `external: true`; `symbol_kind` exposes \
-             the symbol type (`function`, `method`, `class`, ...)."
+        description: "**Use instead of grep when** the user asks `what does X call`, \
+             `dependencies of X`, `what's used by X`, or wants to understand a symbol's \
+             outgoing dependencies before extracting / moving / splitting it. Reads typed \
+             CALL + REFERENCES edges — grep on a function body returns identifier matches \
+             but cannot tell call sites from string literals or comments. Each entry has \
+             `kind: \"call\"` or `kind: \"reference\"`. External (stdlib / third-party) \
+             callees are flagged `external: true`; `symbol_kind` exposes the type \
+             (`function`, `method`, `class`, ...)."
             .to_string(),
         input_schema: json!({
             "type": "object",

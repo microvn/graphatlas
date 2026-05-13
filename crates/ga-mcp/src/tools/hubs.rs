@@ -18,18 +18,18 @@ const MAX_TOP_N: u32 = 100;
 pub(super) fn descriptor() -> ToolDescriptor {
     ToolDescriptor {
         name: "ga_hubs".to_string(),
-        description: "Top-N most-connected symbols in the indexed repo (architectural hotspots). \
-             Score = sum of incoming + outgoing CALLS and REFERENCES edges. Use BEFORE \
-             touching unfamiliar code to spot symbols whose changes have outsized blast \
-             radius. Returns `name`, `file`, `kind`, `line`, `in_degree`, `out_degree`, \
-             `total_degree` per entry, sorted by `total_degree` DESC. Excludes external \
-             symbols. Hard cap `top_n ≤ 100`. \
+        description: "**Use when** the user asks `what are the hotspots`, `central files`, \
+             `most-connected symbols`, `hubs`, or wants to find architectural backbone \
+             before touching unfamiliar code. Top-N symbols by `in_degree + out_degree` \
+             over CALLS + REFERENCES edges. Plain grep cannot rank by connectivity — this \
+             tool returns symbols whose changes have outsized blast radius. Returns `name`, \
+             `file`, `kind`, `line`, `in_degree`, `out_degree`, `total_degree` per entry, \
+             sorted DESC. Excludes external symbols. Hard cap `top_n ≤ 100`. \
              \
              When `symbol` is provided, switches to rank-of-target lookup: returns just \
-             that symbol's entry plus `meta.target_rank` (1-based position in the FULL \
-             ranking, NOT bounded by `top_n`). If `symbol` is unknown, returns empty \
-             `hubs[]` plus top-3 Levenshtein suggestions in `meta.suggestion`. Optional \
-             `file` disambiguates same-name symbols across files."
+             that symbol's entry plus `meta.target_rank` (1-based, NOT bounded by `top_n`). \
+             Unknown `symbol` → empty `hubs[]` + top-3 Levenshtein suggestions in \
+             `meta.suggestion`. Optional `file` disambiguates same-name symbols."
             .to_string(),
         input_schema: json!({
             "type": "object",

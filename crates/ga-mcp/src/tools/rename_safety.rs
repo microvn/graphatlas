@@ -17,13 +17,15 @@ pub(super) fn descriptor() -> ToolDescriptor {
     ToolDescriptor {
         name: "ga_rename_safety".to_string(),
         description:
-            "Rename impact report. Given `target` and `replacement` symbol names, returns \
-             every site that must change (definition + callers + references + importers) \
-             plus blockers (string literals + external-package collisions). Each site has \
-             `confidence` per Tools-C11: 1.0 for definition, 0.90 for CALLS edges, 0.70 for \
-             REFERENCES edges, 0.6 for polymorphic-ambiguous dispatch. Optional `file` hint \
-             narrows the rename to a single class when the target name is shared across \
-             classes. Read-only — agent invokes edits separately."
+            "**Use instead of grep+sed when** the user asks `rename X to Y`, `is this rename \
+             safe`, `find all places to update for renaming X`. Returns every site that must \
+             change (definition + callers + references + importers) plus blockers (string \
+             literals that look like the symbol + external-package collisions). Each site \
+             has `confidence` per Tools-C11: 1.0 for definition, 0.90 for CALLS edges, 0.70 \
+             for REFERENCES edges, 0.6 for polymorphic-ambiguous dispatch. `grep + sed` \
+             misses dispatch-map references and rewrites unrelated identifiers; this tool \
+             does not. Optional `file` hint narrows the rename to one class when the name is \
+             shared. Read-only — agent invokes edits separately."
                 .to_string(),
         input_schema: json!({
             "type": "object",

@@ -18,12 +18,14 @@ const MAX_LIMIT: u32 = 200;
 pub(super) fn descriptor() -> ToolDescriptor {
     ToolDescriptor {
         name: "ga_large_functions".to_string(),
-        description: "List symbols whose line span (`line_end - line + 1`) meets or exceeds \
-             `min_lines`. Use to surface decomposition targets, oversized handlers, \
-             or untested complexity hotspots. Supports `kind` filter (e.g. `function`, \
-             `method`, `class`) and `file_pattern` substring filter (e.g. `src/utils/`). \
-             Returns name, file, kind, line, line_end, line_count — sorted by line_count \
-             DESC. Hard cap `limit ≤ 200`."
+        description: "**Use instead of `wc -l` + grep when** the user asks `find large \
+             functions`, `complex functions`, `refactor candidates`, `oversized handlers`, \
+             or wants decomposition targets. Lists symbols whose line span \
+             (`line_end - line + 1`) meets or exceeds `min_lines`. Plain `wc -l` reads \
+             whole files; this reads parsed symbol spans only. Supports `kind` filter \
+             (e.g. `function`, `method`, `class`) and `file_pattern` substring filter \
+             (e.g. `src/utils/`). Returns name, file, kind, line, line_end, line_count — \
+             sorted by line_count DESC. Hard cap `limit ≤ 200`."
             .to_string(),
         input_schema: json!({
             "type": "object",

@@ -18,13 +18,15 @@ use std::time::Instant;
 pub(super) fn descriptor() -> ToolDescriptor {
     ToolDescriptor {
         name: "ga_dead_code".to_string(),
-        description: "Lists symbols with zero in-degree (no callers + no value-references) AFTER \
-             filtering known entry points: framework routes (gin/django/rails/axum/nest), \
-             CLI commands (`[project.scripts]`), `main` / `__main__`, library public API \
-             (Python `__all__`), and test functions. Use to surface cleanup candidates \
-             without false positives from framework-mounted handlers. Optional `scope` \
-             argument restricts analysis to a path prefix (e.g. `src/utils/`). Each entry \
-             carries `confidence ≥ 0.80` per AS-008."
+        description: "**Use instead of grep when** the user asks `find dead code`, `unused \
+             functions`, `code to delete`, or `what's safe to remove`. Lists symbols with \
+             zero in-degree (no callers + no value-references) AFTER filtering known entry \
+             points: framework routes (gin/django/rails/axum/nest), CLI commands \
+             (`[project.scripts]`), `main` / `__main__`, library public API (Python \
+             `__all__`), and test functions. Plain grep cannot distinguish a function with \
+             no callers from a route handler mounted via decorator — this tool does. Each \
+             entry carries `confidence ≥ 0.80` per AS-008. Optional `scope` argument \
+             restricts analysis to a path prefix (e.g. `src/utils/`)."
             .to_string(),
         input_schema: json!({
             "type": "object",

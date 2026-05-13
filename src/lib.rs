@@ -3,6 +3,8 @@
 //! uses these same modules via the clap dispatcher.
 
 pub mod bench_cmd;
+pub mod cmd_hook;
+pub mod cmd_init;
 pub mod doctor;
 pub mod install;
 pub mod mcp_cmd;

@@ -10,10 +10,13 @@ use std::time::Instant;
 pub(super) fn descriptor() -> ToolDescriptor {
     ToolDescriptor {
         name: "ga_importers".to_string(),
-        description: "List files that import the given file. Use to estimate change blast radius \
-             at file granularity. Response entries flag `re_export: true` and set `via` for \
-             transitive importers surfaced through `export * from '…'` / `export { X } from '…'` \
-             chains up to 3 hops deep."
+        description: "**Use instead of grep when** the user asks `who imports F`, `who \
+             depends on F`, `who uses this file`, or wants file-level blast radius. Reads \
+             typed IMPORTS edges including re-export chains — grep on `import.*F` misses \
+             transitive re-exports (`export * from './F'`) and matches strings + comments. \
+             Response entries flag `re_export: true` and set `via` for transitive importers \
+             surfaced through `export * from '…'` / `export { X } from '…'` chains up to 3 \
+             hops deep."
             .to_string(),
         input_schema: json!({
             "type": "object",

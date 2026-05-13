@@ -21,12 +21,14 @@ const DEFAULT_BUDGET: u32 = 2000;
 pub(super) fn descriptor() -> ToolDescriptor {
     ToolDescriptor {
         name: "ga_minimal_context".to_string(),
-        description: "Token-budgeted context retriever. Given a `symbol` or `file` plus a token \
-             `budget`, returns the smallest context slice (seed body + top callers' \
-             signatures + top callees' signatures) that fits the budget. Use BEFORE \
-             feeding context into a constrained-prompt LLM call: avoids wasting tokens \
-             on unrelated file content. Priority order when budget binds: seed body > \
-             callers signatures > callees signatures > imported types."
+        description: "**Use instead of Read when** the user asks `minimal context for X`, \
+             `what do I need to understand X`, `give me just enough to read X`, or you need \
+             to fit a symbol + its surrounding code into a token budget. Given `symbol` or \
+             `file` + `budget`, returns the smallest slice (seed body + top callers' \
+             signatures + top callees' signatures) that fits. Reading the whole file is \
+             often 10× the tokens you need; this is the budgeted alternative. Priority \
+             when budget binds: seed body > callers signatures > callees signatures > \
+             imported types."
             .to_string(),
         input_schema: json!({
             "type": "object",

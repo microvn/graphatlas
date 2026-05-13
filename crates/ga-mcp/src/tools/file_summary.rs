@@ -10,9 +10,12 @@ use std::time::Instant;
 pub(super) fn descriptor() -> ToolDescriptor {
     ToolDescriptor {
         name: "ga_file_summary".to_string(),
-        description: "Outline of a file: defined symbols ordered by line, imported files \
-             (repo-local), and exported names. Use to understand file contents without \
-             reading the source."
+        description: "**Use instead of Read when** the user asks `what does file F do`, \
+             `give me an overview of F`, `outline F`, or wants the shape of a file before \
+             deciding to read it in full. Returns defined symbols (ordered by line, with \
+             kind), imported files (repo-local), and exported names — typically a few KB \
+             vs reading the entire file. Use this BEFORE `Read` to scope the source you \
+             actually need to load."
             .to_string(),
         input_schema: json!({
             "type": "object",
