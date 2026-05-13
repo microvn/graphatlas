@@ -284,7 +284,10 @@ fn aggregate_entry(retriever: &str, tasks: Vec<TaskScore>) -> RetrieverEntry {
         });
     let reached_50 = n_t50_ok as f64;
     let reached_100 = n_t100_ok as f64;
-    let sum_fr: f64 = tasks.iter().map(|t| t.token_cost.files_returned as f64).sum();
+    let sum_fr: f64 = tasks
+        .iter()
+        .map(|t| t.token_cost.files_returned as f64)
+        .sum();
     let mut lats: Vec<u64> = tasks.iter().map(|t| t.latency_ms).collect();
     lats.sort_unstable();
     let idx = ((lats.len() as f64) * 0.95).ceil() as usize;

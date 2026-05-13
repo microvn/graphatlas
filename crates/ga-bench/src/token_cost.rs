@@ -149,11 +149,7 @@ mod tests {
         // Retriever returns exactly the expected file as #1 — minimum possible cost.
         let td = TempDir::new().unwrap();
         write(td.path(), "a.rs", 400); // 100 tokens
-        let cost = compute(
-            &["a.rs".to_string()],
-            &["a.rs".to_string()],
-            td.path(),
-        );
+        let cost = compute(&["a.rs".to_string()], &["a.rs".to_string()], td.path());
         assert_eq!(cost.tokens_to_50, 100);
         assert_eq!(cost.tokens_to_100, 100);
         assert!(cost.achieved_50 && cost.achieved_100);
