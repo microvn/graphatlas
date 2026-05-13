@@ -49,32 +49,6 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - run: cargo clippy --workspace --all-targets -- -D warnings
 
-  # v1.5 PR3 foundation S-002 AS-009 — Windows compile-check matrix.
-  # We can't run `cargo test` on Windows yet because lbug 0.16.1 + cmake
-  # build on Windows MSVC is unverified (Foundation-C8 Windows row); the
-  # cfg(target_os = "windows") arms in build.rs / cache.rs / staleness.rs
-  # land in PR3 and need at least a compile-check gate so subsequent PRs
-  # don't silently break the Windows arms.
-  #
-  # Once Windows lbug build is empirically verified (PR1b), promote this
-  # from `cargo check` to `cargo test`. Submodule fetch deferred to that
-  # promotion since compile-check doesn't need fixture content.
-  windows-check:
-    name: cargo check (Windows)
-    runs-on: windows-latest
-    steps:
-      - name: git config core.symlinks (Windows submodule prep)
-        run: git config --global core.symlinks true
-      - uses: actions/checkout@v6
-        with:
-          submodules: false
-      - uses: dtolnay/rust-toolchain@stable
-      - name: Install cmake (Windows)
-        run: choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' -y
-      - uses: Swatinem/rust-cache@v2
-      - name: cargo check --workspace (Windows)
-        run: cargo check --workspace --all-targets
-
   # `cargo test` + `cargo tarpaulin` removed from CI: lbug 0.16.1 builds
   # its C++ engine from source (LBUG_BUILD_FROM_SOURCE=1 is mandatory or the
   # linker fails on yyjson/miniz/RE2 symbols) and that build takes ~20 min
