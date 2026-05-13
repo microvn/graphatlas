@@ -45,22 +45,23 @@ fn lists_multiple_caches_across_different_repos() {
     // Materialize each repo under `tmp/repos/<rel>` so AS-001's Merkle
     // root-hash compute succeeds. metadata.repo_root captures the
     // canonical path which we recover for assertions below.
-    let repo_paths: Vec<std::path::PathBuf> = ["client1/billing-api", "client2/billing-api", "notes"]
-        .iter()
-        .map(|r| real_repo(&tmp, r))
-        .collect();
+    let repo_paths: Vec<std::path::PathBuf> =
+        ["client1/billing-api", "client2/billing-api", "notes"]
+            .iter()
+            .map(|r| real_repo(&tmp, r))
+            .collect();
     for repo in &repo_paths {
-        Store::open_with_root(&root, repo).unwrap().commit().unwrap();
+        Store::open_with_root(&root, repo)
+            .unwrap()
+            .commit()
+            .unwrap();
     }
     let mut entries: Vec<CacheEntry> = list_caches(&root).unwrap();
     entries.sort_by(|a, b| a.repo_root.cmp(&b.repo_root));
     assert_eq!(entries.len(), 3);
 
     // Each entry's repo_root must equal one of the materialized fixtures.
-    let mut expected: Vec<String> = repo_paths
-        .iter()
-        .map(|p| p.display().to_string())
-        .collect();
+    let mut expected: Vec<String> = repo_paths.iter().map(|p| p.display().to_string()).collect();
     expected.sort();
     let actual: Vec<String> = entries.iter().map(|e| e.repo_root.clone()).collect();
     assert_eq!(actual, expected);
@@ -80,7 +81,10 @@ fn ignores_non_graphatlas_subdirs() {
     let root = tmp.path().join(".graphatlas");
     let real = real_repo(&tmp, "real");
     // First valid cache — also creates `root` with 0700 via ensure_cache_root.
-    Store::open_with_root(&root, &real).unwrap().commit().unwrap();
+    Store::open_with_root(&root, &real)
+        .unwrap()
+        .commit()
+        .unwrap();
     // Garbage directory with no metadata.json.
     std::fs::create_dir_all(root.join("garbage-dir")).unwrap();
     // Garbage directory with corrupt metadata.json.

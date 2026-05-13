@@ -69,7 +69,10 @@ fn as_003_cache_files_nuked_during_reindex_in_place() {
 
     // Sanity pre-reindex: both files exist.
     assert!(graph_db.exists(), "pre-reindex graph.db must exist");
-    assert!(metadata_json.exists(), "pre-reindex metadata.json must exist");
+    assert!(
+        metadata_json.exists(),
+        "pre-reindex metadata.json must exist"
+    );
 
     // Reindex (new Store opens fresh — would have just re-created files).
     let new_store = s1.reindex_in_place(&repo).expect("reindex_in_place");
@@ -77,7 +80,10 @@ fn as_003_cache_files_nuked_during_reindex_in_place() {
     // Post-reindex: graph.db exists (newly created by reopen) but metadata
     // is now in Building state (not Complete). The freshly-opened Store
     // created its own files.
-    assert!(graph_db.exists(), "post-reindex graph.db must be re-created");
+    assert!(
+        graph_db.exists(),
+        "post-reindex graph.db must be re-created"
+    );
     assert_eq!(
         new_store.metadata().index_state,
         IndexState::Building,

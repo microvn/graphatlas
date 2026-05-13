@@ -84,11 +84,20 @@ impl HookClient {
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum HookOutcome {
-    Created { client: HookClient, path: PathBuf },
+    Created {
+        client: HookClient,
+        path: PathBuf,
+    },
     /// File existed and contained no GA entry — appended.
-    Added { client: HookClient, path: PathBuf },
+    Added {
+        client: HookClient,
+        path: PathBuf,
+    },
     /// File existed and already contained the GA entry — no-op.
-    AlreadyPresent { client: HookClient, path: PathBuf },
+    AlreadyPresent {
+        client: HookClient,
+        path: PathBuf,
+    },
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -141,11 +150,7 @@ pub fn uninstall_hook(
     uninstall_hook_at(client, &path, follow_symlinks)
 }
 
-pub fn uninstall_hook_at(
-    client: HookClient,
-    path: &Path,
-    follow_symlinks: bool,
-) -> Result<()> {
+pub fn uninstall_hook_at(client: HookClient, path: &Path, follow_symlinks: bool) -> Result<()> {
     refuse_symlink_unless(path, follow_symlinks)?;
     if !path.exists() {
         return Ok(());
@@ -179,4 +184,3 @@ pub fn verify_hook_at(client: HookClient, path: &Path) -> Result<VerifyOutcome> 
         HookClient::Codex => verify_toml_hook(path),
     }
 }
-

@@ -8,8 +8,8 @@
 //! tokio runtime + filesystem events).
 
 use ga_mcp::watcher::{
-    is_bench_fixture_path, is_git_op_in_progress, should_fallback_to_polling,
-    validate_repo_root, watch_targets, WatcherInitError,
+    is_bench_fixture_path, is_git_op_in_progress, should_fallback_to_polling, validate_repo_root,
+    watch_targets, WatcherInitError,
 };
 use std::fs;
 use tempfile::TempDir;
@@ -38,7 +38,12 @@ fn watch_targets_returns_head_index_and_refs_heads_for_initialized_repo() {
     let targets = watch_targets(&repo);
     let names: Vec<String> = targets
         .iter()
-        .map(|p| p.strip_prefix(repo.join(".git")).unwrap().to_string_lossy().into_owned())
+        .map(|p| {
+            p.strip_prefix(repo.join(".git"))
+                .unwrap()
+                .to_string_lossy()
+                .into_owned()
+        })
         .collect();
     assert!(names.iter().any(|n| n == "HEAD"));
     assert!(names.iter().any(|n| n == "index"));

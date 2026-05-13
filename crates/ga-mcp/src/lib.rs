@@ -195,11 +195,7 @@ where
 /// PR8 variant — caller passes a pre-built `McpContext` so the same
 /// per-repo state (reindex mutex registry, cooldown clocks) is shared
 /// with the L1 watcher spawned in parallel.
-pub async fn serve_with_ctx<R, W>(
-    read: R,
-    write: W,
-    ctx: context::McpContext,
-) -> anyhow::Result<()>
+pub async fn serve_with_ctx<R, W>(read: R, write: W, ctx: context::McpContext) -> anyhow::Result<()>
 where
     R: tokio::io::AsyncRead + Send + Unpin + 'static,
     W: tokio::io::AsyncWrite + Send + Unpin + 'static,

@@ -31,9 +31,7 @@ fn seed_three_file_graph(store: &Store) {
 
     // 3 File nodes (PK = path).
     for path in ["a.py", "b.py", "c.py"] {
-        let q = format!(
-            "CREATE (:File {{path: '{path}', lang: 'python', size: 100}})"
-        );
+        let q = format!("CREATE (:File {{path: '{path}', lang: 'python', size: 100}})");
         conn.query(&q)
             .unwrap_or_else(|e| panic!("seed File {path}: {e}"));
     }

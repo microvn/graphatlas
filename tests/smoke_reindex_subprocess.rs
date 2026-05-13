@@ -233,7 +233,10 @@ async fn smoke_reindex_full_lifecycle() {
         tools.iter().any(|t| t["name"] == "ga_reindex"),
         "tools/list missing ga_reindex; got {list_resp}"
     );
-    step!("7/15  tools/list returned {} tools (incl. ga_reindex)", tools.len());
+    step!(
+        "7/15  tools/list returned {} tools (incl. ga_reindex)",
+        tools.len()
+    );
 
     // 3 — baseline ga_callers.
     let baseline = mcp

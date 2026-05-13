@@ -159,11 +159,7 @@ fn as_016_git_index_mtime_change_invalidates_tier2_cache_early() {
     std::fs::create_dir_all(&git_dir).unwrap();
     std::fs::write(git_dir.join("index"), b"DIRC\x00\x00\x00\x02").unwrap();
     std::fs::create_dir_all(repo.join("src")).unwrap();
-    std::fs::write(
-        repo.join("src").join("util.py"),
-        "def foo():\n    pass\n",
-    )
-    .unwrap();
+    std::fs::write(repo.join("src").join("util.py"), "def foo():\n    pass\n").unwrap();
     let cache_root = tmp.path().join(".graphatlas");
     let mut store = Store::open_with_root(&cache_root, &repo).unwrap();
     build_index(&store, &repo).expect("build_index");

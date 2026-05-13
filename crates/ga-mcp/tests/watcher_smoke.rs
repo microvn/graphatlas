@@ -6,9 +6,7 @@
 //! and verify the callback fires (AS-007) and that an in-progress
 //! rebase sentinel suppresses dispatch (AS-008/008b).
 
-use ga_mcp::watcher::{
-    run_watch_loop, spawn_recommended_watcher, WatcherEvent, DEBOUNCE_MS,
-};
+use ga_mcp::watcher::{run_watch_loop, spawn_recommended_watcher, WatcherEvent, DEBOUNCE_MS};
 use std::fs;
 use std::sync::mpsc;
 use std::sync::{Arc, Mutex};
@@ -64,8 +62,7 @@ fn wait_for<F: Fn() -> bool>(timeout: Duration, predicate: F) -> bool {
 fn as_007_head_modification_fires_reindex_after_debounce() {
     let tmp = TempDir::new().unwrap();
     let repo = init_repo(&tmp);
-    let (_watcher, rx) =
-        spawn_recommended_watcher(&repo).expect("watcher init must succeed");
+    let (_watcher, rx) = spawn_recommended_watcher(&repo).expect("watcher init must succeed");
     let events = spawn_loop(repo.clone(), rx);
 
     // Touch HEAD — simulates `git commit` rewriting the ref.
@@ -92,8 +89,7 @@ fn as_007_head_modification_fires_reindex_after_debounce() {
 fn as_007_rapid_burst_coalesces_into_single_reindex() {
     let tmp = TempDir::new().unwrap();
     let repo = init_repo(&tmp);
-    let (_watcher, rx) =
-        spawn_recommended_watcher(&repo).expect("watcher init must succeed");
+    let (_watcher, rx) = spawn_recommended_watcher(&repo).expect("watcher init must succeed");
     let events = spawn_loop(repo.clone(), rx);
 
     thread::sleep(Duration::from_millis(50));
@@ -131,14 +127,17 @@ fn as_008b_rebase_head_sentinel_suppresses_reindex_then_resumes_after_cleared() 
     let repo = init_repo(&tmp);
     // Plant the rebase-merge sentinel BEFORE the watcher starts.
     fs::write(repo.join(".git").join("REBASE_HEAD"), "abc1234\n").unwrap();
-    let (_watcher, rx) =
-        spawn_recommended_watcher(&repo).expect("watcher init must succeed");
+    let (_watcher, rx) = spawn_recommended_watcher(&repo).expect("watcher init must succeed");
     let events = spawn_loop(repo.clone(), rx);
 
     thread::sleep(Duration::from_millis(50));
     // Touch HEAD during the rebase — debounce will fire but
     // dispatcher must classify as DeferredGitOp.
-    fs::write(repo.join(".git").join("HEAD"), "ref: refs/heads/midrebase\n").unwrap();
+    fs::write(
+        repo.join(".git").join("HEAD"),
+        "ref: refs/heads/midrebase\n",
+    )
+    .unwrap();
 
     // Wait for at least one DeferredGitOp signal.
     let saw_defer = wait_for(Duration::from_millis(DEBOUNCE_MS + 1500), || {

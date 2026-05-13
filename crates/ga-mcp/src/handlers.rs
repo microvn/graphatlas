@@ -114,9 +114,7 @@ pub fn handle_tools_call_with_ctx(
                                 drift_detected_at: unix_now(),
                                 dirty_paths: dirty
                                     .into_iter()
-                                    .map(|p| {
-                                        p.to_string_lossy().replace('\\', "/").to_string()
-                                    })
+                                    .map(|p| p.to_string_lossy().replace('\\', "/").to_string())
                                     .collect(),
                             });
                         }
@@ -174,9 +172,7 @@ fn unix_now() -> u64 {
 /// errors from the walk fall through as "empty dirty set" so we
 /// degrade-open rather than fail-closed (mirrors AS-010 degraded
 /// passthrough — internal gate errors must not block tools).
-fn tier2_dirty_paths_with_cache(
-    ctx: &crate::context::McpContext,
-) -> Vec<std::path::PathBuf> {
+fn tier2_dirty_paths_with_cache(ctx: &crate::context::McpContext) -> Vec<std::path::PathBuf> {
     if let Some(cached) = ctx.staleness.tier2_lookup() {
         return cached;
     }

@@ -254,9 +254,7 @@ impl LockFile {
             mode: "exclusive".to_string(),
         };
         let bytes = serde_json::to_vec_pretty(&info).map_err(|e| {
-            Error::Other(anyhow::anyhow!(
-                "serialize lock.pid sidecar (update): {e}"
-            ))
+            Error::Other(anyhow::anyhow!("serialize lock.pid sidecar (update): {e}"))
         })?;
         write_sidecar_in_place(&self.file, &bytes).map_err(|e| {
             Error::Other(anyhow::anyhow!(

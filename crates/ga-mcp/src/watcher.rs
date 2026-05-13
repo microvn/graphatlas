@@ -244,9 +244,10 @@ pub fn run_watch_loop<F>(
                             // next iteration's recheck timer fires after
                             // GIT_OP_RECHECK_MS rather than another
                             // DEBOUNCE_MS window.
-                            pending_since = Some(Instant::now()
-                                - Duration::from_millis(DEBOUNCE_MS)
-                                + Duration::from_millis(GIT_OP_RECHECK_MS));
+                            pending_since = Some(
+                                Instant::now() - Duration::from_millis(DEBOUNCE_MS)
+                                    + Duration::from_millis(GIT_OP_RECHECK_MS),
+                            );
                         } else {
                             dispatch(WatcherEvent::ReindexFired);
                             pending_since = None;
@@ -279,7 +280,13 @@ fn is_relevant_event(ev: &Event) -> bool {
 /// transparent fallback).
 pub fn spawn_recommended_watcher(
     repo_root: &Path,
-) -> Result<(notify::RecommendedWatcher, mpsc::Receiver<notify::Result<Event>>), notify::Error> {
+) -> Result<
+    (
+        notify::RecommendedWatcher,
+        mpsc::Receiver<notify::Result<Event>>,
+    ),
+    notify::Error,
+> {
     let (tx, rx) = mpsc::channel();
     let mut watcher = notify::RecommendedWatcher::new(tx, notify::Config::default())?;
     for target in watch_targets(repo_root) {

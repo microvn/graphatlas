@@ -274,8 +274,7 @@ impl Store {
     pub fn connection(&self) -> Result<lbug::Connection<'_>> {
         let db = self.db.as_ref().ok_or_else(|| {
             Error::Database(
-                "Store has no active lbug::Database (mid-seal transition or poisoned)"
-                    .to_string(),
+                "Store has no active lbug::Database (mid-seal transition or poisoned)".to_string(),
             )
         })?;
         lbug::Connection::new(db).map_err(|e| Error::Database(format!("connection: {e}")))

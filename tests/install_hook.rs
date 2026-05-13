@@ -62,8 +62,14 @@ fn as_001_install_preserves_existing_unrelated_keys() {
     let v = read_json(&settings);
     assert_eq!(v["permissions"]["allow"][0], "Read");
     assert_eq!(v["model"], "sonnet");
-    assert!(v["hooks"]["Stop"].is_array(), "AS-001: unrelated hook arrays preserved");
-    assert_eq!(v["hooks"]["PostToolUse"][0]["hooks"][0]["tool"], "ga_reindex");
+    assert!(
+        v["hooks"]["Stop"].is_array(),
+        "AS-001: unrelated hook arrays preserved"
+    );
+    assert_eq!(
+        v["hooks"]["PostToolUse"][0]["hooks"][0]["tool"],
+        "ga_reindex"
+    );
 }
 
 #[test]
@@ -272,7 +278,10 @@ fn as_005_install_for_cursor_writes_cursor_mcp_json() {
     };
     assert_eq!(path, tmp.path().join(".cursor").join("mcp.json"));
     let v = read_json(&path);
-    assert_eq!(v["hooks"]["PostToolUse"][0]["hooks"][0]["tool"], "ga_reindex");
+    assert_eq!(
+        v["hooks"]["PostToolUse"][0]["hooks"][0]["tool"],
+        "ga_reindex"
+    );
     assert_eq!(v["hooks"]["PostToolUse"][0]["matcher"], "Edit|Write|Bash");
 }
 
@@ -303,7 +312,16 @@ fn as_006_install_for_codex_writes_toml_with_postrooluse_entry() {
         "AS-006: Codex fresh install must return Created; got {outcome:?}"
     );
     let body = fs::read_to_string(&cfg).unwrap();
-    assert!(body.contains("PostToolUse"), "AS-006: TOML must include PostToolUse; got {body}");
-    assert!(body.contains("ga_reindex"), "AS-006: TOML must reference ga_reindex");
-    assert!(body.contains("Edit|Write|Bash"), "AS-006: TOML must include the matcher");
+    assert!(
+        body.contains("PostToolUse"),
+        "AS-006: TOML must include PostToolUse; got {body}"
+    );
+    assert!(
+        body.contains("ga_reindex"),
+        "AS-006: TOML must reference ga_reindex"
+    );
+    assert!(
+        body.contains("Edit|Write|Bash"),
+        "AS-006: TOML must include the matcher"
+    );
 }

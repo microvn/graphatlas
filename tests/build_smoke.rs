@@ -104,7 +104,10 @@ fn list_subcommand_shows_populated_caches() {
     for p in [&repo_a, &repo_b] {
         std::fs::create_dir_all(p).unwrap();
         std::fs::write(p.join("README.md"), "# fixture\n").unwrap();
-        Store::open_with_root(&cache_root, p).unwrap().commit().unwrap();
+        Store::open_with_root(&cache_root, p)
+            .unwrap()
+            .commit()
+            .unwrap();
     }
     let out = Command::new(bin())
         .arg("list")

@@ -121,8 +121,7 @@ fn as_013_snapshot_read_takes_pre_modification_baseline() {
     // Every entry must be a non-zero hash (build_index populated them).
     for (path, hash) in &map {
         assert_ne!(
-            hash,
-            &[0u8; 32],
+            hash, &[0u8; 32],
             "AS-013: indexed file {path:?} must have a non-zero sha256 in snapshot"
         );
     }
@@ -191,10 +190,17 @@ fn as_016_incremental_disabled_planner_returns_none_for_safe_fallback() {
     // INCREMENTAL_ENABLED is `false` by default (no Phase F artifact
     // wired yet). plan() MUST return None so the caller falls back to
     // ga_reindex full rebuild — that's the safe-by-default contract.
-    assert_eq!(
-        INCREMENTAL_ENABLED, false,
-        "AS-016: default INCREMENTAL_ENABLED must be false until Phase F gate ships"
-    );
+    // Intentional regression gate on a const: if Phase F flips
+    // INCREMENTAL_ENABLED to true, this assertion fires loudly so the
+    // safe-default contract is re-reviewed. Clippy's "constant assertion"
+    // lint is the wrong tool here.
+    #[allow(clippy::assertions_on_constants)]
+    {
+        assert!(
+            !INCREMENTAL_ENABLED,
+            "AS-016: default INCREMENTAL_ENABLED must be false until Phase F gate ships"
+        );
+    }
     let tmp = TempDir::new().unwrap();
     let (store, repo) = fresh_store_for(&tmp, "fallback");
     let result = plan(&store, &repo).expect("plan must not error");

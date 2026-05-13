@@ -56,7 +56,10 @@ fn is_busy_error_matches_busy_substring_case_insensitive() {
     assert!(is_busy_error(&busy), "must match 'BUSY'");
     assert!(is_busy_error(&locked), "must match 'lock'");
     assert!(is_busy_error(&in_use), "must match 'already in use'");
-    assert!(is_busy_error(&mixed), "must match 'Locked' case-insensitive");
+    assert!(
+        is_busy_error(&mixed),
+        "must match 'Locked' case-insensitive"
+    );
 }
 
 #[test]

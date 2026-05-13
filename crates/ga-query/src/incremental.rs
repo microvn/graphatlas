@@ -183,10 +183,7 @@ fn normalize_relpath(p: &Path) -> PathBuf {
 /// Cypher walks the typed edges (`IMPORTS`, `CALLS`, `IMPORTS_NAMED`,
 /// `CALLS_HEURISTIC`) that exist in schema v5. Path values are
 /// quote-rejected (Tools-C9-d) so the inline format-string is safe.
-pub fn expand_dependents(
-    store: &Store,
-    seed_files: &[PathBuf],
-) -> Result<(Vec<PathBuf>, bool)> {
+pub fn expand_dependents(store: &Store, seed_files: &[PathBuf]) -> Result<(Vec<PathBuf>, bool)> {
     if seed_files.is_empty() {
         return Ok((Vec::new(), false));
     }

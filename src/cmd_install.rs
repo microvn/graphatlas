@@ -61,7 +61,6 @@ pub fn cmd_install(
     Ok(())
 }
 
-
 pub fn cmd_install_hook(
     hook_str: String,
     project_root: Option<PathBuf>,
@@ -103,7 +102,11 @@ pub fn cmd_install_hook(
                 println!("✓ created {} hook at {}", client.as_str(), path.display());
             }
             HookOutcome::Added { path, .. } => {
-                println!("✓ added GA hook to {} config at {}", client.as_str(), path.display());
+                println!(
+                    "✓ added GA hook to {} config at {}",
+                    client.as_str(),
+                    path.display()
+                );
             }
             HookOutcome::AlreadyPresent { path, .. } => {
                 println!(

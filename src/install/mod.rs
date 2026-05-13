@@ -13,7 +13,7 @@ pub mod mcp_config;
 
 // Re-exports preserving the pre-split public API surface.
 pub use hook::{
-    install_hook, install_hook_at, uninstall_hook, uninstall_hook_at, verify_hook,
-    verify_hook_at, HookClient, HookOutcome, VerifyOutcome,
+    install_hook, install_hook_at, uninstall_hook, uninstall_hook_at, verify_hook, verify_hook_at,
+    HookClient, HookOutcome, VerifyOutcome,
 };
 pub use mcp_config::{write_mcp_config, Client, InstallOutcome};

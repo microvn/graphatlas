@@ -34,10 +34,7 @@ fn nfs_mount_root() -> Option<PathBuf> {
     if pb.exists() {
         Some(pb)
     } else {
-        eprintln!(
-            "GA_EXOTIC_FS_MOUNT={} not found — skipping",
-            pb.display()
-        );
+        eprintln!("GA_EXOTIC_FS_MOUNT={} not found — skipping", pb.display());
         None
     }
 }
@@ -85,7 +82,9 @@ fn st_pr5_as_010_exotic_fs_mount_sets_degraded_true() {
 fn local_tempdir_is_not_degraded_regression() {
     let tmp = tempfile::TempDir::new().unwrap();
     let checker = StalenessChecker::new(tmp.path().to_path_buf());
-    let result = checker.check(&[0u8; 32]).expect("staleness check on local fs");
+    let result = checker
+        .check(&[0u8; 32])
+        .expect("staleness check on local fs");
     assert!(
         !result.degraded,
         "regression: local tempdir must NOT be classified exotic"

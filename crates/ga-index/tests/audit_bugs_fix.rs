@@ -63,7 +63,8 @@ fn as_001_indexed_root_hash_populated_on_commit_in_place() {
         hash.len()
     );
     assert!(
-        hash.chars().all(|c| c.is_ascii_hexdigit() && !c.is_ascii_uppercase()),
+        hash.chars()
+            .all(|c| c.is_ascii_hexdigit() && !c.is_ascii_uppercase()),
         "indexed_root_hash must be lowercase hex: {hash}"
     );
 

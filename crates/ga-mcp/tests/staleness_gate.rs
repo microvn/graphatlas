@@ -82,15 +82,12 @@ fn as_012_ga_reindex_bypasses_staleness_gate_even_when_stale() {
     };
     let result = handle_tools_call_with_ctx(&ctx, &params);
     // Whatever error variant comes back, it MUST NOT be StaleIndex.
-    match result {
-        Err(Error::StaleIndex { .. }) => {
-            panic!("AS-012 violation: ga_reindex returned StaleIndex; gate must bypass it")
-        }
-        // Any other outcome is fine for this test — ga_reindex doesn't
-        // exist as a registered tool yet (PR6 work), so we expect some
-        // form of "unknown tool" error. The contract this test pins is
-        // the negative one: no STALE_INDEX gate.
-        _ => {}
+    // Any other outcome is fine for this test — ga_reindex doesn't
+    // exist as a registered tool yet (PR6 work), so we expect some
+    // form of "unknown tool" error. The contract this test pins is
+    // the negative one: no STALE_INDEX gate.
+    if let Err(Error::StaleIndex { .. }) = result {
+        panic!("AS-012 violation: ga_reindex returned StaleIndex; gate must bypass it")
     }
 }
 
@@ -207,7 +204,11 @@ fn as_011_500ms_ttl_absorbs_query_bursts() {
     // Force the first compute then verify subsequent calls hit the cache.
     let store_snap = ctx.store();
     let indexed_hex = &store_snap.metadata().indexed_root_hash;
-    assert_eq!(indexed_hex.len(), 64, "fresh build must have populated hash");
+    assert_eq!(
+        indexed_hex.len(),
+        64,
+        "fresh build must have populated hash"
+    );
 
     // Reset the staleness counter by constructing a fresh checker
     // dedicated to this test (avoids cross-test contamination).

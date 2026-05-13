@@ -263,7 +263,10 @@ fn r1b_as_003_ga_reindex_executes_full_rebuild_and_bumps_generation() {
         "AS-003: took_ms present"
     );
     assert!(
-        payload.get("files_indexed").and_then(|v| v.as_u64()).is_some(),
+        payload
+            .get("files_indexed")
+            .and_then(|v| v.as_u64())
+            .is_some(),
         "AS-003: files_indexed present"
     );
 }
@@ -290,8 +293,7 @@ fn r1b_store_busy_when_outstanding_arc_clone_blocks_rebuild() {
     }
     // After dropping the holdout, the next dispatch must succeed.
     drop(_holdout);
-    let result2 =
-        handle_tools_call_with_ctx(&ctx, &params).expect("rebuild succeeds after drain");
+    let result2 = handle_tools_call_with_ctx(&ctx, &params).expect("rebuild succeeds after drain");
     assert!(!result2.is_error);
 }
 
@@ -383,8 +385,7 @@ fn r1d_as_006_post_success_cooldown_short_circuits_with_already_reindexing() {
         arguments: json!({ "mode": "full" }),
     };
     // First call: real rebuild succeeds, arms the cooldown.
-    let first =
-        handle_tools_call_with_ctx(&ctx, &params).expect("first reindex must succeed");
+    let first = handle_tools_call_with_ctx(&ctx, &params).expect("first reindex must succeed");
     assert!(!first.is_error);
 
     // Second call within the 200ms window: short-circuit -32014.

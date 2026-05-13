@@ -125,8 +125,7 @@ pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     let started = std::time::Instant::now();
     let mut files_indexed: u64 = 0;
     let new_store = ctx.rebuild_via(|store| {
-        let repo_root_inner =
-            std::path::PathBuf::from(&store.metadata().repo_root);
+        let repo_root_inner = std::path::PathBuf::from(&store.metadata().repo_root);
         let mut fresh = store
             .reindex_in_place(&repo_root_inner)
             .map_err(|e| Error::Other(anyhow::anyhow!("reindex_in_place: {e}")))?;
@@ -165,7 +164,6 @@ pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
         is_error: false,
     })
 }
-
 
 /// v1.5 PR6 AS-004 — local copy of the bench-fixture path detector used
 /// at MCP boot (`src/mcp_cmd.rs::is_bench_fixture_path`). Duplicated here

@@ -161,10 +161,7 @@ impl McpContext {
     /// PR6.1d AS-006 — record a successful reindex so the next call
     /// within `REINDEX_COOLDOWN_MS` short-circuits.
     pub fn record_reindex_success(&self, cache_dir: &std::path::Path) {
-        let mut map = self
-            .last_reindex_at
-            .lock()
-            .expect("last_reindex_at mutex");
+        let mut map = self.last_reindex_at.lock().expect("last_reindex_at mutex");
         map.insert(cache_dir.to_path_buf(), Instant::now());
     }
 
@@ -173,10 +170,7 @@ impl McpContext {
     /// this cache_dir. Returns `Ok(())` if no recent reindex (or the
     /// cooldown has expired).
     pub fn check_reindex_cooldown(&self, cache_dir: &std::path::Path) -> Result<()> {
-        let map = self
-            .last_reindex_at
-            .lock()
-            .expect("last_reindex_at mutex");
+        let map = self.last_reindex_at.lock().expect("last_reindex_at mutex");
         if let Some(last) = map.get(cache_dir) {
             let elapsed_ms = last.elapsed().as_millis() as u64;
             if elapsed_ms < REINDEX_COOLDOWN_MS {

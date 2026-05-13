@@ -24,9 +24,7 @@ pub(super) fn install_json_hook(client: HookClient, path: &Path) -> Result<HookO
         .as_object_mut()
         .ok_or_else(|| anyhow!("{} root must be a JSON object", path.display()))?;
 
-    let hooks = root
-        .entry("hooks".to_string())
-        .or_insert_with(|| json!({}));
+    let hooks = root.entry("hooks".to_string()).or_insert_with(|| json!({}));
     let hooks_map = hooks
         .as_object_mut()
         .ok_or_else(|| anyhow!("`hooks` must be a JSON object"))?;
@@ -120,7 +118,10 @@ pub(super) fn verify_json_hook(path: &Path) -> Result<VerifyOutcome> {
         });
     }
     Ok(VerifyOutcome::Missing {
-        hint: format!("PostToolUse exists but contains no GA entry in {}", path.display()),
+        hint: format!(
+            "PostToolUse exists but contains no GA entry in {}",
+            path.display()
+        ),
     })
 }
 
@@ -228,7 +229,10 @@ pub(super) fn verify_toml_hook(path: &Path) -> Result<VerifyOutcome> {
         });
     }
     Ok(VerifyOutcome::Missing {
-        hint: format!("hooks.PostToolUse exists but no GA entry in {}", path.display()),
+        hint: format!(
+            "hooks.PostToolUse exists but no GA entry in {}",
+            path.display()
+        ),
     })
 }
 
@@ -252,7 +256,10 @@ fn ga_hook_entry_toml() -> toml::Value {
     inner.insert("tool".into(), HOOK_TOOL.into());
     let mut entry = toml::value::Table::new();
     entry.insert("matcher".into(), HOOK_MATCHER.into());
-    entry.insert("hooks".into(), toml::Value::Array(vec![toml::Value::Table(inner)]));
+    entry.insert(
+        "hooks".into(),
+        toml::Value::Array(vec![toml::Value::Table(inner)]),
+    );
     toml::Value::Table(entry)
 }
 

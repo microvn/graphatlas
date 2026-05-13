@@ -45,9 +45,7 @@ pub fn wait_for_handle_release(_path: &Path) -> anyhow::Result<bool> {
     #[cfg(not(any(unix, windows)))]
     {
         // Unsupported platform — caller should not invoke this helper.
-        anyhow::bail!(
-            "wait_for_handle_release: unsupported platform (only unix/windows targeted)"
-        )
+        anyhow::bail!("wait_for_handle_release: unsupported platform (only unix/windows targeted)")
     }
 }
 

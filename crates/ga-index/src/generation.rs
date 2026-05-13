@@ -29,9 +29,7 @@ pub(crate) fn bump_graph_generation(
             .map_err(|e| Error::Database(format!("bump_graph_generation: open conn: {e}")))?;
         // MERGE = upsert by primary key. The literal substitution is safe
         // because `next` is a u64 with no special characters.
-        let q = format!(
-            "MERGE (m:GraphMeta {{key: 'graph_generation'}}) SET m.value = '{next}'"
-        );
+        let q = format!("MERGE (m:GraphMeta {{key: 'graph_generation'}}) SET m.value = '{next}'");
         conn.query(&q)
             .map_err(|e| Error::Database(format!("bump_graph_generation: MERGE: {e}")))?;
     } else {
