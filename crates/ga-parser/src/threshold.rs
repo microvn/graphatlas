@@ -81,6 +81,7 @@ fn format_abort_message(lang: Lang, rate: f32, threshold: f32) -> String {
         Lang::Kotlin => "Kotlin",
         Lang::CSharp => "C#",
         Lang::Ruby => "Ruby",
+        Lang::Php => "PHP",
     };
     let pct = (rate * 100.0).round() as u32;
     let thresh_pct = (threshold * 100.0).round() as u32;

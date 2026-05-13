@@ -145,6 +145,16 @@ pub fn is_test_path(path: &str) -> bool {
         }
     }
 
+    // v1.2 — PHP / PHPUnit suffix `*Test.php` / `*Tests.php` + tests/ dir.
+    if let Some(stem) = name.strip_suffix(".php") {
+        if stem.ends_with("Test") || stem.ends_with("Tests") {
+            return true;
+        }
+        if in_tests_dir {
+            return true;
+        }
+    }
+
     false
 }
 
@@ -315,6 +325,16 @@ mod tests {
                     "spec/models/user_spec.rb",
                 ],
                 &["lib/foo.rb", "app/models/user.rb"],
+            ),
+            // v1.2 — PHPUnit + PSR-4 convention. Pairs with `is_test_path`
+            // PHP arm above so the exhaustive-match compile-time guard holds.
+            Lang::Php => (
+                &[
+                    "tests/FooTest.php",
+                    "tests/Unit/UserTest.php",
+                    "tests/Feature/UserTest.php",
+                ],
+                &["src/Foo.php", "app/Models/User.php"],
             ),
         }
     }
