@@ -17,7 +17,7 @@ anyhow = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
 tokio = { workspace = true, features = ["io-util", "macros", "rt", "rt-multi-thread"] }
-rmcp = { version = "1.6", default-features = false, features = ["server", "transport-async-rw", "transport-io", "macros", "client"] }
+rmcp = { version = "1.7", default-features = false, features = ["server", "transport-async-rw", "transport-io", "macros", "client"] }
 chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
 # v1.5 PR8 — Layer 1 .git/-scoped FS watcher (triggers S-003 AS-007..011).
 # `notify 6` ships `RecommendedWatcher` (inotify on Linux / FSEvents on
