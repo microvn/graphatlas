@@ -1,0 +1,289 @@
+{
+  "repo": "kotlinx-serialization",
+  "lang": "kotlin",
+  "mined_at": "2026-04-26T11:38:50.273Z",
+  "target": 20,
+  "actual": 20,
+  "candidates": [
+    {
+      "sha": "53fb332d9f5f505857c49caeb3ad1b2ac5e5a8ed",
+      "parent_sha": "6956af2e6073347c7832c3c5b374fa3b5a345956",
+      "subject": "fix collection descriptors",
+      "source_files": [
+        "core/commonMain/src/kotlinx/serialization/descriptors/SerialDescriptor.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/CollectionDescriptors.kt"
+      ],
+      "test_files": [
+        "core/commonTest/src/kotlinx/serialization/SerialDescriptorSpecificationTest.kt"
+      ]
+    },
+    {
+      "sha": "2972bace4679f4e5a2c96d321cb0a82ad339cb43",
+      "parent_sha": "ba95e382c4688054400659fcdf3139d97d7648a5",
+      "subject": "rename flag to exceptionsWithDebugInfo",
+      "source_files": [
+        "formats/json/api/kotlinx-serialization-json.api",
+        "formats/json/api/kotlinx-serialization-json.klib.api",
+        "formats/json/commonMain/src/kotlinx/serialization/json/Json.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonConfiguration.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonExceptions.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonExceptions.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonPath.kt"
+      ],
+      "test_files": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/JsonDecodingRedactedErrorMessagesTest.kt"
+      ]
+    },
+    {
+      "sha": "0311f163cb4c7fde8268a45989f2b781a8847d57",
+      "parent_sha": "975af2ca94b77f9117248f0c977f2791e7caac59",
+      "subject": "Fix ProtoBuf packing for kotlin unsigned types (#3079)",
+      "source_files": [
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/Helpers.kt",
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/ProtobufDecoding.kt",
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/ProtobufEncoding.kt",
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/ProtobufTaggedDecoder.kt",
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/ProtobufTaggedEncoder.kt"
+      ],
+      "test_files": [
+        "formats/protobuf/commonTest/src/kotlinx/serialization/protobuf/PackedArraySerializerTest.kt"
+      ]
+    },
+    {
+      "sha": "e334d1c3927753e579f064aa53327585d995a0c0",
+      "parent_sha": "d7ca108a77e69c80977e386eecca002187f0699f",
+      "subject": "[CBOR] Fix various bugs in the decoder implementation",
+      "source_files": [
+        "formats/cbor/commonMain/src/kotlinx/serialization/cbor/Cbor.kt",
+        "formats/cbor/commonMain/src/kotlinx/serialization/cbor/internal/Decoder.kt",
+        "formats/cbor/commonMain/src/kotlinx/serialization/cbor/internal/Encoding.kt"
+      ],
+      "test_files": [
+        "formats/cbor/commonTest/src/kotlinx/serialization/cbor/CborDecoderTest.kt",
+        "formats/cbor/commonTest/src/kotlinx/serialization/cbor/CborParserTest.kt",
+        "formats/cbor/commonTest/src/kotlinx/serialization/cbor/CborTaggedTest.kt"
+      ]
+    },
+    {
+      "sha": "fc62da3697317b12fa1849db2acb3ff3e17fd45b",
+      "parent_sha": "70bc1b69b91310f6734af2b23ac79b6b2df696cf",
+      "subject": "'subclassesOfSealed' function for automatically registering sealed serializers children in polymorphic modules (#2201)",
+      "source_files": [
+        "core/api/kotlinx-serialization-core.api",
+        "core/api/kotlinx-serialization-core.klib.api",
+        "core/commonMain/src/kotlinx/serialization/SealedSerializer.kt",
+        "core/commonMain/src/kotlinx/serialization/modules/PolymorphicModuleBuilder.kt",
+        "guide/example/example-poly-11.kt",
+        "guide/example/example-poly-12.kt",
+        "guide/example/example-poly-13.kt",
+        "guide/example/example-poly-14.kt",
+        "guide/example/example-poly-15.kt",
+        "guide/example/example-poly-16.kt",
+        "guide/example/example-poly-17.kt",
+        "guide/example/example-poly-18.kt",
+        "guide/example/example-poly-19.kt",
+        "guide/example/example-poly-20.kt",
+        "guide/example/example-poly-21.kt"
+      ],
+      "test_files": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/features/PolymorphicSealedChildTest.kt",
+        "guide/test/PolymorphismTest.kt"
+      ]
+    },
+    {
+      "sha": "8926b06af448b384a8b24e7a4fd658f40d1db2ef",
+      "parent_sha": "15b249e30a3afa631213c39ffbdbde2adb893c2b",
+      "subject": "Add .serialName to MissingFieldException",
+      "source_files": [
+        "core/api/kotlinx-serialization-core.api",
+        "core/api/kotlinx-serialization-core.klib.api",
+        "core/commonMain/src/kotlinx/serialization/SerializationExceptions.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/JsonInternalDependencies.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/StreamingJsonDecoder.kt"
+      ],
+      "test_files": [
+        "formats/json-tests/jvmTest/src/kotlinx/serialization/JvmMissingFieldsExceptionTest.kt"
+      ]
+    },
+    {
+      "sha": "51fa6ad8dcc6d9d78c535c46f55d43e360f2590d",
+      "parent_sha": "e7578dcae30d0b5999f1b440e848dc35a6107fd0",
+      "subject": "Revised the ProGuard rules and added tests on R8 (#3041)",
+      "source_files": [
+        "build.gradle.kts",
+        "buildSrc/src/main/kotlin/kover-conventions.gradle.kts",
+        "core/jvmMain/src/kotlinx/serialization/internal/Platform.kt",
+        "rules/common.pro",
+        "rules/r8.pro",
+        "rules/rules-integration-tests/build.gradle.kts",
+        "rules/rules-integration-tests/src/shared/kotlinx/serialization/r8/DeletionChecks.kt",
+        "rules/rules-integration-tests/src/shared/kotlinx/serialization/r8/Model.kt",
+        "settings.gradle.kts"
+      ],
+      "test_files": [
+        "rules/rules-integration-tests/src/shared/kotlinx/serialization/r8/R8Tests.kt"
+      ]
+    },
+    {
+      "sha": "bd6689dca01d45819868937cf1ec5f298b4d2f2e",
+      "parent_sha": "596bac8fd86769aa8f9fde030b804bbb517840f0",
+      "subject": "Fix resize in JsonPath (#2995)",
+      "source_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonPath.kt"
+      ],
+      "test_files": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/JsonPathTest.kt"
+      ]
+    },
+    {
+      "sha": "b26c67a756cbb868043a9abedbf93da724b1b9d4",
+      "parent_sha": "88539170284dfc1489cf82039afc10fcf8cf49ab",
+      "subject": "Tests for fixes for #KT-62522 and #KT-62215 (#2474)",
+      "source_files": [
+        "integration-test/src/commonMain/kotlin/sample/MultiFileHierarchyModuleA.kt"
+      ],
+      "test_files": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/GenericOverrideTest.kt",
+        "integration-test/src/commonTest/kotlin/sample/MultiFileHierarchyModuleB.kt",
+        "integration-test/src/commonTest/kotlin/sample/MultiFileHierarchyTest.kt"
+      ]
+    },
+    {
+      "sha": "f0ae399cc5d45af0b9a3e881a4a30ca203f1472e",
+      "parent_sha": "88539170284dfc1489cf82039afc10fcf8cf49ab",
+      "subject": "Tests for fixes for #KT-62522 and #KT-62215",
+      "source_files": [
+        "integration-test/src/commonMain/kotlin/sample/MultiFileHierarchyModuleA.kt"
+      ],
+      "test_files": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/GenericOverrideTest.kt",
+        "integration-test/src/commonTest/kotlin/sample/MultiFileHierarchyModuleB.kt",
+        "integration-test/src/commonTest/kotlin/sample/MultiFileHierarchyTest.kt"
+      ]
+    },
+    {
+      "sha": "9adedb46bf552ba371a2236687cf3a3a2ea6e035",
+      "parent_sha": "27e352d5c208229d66e83dd717891c87788d16b4",
+      "subject": "Fix incorrect enum coercion during deserialization from JsonElement (#2962)",
+      "source_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/TreeJsonDecoder.kt",
+        "formats/json/jsMain/src/kotlinx/serialization/json/internal/DynamicDecoders.kt"
+      ],
+      "test_files": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/JsonCoerceInputValuesTest.kt",
+        "formats/json-tests/jsTest/src/kotlinx/serialization/json/JsonCoerceInputValuesDynamicTest.kt"
+      ]
+    },
+    {
+      "sha": "1e54f4b735a7a33146ae12965792d2fc867e3fa5",
+      "parent_sha": "a6398ca584fcac13e64d774b3a22973ec7a3a96f",
+      "subject": "Supply proper equals(), hashCode(), and toString() for SerialDescriptor() wrapper. (#2942)",
+      "source_files": [
+        "core/commonMain/src/kotlinx/serialization/descriptors/SerialDescriptors.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/PluginGeneratedSerialDescriptor.kt"
+      ],
+      "test_files": [
+        "core/commonTest/src/kotlinx/serialization/WrappedSerialDescriptorTest.kt"
+      ]
+    },
+    {
+      "sha": "a024eedfaf45afa78054a8b43259463a0785e415",
+      "parent_sha": "5439653cf1fac6e9f42d0d25fc4e03b3c4f2ce7a",
+      "subject": "Supply proper equals(), hashCode(), and toString() for SerialDescriptor() wrapper.",
+      "source_files": [
+        "core/commonMain/src/kotlinx/serialization/descriptors/SerialDescriptors.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/PluginGeneratedSerialDescriptor.kt"
+      ],
+      "test_files": [
+        "core/commonTest/src/kotlinx/serialization/WrappedSerialDescriptorTest.kt"
+      ]
+    },
+    {
+      "sha": "b43a6543363e11842222912578bacf30ea70dd92",
+      "parent_sha": "684cbb3b4abadbf449121d18be48a2eaec88e8cc",
+      "subject": "Make type argument in JsonTransformingSerializer nullable  (#2911)",
+      "source_files": [
+        "formats/json/api/kotlinx-serialization-json.klib.api",
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonTransformingSerializer.kt"
+      ],
+      "test_files": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/JsonTransformingSerializerTest.kt"
+      ]
+    },
+    {
+      "sha": "25172c42658bd613e8af6e0c05716144009d86e3",
+      "parent_sha": "f9f160a680da9f92c3bb121ae3644c96e57ba42e",
+      "subject": "Make type argument in JsonTransformingSerializer nullable",
+      "source_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonTransformingSerializer.kt"
+      ],
+      "test_files": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/JsonTransformingSerializerTest.kt"
+      ]
+    },
+    {
+      "sha": "21c9e9753e40fb658c7d7586865c726de18af96c",
+      "parent_sha": "d15dfeec76b6c39cee65f9b32614bbf14cd5b08d",
+      "subject": "Correctly parse invalid numbers in JsonLiteral.long and other extensions (#2852)",
+      "source_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonElement.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/TreeJsonDecoder.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/AbstractJsonLexer.kt"
+      ],
+      "test_files": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/JsonElementDecodingTest.kt",
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/serializers/JsonPrimitiveSerializerTest.kt"
+      ]
+    },
+    {
+      "sha": "d15dfeec76b6c39cee65f9b32614bbf14cd5b08d",
+      "parent_sha": "d266e05c176237919b34edcf7386973ac4719e02",
+      "subject": "Correctly handle serial name conflict for different classes (#2856)",
+      "source_files": [
+        "core/commonMain/src/kotlinx/serialization/modules/SerializersModuleBuilders.kt"
+      ],
+      "test_files": [
+        "core/commonTest/src/kotlinx/serialization/modules/ModuleBuildersTest.kt",
+        "core/commonTest/src/kotlinx/serialization/test/TestHelpers.kt"
+      ]
+    },
+    {
+      "sha": "e147b028a6137012ddd49cb07430102ea797bd41",
+      "parent_sha": "3c7fb8f1c42b74e6dc84dd7585c9e0c0ee1a40dd",
+      "subject": "Do not check kind or discriminator collisions (#2833)",
+      "source_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/Json.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonConfiguration.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonSerializersModuleValidator.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/Polymorphic.kt"
+      ],
+      "test_files": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/polymorphic/JsonClassDiscriminatorModeTest.kt"
+      ]
+    },
+    {
+      "sha": "d317f5dcf7f3f4b92b0b9f2ea72c3b4903371306",
+      "parent_sha": "d2b57276bedf575b28d9b6bc369ee442fbe3aeb9",
+      "subject": "Stabilize SerialDescriptor delegate builder",
+      "source_files": [
+        "core/commonMain/src/kotlinx/serialization/descriptors/SerialDescriptors.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Primitives.kt"
+      ],
+      "test_files": [
+        "core/commonTest/src/kotlinx/serialization/WrappedSerialDescriptorTest.kt"
+      ]
+    },
+    {
+      "sha": "ada6ab1d4262a5d7bb6b4129a548aabaad920da9",
+      "parent_sha": "df27589e04b46cb1ba017bab76c2f7cc2f7965cd",
+      "subject": "Stabilize SerialDescriptor delegate builder",
+      "source_files": [
+        "core/commonMain/src/kotlinx/serialization/descriptors/SerialDescriptors.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Primitives.kt"
+      ],
+      "test_files": [
+        "core/commonTest/src/kotlinx/serialization/WrappedSerialDescriptorTest.kt"
+      ]
+    }
+  ]
+}

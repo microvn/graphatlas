@@ -1,0 +1,645 @@
+{
+  "repo": "tokio",
+  "lang": "rust",
+  "enriched_at": "2026-04-29T18:58:25.825Z",
+  "count": 20,
+  "tasks": [
+    {
+      "task_id": "tokio-3ea11e2a",
+      "repo": "tokio",
+      "base_commit": "c79121391db8f8d36d4213feeb25381caee110c7",
+      "fix_commit": "3ea11e2a5fb4139ca21b441044d98994a2b126c5",
+      "subject": "sync: fix semaphore reopens after forget (#8021)",
+      "seed_file": "tokio/src/sync/batch_semaphore.rs",
+      "seed_symbol": "Semaphore",
+      "source_files": [
+        "tokio/src/sync/batch_semaphore.rs"
+      ],
+      "expected_files": [
+        "tokio/src/sync/batch_semaphore.rs"
+      ],
+      "expected_tests": [
+        "tokio/tests/sync_semaphore.rs"
+      ],
+      "should_touch_files": [
+        "examples/tinyhttp.rs",
+        "tokio-stream/src/wrappers/broadcast.rs",
+        "tokio-test/src/io.rs",
+        "tokio/src/coop.rs",
+        "tokio/src/fs/file.rs",
+        "tokio/src/future/maybe_done.rs",
+        "tokio/src/io/async_fd.rs",
+        "tokio/src/io/blocking.rs",
+        "tokio/src/io/driver/scheduled_io.rs",
+        "tokio/src/io/poll_evented.rs",
+        "tokio/src/io/util/copy.rs",
+        "tokio/src/io/util/empty.rs",
+        "tokio/src/io/util/mem.rs",
+        "tokio/src/io/util/sink.rs",
+        "tokio/src/lib.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "tokio-bf18ed45",
+      "repo": "tokio",
+      "base_commit": "f320197693ee09e28f1fca0e55418081adcdfc25",
+      "fix_commit": "bf18ed452d6aae438e84ae008a01a74776abdc19",
+      "subject": "sync: fix panic in `Chan::recv_many` when called with non-empty vector on closed channel (#7991)",
+      "seed_file": "tokio/src/sync/mpsc/chan.rs",
+      "seed_symbol": "Semaphore",
+      "source_files": [
+        "tokio/src/sync/mpsc/chan.rs"
+      ],
+      "expected_files": [
+        "tokio/src/sync/mpsc/chan.rs"
+      ],
+      "expected_tests": [
+        "tokio/tests/sync_mpsc.rs"
+      ],
+      "should_touch_files": [
+        "tokio/src/sync/mpsc/bounded.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "tokio-9f132172",
+      "repo": "tokio",
+      "base_commit": "6752f50154025a1aa2c231b643cdb78bb4c3892f",
+      "fix_commit": "9f132172dbb00b1f6b6bda64bb9b194382079499",
+      "subject": "sync: fix `notify_waiters` priority in `Notify` (#7996)",
+      "seed_file": "tokio/src/sync/notify.rs",
+      "seed_symbol": "NotifiedProject",
+      "source_files": [
+        "tokio/src/sync/notify.rs"
+      ],
+      "expected_files": [
+        "tokio/src/sync/notify.rs"
+      ],
+      "expected_tests": [
+        "tokio/tests/sync_notify.rs"
+      ],
+      "should_touch_files": [
+        "tokio-macros/src/entry.rs",
+        "tokio-stream/src/stream_map.rs",
+        "tokio/src/fs/file.rs",
+        "tokio/src/future/maybe_done.rs",
+        "tokio/src/io/async_fd.rs",
+        "tokio/src/io/blocking.rs",
+        "tokio/src/io/driver/scheduled_io.rs",
+        "tokio/src/io/poll_evented.rs",
+        "tokio/src/io/util/async_write_ext.rs",
+        "tokio/src/io/util/empty.rs",
+        "tokio/src/io/util/mem.rs",
+        "tokio/src/lib.rs",
+        "tokio/src/loom/std/mod.rs",
+        "tokio/src/loom/std/mutex.rs",
+        "tokio/src/macros/cfg.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "tokio-f21f2693",
+      "repo": "tokio",
+      "base_commit": "d81e8f0acbdd7d866bce4f733b3545fd834c7840",
+      "fix_commit": "f21f2693f02aec9a876ac2bd21566c85e15b682e",
+      "subject": "runtime: fix race condition during the blocking pool shutdown (#7922)",
+      "seed_file": "tokio/src/runtime/blocking/pool.rs",
+      "seed_symbol": "Inner",
+      "source_files": [
+        "tokio/src/runtime/blocking/pool.rs"
+      ],
+      "expected_files": [
+        "tokio/src/runtime/blocking/pool.rs"
+      ],
+      "expected_tests": [
+        "tokio/src/runtime/tests/loom_blocking.rs"
+      ],
+      "should_touch_files": [
+        "benches/scheduler.rs",
+        "tokio-macros/src/entry.rs",
+        "tokio-macros/src/lib.rs",
+        "tokio-test/src/lib.rs",
+        "tokio-util/src/context.rs",
+        "tokio-util/src/lib.rs",
+        "tokio/src/coop.rs",
+        "tokio/src/fs/file.rs",
+        "tokio/src/io/driver/mod.rs",
+        "tokio/src/io/driver/scheduled_io.rs",
+        "tokio/src/io/mod.rs",
+        "tokio/src/io/poll_evented.rs",
+        "tokio/src/io/stdio_common.rs",
+        "tokio/src/lib.rs",
+        "tokio/src/loom/std/mod.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "tokio-d83921bc",
+      "repo": "tokio",
+      "base_commit": "96f64f4ee2afc0a6db76390134dd183d59ca5351",
+      "fix_commit": "d83921bc5181010be72704d1fe8fb9b6f10cb7e8",
+      "subject": "runtime: fix double increment of `num_idle_threads` on shutdown (#7910)",
+      "seed_file": "tokio/src/runtime/blocking/pool.rs",
+      "seed_symbol": "Inner",
+      "source_files": [
+        "tokio/src/runtime/blocking/pool.rs"
+      ],
+      "expected_files": [
+        "tokio/src/runtime/blocking/pool.rs"
+      ],
+      "expected_tests": [
+        "tokio/tests/rt_unstable_metrics.rs"
+      ],
+      "should_touch_files": [
+        "benches/scheduler.rs",
+        "tokio-macros/src/entry.rs",
+        "tokio-macros/src/lib.rs",
+        "tokio-test/src/lib.rs",
+        "tokio-util/src/context.rs",
+        "tokio-util/src/lib.rs",
+        "tokio/src/coop.rs",
+        "tokio/src/fs/file.rs",
+        "tokio/src/io/driver/mod.rs",
+        "tokio/src/io/driver/scheduled_io.rs",
+        "tokio/src/io/mod.rs",
+        "tokio/src/io/poll_evented.rs",
+        "tokio/src/io/stdio_common.rs",
+        "tokio/src/lib.rs",
+        "tokio/src/loom/std/mod.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "tokio-96f64f4e",
+      "repo": "tokio",
+      "base_commit": "00d10c22f831f7d4508444f17a84e19319eaf36b",
+      "fix_commit": "96f64f4ee2afc0a6db76390134dd183d59ca5351",
+      "subject": "codec: fix is_readable should be buffer empty or not (#7912)",
+      "seed_file": "tokio-util/src/codec/framed_impl.rs",
+      "seed_symbol": "WriteFrame",
+      "source_files": [
+        "tokio-util/src/codec/framed_impl.rs"
+      ],
+      "expected_files": [
+        "tokio-util/src/codec/framed_impl.rs"
+      ],
+      "expected_tests": [
+        "tokio-util/tests/framed.rs"
+      ],
+      "should_touch_files": [
+        "tokio-test/src/io.rs",
+        "tokio-util/src/codec/decoder.rs",
+        "tokio-util/src/codec/framed.rs",
+        "tokio-util/src/codec/framed_read.rs",
+        "tokio-util/src/codec/framed_write.rs",
+        "tokio-util/src/codec/mod.rs",
+        "tokio-util/src/io/mod.rs",
+        "tokio-util/src/io/read_buf.rs",
+        "tokio-util/src/io/reader_stream.rs",
+        "tokio-util/src/io/stream_reader.rs",
+        "tokio-util/src/lib.rs",
+        "tokio-util/src/udp/frame.rs",
+        "tokio/src/io/util/async_read_ext.rs",
+        "tokio/src/io/util/read_buf.rs",
+        "tokio/src/io/util/split.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "tokio-97d06ae1",
+      "repo": "tokio",
+      "base_commit": "b5054e1dfff24c6166ed61100cfbfd329b16b8f8",
+      "fix_commit": "97d06ae1a69a38dfe20e65b5972f456781f2e0c1",
+      "subject": "macros: fix the hygiene issue of `join!` and `try_join!` (#7766)",
+      "seed_file": "tokio/src/macros/try_join.rs",
+      "seed_symbol": "macro_rules",
+      "source_files": [
+        "tokio/src/macros/join.rs",
+        "tokio/src/macros/try_join.rs"
+      ],
+      "expected_files": [
+        "tokio/src/macros/join.rs",
+        "tokio/src/macros/try_join.rs"
+      ],
+      "expected_tests": [
+        "tests-build/tests/fail/macros_join.rs",
+        "tests-build/tests/fail/macros_join.stderr",
+        "tests-build/tests/fail/macros_try_join.rs",
+        "tests-build/tests/fail/macros_try_join.stderr",
+        "tests-build/tests/macros.rs"
+      ],
+      "should_touch_files": [
+        "tokio/src/io/mod.rs",
+        "tokio/src/macros/select.rs",
+        "tokio/src/runtime/handle.rs",
+        "tokio/src/sync/oneshot.rs",
+        "tokio/src/task/local.rs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "tokio-07f6cc7e",
+      "repo": "tokio",
+      "base_commit": "308e3e68715ffa10ffb95a0b430ca063e08a6c9a",
+      "fix_commit": "07f6cc7e1d9b319be02960074c885a7eb423c3b8",
+      "subject": "macros: fix the hygiene issue of `join!` and `try_join!` (#7638)",
+      "seed_file": "tokio/src/macros/join.rs",
+      "seed_symbol": "macro_rules",
+      "source_files": [
+        "tokio/src/macros/join.rs",
+        "tokio/src/macros/support.rs",
+        "tokio/src/macros/try_join.rs"
+      ],
+      "expected_files": [
+        "tokio/src/macros/join.rs",
+        "tokio/src/macros/support.rs",
+        "tokio/src/macros/try_join.rs"
+      ],
+      "expected_tests": [
+        "tokio/tests/macros_join.rs",
+        "tokio/tests/macros_try_join.rs"
+      ],
+      "should_touch_files": [
+        "tokio/src/future/maybe_done.rs",
+        "tokio/src/macros/mod.rs",
+        "tokio/src/macros/select.rs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "tokio-eb99e476",
+      "repo": "tokio",
+      "base_commit": "b9b532485bbb879042a1bd2ef40a50e6c1d15bb6",
+      "fix_commit": "eb99e476e674f81095e2f8f15cbc92f8650f5364",
+      "subject": "macros: fix the hygiene issue of `join!` and `try_join!` (#7638)",
+      "seed_file": "tokio/src/macros/join.rs",
+      "seed_symbol": "macro_rules",
+      "source_files": [
+        "tokio/src/macros/join.rs",
+        "tokio/src/macros/support.rs",
+        "tokio/src/macros/try_join.rs"
+      ],
+      "expected_files": [
+        "tokio/src/macros/join.rs",
+        "tokio/src/macros/support.rs",
+        "tokio/src/macros/try_join.rs"
+      ],
+      "expected_tests": [
+        "tokio/tests/macros_join.rs",
+        "tokio/tests/macros_try_join.rs"
+      ],
+      "should_touch_files": [
+        "tokio/src/future/maybe_done.rs",
+        "tokio/src/macros/mod.rs",
+        "tokio/src/macros/select.rs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "tokio-0922aa2a",
+      "repo": "tokio",
+      "base_commit": "2403b91d7531ee63886e28e3072d2664e2e81772",
+      "fix_commit": "0922aa2a0b09cf35582f15c799996c64e0b6e50a",
+      "subject": "ci: fix clippy warnings triggered under specific cfg (#7495)",
+      "seed_file": "tokio/src/runtime/metrics/histogram/h2_histogram.rs",
+      "seed_symbol": "LogHistogram",
+      "source_files": [
+        "tokio/src/fs/file.rs",
+        "tokio/src/runtime/dump.rs",
+        "tokio/src/runtime/io/driver/uring.rs",
+        "tokio/src/runtime/metrics/histogram.rs",
+        "tokio/src/runtime/metrics/histogram/h2_histogram.rs",
+        "tokio/src/runtime/scheduler/multi_thread/handle/taskdump.rs",
+        "tokio/src/runtime/task/mod.rs",
+        "tokio/src/runtime/task/trace/tree.rs"
+      ],
+      "expected_files": [
+        "tokio/src/fs/file.rs",
+        "tokio/src/runtime/dump.rs",
+        "tokio/src/runtime/io/driver/uring.rs",
+        "tokio/src/runtime/metrics/histogram.rs",
+        "tokio/src/runtime/metrics/histogram/h2_histogram.rs",
+        "tokio/src/runtime/scheduler/multi_thread/handle/taskdump.rs",
+        "tokio/src/runtime/task/mod.rs",
+        "tokio/src/runtime/task/trace/tree.rs"
+      ],
+      "expected_tests": [
+        "tokio/tests/macros_select.rs",
+        "tokio/tests/task_hooks.rs",
+        "tokio/tests/task_join_set.rs",
+        "tokio/tests/task_trace_self.rs",
+        "tokio/tests/tracing_task.rs"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "tokio-1979615c",
+      "repo": "tokio",
+      "base_commit": "f669a609cf1eaa94d2bc135212f57ff913eca898",
+      "fix_commit": "1979615cbf1cc4b4d296814957394703827362d0",
+      "subject": "process: fix panic from spurious pidfd wakeup (#7494)",
+      "seed_file": "tokio/src/process/unix/pidfd_reaper.rs",
+      "seed_symbol": "Debug",
+      "source_files": [
+        "tokio/src/io/poll_evented.rs",
+        "tokio/src/process/unix/pidfd_reaper.rs"
+      ],
+      "expected_files": [
+        "tokio/src/io/poll_evented.rs",
+        "tokio/src/process/unix/pidfd_reaper.rs"
+      ],
+      "expected_tests": [
+        "tokio/tests/process_issue_7144.rs"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "tokio-6d868d96",
+      "repo": "tokio",
+      "base_commit": "0a3fe460862720d005b8fa39cdde30575a063785",
+      "fix_commit": "6d868d96ce9df27c5ec1be3bba960ebe80ee4793",
+      "subject": "sync: fix `CancellationToken` failing to cancel the ready futures (#7462)",
+      "seed_file": "tokio-util/src/sync/cancellation_token.rs",
+      "seed_symbol": "CancellationToken",
+      "source_files": [
+        "tokio-util/src/sync/cancellation_token.rs"
+      ],
+      "expected_files": [
+        "tokio-util/src/sync/cancellation_token.rs"
+      ],
+      "expected_tests": [
+        "tokio-util/tests/sync_cancellation_token.rs"
+      ],
+      "should_touch_files": [
+        "tokio-util/src/sync/intrusive_double_linked_list.rs",
+        "tokio-util/src/sync/mod.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "tokio-a0d5b8ab",
+      "repo": "tokio",
+      "base_commit": "a1ee3ef218894f2441b5719812ab218ae0539c8d",
+      "fix_commit": "a0d5b8ab308bbeaa8090d411550d6c887d699096",
+      "subject": "runtime(unstable): fix task hook spawn locations for `tokio::spawn` (#7440)",
+      "seed_file": "tokio/src/util/trace.rs",
+      "seed_symbol": "cfg_rt",
+      "source_files": [
+        "tokio/src/runtime/handle.rs",
+        "tokio/src/runtime/scheduler/current_thread/mod.rs",
+        "tokio/src/runtime/scheduler/mod.rs",
+        "tokio/src/runtime/scheduler/multi_thread/handle.rs",
+        "tokio/src/runtime/task/harness.rs",
+        "tokio/src/runtime/task/mod.rs",
+        "tokio/src/runtime/task_hooks.rs",
+        "tokio/src/task/local.rs",
+        "tokio/src/task/spawn.rs",
+        "tokio/src/util/trace.rs"
+      ],
+      "expected_files": [
+        "tokio/src/runtime/handle.rs",
+        "tokio/src/runtime/scheduler/current_thread/mod.rs",
+        "tokio/src/runtime/scheduler/mod.rs",
+        "tokio/src/runtime/scheduler/multi_thread/handle.rs",
+        "tokio/src/runtime/task/harness.rs",
+        "tokio/src/runtime/task/mod.rs",
+        "tokio/src/runtime/task_hooks.rs",
+        "tokio/src/task/local.rs",
+        "tokio/src/task/spawn.rs",
+        "tokio/src/util/trace.rs"
+      ],
+      "expected_tests": [
+        "tokio/tests/task_hooks.rs"
+      ],
+      "should_touch_files": [
+        "tokio/src/macros/cfg.rs",
+        "tokio/src/macros/mod.rs",
+        "tokio/src/runtime/builder.rs",
+        "tokio/src/runtime/mod.rs",
+        "tokio/src/runtime/spawner.rs",
+        "tokio/src/runtime/task/core.rs",
+        "tokio/src/runtime/task/error.rs",
+        "tokio/src/runtime/task/join.rs",
+        "tokio/src/runtime/task/list.rs",
+        "tokio/src/task/blocking.rs",
+        "tokio/src/task/builder.rs",
+        "tokio/src/task/mod.rs",
+        "tokio/src/time/driver/sleep.rs",
+        "tokio/src/util/mod.rs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "tokio-129f9fc0",
+      "repo": "tokio",
+      "base_commit": "b5c227d51feff804fe7ce73721fb32f4227fad73",
+      "fix_commit": "129f9fc0c8e9787dee3db5a6f65c3370ed148f7e",
+      "subject": "codec: fix incorrect handling of invalid utf-8 in `LinesCodec::decode_eof` (#7011)",
+      "seed_file": "tokio-util/src/codec/lines_codec.rs",
+      "seed_symbol": "LinesCodec",
+      "source_files": [
+        "tokio-util/src/codec/lines_codec.rs"
+      ],
+      "expected_files": [
+        "tokio-util/src/codec/lines_codec.rs"
+      ],
+      "expected_tests": [
+        "tokio-util/tests/codecs.rs"
+      ],
+      "should_touch_files": [
+        "examples/chat.rs",
+        "examples/tinydb.rs",
+        "examples/tinyhttp.rs",
+        "tokio-util/src/codec/any_delimiter_codec.rs",
+        "tokio-util/src/codec/bytes_codec.rs",
+        "tokio-util/src/codec/decoder.rs",
+        "tokio-util/src/codec/encoder.rs",
+        "tokio-util/src/codec/framed.rs",
+        "tokio-util/src/codec/framed_write.rs",
+        "tokio-util/src/codec/length_delimited.rs",
+        "tokio-util/src/udp/frame.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "tokio-4a34b77a",
+      "repo": "tokio",
+      "base_commit": "8897885425bf3d89053f896319eeb8777cf255fc",
+      "fix_commit": "4a34b77af5b6ae8addb8f60cfbda5dd2686b61d3",
+      "subject": "metrics: fix bug with wrong number of buckets for the histogram (#6957)",
+      "seed_file": "tokio/src/runtime/metrics/histogram.rs",
+      "seed_symbol": "HistogramBuilder",
+      "source_files": [
+        "tokio/src/runtime/metrics/histogram.rs"
+      ],
+      "expected_files": [
+        "tokio/src/runtime/metrics/histogram.rs"
+      ],
+      "expected_tests": [
+        "tokio/tests/rt_unstable_metrics.rs"
+      ],
+      "should_touch_files": [
+        "tokio/src/runtime/builder.rs",
+        "tokio/src/runtime/metrics/mod.rs",
+        "tokio/src/runtime/metrics/runtime.rs",
+        "tokio/src/runtime/metrics/worker.rs",
+        "tokio/src/runtime/mod.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "tokio-0cea36fa",
+      "repo": "tokio",
+      "base_commit": "d6213594ca3767f182e8981fde7a119575e94c65",
+      "fix_commit": "0cea36fa3d60e7294a8e24a00b69c60b26c88c3d",
+      "subject": "net: fix handling of leading zero byte in `from_abstract_name` (#6838)",
+      "seed_file": "tokio/src/net/unix/listener.rs",
+      "seed_symbol": "UnixListener",
+      "source_files": [
+        "tokio/src/net/unix/listener.rs",
+        "tokio/src/net/unix/stream.rs"
+      ],
+      "expected_files": [
+        "tokio/src/net/unix/listener.rs",
+        "tokio/src/net/unix/stream.rs"
+      ],
+      "expected_tests": [
+        "tokio/tests/uds_stream.rs"
+      ],
+      "should_touch_files": [
+        "examples/chat.rs",
+        "examples/connect.rs",
+        "examples/print_each_packet.rs",
+        "examples/udp-codec.rs",
+        "tokio-stream/src/lib.rs",
+        "tokio-stream/src/macros.rs",
+        "tokio-stream/src/stream_map.rs",
+        "tokio-test/src/io.rs",
+        "tokio-test/src/task.rs",
+        "tokio-util/src/codec/framed.rs",
+        "tokio-util/src/codec/mod.rs",
+        "tokio-util/src/sync/cancellation_token/tree_node.rs",
+        "tokio-util/src/udp/frame.rs",
+        "tokio/src/fs/file.rs",
+        "tokio/src/fs/read_dir.rs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "tokio-1e286689",
+      "repo": "tokio",
+      "base_commit": "15925efe436fdfc2c5a8e5b27c82dc6501d90317",
+      "fix_commit": "1e286689ffc533a2d08c2f30c55ad46f9c3c5b93",
+      "subject": "runtime: fix `yield_calls_park_before_scheduling_again` test (#6679)",
+      "seed_file": "tokio/src/runtime/scheduler/multi_thread/park.rs",
+      "seed_symbol": "loom",
+      "source_files": [
+        "tokio/src/runtime/park.rs",
+        "tokio/src/runtime/scheduler/multi_thread/park.rs"
+      ],
+      "expected_files": [
+        "tokio/src/runtime/park.rs",
+        "tokio/src/runtime/scheduler/multi_thread/park.rs"
+      ],
+      "expected_tests": [
+        "tokio/src/runtime/tests/loom_multi_thread/yield_now.rs"
+      ],
+      "should_touch_files": [
+        "tokio/src/runtime/builder.rs",
+        "tokio/src/runtime/driver.rs",
+        "tokio/src/runtime/scheduler/current_thread.rs",
+        "tokio/src/runtime/scheduler/mod.rs",
+        "tokio/src/runtime/scheduler/multi_thread/mod.rs",
+        "tokio/src/runtime/scheduler/multi_thread/queue.rs",
+        "tokio/src/runtime/scheduler/multi_thread/worker.rs",
+        "tokio/src/runtime/time/mod.rs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "tokio-75c953bd",
+      "repo": "tokio",
+      "base_commit": "14c17fc09656a30230177b600bacceb9db33e942",
+      "fix_commit": "75c953bd639ee8630f678a02edd87e7814b04abc",
+      "subject": "time: fix big time panic issue (#6612)",
+      "seed_file": "tokio/src/runtime/time/source.rs",
+      "seed_symbol": "TimeSource",
+      "source_files": [
+        "tokio/src/runtime/time/source.rs"
+      ],
+      "expected_files": [
+        "tokio/src/runtime/time/source.rs"
+      ],
+      "expected_tests": [
+        "tokio/src/runtime/time/tests/mod.rs"
+      ],
+      "should_touch_files": [
+        "tokio/src/runtime/time/entry.rs",
+        "tokio/src/runtime/time/mod.rs",
+        "tokio/src/time/sleep.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "tokio-dbf93c71",
+      "repo": "tokio",
+      "base_commit": "873cb8ae2fc291eaffbd71e3c83d17b2f0ed7abf",
+      "fix_commit": "dbf93c71844a01574a10f9dee0d4d9655a569f0a",
+      "subject": "sync: fix incorrect is_empty on mpsc block boundaries (#6603)",
+      "seed_file": "tokio/src/sync/mpsc/block.rs",
+      "seed_symbol": "Block",
+      "source_files": [
+        "tokio/src/sync/mpsc/block.rs"
+      ],
+      "expected_files": [
+        "tokio/src/sync/mpsc/block.rs"
+      ],
+      "expected_tests": [
+        "tokio/tests/sync_mpsc.rs"
+      ],
+      "should_touch_files": [
+        "tokio/src/fs/file.rs",
+        "tokio/src/future/maybe_done.rs",
+        "tokio/src/io/blocking.rs",
+        "tokio/src/io/split.rs",
+        "tokio/src/loom/std/atomic_usize.rs",
+        "tokio/src/loom/std/mod.rs",
+        "tokio/src/net/tcp/listener.rs",
+        "tokio/src/net/tcp/stream.rs",
+        "tokio/src/net/unix/listener.rs",
+        "tokio/src/runtime/builder.rs",
+        "tokio/src/runtime/handle.rs",
+        "tokio/src/runtime/mod.rs",
+        "tokio/src/runtime/queue.rs",
+        "tokio/src/runtime/task/core.rs",
+        "tokio/src/runtime/task/mod.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "tokio-2890d0c3",
+      "repo": "tokio",
+      "base_commit": "0a85a9662d30139c779ea49a59be30db0f292b5d",
+      "fix_commit": "2890d0c3db4f595330d8d223bfbfeb81e205b048",
+      "subject": "metrics: fix blocking_threads count (#6551)",
+      "seed_file": "tokio/src/runtime/scheduler/multi_thread/handle/metrics.rs",
+      "seed_symbol": "Handle",
+      "source_files": [
+        "tokio/src/runtime/scheduler/multi_thread/handle/metrics.rs",
+        "tokio/src/runtime/scheduler/multi_thread_alt/handle/metrics.rs"
+      ],
+      "expected_files": [
+        "tokio/src/runtime/scheduler/multi_thread/handle/metrics.rs",
+        "tokio/src/runtime/scheduler/multi_thread_alt/handle/metrics.rs"
+      ],
+      "expected_tests": [
+        "tokio/tests/rt_metrics.rs"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    }
+  ]
+}

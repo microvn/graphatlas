@@ -1,0 +1,35 @@
+{
+  "repo": "Polly",
+  "lang": "csharp",
+  "enriched_at": "2026-04-29T18:58:50.255Z",
+  "count": 1,
+  "tasks": [
+    {
+      "task_id": "Polly-016dd909",
+      "repo": "Polly",
+      "base_commit": "779aa834d9a317a7e26493385f2fdf48ce20f3ef",
+      "fix_commit": "016dd909db880b9d8d07954ff5f4ea3cc1e11c67",
+      "subject": "Fix `ScheduledTaskExecutor` deadlock when `TrySetResult` runs continuations inline (#2953)",
+      "seed_file": "src/Polly.Core/CircuitBreaker/Controller/ScheduledTaskExecutor.cs",
+      "seed_symbol": "ScheduledTaskExecutor",
+      "source_files": [
+        "src/Polly.Core/CircuitBreaker/Controller/ScheduledTaskExecutor.cs"
+      ],
+      "expected_files": [
+        "src/Polly.Core/CircuitBreaker/Controller/ScheduledTaskExecutor.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Core.Tests/CircuitBreaker/Controller/ScheduledTaskExecutorTests.cs"
+      ],
+      "should_touch_files": [
+        "src/Polly.Core/CircuitBreaker/CircuitBreakerManualControl.cs",
+        "src/Polly.Core/CircuitBreaker/CircuitBreakerResilienceStrategy.cs",
+        "src/Polly.Core/CircuitBreaker/Controller/CircuitStateController.cs",
+        "src/Polly.Core/Hedging/Controller/HedgingExecutionContext.cs",
+        "src/Polly.Core/Registry/RegistryPipelineComponentBuilder.cs",
+        "src/Polly.Extensions/DependencyInjection/PollyServiceCollectionExtensions.cs"
+      ],
+      "max_expected_depth": 1
+    }
+  ]
+}

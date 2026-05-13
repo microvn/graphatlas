@@ -1,0 +1,247 @@
+{
+  "repo": "regex",
+  "lang": "rust",
+  "mined_at": "2026-04-28T13:09:09.806Z",
+  "target": 20,
+  "actual": 20,
+  "candidates": [
+    {
+      "sha": "4733e28ba4f281f643ce93e4089eccbb9a9d5a5a",
+      "parent_sha": "5ea3eb1e95f0338e283f5f0b4681f0891a1cd836",
+      "subject": "automata: fix `onepass::DFA::try_search_slots` panic when too many slots are given",
+      "source_files": [
+        "regex-automata/src/dfa/onepass.rs"
+      ],
+      "test_files": [
+        "regex-automata/tests/dfa/onepass/mod.rs",
+        "regex-automata/tests/dfa/onepass/regression.rs",
+        "regex-automata/tests/nfa/thompson/backtrack/mod.rs",
+        "regex-automata/tests/nfa/thompson/backtrack/regression.rs",
+        "regex-automata/tests/nfa/thompson/pikevm/mod.rs",
+        "regex-automata/tests/nfa/thompson/pikevm/regression.rs"
+      ]
+    },
+    {
+      "sha": "bd345d74a1c5b7869abf063443bc4663cd20f1ea",
+      "parent_sha": "72618c64c85611a30939252a823c000e35f7cffd",
+      "subject": "automata: fix broken universal start states with sparse DFA",
+      "source_files": [
+        "regex-automata/src/dfa/sparse.rs"
+      ],
+      "test_files": [
+        "regex-automata/tests/dfa/api.rs"
+      ]
+    },
+    {
+      "sha": "bb70b106e9a47108da0c3cff13b693133c077c1c",
+      "parent_sha": "ca5a742701963f1aa37b4103d3e638f7540e0e57",
+      "subject": "automata: fix broken universal start states with sparse DFA",
+      "source_files": [
+        "regex-automata/src/dfa/sparse.rs"
+      ],
+      "test_files": [
+        "regex-automata/tests/dfa/api.rs"
+      ]
+    },
+    {
+      "sha": "0086dec69a77a9e1153e97cd050ab567b5c7f109",
+      "parent_sha": "4ae14720e9599830f653ca1a881b42e620eba11e",
+      "subject": "lite: fix stack overflow test",
+      "source_files": [
+        "regex-lite/src/hir/mod.rs",
+        "regex-lite/src/hir/parse.rs"
+      ],
+      "test_files": [
+        "regex-lite/tests/fuzz/mod.rs"
+      ]
+    },
+    {
+      "sha": "466e42ca2bea2480ff367e0e26e3967435ac3e30",
+      "parent_sha": "5dff4bd7e3bf8b87a272e31c23f1b64417e4c5de",
+      "subject": "lite: fix stack overflow in NFA compiler",
+      "source_files": [
+        "fuzz/regressions/clusterfuzz-testcase-minimized-fuzz_regex_lite_match-4692452983046144",
+        "regex-lite/src/hir/parse.rs"
+      ],
+      "test_files": [
+        "regex-lite/tests/fuzz/mod.rs"
+      ]
+    },
+    {
+      "sha": "40d883d405ba3e992d84367a6e9ede4053125ab3",
+      "parent_sha": "d555d6122d1d1a354c45361d029571413beca8ef",
+      "subject": "bug: fix complete literal optimization issue",
+      "source_files": [
+        "src/exec.rs"
+      ],
+      "test_files": [
+        "tests/regression.rs"
+      ]
+    },
+    {
+      "sha": "f9aec4179fb59c33d19b1fafd05ff9e2bf4dd735",
+      "parent_sha": "65ec58cbd4dd9a0fcfa0823876b7dd0bb1736bd1",
+      "subject": "syntax: fix overflow for big counted repetitions",
+      "source_files": [
+        "regex-syntax/src/hir/mod.rs"
+      ],
+      "test_files": [
+        "tests/regression.rs"
+      ]
+    },
+    {
+      "sha": "f003d72578c84d3b849fa1c59724e003338a3ca1",
+      "parent_sha": "93316a3b1adc43cc12fab6c73a59f646658cd984",
+      "subject": "impl: fix prefix literal matching bug",
+      "source_files": [
+        "regex-syntax/src/hir/mod.rs",
+        "regex-syntax/src/hir/translate.rs",
+        "src/exec.rs"
+      ],
+      "test_files": [
+        "tests/regression.rs"
+      ]
+    },
+    {
+      "sha": "33898de870fc584ce912651590d8715d1178e667",
+      "parent_sha": "cf8751aaffd4613d69e56eb1e04a44ced2ca27c0",
+      "subject": "syntax: fix bug in new alternation literal analysis",
+      "source_files": [
+        "regex-syntax/src/hir/mod.rs",
+        "regex-syntax/src/hir/translate.rs"
+      ],
+      "test_files": [
+        "tests/regression_fuzz.rs"
+      ]
+    },
+    {
+      "sha": "d94f95523aed7fecc71fc2e082d1458f69dd8de3",
+      "parent_sha": "32fed9429eafba0ae92a64b01796a0c5a75b88c8",
+      "subject": "dfa: fix bug in how the reverse DFA is called",
+      "source_files": [
+        "src/exec.rs"
+      ],
+      "test_files": [
+        "tests/test_default.rs"
+      ]
+    },
+    {
+      "sha": "1c19619672c2ef16dc9f64fec38af5719c4ec06c",
+      "parent_sha": "88a2a62d861d189faae539990f63cb9cf195bd8c",
+      "subject": "syntax: fix literal extraction for 'ab??'",
+      "source_files": [
+        "regex-syntax/src/hir/literal/mod.rs"
+      ],
+      "test_files": [
+        "tests/regression.rs"
+      ]
+    },
+    {
+      "sha": "ae70b41d4f46641dbc45c7a4f87954aea356283e",
+      "parent_sha": "b92ffd5471018419ec48dbdef32757424439f065",
+      "subject": "security: fix denial-of-service bug in compiler",
+      "source_files": [
+        "src/compile.rs"
+      ],
+      "test_files": [
+        "tests/test_default.rs"
+      ]
+    },
+    {
+      "sha": "ea4009a22da6d91665930ff01a503a0d93e59b14",
+      "parent_sha": "2a8ddd0b36095d3810f3556627cd59c5014edd01",
+      "subject": "syntax: fix flag scoping issue",
+      "source_files": [
+        "regex-syntax/src/hir/translate.rs"
+      ],
+      "test_files": [
+        "tests/regression.rs"
+      ]
+    },
+    {
+      "sha": "65d6bba9254d514a16e0bf89d76cbd9b90740e5c",
+      "parent_sha": "b9d1bb5e988edc497c59a7e61b01faab6d587dc7",
+      "subject": "api: fix for splitn(\"a\", 2) returning extra \"\"",
+      "source_files": [
+        "src/re_bytes.rs",
+        "src/re_unicode.rs"
+      ],
+      "test_files": [
+        "tests/api.rs"
+      ]
+    },
+    {
+      "sha": "b9d1bb5e988edc497c59a7e61b01faab6d587dc7",
+      "parent_sha": "2f3fd66edff75835e205a63525cc1b8f8c1f24a6",
+      "subject": "api: fix for split() not returning last \"\"",
+      "source_files": [
+        "src/re_bytes.rs",
+        "src/re_unicode.rs"
+      ],
+      "test_files": [
+        "tests/api.rs",
+        "tests/macros.rs",
+        "tests/macros_bytes.rs",
+        "tests/macros_str.rs"
+      ]
+    },
+    {
+      "sha": "cd05a244949c2225d7f776d7ea51db7b7dd4bb27",
+      "parent_sha": "9687986de45378c744180cc696286aad7db83c5e",
+      "subject": "input: fix infinite loop regression",
+      "source_files": [
+        "src/backtrack.rs",
+        "src/pikevm.rs"
+      ],
+      "test_files": [
+        "tests/regression.rs"
+      ]
+    },
+    {
+      "sha": "231643248b585eae007c46fad0c4830978c0d425",
+      "parent_sha": "7b1599f2f6903e4087c6cd109404be4056406ad9",
+      "subject": "syntax: fix bug when parsing ((?x))",
+      "source_files": [
+        "regex-syntax/src/hir/translate.rs"
+      ],
+      "test_files": [
+        "tests/regression.rs"
+      ]
+    },
+    {
+      "sha": "7b1599f2f6903e4087c6cd109404be4056406ad9",
+      "parent_sha": "67fca6cbfff22bb297e0935bc3c267bc336d4e3b",
+      "subject": "syntax: fix counted repetition bug",
+      "source_files": [
+        "regex-syntax/src/ast/parse.rs"
+      ],
+      "test_files": [
+        "tests/regression.rs"
+      ]
+    },
+    {
+      "sha": "3563d734ae13ff6d0601d0933f0890470367fe5b",
+      "parent_sha": "6152de43c9a30ad8ccc107d5c61f0726b92fd0a7",
+      "subject": "exec: fix a bug in capture with match",
+      "source_files": [
+        "src/backtrack.rs",
+        "src/exec.rs",
+        "src/pikevm.rs"
+      ],
+      "test_files": [
+        "tests/regression.rs"
+      ]
+    },
+    {
+      "sha": "edf45e6f5fa54705298ba14f3216cfb5277c0908",
+      "parent_sha": "9fb112e0d7c3cb14c2881a57b565fbfbf3a390fb",
+      "subject": "literal: fix reverse suffix literal optimization again",
+      "source_files": [
+        "src/exec.rs"
+      ],
+      "test_files": [
+        "tests/regression.rs"
+      ]
+    }
+  ]
+}

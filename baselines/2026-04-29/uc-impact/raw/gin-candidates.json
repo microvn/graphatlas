@@ -1,0 +1,358 @@
+{
+  "repo": "gin",
+  "lang": "go",
+  "mined_at": "2026-04-22T19:44:23.536Z",
+  "target": 28,
+  "actual": 28,
+  "candidates": [
+    {
+      "sha": "472d086af2acd924cb4b9d7be0525f7d790f69bc",
+      "parent_sha": "fb2583442c4d9bccb75e6d26f1aa6e7c01950db6",
+      "subject": "fix(tree): panic in findCaseInsensitivePathRec with RedirectFixedPath (#4535)",
+      "source_files": [
+        "tree.go"
+      ],
+      "test_files": [
+        "tree_test.go"
+      ]
+    },
+    {
+      "sha": "fb2583442c4d9bccb75e6d26f1aa6e7c01950db6",
+      "parent_sha": "6f1d5fe3cdb171a08928c3c9dd3fbcfc9ee1b521",
+      "subject": "test(context): use http.StatusContinue constant instead of magic number 100 (#4542)",
+      "source_files": [
+        "context.go"
+      ],
+      "test_files": [
+        "context_test.go",
+        "logger_test.go",
+        "utils_test.go"
+      ]
+    },
+    {
+      "sha": "5c00df8afadd06cc5be530dde00fe6d9fa4a2e4a",
+      "parent_sha": "db309081bc5c137b2aa15701ef53f7f19788da25",
+      "subject": "fix(render): write content length in Data.Render (#4206)",
+      "source_files": [
+        "render/data.go"
+      ],
+      "test_files": [
+        "render/render_test.go"
+      ]
+    },
+    {
+      "sha": "8e07d37c63e5536eb25f4af4c91eabeee4011fba",
+      "parent_sha": "d7776de7d444935ea4385999711bd6331a98fecb",
+      "subject": "fix: Correct typos, improve documentation clarity, and remove dead code (#4511)",
+      "source_files": [
+        "context.go",
+        "errors.go",
+        "routergroup.go"
+      ],
+      "test_files": [
+        "recovery_test.go"
+      ]
+    },
+    {
+      "sha": "9914178584e42458ff7d23891463a880f58c9d86",
+      "parent_sha": "915e4c90d28ec4cffc6eb146e208ab5a65eac772",
+      "subject": "fix(context): ClientIP handling for multiple X-Forwarded-For header values (#4472)",
+      "source_files": [
+        "context.go"
+      ],
+      "test_files": [
+        "context_test.go"
+      ]
+    },
+    {
+      "sha": "19b877fa50cbbb9282763099fb177a1e5cc5c850",
+      "parent_sha": "2a794cd0b0faa7d829291375b27a3467ea972b0d",
+      "subject": "test(debug): improve the test coverage of debug.go to 100% (#4404)",
+      "source_files": [
+        "debug.go"
+      ],
+      "test_files": [
+        "debug_test.go"
+      ]
+    },
+    {
+      "sha": "b917b14ff9d189f16a7492be79d123a47806ee19",
+      "parent_sha": "fad706f1216e6d12bdd51d28d5a40ec27e6c6453",
+      "subject": "fix(binding): empty value error (#2169)",
+      "source_files": [
+        "binding/form_mapping.go"
+      ],
+      "test_files": [
+        "binding/form_mapping_test.go"
+      ]
+    },
+    {
+      "sha": "f416d1e594a027063e73f66ac873a82113036fd8",
+      "parent_sha": "583db590ec2a488ebcf7f8dc6232d11c7db62eac",
+      "subject": "test(gin): resolve race conditions in integration tests (#4453)",
+      "source_files": [
+        "test_helpers.go"
+      ],
+      "test_files": [
+        "gin_integration_test.go",
+        "gin_test.go"
+      ]
+    },
+    {
+      "sha": "63dd3e60cab89c27fb66bce1423bd268d52abad1",
+      "parent_sha": "c358d5656d0feb8b310d4ec379bccde46ccc8cc7",
+      "subject": "fix(recover): suppress http.ErrAbortHandler in recover (#4336)",
+      "source_files": [
+        "recovery.go"
+      ],
+      "test_files": [
+        "recovery_test.go"
+      ]
+    },
+    {
+      "sha": "5fad976b372e381312f8de69f0969f1284d229d3",
+      "parent_sha": "93ff771e6dbf10e432864b30f3719ac5c84a4d4a",
+      "subject": "fix(gin): literal colon routes not working with engine.Handler() (#4415)",
+      "source_files": [
+        "gin.go"
+      ],
+      "test_files": [
+        "gin_test.go"
+      ]
+    },
+    {
+      "sha": "fb27ef26c2fdfe25344b4c039d8a53551f9e912c",
+      "parent_sha": "19c2d5c0d1d096e1014fb7be62116ee9025d0f56",
+      "subject": "ci(lint): refactor test assertions and linter configuration (#4436)",
+      "source_files": [
+        ".golangci.yml"
+      ],
+      "test_files": [
+        "context_test.go",
+        "gin_integration_test.go"
+      ]
+    },
+    {
+      "sha": "c221133ee80c46e3a6c50717ca6f1b41d4ab7711",
+      "parent_sha": "c3d1092b3b48addf6f9cd00fe274ec3bd14650eb",
+      "subject": "docs(context): fix some comments (#4396)",
+      "source_files": [
+        "context.go"
+      ],
+      "test_files": [
+        "logger_test.go"
+      ]
+    },
+    {
+      "sha": "c3d1092b3b48addf6f9cd00fe274ec3bd14650eb",
+      "parent_sha": "9968c4bf9d5a99edc3eee2c068a4c9160ece8915",
+      "subject": "fix(binding): improve empty slice/array handling in form binding (#4380)",
+      "source_files": [
+        "binding/form_mapping.go"
+      ],
+      "test_files": [
+        "binding/form_mapping_test.go"
+      ]
+    },
+    {
+      "sha": "234a6d4c00cb77af9852aca0b8289745d5529b4b",
+      "parent_sha": "df2753778e7bc5c2dd559361cf0c97b2b313e9bb",
+      "subject": "fix(response): refine hijack behavior for response lifecycle (#4373)",
+      "source_files": [
+        "response_writer.go"
+      ],
+      "test_files": [
+        "response_writer_test.go"
+      ]
+    },
+    {
+      "sha": "32065bbd4298d566d060d234e452bbf44e92161d",
+      "parent_sha": "b987b6206f13a4c244739e4f4e6c6a2b7dfff9d3",
+      "subject": "chore(response): prevention of Hijack() runtime panics (#4295)",
+      "source_files": [
+        "response_writer.go"
+      ],
+      "test_files": [
+        "response_writer_test.go"
+      ]
+    },
+    {
+      "sha": "848e1cdd0d1525ce0a99b7e6a2a1cf0d84d76156",
+      "parent_sha": "c8af82af15dd00d684113334d12e05f589f33ff3",
+      "subject": "refactor: replace interface{} with any in type declarations (#4249)",
+      "source_files": [
+        ".golangci.yml",
+        "binding/plain.go",
+        "debug.go"
+      ],
+      "test_files": [
+        "render/render_test.go"
+      ]
+    },
+    {
+      "sha": "40725d85badd647870df6f9fa7a75ac76341f804",
+      "parent_sha": "c4287b1300363cb3dc2c8408299d3ba6deded485",
+      "subject": "chore(bind): return 413 status code when error is `http.MaxBytesError` (#4227)",
+      "source_files": [
+        "context.go",
+        "internal/json/go_json.go",
+        "internal/json/json.go",
+        "internal/json/jsoniter.go",
+        "internal/json/sonic.go"
+      ],
+      "test_files": [
+        "context_test.go"
+      ]
+    },
+    {
+      "sha": "c4287b1300363cb3dc2c8408299d3ba6deded485",
+      "parent_sha": "8fb3136664254d7c592127f00d52849caba18a67",
+      "subject": "ci(golangci-lint): update configuration and fix lint issues (#4247)",
+      "source_files": [
+        ".golangci.yml",
+        "binding/form.go",
+        "binding/header.go",
+        "binding/xml.go",
+        "fs.go",
+        "gin.go",
+        "ginS/gins.go",
+        "internal/fs/fs.go",
+        "mode.go",
+        "render/html.go"
+      ],
+      "test_files": [
+        "binding/binding_test.go",
+        "binding/default_validator_test.go",
+        "binding/form_mapping_test.go",
+        "binding/validate_test.go",
+        "context_test.go",
+        "errors_test.go",
+        "gin_integration_test.go",
+        "gin_test.go",
+        "githubapi_test.go",
+        "internal/bytesconv/bytesconv_test.go",
+        "logger_test.go",
+        "middleware_test.go",
+        "render/render_test.go",
+        "routes_test.go",
+        "tree_test.go",
+        "utils_test.go"
+      ]
+    },
+    {
+      "sha": "8fb3136664254d7c592127f00d52849caba18a67",
+      "parent_sha": "674522db91d637d179c16c372d87756ea26fa089",
+      "subject": "Revert \"fix(time): binding time with empty value (#4103)\" (#4245)",
+      "source_files": [
+        "binding/form_mapping.go"
+      ],
+      "test_files": [
+        "binding/form_mapping_test.go"
+      ]
+    },
+    {
+      "sha": "674522db91d637d179c16c372d87756ea26fa089",
+      "parent_sha": "8f7c340577e19245827f7ba71ef3e0143cc7eeee",
+      "subject": "fix(time): binding time with empty value (#4103)",
+      "source_files": [
+        "binding/form_mapping.go"
+      ],
+      "test_files": [
+        "binding/form_mapping_test.go"
+      ]
+    },
+    {
+      "sha": "fb09c825e8e13134daaa90debfda198520e1b347",
+      "parent_sha": "3d8e288c64aa3d3064df6264ab1b5445a28b709d",
+      "subject": "feat(context): add SetCookieData (#4240)",
+      "source_files": [
+        "context.go"
+      ],
+      "test_files": [
+        "context_test.go"
+      ]
+    },
+    {
+      "sha": "b38c59de7fef67400a1c98efeae700a689c45783",
+      "parent_sha": "cf32d2dcf8c7534f59727c5e213e45f2412c593a",
+      "subject": "fix(errors): change Unwrap method receiver to value type (#4232)",
+      "source_files": [
+        "errors.go"
+      ],
+      "test_files": [
+        "errors_test.go"
+      ]
+    },
+    {
+      "sha": "8763f33c65f7df8be5b9fe7504ab7fcf20abb41d",
+      "parent_sha": "e737e3e267beb4dc3bab16cc8be59e3902d98a94",
+      "subject": "fix: prevent middleware re-entry issue in HandleContext (#3987)",
+      "source_files": [
+        "gin.go"
+      ],
+      "test_files": [
+        "gin_test.go"
+      ]
+    },
+    {
+      "sha": "90cf4602698dcbce18df3165b2d24e2940670a41",
+      "parent_sha": "ebe5e2a6bfdca50fd44074b470ad486392e2933f",
+      "subject": "chore: update Go versions and dependencies for improved compatibility (#4187)",
+      "source_files": [
+        ".golangci.yml",
+        "debug.go",
+        "go.mod",
+        "go.sum"
+      ],
+      "test_files": [
+        "debug_test.go"
+      ]
+    },
+    {
+      "sha": "3f818c3fa69e03feb46d2b49d2a8084c425cbed6",
+      "parent_sha": "23d6961aeb9d2670a7b36c77cb180f479e220580",
+      "subject": "chore(security): upgrade quic-go version to 0.48.2 (#4127)",
+      "source_files": [
+        "debug.go",
+        "go.mod",
+        "go.sum"
+      ],
+      "test_files": [
+        "debug_test.go"
+      ]
+    },
+    {
+      "sha": "ea53388e6ee4a6a0a1647b390c56eeed780e7e56",
+      "parent_sha": "9d11234efec1e5517b2887a6e7dfbc9c017bc52c",
+      "subject": "fix(tree): Keep panic infos consistent when wildcard type build faild (#4077)",
+      "source_files": [
+        "tree.go"
+      ],
+      "test_files": [
+        "tree_test.go"
+      ]
+    },
+    {
+      "sha": "28e57f58b184b2305ace192e02496bb89f6fd8cb",
+      "parent_sha": "3cb30679b5e3021db16c776ed7e70d380586e9ce",
+      "subject": "fix(form): Set default value for form fields (#4047)",
+      "source_files": [
+        "binding/form_mapping.go"
+      ],
+      "test_files": [
+        "binding/form_mapping_test.go"
+      ]
+    },
+    {
+      "sha": "3cb30679b5e3021db16c776ed7e70d380586e9ce",
+      "parent_sha": "cc4e11438cd6c0bcc632fe3492d3817dfa21c337",
+      "subject": "feat(form): add array collection format in form binding (#3986)",
+      "source_files": [
+        "binding/form_mapping.go"
+      ],
+      "test_files": [
+        "binding/form_mapping_test.go"
+      ]
+    }
+  ]
+}

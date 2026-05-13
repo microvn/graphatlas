@@ -1,0 +1,21 @@
+{
+  "repo": "jekyll",
+  "lang": "ruby",
+  "mined_at": "2026-04-29T18:56:49.447Z",
+  "target": 20,
+  "actual": 1,
+  "candidates": [
+    {
+      "sha": "65d534a701ed25b5eb85cb7dda56c79096637752",
+      "parent_sha": "baab7bf78537679af48d2d2bce1df87a3035c95f",
+      "subject": "build: fix broken CI on newer rubies (#9954)",
+      "source_files": [
+        "script/rubies",
+        "script/test"
+      ],
+      "test_files": [
+        "test/test_page_without_a_file.rb"
+      ]
+    }
+  ]
+}

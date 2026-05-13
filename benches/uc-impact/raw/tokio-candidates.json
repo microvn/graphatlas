@@ -1,0 +1,264 @@
+{
+  "repo": "tokio",
+  "lang": "rust",
+  "mined_at": "2026-04-29T18:56:42.506Z",
+  "target": 20,
+  "actual": 20,
+  "candidates": [
+    {
+      "sha": "3ea11e2a5fb4139ca21b441044d98994a2b126c5",
+      "parent_sha": "c79121391db8f8d36d4213feeb25381caee110c7",
+      "subject": "sync: fix semaphore reopens after forget (#8021)",
+      "source_files": [
+        "tokio/src/sync/batch_semaphore.rs"
+      ],
+      "test_files": [
+        "tokio/tests/sync_semaphore.rs"
+      ]
+    },
+    {
+      "sha": "bf18ed452d6aae438e84ae008a01a74776abdc19",
+      "parent_sha": "f320197693ee09e28f1fca0e55418081adcdfc25",
+      "subject": "sync: fix panic in `Chan::recv_many` when called with non-empty vector on closed channel (#7991)",
+      "source_files": [
+        "tokio/src/sync/mpsc/chan.rs"
+      ],
+      "test_files": [
+        "tokio/tests/sync_mpsc.rs"
+      ]
+    },
+    {
+      "sha": "9f132172dbb00b1f6b6bda64bb9b194382079499",
+      "parent_sha": "6752f50154025a1aa2c231b643cdb78bb4c3892f",
+      "subject": "sync: fix `notify_waiters` priority in `Notify` (#7996)",
+      "source_files": [
+        "tokio/src/sync/notify.rs"
+      ],
+      "test_files": [
+        "tokio/tests/sync_notify.rs"
+      ]
+    },
+    {
+      "sha": "f21f2693f02aec9a876ac2bd21566c85e15b682e",
+      "parent_sha": "d81e8f0acbdd7d866bce4f733b3545fd834c7840",
+      "subject": "runtime: fix race condition during the blocking pool shutdown (#7922)",
+      "source_files": [
+        "tokio/src/runtime/blocking/pool.rs"
+      ],
+      "test_files": [
+        "tokio/src/runtime/tests/loom_blocking.rs"
+      ]
+    },
+    {
+      "sha": "d83921bc5181010be72704d1fe8fb9b6f10cb7e8",
+      "parent_sha": "96f64f4ee2afc0a6db76390134dd183d59ca5351",
+      "subject": "runtime: fix double increment of `num_idle_threads` on shutdown (#7910)",
+      "source_files": [
+        "tokio/src/runtime/blocking/pool.rs"
+      ],
+      "test_files": [
+        "tokio/tests/rt_unstable_metrics.rs"
+      ]
+    },
+    {
+      "sha": "96f64f4ee2afc0a6db76390134dd183d59ca5351",
+      "parent_sha": "00d10c22f831f7d4508444f17a84e19319eaf36b",
+      "subject": "codec: fix is_readable should be buffer empty or not (#7912)",
+      "source_files": [
+        "tokio-util/src/codec/framed_impl.rs"
+      ],
+      "test_files": [
+        "tokio-util/tests/framed.rs"
+      ]
+    },
+    {
+      "sha": "97d06ae1a69a38dfe20e65b5972f456781f2e0c1",
+      "parent_sha": "b5054e1dfff24c6166ed61100cfbfd329b16b8f8",
+      "subject": "macros: fix the hygiene issue of `join!` and `try_join!` (#7766)",
+      "source_files": [
+        "tokio/src/macros/join.rs",
+        "tokio/src/macros/try_join.rs"
+      ],
+      "test_files": [
+        "tests-build/tests/fail/macros_join.rs",
+        "tests-build/tests/fail/macros_join.stderr",
+        "tests-build/tests/fail/macros_try_join.rs",
+        "tests-build/tests/fail/macros_try_join.stderr",
+        "tests-build/tests/macros.rs"
+      ]
+    },
+    {
+      "sha": "07f6cc7e1d9b319be02960074c885a7eb423c3b8",
+      "parent_sha": "308e3e68715ffa10ffb95a0b430ca063e08a6c9a",
+      "subject": "macros: fix the hygiene issue of `join!` and `try_join!` (#7638)",
+      "source_files": [
+        "tokio/src/macros/join.rs",
+        "tokio/src/macros/support.rs",
+        "tokio/src/macros/try_join.rs"
+      ],
+      "test_files": [
+        "tokio/tests/macros_join.rs",
+        "tokio/tests/macros_try_join.rs"
+      ]
+    },
+    {
+      "sha": "eb99e476e674f81095e2f8f15cbc92f8650f5364",
+      "parent_sha": "b9b532485bbb879042a1bd2ef40a50e6c1d15bb6",
+      "subject": "macros: fix the hygiene issue of `join!` and `try_join!` (#7638)",
+      "source_files": [
+        "tokio/src/macros/join.rs",
+        "tokio/src/macros/support.rs",
+        "tokio/src/macros/try_join.rs"
+      ],
+      "test_files": [
+        "tokio/tests/macros_join.rs",
+        "tokio/tests/macros_try_join.rs"
+      ]
+    },
+    {
+      "sha": "0922aa2a0b09cf35582f15c799996c64e0b6e50a",
+      "parent_sha": "2403b91d7531ee63886e28e3072d2664e2e81772",
+      "subject": "ci: fix clippy warnings triggered under specific cfg (#7495)",
+      "source_files": [
+        "tokio/src/fs/file.rs",
+        "tokio/src/runtime/dump.rs",
+        "tokio/src/runtime/io/driver/uring.rs",
+        "tokio/src/runtime/metrics/histogram.rs",
+        "tokio/src/runtime/metrics/histogram/h2_histogram.rs",
+        "tokio/src/runtime/scheduler/multi_thread/handle/taskdump.rs",
+        "tokio/src/runtime/task/mod.rs",
+        "tokio/src/runtime/task/trace/tree.rs"
+      ],
+      "test_files": [
+        "tokio/tests/macros_select.rs",
+        "tokio/tests/task_hooks.rs",
+        "tokio/tests/task_join_set.rs",
+        "tokio/tests/task_trace_self.rs",
+        "tokio/tests/tracing_task.rs"
+      ]
+    },
+    {
+      "sha": "1979615cbf1cc4b4d296814957394703827362d0",
+      "parent_sha": "f669a609cf1eaa94d2bc135212f57ff913eca898",
+      "subject": "process: fix panic from spurious pidfd wakeup (#7494)",
+      "source_files": [
+        "tokio/src/io/poll_evented.rs",
+        "tokio/src/process/unix/pidfd_reaper.rs"
+      ],
+      "test_files": [
+        "tokio/tests/process_issue_7144.rs"
+      ]
+    },
+    {
+      "sha": "6d868d96ce9df27c5ec1be3bba960ebe80ee4793",
+      "parent_sha": "0a3fe460862720d005b8fa39cdde30575a063785",
+      "subject": "sync: fix `CancellationToken` failing to cancel the ready futures (#7462)",
+      "source_files": [
+        "tokio-util/src/sync/cancellation_token.rs"
+      ],
+      "test_files": [
+        "tokio-util/tests/sync_cancellation_token.rs"
+      ]
+    },
+    {
+      "sha": "a0d5b8ab308bbeaa8090d411550d6c887d699096",
+      "parent_sha": "a1ee3ef218894f2441b5719812ab218ae0539c8d",
+      "subject": "runtime(unstable): fix task hook spawn locations for `tokio::spawn` (#7440)",
+      "source_files": [
+        "tokio/src/runtime/handle.rs",
+        "tokio/src/runtime/scheduler/current_thread/mod.rs",
+        "tokio/src/runtime/scheduler/mod.rs",
+        "tokio/src/runtime/scheduler/multi_thread/handle.rs",
+        "tokio/src/runtime/task/harness.rs",
+        "tokio/src/runtime/task/mod.rs",
+        "tokio/src/runtime/task_hooks.rs",
+        "tokio/src/task/local.rs",
+        "tokio/src/task/spawn.rs",
+        "tokio/src/util/trace.rs"
+      ],
+      "test_files": [
+        "tokio/tests/task_hooks.rs"
+      ]
+    },
+    {
+      "sha": "129f9fc0c8e9787dee3db5a6f65c3370ed148f7e",
+      "parent_sha": "b5c227d51feff804fe7ce73721fb32f4227fad73",
+      "subject": "codec: fix incorrect handling of invalid utf-8 in `LinesCodec::decode_eof` (#7011)",
+      "source_files": [
+        "tokio-util/src/codec/lines_codec.rs"
+      ],
+      "test_files": [
+        "tokio-util/tests/codecs.rs"
+      ]
+    },
+    {
+      "sha": "4a34b77af5b6ae8addb8f60cfbda5dd2686b61d3",
+      "parent_sha": "8897885425bf3d89053f896319eeb8777cf255fc",
+      "subject": "metrics: fix bug with wrong number of buckets for the histogram (#6957)",
+      "source_files": [
+        "tokio/src/runtime/metrics/histogram.rs"
+      ],
+      "test_files": [
+        "tokio/tests/rt_unstable_metrics.rs"
+      ]
+    },
+    {
+      "sha": "0cea36fa3d60e7294a8e24a00b69c60b26c88c3d",
+      "parent_sha": "d6213594ca3767f182e8981fde7a119575e94c65",
+      "subject": "net: fix handling of leading zero byte in `from_abstract_name` (#6838)",
+      "source_files": [
+        "tokio/src/net/unix/listener.rs",
+        "tokio/src/net/unix/stream.rs"
+      ],
+      "test_files": [
+        "tokio/tests/uds_stream.rs"
+      ]
+    },
+    {
+      "sha": "1e286689ffc533a2d08c2f30c55ad46f9c3c5b93",
+      "parent_sha": "15925efe436fdfc2c5a8e5b27c82dc6501d90317",
+      "subject": "runtime: fix `yield_calls_park_before_scheduling_again` test (#6679)",
+      "source_files": [
+        "tokio/src/runtime/park.rs",
+        "tokio/src/runtime/scheduler/multi_thread/park.rs"
+      ],
+      "test_files": [
+        "tokio/src/runtime/tests/loom_multi_thread/yield_now.rs"
+      ]
+    },
+    {
+      "sha": "75c953bd639ee8630f678a02edd87e7814b04abc",
+      "parent_sha": "14c17fc09656a30230177b600bacceb9db33e942",
+      "subject": "time: fix big time panic issue (#6612)",
+      "source_files": [
+        "tokio/src/runtime/time/source.rs"
+      ],
+      "test_files": [
+        "tokio/src/runtime/time/tests/mod.rs"
+      ]
+    },
+    {
+      "sha": "dbf93c71844a01574a10f9dee0d4d9655a569f0a",
+      "parent_sha": "873cb8ae2fc291eaffbd71e3c83d17b2f0ed7abf",
+      "subject": "sync: fix incorrect is_empty on mpsc block boundaries (#6603)",
+      "source_files": [
+        "tokio/src/sync/mpsc/block.rs"
+      ],
+      "test_files": [
+        "tokio/tests/sync_mpsc.rs"
+      ]
+    },
+    {
+      "sha": "2890d0c3db4f595330d8d223bfbfeb81e205b048",
+      "parent_sha": "0a85a9662d30139c779ea49a59be30db0f292b5d",
+      "subject": "metrics: fix blocking_threads count (#6551)",
+      "source_files": [
+        "tokio/src/runtime/scheduler/multi_thread/handle/metrics.rs",
+        "tokio/src/runtime/scheduler/multi_thread_alt/handle/metrics.rs"
+      ],
+      "test_files": [
+        "tokio/tests/rt_metrics.rs"
+      ]
+    }
+  ]
+}

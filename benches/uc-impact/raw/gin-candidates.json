@@ -1,0 +1,254 @@
+{
+  "repo": "gin",
+  "lang": "go",
+  "mined_at": "2026-04-29T18:56:36.927Z",
+  "target": 20,
+  "actual": 20,
+  "candidates": [
+    {
+      "sha": "472d086af2acd924cb4b9d7be0525f7d790f69bc",
+      "parent_sha": "fb2583442c4d9bccb75e6d26f1aa6e7c01950db6",
+      "subject": "fix(tree): panic in findCaseInsensitivePathRec with RedirectFixedPath (#4535)",
+      "source_files": [
+        "tree.go"
+      ],
+      "test_files": [
+        "tree_test.go"
+      ]
+    },
+    {
+      "sha": "5c00df8afadd06cc5be530dde00fe6d9fa4a2e4a",
+      "parent_sha": "db309081bc5c137b2aa15701ef53f7f19788da25",
+      "subject": "fix(render): write content length in Data.Render (#4206)",
+      "source_files": [
+        "render/data.go"
+      ],
+      "test_files": [
+        "render/render_test.go"
+      ]
+    },
+    {
+      "sha": "9914178584e42458ff7d23891463a880f58c9d86",
+      "parent_sha": "915e4c90d28ec4cffc6eb146e208ab5a65eac772",
+      "subject": "fix(context): ClientIP handling for multiple X-Forwarded-For header values (#4472)",
+      "source_files": [
+        "context.go"
+      ],
+      "test_files": [
+        "context_test.go"
+      ]
+    },
+    {
+      "sha": "b917b14ff9d189f16a7492be79d123a47806ee19",
+      "parent_sha": "fad706f1216e6d12bdd51d28d5a40ec27e6c6453",
+      "subject": "fix(binding): empty value error (#2169)",
+      "source_files": [
+        "binding/form_mapping.go"
+      ],
+      "test_files": [
+        "binding/form_mapping_test.go"
+      ]
+    },
+    {
+      "sha": "63dd3e60cab89c27fb66bce1423bd268d52abad1",
+      "parent_sha": "c358d5656d0feb8b310d4ec379bccde46ccc8cc7",
+      "subject": "fix(recover): suppress http.ErrAbortHandler in recover (#4336)",
+      "source_files": [
+        "recovery.go"
+      ],
+      "test_files": [
+        "recovery_test.go"
+      ]
+    },
+    {
+      "sha": "5fad976b372e381312f8de69f0969f1284d229d3",
+      "parent_sha": "93ff771e6dbf10e432864b30f3719ac5c84a4d4a",
+      "subject": "fix(gin): literal colon routes not working with engine.Handler() (#4415)",
+      "source_files": [
+        "gin.go"
+      ],
+      "test_files": [
+        "gin_test.go"
+      ]
+    },
+    {
+      "sha": "c3d1092b3b48addf6f9cd00fe274ec3bd14650eb",
+      "parent_sha": "9968c4bf9d5a99edc3eee2c068a4c9160ece8915",
+      "subject": "fix(binding): improve empty slice/array handling in form binding (#4380)",
+      "source_files": [
+        "binding/form_mapping.go"
+      ],
+      "test_files": [
+        "binding/form_mapping_test.go"
+      ]
+    },
+    {
+      "sha": "234a6d4c00cb77af9852aca0b8289745d5529b4b",
+      "parent_sha": "df2753778e7bc5c2dd559361cf0c97b2b313e9bb",
+      "subject": "fix(response): refine hijack behavior for response lifecycle (#4373)",
+      "source_files": [
+        "response_writer.go"
+      ],
+      "test_files": [
+        "response_writer_test.go"
+      ]
+    },
+    {
+      "sha": "c4287b1300363cb3dc2c8408299d3ba6deded485",
+      "parent_sha": "8fb3136664254d7c592127f00d52849caba18a67",
+      "subject": "ci(golangci-lint): update configuration and fix lint issues (#4247)",
+      "source_files": [
+        ".golangci.yml",
+        "binding/form.go",
+        "binding/header.go",
+        "binding/xml.go",
+        "fs.go",
+        "gin.go",
+        "ginS/gins.go",
+        "internal/fs/fs.go",
+        "mode.go",
+        "render/html.go"
+      ],
+      "test_files": [
+        "binding/binding_test.go",
+        "binding/default_validator_test.go",
+        "binding/form_mapping_test.go",
+        "binding/validate_test.go",
+        "context_test.go",
+        "errors_test.go",
+        "gin_integration_test.go",
+        "gin_test.go",
+        "githubapi_test.go",
+        "internal/bytesconv/bytesconv_test.go",
+        "logger_test.go",
+        "middleware_test.go",
+        "render/render_test.go",
+        "routes_test.go",
+        "tree_test.go",
+        "utils_test.go"
+      ]
+    },
+    {
+      "sha": "8fb3136664254d7c592127f00d52849caba18a67",
+      "parent_sha": "674522db91d637d179c16c372d87756ea26fa089",
+      "subject": "Revert \"fix(time): binding time with empty value (#4103)\" (#4245)",
+      "source_files": [
+        "binding/form_mapping.go"
+      ],
+      "test_files": [
+        "binding/form_mapping_test.go"
+      ]
+    },
+    {
+      "sha": "674522db91d637d179c16c372d87756ea26fa089",
+      "parent_sha": "8f7c340577e19245827f7ba71ef3e0143cc7eeee",
+      "subject": "fix(time): binding time with empty value (#4103)",
+      "source_files": [
+        "binding/form_mapping.go"
+      ],
+      "test_files": [
+        "binding/form_mapping_test.go"
+      ]
+    },
+    {
+      "sha": "b38c59de7fef67400a1c98efeae700a689c45783",
+      "parent_sha": "cf32d2dcf8c7534f59727c5e213e45f2412c593a",
+      "subject": "fix(errors): change Unwrap method receiver to value type (#4232)",
+      "source_files": [
+        "errors.go"
+      ],
+      "test_files": [
+        "errors_test.go"
+      ]
+    },
+    {
+      "sha": "8763f33c65f7df8be5b9fe7504ab7fcf20abb41d",
+      "parent_sha": "e737e3e267beb4dc3bab16cc8be59e3902d98a94",
+      "subject": "fix: prevent middleware re-entry issue in HandleContext (#3987)",
+      "source_files": [
+        "gin.go"
+      ],
+      "test_files": [
+        "gin_test.go"
+      ]
+    },
+    {
+      "sha": "ea53388e6ee4a6a0a1647b390c56eeed780e7e56",
+      "parent_sha": "9d11234efec1e5517b2887a6e7dfbc9c017bc52c",
+      "subject": "fix(tree): Keep panic infos consistent when wildcard type build faild (#4077)",
+      "source_files": [
+        "tree.go"
+      ],
+      "test_files": [
+        "tree_test.go"
+      ]
+    },
+    {
+      "sha": "28e57f58b184b2305ace192e02496bb89f6fd8cb",
+      "parent_sha": "3cb30679b5e3021db16c776ed7e70d380586e9ce",
+      "subject": "fix(form): Set default value for form fields (#4047)",
+      "source_files": [
+        "binding/form_mapping.go"
+      ],
+      "test_files": [
+        "binding/form_mapping_test.go"
+      ]
+    },
+    {
+      "sha": "626d55b0c02937645c21774cacc021713de88604",
+      "parent_sha": "9c081de9cdd1948f521d47d170d18cbc2981c33a",
+      "subject": "fix(gin): Do not panic when handling method not allowed on empty tree (#4003)",
+      "source_files": [
+        "gin.go"
+      ],
+      "test_files": [
+        "gin_test.go"
+      ]
+    },
+    {
+      "sha": "e0d46ded6cb6974d55a255ab122d1aa6ca0cd60e",
+      "parent_sha": "4f339e6a35b163d31b30916b37f4176d385f41bd",
+      "subject": "fix(context): verify URL is Non-nil in initQueryCache() (#3969)",
+      "source_files": [
+        "context.go"
+      ],
+      "test_files": [
+        "context_test.go"
+      ]
+    },
+    {
+      "sha": "4f339e6a35b163d31b30916b37f4176d385f41bd",
+      "parent_sha": "36b0dede4b8c4a67d92c4107cebc5a068364321d",
+      "subject": "fix(context): YAML judgment logic in Negotiate (#3966)",
+      "source_files": [
+        "context.go"
+      ],
+      "test_files": [
+        "context_test.go"
+      ]
+    },
+    {
+      "sha": "36b0dede4b8c4a67d92c4107cebc5a068364321d",
+      "parent_sha": "3f5b0afa2ac85ea79638ca08f4140ce64b8246e5",
+      "subject": "fix(context): check handler is nil (#3413)",
+      "source_files": [
+        "context.go"
+      ],
+      "test_files": [
+        "context_test.go"
+      ]
+    },
+    {
+      "sha": "7d147928ee232fce156ea7ce8ae6329e148aeb41",
+      "parent_sha": "f5f5da8fa09d12a22225c493fa8191fb14bdd5bf",
+      "subject": "fix(gin): data race warning for gin mode (#1580)",
+      "source_files": [
+        "debug.go",
+        "mode.go"
+      ],
+      "test_files": [
+        "mode_test.go"
+      ]
+    }
+  ]
+}

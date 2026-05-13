@@ -1,0 +1,27 @@
+[package]
+name = "ga-bench"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Per-UC benchmark harness + Markdown leaderboard for graphatlas retrievers"
+
+[dependencies]
+anyhow = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+ga-core = { workspace = true }
+ga-index = { workspace = true }
+ga-parser = { workspace = true }
+ga-query = { workspace = true }
+lbug = { workspace = true }
+sha2 = "0.10"
+tempfile = "3"
+
+[dev-dependencies]
+tempfile = "3"
+
+[lints]
+workspace = true

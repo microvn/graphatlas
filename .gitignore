@@ -1,0 +1,24 @@
+# Added by code-review-graph
+.code-review-graph/
+
+node_modules/
+bun.lock
+.DS_Store
+rust-poc/target/
+/target/
+spike/ldb-spike/target/
+spike/corpus/
+spike/dbs/
+spike/results/
+.claude/
+.mcp.json
+.opencode.json
+.graphatlas-bench-cache/
+.idea/
+
+# Internal trees — kept locally, never published
+archive/
+docs/
+spike/
+grammars/
+plan_oss.md

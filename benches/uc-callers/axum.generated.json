@@ -1,0 +1,6065 @@
+{
+  "schema_version": 1,
+  "uc": "callers",
+  "fixture": "axum",
+  "tasks": [
+    {
+      "task_id": "textmatch_last",
+      "query": {
+        "__rationale": "13 sites reference `last` across 12 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "last"
+      },
+      "expected": [
+        "combine_attribute",
+        "combine_unary_attribute",
+        "extract_clean_typename",
+        "extractor_idents",
+        "infer_state_types",
+        "parse_assignment_attribute",
+        "parse_parenthesized_attribute",
+        "path_ident_is_state",
+        "peel_option",
+        "peel_result_ok",
+        "self_receiver",
+        "skip_next_arg"
+      ]
+    },
+    {
+      "task_id": "textmatch_finalized",
+      "query": {
+        "__rationale": "2 sites reference `finalized` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "finalized"
+      },
+      "expected": [
+        "event"
+      ]
+    },
+    {
+      "task_id": "textmatch_spawn_service",
+      "query": {
+        "__rationale": "2 sites reference `spawn_service` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "spawn_service"
+      },
+      "expected": [
+        "http2",
+        "integration_test"
+      ]
+    },
+    {
+      "task_id": "textmatch_multipart",
+      "query": {
+        "__rationale": "6 sites reference `multipart` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "multipart"
+      },
+      "expected": [
+        "body_too_large",
+        "body_too_large_with_tracing",
+        "content_type_with_encoding",
+        "optional_multipart"
+      ]
+    },
+    {
+      "task_id": "textmatch_Default",
+      "query": {
+        "__rationale": "7 sites reference `Default` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Default"
+      },
+      "expected": [
+        "expand",
+        "map",
+        "with_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_builder",
+      "query": {
+        "__rationale": "31 sites reference `builder` across 30 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "builder"
+      },
+      "expected": [
+        "basic",
+        "call",
+        "call_route",
+        "check",
+        "check_body",
+        "check_query",
+        "doenst_override_status_code_when_using_into_response_failed_at_same_level",
+        "extract_parts_with_state",
+        "extract_parts_without_state",
+        "filename_escapes_backslashes",
+        "filename_escapes_quotes",
+        "handle",
+        "http2",
+        "into_range_response",
+        "into_response",
+        "on_upgrade",
+        "process_form",
+        "rejects_http_1_0_requests",
+        "response",
+        "response_from_path",
+        "response_not_set_content_size",
+        "response_not_set_filename",
+        "response_range_empty_file",
+        "response_range_file",
+        "response_with_content_size_and_filename",
+        "serving_on_custom_io_type",
+        "serving_with_custom_executor",
+        "serving_with_custom_executor_http2",
+        "signed_cannot_access_invalid_cookies",
+        "test_incorrect_content_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_ends_with",
+      "query": {
+        "__rationale": "8 sites reference `ends_with` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ends_with"
+      },
+      "expected": [
+        "nest_service",
+        "parse_path",
+        "path_for_nested_route",
+        "prefix_matches",
+        "set_matched_path_for_request",
+        "validate_nest_path"
+      ]
+    },
+    {
+      "task_id": "textmatch_permanent",
+      "query": {
+        "__rationale": "2 sites reference `permanent` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "permanent"
+      },
+      "expected": [
+        "redirect_handler",
+        "test_internal_error"
+      ]
+    },
+    {
+      "task_id": "textmatch_todo",
+      "query": {
+        "__rationale": "6 sites reference `todo` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "todo"
+      },
+      "expected": [
+        "accept",
+        "connect_info",
+        "create_router",
+        "local_addr",
+        "tcp_listener"
+      ]
+    },
+    {
+      "task_id": "textmatch_data",
+      "query": {
+        "__rationale": "8 sites reference `data` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "data"
+      },
+      "expected": [
+        "keep_alive",
+        "keep_alive_ends_when_the_stream_ends",
+        "leading_space_is_not_stripped",
+        "poll_frame"
+      ]
+    },
+    {
+      "task_id": "textmatch_println",
+      "query": {
+        "__rationale": "6 sites reference `println` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "println"
+      },
+      "expected": [
+        "handler",
+        "install_rewrk",
+        "run",
+        "valid_json_content_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_rejection_assoc_type",
+      "query": {
+        "__rationale": "2 sites reference `rejection_assoc_type` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "rejection_assoc_type"
+      },
+      "expected": [
+        "expand_named_fields",
+        "expand_unnamed_fields"
+      ]
+    },
+    {
+      "task_id": "textmatch_Ping",
+      "query": {
+        "__rationale": "3 sites reference `Ping` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Ping"
+      },
+      "expected": [
+        "from_tungstenite",
+        "into_tungstenite",
+        "test_echo_app"
+      ]
+    },
+    {
+      "task_id": "textmatch_lock",
+      "query": {
+        "__rationale": "2 sites reference `lock` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "lock"
+      },
+      "expected": [
+        "take",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_run",
+      "query": {
+        "__rationale": "13 sites reference `run` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "run"
+      },
+      "expected": [
+        "insert_header",
+        "into_future",
+        "main",
+        "middleware"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_bytes",
+      "query": {
+        "__rationale": "3 sites reference `from_bytes` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_bytes"
+      },
+      "expected": [
+        "from_request",
+        "from_request_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_trace",
+      "query": {
+        "__rationale": "4 sites reference `trace` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "trace"
+      },
+      "expected": [
+        "handle_connection",
+        "run",
+        "typed_trace"
+      ]
+    },
+    {
+      "task_id": "textmatch_is_some_and",
+      "query": {
+        "__rationale": "4 sites reference `is_some_and` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "is_some_and"
+      },
+      "expected": [
+        "check_inputs_impls_from_request",
+        "json_content_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_suffix",
+      "query": {
+        "__rationale": "2 sites reference `suffix` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "suffix"
+      },
+      "expected": [
+        "json_content_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_chunk",
+      "query": {
+        "__rationale": "2 sites reference `chunk` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "chunk"
+      },
+      "expected": [
+        "chunk"
+      ]
+    },
+    {
+      "task_id": "textmatch_Binary",
+      "query": {
+        "__rationale": "6 sites reference `Binary` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Binary"
+      },
+      "expected": [
+        "binary",
+        "from_tungstenite",
+        "into_tungstenite"
+      ]
+    },
+    {
+      "task_id": "textmatch_add_tsr_redirect_route",
+      "query": {
+        "__rationale": "2 sites reference `add_tsr_redirect_route` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "add_tsr_redirect_route"
+      },
+      "expected": [
+        "route_service_with_tsr",
+        "route_with_tsr"
+      ]
+    },
+    {
+      "task_id": "textmatch_index_create_path",
+      "query": {
+        "__rationale": "2 sites reference `index_create_path` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "index_create_path"
+      },
+      "expected": [
+        "create",
+        "index"
+      ]
+    },
+    {
+      "task_id": "textmatch_pin",
+      "query": {
+        "__rationale": "11 sites reference `pin` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "pin"
+      },
+      "expected": [
+        "call",
+        "from_request",
+        "handle_connection",
+        "into_future"
+      ]
+    },
+    {
+      "task_id": "textmatch_bind",
+      "query": {
+        "__rationale": "35 sites reference `bind` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "bind"
+      },
+      "expected": [
+        "both_mock_and_real_connect_info",
+        "building_complex_router",
+        "custom",
+        "if_it_compiles_it_works",
+        "into_future_outside_tokio",
+        "run",
+        "serving_with_custom_body_type",
+        "socket_addr",
+        "test_serve_local_addr",
+        "test_with_graceful_shutdown_local_addr"
+      ]
+    },
+    {
+      "task_id": "textmatch_fmt",
+      "query": {
+        "__rationale": "5 sites reference `fmt` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "fmt"
+      },
+      "expected": [
+        "fmt"
+      ]
+    },
+    {
+      "task_id": "textmatch_try_range_response",
+      "query": {
+        "__rationale": "2 sites reference `try_range_response` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "try_range_response"
+      },
+      "expected": [
+        "range_stream",
+        "response_range_empty_file"
+      ]
+    },
+    {
+      "task_id": "textmatch_uri_mut",
+      "query": {
+        "__rationale": "3 sites reference `uri_mut` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "uri_mut"
+      },
+      "expected": [
+        "call",
+        "extract_parts_with_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_field",
+      "query": {
+        "__rationale": "69 sites reference `field` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "field"
+      },
+      "expected": [
+        "comment",
+        "event",
+        "fmt"
+      ]
+    },
+    {
+      "task_id": "textmatch_finish",
+      "query": {
+        "__rationale": "37 sites reference `finish` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "finish"
+      },
+      "expected": [
+        "fmt",
+        "handle"
+      ]
+    },
+    {
+      "task_id": "textmatch_validate_tsr_path",
+      "query": {
+        "__rationale": "2 sites reference `validate_tsr_path` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "validate_tsr_path"
+      },
+      "expected": [
+        "route_service_with_tsr",
+        "route_with_tsr"
+      ]
+    },
+    {
+      "task_id": "textmatch_validate_path",
+      "query": {
+        "__rationale": "2 sites reference `validate_path` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "validate_path"
+      },
+      "expected": [
+        "route",
+        "route_endpoint"
+      ]
+    },
+    {
+      "task_id": "textmatch_Token",
+      "query": {
+        "__rationale": "15 sites reference `Token` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Token"
+      },
+      "expected": [
+        "impl_enum_by_extracting_all_at_once",
+        "impl_struct_by_extracting_all_at_once",
+        "impl_struct_by_extracting_each_field",
+        "parse",
+        "parse_assignment_attribute"
+      ]
+    },
+    {
+      "task_id": "textmatch_bounds",
+      "query": {
+        "__rationale": "3 sites reference `bounds` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "bounds"
+      },
+      "expected": [
+        "impl_enum_by_extracting_all_at_once",
+        "impl_struct_by_extracting_all_at_once",
+        "impl_struct_by_extracting_each_field"
+      ]
+    },
+    {
+      "task_id": "textmatch_create_url_params",
+      "query": {
+        "__rationale": "10 sites reference `create_url_params` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "create_url_params"
+      },
+      "expected": [
+        "test_parse_map",
+        "test_parse_seq",
+        "test_parse_seq_tuple_string_parse",
+        "test_parse_seq_tuple_string_string",
+        "test_parse_single_value",
+        "test_parse_struct",
+        "test_parse_struct_ignoring_additional_fields"
+      ]
+    },
+    {
+      "task_id": "textmatch_poll_frame",
+      "query": {
+        "__rationale": "3 sites reference `poll_frame` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "poll_frame"
+      },
+      "expected": [
+        "poll_frame"
+      ]
+    },
+    {
+      "task_id": "textmatch_MethodRouter",
+      "query": {
+        "__rationale": "6 sites reference `MethodRouter` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "MethodRouter"
+      },
+      "expected": [
+        "fallback",
+        "layer",
+        "route",
+        "with_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_generate",
+      "query": {
+        "__rationale": "2 sites reference `generate` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "generate"
+      },
+      "expected": [
+        "signed_cannot_access_invalid_cookies"
+      ]
+    },
+    {
+      "task_id": "textmatch_drop",
+      "query": {
+        "__rationale": "8 sites reference `drop` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "drop"
+      },
+      "expected": [
+        "execute",
+        "handle",
+        "handle_connection",
+        "into_future",
+        "limit_connections",
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_peek",
+      "query": {
+        "__rationale": "10 sites reference `peek` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "peek"
+      },
+      "expected": [
+        "next",
+        "parse"
+      ]
+    },
+    {
+      "task_id": "textmatch_contains",
+      "query": {
+        "__rationale": "15 sites reference `contains` across 9 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "contains"
+      },
+      "expected": [
+        "append_allow_header",
+        "event",
+        "fmt",
+        "header_contains",
+        "protocols",
+        "retry",
+        "run",
+        "set_endpoint",
+        "write_buf"
+      ]
+    },
+    {
+      "task_id": "textmatch_unwrap_err",
+      "query": {
+        "__rationale": "3 sites reference `unwrap_err` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "unwrap_err"
+      },
+      "expected": [
+        "extractor",
+        "rejects_http_1_0_requests",
+        "test_parse_single_value"
+      ]
+    },
+    {
+      "task_id": "textmatch_type_",
+      "query": {
+        "__rationale": "2 sites reference `type_` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "type_"
+      },
+      "expected": [
+        "json_content_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_request_consuming_type_name",
+      "query": {
+        "__rationale": "2 sites reference `request_consuming_type_name` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "request_consuming_type_name"
+      },
+      "expected": [
+        "check_input_order",
+        "check_inputs_impls_from_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_size_hint",
+      "query": {
+        "__rationale": "9 sites reference `size_hint` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "size_hint"
+      },
+      "expected": [
+        "from_request_parts",
+        "poll",
+        "size_hint"
+      ]
+    },
+    {
+      "task_id": "textmatch_validate_nest_path",
+      "query": {
+        "__rationale": "2 sites reference `validate_nest_path` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "validate_nest_path"
+      },
+      "expected": [
+        "nest",
+        "nest_service"
+      ]
+    },
+    {
+      "task_id": "textmatch_put",
+      "query": {
+        "__rationale": "5 sites reference `put` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "put"
+      },
+      "expected": [
+        "allow_header_when_merging",
+        "body_to_bytes_mut",
+        "building_complex_router",
+        "sets_allow_header",
+        "typed_put"
+      ]
+    },
+    {
+      "task_id": "textmatch_connect",
+      "query": {
+        "__rationale": "3 sites reference `connect` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "connect"
+      },
+      "expected": [
+        "http2",
+        "merge",
+        "typed_connect"
+      ]
+    },
+    {
+      "task_id": "textmatch_content_size",
+      "query": {
+        "__rationale": "2 sites reference `content_size` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "content_size"
+      },
+      "expected": [
+        "response_not_set_filename",
+        "response_with_content_size_and_filename"
+      ]
+    },
+    {
+      "task_id": "textmatch_is_end_stream",
+      "query": {
+        "__rationale": "3 sites reference `is_end_stream` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "is_end_stream"
+      },
+      "expected": [
+        "is_end_stream"
+      ]
+    },
+    {
+      "task_id": "textmatch_push",
+      "query": {
+        "__rationale": "8 sites reference `push` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "push"
+      },
+      "expected": [
+        "arbitrary",
+        "extract_fields",
+        "fmt",
+        "new_route"
+      ]
+    },
+    {
+      "task_id": "textmatch_cfg",
+      "query": {
+        "__rationale": "5 sites reference `cfg` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "cfg"
+      },
+      "expected": [
+        "capture_prefix_suffix",
+        "deserialize",
+        "make_rejection",
+        "take_route_or_internal_error"
+      ]
+    },
+    {
+      "task_id": "textmatch_is_none",
+      "query": {
+        "__rationale": "15 sites reference `is_none` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "is_none"
+      },
+      "expected": [
+        "call_with_state",
+        "check_future_send",
+        "expand",
+        "into_response",
+        "is_end_stream",
+        "route_layer"
+      ]
+    },
+    {
+      "task_id": "textmatch_u64",
+      "query": {
+        "__rationale": "4 sites reference `u64` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "u64"
+      },
+      "expected": [
+        "generate_boundary"
+      ]
+    },
+    {
+      "task_id": "textmatch_block_on",
+      "query": {
+        "__rationale": "3 sites reference `block_on` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "block_on"
+      },
+      "expected": [
+        "into_future_outside_tokio",
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_metadata",
+      "query": {
+        "__rationale": "4 sites reference `metadata` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "metadata"
+      },
+      "expected": [
+        "from_path",
+        "response_from_path",
+        "response_range_file",
+        "try_range_response"
+      ]
+    },
+    {
+      "task_id": "textmatch_parse_event",
+      "query": {
+        "__rationale": "8 sites reference `parse_event` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "parse_event"
+      },
+      "expected": [
+        "basic",
+        "keep_alive",
+        "keep_alive_ends_when_the_stream_ends"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_maybe_shared",
+      "query": {
+        "__rationale": "2 sites reference `from_maybe_shared` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_maybe_shared"
+      },
+      "expected": [
+        "set_allow_header",
+        "sign"
+      ]
+    },
+    {
+      "task_id": "textmatch_extract_parts",
+      "query": {
+        "__rationale": "2 sites reference `extract_parts` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "extract_parts"
+      },
+      "expected": [
+        "extract_parts_without_state",
+        "from_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_project",
+      "query": {
+        "__rationale": "18 sites reference `project` across 9 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "project"
+      },
+      "expected": [
+        "poll",
+        "poll_flush",
+        "poll_frame",
+        "poll_next",
+        "poll_read",
+        "poll_shutdown",
+        "poll_write",
+        "poll_write_vectored",
+        "reset"
+      ]
+    },
+    {
+      "task_id": "textmatch_channel",
+      "query": {
+        "__rationale": "6 sites reference `channel` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "channel"
+      },
+      "expected": [
+        "custom",
+        "run",
+        "socket_addr"
+      ]
+    },
+    {
+      "task_id": "textmatch_is_body_limit_error",
+      "query": {
+        "__rationale": "4 sites reference `is_body_limit_error` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "is_body_limit_error"
+      },
+      "expected": [
+        "body_text",
+        "is_body_limit_error"
+      ]
+    },
+    {
+      "task_id": "textmatch_segments",
+      "query": {
+        "__rationale": "2 sites reference `segments` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "segments"
+      },
+      "expected": [
+        "strip_prefix"
+      ]
+    },
+    {
+      "task_id": "textmatch_validate_v07_paths",
+      "query": {
+        "__rationale": "2 sites reference `validate_v07_paths` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "validate_v07_paths"
+      },
+      "expected": [
+        "validate_nest_path",
+        "validate_path"
+      ]
+    },
+    {
+      "task_id": "textmatch_with_writer",
+      "query": {
+        "__rationale": "2 sites reference `with_writer` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "with_writer"
+      },
+      "expected": [
+        "handle",
+        "into_future"
+      ]
+    },
+    {
+      "task_id": "textmatch_show_update_destroy_path",
+      "query": {
+        "__rationale": "3 sites reference `show_update_destroy_path` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "show_update_destroy_path"
+      },
+      "expected": [
+        "destroy",
+        "show",
+        "update"
+      ]
+    },
+    {
+      "task_id": "textmatch_inner",
+      "query": {
+        "__rationale": "3 sites reference `inner` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "inner"
+      },
+      "expected": [
+        "deserialize",
+        "make_rejection"
+      ]
+    },
+    {
+      "task_id": "textmatch_flat_map",
+      "query": {
+        "__rationale": "2 sites reference `flat_map` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "flat_map"
+      },
+      "expected": [
+        "cookies_from_request",
+        "from_request_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_new_route",
+      "query": {
+        "__rationale": "2 sites reference `new_route` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "new_route"
+      },
+      "expected": [
+        "route",
+        "route_endpoint"
+      ]
+    },
+    {
+      "task_id": "textmatch_with_state",
+      "query": {
+        "__rationale": "29 sites reference `with_state` across 13 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "with_state"
+      },
+      "expected": [
+        "accessing_state",
+        "call",
+        "fallback_accessing_state",
+        "from_handler",
+        "if_it_compiles_it_works",
+        "into_make_service",
+        "into_make_service_with_connect_info",
+        "into_service",
+        "main",
+        "merge_accessing_state",
+        "signed_cannot_access_invalid_cookies",
+        "with_layer_that_changes_request_body_and_state",
+        "with_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_signed_jar_mut",
+      "query": {
+        "__rationale": "2 sites reference `signed_jar_mut` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "signed_jar_mut"
+      },
+      "expected": [
+        "add",
+        "remove"
+      ]
+    },
+    {
+      "task_id": "textmatch_local_addr",
+      "query": {
+        "__rationale": "12 sites reference `local_addr` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "local_addr"
+      },
+      "expected": [
+        "both_mock_and_real_connect_info",
+        "custom",
+        "local_addr",
+        "run",
+        "socket_addr",
+        "test_serve_local_addr",
+        "test_with_graceful_shutdown_local_addr"
+      ]
+    },
+    {
+      "task_id": "textmatch_stdout",
+      "query": {
+        "__rationale": "2 sites reference `stdout` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "stdout"
+      },
+      "expected": [
+        "ensure_rewrk_is_installed",
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_expected",
+      "query": {
+        "__rationale": "4 sites reference `expected` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "expected"
+      },
+      "expected": [
+        "deserialize_enum",
+        "deserialize_str",
+        "deserialize_tuple",
+        "deserialize_tuple_struct"
+      ]
+    },
+    {
+      "task_id": "textmatch_with_capacity",
+      "query": {
+        "__rationale": "4 sites reference `with_capacity` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "with_capacity"
+      },
+      "expected": [
+        "into_response",
+        "pretty"
+      ]
+    },
+    {
+      "task_id": "textmatch_count",
+      "query": {
+        "__rationale": "3 sites reference `count` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "count"
+      },
+      "expected": [
+        "check_extractor_count",
+        "check_input_order",
+        "expand_unnamed_fields"
+      ]
+    },
+    {
+      "task_id": "textmatch_headers",
+      "query": {
+        "__rationale": "22 sites reference `headers` across 13 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "headers"
+      },
+      "expected": [
+        "attachment_filename_escapes_backslashes",
+        "attachment_filename_escapes_quotes",
+        "attachment_with_normal_filename",
+        "attachment_without_filename",
+        "content_type_with_encoding",
+        "encode_body",
+        "from_request",
+        "headers",
+        "http2",
+        "integration_test",
+        "main",
+        "poll",
+        "process_form"
+      ]
+    },
+    {
+      "task_id": "textmatch_filter_map",
+      "query": {
+        "__rationale": "14 sites reference `filter_map` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "filter_map"
+      },
+      "expected": [
+        "captures_from_path",
+        "check_input_order",
+        "check_output_impls_into_response",
+        "cookies_from_request",
+        "expand_unnamed_fields",
+        "extractor_idents",
+        "infer_state_type_from_field_attributes",
+        "infer_state_types",
+        "method_filter",
+        "state_types_from_args"
+      ]
+    },
+    {
+      "task_id": "textmatch_extension",
+      "query": {
+        "__rationale": "2 sites reference `extension` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "extension"
+      },
+      "expected": [
+        "doenst_override_status_code_when_using_into_response_failed_at_same_level",
+        "http2"
+      ]
+    },
+    {
+      "task_id": "textmatch_parse_parenthesized_attribute",
+      "query": {
+        "__rationale": "5 sites reference `parse_parenthesized_attribute` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "parse_parenthesized_attribute"
+      },
+      "expected": [
+        "parse"
+      ]
+    },
+    {
+      "task_id": "textmatch_state_from_via",
+      "query": {
+        "__rationale": "2 sites reference `state_from_via` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "state_from_via"
+      },
+      "expected": [
+        "expand"
+      ]
+    },
+    {
+      "task_id": "textmatch_map_err_rejection",
+      "query": {
+        "__rationale": "2 sites reference `map_err_rejection` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "map_err_rejection"
+      },
+      "expected": [
+        "expand_named_fields",
+        "expand_unnamed_fields"
+      ]
+    },
+    {
+      "task_id": "textmatch_route_service",
+      "query": {
+        "__rationale": "2 sites reference `route_service` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "route_service"
+      },
+      "expected": [
+        "merge",
+        "route_service_with_tsr"
+      ]
+    },
+    {
+      "task_id": "textmatch_private_mut",
+      "query": {
+        "__rationale": "2 sites reference `private_mut` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "private_mut"
+      },
+      "expected": [
+        "from_headers",
+        "private_jar_mut"
+      ]
+    },
+    {
+      "task_id": "textmatch_extend_from_slice",
+      "query": {
+        "__rationale": "16 sites reference `extend_from_slice` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "extend_from_slice"
+      },
+      "expected": [
+        "append_allow_header",
+        "field",
+        "into_response",
+        "merge",
+        "retry",
+        "serialize"
+      ]
+    },
+    {
+      "task_id": "textmatch_filter",
+      "query": {
+        "__rationale": "12 sites reference `filter` across 9 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "filter"
+      },
+      "expected": [
+        "check_extractor_count",
+        "check_input_order",
+        "check_inputs_impls_from_request",
+        "check_path_extractor",
+        "expand_unnamed_fields",
+        "extractor_idents",
+        "insert_url_params",
+        "next_is_last_input",
+        "parse_attrs"
+      ]
+    },
+    {
+      "task_id": "textmatch_remaining",
+      "query": {
+        "__rationale": "6 sites reference `remaining` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "remaining"
+      },
+      "expected": [
+        "poll_frame",
+        "size_hint"
+      ]
+    },
+    {
+      "task_id": "textmatch_merge_inner",
+      "query": {
+        "__rationale": "9 sites reference `merge_inner` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "merge_inner"
+      },
+      "expected": [
+        "merge_for_path"
+      ]
+    },
+    {
+      "task_id": "textmatch_push_str",
+      "query": {
+        "__rationale": "4 sites reference `push_str` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "push_str"
+      },
+      "expected": [
+        "arbitrary"
+      ]
+    },
+    {
+      "task_id": "textmatch_poll",
+      "query": {
+        "__rationale": "7 sites reference `poll` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "poll"
+      },
+      "expected": [
+        "poll"
+      ]
+    },
+    {
+      "task_id": "textmatch_visit_enum",
+      "query": {
+        "__rationale": "2 sites reference `visit_enum` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "visit_enum"
+      },
+      "expected": [
+        "deserialize_enum"
+      ]
+    },
+    {
+      "task_id": "textmatch_transpose",
+      "query": {
+        "__rationale": "2 sites reference `transpose` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "transpose"
+      },
+      "expected": [
+        "body_to_bytes_mut",
+        "next_element_seed"
+      ]
+    },
+    {
+      "task_id": "textmatch_Borrowed",
+      "query": {
+        "__rationale": "2 sites reference `Borrowed` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Borrowed"
+      },
+      "expected": [
+        "into_response"
+      ]
+    },
+    {
+      "task_id": "textmatch_with_exact",
+      "query": {
+        "__rationale": "4 sites reference `with_exact` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "with_exact"
+      },
+      "expected": [
+        "size_hint"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_str",
+      "query": {
+        "__rationale": "5 sites reference `from_str` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_str"
+      },
+      "expected": [
+        "into_future",
+        "protocols",
+        "set_content_length",
+        "try_from_uri"
+      ]
+    },
+    {
+      "task_id": "textmatch_file_name",
+      "query": {
+        "__rationale": "9 sites reference `file_name` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "file_name"
+      },
+      "expected": [
+        "content_type_with_encoding",
+        "file_name",
+        "filename_escapes_backslashes",
+        "filename_escapes_quotes",
+        "from_path",
+        "response_not_set_content_size",
+        "response_with_content_size_and_filename"
+      ]
+    },
+    {
+      "task_id": "textmatch_check_into_response_parts",
+      "query": {
+        "__rationale": "2 sites reference `check_into_response_parts` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "check_into_response_parts"
+      },
+      "expected": [
+        "check_output_tuples"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_compile_error",
+      "query": {
+        "__rationale": "7 sites reference `into_compile_error` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_compile_error"
+      },
+      "expected": [
+        "check_future_send",
+        "check_inputs_impls_from_request",
+        "expand",
+        "expand_field"
+      ]
+    },
+    {
+      "task_id": "textmatch_is_some",
+      "query": {
+        "__rationale": "27 sites reference `is_some` across 16 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "is_some"
+      },
+      "expected": [
+        "check_inputs_impls_from_request",
+        "check_output_impls_into_response",
+        "combine",
+        "combine_attribute",
+        "combine_unary_attribute",
+        "expand",
+        "expand_field",
+        "extract_fields",
+        "from_request",
+        "impl_struct_by_extracting_all_at_once",
+        "is_body_limit_error",
+        "method_filter",
+        "parse_assignment_attribute",
+        "parse_parenthesized_attribute",
+        "set_endpoint",
+        "status_code_from_multer_error"
+      ]
+    },
+    {
+      "task_id": "textmatch_echo_app",
+      "query": {
+        "__rationale": "2 sites reference `echo_app` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "echo_app"
+      },
+      "expected": [
+        "http2",
+        "integration_test"
+      ]
+    },
+    {
+      "task_id": "textmatch_RouteId",
+      "query": {
+        "__rationale": "3 sites reference `RouteId` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "RouteId"
+      },
+      "expected": [
+        "merge",
+        "nest",
+        "new_route"
+      ]
+    },
+    {
+      "task_id": "textmatch_take",
+      "query": {
+        "__rationale": "22 sites reference `take` across 14 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "take"
+      },
+      "expected": [
+        "accept",
+        "extract_parts_with_state",
+        "into_future",
+        "keep_alive_ends_when_the_stream_ends",
+        "next_element_seed",
+        "next_value_seed",
+        "poll",
+        "poll_frame",
+        "run",
+        "set_allow_header",
+        "take",
+        "take_route_or_internal_error",
+        "try_downcast",
+        "try_range_response"
+      ]
+    },
+    {
+      "task_id": "textmatch_extract_with_state",
+      "query": {
+        "__rationale": "4 sites reference `extract_with_state` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "extract_with_state"
+      },
+      "expected": [
+        "extract",
+        "extract_with_state",
+        "from_request_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_query",
+      "query": {
+        "__rationale": "8 sites reference `query` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "query"
+      },
+      "expected": [
+        "from_request",
+        "from_request_parts",
+        "map_path",
+        "strip_prefix",
+        "try_from_uri"
+      ]
+    },
+    {
+      "task_id": "textmatch_then",
+      "query": {
+        "__rationale": "5 sites reference `then` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "then"
+      },
+      "expected": [
+        "expand",
+        "impl_struct_by_extracting_all_at_once",
+        "infer_state_type_from_field_attributes",
+        "state_from_via"
+      ]
+    },
+    {
+      "task_id": "textmatch_throttle",
+      "query": {
+        "__rationale": "2 sites reference `throttle` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "throttle"
+      },
+      "expected": [
+        "keep_alive",
+        "keep_alive_ends_when_the_stream_ends"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_route",
+      "query": {
+        "__rationale": "7 sites reference `into_route` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_route"
+      },
+      "expected": [
+        "call_with_state",
+        "into_route",
+        "with_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_make_service",
+      "query": {
+        "__rationale": "13 sites reference `into_make_service` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_make_service"
+      },
+      "expected": [
+        "custom_listener",
+        "if_it_compiles_it_works",
+        "into_make_service",
+        "serving_with_custom_body_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_header_eq",
+      "query": {
+        "__rationale": "2 sites reference `header_eq` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "header_eq"
+      },
+      "expected": [
+        "from_request_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_subtype",
+      "query": {
+        "__rationale": "2 sites reference `subtype` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "subtype"
+      },
+      "expected": [
+        "json_content_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_status_mut",
+      "query": {
+        "__rationale": "4 sites reference `status_mut` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "status_mut"
+      },
+      "expected": [
+        "into_response"
+      ]
+    },
+    {
+      "task_id": "textmatch_private_jar_mut",
+      "query": {
+        "__rationale": "2 sites reference `private_jar_mut` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "private_jar_mut"
+      },
+      "expected": [
+        "add",
+        "remove"
+      ]
+    },
+    {
+      "task_id": "textmatch_signed_mut",
+      "query": {
+        "__rationale": "2 sites reference `signed_mut` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "signed_mut"
+      },
+      "expected": [
+        "from_headers",
+        "signed_jar_mut"
+      ]
+    },
+    {
+      "task_id": "textmatch_filename",
+      "query": {
+        "__rationale": "3 sites reference `filename` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "filename"
+      },
+      "expected": [
+        "attachment_filename_escapes_backslashes",
+        "attachment_filename_escapes_quotes",
+        "attachment_with_normal_filename"
+      ]
+    },
+    {
+      "task_id": "textmatch_to_tokens",
+      "query": {
+        "__rationale": "2 sites reference `to_tokens` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "to_tokens"
+      },
+      "expected": [
+        "to_tokens"
+      ]
+    },
+    {
+      "task_id": "textmatch_debug_tuple",
+      "query": {
+        "__rationale": "9 sites reference `debug_tuple` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "debug_tuple"
+      },
+      "expected": [
+        "fmt"
+      ]
+    },
+    {
+      "task_id": "textmatch_impl_into_response",
+      "query": {
+        "__rationale": "4 sites reference `impl_into_response` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "impl_into_response"
+      },
+      "expected": [
+        "header_array_impl_into_response",
+        "headermap_impl_into_response",
+        "status_header_array_impl_into_response",
+        "status_headermap_impl_into_response"
+      ]
+    },
+    {
+      "task_id": "textmatch_chunk_text",
+      "query": {
+        "__rationale": "8 sites reference `chunk_text` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "chunk_text"
+      },
+      "expected": [
+        "basic",
+        "keep_alive",
+        "keep_alive_ends_when_the_stream_ends"
+      ]
+    },
+    {
+      "task_id": "textmatch_try_from_uri",
+      "query": {
+        "__rationale": "5 sites reference `try_from_uri` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "try_from_uri"
+      },
+      "expected": [
+        "from_request_parts",
+        "test_try_from_uri",
+        "test_try_from_uri_with_invalid_query"
+      ]
+    },
+    {
+      "task_id": "textmatch_route_endpoint",
+      "query": {
+        "__rationale": "5 sites reference `route_endpoint` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "route_endpoint"
+      },
+      "expected": [
+        "nest",
+        "nest_service",
+        "route_service"
+      ]
+    },
+    {
+      "task_id": "textmatch_signed_jar",
+      "query": {
+        "__rationale": "2 sites reference `signed_jar` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "signed_jar"
+      },
+      "expected": [
+        "get",
+        "verify"
+      ]
+    },
+    {
+      "task_id": "textmatch_default",
+      "query": {
+        "__rationale": "20 sites reference `default` across 12 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "default"
+      },
+      "expected": [
+        "default",
+        "expand_field",
+        "from_request_parts",
+        "into_text",
+        "keep_alive",
+        "keep_alive_ends_when_the_stream_ends",
+        "leading_space_is_not_stripped",
+        "parse_attrs",
+        "sign",
+        "text",
+        "valid_json_raw_value_chars_handled",
+        "write_data_writer_str"
+      ]
+    },
+    {
+      "task_id": "textmatch_Close",
+      "query": {
+        "__rationale": "4 sites reference `Close` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Close"
+      },
+      "expected": [
+        "from_tungstenite",
+        "into_tungstenite"
+      ]
+    },
+    {
+      "task_id": "textmatch_lookahead1",
+      "query": {
+        "__rationale": "5 sites reference `lookahead1` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "lookahead1"
+      },
+      "expected": [
+        "parse"
+      ]
+    },
+    {
+      "task_id": "textmatch_make_response",
+      "query": {
+        "__rationale": "2 sites reference `make_response` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "make_response"
+      },
+      "expected": [
+        "into_response"
+      ]
+    },
+    {
+      "task_id": "textmatch_arbitrary",
+      "query": {
+        "__rationale": "7 sites reference `arbitrary` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "arbitrary"
+      },
+      "expected": [
+        "arbitrary",
+        "ascii_alphanumeric",
+        "u8_between"
+      ]
+    },
+    {
+      "task_id": "textmatch_well_known_last_response_type",
+      "query": {
+        "__rationale": "2 sites reference `well_known_last_response_type` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "well_known_last_response_type"
+      },
+      "expected": [
+        "check_output_tuples"
+      ]
+    },
+    {
+      "task_id": "textmatch_try_downcast",
+      "query": {
+        "__rationale": "2 sites reference `try_downcast` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "try_downcast"
+      },
+      "expected": [
+        "boxed"
+      ]
+    },
+    {
+      "task_id": "textmatch_fetch_add",
+      "query": {
+        "__rationale": "4 sites reference `fetch_add` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "fetch_add"
+      },
+      "expected": [
+        "accept",
+        "execute",
+        "from_request_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_status",
+      "query": {
+        "__rationale": "17 sites reference `status` across 11 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "status"
+      },
+      "expected": [
+        "consume_body_to_json_requires_json_content_type",
+        "decode_body",
+        "doenst_override_status_code_when_using_into_response_failed_at_same_level",
+        "ensure_rewrk_is_installed",
+        "http2",
+        "install_rewrk",
+        "into_range_response",
+        "into_response",
+        "on_upgrade",
+        "poll",
+        "valid_json_content_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_accept",
+      "query": {
+        "__rationale": "8 sites reference `accept` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "accept"
+      },
+      "expected": [
+        "accept",
+        "limit_connections",
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_encode",
+      "query": {
+        "__rationale": "2 sites reference `encode` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "encode"
+      },
+      "expected": [
+        "into_response",
+        "sign"
+      ]
+    },
+    {
+      "task_id": "textmatch_check_query",
+      "query": {
+        "__rationale": "5 sites reference `check_query` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "check_query"
+      },
+      "expected": [
+        "test_form_query",
+        "test_from_query"
+      ]
+    },
+    {
+      "task_id": "textmatch_parse_range_header",
+      "query": {
+        "__rationale": "2 sites reference `parse_range_header` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "parse_range_header"
+      },
+      "expected": [
+        "range_stream",
+        "response_range_empty_file"
+      ]
+    },
+    {
+      "task_id": "textmatch_assert_ne",
+      "query": {
+        "__rationale": "2 sites reference `assert_ne` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "assert_ne"
+      },
+      "expected": [
+        "test_serve_local_addr",
+        "test_with_graceful_shutdown_local_addr"
+      ]
+    },
+    {
+      "task_id": "textmatch_interval",
+      "query": {
+        "__rationale": "2 sites reference `interval` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "interval"
+      },
+      "expected": [
+        "keep_alive",
+        "keep_alive_ends_when_the_stream_ends"
+      ]
+    },
+    {
+      "task_id": "textmatch_Bytes",
+      "query": {
+        "__rationale": "3 sites reference `Bytes` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Bytes"
+      },
+      "expected": [
+        "append_allow_header",
+        "merge"
+      ]
+    },
+    {
+      "task_id": "textmatch_serve",
+      "query": {
+        "__rationale": "53 sites reference `serve` across 19 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "serve"
+      },
+      "expected": [
+        "both_mock_and_real_connect_info",
+        "building_complex_router",
+        "custom",
+        "custom_connected",
+        "custom_listener",
+        "custom_listener_with_connect",
+        "custom_listener_with_custom_connect",
+        "if_it_compiles_it_works",
+        "into_future_outside_tokio",
+        "run",
+        "serving_on_custom_io_type",
+        "serving_with_custom_body_type",
+        "serving_with_custom_executor",
+        "serving_with_custom_executor_http2",
+        "socket_addr",
+        "test_hyper_header_read_timeout_is_enabled",
+        "test_serve_local_addr",
+        "test_with_graceful_shutdown_local_addr",
+        "test_with_graceful_shutdown_request_header_timeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_route_with_tsr",
+      "query": {
+        "__rationale": "9 sites reference `route_with_tsr` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "route_with_tsr"
+      },
+      "expected": [
+        "test_tsr",
+        "tsr_at_root",
+        "tsr_independent_route_registration",
+        "tsr_maintains_query_params",
+        "tsr_with_params",
+        "tsr_works_in_nested_router"
+      ]
+    },
+    {
+      "task_id": "textmatch_MockConnectInfo",
+      "query": {
+        "__rationale": "2 sites reference `MockConnectInfo` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "MockConnectInfo"
+      },
+      "expected": [
+        "both_mock_and_real_connect_info",
+        "mock_connect_info"
+      ]
+    },
+    {
+      "task_id": "textmatch_content_type_str",
+      "query": {
+        "__rationale": "2 sites reference `content_type_str` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "content_type_str"
+      },
+      "expected": [
+        "from_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_bearer",
+      "query": {
+        "__rationale": "3 sites reference `bearer` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "bearer"
+      },
+      "expected": [
+        "building_complex_router",
+        "layer",
+        "route_layer"
+      ]
+    },
+    {
+      "task_id": "textmatch_finish_non_exhaustive",
+      "query": {
+        "__rationale": "4 sites reference `finish_non_exhaustive` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "finish_non_exhaustive"
+      },
+      "expected": [
+        "fmt"
+      ]
+    },
+    {
+      "task_id": "textmatch_post_service",
+      "query": {
+        "__rationale": "2 sites reference `post_service` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "post_service"
+      },
+      "expected": [
+        "service_overlaps"
+      ]
+    },
+    {
+      "task_id": "textmatch_expand_with",
+      "query": {
+        "__rationale": "4 sites reference `expand_with` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "expand_with"
+      },
+      "expected": [
+        "derive_from_ref",
+        "derive_from_request",
+        "derive_from_request_parts",
+        "derive_typed_path"
+      ]
+    },
+    {
+      "task_id": "textmatch_allow_header",
+      "query": {
+        "__rationale": "2 sites reference `allow_header` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "allow_header"
+      },
+      "expected": [
+        "call_with_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_merge",
+      "query": {
+        "__rationale": "9 sites reference `merge` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "merge"
+      },
+      "expected": [
+        "allow_header_when_merging",
+        "building_complex_router",
+        "main",
+        "merge",
+        "merge_accessing_state",
+        "merge_for_path",
+        "works"
+      ]
+    },
+    {
+      "task_id": "textmatch_classify",
+      "query": {
+        "__rationale": "2 sites reference `classify` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "classify"
+      },
+      "expected": [
+        "deserialize",
+        "make_rejection"
+      ]
+    },
+    {
+      "task_id": "textmatch_to_uri",
+      "query": {
+        "__rationale": "2 sites reference `to_uri` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "to_uri"
+      },
+      "expected": [
+        "with_params",
+        "with_params_called_multiple_times"
+      ]
+    },
+    {
+      "task_id": "textmatch_merge_for_path",
+      "query": {
+        "__rationale": "2 sites reference `merge_for_path` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "merge_for_path"
+      },
+      "expected": [
+        "merge",
+        "route"
+      ]
+    },
+    {
+      "task_id": "textmatch_Ready",
+      "query": {
+        "__rationale": "34 sites reference `Ready` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Ready"
+      },
+      "expected": [
+        "poll",
+        "poll_frame",
+        "poll_next",
+        "poll_ready"
+      ]
+    },
+    {
+      "task_id": "textmatch_first",
+      "query": {
+        "__rationale": "5 sites reference `first` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "first"
+      },
+      "expected": [
+        "check_inputs_impls_from_request",
+        "infer_state_types",
+        "parse_single_generic_type_on_struct",
+        "peel_result_ok"
+      ]
+    },
+    {
+      "task_id": "textmatch_oneshot_inner_owned",
+      "query": {
+        "__rationale": "3 sites reference `oneshot_inner_owned` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "oneshot_inner_owned"
+      },
+      "expected": [
+        "call_owned",
+        "call_with_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_to_string",
+      "query": {
+        "__rationale": "28 sites reference `to_string` across 15 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "to_string"
+      },
+      "expected": [
+        "body_text",
+        "check_body",
+        "custom",
+        "deserialize_str",
+        "extract_clean_typename",
+        "fmt",
+        "get_params",
+        "into_response",
+        "make_response",
+        "one",
+        "redirect_handler",
+        "set_cookies",
+        "supports_128_bit_numbers",
+        "test_incorrect_content_type",
+        "to_uri"
+      ]
+    },
+    {
+      "task_id": "textmatch_insert",
+      "query": {
+        "__rationale": "34 sites reference `insert` across 19 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "insert"
+      },
+      "expected": [
+        "add_header",
+        "apply",
+        "call",
+        "call_with_state",
+        "event",
+        "from_request_parts",
+        "insert",
+        "insert_header",
+        "insert_url_params",
+        "into_response",
+        "into_response_parts",
+        "on_upgrade",
+        "parse_event",
+        "retry",
+        "set_allow_header",
+        "set_content_length",
+        "set_matched_path_for_request",
+        "set_node",
+        "write_buf"
+      ]
+    },
+    {
+      "task_id": "textmatch_other",
+      "query": {
+        "__rationale": "2 sites reference `other` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "other"
+      },
+      "expected": [
+        "internal_server_error",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_error",
+      "query": {
+        "__rationale": "10 sites reference `error` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "error"
+      },
+      "expected": [
+        "content_type",
+        "filename",
+        "handle_accept_error",
+        "into_response",
+        "parse",
+        "poll"
+      ]
+    },
+    {
+      "task_id": "textmatch_send_request",
+      "query": {
+        "__rationale": "4 sites reference `send_request` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "send_request"
+      },
+      "expected": [
+        "http2",
+        "serving_on_custom_io_type",
+        "serving_with_custom_executor",
+        "serving_with_custom_executor_http2"
+      ]
+    },
+    {
+      "task_id": "textmatch_skip_next_arg",
+      "query": {
+        "__rationale": "6 sites reference `skip_next_arg` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "skip_next_arg"
+      },
+      "expected": [
+        "check_extractor_count",
+        "check_input_order",
+        "check_inputs_impls_from_request",
+        "extractor_idents",
+        "next_is_last_input"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_event",
+      "query": {
+        "__rationale": "5 sites reference `into_event` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_event"
+      },
+      "expected": [
+        "data",
+        "json_data",
+        "write_data_writer_str"
+      ]
+    },
+    {
+      "task_id": "textmatch_span",
+      "query": {
+        "__rationale": "20 sites reference `span` across 15 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "span"
+      },
+      "expected": [
+        "check_future_send",
+        "check_input_order",
+        "check_inputs_impls_from_request",
+        "check_into_response",
+        "check_into_response_parts",
+        "check_is_response_parts",
+        "check_output_impls_into_response",
+        "expand_field",
+        "extract_fields",
+        "impl_enum_by_extracting_all_at_once",
+        "impl_struct_by_extracting_all_at_once",
+        "into_inner",
+        "into_outer",
+        "member",
+        "parse_path"
+      ]
+    },
+    {
+      "task_id": "textmatch_ready",
+      "query": {
+        "__rationale": "22 sites reference `ready` across 8 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ready"
+      },
+      "expected": [
+        "call",
+        "echo_app",
+        "handle_connection",
+        "poll",
+        "poll_frame",
+        "poll_next",
+        "rejects_http_1_0_requests",
+        "serving_with_custom_body_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_update",
+      "query": {
+        "__rationale": "3 sites reference `update` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "update"
+      },
+      "expected": [
+        "sign",
+        "works"
+      ]
+    },
+    {
+      "task_id": "textmatch_add_original",
+      "query": {
+        "__rationale": "3 sites reference `add_original` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "add_original"
+      },
+      "expected": [
+        "from_headers"
+      ]
+    },
+    {
+      "task_id": "textmatch_uri",
+      "query": {
+        "__rationale": "24 sites reference `uri` across 22 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "uri"
+      },
+      "expected": [
+        "basic",
+        "call",
+        "call_route",
+        "call_with_state",
+        "check",
+        "check_body",
+        "check_query",
+        "extract_parts_with_state",
+        "filename_escapes_backslashes",
+        "filename_escapes_quotes",
+        "from_request",
+        "http2",
+        "process_form",
+        "response",
+        "response_from_path",
+        "response_not_set_content_size",
+        "response_not_set_filename",
+        "response_range_empty_file",
+        "response_range_file",
+        "response_with_content_size_and_filename",
+        "signed_cannot_access_invalid_cookies",
+        "test_incorrect_content_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_iter",
+      "query": {
+        "__rationale": "23 sites reference `into_iter` across 18 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_iter"
+      },
+      "expected": [
+        "check_path_extractor",
+        "cookies_from_request",
+        "create_url_params",
+        "expand",
+        "from_iter",
+        "impl_enum_by_extracting_all_at_once",
+        "impl_generics",
+        "impl_struct_by_extracting_all_at_once",
+        "iter",
+        "layer",
+        "merge",
+        "method_filter",
+        "nest",
+        "protocols",
+        "raw_path_params",
+        "route_layer",
+        "run",
+        "with_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_lower",
+      "query": {
+        "__rationale": "2 sites reference `lower` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "lower"
+      },
+      "expected": [
+        "poll",
+        "size_hint"
+      ]
+    },
+    {
+      "task_id": "textmatch_and_then",
+      "query": {
+        "__rationale": "24 sites reference `and_then` across 15 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "and_then"
+      },
+      "expected": [
+        "expand_with",
+        "find_first_not_double",
+        "from_bytes",
+        "from_request",
+        "from_request_parts",
+        "into_response",
+        "is_body_limit_error",
+        "json_content_type",
+        "parse_path",
+        "parse_range_header",
+        "range_stream",
+        "response_range_empty_file",
+        "route",
+        "size_hint",
+        "status_code_from_multer_error"
+      ]
+    },
+    {
+      "task_id": "textmatch_now",
+      "query": {
+        "__rationale": "2 sites reference `now` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "now"
+      },
+      "expected": [
+        "from_request_parts",
+        "reset"
+      ]
+    },
+    {
+      "task_id": "textmatch_poll_flush",
+      "query": {
+        "__rationale": "2 sites reference `poll_flush` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "poll_flush"
+      },
+      "expected": [
+        "poll_flush"
+      ]
+    },
+    {
+      "task_id": "textmatch_open",
+      "query": {
+        "__rationale": "4 sites reference `open` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "open"
+      },
+      "expected": [
+        "from_path",
+        "response_from_path",
+        "response_range_file",
+        "try_range_response"
+      ]
+    },
+    {
+      "task_id": "textmatch_expand",
+      "query": {
+        "__rationale": "7 sites reference `expand` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "expand"
+      },
+      "expected": [
+        "debug_handler",
+        "debug_middleware",
+        "derive_from_request",
+        "derive_from_request_parts",
+        "derive_typed_path",
+        "expand_attr_with",
+        "expand_with"
+      ]
+    },
+    {
+      "task_id": "textmatch_starts_with",
+      "query": {
+        "__rationale": "12 sites reference `starts_with` across 8 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "starts_with"
+      },
+      "expected": [
+        "has_content_type",
+        "insert_url_params",
+        "parse_path",
+        "prefix_matches",
+        "strip_prefix",
+        "validate_nest_path",
+        "validate_path",
+        "validate_v07_paths"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_headers",
+      "query": {
+        "__rationale": "3 sites reference `from_headers` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_headers"
+      },
+      "expected": [
+        "from_request_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_parse_attrs",
+      "query": {
+        "__rationale": "11 sites reference `parse_attrs` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "parse_attrs"
+      },
+      "expected": [
+        "expand",
+        "expand_field",
+        "extract_fields",
+        "impl_enum_by_extracting_all_at_once",
+        "impl_struct_by_extracting_all_at_once",
+        "infer_state_type_from_field_attributes"
+      ]
+    },
+    {
+      "task_id": "textmatch_impl_generics",
+      "query": {
+        "__rationale": "3 sites reference `impl_generics` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "impl_generics"
+      },
+      "expected": [
+        "impl_enum_by_extracting_all_at_once",
+        "impl_struct_by_extracting_all_at_once",
+        "impl_struct_by_extracting_each_field"
+      ]
+    },
+    {
+      "task_id": "textmatch_ok_or",
+      "query": {
+        "__rationale": "6 sites reference `ok_or` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ok_or"
+      },
+      "expected": [
+        "from_request",
+        "from_request_parts",
+        "merge_for_path"
+      ]
+    },
+    {
+      "task_id": "textmatch_route_layer",
+      "query": {
+        "__rationale": "2 sites reference `route_layer` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "route_layer"
+      },
+      "expected": [
+        "building_complex_router",
+        "route_layer"
+      ]
+    },
+    {
+      "task_id": "textmatch_sleep",
+      "query": {
+        "__rationale": "5 sites reference `sleep` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "sleep"
+      },
+      "expected": [
+        "handle_accept_error",
+        "keep_alive",
+        "keep_alive_ends_when_the_stream_ends",
+        "test_with_graceful_shutdown_request_header_timeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_content_type",
+      "query": {
+        "__rationale": "2 sites reference `content_type` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "content_type"
+      },
+      "expected": [
+        "content_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_custom",
+      "query": {
+        "__rationale": "3 sites reference `custom` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "custom"
+      },
+      "expected": [
+        "deserialize_any",
+        "next_element_seed",
+        "next_value_seed"
+      ]
+    },
+    {
+      "task_id": "textmatch_ascii_alphanumeric",
+      "query": {
+        "__rationale": "2 sites reference `ascii_alphanumeric` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ascii_alphanumeric"
+      },
+      "expected": [
+        "arbitrary"
+      ]
+    },
+    {
+      "task_id": "textmatch_append",
+      "query": {
+        "__rationale": "4 sites reference `append` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "append"
+      },
+      "expected": [
+        "into_response",
+        "into_response_parts",
+        "set_cookies"
+      ]
+    },
+    {
+      "task_id": "textmatch_tap_inner",
+      "query": {
+        "__rationale": "10 sites reference `tap_inner` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "tap_inner"
+      },
+      "expected": [
+        "fallback",
+        "fallback_endpoint",
+        "fallback_service",
+        "method_not_allowed_fallback",
+        "nest",
+        "nest_service",
+        "reset_fallback",
+        "route",
+        "route_service",
+        "without_v07_checks"
+      ]
+    },
+    {
+      "task_id": "textmatch_visit_newtype_struct",
+      "query": {
+        "__rationale": "2 sites reference `visit_newtype_struct` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "visit_newtype_struct"
+      },
+      "expected": [
+        "deserialize_newtype_struct"
+      ]
+    },
+    {
+      "task_id": "textmatch_debug_struct",
+      "query": {
+        "__rationale": "31 sites reference `debug_struct` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "debug_struct"
+      },
+      "expected": [
+        "fmt"
+      ]
+    },
+    {
+      "task_id": "textmatch_Owned",
+      "query": {
+        "__rationale": "3 sites reference `Owned` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Owned"
+      },
+      "expected": [
+        "into_response",
+        "redirect_handler"
+      ]
+    },
+    {
+      "task_id": "textmatch_format_args",
+      "query": {
+        "__rationale": "20 sites reference `format_args` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "format_args"
+      },
+      "expected": [
+        "error_on_generic_ident",
+        "expand",
+        "fmt",
+        "parse_single_generic_type_on_struct"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_slice",
+      "query": {
+        "__rationale": "2 sites reference `from_slice` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_slice"
+      },
+      "expected": [
+        "deserialize",
+        "from_bytes"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_service",
+      "query": {
+        "__rationale": "9 sites reference `into_service` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_service"
+      },
+      "expected": [
+        "extracting_on_nested_handler",
+        "handler_into_service",
+        "if_it_compiles_it_works",
+        "into_make_service",
+        "into_make_service_with_connect_info",
+        "service_overlaps"
+      ]
+    },
+    {
+      "task_id": "textmatch_visit_seq",
+      "query": {
+        "__rationale": "4 sites reference `visit_seq` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "visit_seq"
+      },
+      "expected": [
+        "deserialize_seq",
+        "deserialize_tuple",
+        "deserialize_tuple_struct"
+      ]
+    },
+    {
+      "task_id": "textmatch_get_all",
+      "query": {
+        "__rationale": "4 sites reference `get_all` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "get_all"
+      },
+      "expected": [
+        "cookies_from_request",
+        "from_request_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_map_or",
+      "query": {
+        "__rationale": "2 sites reference `map_or` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "map_or"
+      },
+      "expected": [
+        "from_request_parts",
+        "skip_next_arg"
+      ]
+    },
+    {
+      "task_id": "textmatch_u8_between",
+      "query": {
+        "__rationale": "2 sites reference `u8_between` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "u8_between"
+      },
+      "expected": [
+        "arbitrary"
+      ]
+    },
+    {
+      "task_id": "textmatch_write_all",
+      "query": {
+        "__rationale": "6 sites reference `write_all` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "write_all"
+      },
+      "expected": [
+        "into_response",
+        "test_hyper_header_read_timeout_is_enabled",
+        "test_with_graceful_shutdown_request_header_timeout",
+        "write_buf"
+      ]
+    },
+    {
+      "task_id": "textmatch_Key",
+      "query": {
+        "__rationale": "2 sites reference `Key` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Key"
+      },
+      "expected": [
+        "key",
+        "next_key_seed"
+      ]
+    },
+    {
+      "task_id": "textmatch_headers_mut",
+      "query": {
+        "__rationale": "23 sites reference `headers_mut` across 8 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "headers_mut"
+      },
+      "expected": [
+        "add_header",
+        "extract_parts_with_state",
+        "headers_mut",
+        "insert_header",
+        "into_response",
+        "into_response_parts",
+        "on_upgrade",
+        "poll"
+      ]
+    },
+    {
+      "task_id": "textmatch_extensions",
+      "query": {
+        "__rationale": "5 sites reference `extensions` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "extensions"
+      },
+      "expected": [
+        "call_with_state",
+        "extensions",
+        "extract_matched_path",
+        "into_response",
+        "with_limited_body"
+      ]
+    },
+    {
+      "task_id": "textmatch_max",
+      "query": {
+        "__rationale": "3 sites reference `max` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "max"
+      },
+      "expected": [
+        "body_too_large",
+        "body_too_large_with_tracing"
+      ]
+    },
+    {
+      "task_id": "textmatch_nest",
+      "query": {
+        "__rationale": "21 sites reference `nest` across 17 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "nest"
+      },
+      "expected": [
+        "can_extract_nested_matched_path_in_middleware_on_nested_router",
+        "can_extract_nested_matched_path_in_middleware_on_nested_router_via_extension",
+        "can_extract_nested_matched_path_in_middleware_using_nest",
+        "can_extract_nested_matched_path_in_middleware_via_extension_using_nest",
+        "can_extract_nested_matched_path_with_prefix_and_suffix_in_middleware_on_nested_router",
+        "can_extract_nested_matched_path_with_prefix_in_middleware_on_nested_router",
+        "doesnt_panic_if_router_called_from_wildcard_route",
+        "extracting_on_handler_in_deeply_nested_router",
+        "extracting_on_handler_in_nested_router",
+        "in_fallbacks",
+        "in_middleware",
+        "main",
+        "one_level_of_nesting",
+        "one_level_of_nesting_with_trailing_slash",
+        "tsr_works_in_nested_router",
+        "two_levels_of_nesting",
+        "two_levels_of_nesting_with_trailing_slash"
+      ]
+    },
+    {
+      "task_id": "textmatch_tcp_nodelay_listener",
+      "query": {
+        "__rationale": "10 sites reference `tcp_nodelay_listener` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "tcp_nodelay_listener"
+      },
+      "expected": [
+        "if_it_compiles_it_works"
+      ]
+    },
+    {
+      "task_id": "textmatch_unwrap_or_else",
+      "query": {
+        "__rationale": "18 sites reference `unwrap_or_else` across 14 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "unwrap_or_else"
+      },
+      "expected": [
+        "boxed",
+        "ensure_rewrk_is_installed",
+        "expand",
+        "fmt",
+        "from_request_parts",
+        "handle_connection",
+        "install_rewrk",
+        "into_future",
+        "into_range_response",
+        "into_response",
+        "option_layer",
+        "redirect_handler",
+        "response_range_empty_file",
+        "take_route_or_internal_error"
+      ]
+    },
+    {
+      "task_id": "textmatch_replace",
+      "query": {
+        "__rationale": "2 sites reference `replace` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "replace"
+      },
+      "expected": [
+        "call",
+        "write_buf"
+      ]
+    },
+    {
+      "task_id": "textmatch_enable_all",
+      "query": {
+        "__rationale": "2 sites reference `enable_all` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "enable_all"
+      },
+      "expected": [
+        "into_future_outside_tokio",
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_value",
+      "query": {
+        "__rationale": "3 sites reference `value` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "value"
+      },
+      "expected": [
+        "parse_path"
+      ]
+    },
+    {
+      "task_id": "textmatch_ServeFuture",
+      "query": {
+        "__rationale": "2 sites reference `ServeFuture` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ServeFuture"
+      },
+      "expected": [
+        "into_future"
+      ]
+    },
+    {
+      "task_id": "textmatch_Extension",
+      "query": {
+        "__rationale": "10 sites reference `Extension` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Extension"
+      },
+      "expected": [
+        "call",
+        "extension_extractor",
+        "extract_request_parts",
+        "from_request_parts",
+        "header_array_extension_body",
+        "header_array_extension_mixed_body",
+        "layer",
+        "main",
+        "status_header_array_extension_body",
+        "status_header_array_extension_mixed_body"
+      ]
+    },
+    {
+      "task_id": "textmatch_on_ci",
+      "query": {
+        "__rationale": "2 sites reference `on_ci` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "on_ci"
+      },
+      "expected": [
+        "main",
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_path_rejection",
+      "query": {
+        "__rationale": "2 sites reference `path_rejection` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "path_rejection"
+      },
+      "expected": [
+        "map_err_rejection",
+        "rejection_assoc_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_check_body",
+      "query": {
+        "__rationale": "5 sites reference `check_body` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "check_body"
+      },
+      "expected": [
+        "test_form_body",
+        "test_from_body"
+      ]
+    },
+    {
+      "task_id": "textmatch_member",
+      "query": {
+        "__rationale": "2 sites reference `member` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "member"
+      },
+      "expected": [
+        "extract_fields"
+      ]
+    },
+    {
+      "task_id": "textmatch_repeat_with",
+      "query": {
+        "__rationale": "4 sites reference `repeat_with` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "repeat_with"
+      },
+      "expected": [
+        "keep_alive",
+        "keep_alive_ends_when_the_stream_ends",
+        "zip_longest"
+      ]
+    },
+    {
+      "task_id": "textmatch_is_self_pat_type",
+      "query": {
+        "__rationale": "3 sites reference `is_self_pat_type` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "is_self_pat_type"
+      },
+      "expected": [
+        "check_inputs_impls_from_request",
+        "self_receiver"
+      ]
+    },
+    {
+      "task_id": "textmatch_bits",
+      "query": {
+        "__rationale": "8 sites reference `bits` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "bits"
+      },
+      "expected": [
+        "contains",
+        "insert"
+      ]
+    },
+    {
+      "task_id": "textmatch_with_limited_body",
+      "query": {
+        "__rationale": "4 sites reference `with_limited_body` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "with_limited_body"
+      },
+      "expected": [
+        "from_request",
+        "into_limited_body"
+      ]
+    },
+    {
+      "task_id": "textmatch_write",
+      "query": {
+        "__rationale": "17 sites reference `write` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "write"
+      },
+      "expected": [
+        "fmt"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_data_stream",
+      "query": {
+        "__rationale": "4 sites reference `into_data_stream` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_data_stream"
+      },
+      "expected": [
+        "from_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_copy_from_slice",
+      "query": {
+        "__rationale": "2 sites reference `copy_from_slice` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "copy_from_slice"
+      },
+      "expected": [
+        "from_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_trait_generics",
+      "query": {
+        "__rationale": "3 sites reference `trait_generics` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "trait_generics"
+      },
+      "expected": [
+        "impl_enum_by_extracting_all_at_once",
+        "impl_struct_by_extracting_all_at_once",
+        "impl_struct_by_extracting_each_field"
+      ]
+    },
+    {
+      "task_id": "textmatch_next_field",
+      "query": {
+        "__rationale": "9 sites reference `next_field` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "next_field"
+      },
+      "expected": [
+        "handle",
+        "into_stream",
+        "next_field"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_response",
+      "query": {
+        "__rationale": "120 sites reference `into_response` across 29 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_response"
+      },
+      "expected": [
+        "attachment_filename_escapes_backslashes",
+        "attachment_filename_escapes_quotes",
+        "attachment_with_normal_filename",
+        "attachment_without_filename",
+        "call",
+        "doenst_override_status_code_when_using_into_response_failed_at_same_level",
+        "failed_into_response_parts",
+        "fallback",
+        "filename_escapes_backslashes",
+        "filename_escapes_quotes",
+        "handle",
+        "handler",
+        "internal_server_error",
+        "into_range_response",
+        "into_response",
+        "make_response",
+        "poll",
+        "range_stream",
+        "redirect_handler",
+        "response",
+        "response_from_path",
+        "response_not_set_content_size",
+        "response_not_set_filename",
+        "response_range_empty_file",
+        "response_with_content_size_and_filename",
+        "status_code_tuple_doesnt_override_error",
+        "take_route_or_internal_error",
+        "test_internal_error",
+        "try_range_response"
+      ]
+    },
+    {
+      "task_id": "textmatch_collect",
+      "query": {
+        "__rationale": "25 sites reference `collect` across 23 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "collect"
+      },
+      "expected": [
+        "basic",
+        "body_text",
+        "call",
+        "call_route",
+        "check_path_extractor",
+        "create_url_params",
+        "expand",
+        "from_iter",
+        "from_request",
+        "from_request_parts",
+        "http2",
+        "into_future",
+        "layer",
+        "parse_path",
+        "process_form",
+        "response",
+        "response_not_set_content_size",
+        "response_not_set_filename",
+        "response_with_content_size_and_filename",
+        "route_layer",
+        "state_types_from_args",
+        "to_bytes",
+        "with_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_check_single_value",
+      "query": {
+        "__rationale": "19 sites reference `check_single_value` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "check_single_value"
+      },
+      "expected": [
+        "test_parse_single_value"
+      ]
+    },
+    {
+      "task_id": "textmatch_Pong",
+      "query": {
+        "__rationale": "2 sites reference `Pong` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Pong"
+      },
+      "expected": [
+        "from_tungstenite",
+        "into_tungstenite"
+      ]
+    },
+    {
+      "task_id": "textmatch_First",
+      "query": {
+        "__rationale": "2 sites reference `First` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "First"
+      },
+      "expected": [
+        "next",
+        "zip_longest"
+      ]
+    },
+    {
+      "task_id": "textmatch_mime_str",
+      "query": {
+        "__rationale": "2 sites reference `mime_str` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "mime_str"
+      },
+      "expected": [
+        "content_type_with_encoding"
+      ]
+    },
+    {
+      "task_id": "textmatch_Error",
+      "query": {
+        "__rationale": "2 sites reference `Error` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Error"
+      },
+      "expected": [
+        "from_request_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_static",
+      "query": {
+        "__rationale": "20 sites reference `from_static` across 9 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_static"
+      },
+      "expected": [
+        "content_type_with_encoding",
+        "from_static",
+        "http2",
+        "into_response",
+        "make_response",
+        "on_upgrade",
+        "protocols",
+        "set_content_length",
+        "test_echo_app"
+      ]
+    },
+    {
+      "task_id": "textmatch_with_graceful_shutdown",
+      "query": {
+        "__rationale": "4 sites reference `with_graceful_shutdown` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "with_graceful_shutdown"
+      },
+      "expected": [
+        "if_it_compiles_it_works",
+        "test_with_graceful_shutdown_local_addr",
+        "test_with_graceful_shutdown_request_header_timeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_combine_attribute",
+      "query": {
+        "__rationale": "5 sites reference `combine_attribute` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "combine_attribute"
+      },
+      "expected": [
+        "combine"
+      ]
+    },
+    {
+      "task_id": "textmatch_Custom",
+      "query": {
+        "__rationale": "3 sites reference `Custom` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Custom"
+      },
+      "expected": [
+        "expand"
+      ]
+    },
+    {
+      "task_id": "textmatch_chain",
+      "query": {
+        "__rationale": "6 sites reference `chain` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "chain"
+      },
+      "expected": [
+        "expand",
+        "impl_struct_by_extracting_all_at_once",
+        "zip_longest"
+      ]
+    },
+    {
+      "task_id": "textmatch_on_endpoint",
+      "query": {
+        "__rationale": "2 sites reference `on_endpoint` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "on_endpoint"
+      },
+      "expected": [
+        "on_service"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_bits",
+      "query": {
+        "__rationale": "16 sites reference `from_bits` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_bits"
+      },
+      "expected": [
+        "default",
+        "finalized",
+        "insert"
+      ]
+    },
+    {
+      "task_id": "textmatch_parse_boundary",
+      "query": {
+        "__rationale": "4 sites reference `parse_boundary` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "parse_boundary"
+      },
+      "expected": [
+        "from_request",
+        "parse_boundary"
+      ]
+    },
+    {
+      "task_id": "textmatch_json",
+      "query": {
+        "__rationale": "11 sites reference `json` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "json"
+      },
+      "expected": [
+        "deserialize_body",
+        "deserialize_body_escaped_to_cow",
+        "deserialize_body_escaped_to_str",
+        "into_future"
+      ]
+    },
+    {
+      "task_id": "textmatch_matches",
+      "query": {
+        "__rationale": "10 sites reference `matches` across 9 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "matches"
+      },
+      "expected": [
+        "expand",
+        "expand_field",
+        "from_request_parts",
+        "impl_struct_by_extracting_each_field",
+        "is_connection_error",
+        "is_default",
+        "is_missing",
+        "is_none",
+        "is_some"
+      ]
+    },
+    {
+      "task_id": "textmatch_new_spanned",
+      "query": {
+        "__rationale": "34 sites reference `new_spanned` across 17 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "new_spanned"
+      },
+      "expected": [
+        "check_extractor_count",
+        "check_future_send",
+        "check_inputs_impls_from_request",
+        "check_output_tuples",
+        "check_path_extractor",
+        "combine",
+        "combine_attribute",
+        "combine_unary_attribute",
+        "error_on_generic_ident",
+        "expand",
+        "expand_unnamed_fields",
+        "impl_enum_by_extracting_all_at_once",
+        "impl_struct_by_extracting_all_at_once",
+        "parse_assignment_attribute",
+        "parse_parenthesized_attribute",
+        "parse_path",
+        "parse_single_generic_type_on_struct"
+      ]
+    },
+    {
+      "task_id": "textmatch_captures_from_path",
+      "query": {
+        "__rationale": "2 sites reference `captures_from_path` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "captures_from_path"
+      },
+      "expected": [
+        "expand_named_fields",
+        "expand_unnamed_fields"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_data",
+      "query": {
+        "__rationale": "3 sites reference `into_data` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_data"
+      },
+      "expected": [
+        "body_to_bytes_mut",
+        "poll_next"
+      ]
+    },
+    {
+      "task_id": "textmatch_Text",
+      "query": {
+        "__rationale": "6 sites reference `Text` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Text"
+      },
+      "expected": [
+        "from_tungstenite",
+        "into_tungstenite",
+        "test_echo_app",
+        "text"
+      ]
+    },
+    {
+      "task_id": "textmatch_head",
+      "query": {
+        "__rationale": "7 sites reference `head` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "head"
+      },
+      "expected": [
+        "allow_header_when_merging",
+        "get_head_does_not_overlap",
+        "head_get_does_not_overlap",
+        "head_takes_precedence_over_get",
+        "method_filter",
+        "sets_allow_header_get_head",
+        "typed_head"
+      ]
+    },
+    {
+      "task_id": "textmatch_ReadyListener",
+      "query": {
+        "__rationale": "5 sites reference `ReadyListener` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ReadyListener"
+      },
+      "expected": [
+        "serving_on_custom_io_type",
+        "serving_with_custom_executor",
+        "serving_with_custom_executor_http2",
+        "test_hyper_header_read_timeout_is_enabled",
+        "test_with_graceful_shutdown_request_header_timeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_format_ident",
+      "query": {
+        "__rationale": "12 sites reference `format_ident` across 8 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "format_ident"
+      },
+      "expected": [
+        "captures_from_path",
+        "check_future_send",
+        "check_inputs_impls_from_request",
+        "check_into_response",
+        "check_into_response_parts",
+        "check_is_response_parts",
+        "check_output_impls_into_response",
+        "expand_unnamed_fields"
+      ]
+    },
+    {
+      "task_id": "textmatch_null",
+      "query": {
+        "__rationale": "2 sites reference `null` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "null"
+      },
+      "expected": [
+        "ensure_rewrk_is_installed"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_iter",
+      "query": {
+        "__rationale": "2 sites reference `from_iter` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_iter"
+      },
+      "expected": [
+        "content_type_with_encoding",
+        "handle"
+      ]
+    },
+    {
+      "task_id": "textmatch_delete",
+      "query": {
+        "__rationale": "2 sites reference `delete` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "delete"
+      },
+      "expected": [
+        "destroy",
+        "typed_delete"
+      ]
+    },
+    {
+      "task_id": "textmatch_visit_unit",
+      "query": {
+        "__rationale": "5 sites reference `visit_unit` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "visit_unit"
+      },
+      "expected": [
+        "deserialize_ignored_any",
+        "deserialize_unit",
+        "deserialize_unit_struct"
+      ]
+    },
+    {
+      "task_id": "textmatch_set_endpoint",
+      "query": {
+        "__rationale": "9 sites reference `set_endpoint` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "set_endpoint"
+      },
+      "expected": [
+        "on_endpoint"
+      ]
+    },
+    {
+      "task_id": "textmatch_to_vec",
+      "query": {
+        "__rationale": "16 sites reference `to_vec` across 15 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "to_vec"
+      },
+      "expected": [
+        "body_text",
+        "call",
+        "call_route",
+        "filename_escapes_backslashes",
+        "filename_escapes_quotes",
+        "into_response",
+        "response",
+        "response_not_set_content_size",
+        "response_not_set_filename",
+        "response_with_content_size_and_filename",
+        "serialize",
+        "serving_on_custom_io_type",
+        "serving_with_custom_executor",
+        "serving_with_custom_executor_http2",
+        "text"
+      ]
+    },
+    {
+      "task_id": "textmatch_extract_parts_with_state",
+      "query": {
+        "__rationale": "3 sites reference `extract_parts_with_state` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "extract_parts_with_state"
+      },
+      "expected": [
+        "extract_parts",
+        "extract_parts_with_state",
+        "from_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_with_status_code",
+      "query": {
+        "__rationale": "5 sites reference `with_status_code` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "with_status_code"
+      },
+      "expected": [
+        "building_complex_router",
+        "permanent",
+        "temporary",
+        "with_layer_that_changes_request_body_and_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_call_with_state",
+      "query": {
+        "__rationale": "8 sites reference `call_with_state` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "call_with_state"
+      },
+      "expected": [
+        "call",
+        "call_with_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_verify",
+      "query": {
+        "__rationale": "2 sites reference `verify` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "verify"
+      },
+      "expected": [
+        "from_headers",
+        "verify"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_err",
+      "query": {
+        "__rationale": "15 sites reference `from_err` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_err"
+      },
+      "expected": [
+        "deserialize",
+        "from_bytes",
+        "from_err",
+        "from_request",
+        "from_request_parts",
+        "make_rejection"
+      ]
+    },
+    {
+      "task_id": "textmatch_peel_result_ok",
+      "query": {
+        "__rationale": "4 sites reference `peel_result_ok` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "peel_result_ok"
+      },
+      "expected": [
+        "extract_fields"
+      ]
+    },
+    {
+      "task_id": "textmatch_got",
+      "query": {
+        "__rationale": "4 sites reference `got` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "got"
+      },
+      "expected": [
+        "deserialize_enum",
+        "deserialize_str",
+        "deserialize_tuple",
+        "deserialize_tuple_struct"
+      ]
+    },
+    {
+      "task_id": "textmatch_to_writer",
+      "query": {
+        "__rationale": "4 sites reference `to_writer` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "to_writer"
+      },
+      "expected": [
+        "into_response",
+        "json_data"
+      ]
+    },
+    {
+      "task_id": "textmatch_cloned",
+      "query": {
+        "__rationale": "4 sites reference `cloned` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "cloned"
+      },
+      "expected": [
+        "from_extensions",
+        "from_request_parts",
+        "impl_struct_by_extracting_all_at_once",
+        "infer_state_types"
+      ]
+    },
+    {
+      "task_id": "textmatch_header",
+      "query": {
+        "__rationale": "44 sites reference `header` across 25 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "header"
+      },
+      "expected": [
+        "check_body",
+        "deserialize_error_status_codes",
+        "doenst_override_status_code_when_using_into_response_failed_at_same_level",
+        "extra_chars_after_valid_json_syntax",
+        "extract_parts_with_state",
+        "extract_parts_without_state",
+        "extract_request_parts",
+        "http2",
+        "into_range_response",
+        "into_response",
+        "invalid_json_data",
+        "invalid_json_syntax",
+        "on_upgrade",
+        "optional_query_preserves_parsing_errors",
+        "optional_query_supports_multiple_values",
+        "query_supports_multiple_values",
+        "rejects_http_1_0_requests",
+        "response_range_empty_file",
+        "response_range_file",
+        "signed_cannot_access_invalid_cookies",
+        "supports_multiple_values",
+        "test_from_extractor",
+        "test_incorrect_content_type",
+        "typed_header",
+        "valid_json_content_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_Active",
+      "query": {
+        "__rationale": "2 sites reference `Active` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Active"
+      },
+      "expected": [
+        "default"
+      ]
+    },
+    {
+      "task_id": "textmatch_method_mut",
+      "query": {
+        "__rationale": "2 sites reference `method_mut` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "method_mut"
+      },
+      "expected": [
+        "extract_parts_with_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_path_ident_is_state",
+      "query": {
+        "__rationale": "4 sites reference `path_ident_is_state` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "path_ident_is_state"
+      },
+      "expected": [
+        "impl_struct_by_extracting_all_at_once",
+        "infer_state_type_from_field_attributes",
+        "state_from_via"
+      ]
+    },
+    {
+      "task_id": "textmatch_handshake",
+      "query": {
+        "__rationale": "4 sites reference `handshake` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "handshake"
+      },
+      "expected": [
+        "http2",
+        "serving_on_custom_io_type",
+        "serving_with_custom_executor",
+        "serving_with_custom_executor_http2"
+      ]
+    },
+    {
+      "task_id": "textmatch_strip_prefix",
+      "query": {
+        "__rationale": "6 sites reference `strip_prefix` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "strip_prefix"
+      },
+      "expected": [
+        "call",
+        "does_not_panic",
+        "parse_path",
+        "parse_range_header"
+      ]
+    },
+    {
+      "task_id": "textmatch_create_router",
+      "query": {
+        "__rationale": "4 sites reference `create_router` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "create_router"
+      },
+      "expected": [
+        "custom_connected",
+        "custom_listener",
+        "custom_listener_with_connect",
+        "custom_listener_with_custom_connect"
+      ]
+    },
+    {
+      "task_id": "textmatch_parse_path",
+      "query": {
+        "__rationale": "3 sites reference `parse_path` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "parse_path"
+      },
+      "expected": [
+        "expand",
+        "expand_unit_fields"
+      ]
+    },
+    {
+      "task_id": "textmatch_parse_quote",
+      "query": {
+        "__rationale": "5 sites reference `parse_quote` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "parse_quote"
+      },
+      "expected": [
+        "impl_generics",
+        "impl_struct_by_extracting_all_at_once",
+        "state_from_via",
+        "trait_generics",
+        "via_marker_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_unwrap_or",
+      "query": {
+        "__rationale": "7 sites reference `unwrap_or` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "unwrap_or"
+      },
+      "expected": [
+        "append_nested_matched_path",
+        "optional_bar",
+        "optional_foo",
+        "optional_query_supports_multiple_values",
+        "parse_path",
+        "parse_range_header",
+        "validate_v07_paths"
+      ]
+    },
+    {
+      "task_id": "textmatch_wrong_number_of_parameters",
+      "query": {
+        "__rationale": "4 sites reference `wrong_number_of_parameters` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "wrong_number_of_parameters"
+      },
+      "expected": [
+        "deserialize_enum",
+        "deserialize_str",
+        "deserialize_tuple",
+        "deserialize_tuple_struct"
+      ]
+    },
+    {
+      "task_id": "textmatch_body_text",
+      "query": {
+        "__rationale": "5 sites reference `body_text` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "body_text"
+      },
+      "expected": [
+        "into_response",
+        "signed_cannot_access_invalid_cookies"
+      ]
+    },
+    {
+      "task_id": "textmatch_any",
+      "query": {
+        "__rationale": "11 sites reference `any` across 11 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "any"
+      },
+      "expected": [
+        "add_tsr_redirect_route",
+        "allow_header_any",
+        "default_on_failed_upgrade",
+        "doesnt_panic_if_router_called_from_wildcard_route",
+        "echo_app",
+        "fallback",
+        "method_filter",
+        "on_failed_upgrade",
+        "rejects_http_1_0_requests",
+        "self_receiver",
+        "validate_nest_path"
+      ]
+    },
+    {
+      "task_id": "textmatch_keep_alive",
+      "query": {
+        "__rationale": "2 sites reference `keep_alive` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "keep_alive"
+      },
+      "expected": [
+        "keep_alive",
+        "keep_alive_ends_when_the_stream_ends"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_inner",
+      "query": {
+        "__rationale": "10 sites reference `into_inner` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_inner"
+      },
+      "expected": [
+        "check_inputs_impls_from_request",
+        "extract_fields",
+        "from_err",
+        "into_response",
+        "merge",
+        "nest"
+      ]
+    },
+    {
+      "task_id": "textmatch_map_inner",
+      "query": {
+        "__rationale": "4 sites reference `map_inner` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "map_inner"
+      },
+      "expected": [
+        "layer",
+        "merge",
+        "route_layer",
+        "with_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_method",
+      "query": {
+        "__rationale": "15 sites reference `method` across 11 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "method"
+      },
+      "expected": [
+        "call",
+        "call_route",
+        "check_body",
+        "extract_parts_with_state",
+        "from_request",
+        "http2",
+        "main",
+        "oneshot_inner",
+        "oneshot_inner_owned",
+        "rejects_http_1_0_requests",
+        "test_incorrect_content_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_timeout",
+      "query": {
+        "__rationale": "3 sites reference `timeout` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "timeout"
+      },
+      "expected": [
+        "limit_connections",
+        "test_hyper_header_read_timeout_is_enabled",
+        "test_with_graceful_shutdown_request_header_timeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_run_ui_tests",
+      "query": {
+        "__rationale": "5 sites reference `run_ui_tests` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "run_ui_tests"
+      },
+      "expected": [
+        "ui_debug_handler",
+        "ui_debug_middleware"
+      ]
+    },
+    {
+      "task_id": "textmatch_poll_next",
+      "query": {
+        "__rationale": "4 sites reference `poll_next` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "poll_next"
+      },
+      "expected": [
+        "poll_next"
+      ]
+    },
+    {
+      "task_id": "textmatch_args",
+      "query": {
+        "__rationale": "8 sites reference `args` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "args"
+      },
+      "expected": [
+        "install_rewrk",
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_quote_spanned",
+      "query": {
+        "__rationale": "50 sites reference `quote_spanned` across 17 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "quote_spanned"
+      },
+      "expected": [
+        "check_future_send",
+        "check_input_order",
+        "check_inputs_impls_from_request",
+        "check_into_response",
+        "check_into_response_parts",
+        "check_is_response_parts",
+        "check_output_impls_into_response",
+        "expand_field",
+        "expand_named_fields",
+        "expand_unit_fields",
+        "expand_unnamed_fields",
+        "extract_fields",
+        "impl_enum_by_extracting_all_at_once",
+        "impl_struct_by_extracting_all_at_once",
+        "into_inner",
+        "into_outer",
+        "next_is_last_input"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_body",
+      "query": {
+        "__rationale": "14 sites reference `into_body` across 11 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_body"
+      },
+      "expected": [
+        "from_request",
+        "http2",
+        "into_limited_body",
+        "process_form",
+        "response",
+        "response_not_set_content_size",
+        "response_not_set_filename",
+        "response_with_content_size_and_filename",
+        "serving_on_custom_io_type",
+        "serving_with_custom_executor",
+        "serving_with_custom_executor_http2"
+      ]
+    },
+    {
+      "task_id": "textmatch_var",
+      "query": {
+        "__rationale": "2 sites reference `var` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "var"
+      },
+      "expected": [
+        "on_ci"
+      ]
+    },
+    {
+      "task_id": "textmatch_iter",
+      "query": {
+        "__rationale": "36 sites reference `iter` across 27 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "iter"
+      },
+      "expected": [
+        "basic",
+        "captures_from_path",
+        "check_extractor_count",
+        "check_future_send",
+        "check_input_order",
+        "check_inputs_impls_from_request",
+        "check_output_impls_into_response",
+        "expand",
+        "expand_unnamed_fields",
+        "extract_fields",
+        "extractor_idents",
+        "find_first_not_double",
+        "format_str_from_path",
+        "from_request_parts",
+        "handle",
+        "impl_struct_by_extracting_all_at_once",
+        "infer_state_type_from_field_attributes",
+        "infer_state_type_from_field_types",
+        "insert_url_params",
+        "into_iter",
+        "iter",
+        "next_is_last_input",
+        "parse_attrs",
+        "requested_protocols",
+        "response",
+        "self_receiver",
+        "state_types_from_args"
+      ]
+    },
+    {
+      "task_id": "textmatch_status_code_from_multer_error",
+      "query": {
+        "__rationale": "4 sites reference `status_code_from_multer_error` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "status_code_from_multer_error"
+      },
+      "expected": [
+        "status",
+        "status_code_from_multer_error"
+      ]
+    },
+    {
+      "task_id": "textmatch_Utf8Bytes",
+      "query": {
+        "__rationale": "2 sites reference `Utf8Bytes` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Utf8Bytes"
+      },
+      "expected": [
+        "from_tungstenite"
+      ]
+    },
+    {
+      "task_id": "textmatch_handle_connection",
+      "query": {
+        "__rationale": "2 sites reference `handle_connection` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "handle_connection"
+      },
+      "expected": [
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_version",
+      "query": {
+        "__rationale": "2 sites reference `version` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "version"
+      },
+      "expected": [
+        "extract_parts_with_state",
+        "rejects_http_1_0_requests"
+      ]
+    },
+    {
+      "task_id": "textmatch_benchmark",
+      "query": {
+        "__rationale": "9 sites reference `benchmark` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "benchmark"
+      },
+      "expected": [
+        "main"
+      ]
+    },
+    {
+      "task_id": "textmatch_FailedToDeserializePathParams",
+      "query": {
+        "__rationale": "3 sites reference `FailedToDeserializePathParams` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "FailedToDeserializePathParams"
+      },
+      "expected": [
+        "failed_to_deserialize_path_params",
+        "get_params"
+      ]
+    },
+    {
+      "task_id": "textmatch_to_str",
+      "query": {
+        "__rationale": "14 sites reference `to_str` across 13 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "to_str"
+      },
+      "expected": [
+        "content_type_str",
+        "cookies_from_request",
+        "from_path",
+        "from_request_parts",
+        "handle",
+        "handler",
+        "has_content_type",
+        "into_response",
+        "json_content_type",
+        "parse_boundary",
+        "process_form",
+        "range_stream",
+        "response_range_empty_file"
+      ]
+    },
+    {
+      "task_id": "textmatch_with_executor",
+      "query": {
+        "__rationale": "7 sites reference `with_executor` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "with_executor"
+      },
+      "expected": [
+        "if_it_compiles_it_works",
+        "serving_with_custom_executor",
+        "serving_with_custom_executor_http2"
+      ]
+    },
+    {
+      "task_id": "textmatch_join",
+      "query": {
+        "__rationale": "7 sites reference `join` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "join"
+      },
+      "expected": [
+        "extractor",
+        "format_str_from_path",
+        "optional_query_supports_multiple_values",
+        "query_supports_multiple_values",
+        "raw_path_params",
+        "supports_multiple_values"
+      ]
+    },
+    {
+      "task_id": "textmatch_peel_option",
+      "query": {
+        "__rationale": "4 sites reference `peel_option` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "peel_option"
+      },
+      "expected": [
+        "extract_fields"
+      ]
+    },
+    {
+      "task_id": "textmatch_lines",
+      "query": {
+        "__rationale": "6 sites reference `lines` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "lines"
+      },
+      "expected": [
+        "from_request",
+        "into_future",
+        "parse_event",
+        "response",
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_copy_to_bytes",
+      "query": {
+        "__rationale": "2 sites reference `copy_to_bytes` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "copy_to_bytes"
+      },
+      "expected": [
+        "poll_frame"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_extensions",
+      "query": {
+        "__rationale": "2 sites reference `from_extensions` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_extensions"
+      },
+      "expected": [
+        "from_request_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_find_first_not_double",
+      "query": {
+        "__rationale": "2 sites reference `find_first_not_double` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "find_first_not_double"
+      },
+      "expected": [
+        "capture_prefix_suffix"
+      ]
+    },
+    {
+      "task_id": "textmatch_send",
+      "query": {
+        "__rationale": "9 sites reference `send` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "send"
+      },
+      "expected": [
+        "both_mock_and_real_connect_info",
+        "custom",
+        "handle_socket",
+        "send",
+        "socket_addr",
+        "test_echo_app"
+      ]
+    },
+    {
+      "task_id": "textmatch_arg",
+      "query": {
+        "__rationale": "5 sites reference `arg` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "arg"
+      },
+      "expected": [
+        "ensure_rewrk_is_installed",
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_finalize",
+      "query": {
+        "__rationale": "3 sites reference `finalize` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "finalize"
+      },
+      "expected": [
+        "event",
+        "poll_frame",
+        "sign"
+      ]
+    },
+    {
+      "task_id": "textmatch_panic",
+      "query": {
+        "__rationale": "30 sites reference `panic` across 20 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "panic"
+      },
+      "expected": [
+        "__private_validate_static_path",
+        "append_allow_header",
+        "capture_prefix_suffix",
+        "ensure_rewrk_is_installed",
+        "event",
+        "fmt",
+        "handler",
+        "http2",
+        "install_rewrk",
+        "merge",
+        "nest",
+        "nest_service",
+        "retry",
+        "route_layer",
+        "route_service",
+        "set_endpoint",
+        "set_matched_path_for_request",
+        "take_route_or_internal_error",
+        "validate_tsr_path",
+        "write_buf"
+      ]
+    },
+    {
+      "task_id": "textmatch_split_first",
+      "query": {
+        "__rationale": "2 sites reference `split_first` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "split_first"
+      },
+      "expected": [
+        "next_element_seed",
+        "next_key_seed"
+      ]
+    },
+    {
+      "task_id": "textmatch_oneshot",
+      "query": {
+        "__rationale": "19 sites reference `oneshot` across 18 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "oneshot"
+      },
+      "expected": [
+        "basic",
+        "call",
+        "call_route",
+        "doesnt_panic_if_router_called_from_wildcard_route",
+        "filename_escapes_backslashes",
+        "filename_escapes_quotes",
+        "oneshot_inner",
+        "oneshot_inner_owned",
+        "process_form",
+        "rejects_http_1_0_requests",
+        "response",
+        "response_from_path",
+        "response_not_set_content_size",
+        "response_not_set_filename",
+        "response_range_empty_file",
+        "response_range_file",
+        "response_with_content_size_and_filename",
+        "signed_cannot_access_invalid_cookies"
+      ]
+    },
+    {
+      "task_id": "textmatch_test_parse_error",
+      "query": {
+        "__rationale": "11 sites reference `test_parse_error` across 11 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "test_parse_error"
+      },
+      "expected": [
+        "test_deserialize_key_value",
+        "test_parse_error_at_index_error",
+        "test_parse_error_at_key_error",
+        "test_parse_error_at_key_error_multiple",
+        "test_parse_error_error",
+        "test_parse_seq_seq",
+        "test_parse_seq_tuple_unsupported_key_type",
+        "test_parse_seq_wrong_tuple_length",
+        "test_parse_tuple_too_many_fields",
+        "test_unsupported_type_error_nested_data_structure",
+        "test_wrong_number_of_parameters_error"
+      ]
+    },
+    {
+      "task_id": "textmatch_part",
+      "query": {
+        "__rationale": "6 sites reference `part` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "part"
+      },
+      "expected": [
+        "body_too_large",
+        "body_too_large_with_tracing",
+        "content_type_with_encoding",
+        "optional_multipart"
+      ]
+    },
+    {
+      "task_id": "textmatch_ok_or_else",
+      "query": {
+        "__rationale": "2 sites reference `ok_or_else` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ok_or_else"
+      },
+      "expected": [
+        "expand",
+        "from_request_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_fallback",
+      "query": {
+        "__rationale": "8 sites reference `fallback` across 8 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "fallback"
+      },
+      "expected": [
+        "allow_header_with_fallback",
+        "allow_header_with_fallback_that_sets_allow",
+        "any",
+        "building_complex_router",
+        "cant_extract_in_fallback",
+        "default_fallback",
+        "fallback_accessing_state",
+        "in_fallbacks"
+      ]
+    },
+    {
+      "task_id": "textmatch_execute",
+      "query": {
+        "__rationale": "4 sites reference `execute` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "execute"
+      },
+      "expected": [
+        "execute",
+        "handle_connection",
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_once",
+      "query": {
+        "__rationale": "2 sites reference `once` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "once"
+      },
+      "expected": [
+        "trait_generics"
+      ]
+    },
+    {
+      "task_id": "textmatch_Self",
+      "query": {
+        "__rationale": "52 sites reference `Self` across 12 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Self"
+      },
+      "expected": [
+        "arbitrary",
+        "default",
+        "deserialize",
+        "from_bits",
+        "from_bytes",
+        "from_handler",
+        "from_request",
+        "from_request_parts",
+        "from_static",
+        "pretty",
+        "try_from",
+        "try_from_uri"
+      ]
+    },
+    {
+      "task_id": "textmatch_Route",
+      "query": {
+        "__rationale": "12 sites reference `Route` across 8 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Route"
+      },
+      "expected": [
+        "fallback_service",
+        "layer",
+        "map",
+        "nest",
+        "nest_service",
+        "on_service",
+        "route_service",
+        "with_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_try_into",
+      "query": {
+        "__rationale": "11 sites reference `try_into` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "try_into"
+      },
+      "expected": [
+        "content_type",
+        "filename",
+        "integration_test",
+        "into_response_parts",
+        "try_from",
+        "type_that_uses_deserialize_any"
+      ]
+    },
+    {
+      "task_id": "textmatch_spawn",
+      "query": {
+        "__rationale": "15 sites reference `spawn` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "spawn"
+      },
+      "expected": [
+        "both_mock_and_real_connect_info",
+        "custom",
+        "execute",
+        "http2",
+        "on_upgrade",
+        "run",
+        "serving_on_custom_io_type",
+        "serving_with_custom_executor",
+        "serving_with_custom_executor_http2",
+        "socket_addr"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_fn",
+      "query": {
+        "__rationale": "2 sites reference `from_fn` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_fn"
+      },
+      "expected": [
+        "basic",
+        "in_middleware"
+      ]
+    },
+    {
+      "task_id": "textmatch_nest_service",
+      "query": {
+        "__rationale": "3 sites reference `nest_service` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "nest_service"
+      },
+      "expected": [
+        "cannot_extract_nested_matched_path_in_middleware",
+        "cannot_extract_nested_matched_path_in_middleware_via_extension",
+        "extracting_on_nested_handler"
+      ]
+    },
+    {
+      "task_id": "textmatch_bytes",
+      "query": {
+        "__rationale": "13 sites reference `bytes` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "bytes"
+      },
+      "expected": [
+        "body_too_large",
+        "body_too_large_with_tracing",
+        "bytes",
+        "content_type_with_encoding",
+        "encode_body",
+        "handle",
+        "optional_multipart"
+      ]
+    },
+    {
+      "task_id": "textmatch_build",
+      "query": {
+        "__rationale": "2 sites reference `build` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "build"
+      },
+      "expected": [
+        "into_future_outside_tokio",
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_set_cookies",
+      "query": {
+        "__rationale": "3 sites reference `set_cookies` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "set_cookies"
+      },
+      "expected": [
+        "into_response_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_skip_allow_header",
+      "query": {
+        "__rationale": "2 sites reference `skip_allow_header` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "skip_allow_header"
+      },
+      "expected": [
+        "any",
+        "any_service"
+      ]
+    },
+    {
+      "task_id": "textmatch_unreachable",
+      "query": {
+        "__rationale": "10 sites reference `unreachable` across 9 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "unreachable"
+      },
+      "expected": [
+        "check_input_order",
+        "deserialize",
+        "deserialize_tuple",
+        "handler",
+        "insert_url_params",
+        "into_response",
+        "make_rejection",
+        "poll_frame",
+        "poll_next"
+      ]
+    },
+    {
+      "task_id": "textmatch_load",
+      "query": {
+        "__rationale": "3 sites reference `load` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "load"
+      },
+      "expected": [
+        "count"
+      ]
+    },
+    {
+      "task_id": "textmatch_to_compile_error",
+      "query": {
+        "__rationale": "5 sites reference `to_compile_error` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "to_compile_error"
+      },
+      "expected": [
+        "check_extractor_count",
+        "check_output_tuples",
+        "check_path_extractor"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_stream",
+      "query": {
+        "__rationale": "4 sites reference `from_stream` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_stream"
+      },
+      "expected": [
+        "into_range_response",
+        "into_response"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_tungstenite",
+      "query": {
+        "__rationale": "4 sites reference `into_tungstenite` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_tungstenite"
+      },
+      "expected": [
+        "into_tungstenite",
+        "send",
+        "start_send"
+      ]
+    },
+    {
+      "task_id": "textmatch_strip_suffix",
+      "query": {
+        "__rationale": "4 sites reference `strip_suffix` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "strip_suffix"
+      },
+      "expected": [
+        "add_tsr_redirect_route",
+        "append_nested_matched_path",
+        "parse_path",
+        "redirect_handler"
+      ]
+    },
+    {
+      "task_id": "textmatch_Json",
+      "query": {
+        "__rationale": "3 sites reference `Json` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Json"
+      },
+      "expected": [
+        "main",
+        "status_code_tuple_doesnt_override_error_json"
+      ]
+    },
+    {
+      "task_id": "textmatch_write_str",
+      "query": {
+        "__rationale": "16 sites reference `write_str` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "write_str"
+      },
+      "expected": [
+        "data",
+        "fmt",
+        "write_buf",
+        "write_data_writer_str"
+      ]
+    },
+    {
+      "task_id": "textmatch_new_multi_thread",
+      "query": {
+        "__rationale": "2 sites reference `new_multi_thread` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "new_multi_thread"
+      },
+      "expected": [
+        "into_future_outside_tokio",
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_deserialize_str",
+      "query": {
+        "__rationale": "2 sites reference `deserialize_str` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "deserialize_str"
+      },
+      "expected": [
+        "deserialize_any"
+      ]
+    },
+    {
+      "task_id": "textmatch_json_content_type",
+      "query": {
+        "__rationale": "3 sites reference `json_content_type` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "json_content_type"
+      },
+      "expected": [
+        "from_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_parse",
+      "query": {
+        "__rationale": "34 sites reference `parse` across 21 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "parse"
+      },
+      "expected": [
+        "add_header",
+        "arbitrary",
+        "expand_attr_with",
+        "expand_with",
+        "from_request",
+        "from_request_parts",
+        "insert_header",
+        "into_future",
+        "into_response",
+        "parse",
+        "parse_assignment_attribute",
+        "parse_parenthesized_attribute",
+        "raw_part",
+        "set_cookies",
+        "strip_prefix",
+        "test_try_from_uri",
+        "test_try_from_uri_with_invalid_query",
+        "to_uri",
+        "try_from_uri",
+        "valid_boundary_generation",
+        "with_filter"
+      ]
+    },
+    {
+      "task_id": "textmatch_source",
+      "query": {
+        "__rationale": "5 sites reference `source` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "source"
+      },
+      "expected": [
+        "extractor",
+        "is_body_limit_error",
+        "status_code_from_multer_error"
+      ]
+    },
+    {
+      "task_id": "textmatch_generate_boundary",
+      "query": {
+        "__rationale": "2 sites reference `generate_boundary` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "generate_boundary"
+      },
+      "expected": [
+        "into_response",
+        "valid_boundary_generation"
+      ]
+    },
+    {
+      "task_id": "textmatch_fallback_endpoint",
+      "query": {
+        "__rationale": "2 sites reference `fallback_endpoint` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "fallback_endpoint"
+      },
+      "expected": [
+        "fallback",
+        "fallback_service"
+      ]
+    },
+    {
+      "task_id": "textmatch_Service",
+      "query": {
+        "__rationale": "5 sites reference `Service` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Service"
+      },
+      "expected": [
+        "fallback_service",
+        "map",
+        "with_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_limited_body",
+      "query": {
+        "__rationale": "4 sites reference `into_limited_body` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_limited_body"
+      },
+      "expected": [
+        "from_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_call",
+      "query": {
+        "__rationale": "60 sites reference `call` across 25 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "call"
+      },
+      "expected": [
+        "accessing_state",
+        "allow_header_any",
+        "allow_header_noop_middleware",
+        "allow_header_when_merging",
+        "allow_header_with_fallback",
+        "allow_header_with_fallback_that_sets_allow",
+        "call",
+        "call_with_state",
+        "empty_allow_header_by_default",
+        "fallback_accessing_state",
+        "get_accepts_head",
+        "get_handler",
+        "get_service_fn",
+        "handle_connection",
+        "head_takes_precedence_over_get",
+        "layer",
+        "merge",
+        "merge_accessing_state",
+        "method_not_allowed_by_default",
+        "on_upgrade",
+        "poll",
+        "route_layer",
+        "run",
+        "sets_allow_header",
+        "sets_allow_header_get_head"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_utf8",
+      "query": {
+        "__rationale": "12 sites reference `from_utf8` across 12 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_utf8"
+      },
+      "expected": [
+        "append_allow_header",
+        "body_text",
+        "call",
+        "call_route",
+        "from_request",
+        "header_contains",
+        "http2",
+        "serving_on_custom_io_type",
+        "serving_with_custom_executor",
+        "serving_with_custom_executor_http2",
+        "take",
+        "to_text"
+      ]
+    },
+    {
+      "task_id": "textmatch_freeze",
+      "query": {
+        "__rationale": "7 sites reference `freeze` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "freeze"
+      },
+      "expected": [
+        "call_with_state",
+        "finalize",
+        "into_response",
+        "make_response",
+        "pretty"
+      ]
+    },
+    {
+      "task_id": "textmatch_as_bytes",
+      "query": {
+        "__rationale": "33 sites reference `as_bytes` across 22 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "as_bytes"
+      },
+      "expected": [
+        "__private_validate_static_path",
+        "append_allow_header",
+        "body_too_large",
+        "body_too_large_with_tracing",
+        "capture_prefix_suffix",
+        "content_type_with_encoding",
+        "deserialize_bytes",
+        "field",
+        "from_request",
+        "from_request_parts",
+        "header_contains",
+        "header_eq",
+        "into_response",
+        "on_upgrade",
+        "optional_multipart",
+        "retry",
+        "serialize",
+        "test_hyper_header_read_timeout_is_enabled",
+        "test_with_graceful_shutdown_request_header_timeout",
+        "text",
+        "try_from_uri",
+        "write_str"
+      ]
+    },
+    {
+      "task_id": "textmatch_split",
+      "query": {
+        "__rationale": "12 sites reference `split` across 12 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "split"
+      },
+      "expected": [
+        "combine_attribute",
+        "combine_unary_attribute",
+        "cookies_from_request",
+        "from_request_parts",
+        "parse_assignment_attribute",
+        "parse_parenthesized_attribute",
+        "parse_path",
+        "parse_range_header",
+        "process_form",
+        "segments",
+        "validate_nest_path",
+        "validate_v07_paths"
+      ]
+    },
+    {
+      "task_id": "textmatch_name",
+      "query": {
+        "__rationale": "8 sites reference `name` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "name"
+      },
+      "expected": [
+        "from_request_parts",
+        "name",
+        "next"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_request_parts",
+      "query": {
+        "__rationale": "14 sites reference `from_request_parts` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_request_parts"
+      },
+      "expected": [
+        "call",
+        "extract_parts_with_state",
+        "extract_with_state",
+        "extractor_rejection_is_transformed",
+        "from_request",
+        "from_request_parts",
+        "works"
+      ]
+    },
+    {
+      "task_id": "textmatch_clone_box",
+      "query": {
+        "__rationale": "3 sites reference `clone_box` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "clone_box"
+      },
+      "expected": [
+        "clone_box"
+      ]
+    },
+    {
+      "task_id": "textmatch_put_u8",
+      "query": {
+        "__rationale": "6 sites reference `put_u8` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "put_u8"
+      },
+      "expected": [
+        "field",
+        "finalize",
+        "pretty",
+        "retry"
+      ]
+    },
+    {
+      "task_id": "textmatch_eprintln",
+      "query": {
+        "__rationale": "4 sites reference `eprintln` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "eprintln"
+      },
+      "expected": [
+        "expand",
+        "if_it_compiles_it_works",
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_pending",
+      "query": {
+        "__rationale": "4 sites reference `pending` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "pending"
+      },
+      "expected": [
+        "accept",
+        "if_it_compiles_it_works",
+        "test_with_graceful_shutdown_local_addr"
+      ]
+    },
+    {
+      "task_id": "textmatch_unsupported_type",
+      "query": {
+        "__rationale": "13 sites reference `unsupported_type` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "unsupported_type"
+      },
+      "expected": [
+        "deserialize_seq",
+        "deserialize_struct",
+        "deserialize_tuple",
+        "deserialize_tuple_struct",
+        "newtype_variant_seed",
+        "struct_variant",
+        "tuple_variant"
+      ]
+    },
+    {
+      "task_id": "textmatch_serialize",
+      "query": {
+        "__rationale": "2 sites reference `serialize` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "serialize"
+      },
+      "expected": [
+        "fmt",
+        "into_response"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_secs",
+      "query": {
+        "__rationale": "14 sites reference `from_secs` across 8 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_secs"
+      },
+      "expected": [
+        "building_complex_router",
+        "handle_accept_error",
+        "keep_alive",
+        "keep_alive_ends_when_the_stream_ends",
+        "limit_connections",
+        "test_hyper_header_read_timeout_is_enabled",
+        "test_with_graceful_shutdown_request_header_timeout",
+        "with_layer_that_changes_request_body_and_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_enumerate",
+      "query": {
+        "__rationale": "10 sites reference `enumerate` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "enumerate"
+      },
+      "expected": [
+        "check_input_order",
+        "check_inputs_impls_from_request",
+        "check_output_tuples",
+        "expand",
+        "expand_unnamed_fields",
+        "extract_fields",
+        "extractor_idents",
+        "merge",
+        "nest",
+        "next_is_last_input"
+      ]
+    },
+    {
+      "task_id": "textmatch_path",
+      "query": {
+        "__rationale": "12 sites reference `path` across 8 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "path"
+      },
+      "expected": [
+        "call_with_state",
+        "impl_trait",
+        "impl_trait_both",
+        "main",
+        "map_path",
+        "parse_attrs",
+        "response_range_empty_file",
+        "strip_prefix"
+      ]
+    },
+    {
+      "task_id": "textmatch_contains_key",
+      "query": {
+        "__rationale": "4 sites reference `contains_key` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "contains_key"
+      },
+      "expected": [
+        "poll",
+        "set_allow_header",
+        "set_content_length"
+      ]
+    },
+    {
+      "task_id": "textmatch_service_fn",
+      "query": {
+        "__rationale": "4 sites reference `service_fn` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "service_fn"
+      },
+      "expected": [
+        "get_service_fn",
+        "serving_with_custom_body_type",
+        "take_route_or_internal_error"
+      ]
+    },
+    {
+      "task_id": "textmatch_self_receiver",
+      "query": {
+        "__rationale": "2 sites reference `self_receiver` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "self_receiver"
+      },
+      "expected": [
+        "check_future_send",
+        "check_output_impls_into_response"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_outer",
+      "query": {
+        "__rationale": "6 sites reference `into_outer` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_outer"
+      },
+      "expected": [
+        "extract_fields"
+      ]
+    },
+    {
+      "task_id": "textmatch_try_from",
+      "query": {
+        "__rationale": "5 sites reference `try_from` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "try_from"
+      },
+      "expected": [
+        "into_response",
+        "into_text",
+        "size_hint"
+      ]
+    },
+    {
+      "task_id": "textmatch_writer",
+      "query": {
+        "__rationale": "5 sites reference `writer` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "writer"
+      },
+      "expected": [
+        "into_response",
+        "pretty",
+        "write_buf"
+      ]
+    },
+    {
+      "task_id": "textmatch_success",
+      "query": {
+        "__rationale": "2 sites reference `success` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "success"
+      },
+      "expected": [
+        "install_rewrk",
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_check",
+      "query": {
+        "__rationale": "3 sites reference `check` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "check"
+      },
+      "expected": [
+        "test_query"
+      ]
+    },
+    {
+      "task_id": "textmatch_vec",
+      "query": {
+        "__rationale": "13 sites reference `vec` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "vec"
+      },
+      "expected": [
+        "basic",
+        "handle",
+        "response",
+        "test_parse_map",
+        "test_parse_seq",
+        "test_parse_seq_tuple_string_parse",
+        "test_parse_seq_tuple_string_string",
+        "test_parse_single_value",
+        "test_parse_struct",
+        "test_parse_struct_ignoring_additional_fields"
+      ]
+    },
+    {
+      "task_id": "textmatch_map_err",
+      "query": {
+        "__rationale": "47 sites reference `map_err` across 26 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "map_err"
+      },
+      "expected": [
+        "body_to_bytes_mut",
+        "boxed",
+        "bytes",
+        "chunk",
+        "deserialize_str",
+        "from_bytes",
+        "from_request",
+        "from_request_parts",
+        "into_map_request_result",
+        "into_response",
+        "into_response_parts",
+        "into_text",
+        "json_data",
+        "next_field",
+        "poll_close",
+        "poll_flush",
+        "poll_next",
+        "poll_ready",
+        "raw_part",
+        "send",
+        "set_node",
+        "start_send",
+        "text",
+        "to_bytes",
+        "to_text",
+        "try_from_uri"
+      ]
+    },
+    {
+      "task_id": "textmatch_write_char",
+      "query": {
+        "__rationale": "3 sites reference `write_char` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "write_char"
+      },
+      "expected": [
+        "fmt",
+        "into_event"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_raw_socket",
+      "query": {
+        "__rationale": "2 sites reference `from_raw_socket` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_raw_socket"
+      },
+      "expected": [
+        "http2",
+        "on_upgrade"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_parts",
+      "query": {
+        "__rationale": "15 sites reference `into_parts` across 13 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_parts"
+      },
+      "expected": [
+        "call",
+        "call_with_state",
+        "doenst_override_status_code_when_using_into_response_failed_at_same_level",
+        "extract_parts_with_state",
+        "extract_with_state",
+        "extract_without_state",
+        "extractor_rejection_is_transformed",
+        "from_request",
+        "into_response",
+        "map_path",
+        "status_code_tuple_doesnt_override_error",
+        "strip_prefix",
+        "works"
+      ]
+    },
+    {
+      "task_id": "textmatch_call_site",
+      "query": {
+        "__rationale": "5 sites reference `call_site` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "call_site"
+      },
+      "expected": [
+        "expand",
+        "expand_unnamed_fields"
+      ]
+    },
+    {
+      "task_id": "textmatch_deserialize",
+      "query": {
+        "__rationale": "20 sites reference `deserialize` across 11 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "deserialize"
+      },
+      "expected": [
+        "deserialize",
+        "from_bytes",
+        "from_request",
+        "from_request_parts",
+        "handler",
+        "next_element_seed",
+        "next_key_seed",
+        "next_value_seed",
+        "test_parse_single_value",
+        "try_from_uri",
+        "variant_seed"
+      ]
+    },
+    {
+      "task_id": "textmatch_to_bytes",
+      "query": {
+        "__rationale": "15 sites reference `to_bytes` across 15 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "to_bytes"
+      },
+      "expected": [
+        "basic",
+        "body_text",
+        "call",
+        "call_route",
+        "from_request",
+        "http2",
+        "process_form",
+        "response",
+        "response_not_set_content_size",
+        "response_not_set_filename",
+        "response_with_content_size_and_filename",
+        "serving_on_custom_io_type",
+        "serving_with_custom_executor",
+        "serving_with_custom_executor_http2",
+        "to_bytes"
+      ]
+    },
+    {
+      "task_id": "textmatch_extensions_mut",
+      "query": {
+        "__rationale": "15 sites reference `extensions_mut` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "extensions_mut"
+      },
+      "expected": [
+        "apply",
+        "call",
+        "call_with_state",
+        "extensions_mut",
+        "extract_parts_with_state",
+        "into_response",
+        "into_response_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_parts",
+      "query": {
+        "__rationale": "7 sites reference `from_parts` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_parts"
+      },
+      "expected": [
+        "call",
+        "call_with_state",
+        "into_response",
+        "map_path",
+        "strip_prefix"
+      ]
+    },
+    {
+      "task_id": "textmatch_test_echo_app",
+      "query": {
+        "__rationale": "2 sites reference `test_echo_app` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "test_echo_app"
+      },
+      "expected": [
+        "http2",
+        "integration_test"
+      ]
+    },
+    {
+      "task_id": "textmatch_on_upgrade",
+      "query": {
+        "__rationale": "3 sites reference `on_upgrade` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "on_upgrade"
+      },
+      "expected": [
+        "echo_app",
+        "handler"
+      ]
+    },
+    {
+      "task_id": "textmatch_remove",
+      "query": {
+        "__rationale": "6 sites reference `remove` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "remove"
+      },
+      "expected": [
+        "remove",
+        "type_that_uses_deserialize_any"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_data_writer",
+      "query": {
+        "__rationale": "5 sites reference `into_data_writer` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_data_writer"
+      },
+      "expected": [
+        "data",
+        "json_data",
+        "write_data_writer_str"
+      ]
+    },
+    {
+      "task_id": "textmatch_extract",
+      "query": {
+        "__rationale": "7 sites reference `extract` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "extract"
+      },
+      "expected": [
+        "extract_body_without_state",
+        "extract_without_state",
+        "from_request",
+        "from_request_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_add",
+      "query": {
+        "__rationale": "14 sites reference `add` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "add"
+      },
+      "expected": [
+        "add"
+      ]
+    },
+    {
+      "task_id": "textmatch_poll_ready",
+      "query": {
+        "__rationale": "13 sites reference `poll_ready` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "poll_ready"
+      },
+      "expected": [
+        "poll_ready"
+      ]
+    },
+    {
+      "task_id": "textmatch_debug_assert",
+      "query": {
+        "__rationale": "3 sites reference `debug_assert` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "debug_assert"
+      },
+      "expected": [
+        "path_for_nested_route",
+        "set_matched_path_for_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_patch",
+      "query": {
+        "__rationale": "3 sites reference `patch` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "patch"
+      },
+      "expected": [
+        "allow_header_when_merging",
+        "sets_allow_header",
+        "typed_patch"
+      ]
+    },
+    {
+      "task_id": "textmatch_cookies_from_request",
+      "query": {
+        "__rationale": "3 sites reference `cookies_from_request` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "cookies_from_request"
+      },
+      "expected": [
+        "from_headers"
+      ]
+    },
+    {
+      "task_id": "textmatch_private_jar",
+      "query": {
+        "__rationale": "2 sites reference `private_jar` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "private_jar"
+      },
+      "expected": [
+        "decrypt",
+        "get"
+      ]
+    },
+    {
+      "task_id": "textmatch_text",
+      "query": {
+        "__rationale": "26 sites reference `text` across 20 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "text"
+      },
+      "expected": [
+        "both_mock_and_real_connect_info",
+        "consume_body",
+        "custom",
+        "decode_body",
+        "deserialize_body",
+        "deserialize_body_escaped_to_cow",
+        "deserialize_body_escaped_to_str",
+        "deserialize_error_multi_value",
+        "deserialize_error_single_value",
+        "extra_chars_after_valid_json_syntax",
+        "invalid_json_data",
+        "keep_alive",
+        "keep_alive_ends_when_the_stream_ends",
+        "mock_connect_info",
+        "raw_path_params",
+        "regression_3038",
+        "response",
+        "socket_addr",
+        "text",
+        "typed_header"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_request",
+      "query": {
+        "__rationale": "12 sites reference `from_request` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_request"
+      },
+      "expected": [
+        "call",
+        "extract_with_state",
+        "extractor_rejection_is_transformed",
+        "from_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_layer_fn",
+      "query": {
+        "__rationale": "3 sites reference `layer_fn` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "layer_fn"
+      },
+      "expected": [
+        "layer",
+        "serving_with_custom_body_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_typed_insert",
+      "query": {
+        "__rationale": "2 sites reference `typed_insert` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "typed_insert"
+      },
+      "expected": [
+        "into_response",
+        "into_response_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_expand_attr_with",
+      "query": {
+        "__rationale": "3 sites reference `expand_attr_with` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "expand_attr_with"
+      },
+      "expected": [
+        "__private_axum_test",
+        "debug_handler",
+        "debug_middleware"
+      ]
+    },
+    {
+      "task_id": "textmatch_encode_to_vec",
+      "query": {
+        "__rationale": "3 sites reference `encode_to_vec` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "encode_to_vec"
+      },
+      "expected": [
+        "decode_body",
+        "encode_body",
+        "prost_decode_error"
+      ]
+    },
+    {
+      "task_id": "textmatch_decrypt",
+      "query": {
+        "__rationale": "2 sites reference `decrypt` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "decrypt"
+      },
+      "expected": [
+        "decrypt",
+        "from_headers"
+      ]
+    },
+    {
+      "task_id": "textmatch_is_empty",
+      "query": {
+        "__rationale": "26 sites reference `is_empty` across 16 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "is_empty"
+      },
+      "expected": [
+        "__private_validate_static_path",
+        "check_input_order",
+        "expand",
+        "has_no_fields",
+        "has_routes",
+        "nest",
+        "nest_service",
+        "next_is_last_input",
+        "parse",
+        "parse_event",
+        "parse_path",
+        "route_layer",
+        "run",
+        "strip_prefix",
+        "validate_path",
+        "write_buf"
+      ]
+    },
+    {
+      "task_id": "textmatch_into_future",
+      "query": {
+        "__rationale": "5 sites reference `into_future` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "into_future"
+      },
+      "expected": [
+        "into_future_outside_tokio",
+        "run",
+        "serving_on_custom_io_type",
+        "serving_with_custom_executor",
+        "serving_with_custom_executor_http2"
+      ]
+    },
+    {
+      "task_id": "textmatch_next",
+      "query": {
+        "__rationale": "13 sites reference `next` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "next"
+      },
+      "expected": [
+        "expand",
+        "extractor",
+        "next",
+        "parse_event",
+        "parse_range_header",
+        "recv",
+        "test_echo_app"
+      ]
+    },
+    {
+      "task_id": "textmatch_then_some",
+      "query": {
+        "__rationale": "2 sites reference `then_some` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "then_some"
+      },
+      "expected": [
+        "method_filter",
+        "parse_path"
+      ]
+    },
+    {
+      "task_id": "textmatch_unwrap_or_default",
+      "query": {
+        "__rationale": "6 sites reference `unwrap_or_default` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "unwrap_or_default"
+      },
+      "expected": [
+        "from_request_parts",
+        "impl_struct_by_extracting_all_at_once",
+        "map_err_rejection",
+        "size_hint",
+        "try_from_uri"
+      ]
+    },
+    {
+      "task_id": "textmatch_write_buf",
+      "query": {
+        "__rationale": "2 sites reference `write_buf` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "write_buf"
+      },
+      "expected": [
+        "write",
+        "write_str"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_ref",
+      "query": {
+        "__rationale": "6 sites reference `from_ref` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_ref"
+      },
+      "expected": [
+        "from_request_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_extend",
+      "query": {
+        "__rationale": "5 sites reference `extend` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "extend"
+      },
+      "expected": [
+        "expand",
+        "insert_url_params",
+        "into_response_parts",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_handle_accept_error",
+      "query": {
+        "__rationale": "2 sites reference `handle_accept_error` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "handle_accept_error"
+      },
+      "expected": [
+        "accept"
+      ]
+    },
+    {
+      "task_id": "textmatch_extract_clean_typename",
+      "query": {
+        "__rationale": "3 sites reference `extract_clean_typename` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "extract_clean_typename"
+      },
+      "expected": [
+        "check_output_tuples",
+        "request_consuming_type_name",
+        "well_known_last_response_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_version_mut",
+      "query": {
+        "__rationale": "2 sites reference `version_mut` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "version_mut"
+      },
+      "expected": [
+        "extract_parts_with_state"
+      ]
+    },
+    {
+      "task_id": "textmatch_without_v07_checks",
+      "query": {
+        "__rationale": "2 sites reference `without_v07_checks` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "without_v07_checks"
+      },
+      "expected": [
+        "matching_asterisk",
+        "matching_colon"
+      ]
+    },
+    {
+      "task_id": "textmatch_quote",
+      "query": {
+        "__rationale": "69 sites reference `quote` across 21 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "quote"
+      },
+      "expected": [
+        "bounds",
+        "check_future_send",
+        "check_inputs_impls_from_request",
+        "check_output_impls_into_response",
+        "check_output_tuples",
+        "check_path_extractor",
+        "expand",
+        "expand_named_fields",
+        "expand_unit_fields",
+        "expand_unnamed_fields",
+        "extract_fields",
+        "impl_enum_by_extracting_all_at_once",
+        "impl_struct_by_extracting_all_at_once",
+        "impl_struct_by_extracting_each_field",
+        "map_err_rejection",
+        "member",
+        "next_is_last_input",
+        "path_rejection",
+        "rejection_assoc_type",
+        "self_receiver",
+        "to_tokens"
+      ]
+    },
+    {
+      "task_id": "textmatch_infer_state_types",
+      "query": {
+        "__rationale": "3 sites reference `infer_state_types` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "infer_state_types"
+      },
+      "expected": [
+        "infer_state_type_from_field_types",
+        "state_types_from_args"
+      ]
+    },
+    {
+      "task_id": "textmatch_not_top_level",
+      "query": {
+        "__rationale": "2 sites reference `not_top_level` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "not_top_level"
+      },
+      "expected": [
+        "call",
+        "call_owned"
+      ]
+    },
+    {
+      "task_id": "textmatch_format_str_from_path",
+      "query": {
+        "__rationale": "2 sites reference `format_str_from_path` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "format_str_from_path"
+      },
+      "expected": [
+        "expand_named_fields",
+        "expand_unnamed_fields"
+      ]
+    },
+    {
+      "task_id": "textmatch_BoxedHandler",
+      "query": {
+        "__rationale": "6 sites reference `BoxedHandler` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "BoxedHandler"
+      },
+      "expected": [
+        "fallback",
+        "map"
+      ]
+    },
+    {
+      "task_id": "textmatch_peekable",
+      "query": {
+        "__rationale": "2 sites reference `peekable` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "peekable"
+      },
+      "expected": [
+        "parse_event"
+      ]
+    },
+    {
+      "task_id": "textmatch_visit_borrowed_str",
+      "query": {
+        "__rationale": "2 sites reference `visit_borrowed_str` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "visit_borrowed_str"
+      },
+      "expected": [
+        "deserialize_str"
+      ]
+    },
+    {
+      "task_id": "textmatch_duplex",
+      "query": {
+        "__rationale": "6 sites reference `duplex` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "duplex"
+      },
+      "expected": [
+        "accept",
+        "serving_on_custom_io_type",
+        "serving_with_custom_executor",
+        "serving_with_custom_executor_http2",
+        "test_hyper_header_read_timeout_is_enabled",
+        "test_with_graceful_shutdown_request_header_timeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_Inner2",
+      "query": {
+        "__rationale": "2 sites reference `Inner2` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Inner2"
+      },
+      "expected": [
+        "source_gives_inner_source"
+      ]
+    },
+    {
+      "task_id": "textmatch_set_default",
+      "query": {
+        "__rationale": "2 sites reference `set_default` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "set_default"
+      },
+      "expected": [
+        "handle",
+        "into_future"
+      ]
+    },
+    {
+      "task_id": "textmatch_decode",
+      "query": {
+        "__rationale": "4 sites reference `decode` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "decode"
+      },
+      "expected": [
+        "encode_body",
+        "from_request",
+        "from_request_parts"
+      ]
+    },
+    {
+      "task_id": "textmatch_map_request",
+      "query": {
+        "__rationale": "11 sites reference `map_request` across 11 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "map_request"
+      },
+      "expected": [
+        "can_extract_nested_matched_path_in_middleware_on_nested_router",
+        "can_extract_nested_matched_path_in_middleware_on_nested_router_via_extension",
+        "can_extract_nested_matched_path_in_middleware_using_nest",
+        "can_extract_nested_matched_path_in_middleware_via_extension_using_nest",
+        "can_extract_nested_matched_path_with_prefix_and_suffix_in_middleware_on_nested_router",
+        "can_extract_nested_matched_path_with_prefix_in_middleware_on_nested_router",
+        "cannot_extract_nested_matched_path_in_middleware",
+        "cannot_extract_nested_matched_path_in_middleware_via_extension",
+        "handle_connection",
+        "works",
+        "works_for_short_circutting"
+      ]
+    },
+    {
+      "task_id": "textmatch_reset",
+      "query": {
+        "__rationale": "3 sites reference `reset` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "reset"
+      },
+      "expected": [
+        "poll_next",
+        "reset"
+      ]
+    },
+    {
+      "task_id": "textmatch_as_str",
+      "query": {
+        "__rationale": "18 sites reference `as_str` across 15 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "as_str"
+      },
+      "expected": [
+        "append_nested_matched_path",
+        "as_str",
+        "call",
+        "deref",
+        "deserialize_str",
+        "extracting_on_handler",
+        "extracting_on_handler_in_deeply_nested_router",
+        "extracting_on_handler_in_nested_router",
+        "fmt",
+        "from_request_parts",
+        "handle",
+        "matching_asterisk",
+        "matching_colon",
+        "next",
+        "to_text"
+      ]
+    },
+    {
+      "task_id": "textmatch_unimplemented",
+      "query": {
+        "__rationale": "6 sites reference `unimplemented` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "unimplemented"
+      },
+      "expected": [
+        "from_request_parts",
+        "into_response",
+        "is_end_stream",
+        "poll_frame",
+        "size_hint"
+      ]
+    },
+    {
+      "task_id": "textmatch_from_handler",
+      "query": {
+        "__rationale": "2 sites reference `from_handler` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from_handler"
+      },
+      "expected": [
+        "fallback"
+      ]
+    },
+    {
+      "task_id": "textmatch_with_query_params",
+      "query": {
+        "__rationale": "3 sites reference `with_query_params` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "with_query_params"
+      },
+      "expected": [
+        "with_params",
+        "with_params_called_multiple_times"
+      ]
+    }
+  ]
+}

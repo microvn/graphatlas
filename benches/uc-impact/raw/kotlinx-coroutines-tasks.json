@@ -1,0 +1,529 @@
+{
+  "repo": "kotlinx-coroutines",
+  "lang": "kotlin",
+  "enriched_at": "2026-04-29T18:58:38.204Z",
+  "count": 17,
+  "tasks": [
+    {
+      "task_id": "kotlinx-coroutines-5e7cbc2c",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "7a8c6878ce41e3f5fc8431023488e770204468e6",
+      "fix_commit": "5e7cbc2cd6bde2df5bb26b69fae518cfda5e0329",
+      "subject": "Fix SharedFlow entering an invalid state (#4650)",
+      "seed_file": "kotlinx-coroutines-core/common/src/flow/SharedFlow.kt",
+      "seed_symbol": "SharedFlowImpl",
+      "source_files": [
+        "kotlinx-coroutines-core/common/src/channels/BufferedChannel.kt",
+        "kotlinx-coroutines-core/common/src/flow/SharedFlow.kt"
+      ],
+      "expected_files": [
+        "kotlinx-coroutines-core/common/src/channels/BufferedChannel.kt",
+        "kotlinx-coroutines-core/common/src/flow/SharedFlow.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-core/common/test/flow/sharing/SharedFlowTest.kt"
+      ],
+      "should_touch_files": [
+        "benchmarks/src/jmh/kotlin/benchmarks/ChannelSinkBenchmark.kt",
+        "integration/kotlinx-coroutines-play-services/src/Tasks.kt",
+        "integration/kotlinx-coroutines-slf4j/src/MDCContext.kt",
+        "kotlinx-coroutines-core/common/src/AbstractCoroutine.kt",
+        "kotlinx-coroutines-core/common/src/Annotations.kt",
+        "kotlinx-coroutines-core/common/src/Builders.common.kt",
+        "kotlinx-coroutines-core/common/src/CancellableContinuation.kt",
+        "kotlinx-coroutines-core/common/src/CancellableContinuationImpl.kt",
+        "kotlinx-coroutines-core/common/src/CompletableDeferred.kt",
+        "kotlinx-coroutines-core/common/src/CompletableJob.kt",
+        "kotlinx-coroutines-core/common/src/CompletionHandler.common.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineExceptionHandler.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineScope.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineStart.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-coroutines-7a8c6878",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "559c832c18dd2c446df1a5d2170c1bbcd92dd283",
+      "fix_commit": "7a8c6878ce41e3f5fc8431023488e770204468e6",
+      "subject": "Fix a memory leak in RxScheduler implementations (#4616)",
+      "seed_file": "reactive/kotlinx-coroutines-rx2/src/RxScheduler.kt",
+      "seed_symbol": "Task",
+      "source_files": [
+        "reactive/kotlinx-coroutines-rx2/src/RxScheduler.kt",
+        "reactive/kotlinx-coroutines-rx3/src/RxScheduler.kt"
+      ],
+      "expected_files": [
+        "reactive/kotlinx-coroutines-rx2/src/RxScheduler.kt",
+        "reactive/kotlinx-coroutines-rx3/src/RxScheduler.kt"
+      ],
+      "expected_tests": [
+        "reactive/kotlinx-coroutines-rx2/test/FlowableTest.kt",
+        "reactive/kotlinx-coroutines-rx2/test/SchedulerTest.kt",
+        "reactive/kotlinx-coroutines-rx3/test/SchedulerTest.kt"
+      ],
+      "should_touch_files": [
+        "benchmarks/src/jmh/java/benchmarks/flow/scrabble/RxJava2PlaysScrabble.java",
+        "benchmarks/src/jmh/java/benchmarks/flow/scrabble/RxJava2PlaysScrabbleOpt.java",
+        "benchmarks/src/jmh/java/benchmarks/flow/scrabble/optimizations/FlowableCharSequence.java",
+        "benchmarks/src/jmh/java/benchmarks/flow/scrabble/optimizations/FlowableSplit.java",
+        "benchmarks/src/jmh/java/benchmarks/flow/scrabble/optimizations/StringFlowable.java",
+        "benchmarks/src/jmh/kotlin/benchmarks/ChannelSinkBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/ParametrizedDispatcherBase.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/akka/PingPongAkkaBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/akka/StatefulActorAkkaBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/flow/FlatMapMergeBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/flow/FlowFlattenMergeBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/flow/NumbersBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/flow/SafeFlowBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/flow/TakeBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/flow/scrabble/FlowPlaysScrabbleBase.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-coroutines-830e8ee7",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "998e916693624d6a6fd599aad998d284c7f21f0b",
+      "fix_commit": "830e8ee7ac9098efeb550920a104a14866a95be7",
+      "subject": "TODO: Fix unresolved links, most likely after some refactoring",
+      "seed_file": "kotlinx-coroutines-core/common/src/channels/BufferedChannel.kt",
+      "seed_symbol": "BufferedChannel",
+      "source_files": [
+        "kotlinx-coroutines-core/common/src/CompletionState.kt",
+        "kotlinx-coroutines-core/common/src/channels/BufferedChannel.kt",
+        "kotlinx-coroutines-core/common/src/selects/Select.kt",
+        "kotlinx-coroutines-core/concurrent/src/internal/LockFreeLinkedList.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/CoroutineScheduler.kt"
+      ],
+      "expected_files": [
+        "kotlinx-coroutines-core/common/src/CompletionState.kt",
+        "kotlinx-coroutines-core/common/src/channels/BufferedChannel.kt",
+        "kotlinx-coroutines-core/common/src/selects/Select.kt",
+        "kotlinx-coroutines-core/concurrent/src/internal/LockFreeLinkedList.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/CoroutineScheduler.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-core/jvm/test/scheduling/BlockingCoroutineDispatcherLivenessStressTest.kt"
+      ],
+      "should_touch_files": [
+        "kotlinx-coroutines-core/common/src/CancellableContinuation.kt",
+        "kotlinx-coroutines-core/common/src/CancellableContinuationImpl.kt",
+        "kotlinx-coroutines-core/common/src/channels/ConflatedBufferedChannel.kt",
+        "kotlinx-coroutines-core/common/src/internal/ConcurrentLinkedList.kt",
+        "kotlinx-coroutines-core/common/src/sync/Mutex.kt",
+        "kotlinx-coroutines-core/common/src/sync/Semaphore.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-coroutines-4a8a20c8",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "690337018de5528f7b789246cb762cff4a7a318d",
+      "fix_commit": "4a8a20c8870261f7293e0bf952a12fa061c416b6",
+      "subject": "Fix simple unresolved links",
+      "seed_file": "kotlinx-coroutines-core/jvm/src/debug/internal/DebugCoroutineInfoImpl.kt",
+      "seed_symbol": "DebugCoroutineInfoImpl",
+      "source_files": [
+        "kotlinx-coroutines-core/jvm/src/debug/internal/DebugCoroutineInfoImpl.kt",
+        "kotlinx-coroutines-debug/src/junit/junit5/CoroutinesTimeoutExtension.kt"
+      ],
+      "expected_files": [
+        "kotlinx-coroutines-core/jvm/src/debug/internal/DebugCoroutineInfoImpl.kt",
+        "kotlinx-coroutines-debug/src/junit/junit5/CoroutinesTimeoutExtension.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-core/jvm/test/scheduling/SchedulerTestBase.kt"
+      ],
+      "should_touch_files": [
+        "integration/kotlinx-coroutines-play-services/src/Tasks.kt",
+        "kotlinx-coroutines-core/common/src/AbstractCoroutine.kt",
+        "kotlinx-coroutines-core/common/src/Builders.common.kt",
+        "kotlinx-coroutines-core/common/src/CancellableContinuation.kt",
+        "kotlinx-coroutines-core/common/src/CancellableContinuationImpl.kt",
+        "kotlinx-coroutines-core/common/src/CompletionHandler.common.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineExceptionHandler.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineScope.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineStart.kt",
+        "kotlinx-coroutines-core/common/src/EventLoop.common.kt",
+        "kotlinx-coroutines-core/common/src/Job.kt",
+        "kotlinx-coroutines-core/common/src/JobSupport.kt",
+        "kotlinx-coroutines-core/common/src/SchedulerTask.common.kt",
+        "kotlinx-coroutines-core/common/src/Supervisor.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-coroutines-3af29882",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "927ea4cd3187795948d4ef80d66cd2e4ef4cdb86",
+      "fix_commit": "3af298829da801216fc43b7a1e5ffe0aa59be84b",
+      "subject": "fix CI + update latch",
+      "seed_file": "test-utils/concurrent/src/CountDownLatch.kt",
+      "seed_symbol": "CountDownLatch",
+      "source_files": [
+        "test-utils/concurrent/src/CountDownLatch.kt"
+      ],
+      "expected_files": [
+        "test-utils/concurrent/src/CountDownLatch.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-debug/test/RunningThreadStackMergeTest.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "kotlinx-coroutines-ff25be1d",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "17e43786adff144c7af0b64017ffe6b8cedf9fb3",
+      "fix_commit": "ff25be1dfc7bd0a79d9bd6abcd17c18e064c866b",
+      "subject": "fix FieldWalker usage - add assertTrueJvm",
+      "seed_file": "test-utils/concurrent/src/FieldWalker.concurrent.kt",
+      "seed_symbol": "walk",
+      "source_files": [
+        "test-utils/concurrent/src/ConcurrentThreadUtils.concurrent.kt",
+        "test-utils/concurrent/src/FieldWalker.concurrent.kt",
+        "test-utils/jvm/src/ConcurrentThreadUtils.kt",
+        "test-utils/native/src/ConcurrentThreadUtils.kt"
+      ],
+      "expected_files": [
+        "test-utils/concurrent/src/ConcurrentThreadUtils.concurrent.kt",
+        "test-utils/concurrent/src/FieldWalker.concurrent.kt",
+        "test-utils/jvm/src/ConcurrentThreadUtils.kt",
+        "test-utils/native/src/ConcurrentThreadUtils.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-core/concurrent/test/ReusableCancellableContinuationTest.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-coroutines-aeb7812c",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "7a20b9c339b1df387cc3adb78d9707940101cc6e",
+      "fix_commit": "aeb7812cd7d9d5591251efc79bb3b0109627194c",
+      "subject": "fix FieldWalker usage - add assertTrueJvm",
+      "seed_file": "test-utils/concurrent/src/FieldWalker.concurrent.kt",
+      "seed_symbol": "walk",
+      "source_files": [
+        "test-utils/concurrent/src/ConcurrentThreadUtils.concurrent.kt",
+        "test-utils/concurrent/src/FieldWalker.concurrent.kt",
+        "test-utils/jvm/src/ConcurrentThreadUtils.kt",
+        "test-utils/native/src/ConcurrentThreadUtils.kt"
+      ],
+      "expected_files": [
+        "test-utils/concurrent/src/ConcurrentThreadUtils.concurrent.kt",
+        "test-utils/concurrent/src/FieldWalker.concurrent.kt",
+        "test-utils/jvm/src/ConcurrentThreadUtils.kt",
+        "test-utils/native/src/ConcurrentThreadUtils.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-core/concurrent/test/ReusableCancellableContinuationTest.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-coroutines-9cb2a05b",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "0352ccafae54949ae31b4124bb95c5d0dab9a67d",
+      "fix_commit": "9cb2a05b112eabcfe123a7ce56e72c4d0f5d94a7",
+      "subject": "Fix `SharedFlow` entering an invalid state",
+      "seed_file": "kotlinx-coroutines-core/common/src/flow/SharedFlow.kt",
+      "seed_symbol": "SharedFlowImpl",
+      "source_files": [
+        "kotlinx-coroutines-core/common/src/flow/SharedFlow.kt"
+      ],
+      "expected_files": [
+        "kotlinx-coroutines-core/common/src/flow/SharedFlow.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-core/common/test/flow/sharing/SharedFlowTest.kt"
+      ],
+      "should_touch_files": [
+        "benchmarks/src/jmh/kotlin/benchmarks/ChannelSinkBenchmark.kt",
+        "integration/kotlinx-coroutines-play-services/src/Tasks.kt",
+        "integration/kotlinx-coroutines-slf4j/src/MDCContext.kt",
+        "kotlinx-coroutines-core/common/src/AbstractCoroutine.kt",
+        "kotlinx-coroutines-core/common/src/Annotations.kt",
+        "kotlinx-coroutines-core/common/src/Builders.common.kt",
+        "kotlinx-coroutines-core/common/src/CancellableContinuation.kt",
+        "kotlinx-coroutines-core/common/src/CancellableContinuationImpl.kt",
+        "kotlinx-coroutines-core/common/src/CompletableDeferred.kt",
+        "kotlinx-coroutines-core/common/src/CompletableJob.kt",
+        "kotlinx-coroutines-core/common/src/CompletionHandler.common.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineExceptionHandler.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineScope.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineStart.kt"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "kotlinx-coroutines-15934763",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "af5786392d2361b86eea19ecad4034ef2f039a85",
+      "fix_commit": "1593476333d1da5332fbfab3a8fc9a0c2cd893a3",
+      "subject": "Fix after a rebase",
+      "seed_file": "kotlinx-coroutines-core/native/src/DefaultDelay.kt",
+      "seed_symbol": "EventLoopImplBase",
+      "source_files": [
+        "kotlinx-coroutines-core/native/src/DefaultDelay.kt"
+      ],
+      "expected_files": [
+        "kotlinx-coroutines-core/native/src/DefaultDelay.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-core/jvm/test/EventLoopsTest.kt",
+        "kotlinx-coroutines-core/jvm/test/RunBlockingJvmTest.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "kotlinx-coroutines-d31b95ed",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "980557c97db0e48b5236ef643267832027bee51d",
+      "fix_commit": "d31b95ed2b30fbf94d4411099d99fe47995658ea",
+      "subject": "Fix VirtualTimeSource not noticing that DefaultDelay is about to get created",
+      "seed_file": "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt",
+      "seed_symbol": "EventLoopImplBase",
+      "source_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt"
+      ],
+      "expected_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-core/jvm/test/VirtualTimeSource.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-coroutines-980557c9",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "055e1186e2f8ac081ebf049b2f1ccefbbbdf06db",
+      "fix_commit": "980557c97db0e48b5236ef643267832027bee51d",
+      "subject": "Fix VirtualTimeSource not being able to skip delays",
+      "seed_file": "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+      "seed_symbol": "AbstractTimeSource",
+      "source_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt",
+        "kotlinx-coroutines-core/jvm/src/Executors.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/CoroutineScheduler.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/Dispatcher.kt"
+      ],
+      "expected_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt",
+        "kotlinx-coroutines-core/jvm/src/Executors.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/CoroutineScheduler.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/Dispatcher.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-core/jvm/test/VirtualTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/test/channels/TickerChannelCommonTest.kt",
+        "kotlinx-coroutines-core/jvm/test/channels/TickerChannelTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/SchedulerTestBase.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-coroutines-307d65b7",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "f0feb8e35c8931d2cdc7e81ddb3d09611002abca",
+      "fix_commit": "307d65b72eb73b48118fb4b84c1a4f945d6f4d31",
+      "subject": "Fix flowOn handling of thread context elements (#4431)",
+      "seed_file": "kotlinx-coroutines-core/jvm/src/CoroutineContext.kt",
+      "seed_symbol": "facilities",
+      "source_files": [
+        "kotlinx-coroutines-core/common/src/channels/Produce.kt",
+        "kotlinx-coroutines-core/common/src/flow/internal/ChannelFlow.kt",
+        "kotlinx-coroutines-core/jvm/src/CoroutineContext.kt",
+        "reactive/kotlinx-coroutines-reactive/src/ReactiveFlow.kt"
+      ],
+      "expected_files": [
+        "kotlinx-coroutines-core/common/src/channels/Produce.kt",
+        "kotlinx-coroutines-core/common/src/flow/internal/ChannelFlow.kt",
+        "kotlinx-coroutines-core/jvm/src/CoroutineContext.kt",
+        "reactive/kotlinx-coroutines-reactive/src/ReactiveFlow.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-core/jvm/test/CoroutineScopeTestJvm.kt",
+        "kotlinx-coroutines-core/jvm/test/ThreadContextElementTest.kt",
+        "kotlinx-coroutines-core/jvm/test/ThreadContextMutableCopiesTest.kt",
+        "reactive/kotlinx-coroutines-reactive/test/PublisherAsFlowThreadContextElementTest.kt"
+      ],
+      "should_touch_files": [
+        "benchmarks/src/jmh/kotlin/benchmarks/ChannelSinkBenchmark.kt",
+        "integration/kotlinx-coroutines-play-services/src/Tasks.kt",
+        "kotlinx-coroutines-core/common/src/AbstractCoroutine.kt",
+        "kotlinx-coroutines-core/common/src/Annotations.kt",
+        "kotlinx-coroutines-core/common/src/Await.kt",
+        "kotlinx-coroutines-core/common/src/Builders.common.kt",
+        "kotlinx-coroutines-core/common/src/CancellableContinuation.kt",
+        "kotlinx-coroutines-core/common/src/CancellableContinuationImpl.kt",
+        "kotlinx-coroutines-core/common/src/CompletableDeferred.kt",
+        "kotlinx-coroutines-core/common/src/CompletionHandler.common.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineContext.common.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineExceptionHandler.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineName.kt",
+        "kotlinx-coroutines-core/common/src/CoroutineScope.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-coroutines-e2cc5c46",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "0bc0d7af12949372279cc0f91d755816135f5a88",
+      "fix_commit": "e2cc5c46831dd18e6c1d40fa5da940eb522aadaa",
+      "subject": "Fix VirtualTimeSource not noticing that DefaultDelay is about to get created",
+      "seed_file": "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt",
+      "seed_symbol": "EventLoopImplBase",
+      "source_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt"
+      ],
+      "expected_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-core/jvm/test/VirtualTimeSource.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-coroutines-0bc0d7af",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "e653175319c6972b95d42cf2a8e1cd3fc7c8e34c",
+      "fix_commit": "0bc0d7af12949372279cc0f91d755816135f5a88",
+      "subject": "Fix VirtualTimeSource not being able to skip delays",
+      "seed_file": "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+      "seed_symbol": "AbstractTimeSource",
+      "source_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt",
+        "kotlinx-coroutines-core/jvm/src/Executors.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/CoroutineScheduler.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/Dispatcher.kt"
+      ],
+      "expected_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt",
+        "kotlinx-coroutines-core/jvm/src/Executors.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/CoroutineScheduler.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/Dispatcher.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-core/jvm/test/VirtualTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/test/channels/TickerChannelCommonTest.kt",
+        "kotlinx-coroutines-core/jvm/test/channels/TickerChannelTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/SchedulerTestBase.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-coroutines-3b843a81",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "8f343fbd6abe188009f3cda063d67c5d88a316cf",
+      "fix_commit": "3b843a81a317f003c6d2b260d9ad268f60710d2c",
+      "subject": "Fix VirtualTimeSource not noticing that DefaultDelay is about to get created",
+      "seed_file": "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt",
+      "seed_symbol": "EventLoopImplBase",
+      "source_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt"
+      ],
+      "expected_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-core/jvm/test/VirtualTimeSource.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-coroutines-8f343fbd",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "d04fea7862232eb862c6e5120d8a26c3619875d8",
+      "fix_commit": "8f343fbd6abe188009f3cda063d67c5d88a316cf",
+      "subject": "Fix VirtualTimeSource not being able to skip delays",
+      "seed_file": "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+      "seed_symbol": "AbstractTimeSource",
+      "source_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt",
+        "kotlinx-coroutines-core/jvm/src/Executors.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/CoroutineScheduler.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/Dispatcher.kt"
+      ],
+      "expected_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt",
+        "kotlinx-coroutines-core/jvm/src/Executors.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/CoroutineScheduler.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/Dispatcher.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-core/jvm/test/VirtualTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/test/channels/TickerChannelCommonTest.kt",
+        "kotlinx-coroutines-core/jvm/test/channels/TickerChannelTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/SchedulerTestBase.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-coroutines-6b735461",
+      "repo": "kotlinx-coroutines",
+      "base_commit": "0e1c15735474cdb680643f0482e042d1b194b88d",
+      "fix_commit": "6b735461255ce8446cc926d6b2008f36bd6188f3",
+      "subject": "Fix Promise.await() never resuming if the promise rejected with a non-Throwable (#4120)",
+      "seed_file": "kotlinx-coroutines-core/js/src/Promise.kt",
+      "seed_symbol": "asDeferred",
+      "source_files": [
+        "kotlinx-coroutines-core/js/src/Promise.kt"
+      ],
+      "expected_files": [
+        "kotlinx-coroutines-core/js/src/Promise.kt"
+      ],
+      "expected_tests": [
+        "kotlinx-coroutines-core/js/test/PromiseTest.kt",
+        "kotlinx-coroutines-core/wasmJs/test/PromiseTest.kt"
+      ],
+      "should_touch_files": [
+        "benchmarks/src/jmh/java/benchmarks/flow/scrabble/RxJava2PlaysScrabble.java",
+        "benchmarks/src/jmh/java/benchmarks/flow/scrabble/RxJava2PlaysScrabbleOpt.java",
+        "benchmarks/src/jmh/java/benchmarks/flow/scrabble/optimizations/FlowableCharSequence.java",
+        "benchmarks/src/jmh/java/benchmarks/flow/scrabble/optimizations/FlowableSplit.java",
+        "benchmarks/src/jmh/java/benchmarks/flow/scrabble/optimizations/StringFlowable.java",
+        "benchmarks/src/jmh/kotlin/benchmarks/ChannelSinkBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/ParametrizedDispatcherBase.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/akka/PingPongAkkaBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/akka/StatefulActorAkkaBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/flow/FlatMapMergeBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/flow/FlowFlattenMergeBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/flow/NumbersBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/flow/SafeFlowBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/flow/TakeBenchmark.kt",
+        "benchmarks/src/jmh/kotlin/benchmarks/flow/scrabble/FlowPlaysScrabbleBase.kt"
+      ],
+      "max_expected_depth": 1
+    }
+  ]
+}

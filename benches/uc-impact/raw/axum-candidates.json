@@ -1,0 +1,85 @@
+{
+  "repo": "axum",
+  "lang": "rust",
+  "mined_at": "2026-04-29T18:56:38.756Z",
+  "target": 20,
+  "actual": 6,
+  "candidates": [
+    {
+      "sha": "ce3d42947eff69b5e244efc4436512ce54733120",
+      "parent_sha": "893bb75e3bab9697e78a8b3529edab7bac8b135b",
+      "subject": "fix: Avoid setting content-length before middleware (#3031)",
+      "source_files": [
+        "axum/src/routing/route.rs"
+      ],
+      "test_files": [
+        "axum/src/routing/tests/mod.rs"
+      ]
+    },
+    {
+      "sha": "5512b5b91fe12fb58bb91914186208c7a4f29c2a",
+      "parent_sha": "822db3b1af766b7372541e7a490ab21a8e748e10",
+      "subject": "fix: Avoid setting content-length before middleware (#2897)",
+      "source_files": [
+        "axum/src/routing/route.rs"
+      ],
+      "test_files": [
+        "axum/src/routing/tests/mod.rs"
+      ]
+    },
+    {
+      "sha": "a0db77a9005cba38f467b7851c36c9fdbf004b78",
+      "parent_sha": "6f7ff8556587d51c6919a864926e4b8090f92c3f",
+      "subject": "Fix bugs around merging routers with nested fallbacks (#2096)",
+      "source_files": [
+        "axum/src/routing/mod.rs",
+        "axum/src/routing/path_router.rs"
+      ],
+      "test_files": [
+        "axum/src/routing/tests/fallback.rs"
+      ]
+    },
+    {
+      "sha": "5503b3236babec939cd019b2a38596b3e5cabb12",
+      "parent_sha": "bc8e879d7b1764772a4147f63ae49f2773b00bbd",
+      "subject": "Fix CI (#2086)",
+      "source_files": [
+        "axum-extra/src/json_lines.rs",
+        "axum/Cargo.toml",
+        "axum/src/extract/matched_path.rs"
+      ],
+      "test_files": [
+        "axum-macros/tests/typed_path/fail/not_deserialize.stderr"
+      ]
+    },
+    {
+      "sha": "c7d4af9bd8031f85244319dbd12f1d0698b12432",
+      "parent_sha": "d1765d9a00452f7b7cfc9074722be074817c91a2",
+      "subject": "Fix fallback panic on CONNECT requests (#1963)",
+      "source_files": [
+        "axum/src/routing/method_routing.rs",
+        "axum/src/routing/mod.rs",
+        "axum/src/routing/path_router.rs"
+      ],
+      "test_files": [
+        "axum/src/routing/tests/mod.rs"
+      ]
+    },
+    {
+      "sha": "2e8a7e51a105ab2fda2e7ca7cb09168cc8a26bf1",
+      "parent_sha": "b1f894a50074933ec3d924775d792671091b10df",
+      "subject": "Fix `Handler::with_state` not working if request body was changed via layer (#1536)",
+      "source_files": [
+        "axum/Cargo.toml",
+        "axum/src/handler/mod.rs",
+        "examples/key-value-store/Cargo.toml",
+        "examples/key-value-store/src/main.rs"
+      ],
+      "test_files": [
+        "axum-macros/tests/from_request/fail/generic_without_via.stderr",
+        "axum-macros/tests/from_request/fail/generic_without_via_rejection.stderr",
+        "axum-macros/tests/from_request/fail/override_rejection_on_enum_without_via.stderr"
+      ]
+    }
+  ]
+}

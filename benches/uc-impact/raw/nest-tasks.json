@@ -1,0 +1,558 @@
+{
+  "repo": "nest",
+  "lang": "typescript",
+  "enriched_at": "2026-04-29T18:57:50.477Z",
+  "count": 19,
+  "tasks": [
+    {
+      "task_id": "nest-895fdf32",
+      "repo": "nest",
+      "base_commit": "cc69cd0273144e8e1542c5326ec5cb50624ac63b",
+      "fix_commit": "895fdf321e7089f0dcf24d73ce929e2f346c5bb3",
+      "subject": "fix(core): Use strict null check for SSE message id",
+      "seed_file": "packages/core/router/sse-stream.ts",
+      "seed_symbol": "SseStream",
+      "source_files": [
+        "packages/core/router/sse-stream.ts"
+      ],
+      "expected_files": [
+        "packages/core/router/sse-stream.ts"
+      ],
+      "expected_tests": [
+        "packages/core/test/router/sse-stream.spec.ts"
+      ],
+      "should_touch_files": [
+        "packages/core/router/router-execution-context.ts",
+        "packages/core/router/router-response-controller.ts"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "nest-298857e2",
+      "repo": "nest",
+      "base_commit": "8d7295fafd43d1ef1ffea9470c5371e440f9040d",
+      "fix_commit": "298857e2c2eacd6e34ceeb59db31afe321c8fc00",
+      "subject": "fix(microservices): prevent stack overflow in jsonsocket.handledata()",
+      "seed_file": "packages/microservices/helpers/json-socket.ts",
+      "seed_symbol": "JsonSocket",
+      "source_files": [
+        "packages/microservices/helpers/json-socket.ts"
+      ],
+      "expected_files": [
+        "packages/microservices/helpers/json-socket.ts"
+      ],
+      "expected_tests": [
+        "integration/microservices/e2e/tcp-json-socket-pipeline.spec.ts",
+        "packages/microservices/test/helpers/json-socket.spec.ts"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "nest-77063fb3",
+      "repo": "nest",
+      "base_commit": "8d7295fafd43d1ef1ffea9470c5371e440f9040d",
+      "fix_commit": "77063fb39a331446db4d8d8f5c4d7d6e7c4cee1a",
+      "subject": "fix(microservices): use backing field for consumer crash event listener",
+      "seed_file": "packages/microservices/client/client-kafka.ts",
+      "seed_symbol": "ClientKafka",
+      "source_files": [
+        "packages/microservices/client/client-kafka.ts"
+      ],
+      "expected_files": [
+        "packages/microservices/client/client-kafka.ts"
+      ],
+      "expected_tests": [
+        "packages/microservices/test/client/client-kafka.spec.ts"
+      ],
+      "should_touch_files": [
+        "packages/microservices/client/client-proxy-factory.ts",
+        "packages/microservices/helpers/kafka-reply-partition-assigner.ts"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "nest-457630a6",
+      "repo": "nest",
+      "base_commit": "b1364f7a86b220a0963a1e3d4d4e113667e76d2e",
+      "fix_commit": "457630a65f404ee9d96ed84f6083767ef4b8ef8c",
+      "subject": "fix(core): defer sse writehead until after lifecycle completes",
+      "seed_file": "packages/core/router/router-response-controller.ts",
+      "seed_symbol": "RouterResponseController",
+      "source_files": [
+        "integration/nest-application/sse/src/app.controller.ts",
+        "packages/core/router/router-execution-context.ts",
+        "packages/core/router/router-response-controller.ts",
+        "packages/core/router/sse-stream.ts"
+      ],
+      "expected_files": [
+        "integration/nest-application/sse/src/app.controller.ts",
+        "packages/core/router/router-execution-context.ts",
+        "packages/core/router/router-response-controller.ts",
+        "packages/core/router/sse-stream.ts"
+      ],
+      "expected_tests": [
+        "integration/nest-application/sse/e2e/express.spec.ts",
+        "integration/nest-application/sse/e2e/fastify.spec.ts",
+        "packages/core/test/router/router-execution-context.spec.ts",
+        "packages/core/test/router/router-response-controller.spec.ts",
+        "packages/core/test/router/sse-stream.spec.ts"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "nest-3b47081e",
+      "repo": "nest",
+      "base_commit": "90efeef7301092cf73deeb4dc9b62a223553aa45",
+      "fix_commit": "3b47081e722016be7369b4ef3e43688cec30d832",
+      "subject": "fix(socket.io): Deduplicate disconnect listener in bindMessageHandlers",
+      "seed_file": "packages/platform-socket.io/adapters/io-adapter.ts",
+      "seed_symbol": "IoAdapter",
+      "source_files": [
+        "packages/platform-socket.io/adapters/io-adapter.ts"
+      ],
+      "expected_files": [
+        "packages/platform-socket.io/adapters/io-adapter.ts"
+      ],
+      "expected_tests": [
+        "packages/platform-socket.io/test/io-adapter.spec.ts"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "nest-368691c3",
+      "repo": "nest",
+      "base_commit": "dea5279ef8fcb568de158003e4281759a2cd7675",
+      "fix_commit": "368691c35fa221b68baad8d4e569d9d8685c0ea1",
+      "subject": "fix(core): prevent injector hang when design:paramtypes is missing",
+      "seed_file": "packages/core/injector/injector.ts",
+      "seed_symbol": "Injector",
+      "source_files": [
+        "packages/core/injector/injector.ts"
+      ],
+      "expected_files": [
+        "packages/core/injector/injector.ts"
+      ],
+      "expected_tests": [
+        "packages/core/test/injector/injector.spec.ts"
+      ],
+      "should_touch_files": [
+        "packages/core/errors/exceptions/undefined-dependency.exception.ts",
+        "packages/core/errors/exceptions/unknown-dependencies.exception.ts",
+        "packages/core/errors/messages.ts",
+        "packages/core/index.ts",
+        "packages/core/injector/instance-loader.ts",
+        "packages/core/injector/internal-core-module/internal-core-module-factory.ts",
+        "packages/core/injector/module-ref.ts",
+        "packages/core/middleware/middleware-module.ts",
+        "packages/core/middleware/resolver.ts",
+        "packages/core/nest-application-context.ts",
+        "packages/core/nest-application.ts",
+        "packages/core/nest-factory.ts",
+        "packages/core/repl/repl-context.ts",
+        "packages/core/router/router-explorer.ts",
+        "packages/core/router/routes-resolver.ts"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "nest-9e6774bd",
+      "repo": "nest",
+      "base_commit": "dea5279ef8fcb568de158003e4281759a2cd7675",
+      "fix_commit": "9e6774bdbd2541a1ac8d216387294814046c9388",
+      "subject": "fix(microservices): preserve packet headers in nats serializer",
+      "seed_file": "packages/microservices/serializers/nats-record.serializer.ts",
+      "seed_symbol": "NatsRecordSerializer",
+      "source_files": [
+        "packages/microservices/serializers/nats-record.serializer.ts"
+      ],
+      "expected_files": [
+        "packages/microservices/serializers/nats-record.serializer.ts"
+      ],
+      "expected_tests": [
+        "packages/microservices/test/serializers/nats-record.serializer.spec.ts"
+      ],
+      "should_touch_files": [
+        "packages/microservices/client/client-nats.ts",
+        "packages/microservices/server/server-nats.ts"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "nest-7493b946",
+      "repo": "nest",
+      "base_commit": "9603c682d99f2782723d830736529022a1a2dd8d",
+      "fix_commit": "7493b94647fc51d6d774f1e20f1b2f66c692182f",
+      "subject": "fix(core): dependency injection edge case with moduleref.create",
+      "seed_file": "packages/core/injector/module-ref.ts",
+      "seed_symbol": "ModuleRef",
+      "source_files": [
+        "packages/core/injector/module-ref.ts"
+      ],
+      "expected_files": [
+        "packages/core/injector/module-ref.ts"
+      ],
+      "expected_tests": [
+        "packages/core/test/scope/transient-scope.spec.ts"
+      ],
+      "should_touch_files": [
+        "packages/core/injector/index.ts",
+        "packages/core/injector/module.ts"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "nest-011bff66",
+      "repo": "nest",
+      "base_commit": "c4fd4da993f887ba3e6cd3535e6115e9aed84d72",
+      "fix_commit": "011bff66014e24e82b25f7acf9302b9efb70b02b",
+      "subject": "fix(core): dont inherit the optional decorator metadata",
+      "seed_file": "packages/common/decorators/core/optional.decorator.ts",
+      "seed_symbol": "Optional",
+      "source_files": [
+        "packages/common/decorators/core/optional.decorator.ts",
+        "packages/core/injector/injector.ts"
+      ],
+      "expected_files": [
+        "packages/common/decorators/core/optional.decorator.ts",
+        "packages/core/injector/injector.ts"
+      ],
+      "expected_tests": [
+        "integration/injector/e2e/inherited-optional.spec.ts"
+      ],
+      "should_touch_files": [
+        "packages/common/decorators/core/catch.decorator.ts",
+        "packages/common/decorators/core/controller.decorator.ts",
+        "packages/common/decorators/core/exception-filters.decorator.ts",
+        "packages/common/decorators/core/inject.decorator.ts",
+        "packages/common/decorators/core/injectable.decorator.ts",
+        "packages/common/decorators/http/header.decorator.ts",
+        "packages/common/decorators/http/redirect.decorator.ts",
+        "packages/common/decorators/http/render.decorator.ts",
+        "packages/common/decorators/http/request-mapping.decorator.ts",
+        "packages/common/decorators/http/route-params.decorator.ts",
+        "packages/common/decorators/modules/global.decorator.ts",
+        "packages/common/decorators/modules/module.decorator.ts",
+        "packages/common/index.ts",
+        "packages/core/errors/messages.ts"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "nest-e5fc9747",
+      "repo": "nest",
+      "base_commit": "b4b492f27667ca6a1c35f410f98669d4b2e57e9c",
+      "fix_commit": "e5fc97476a537cd4cba4b78ffd3c5a4daa33e34b",
+      "subject": "fix(core): refine unknown dependencies message token display",
+      "seed_file": "packages/core/errors/messages.ts",
+      "seed_symbol": "For",
+      "source_files": [
+        "packages/core/errors/messages.ts"
+      ],
+      "expected_files": [
+        "packages/core/errors/messages.ts"
+      ],
+      "expected_tests": [
+        "integration/injector/e2e/optional-factory-provider-dep.spec.ts",
+        "packages/core/test/errors/test/messages.spec.ts"
+      ],
+      "should_touch_files": [
+        "packages/core/errors/exceptions/invalid-middleware.exception.ts",
+        "packages/core/errors/exceptions/invalid-module.exception.ts",
+        "packages/core/errors/exceptions/undefined-dependency.exception.ts",
+        "packages/core/errors/exceptions/unknown-dependencies.exception.ts",
+        "packages/core/errors/exceptions/unknown-export.exception.ts",
+        "packages/core/errors/exceptions/unknown-request-mapping.exception.ts",
+        "packages/core/injector/instance-loader.ts",
+        "packages/core/router/router-explorer.ts",
+        "packages/core/router/routes-resolver.ts"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "nest-ec7fc4f3",
+      "repo": "nest",
+      "base_commit": "cb1faffd04b7a57869f9ee4559a80f50e9f7c857",
+      "fix_commit": "ec7fc4f341a823df0b5c733de321fa1f4435a041",
+      "subject": "fix(common): fix test for v12 branch compatibility",
+      "seed_file": "packages/common/exceptions/conflict.exception.ts",
+      "seed_symbol": "ConflictException",
+      "source_files": [
+        "packages/common/exceptions/conflict.exception.ts"
+      ],
+      "expected_files": [
+        "packages/common/exceptions/conflict.exception.ts"
+      ],
+      "expected_tests": [
+        "packages/common/test/exceptions/http.exception.spec.ts"
+      ],
+      "should_touch_files": [
+        "packages/common/decorators/core/catch.decorator.ts",
+        "packages/common/decorators/core/controller.decorator.ts",
+        "packages/common/decorators/core/dependencies.decorator.ts",
+        "packages/common/decorators/core/exception-filters.decorator.ts",
+        "packages/common/decorators/core/inject.decorator.ts",
+        "packages/common/decorators/core/use-guards.decorator.ts",
+        "packages/common/decorators/core/use-interceptors.decorator.ts",
+        "packages/common/decorators/core/use-pipes.decorator.ts",
+        "packages/common/decorators/http/create-route-param-metadata.decorator.ts",
+        "packages/common/decorators/http/http-code.decorator.ts",
+        "packages/common/decorators/http/render.decorator.ts",
+        "packages/common/decorators/http/request-mapping.decorator.ts",
+        "packages/common/decorators/http/route-params.decorator.ts",
+        "packages/common/decorators/modules/global.decorator.ts",
+        "packages/common/decorators/modules/module.decorator.ts"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "nest-efe43519",
+      "repo": "nest",
+      "base_commit": "6b278afc2fd75cd57997372927e93c4a3c25c061",
+      "fix_commit": "efe43519110bd72626965593c832277a667368d6",
+      "subject": "fix(websockets): send WsException errors to native WebSocket clients",
+      "seed_file": "packages/websockets/exceptions/base-ws-exception-filter.ts",
+      "seed_symbol": "ErrorPayload",
+      "source_files": [
+        "integration/websockets/src/ws-error.gateway.ts",
+        "packages/websockets/exceptions/base-ws-exception-filter.ts",
+        "packages/websockets/exceptions/ws-exceptions-handler.ts"
+      ],
+      "expected_files": [
+        "integration/websockets/src/ws-error.gateway.ts",
+        "packages/websockets/exceptions/base-ws-exception-filter.ts",
+        "packages/websockets/exceptions/ws-exceptions-handler.ts"
+      ],
+      "expected_tests": [
+        "integration/websockets/e2e/ws-error-gateway.spec.ts",
+        "packages/websockets/test/exceptions/ws-exceptions-handler.spec.ts"
+      ],
+      "should_touch_files": [
+        "packages/common/decorators/http/create-route-param-metadata.decorator.ts",
+        "packages/common/decorators/http/route-params.decorator.ts",
+        "packages/common/exceptions/http.exception.ts",
+        "packages/common/module-utils/configurable-module.builder.ts",
+        "packages/common/pipes/default-value.pipe.ts",
+        "packages/common/pipes/parse-array.pipe.ts",
+        "packages/common/pipes/parse-bool.pipe.ts",
+        "packages/common/pipes/parse-date.pipe.ts",
+        "packages/common/pipes/parse-enum.pipe.ts",
+        "packages/common/pipes/parse-uuid.pipe.ts",
+        "packages/common/pipes/validation.pipe.ts",
+        "packages/core/adapters/http-adapter.ts",
+        "packages/core/application-config.ts",
+        "packages/core/constants.ts",
+        "packages/core/discovery/discoverable-meta-host-collection.ts"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "nest-bc6b0880",
+      "repo": "nest",
+      "base_commit": "efe43519110bd72626965593c832277a667368d6",
+      "fix_commit": "bc6b0880fe530fc0bc757beb74397b9ddd2acdc9",
+      "subject": "fix(websockets): detect native ws clients before calling emit",
+      "seed_file": "packages/websockets/exceptions/base-ws-exception-filter.ts",
+      "seed_symbol": "ErrorPayload",
+      "source_files": [
+        "packages/websockets/exceptions/base-ws-exception-filter.ts"
+      ],
+      "expected_files": [
+        "packages/websockets/exceptions/base-ws-exception-filter.ts"
+      ],
+      "expected_tests": [
+        "packages/websockets/test/exceptions/ws-exceptions-handler.spec.ts"
+      ],
+      "should_touch_files": [
+        "packages/common/decorators/http/create-route-param-metadata.decorator.ts",
+        "packages/common/decorators/http/route-params.decorator.ts",
+        "packages/common/exceptions/http.exception.ts",
+        "packages/common/module-utils/configurable-module.builder.ts",
+        "packages/common/pipes/default-value.pipe.ts",
+        "packages/common/pipes/parse-array.pipe.ts",
+        "packages/common/pipes/parse-bool.pipe.ts",
+        "packages/common/pipes/parse-date.pipe.ts",
+        "packages/common/pipes/parse-enum.pipe.ts",
+        "packages/common/pipes/parse-uuid.pipe.ts",
+        "packages/common/pipes/validation.pipe.ts",
+        "packages/core/adapters/http-adapter.ts",
+        "packages/core/application-config.ts",
+        "packages/core/constants.ts",
+        "packages/core/discovery/discoverable-meta-host-collection.ts"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "nest-ca7d95a2",
+      "repo": "nest",
+      "base_commit": "cd7501b5c8b237f4daf237fda8409250d7ae4ead",
+      "fix_commit": "ca7d95a2197d371950e97b9b83814727058cff0d",
+      "subject": "fix: transform pattern regression",
+      "seed_file": "packages/microservices/utils/transform-pattern.utils.ts",
+      "seed_symbol": "transformPatternToRoute",
+      "source_files": [
+        "packages/microservices/utils/transform-pattern.utils.ts"
+      ],
+      "expected_files": [
+        "packages/microservices/utils/transform-pattern.utils.ts"
+      ],
+      "expected_tests": [
+        "packages/microservices/test/utils/transform-pattern.utils.spec.ts"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "nest-e099625a",
+      "repo": "nest",
+      "base_commit": "5d31df7eb62d89952d827eadc19123fb441f541e",
+      "fix_commit": "e099625a338f61e880ea75920ede3fe8f2be0070",
+      "subject": "fix(microservices): introuduce max pattern depth and object complexity",
+      "seed_file": "packages/microservices/utils/transform-pattern.utils.ts",
+      "seed_symbol": "transformPatternToRoute",
+      "source_files": [
+        "packages/microservices/utils/transform-pattern.utils.ts"
+      ],
+      "expected_files": [
+        "packages/microservices/utils/transform-pattern.utils.ts"
+      ],
+      "expected_tests": [
+        "packages/microservices/test/utils/transform-pattern.utils.spec.ts"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "nest-d74e9a8c",
+      "repo": "nest",
+      "base_commit": "dd90f57f40737916cb5606faef10ef8ebae5c319",
+      "fix_commit": "d74e9a8c5f3f1785445fd0dd37ea4818127b1f1c",
+      "subject": "fix(fastify): fastify middleware bypass cve",
+      "seed_file": "packages/platform-fastify/adapters/middie/fastify-middie.ts",
+      "seed_symbol": "MiddlewareEntry",
+      "source_files": [
+        "packages/platform-fastify/adapters/fastify-adapter.ts",
+        "packages/platform-fastify/adapters/middie/fastify-middie.ts"
+      ],
+      "expected_files": [
+        "packages/platform-fastify/adapters/fastify-adapter.ts",
+        "packages/platform-fastify/adapters/middie/fastify-middie.ts"
+      ],
+      "expected_tests": [
+        "integration/hello-world/e2e/middleware-fastify.spec.ts"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "nest-0eb2340e",
+      "repo": "nest",
+      "base_commit": "1c43374d92ddb8336721154c51ec7be14dba8612",
+      "fix_commit": "0eb2340e64a1ded18c78a76f380d4811405d936d",
+      "subject": "fix: Handle FastifyError as before",
+      "seed_file": "packages/core/exceptions/base-exception-filter.ts",
+      "seed_symbol": "BaseExceptionFilter",
+      "source_files": [
+        "packages/core/exceptions/base-exception-filter.ts"
+      ],
+      "expected_files": [
+        "packages/core/exceptions/base-exception-filter.ts"
+      ],
+      "expected_tests": [
+        "packages/core/test/exceptions/exceptions-handler.spec.ts"
+      ],
+      "should_touch_files": [
+        "packages/common/decorators/http/create-route-param-metadata.decorator.ts",
+        "packages/common/decorators/http/route-params.decorator.ts",
+        "packages/common/exceptions/http.exception.ts",
+        "packages/common/pipes/validation.pipe.ts",
+        "packages/core/adapters/http-adapter.ts",
+        "packages/core/application-config.ts",
+        "packages/core/constants.ts",
+        "packages/core/discovery/discoverable-meta-host-collection.ts",
+        "packages/core/discovery/discovery-service.ts",
+        "packages/core/errors/exception-handler.ts",
+        "packages/core/errors/exceptions/invalid-class-scope.exception.ts",
+        "packages/core/errors/exceptions/undefined-dependency.exception.ts",
+        "packages/core/errors/messages.ts",
+        "packages/core/exceptions/base-exception-filter-context.ts",
+        "packages/core/exceptions/exceptions-handler.ts"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "nest-1c43374d",
+      "repo": "nest",
+      "base_commit": "5adeb427df7c3b5269405b2d6c4b5d8ece4162b8",
+      "fix_commit": "1c43374d92ddb8336721154c51ec7be14dba8612",
+      "subject": "fix: make `isHttpError` check stricter",
+      "seed_file": "packages/core/exceptions/base-exception-filter.ts",
+      "seed_symbol": "BaseExceptionFilter",
+      "source_files": [
+        "packages/core/exceptions/base-exception-filter.ts"
+      ],
+      "expected_files": [
+        "packages/core/exceptions/base-exception-filter.ts"
+      ],
+      "expected_tests": [
+        "packages/core/test/exceptions/exceptions-handler.spec.ts"
+      ],
+      "should_touch_files": [
+        "packages/common/decorators/http/create-route-param-metadata.decorator.ts",
+        "packages/common/decorators/http/route-params.decorator.ts",
+        "packages/common/exceptions/http.exception.ts",
+        "packages/common/pipes/validation.pipe.ts",
+        "packages/core/adapters/http-adapter.ts",
+        "packages/core/application-config.ts",
+        "packages/core/constants.ts",
+        "packages/core/discovery/discoverable-meta-host-collection.ts",
+        "packages/core/discovery/discovery-service.ts",
+        "packages/core/errors/exception-handler.ts",
+        "packages/core/errors/exceptions/invalid-class-scope.exception.ts",
+        "packages/core/errors/exceptions/undefined-dependency.exception.ts",
+        "packages/core/errors/messages.ts",
+        "packages/core/exceptions/base-exception-filter-context.ts",
+        "packages/core/exceptions/exceptions-handler.ts"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "nest-9170ecb8",
+      "repo": "nest",
+      "base_commit": "43041eb779130a923bebc63c1fa9f1428a98d119",
+      "fix_commit": "9170ecb83fc45d7cb49b640b171daabc3159c642",
+      "subject": "fix: update incorrect package import",
+      "seed_file": "packages/microservices/server/server-nats.ts",
+      "seed_symbol": "ServerNats",
+      "source_files": [
+        "packages/microservices/server/server-nats.ts"
+      ],
+      "expected_files": [
+        "packages/microservices/server/server-nats.ts"
+      ],
+      "expected_tests": [
+        "packages/microservices/test/client/client-nats.spec.ts"
+      ],
+      "should_touch_files": [
+        "integration/microservices/src/grpc/grpc.controller.ts",
+        "integration/microservices/src/nats/nats-broadcast.controller.ts",
+        "integration/microservices/src/nats/nats.controller.ts",
+        "integration/websockets/src/app.gateway.ts",
+        "integration/websockets/src/server.gateway.ts",
+        "packages/common/decorators/core/bind.decorator.ts",
+        "packages/common/decorators/core/catch.decorator.ts",
+        "packages/common/decorators/core/component.decorator.ts",
+        "packages/common/decorators/core/controller.decorator.ts",
+        "packages/common/decorators/core/dependencies.decorator.ts",
+        "packages/common/decorators/core/exception-filters.decorator.ts",
+        "packages/common/decorators/core/inject.decorator.ts",
+        "packages/common/decorators/core/reflect-metadata.decorator.ts",
+        "packages/common/decorators/core/use-guards.decorator.ts",
+        "packages/common/decorators/core/use-interceptors.decorator.ts"
+      ],
+      "max_expected_depth": 1
+    }
+  ]
+}

@@ -1,0 +1,1328 @@
+{
+  "schema_version": 1,
+  "uc": "callers",
+  "fixture": "radash",
+  "tasks": [
+    {
+      "task_id": "textmatch_getGroupId",
+      "query": {
+        "__rationale": "3 sites reference `getGroupId` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getGroupId"
+      },
+      "expected": [
+        "group"
+      ]
+    },
+    {
+      "task_id": "textmatch_ceil",
+      "query": {
+        "__rationale": "4 sites reference `ceil` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ceil"
+      },
+      "expected": [
+        "cluster"
+      ]
+    },
+    {
+      "task_id": "textmatch_flat",
+      "query": {
+        "__rationale": "4 sites reference `flat` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "flat"
+      },
+      "expected": [
+        "parallel"
+      ]
+    },
+    {
+      "task_id": "textmatch_reverse",
+      "query": {
+        "__rationale": "4 sites reference `reverse` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "reverse"
+      },
+      "expected": [
+        "compose"
+      ]
+    },
+    {
+      "task_id": "textmatch_trim",
+      "query": {
+        "__rationale": "12 sites reference `trim` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "trim"
+      },
+      "expected": [
+        "get",
+        "set",
+        "title"
+      ]
+    },
+    {
+      "task_id": "textmatch_toEntry",
+      "query": {
+        "__rationale": "3 sites reference `toEntry` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "toEntry"
+      },
+      "expected": [
+        "mapEntries"
+      ]
+    },
+    {
+      "task_id": "textmatch_toLowerCase",
+      "query": {
+        "__rationale": "36 sites reference `toLowerCase` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "toLowerCase"
+      },
+      "expected": [
+        "camel",
+        "capitalize",
+        "dash",
+        "lowerize",
+        "pascal",
+        "snake",
+        "title"
+      ]
+    },
+    {
+      "task_id": "textmatch_getKey",
+      "query": {
+        "__rationale": "3 sites reference `getKey` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getKey"
+      },
+      "expected": [
+        "objectify"
+      ]
+    },
+    {
+      "task_id": "textmatch_get",
+      "query": {
+        "__rationale": "15 sites reference `get` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "get"
+      },
+      "expected": [
+        "crush",
+        "max",
+        "min"
+      ]
+    },
+    {
+      "task_id": "textmatch_isNumber",
+      "query": {
+        "__rationale": "15 sites reference `isNumber` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isNumber"
+      },
+      "expected": [
+        "isEmpty",
+        "isFloat",
+        "isInt"
+      ]
+    },
+    {
+      "task_id": "textmatch_list",
+      "query": {
+        "__rationale": "6 sites reference `list` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "list"
+      },
+      "expected": [
+        "parallel",
+        "spin"
+      ]
+    },
+    {
+      "task_id": "textmatch_clearTimeout",
+      "query": {
+        "__rationale": "4 sites reference `clearTimeout` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "clearTimeout"
+      },
+      "expected": [
+        "debounced"
+      ]
+    },
+    {
+      "task_id": "textmatch_parseFloat",
+      "query": {
+        "__rationale": "4 sites reference `parseFloat` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "parseFloat"
+      },
+      "expected": [
+        "toFloat"
+      ]
+    },
+    {
+      "task_id": "textmatch_test",
+      "query": {
+        "__rationale": "4 sites reference `test` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "test"
+      },
+      "expected": [
+        "_set"
+      ]
+    },
+    {
+      "task_id": "textmatch_range",
+      "query": {
+        "__rationale": "6 sites reference `range` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "range"
+      },
+      "expected": [
+        "list",
+        "retry"
+      ]
+    },
+    {
+      "task_id": "textmatch_replace",
+      "query": {
+        "__rationale": "32 sites reference `replace` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "replace"
+      },
+      "expected": [
+        "camel",
+        "dash",
+        "get",
+        "snake",
+        "template",
+        "trim"
+      ]
+    },
+    {
+      "task_id": "textmatch_previous",
+      "query": {
+        "__rationale": "3 sites reference `previous` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "previous"
+      },
+      "expected": [
+        "spin"
+      ]
+    },
+    {
+      "task_id": "textmatch_isPromise",
+      "query": {
+        "__rationale": "4 sites reference `isPromise` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isPromise"
+      },
+      "expected": [
+        "guard",
+        "tryit"
+      ]
+    },
+    {
+      "task_id": "textmatch_split",
+      "query": {
+        "__rationale": "28 sites reference `split` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "split"
+      },
+      "expected": [
+        "camel",
+        "dash",
+        "get",
+        "pascal",
+        "set",
+        "snake",
+        "title"
+      ]
+    },
+    {
+      "task_id": "textmatch_call",
+      "query": {
+        "__rationale": "8 sites reference `call` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "call"
+      },
+      "expected": [
+        "isDate",
+        "pick"
+      ]
+    },
+    {
+      "task_id": "textmatch_isArray",
+      "query": {
+        "__rationale": "12 sites reference `isArray` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isArray"
+      },
+      "expected": [
+        "all",
+        "getKeys",
+        "zipToObject"
+      ]
+    },
+    {
+      "task_id": "textmatch_match",
+      "query": {
+        "__rationale": "6 sites reference `match` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "match"
+      },
+      "expected": [
+        "replace",
+        "replaceOrAppend"
+      ]
+    },
+    {
+      "task_id": "textmatch_fill",
+      "query": {
+        "__rationale": "8 sites reference `fill` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "fill"
+      },
+      "expected": [
+        "cluster",
+        "zip"
+      ]
+    },
+    {
+      "task_id": "textmatch_toKey",
+      "query": {
+        "__rationale": "30 sites reference `toKey` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "toKey"
+      },
+      "expected": [
+        "max",
+        "min",
+        "next",
+        "previous",
+        "series",
+        "toggle",
+        "unique"
+      ]
+    },
+    {
+      "task_id": "textmatch_asyncMapFunc",
+      "query": {
+        "__rationale": "3 sites reference `asyncMapFunc` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "asyncMapFunc"
+      },
+      "expected": [
+        "map"
+      ]
+    },
+    {
+      "task_id": "textmatch__guard",
+      "query": {
+        "__rationale": "3 sites reference `_guard` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_guard"
+      },
+      "expected": [
+        "guard"
+      ]
+    },
+    {
+      "task_id": "textmatch_handler",
+      "query": {
+        "__rationale": "3 sites reference `handler` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "handler"
+      },
+      "expected": [
+        "proxied"
+      ]
+    },
+    {
+      "task_id": "textmatch_find",
+      "query": {
+        "__rationale": "16 sites reference `find` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "find"
+      },
+      "expected": [
+        "constructor",
+        "merge",
+        "toggle"
+      ]
+    },
+    {
+      "task_id": "textmatch_Number",
+      "query": {
+        "__rationale": "4 sites reference `Number` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Number"
+      },
+      "expected": [
+        "isNumber"
+      ]
+    },
+    {
+      "task_id": "textmatch_then",
+      "query": {
+        "__rationale": "8 sites reference `then` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "then"
+      },
+      "expected": [
+        "all",
+        "tryit"
+      ]
+    },
+    {
+      "task_id": "textmatch_memoize",
+      "query": {
+        "__rationale": "3 sites reference `memoize` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "memoize"
+      },
+      "expected": [
+        "memo"
+      ]
+    },
+    {
+      "task_id": "textmatch_isSymbol",
+      "query": {
+        "__rationale": "3 sites reference `isSymbol` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isSymbol"
+      },
+      "expected": [
+        "isEmpty"
+      ]
+    },
+    {
+      "task_id": "textmatch_getKeys",
+      "query": {
+        "__rationale": "9 sites reference `getKeys` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getKeys"
+      },
+      "expected": [
+        "getKeys",
+        "keys"
+      ]
+    },
+    {
+      "task_id": "textmatch_toString",
+      "query": {
+        "__rationale": "8 sites reference `toString` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "toString"
+      },
+      "expected": [
+        "isEqual"
+      ]
+    },
+    {
+      "task_id": "textmatch_keys",
+      "query": {
+        "__rationale": "27 sites reference `keys` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "keys"
+      },
+      "expected": [
+        "construct",
+        "crush",
+        "invert",
+        "isEmpty",
+        "mapKeys",
+        "mapValues",
+        "shake"
+      ]
+    },
+    {
+      "task_id": "textmatch_identity",
+      "query": {
+        "__rationale": "9 sites reference `identity` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "identity"
+      },
+      "expected": [
+        "counting",
+        "diff"
+      ]
+    },
+    {
+      "task_id": "textmatch_ident",
+      "query": {
+        "__rationale": "6 sites reference `ident` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ident"
+      },
+      "expected": [
+        "intersects"
+      ]
+    },
+    {
+      "task_id": "textmatch_res",
+      "query": {
+        "__rationale": "3 sites reference `res` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "res"
+      },
+      "expected": [
+        "processor"
+      ]
+    },
+    {
+      "task_id": "textmatch_catch",
+      "query": {
+        "__rationale": "12 sites reference `catch` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "catch"
+      },
+      "expected": [
+        "all",
+        "guard",
+        "tryit"
+      ]
+    },
+    {
+      "task_id": "textmatch_Proxy",
+      "query": {
+        "__rationale": "8 sites reference `Proxy` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Proxy"
+      },
+      "expected": [
+        "callable",
+        "proxied"
+      ]
+    },
+    {
+      "task_id": "textmatch_stringify",
+      "query": {
+        "__rationale": "4 sites reference `stringify` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "stringify"
+      },
+      "expected": [
+        "memoize"
+      ]
+    },
+    {
+      "task_id": "textmatch_push",
+      "query": {
+        "__rationale": "36 sites reference `push` across 8 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "push"
+      },
+      "expected": [
+        "flat",
+        "group",
+        "listify",
+        "map",
+        "merge",
+        "processor",
+        "register",
+        "select"
+      ]
+    },
+    {
+      "task_id": "textmatch_backoff",
+      "query": {
+        "__rationale": "3 sites reference `backoff` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "backoff"
+      },
+      "expected": [
+        "retry"
+      ]
+    },
+    {
+      "task_id": "textmatch_fork",
+      "query": {
+        "__rationale": "3 sites reference `fork` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "fork"
+      },
+      "expected": [
+        "parallel"
+      ]
+    },
+    {
+      "task_id": "textmatch_localeCompare",
+      "query": {
+        "__rationale": "8 sites reference `localeCompare` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "localeCompare"
+      },
+      "expected": [
+        "asc",
+        "dsc"
+      ]
+    },
+    {
+      "task_id": "textmatch_parseInt",
+      "query": {
+        "__rationale": "4 sites reference `parseInt` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "parseInt"
+      },
+      "expected": [
+        "toInt"
+      ]
+    },
+    {
+      "task_id": "textmatch_toUpperCase",
+      "query": {
+        "__rationale": "16 sites reference `toUpperCase` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "toUpperCase"
+      },
+      "expected": [
+        "camel",
+        "capitalize",
+        "pascal",
+        "upperize"
+      ]
+    },
+    {
+      "task_id": "textmatch_isObject",
+      "query": {
+        "__rationale": "6 sites reference `isObject` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isObject"
+      },
+      "expected": [
+        "assign",
+        "getKeys"
+      ]
+    },
+    {
+      "task_id": "textmatch_charAt",
+      "query": {
+        "__rationale": "12 sites reference `charAt` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "charAt"
+      },
+      "expected": [
+        "camel",
+        "pascal",
+        "uid"
+      ]
+    },
+    {
+      "task_id": "textmatch_objectify",
+      "query": {
+        "__rationale": "3 sites reference `objectify` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "objectify"
+      },
+      "expected": [
+        "crush"
+      ]
+    },
+    {
+      "task_id": "textmatch_some",
+      "query": {
+        "__rationale": "4 sites reference `some` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "some"
+      },
+      "expected": [
+        "intersects"
+      ]
+    },
+    {
+      "task_id": "textmatch_all",
+      "query": {
+        "__rationale": "8 sites reference `all` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "all"
+      },
+      "expected": [
+        "all",
+        "parallel"
+      ]
+    },
+    {
+      "task_id": "textmatch_condition",
+      "query": {
+        "__rationale": "6 sites reference `condition` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "condition"
+      },
+      "expected": [
+        "fork",
+        "select"
+      ]
+    },
+    {
+      "task_id": "textmatch_first",
+      "query": {
+        "__rationale": "3 sites reference `first` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "first"
+      },
+      "expected": [
+        "next"
+      ]
+    },
+    {
+      "task_id": "textmatch_entries",
+      "query": {
+        "__rationale": "24 sites reference `entries` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "entries"
+      },
+      "expected": [
+        "all",
+        "assign",
+        "getKeys",
+        "listify",
+        "mapEntries",
+        "reduce"
+      ]
+    },
+    {
+      "task_id": "textmatch_set",
+      "query": {
+        "__rationale": "3 sites reference `set` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "set"
+      },
+      "expected": [
+        "construct"
+      ]
+    },
+    {
+      "task_id": "textmatch_Date",
+      "query": {
+        "__rationale": "8 sites reference `Date` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Date"
+      },
+      "expected": [
+        "memoize"
+      ]
+    },
+    {
+      "task_id": "textmatch_getTime",
+      "query": {
+        "__rationale": "20 sites reference `getTime` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getTime"
+      },
+      "expected": [
+        "isEmpty",
+        "isEqual",
+        "memoize"
+      ]
+    },
+    {
+      "task_id": "textmatch_matcher",
+      "query": {
+        "__rationale": "9 sites reference `matcher` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "matcher"
+      },
+      "expected": [
+        "merge",
+        "toggle"
+      ]
+    },
+    {
+      "task_id": "textmatch_getter",
+      "query": {
+        "__rationale": "24 sites reference `getter` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getter"
+      },
+      "expected": [
+        "asc",
+        "dsc"
+      ]
+    },
+    {
+      "task_id": "textmatch_getValue",
+      "query": {
+        "__rationale": "6 sites reference `getValue` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getValue"
+      },
+      "expected": [
+        "objectify",
+        "zipToObject"
+      ]
+    },
+    {
+      "task_id": "textmatch_has",
+      "query": {
+        "__rationale": "4 sites reference `has` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "has"
+      },
+      "expected": [
+        "isEqual"
+      ]
+    },
+    {
+      "task_id": "textmatch_toItem",
+      "query": {
+        "__rationale": "3 sites reference `toItem` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "toItem"
+      },
+      "expected": [
+        "listify"
+      ]
+    },
+    {
+      "task_id": "textmatch_abs",
+      "query": {
+        "__rationale": "4 sites reference `abs` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "abs"
+      },
+      "expected": [
+        "spin"
+      ]
+    },
+    {
+      "task_id": "textmatch_isFunction",
+      "query": {
+        "__rationale": "12 sites reference `isFunction` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isFunction"
+      },
+      "expected": [
+        "isEmpty",
+        "isPromise",
+        "zipToObject"
+      ]
+    },
+    {
+      "task_id": "textmatch_map",
+      "query": {
+        "__rationale": "84 sites reference `map` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "map"
+      },
+      "expected": [
+        "all",
+        "camel",
+        "cluster",
+        "dash",
+        "parallel",
+        "pascal",
+        "shuffle",
+        "snake",
+        "title",
+        "zip"
+      ]
+    },
+    {
+      "task_id": "textmatch_sleep",
+      "query": {
+        "__rationale": "6 sites reference `sleep` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "sleep"
+      },
+      "expected": [
+        "retry"
+      ]
+    },
+    {
+      "task_id": "textmatch_substring",
+      "query": {
+        "__rationale": "8 sites reference `substring` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "substring"
+      },
+      "expected": [
+        "capitalize"
+      ]
+    },
+    {
+      "task_id": "textmatch_min",
+      "query": {
+        "__rationale": "4 sites reference `min` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "min"
+      },
+      "expected": [
+        "inRange"
+      ]
+    },
+    {
+      "task_id": "textmatch_matchAll",
+      "query": {
+        "__rationale": "4 sites reference `matchAll` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "matchAll"
+      },
+      "expected": [
+        "template"
+      ]
+    },
+    {
+      "task_id": "textmatch_ownKeys",
+      "query": {
+        "__rationale": "8 sites reference `ownKeys` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ownKeys"
+      },
+      "expected": [
+        "isEqual"
+      ]
+    },
+    {
+      "task_id": "textmatch_setTimeout",
+      "query": {
+        "__rationale": "12 sites reference `setTimeout` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setTimeout"
+      },
+      "expected": [
+        "debounced",
+        "sleep",
+        "throttled"
+      ]
+    },
+    {
+      "task_id": "textmatch_shouldGuard",
+      "query": {
+        "__rationale": "3 sites reference `shouldGuard` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "shouldGuard"
+      },
+      "expected": [
+        "_guard"
+      ]
+    },
+    {
+      "task_id": "textmatch_next",
+      "query": {
+        "__rationale": "3 sites reference `next` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "next"
+      },
+      "expected": [
+        "spin"
+      ]
+    },
+    {
+      "task_id": "textmatch_RegExp",
+      "query": {
+        "__rationale": "4 sites reference `RegExp` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "RegExp"
+      },
+      "expected": [
+        "trim"
+      ]
+    },
+    {
+      "task_id": "textmatch_slice",
+      "query": {
+        "__rationale": "52 sites reference `slice` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "slice"
+      },
+      "expected": [
+        "alphabetical",
+        "camel",
+        "chain",
+        "cluster",
+        "pascal",
+        "reduce",
+        "replace",
+        "replaceOrAppend",
+        "shift",
+        "sort"
+      ]
+    },
+    {
+      "task_id": "textmatch_mapper",
+      "query": {
+        "__rationale": "6 sites reference `mapper` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "mapper"
+      },
+      "expected": [
+        "select"
+      ]
+    },
+    {
+      "task_id": "textmatch_mapKeys",
+      "query": {
+        "__rationale": "6 sites reference `mapKeys` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "mapKeys"
+      },
+      "expected": [
+        "lowerize",
+        "upperize"
+      ]
+    },
+    {
+      "task_id": "textmatch_isNaN",
+      "query": {
+        "__rationale": "12 sites reference `isNaN` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isNaN"
+      },
+      "expected": [
+        "isEmpty",
+        "toFloat",
+        "toInt"
+      ]
+    },
+    {
+      "task_id": "textmatch_AggregateError",
+      "query": {
+        "__rationale": "6 sites reference `AggregateError` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "AggregateError"
+      },
+      "expected": [
+        "all",
+        "parallel"
+      ]
+    },
+    {
+      "task_id": "textmatch_shift",
+      "query": {
+        "__rationale": "4 sites reference `shift` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "shift"
+      },
+      "expected": [
+        "_set"
+      ]
+    },
+    {
+      "task_id": "textmatch_random",
+      "query": {
+        "__rationale": "14 sites reference `random` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "random"
+      },
+      "expected": [
+        "draw",
+        "random",
+        "shuffle",
+        "uid"
+      ]
+    },
+    {
+      "task_id": "textmatch_capitalize",
+      "query": {
+        "__rationale": "3 sites reference `capitalize` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "capitalize"
+      },
+      "expected": [
+        "title"
+      ]
+    },
+    {
+      "task_id": "textmatch_Promise",
+      "query": {
+        "__rationale": "8 sites reference `Promise` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Promise"
+      },
+      "expected": [
+        "parallel",
+        "sleep"
+      ]
+    },
+    {
+      "task_id": "textmatch_flatMap",
+      "query": {
+        "__rationale": "8 sites reference `flatMap` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "flatMap"
+      },
+      "expected": [
+        "getKeys"
+      ]
+    },
+    {
+      "task_id": "textmatch_values",
+      "query": {
+        "__rationale": "4 sites reference `values` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "values"
+      },
+      "expected": [
+        "unique"
+      ]
+    },
+    {
+      "task_id": "textmatch_isEqual",
+      "query": {
+        "__rationale": "3 sites reference `isEqual` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isEqual"
+      },
+      "expected": [
+        "isEqual"
+      ]
+    },
+    {
+      "task_id": "textmatch_filter",
+      "query": {
+        "__rationale": "27 sites reference `filter` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "filter"
+      },
+      "expected": [
+        "all",
+        "diff",
+        "set",
+        "shake",
+        "sift",
+        "title",
+        "toggle"
+      ]
+    },
+    {
+      "task_id": "textmatch_mapFunc",
+      "query": {
+        "__rationale": "6 sites reference `mapFunc` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "mapFunc"
+      },
+      "expected": [
+        "mapKeys",
+        "mapValues"
+      ]
+    },
+    {
+      "task_id": "textmatch_max",
+      "query": {
+        "__rationale": "8 sites reference `max` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "max"
+      },
+      "expected": [
+        "inRange",
+        "zip"
+      ]
+    },
+    {
+      "task_id": "textmatch_join",
+      "query": {
+        "__rationale": "12 sites reference `join` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "join"
+      },
+      "expected": [
+        "getKeys",
+        "pascal",
+        "title"
+      ]
+    },
+    {
+      "task_id": "textmatch_last",
+      "query": {
+        "__rationale": "3 sites reference `last` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "last"
+      },
+      "expected": [
+        "previous"
+      ]
+    },
+    {
+      "task_id": "textmatch_pop",
+      "query": {
+        "__rationale": "4 sites reference `pop` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "pop"
+      },
+      "expected": [
+        "processor"
+      ]
+    },
+    {
+      "task_id": "textmatch_from",
+      "query": {
+        "__rationale": "8 sites reference `from` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "from"
+      },
+      "expected": [
+        "list",
+        "template"
+      ]
+    },
+    {
+      "task_id": "textmatch_assign",
+      "query": {
+        "__rationale": "11 sites reference `assign` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "assign"
+      },
+      "expected": [
+        "assign",
+        "callable"
+      ]
+    },
+    {
+      "task_id": "textmatch_boil",
+      "query": {
+        "__rationale": "6 sites reference `boil` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "boil"
+      },
+      "expected": [
+        "max",
+        "min"
+      ]
+    },
+    {
+      "task_id": "textmatch_Error",
+      "query": {
+        "__rationale": "4 sites reference `Error` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Error"
+      },
+      "expected": [
+        "reduce"
+      ]
+    },
+    {
+      "task_id": "textmatch_sort",
+      "query": {
+        "__rationale": "15 sites reference `sort` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "sort"
+      },
+      "expected": [
+        "alphabetical",
+        "parallel",
+        "shuffle",
+        "sort"
+      ]
+    },
+    {
+      "task_id": "textmatch_asyncReducer",
+      "query": {
+        "__rationale": "3 sites reference `asyncReducer` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "asyncReducer"
+      },
+      "expected": [
+        "reduce"
+      ]
+    },
+    {
+      "task_id": "textmatch_keyFunc",
+      "query": {
+        "__rationale": "3 sites reference `keyFunc` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "keyFunc"
+      },
+      "expected": [
+        "memoize"
+      ]
+    },
+    {
+      "task_id": "textmatch_Array",
+      "query": {
+        "__rationale": "8 sites reference `Array` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Array"
+      },
+      "expected": [
+        "cluster",
+        "zip"
+      ]
+    },
+    {
+      "task_id": "textmatch__set",
+      "query": {
+        "__rationale": "6 sites reference `_set` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_set"
+      },
+      "expected": [
+        "_set",
+        "set"
+      ]
+    },
+    {
+      "task_id": "textmatch_tryit",
+      "query": {
+        "__rationale": "12 sites reference `tryit` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "tryit"
+      },
+      "expected": [
+        "defer",
+        "processor",
+        "retry"
+      ]
+    },
+    {
+      "task_id": "textmatch_floor",
+      "query": {
+        "__rationale": "4 sites reference `floor` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "floor"
+      },
+      "expected": [
+        "random"
+      ]
+    },
+    {
+      "task_id": "textmatch_iterate",
+      "query": {
+        "__rationale": "3 sites reference `iterate` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "iterate"
+      },
+      "expected": [
+        "uid"
+      ]
+    },
+    {
+      "task_id": "textmatch_isPromise2",
+      "query": {
+        "__rationale": "2 sites reference `isPromise2` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isPromise2"
+      },
+      "expected": [
+        "guard"
+      ]
+    },
+    {
+      "task_id": "textmatch_isDate",
+      "query": {
+        "__rationale": "3 sites reference `isDate` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isDate"
+      },
+      "expected": [
+        "isEmpty"
+      ]
+    },
+    {
+      "task_id": "textmatch_func",
+      "query": {
+        "__rationale": "24 sites reference `func` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "func"
+      },
+      "expected": [
+        "debounce",
+        "debounced",
+        "guard",
+        "iterate",
+        "memoize",
+        "throttled",
+        "tryit"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "repo": "axum",
+  "lang": "rust",
+  "enriched_at": "2026-04-29T18:58:04.615Z",
+  "count": 6,
+  "tasks": [
+    {
+      "task_id": "axum-ce3d4294",
+      "repo": "axum",
+      "base_commit": "893bb75e3bab9697e78a8b3529edab7bac8b135b",
+      "fix_commit": "ce3d42947eff69b5e244efc4436512ce54733120",
+      "subject": "fix: Avoid setting content-length before middleware (#3031)",
+      "seed_file": "axum/src/routing/route.rs",
+      "seed_symbol": "Route",
+      "source_files": [
+        "axum/src/routing/route.rs"
+      ],
+      "expected_files": [
+        "axum/src/routing/route.rs"
+      ],
+      "expected_tests": [
+        "axum/src/routing/tests/mod.rs"
+      ],
+      "should_touch_files": [
+        "axum-core/src/extract/default_body_limit.rs",
+        "axum-core/src/extract/mod.rs",
+        "axum-core/src/extract/request_parts.rs",
+        "axum-core/src/extract/tuple.rs",
+        "axum-extra/src/extract/cached.rs",
+        "axum-extra/src/extract/cookie/mod.rs",
+        "axum-extra/src/extract/form.rs",
+        "axum-extra/src/extract/with_rejection.rs",
+        "axum-extra/src/handler/mod.rs",
+        "axum-extra/src/handler/or.rs",
+        "axum-extra/src/json_lines.rs",
+        "axum-extra/src/protobuf.rs",
+        "axum-extra/src/routing/mod.rs",
+        "axum-extra/src/routing/resource.rs",
+        "axum-extra/src/routing/spa.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "axum-5512b5b9",
+      "repo": "axum",
+      "base_commit": "822db3b1af766b7372541e7a490ab21a8e748e10",
+      "fix_commit": "5512b5b91fe12fb58bb91914186208c7a4f29c2a",
+      "subject": "fix: Avoid setting content-length before middleware (#2897)",
+      "seed_file": "axum/src/routing/route.rs",
+      "seed_symbol": "Route",
+      "source_files": [
+        "axum/src/routing/route.rs"
+      ],
+      "expected_files": [
+        "axum/src/routing/route.rs"
+      ],
+      "expected_tests": [
+        "axum/src/routing/tests/mod.rs"
+      ],
+      "should_touch_files": [
+        "axum-core/src/extract/default_body_limit.rs",
+        "axum-core/src/extract/mod.rs",
+        "axum-core/src/extract/request_parts.rs",
+        "axum-core/src/extract/tuple.rs",
+        "axum-extra/src/extract/cached.rs",
+        "axum-extra/src/extract/cookie/mod.rs",
+        "axum-extra/src/extract/form.rs",
+        "axum-extra/src/extract/with_rejection.rs",
+        "axum-extra/src/handler/mod.rs",
+        "axum-extra/src/handler/or.rs",
+        "axum-extra/src/json_lines.rs",
+        "axum-extra/src/protobuf.rs",
+        "axum-extra/src/routing/mod.rs",
+        "axum-extra/src/routing/resource.rs",
+        "axum-extra/src/routing/spa.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "axum-a0db77a9",
+      "repo": "axum",
+      "base_commit": "6f7ff8556587d51c6919a864926e4b8090f92c3f",
+      "fix_commit": "a0db77a9005cba38f467b7851c36c9fdbf004b78",
+      "subject": "Fix bugs around merging routers with nested fallbacks (#2096)",
+      "seed_file": "axum/src/routing/path_router.rs",
+      "seed_symbol": "PathRouter",
+      "source_files": [
+        "axum/src/routing/mod.rs",
+        "axum/src/routing/path_router.rs"
+      ],
+      "expected_files": [
+        "axum/src/routing/mod.rs",
+        "axum/src/routing/path_router.rs"
+      ],
+      "expected_tests": [
+        "axum/src/routing/tests/fallback.rs"
+      ],
+      "should_touch_files": [
+        "axum/src/extract/matched_path.rs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "axum-5503b323",
+      "repo": "axum",
+      "base_commit": "bc8e879d7b1764772a4147f63ae49f2773b00bbd",
+      "fix_commit": "5503b3236babec939cd019b2a38596b3e5cabb12",
+      "subject": "Fix CI (#2086)",
+      "seed_file": "axum-extra/src/json_lines.rs",
+      "seed_symbol": "post",
+      "source_files": [
+        "axum-extra/src/json_lines.rs",
+        "axum/src/extract/matched_path.rs"
+      ],
+      "expected_files": [
+        "axum-extra/src/json_lines.rs",
+        "axum/src/extract/matched_path.rs"
+      ],
+      "expected_tests": [
+        "axum-macros/tests/typed_path/fail/not_deserialize.stderr"
+      ],
+      "should_touch_files": [
+        "axum-core/src/extract/default_body_limit.rs",
+        "axum-core/src/extract/mod.rs",
+        "axum-core/src/extract/request_parts.rs",
+        "axum-core/src/extract/tuple.rs",
+        "axum-extra/src/either.rs",
+        "axum-extra/src/extract/cached.rs",
+        "axum-extra/src/extract/cookie/mod.rs",
+        "axum-extra/src/extract/cookie/private.rs",
+        "axum-extra/src/extract/cookie/signed.rs",
+        "axum-extra/src/extract/form.rs",
+        "axum-extra/src/extract/query.rs",
+        "axum-extra/src/extract/with_rejection.rs",
+        "axum-extra/src/handler/mod.rs",
+        "axum-extra/src/handler/or.rs",
+        "axum-extra/src/protobuf.rs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "axum-c7d4af9b",
+      "repo": "axum",
+      "base_commit": "d1765d9a00452f7b7cfc9074722be074817c91a2",
+      "fix_commit": "c7d4af9bd8031f85244319dbd12f1d0698b12432",
+      "subject": "Fix fallback panic on CONNECT requests (#1963)",
+      "seed_file": "axum/src/routing/mod.rs",
+      "seed_symbol": "Router",
+      "source_files": [
+        "axum/src/routing/method_routing.rs",
+        "axum/src/routing/mod.rs",
+        "axum/src/routing/path_router.rs"
+      ],
+      "expected_files": [
+        "axum/src/routing/method_routing.rs",
+        "axum/src/routing/mod.rs",
+        "axum/src/routing/path_router.rs"
+      ],
+      "expected_tests": [
+        "axum/src/routing/tests/mod.rs"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "axum-2e8a7e51",
+      "repo": "axum",
+      "base_commit": "b1f894a50074933ec3d924775d792671091b10df",
+      "fix_commit": "2e8a7e51a105ab2fda2e7ca7cb09168cc8a26bf1",
+      "subject": "Fix `Handler::with_state` not working if request body was changed via layer (#1536)",
+      "seed_file": "axum/src/handler/mod.rs",
+      "seed_symbol": "Handler",
+      "source_files": [
+        "axum/src/handler/mod.rs",
+        "examples/key-value-store/src/main.rs"
+      ],
+      "expected_files": [
+        "axum/src/handler/mod.rs",
+        "examples/key-value-store/src/main.rs"
+      ],
+      "expected_tests": [
+        "axum-macros/tests/from_request/fail/generic_without_via.stderr",
+        "axum-macros/tests/from_request/fail/generic_without_via_rejection.stderr",
+        "axum-macros/tests/from_request/fail/override_rejection_on_enum_without_via.stderr"
+      ],
+      "should_touch_files": [
+        "axum-core/src/extract/mod.rs",
+        "axum-core/src/extract/request_parts.rs",
+        "axum-core/src/extract/tuple.rs",
+        "axum-extra/src/either.rs",
+        "axum-extra/src/extract/cached.rs",
+        "axum-extra/src/extract/cookie/mod.rs",
+        "axum-extra/src/extract/cookie/private.rs",
+        "axum-extra/src/extract/cookie/signed.rs",
+        "axum-extra/src/extract/form.rs",
+        "axum-extra/src/extract/query.rs",
+        "axum-extra/src/extract/with_rejection.rs",
+        "axum-extra/src/handler/mod.rs",
+        "axum-extra/src/handler/or.rs",
+        "axum-extra/src/json_lines.rs",
+        "axum-extra/src/protobuf.rs"
+      ],
+      "max_expected_depth": 2
+    }
+  ]
+}

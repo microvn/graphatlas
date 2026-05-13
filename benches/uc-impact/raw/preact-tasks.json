@@ -1,0 +1,408 @@
+{
+  "repo": "preact",
+  "lang": "javascript",
+  "enriched_at": "2026-04-29T18:57:38.105Z",
+  "count": 16,
+  "tasks": [
+    {
+      "task_id": "preact-5a029235",
+      "repo": "preact",
+      "base_commit": "0999ff4f03a111e5b03bd62abfbf09c9176de1dd",
+      "fix_commit": "5a02923571f1af8599b77c83f3031057f4c5ddb3",
+      "subject": "Forwardport diffign fix (#4976)",
+      "seed_file": "src/diff/children.js",
+      "seed_symbol": "constructNewChildrenArray",
+      "source_files": [
+        "src/diff/children.js"
+      ],
+      "expected_files": [
+        "src/diff/children.js"
+      ],
+      "expected_tests": [
+        "test/browser/keys.test.jsx"
+      ],
+      "should_touch_files": [
+        "src/diff/index.js"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "preact-4a06d3fb",
+      "repo": "preact",
+      "base_commit": "87e912c126b56320b9976b5c2cccc7dcd8a16d34",
+      "fix_commit": "4a06d3fb985f48376866d2ca8d53b726fbc6f813",
+      "subject": "Fix cascading renders with signals (#4966) (#4969)",
+      "seed_file": "src/diff/index.js",
+      "seed_symbol": "diff",
+      "source_files": [
+        "src/diff/index.js"
+      ],
+      "expected_files": [
+        "src/diff/index.js"
+      ],
+      "expected_tests": [
+        "hooks/test/browser/useState.test.jsx"
+      ],
+      "should_touch_files": [
+        "compat/src/suspense.js",
+        "hooks/src/index.js",
+        "src/clone-element.js",
+        "src/component.js",
+        "src/constants.js",
+        "src/create-context.js",
+        "src/create-element.js",
+        "src/diff/catch-error.js",
+        "src/diff/children.js",
+        "src/diff/props.js",
+        "src/render.js",
+        "src/util.js"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "preact-5e183563",
+      "repo": "preact",
+      "base_commit": "8e3e4ce550e574b9eacbfa3ef97f6b992081344e",
+      "fix_commit": "5e183563a101de2d7a750e7c606d0b13677637f1",
+      "subject": "fix: Support XHTML phrasing content in MathML token elements (#4924)",
+      "seed_file": "src/diff/index.js",
+      "seed_symbol": "diffElementNodes",
+      "source_files": [
+        "src/constants.js",
+        "src/diff/index.js"
+      ],
+      "expected_files": [
+        "src/constants.js",
+        "src/diff/index.js"
+      ],
+      "expected_tests": [
+        "test/browser/mathml.test.jsx"
+      ],
+      "should_touch_files": [
+        "compat/src/suspense.js",
+        "hooks/src/index.js",
+        "src/clone-element.js",
+        "src/component.js",
+        "src/create-context.js",
+        "src/create-element.js",
+        "src/diff/catch-error.js",
+        "src/diff/children.js",
+        "src/diff/props.js",
+        "src/render.js",
+        "src/util.js"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "preact-a62ee4de",
+      "repo": "preact",
+      "base_commit": "a3565a40f81250f42ee64656028c557f202b7ae0",
+      "fix_commit": "a62ee4de1dffb258d3052d9ab438e5dbab2bfc83",
+      "subject": "fix: signal attribute values not working with precompile transform",
+      "seed_file": "jsx-runtime/src/index.js",
+      "seed_symbol": "jsxTemplate",
+      "source_files": [
+        "jsx-runtime/src/index.js"
+      ],
+      "expected_files": [
+        "jsx-runtime/src/index.js"
+      ],
+      "expected_tests": [
+        "jsx-runtime/test/browser/jsx-runtime.test.js"
+      ],
+      "should_touch_files": [
+        "compat/src/forwardRef.js",
+        "src/clone-element.js",
+        "src/component.js",
+        "src/create-element.js",
+        "src/diff/children.js",
+        "src/diff/index.js"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "preact-681fc3f5",
+      "repo": "preact",
+      "base_commit": "ba198b70522da291fced2a2619ebff915055092c",
+      "fix_commit": "681fc3f54a3c50983011226e3a182e512a9b19c3",
+      "subject": "fix: escape style object value in precompile transform",
+      "seed_file": "jsx-runtime/src/index.js",
+      "seed_symbol": "jsxAttr",
+      "source_files": [
+        "jsx-runtime/src/index.js"
+      ],
+      "expected_files": [
+        "jsx-runtime/src/index.js"
+      ],
+      "expected_tests": [
+        "jsx-runtime/test/browser/jsx-runtime.test.js"
+      ],
+      "should_touch_files": [
+        "compat/src/forwardRef.js",
+        "src/clone-element.js",
+        "src/component.js",
+        "src/create-element.js",
+        "src/diff/children.js",
+        "src/diff/index.js"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "preact-a76dd9be",
+      "repo": "preact",
+      "base_commit": "88cda26c2d93bf7ec36be291099f0fbcb809b68d",
+      "fix_commit": "a76dd9be8d4f727fa2c8458f844bb9f2d1465907",
+      "subject": "fix(compat): add .render property referencing original render function",
+      "seed_file": "compat/src/forwardRef.js",
+      "seed_symbol": "forwardRef",
+      "source_files": [
+        "compat/src/forwardRef.js"
+      ],
+      "expected_files": [
+        "compat/src/forwardRef.js"
+      ],
+      "expected_tests": [
+        "compat/test/browser/forwardRef.test.js"
+      ],
+      "should_touch_files": [
+        "compat/src/index.js"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "preact-c4dc71ed",
+      "repo": "preact",
+      "base_commit": "3c556adc0c06cc4465f8ba404c3d1fc2ee0eeff8",
+      "fix_commit": "c4dc71edefe75c33bb6a9b0c5d7b129eb180ed7b",
+      "subject": "Fix nullish default props (#4775)",
+      "seed_file": "jsx-runtime/src/index.js",
+      "seed_symbol": "createVNode",
+      "source_files": [
+        "jsx-runtime/src/index.js",
+        "src/clone-element.js",
+        "src/create-element.js"
+      ],
+      "expected_files": [
+        "jsx-runtime/src/index.js",
+        "src/clone-element.js",
+        "src/create-element.js"
+      ],
+      "expected_tests": [
+        "jsx-runtime/test/browser/jsx-runtime.test.js",
+        "test/browser/cloneElement.test.js",
+        "test/shared/createElement.test.js"
+      ],
+      "should_touch_files": [
+        "src/component.js",
+        "src/diff/children.js",
+        "src/diff/index.js"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "preact-edf8b795",
+      "repo": "preact",
+      "base_commit": "bcd6310edee1d19ebee686c42841f503be85c6dd",
+      "fix_commit": "edf8b795b8f072624a6091d4eccc70e5d78a4741",
+      "subject": "fix: dedupe preact (#4702)",
+      "seed_file": "vitest.setup.js",
+      "seed_symbol": "chai",
+      "source_files": [
+        "vitest.setup.js"
+      ],
+      "expected_files": [
+        "vitest.setup.js"
+      ],
+      "expected_tests": [
+        "compat/test/browser/textarea.test.js"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "preact-29b0021a",
+      "repo": "preact",
+      "base_commit": "f35272e41795c336ed24f2c362f53cab8ab26e7c",
+      "fix_commit": "29b0021af790ee6a112387298d84d92639981274",
+      "subject": "fix: effect in memoed boundary should be re-executed when the lazy boundary resolves (#4631) (#4711)",
+      "seed_file": "compat/src/suspense.js",
+      "seed_symbol": "detachedClone",
+      "source_files": [
+        "compat/src/suspense.js"
+      ],
+      "expected_files": [
+        "compat/src/suspense.js"
+      ],
+      "expected_tests": [
+        "compat/test/browser/suspense.test.js"
+      ],
+      "should_touch_files": [
+        "compat/src/index.js"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "preact-a32924c5",
+      "repo": "preact",
+      "base_commit": "36187717839294897148bb1d99c7dc66add82fa2",
+      "fix_commit": "a32924c548a6b295325a6fd63e0ef51d4adb9220",
+      "subject": "fix: support multiple synchronous timings for act (#4619)",
+      "seed_file": "test-utils/src/index.js",
+      "seed_symbol": "act",
+      "source_files": [
+        "test-utils/src/index.js"
+      ],
+      "expected_files": [
+        "test-utils/src/index.js"
+      ],
+      "expected_tests": [
+        "test-utils/test/shared/act.test.js"
+      ],
+      "should_touch_files": [
+        "debug/src/debug.js",
+        "hooks/src/index.js"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "preact-bb684568",
+      "repo": "preact",
+      "base_commit": "2b82799e3d4dbd6c9a791e4b319ac85cd1c99ea6",
+      "fix_commit": "bb6845682c04692a09d3265deb59b158e7f43efb",
+      "subject": "fix: Wrap hydration debug message vars in quotes (#4609)",
+      "seed_file": "debug/src/debug.js",
+      "seed_symbol": "_hydrationMismatch",
+      "source_files": [
+        "debug/src/debug.js"
+      ],
+      "expected_files": [
+        "debug/src/debug.js"
+      ],
+      "expected_tests": [
+        "debug/test/browser/debug.test.js"
+      ],
+      "should_touch_files": [
+        "debug/src/index.js"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "preact-b66c0aef",
+      "repo": "preact",
+      "base_commit": "bd1443795c912239ea3561fdde5496c8d9e865f1",
+      "fix_commit": "b66c0aef2964a06a3547e44dec4043f22100bcaa",
+      "subject": "Fix portal children ordering (#4573)",
+      "seed_file": "compat/src/portals.js",
+      "seed_symbol": "Portal",
+      "source_files": [
+        "compat/src/portals.js"
+      ],
+      "expected_files": [
+        "compat/src/portals.js"
+      ],
+      "expected_tests": [
+        "compat/test/browser/portals.test.js"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "preact-7b5b240f",
+      "repo": "preact",
+      "base_commit": "91679e5f4d06087cafe943b779c53cbdc8633b30",
+      "fix_commit": "7b5b240f0c3697d95c64bcd43fe87139d3983d4f",
+      "subject": "Add stress test and another fix (#4472)",
+      "seed_file": "src/diff/children.js",
+      "seed_symbol": "constructNewChildrenArray",
+      "source_files": [
+        "src/diff/children.js"
+      ],
+      "expected_files": [
+        "src/diff/children.js"
+      ],
+      "expected_tests": [
+        "test/browser/render.test.js"
+      ],
+      "should_touch_files": [
+        "src/diff/index.js",
+        "src/index.js"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "preact-f5738915",
+      "repo": "preact",
+      "base_commit": "16c7fb70b4d48939beb9e706c252efb5101957f5",
+      "fix_commit": "f5738915a0d67c87f54f0ccd5b946e7a4ce0d5c1",
+      "subject": "fix(child-diffing): Should shift keyed fragmented lists (#4448)",
+      "seed_file": "src/diff/children.js",
+      "seed_symbol": "diffChildren",
+      "source_files": [
+        "src/diff/children.js"
+      ],
+      "expected_files": [
+        "src/diff/children.js"
+      ],
+      "expected_tests": [
+        "test/browser/render.test.js"
+      ],
+      "should_touch_files": [
+        "src/diff/index.js",
+        "src/index.js"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "preact-16c7fb70",
+      "repo": "preact",
+      "base_commit": "a75b217bb7ae17880ac7fe04634b794ce3f847ae",
+      "fix_commit": "16c7fb70b4d48939beb9e706c252efb5101957f5",
+      "subject": "Fix debug check not firing when it has a parent (#4449)",
+      "seed_file": "debug/src/debug.js",
+      "seed_symbol": "initDebug",
+      "source_files": [
+        "debug/src/debug.js"
+      ],
+      "expected_files": [
+        "debug/src/debug.js"
+      ],
+      "expected_tests": [
+        "debug/test/browser/debug.test.js"
+      ],
+      "should_touch_files": [
+        "debug/src/index.js"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "preact-a75b217b",
+      "repo": "preact",
+      "base_commit": "f7f9d9bf4309d09bcd0a432acd72787b7d9baecb",
+      "fix_commit": "a75b217bb7ae17880ac7fe04634b794ce3f847ae",
+      "subject": "Publish fixes for streaming renders (#4446)",
+      "seed_file": "src/diff/index.js",
+      "seed_symbol": "diff",
+      "source_files": [
+        "src/diff/index.js"
+      ],
+      "expected_files": [
+        "src/diff/index.js"
+      ],
+      "expected_tests": [
+        "compat/test/browser/suspense-hydration.test.js"
+      ],
+      "should_touch_files": [
+        "compat/src/suspense.js",
+        "hooks/src/index.js",
+        "src/clone-element.js",
+        "src/component.js",
+        "src/create-element.js",
+        "src/diff/children.js",
+        "src/diff/props.js",
+        "src/render.js",
+        "src/util.js"
+      ],
+      "max_expected_depth": 1
+    }
+  ]
+}

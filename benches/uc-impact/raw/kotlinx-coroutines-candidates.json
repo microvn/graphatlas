@@ -1,0 +1,306 @@
+{
+  "repo": "kotlinx-coroutines",
+  "lang": "kotlin",
+  "mined_at": "2026-04-29T18:56:46.203Z",
+  "target": 20,
+  "actual": 20,
+  "candidates": [
+    {
+      "sha": "08d3668767cc9ff4f6ca4e56bdb6848660571c49",
+      "parent_sha": "a327ab05304b0f44f0ee21adb881718028a9a907",
+      "subject": "Fix module name after KT-69701 (#4651)",
+      "source_files": [
+        ".gitattributes",
+        "gradle/wrapper/gradle-wrapper.jar",
+        "gradle/wrapper/gradle-wrapper.properties",
+        "gradlew",
+        "gradlew.bat",
+        "integration-testing/build.gradle.kts",
+        "integration-testing/gradle/wrapper/gradle-wrapper.jar",
+        "integration-testing/gradle/wrapper/gradle-wrapper.properties",
+        "integration-testing/gradlew",
+        "integration-testing/gradlew.bat",
+        "kotlinx-coroutines-core/build.gradle.kts"
+      ],
+      "test_files": [
+        "integration-testing/src/mavenTest/kotlin/MavenPublicationMetaInfValidator.kt"
+      ]
+    },
+    {
+      "sha": "e9208cb6bfc7b19f2539b375b50ad3eb2a48e902",
+      "parent_sha": "a327ab05304b0f44f0ee21adb881718028a9a907",
+      "subject": "Fix module name after KT-69701 (#4651)",
+      "source_files": [
+        ".gitattributes",
+        "gradle/wrapper/gradle-wrapper.jar",
+        "gradle/wrapper/gradle-wrapper.properties",
+        "gradlew",
+        "gradlew.bat",
+        "integration-testing/build.gradle.kts",
+        "integration-testing/gradle/wrapper/gradle-wrapper.jar",
+        "integration-testing/gradle/wrapper/gradle-wrapper.properties",
+        "integration-testing/gradlew",
+        "integration-testing/gradlew.bat",
+        "kotlinx-coroutines-core/build.gradle.kts"
+      ],
+      "test_files": [
+        "integration-testing/src/mavenTest/kotlin/MavenPublicationMetaInfValidator.kt"
+      ]
+    },
+    {
+      "sha": "d0539bc4460c160b7605abe51fb0e69dd2238bcb",
+      "parent_sha": "1a85693bd7457744f6b2b1a6612b05955dc8d796",
+      "subject": "Fix module name after KT-69701 (#4651)",
+      "source_files": [
+        ".gitattributes",
+        "gradle/wrapper/gradle-wrapper.jar",
+        "gradle/wrapper/gradle-wrapper.properties",
+        "gradlew",
+        "gradlew.bat",
+        "integration-testing/build.gradle.kts",
+        "integration-testing/gradle/wrapper/gradle-wrapper.jar",
+        "integration-testing/gradle/wrapper/gradle-wrapper.properties",
+        "integration-testing/gradlew",
+        "integration-testing/gradlew.bat",
+        "kotlinx-coroutines-core/build.gradle.kts"
+      ],
+      "test_files": [
+        "integration-testing/src/mavenTest/kotlin/MavenPublicationMetaInfValidator.kt"
+      ]
+    },
+    {
+      "sha": "5e7cbc2cd6bde2df5bb26b69fae518cfda5e0329",
+      "parent_sha": "7a8c6878ce41e3f5fc8431023488e770204468e6",
+      "subject": "Fix SharedFlow entering an invalid state (#4650)",
+      "source_files": [
+        "kotlinx-coroutines-core/common/src/channels/BufferedChannel.kt",
+        "kotlinx-coroutines-core/common/src/flow/SharedFlow.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/common/test/flow/sharing/SharedFlowTest.kt"
+      ]
+    },
+    {
+      "sha": "7a8c6878ce41e3f5fc8431023488e770204468e6",
+      "parent_sha": "559c832c18dd2c446df1a5d2170c1bbcd92dd283",
+      "subject": "Fix a memory leak in RxScheduler implementations (#4616)",
+      "source_files": [
+        "reactive/kotlinx-coroutines-rx2/src/RxScheduler.kt",
+        "reactive/kotlinx-coroutines-rx3/src/RxScheduler.kt"
+      ],
+      "test_files": [
+        "reactive/kotlinx-coroutines-rx2/test/FlowableTest.kt",
+        "reactive/kotlinx-coroutines-rx2/test/SchedulerTest.kt",
+        "reactive/kotlinx-coroutines-rx3/test/SchedulerTest.kt"
+      ]
+    },
+    {
+      "sha": "830e8ee7ac9098efeb550920a104a14866a95be7",
+      "parent_sha": "998e916693624d6a6fd599aad998d284c7f21f0b",
+      "subject": "TODO: Fix unresolved links, most likely after some refactoring",
+      "source_files": [
+        "kotlinx-coroutines-core/common/src/CompletionState.kt",
+        "kotlinx-coroutines-core/common/src/channels/BufferedChannel.kt",
+        "kotlinx-coroutines-core/common/src/selects/Select.kt",
+        "kotlinx-coroutines-core/concurrent/src/internal/LockFreeLinkedList.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/CoroutineScheduler.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/jvm/test/scheduling/BlockingCoroutineDispatcherLivenessStressTest.kt"
+      ]
+    },
+    {
+      "sha": "4a8a20c8870261f7293e0bf952a12fa061c416b6",
+      "parent_sha": "690337018de5528f7b789246cb762cff4a7a318d",
+      "subject": "Fix simple unresolved links",
+      "source_files": [
+        "kotlinx-coroutines-core/jvm/src/debug/internal/DebugCoroutineInfoImpl.kt",
+        "kotlinx-coroutines-debug/src/junit/junit5/CoroutinesTimeoutExtension.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/jvm/test/scheduling/SchedulerTestBase.kt"
+      ]
+    },
+    {
+      "sha": "3af298829da801216fc43b7a1e5ffe0aa59be84b",
+      "parent_sha": "927ea4cd3187795948d4ef80d66cd2e4ef4cdb86",
+      "subject": "fix CI + update latch",
+      "source_files": [
+        "test-utils/concurrent/src/CountDownLatch.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-debug/test/RunningThreadStackMergeTest.kt"
+      ]
+    },
+    {
+      "sha": "ff25be1dfc7bd0a79d9bd6abcd17c18e064c866b",
+      "parent_sha": "17e43786adff144c7af0b64017ffe6b8cedf9fb3",
+      "subject": "fix FieldWalker usage - add assertTrueJvm",
+      "source_files": [
+        "test-utils/concurrent/src/ConcurrentThreadUtils.concurrent.kt",
+        "test-utils/concurrent/src/FieldWalker.concurrent.kt",
+        "test-utils/jvm/src/ConcurrentThreadUtils.kt",
+        "test-utils/native/src/ConcurrentThreadUtils.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/concurrent/test/ReusableCancellableContinuationTest.kt"
+      ]
+    },
+    {
+      "sha": "aeb7812cd7d9d5591251efc79bb3b0109627194c",
+      "parent_sha": "7a20b9c339b1df387cc3adb78d9707940101cc6e",
+      "subject": "fix FieldWalker usage - add assertTrueJvm",
+      "source_files": [
+        "test-utils/concurrent/src/ConcurrentThreadUtils.concurrent.kt",
+        "test-utils/concurrent/src/FieldWalker.concurrent.kt",
+        "test-utils/jvm/src/ConcurrentThreadUtils.kt",
+        "test-utils/native/src/ConcurrentThreadUtils.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/concurrent/test/ReusableCancellableContinuationTest.kt"
+      ]
+    },
+    {
+      "sha": "9cb2a05b112eabcfe123a7ce56e72c4d0f5d94a7",
+      "parent_sha": "0352ccafae54949ae31b4124bb95c5d0dab9a67d",
+      "subject": "Fix `SharedFlow` entering an invalid state",
+      "source_files": [
+        "kotlinx-coroutines-core/common/src/flow/SharedFlow.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/common/test/flow/sharing/SharedFlowTest.kt"
+      ]
+    },
+    {
+      "sha": "1593476333d1da5332fbfab3a8fc9a0c2cd893a3",
+      "parent_sha": "af5786392d2361b86eea19ecad4034ef2f039a85",
+      "subject": "Fix after a rebase",
+      "source_files": [
+        "kotlinx-coroutines-core/native/src/DefaultDelay.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/jvm/test/EventLoopsTest.kt",
+        "kotlinx-coroutines-core/jvm/test/RunBlockingJvmTest.kt"
+      ]
+    },
+    {
+      "sha": "d31b95ed2b30fbf94d4411099d99fe47995658ea",
+      "parent_sha": "980557c97db0e48b5236ef643267832027bee51d",
+      "subject": "Fix VirtualTimeSource not noticing that DefaultDelay is about to get created",
+      "source_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/jvm/test/VirtualTimeSource.kt"
+      ]
+    },
+    {
+      "sha": "980557c97db0e48b5236ef643267832027bee51d",
+      "parent_sha": "055e1186e2f8ac081ebf049b2f1ccefbbbdf06db",
+      "subject": "Fix VirtualTimeSource not being able to skip delays",
+      "source_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt",
+        "kotlinx-coroutines-core/jvm/src/Executors.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/CoroutineScheduler.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/Dispatcher.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/jvm/test/VirtualTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/test/channels/TickerChannelCommonTest.kt",
+        "kotlinx-coroutines-core/jvm/test/channels/TickerChannelTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/SchedulerTestBase.kt"
+      ]
+    },
+    {
+      "sha": "307d65b72eb73b48118fb4b84c1a4f945d6f4d31",
+      "parent_sha": "f0feb8e35c8931d2cdc7e81ddb3d09611002abca",
+      "subject": "Fix flowOn handling of thread context elements (#4431)",
+      "source_files": [
+        "kotlinx-coroutines-core/common/src/channels/Produce.kt",
+        "kotlinx-coroutines-core/common/src/flow/internal/ChannelFlow.kt",
+        "kotlinx-coroutines-core/jvm/src/CoroutineContext.kt",
+        "reactive/kotlinx-coroutines-reactive/src/ReactiveFlow.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/jvm/test/CoroutineScopeTestJvm.kt",
+        "kotlinx-coroutines-core/jvm/test/ThreadContextElementTest.kt",
+        "kotlinx-coroutines-core/jvm/test/ThreadContextMutableCopiesTest.kt",
+        "reactive/kotlinx-coroutines-reactive/test/PublisherAsFlowThreadContextElementTest.kt"
+      ]
+    },
+    {
+      "sha": "e2cc5c46831dd18e6c1d40fa5da940eb522aadaa",
+      "parent_sha": "0bc0d7af12949372279cc0f91d755816135f5a88",
+      "subject": "Fix VirtualTimeSource not noticing that DefaultDelay is about to get created",
+      "source_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/jvm/test/VirtualTimeSource.kt"
+      ]
+    },
+    {
+      "sha": "0bc0d7af12949372279cc0f91d755816135f5a88",
+      "parent_sha": "e653175319c6972b95d42cf2a8e1cd3fc7c8e34c",
+      "subject": "Fix VirtualTimeSource not being able to skip delays",
+      "source_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt",
+        "kotlinx-coroutines-core/jvm/src/Executors.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/CoroutineScheduler.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/Dispatcher.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/jvm/test/VirtualTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/test/channels/TickerChannelCommonTest.kt",
+        "kotlinx-coroutines-core/jvm/test/channels/TickerChannelTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/SchedulerTestBase.kt"
+      ]
+    },
+    {
+      "sha": "3b843a81a317f003c6d2b260d9ad268f60710d2c",
+      "parent_sha": "8f343fbd6abe188009f3cda063d67c5d88a316cf",
+      "subject": "Fix VirtualTimeSource not noticing that DefaultDelay is about to get created",
+      "source_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/jvm/test/VirtualTimeSource.kt"
+      ]
+    },
+    {
+      "sha": "8f343fbd6abe188009f3cda063d67c5d88a316cf",
+      "parent_sha": "d04fea7862232eb862c6e5120d8a26c3619875d8",
+      "subject": "Fix VirtualTimeSource not being able to skip delays",
+      "source_files": [
+        "kotlinx-coroutines-core/jvm/src/AbstractTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/src/DefaultDelay.kt",
+        "kotlinx-coroutines-core/jvm/src/Executors.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/CoroutineScheduler.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/Dispatcher.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/jvm/test/VirtualTimeSource.kt",
+        "kotlinx-coroutines-core/jvm/test/channels/TickerChannelCommonTest.kt",
+        "kotlinx-coroutines-core/jvm/test/channels/TickerChannelTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/SchedulerTestBase.kt"
+      ]
+    },
+    {
+      "sha": "6b735461255ce8446cc926d6b2008f36bd6188f3",
+      "parent_sha": "0e1c15735474cdb680643f0482e042d1b194b88d",
+      "subject": "Fix Promise.await() never resuming if the promise rejected with a non-Throwable (#4120)",
+      "source_files": [
+        "kotlinx-coroutines-core/js/src/Promise.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/js/test/PromiseTest.kt",
+        "kotlinx-coroutines-core/wasmJs/test/PromiseTest.kt"
+      ]
+    }
+  ]
+}

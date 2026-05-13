@@ -1,0 +1,384 @@
+{
+  "repo": "kotlinx-coroutines",
+  "lang": "kotlin",
+  "mined_at": "2026-04-26T11:38:47.473Z",
+  "target": 20,
+  "actual": 20,
+  "candidates": [
+    {
+      "sha": "08d3668767cc9ff4f6ca4e56bdb6848660571c49",
+      "parent_sha": "a327ab05304b0f44f0ee21adb881718028a9a907",
+      "subject": "Fix module name after KT-69701 (#4651)",
+      "source_files": [
+        ".gitattributes",
+        "gradle/wrapper/gradle-wrapper.jar",
+        "gradle/wrapper/gradle-wrapper.properties",
+        "gradlew",
+        "gradlew.bat",
+        "integration-testing/build.gradle.kts",
+        "integration-testing/gradle/wrapper/gradle-wrapper.jar",
+        "integration-testing/gradle/wrapper/gradle-wrapper.properties",
+        "integration-testing/gradlew",
+        "integration-testing/gradlew.bat",
+        "kotlinx-coroutines-core/build.gradle.kts"
+      ],
+      "test_files": [
+        "integration-testing/src/mavenTest/kotlin/MavenPublicationMetaInfValidator.kt"
+      ]
+    },
+    {
+      "sha": "e9208cb6bfc7b19f2539b375b50ad3eb2a48e902",
+      "parent_sha": "a327ab05304b0f44f0ee21adb881718028a9a907",
+      "subject": "Fix module name after KT-69701 (#4651)",
+      "source_files": [
+        ".gitattributes",
+        "gradle/wrapper/gradle-wrapper.jar",
+        "gradle/wrapper/gradle-wrapper.properties",
+        "gradlew",
+        "gradlew.bat",
+        "integration-testing/build.gradle.kts",
+        "integration-testing/gradle/wrapper/gradle-wrapper.jar",
+        "integration-testing/gradle/wrapper/gradle-wrapper.properties",
+        "integration-testing/gradlew",
+        "integration-testing/gradlew.bat",
+        "kotlinx-coroutines-core/build.gradle.kts"
+      ],
+      "test_files": [
+        "integration-testing/src/mavenTest/kotlin/MavenPublicationMetaInfValidator.kt"
+      ]
+    },
+    {
+      "sha": "d0539bc4460c160b7605abe51fb0e69dd2238bcb",
+      "parent_sha": "1a85693bd7457744f6b2b1a6612b05955dc8d796",
+      "subject": "Fix module name after KT-69701 (#4651)",
+      "source_files": [
+        ".gitattributes",
+        "gradle/wrapper/gradle-wrapper.jar",
+        "gradle/wrapper/gradle-wrapper.properties",
+        "gradlew",
+        "gradlew.bat",
+        "integration-testing/build.gradle.kts",
+        "integration-testing/gradle/wrapper/gradle-wrapper.jar",
+        "integration-testing/gradle/wrapper/gradle-wrapper.properties",
+        "integration-testing/gradlew",
+        "integration-testing/gradlew.bat",
+        "kotlinx-coroutines-core/build.gradle.kts"
+      ],
+      "test_files": [
+        "integration-testing/src/mavenTest/kotlin/MavenPublicationMetaInfValidator.kt"
+      ]
+    },
+    {
+      "sha": "548023e0f541bfc9be0b5fe5f9e8e32e6d006c66",
+      "parent_sha": "01aab7c9f9ce62aeaaebace609e41bb00d50bd13",
+      "subject": "Use old 'moduleName' value for JVM projects",
+      "source_files": [
+        "integration-testing/build.gradle.kts",
+        "kotlinx-coroutines-core/build.gradle.kts"
+      ],
+      "test_files": [
+        "integration-testing/src/mavenTest/kotlin/MavenPublicationMetaInfValidator.kt"
+      ]
+    },
+    {
+      "sha": "597c4b22914d2abf7193c57ea707c5984c92908a",
+      "parent_sha": "f7e8ff19195172cc7126638352ff74351e36f537",
+      "subject": "Port Map-returning Sequence operators to Flow (#4620)",
+      "source_files": [
+        "kotlinx-coroutines-core/api/kotlinx-coroutines-core.api",
+        "kotlinx-coroutines-core/api/kotlinx-coroutines-core.klib.api",
+        "kotlinx-coroutines-core/common/src/flow/terminal/Collection.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/common/test/flow/terminal/ToMapCollectionSamplesTest.kt"
+      ]
+    },
+    {
+      "sha": "5e7cbc2cd6bde2df5bb26b69fae518cfda5e0329",
+      "parent_sha": "7a8c6878ce41e3f5fc8431023488e770204468e6",
+      "subject": "Fix SharedFlow entering an invalid state (#4650)",
+      "source_files": [
+        "kotlinx-coroutines-core/common/src/channels/BufferedChannel.kt",
+        "kotlinx-coroutines-core/common/src/flow/SharedFlow.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/common/test/flow/sharing/SharedFlowTest.kt"
+      ]
+    },
+    {
+      "sha": "7a8c6878ce41e3f5fc8431023488e770204468e6",
+      "parent_sha": "559c832c18dd2c446df1a5d2170c1bbcd92dd283",
+      "subject": "Fix a memory leak in RxScheduler implementations (#4616)",
+      "source_files": [
+        "reactive/kotlinx-coroutines-rx2/src/RxScheduler.kt",
+        "reactive/kotlinx-coroutines-rx3/src/RxScheduler.kt"
+      ],
+      "test_files": [
+        "reactive/kotlinx-coroutines-rx2/test/FlowableTest.kt",
+        "reactive/kotlinx-coroutines-rx2/test/SchedulerTest.kt",
+        "reactive/kotlinx-coroutines-rx3/test/SchedulerTest.kt"
+      ]
+    },
+    {
+      "sha": "2e081ec0f8b608b50b14dd911d2bde26a4f0bd0a",
+      "parent_sha": "cd1e3b6b567b84c4bd63b28cd555c32ff1386200",
+      "subject": "Fix warnings related to the new deprecated overloads",
+      "source_files": [
+        "test-utils/common/src/TestBase.common.kt"
+      ],
+      "test_files": [
+        "integration/kotlinx-coroutines-guava/test/ListenableFutureTest.kt",
+        "kotlinx-coroutines-core/common/test/AsyncLazyTest.kt",
+        "kotlinx-coroutines-core/common/test/AsyncTest.kt",
+        "kotlinx-coroutines-core/common/test/AwaitTest.kt",
+        "kotlinx-coroutines-core/common/test/CompletableDeferredTest.kt",
+        "kotlinx-coroutines-core/common/test/CompletableJobTest.kt",
+        "kotlinx-coroutines-core/common/test/CoroutineScopeTest.kt",
+        "kotlinx-coroutines-core/common/test/CoroutinesTest.kt",
+        "kotlinx-coroutines-core/common/test/FailedJobTest.kt",
+        "kotlinx-coroutines-core/common/test/JobStatesTest.kt",
+        "kotlinx-coroutines-core/common/test/NonCancellableTest.kt",
+        "kotlinx-coroutines-core/common/test/SupervisorTest.kt",
+        "kotlinx-coroutines-core/common/test/UnconfinedCancellationTest.kt",
+        "kotlinx-coroutines-core/common/test/UndispatchedResultTest.kt",
+        "kotlinx-coroutines-core/common/test/WithContextTest.kt",
+        "kotlinx-coroutines-core/common/test/channels/ProduceTest.kt",
+        "kotlinx-coroutines-core/common/test/flow/channels/ChannelBuildersFlowTest.kt",
+        "kotlinx-coroutines-core/common/test/flow/channels/ChannelFlowTest.kt",
+        "kotlinx-coroutines-core/common/test/flow/channels/FlowCallbackTest.kt",
+        "kotlinx-coroutines-core/concurrent/test/ConcurrentExceptionsStressTest.kt",
+        "kotlinx-coroutines-core/concurrent/test/RunBlockingTest.kt",
+        "kotlinx-coroutines-core/jvm/test/DispatcherKeyTest.kt",
+        "kotlinx-coroutines-core/jvm/test/JobActivationStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/JobChildStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/JobOnCompletionStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/exceptions/CoroutineExceptionHandlerJvmTest.kt",
+        "kotlinx-coroutines-core/jvm/test/exceptions/JobExceptionsStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/exceptions/JobNestedExceptionsTest.kt",
+        "kotlinx-coroutines-core/jvm/test/exceptions/ProduceExceptionsTest.kt",
+        "kotlinx-coroutines-core/jvm/test/exceptions/StackTraceRecoveryNestedScopesTest.kt",
+        "kotlinx-coroutines-core/jvm/test/exceptions/StackTraceRecoveryNestedTest.kt",
+        "kotlinx-coroutines-core/jvm/test/exceptions/StackTraceRecoveryTest.kt",
+        "kotlinx-coroutines-test/common/test/RunTestTest.kt",
+        "kotlinx-coroutines-test/common/test/TestScopeTest.kt",
+        "reactive/kotlinx-coroutines-jdk9/test/IntegrationTest.kt",
+        "reactive/kotlinx-coroutines-reactive/test/IntegrationTest.kt",
+        "reactive/kotlinx-coroutines-reactor/test/ConvertTest.kt",
+        "reactive/kotlinx-coroutines-rx2/test/ConvertTest.kt",
+        "reactive/kotlinx-coroutines-rx2/test/IntegrationTest.kt",
+        "reactive/kotlinx-coroutines-rx3/test/ConvertTest.kt",
+        "reactive/kotlinx-coroutines-rx3/test/IntegrationTest.kt"
+      ]
+    },
+    {
+      "sha": "b872360a0d322654e8b89972aef26668245f2bbe",
+      "parent_sha": "99275fc3ef5d9a9468ea8f414f82c47e8f248662",
+      "subject": "Move Promise-related functions to the webMain source set (#4563)",
+      "source_files": [
+        "kotlinx-coroutines-core/api/kotlinx-coroutines-core.klib.api",
+        "kotlinx-coroutines-core/js/src/Promise.js.kt",
+        "kotlinx-coroutines-core/js/src/Promise.kt",
+        "kotlinx-coroutines-core/wasmJs/src/Promise.wasm.kt",
+        "kotlinx-coroutines-core/web/src/Promise.kt",
+        "kotlinx-coroutines-test/api/kotlinx-coroutines-test.klib.api",
+        "kotlinx-coroutines-test/wasmJs/src/TestBuilders.kt",
+        "kotlinx-coroutines-test/wasmJs/src/internal/JsPromiseInterfaceForTesting.kt",
+        "test-utils/wasmJs/src/TestBase.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/web/test/PromiseTest.kt",
+        "kotlinx-coroutines-test/wasmJs/test/Helpers.kt",
+        "kotlinx-coroutines-test/wasmJs/test/PromiseTest.kt"
+      ]
+    },
+    {
+      "sha": "830e8ee7ac9098efeb550920a104a14866a95be7",
+      "parent_sha": "998e916693624d6a6fd599aad998d284c7f21f0b",
+      "subject": "TODO: Fix unresolved links, most likely after some refactoring",
+      "source_files": [
+        "kotlinx-coroutines-core/common/src/CompletionState.kt",
+        "kotlinx-coroutines-core/common/src/channels/BufferedChannel.kt",
+        "kotlinx-coroutines-core/common/src/selects/Select.kt",
+        "kotlinx-coroutines-core/concurrent/src/internal/LockFreeLinkedList.kt",
+        "kotlinx-coroutines-core/jvm/src/scheduling/CoroutineScheduler.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/jvm/test/scheduling/BlockingCoroutineDispatcherLivenessStressTest.kt"
+      ]
+    },
+    {
+      "sha": "4a8a20c8870261f7293e0bf952a12fa061c416b6",
+      "parent_sha": "690337018de5528f7b789246cb762cff4a7a318d",
+      "subject": "Fix simple unresolved links",
+      "source_files": [
+        "kotlinx-coroutines-core/jvm/src/debug/internal/DebugCoroutineInfoImpl.kt",
+        "kotlinx-coroutines-debug/src/junit/junit5/CoroutinesTimeoutExtension.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/jvm/test/scheduling/SchedulerTestBase.kt"
+      ]
+    },
+    {
+      "sha": "b9b8a10074fbc3b560e125deea3f79dd8e083262",
+      "parent_sha": "55802b4900ef6bffe5a79fbb75e9fb4c54159f64",
+      "subject": "Remove the deprecated `kotlinx-coroutines-test` APIs (#4604)",
+      "source_files": [
+        "kotlinx-coroutines-test/api/kotlinx-coroutines-test.api",
+        "kotlinx-coroutines-test/common/src/TestBuilders.kt",
+        "kotlinx-coroutines-test/common/src/TestCoroutineDispatchers.kt",
+        "kotlinx-coroutines-test/common/src/TestCoroutineScheduler.kt",
+        "kotlinx-coroutines-test/common/src/TestDispatcher.kt",
+        "kotlinx-coroutines-test/common/src/TestScope.kt",
+        "kotlinx-coroutines-test/jvm/src/migration/TestBuildersDeprecated.kt",
+        "kotlinx-coroutines-test/jvm/src/migration/TestCoroutineDispatcher.kt",
+        "kotlinx-coroutines-test/jvm/src/migration/TestCoroutineExceptionHandler.kt",
+        "kotlinx-coroutines-test/jvm/src/migration/TestCoroutineScope.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-test/common/test/RunTestTest.kt",
+        "kotlinx-coroutines-test/jvm/test/MultithreadingTest.kt",
+        "kotlinx-coroutines-test/jvm/test/migration/RunBlockingTestOnTestScopeTest.kt",
+        "kotlinx-coroutines-test/jvm/test/migration/RunTestLegacyScopeTest.kt",
+        "kotlinx-coroutines-test/jvm/test/migration/TestBuildersTest.kt",
+        "kotlinx-coroutines-test/jvm/test/migration/TestCoroutineDispatcherTest.kt",
+        "kotlinx-coroutines-test/jvm/test/migration/TestCoroutineScopeTest.kt",
+        "kotlinx-coroutines-test/jvm/test/migration/TestRunBlockingOrderTest.kt",
+        "kotlinx-coroutines-test/jvm/test/migration/TestRunBlockingTest.kt"
+      ]
+    },
+    {
+      "sha": "53a62d60ae4d3a6629f9cb12d2b4718bf658fd85",
+      "parent_sha": "c0b9d4b6b12657e09dad91059e4287df80b7e711",
+      "subject": "fixup! [K/JS] Add exportability for Kotlin/JS with conversion to `AsyncIterator`",
+      "source_files": [
+        "kotlinx-coroutines-core/js/src/flow/Flow.js.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/js/test/FlowInteropTest.kt"
+      ]
+    },
+    {
+      "sha": "c0b9d4b6b12657e09dad91059e4287df80b7e711",
+      "parent_sha": "8a1bba68ddbb1edb03232a6b30bbda56625d3ada",
+      "subject": "fixup! [K/JS] Add exportability for Kotlin/JS with conversion to `AsyncIterator`",
+      "source_files": [
+        "kotlinx-coroutines-core/js/src/flow/Flow.js.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/js/test/FlowInteropTest.kt"
+      ]
+    },
+    {
+      "sha": "3af298829da801216fc43b7a1e5ffe0aa59be84b",
+      "parent_sha": "927ea4cd3187795948d4ef80d66cd2e4ef4cdb86",
+      "subject": "fix CI + update latch",
+      "source_files": [
+        "test-utils/concurrent/src/CountDownLatch.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-debug/test/RunningThreadStackMergeTest.kt"
+      ]
+    },
+    {
+      "sha": "92c3372315637c12eee79cd72d203d88ff233dbc",
+      "parent_sha": "b809ce3e2f19a7fd9eb4cacb8deda77a6b0ea683",
+      "subject": "lose the Concurrent prefix for CyclicBarrier and CountDownLatch + add explicit imports in jvm tests due to naming clash with java.util.concurrent.*",
+      "source_files": [
+        "test-utils/concurrent/src/CountDownLatch.kt",
+        "test-utils/concurrent/src/CyclicBarrier.kt",
+        "test-utils/jvm/src/FieldWalker.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/concurrent/test/AwaitStressTest.kt",
+        "kotlinx-coroutines-core/concurrent/test/JobActivationStressTest.kt",
+        "kotlinx-coroutines-core/concurrent/test/JobChildStressTest.kt",
+        "kotlinx-coroutines-core/concurrent/test/JobHandlersUpgradeStressTest.kt",
+        "kotlinx-coroutines-core/concurrent/test/JobOnCompletionStressTest.kt",
+        "kotlinx-coroutines-core/concurrent/test/JoinStressTest.kt",
+        "kotlinx-coroutines-core/concurrent/test/channels/InvokeOnCloseStressTest.kt",
+        "kotlinx-coroutines-core/concurrent/test/flow/StateFlowCancellabilityTest.kt",
+        "kotlinx-coroutines-core/jvm/test/CancellableContinuationResumeCloseStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/ExecutorsTest.kt",
+        "kotlinx-coroutines-core/jvm/test/FailingCoroutinesMachineryTest.kt",
+        "kotlinx-coroutines-core/jvm/test/LimitedParallelismStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/ThreadLocalStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/UnconfinedConcurrentStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/exceptions/JobExceptionsStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/exceptions/StackTraceRecoveryTest.kt",
+        "kotlinx-coroutines-core/jvm/test/exceptions/WithContextCancellationStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/internal/LockFreeTaskQueueStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/internal/ThreadSafeHeapStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/jdk8/future/FutureTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/BlockingCoroutineDispatcherMixedStealingStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/BlockingCoroutineDispatcherTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/BlockingCoroutineDispatcherWorkSignallingStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/CoroutineSchedulerLivenessStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/CoroutineSchedulerOversubscriptionTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/CoroutineSchedulerStressTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/CoroutineSchedulerTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/DefaultDispatchersTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/LimitingDispatcherTest.kt",
+        "kotlinx-coroutines-core/jvm/test/scheduling/WorkQueueStressTest.kt"
+      ]
+    },
+    {
+      "sha": "ff25be1dfc7bd0a79d9bd6abcd17c18e064c866b",
+      "parent_sha": "17e43786adff144c7af0b64017ffe6b8cedf9fb3",
+      "subject": "fix FieldWalker usage - add assertTrueJvm",
+      "source_files": [
+        "test-utils/concurrent/src/ConcurrentThreadUtils.concurrent.kt",
+        "test-utils/concurrent/src/FieldWalker.concurrent.kt",
+        "test-utils/jvm/src/ConcurrentThreadUtils.kt",
+        "test-utils/native/src/ConcurrentThreadUtils.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/concurrent/test/ReusableCancellableContinuationTest.kt"
+      ]
+    },
+    {
+      "sha": "aeb7812cd7d9d5591251efc79bb3b0109627194c",
+      "parent_sha": "7a20b9c339b1df387cc3adb78d9707940101cc6e",
+      "subject": "fix FieldWalker usage - add assertTrueJvm",
+      "source_files": [
+        "test-utils/concurrent/src/ConcurrentThreadUtils.concurrent.kt",
+        "test-utils/concurrent/src/FieldWalker.concurrent.kt",
+        "test-utils/jvm/src/ConcurrentThreadUtils.kt",
+        "test-utils/native/src/ConcurrentThreadUtils.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/concurrent/test/ReusableCancellableContinuationTest.kt"
+      ]
+    },
+    {
+      "sha": "9cb2a05b112eabcfe123a7ce56e72c4d0f5d94a7",
+      "parent_sha": "0352ccafae54949ae31b4124bb95c5d0dab9a67d",
+      "subject": "Fix `SharedFlow` entering an invalid state",
+      "source_files": [
+        "kotlinx-coroutines-core/common/src/flow/SharedFlow.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/common/test/flow/sharing/SharedFlowTest.kt"
+      ]
+    },
+    {
+      "sha": "c4c592b1ffa0640ac2d2874db2fb2fc802e49483",
+      "parent_sha": "5471a44a769e150b6b95cf0ade91d5c042f07c38",
+      "subject": "Deprecate abstract coroutine context keys (#4522)",
+      "source_files": [
+        "kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt",
+        "kotlinx-coroutines-core/common/src/flow/SharingStarted.kt",
+        "kotlinx-coroutines-core/common/src/selects/SelectOld.kt",
+        "kotlinx-coroutines-core/jvm/src/Executors.kt",
+        "kotlinx-coroutines-core/jvm/src/debug/internal/DebugProbesImpl.kt",
+        "kotlinx-coroutines-core/native/src/internal/CoroutineExceptionHandlerImpl.kt",
+        "kotlinx-coroutines-core/nativeOther/src/Dispatchers.kt"
+      ],
+      "test_files": [
+        "kotlinx-coroutines-core/common/test/flow/sharing/ShareInTest.kt",
+        "kotlinx-coroutines-core/common/test/flow/sharing/SharedFlowScenarioTest.kt",
+        "kotlinx-coroutines-core/jvm/test/DispatchersToStringTest.kt",
+        "kotlinx-coroutines-debug/test/DumpCoroutineInfoAsJsonAndReferencesTest.kt"
+      ]
+    }
+  ]
+}

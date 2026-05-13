@@ -1,0 +1,246 @@
+{
+  "repo": "django",
+  "lang": "python",
+  "mined_at": "2026-04-29T18:56:32.024Z",
+  "target": 20,
+  "actual": 20,
+  "candidates": [
+    {
+      "sha": "673fa46d8063577c92cfab3a73a28e9406372e33",
+      "parent_sha": "d3ccbde03447a615b14dafc1352fa1f4d77a9f5e",
+      "subject": "Fixed #37046 -- Allowed Ready for checkin Trac status in PR checks.",
+      "source_files": [
+        "scripts/pr_quality/check_pr.py",
+        "scripts/pr_quality/errors.py"
+      ],
+      "test_files": [
+        "scripts/pr_quality/tests/test_check_pr.py"
+      ]
+    },
+    {
+      "sha": "a284a49153f005f2a7af087025e5112ba06cbd5f",
+      "parent_sha": "d33364c7ba330a349e38449c98494323a4ed7c8d",
+      "subject": "Fixed #37047 -- Fixed crash in Query.orderby_issubset_groupby for descending and random order_by strings.",
+      "source_files": [
+        "django/db/models/sql/query.py"
+      ],
+      "test_files": [
+        "tests/aggregation_regress/tests.py"
+      ]
+    },
+    {
+      "sha": "179aa21b6dfeb9a0560a8c2bbfcf056301fc619f",
+      "parent_sha": "aad47fe1bfc789f4b0ad0dc6373c945663e91f93",
+      "subject": "Fixed #37024 -- Made SITE_ID system check validation use Site._meta.pk.",
+      "source_files": [
+        "django/contrib/sites/checks.py"
+      ],
+      "test_files": [
+        "tests/sites_tests/tests.py"
+      ]
+    },
+    {
+      "sha": "820c7d3248af6afbdf3390c97b29e41ba126a421",
+      "parent_sha": "241b8e1aab7fc71018a059467b2ba17bce6556cc",
+      "subject": "Fixed #37036 -- Added missing flat=True arg in DeferredAttribute.fetch_many().",
+      "source_files": [
+        "AUTHORS",
+        "django/db/models/query_utils.py"
+      ],
+      "test_files": [
+        "tests/defer/tests.py",
+        "tests/many_to_one/tests.py"
+      ]
+    },
+    {
+      "sha": "ed79c5959add54b6e8ea589ec601e0d2e801517e",
+      "parent_sha": "d687d412a9abd9c80e31945f16ce32c020512394",
+      "subject": "Fixed #37028 -- Added BitAnd(), BitOr(), and BitXor() aggregates.",
+      "source_files": [
+        "django/contrib/postgres/aggregates/general.py",
+        "django/db/backends/base/features.py",
+        "django/db/backends/mysql/features.py",
+        "django/db/backends/oracle/features.py",
+        "django/db/backends/sqlite3/_functions.py",
+        "django/db/models/aggregates.py"
+      ],
+      "test_files": [
+        "tests/aggregation/models.py",
+        "tests/aggregation/tests.py",
+        "tests/postgres_tests/test_aggregates.py"
+      ]
+    },
+    {
+      "sha": "3157285e27a426530ef571855e0e29c317e210df",
+      "parent_sha": "8d326336c5fba4740114fea5294a7b426c96d65c",
+      "subject": "Fixed #27150 -- Made base File objects truthy by default.",
+      "source_files": [
+        "django/core/files/base.py",
+        "django/core/files/uploadedfile.py",
+        "django/db/models/fields/files.py"
+      ],
+      "test_files": [
+        "tests/files/tests.py"
+      ]
+    },
+    {
+      "sha": "e2abe321a6f1370e05c1a89a742125c9eafcac8c",
+      "parent_sha": "74e73dc1315d696330621a7f08310a2e87ea0eba",
+      "subject": "Fixed #37021 -- Added Permission.user_perm_str property.",
+      "source_files": [
+        "django/contrib/auth/models.py"
+      ],
+      "test_files": [
+        "tests/auth_tests/test_models.py"
+      ]
+    },
+    {
+      "sha": "e27f23b268c520957384054fb236cfc303f95f51",
+      "parent_sha": "78a3ffbb4cec25ed003f16cf4b1aa0b4bcdc2590",
+      "subject": "Fixed #36816 -- Allowed **kwargs in @task decorator.",
+      "source_files": [
+        "django/tasks/base.py"
+      ],
+      "test_files": [
+        "tests/tasks/test_custom_backend.py",
+        "tests/tasks/test_tasks.py"
+      ]
+    },
+    {
+      "sha": "ed4dfda62718a0bb644b80ac8b1d3099861f2295",
+      "parent_sha": "f13c20f81b56108ac477213fa5ada2524b5e5c98",
+      "subject": "[4.2.x] Fixed CVE-2026-33034 -- Enforced DATA_UPLOAD_MAX_MEMORY_SIZE on body size in ASGI requests.",
+      "source_files": [
+        "django/http/request.py"
+      ],
+      "test_files": [
+        "tests/asgi/tests.py"
+      ]
+    },
+    {
+      "sha": "f13c20f81b56108ac477213fa5ada2524b5e5c98",
+      "parent_sha": "abfe1a1c57a57cfaf6dd4a0571c029401a0fe743",
+      "subject": "[4.2.x] Fixed CVE-2026-33033 -- Mitigated potential DoS in MultiPartParser.",
+      "source_files": [
+        "django/http/multipartparser.py"
+      ],
+      "test_files": [
+        "tests/requests_tests/tests.py"
+      ]
+    },
+    {
+      "sha": "abfe1a1c57a57cfaf6dd4a0571c029401a0fe743",
+      "parent_sha": "051f3909e820360bbe84a21350e82f4961e3d917",
+      "subject": "[4.2.x] Fixed CVE-2026-4292 -- Disallowed instance creation via ModelAdmin.list_editable.",
+      "source_files": [
+        "django/contrib/admin/options.py"
+      ],
+      "test_files": [
+        "tests/admin_views/admin.py",
+        "tests/admin_views/tests.py"
+      ]
+    },
+    {
+      "sha": "051f3909e820360bbe84a21350e82f4961e3d917",
+      "parent_sha": "4412731aa64d62a6dd7edae79e0c15b72666d7ca",
+      "subject": "[4.2.x] Fixed CVE-2026-4277 -- Checked add permissions in GenericInlineModelAdmin.",
+      "source_files": [
+        "django/contrib/contenttypes/admin.py"
+      ],
+      "test_files": [
+        "tests/generic_inline_admin/tests.py"
+      ]
+    },
+    {
+      "sha": "4412731aa64d62a6dd7edae79e0c15b72666d7ca",
+      "parent_sha": "8d2a05c35dafc71d21fc68a6eb81aa6cdd190270",
+      "subject": "[4.2.x] Fixed CVE-2026-3902 -- Ignored headers with underscores in ASGIRequest.",
+      "source_files": [
+        "django/core/handlers/asgi.py"
+      ],
+      "test_files": [
+        "django/test/client.py",
+        "tests/asgi/tests.py"
+      ]
+    },
+    {
+      "sha": "49e1e2b548999a35a025f9682598946bda9e9921",
+      "parent_sha": "0b467893bdde69a2d23034338e76021a1e4f4322",
+      "subject": "[5.2.x] Fixed CVE-2026-33034 -- Enforced DATA_UPLOAD_MAX_MEMORY_SIZE on body size in ASGI requests.",
+      "source_files": [
+        "django/http/request.py"
+      ],
+      "test_files": [
+        "tests/asgi/tests.py"
+      ]
+    },
+    {
+      "sha": "0b467893bdde69a2d23034338e76021a1e4f4322",
+      "parent_sha": "397c22048244db2cd4bb78f570e6c72a3967bf36",
+      "subject": "[5.2.x] Fixed CVE-2026-33033 -- Mitigated potential DoS in MultiPartParser.",
+      "source_files": [
+        "django/http/multipartparser.py"
+      ],
+      "test_files": [
+        "tests/requests_tests/tests.py"
+      ]
+    },
+    {
+      "sha": "397c22048244db2cd4bb78f570e6c72a3967bf36",
+      "parent_sha": "60ffa957c427e10a2eb0fc80d1674a8a8ccc30b0",
+      "subject": "[5.2.x] Fixed CVE-2026-4292 -- Disallowed instance creation via ModelAdmin.list_editable.",
+      "source_files": [
+        "django/contrib/admin/options.py"
+      ],
+      "test_files": [
+        "tests/admin_views/admin.py",
+        "tests/admin_views/tests.py"
+      ]
+    },
+    {
+      "sha": "60ffa957c427e10a2eb0fc80d1674a8a8ccc30b0",
+      "parent_sha": "1cc2a7612f97c109b92415fc11ba9bd0501852e0",
+      "subject": "[5.2.x] Fixed CVE-2026-4277 -- Checked add permissions in GenericInlineModelAdmin.",
+      "source_files": [
+        "django/contrib/contenttypes/admin.py"
+      ],
+      "test_files": [
+        "tests/generic_inline_admin/tests.py"
+      ]
+    },
+    {
+      "sha": "1cc2a7612f97c109b92415fc11ba9bd0501852e0",
+      "parent_sha": "2a8a76a002774e3f6bc10188594593e0104ceb66",
+      "subject": "[5.2.x] Fixed CVE-2026-3902 -- Ignored headers with underscores in ASGIRequest.",
+      "source_files": [
+        "django/core/handlers/asgi.py"
+      ],
+      "test_files": [
+        "django/test/client.py",
+        "tests/asgi/tests.py"
+      ]
+    },
+    {
+      "sha": "393dbc53e848876fdba92fbf02e10ee6a6eace6b",
+      "parent_sha": "0910af60468216c856dfbcac1177372c225deb76",
+      "subject": "[6.0.x] Fixed CVE-2026-33034 -- Enforced DATA_UPLOAD_MAX_MEMORY_SIZE on body size in ASGI requests.",
+      "source_files": [
+        "django/http/request.py"
+      ],
+      "test_files": [
+        "tests/asgi/tests.py"
+      ]
+    },
+    {
+      "sha": "0910af60468216c856dfbcac1177372c225deb76",
+      "parent_sha": "428c48f358c5a0ed5ca2834fb721d615eb2b0e11",
+      "subject": "[6.0.x] Fixed CVE-2026-33033 -- Mitigated potential DoS in MultiPartParser.",
+      "source_files": [
+        "django/http/multipartparser.py"
+      ],
+      "test_files": [
+        "tests/requests_tests/tests.py"
+      ]
+    }
+  ]
+}

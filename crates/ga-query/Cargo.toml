@@ -1,0 +1,35 @@
+[package]
+name = "ga-query"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "GraphAtlas tool queries — 6 MCP tools (Tools S-001..S-006)"
+publish = false
+
+[dependencies]
+ga-core = { workspace = true }
+ga-index = { workspace = true }
+ga-parser = { workspace = true }
+serde = { workspace = true }
+anyhow = { workspace = true }
+blake3 = { workspace = true }
+lbug = { workspace = true }
+tempfile = "3"
+tracing = { workspace = true }
+
+# v1.5 PR9 triggers S-004 AS-012 — gix dirty-path detection carved out to
+# PR9.1: the gix 0.66 status API does not expose a stable `Item`/`Iter`
+# pair that lets us extract relative paths without leaning on internal
+# trait bounds. Per the AS-012 spike clause ("If gix at chosen version
+# lacks the API → defer PR9 + escalate") the MVP ships a sha256-vs-disk
+# fallback (see `incremental::dirty_paths`) that walks the repo via
+# `walk_repo` and compares each file's BLAKE3 against the indexed sha256.
+# Same functional contract (return modified-vs-graph paths) without the
+# gix dependency. PR9.1 will revisit once a known-good gix release lands.
+
+[dev-dependencies]
+serde_json = { workspace = true }
+
+[lints]
+workspace = true

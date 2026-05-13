@@ -1,0 +1,23 @@
+# Leaderboard: UC `impact` — kotlinx-serialization
+
+**Language:** kotlin
+
+**Tasks:** 11 (split: test)
+
+**Spec:** S-004 AS-009
+
+**GT source:** git-mining-2026-04-28
+
+**Gate:** composite ≥ 0.80 (S-004 AS-009)
+
+| Retriever | Composite | Test Recall | Completeness | Depth_F1 | Precision | p95 ms | Pass Rate | BlastRadius | AdjPrec |
+|-----------|-----------|-------------|--------------|----------|-----------|--------|-----------|-------------|----------|
+| ga        | 0.484 ⭐  | 0.500 ⭐    | 0.552 ⭐     | 0.545 ⭐  | 0.242 ⭐    | 16191  |   18.2%  | 0.412 ⭐      | 0.256 ⭐  |
+| bm25      | 0.000    | 0.000      | 0.000       | 0.000    | 0.000      | 0      |    0.0%  | 0.364        | 0.000    |
+| code-review-graph | 0.000    | 0.000      | 0.000       | 0.000    | 0.000      | 0      |    0.0%  | 0.364        | 0.000    |
+| codebase-memory | 0.000    | 0.000      | 0.000       | 0.000    | 0.000      | 0      |    0.0%  | 0.364        | 0.000    |
+| codegraphcontext | 0.000    | 0.000      | 0.000       | 0.000    | 0.000      | 0      |    0.0%  | 0.364        | 0.000    |
+| random    | 0.000    | 0.000      | 0.000       | 0.000    | 0.000      | 0      |    0.0%  | 0.364        | 0.000    |
+| ripgrep   | 0.000    | 0.000      | 0.000       | 0.000    | 0.000      | 0      |    0.0%  | 0.364        | 0.000    |
+
+**Reproduce:** `graphatlas bench --uc impact --repo kotlinx-serialization`

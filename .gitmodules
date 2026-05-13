@@ -1,0 +1,51 @@
+[submodule "gin"]
+	path = benches/fixtures/gin
+	url = https://github.com/gin-gonic/gin.git
+[submodule "axum"]
+	path = benches/fixtures/axum
+	url = https://github.com/tokio-rs/axum.git
+[submodule "httpx"]
+	path = benches/fixtures/httpx
+	url = https://github.com/encode/httpx.git
+[submodule "preact"]
+	path = benches/fixtures/preact
+	url = https://github.com/preactjs/preact.git
+[submodule "radash"]
+	path = benches/fixtures/radash
+	url = https://github.com/sodiray/radash.git
+[submodule "benches/fixtures/typescript-eslint"]
+	path = benches/fixtures/typescript-eslint
+	url = https://github.com/typescript-eslint/typescript-eslint.git
+[submodule "benches/fixtures/django"]
+	path = benches/fixtures/django
+	url = https://github.com/django/django.git
+[submodule "benches/fixtures/nest"]
+	path = benches/fixtures/nest
+	url = https://github.com/nestjs/nest.git
+[submodule "benches/fixtures/mockito"]
+	path = benches/fixtures/mockito
+	url = https://github.com/mockito/mockito.git
+[submodule "benches/fixtures/kotlinx-coroutines"]
+	path = benches/fixtures/kotlinx-coroutines
+	url = https://github.com/Kotlin/kotlinx.coroutines.git
+[submodule "benches/fixtures/kotlinx-serialization"]
+	path = benches/fixtures/kotlinx-serialization
+	url = https://github.com/Kotlin/kotlinx.serialization.git
+[submodule "benches/fixtures/MQTTnet"]
+	path = benches/fixtures/MQTTnet
+	url = https://github.com/dotnet/MQTTnet.git
+[submodule "benches/fixtures/Polly"]
+	path = benches/fixtures/Polly
+	url = https://github.com/App-vNext/Polly.git
+[submodule "benches/fixtures/jekyll"]
+	path = benches/fixtures/jekyll
+	url = https://github.com/jekyll/jekyll.git
+[submodule "benches/fixtures/faraday"]
+	path = benches/fixtures/faraday
+	url = https://github.com/lostisland/faraday.git
+[submodule "benches/fixtures/tokio"]
+	path = benches/fixtures/tokio
+	url = https://github.com/tokio-rs/tokio
+[submodule "benches/fixtures/regex"]
+	path = benches/fixtures/regex
+	url = https://github.com/rust-lang/regex

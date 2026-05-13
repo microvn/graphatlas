@@ -1,0 +1,160 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: "-D warnings"
+  # Build lbug C++ engine from source on CI so the host binary statically
+  # links yyjson / miniz / RE2 symbols that lbug extensions dlopen at
+  # runtime. Without this the linker reports `undefined symbol: yyjson_*` etc.
+  LBUG_BUILD_FROM_SOURCE: "1"
+
+jobs:
+  fmt:
+    name: cargo fmt --check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+      - run: cargo fmt --all --check
+
+  clippy:
+    name: cargo clippy
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - name: Install cmake (macOS)
+        if: runner.os == 'macOS'
+        run: brew install cmake
+      - name: Install cmake (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y cmake
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo clippy --workspace --all-targets -- -D warnings
+
+  # v1.5 PR3 foundation S-002 AS-009 — Windows compile-check matrix.
+  # We can't run `cargo test` on Windows yet because lbug 0.16.1 + cmake
+  # build on Windows MSVC is unverified (Foundation-C8 Windows row); the
+  # cfg(target_os = "windows") arms in build.rs / cache.rs / staleness.rs
+  # land in PR3 and need at least a compile-check gate so subsequent PRs
+  # don't silently break the Windows arms.
+  #
+  # Once Windows lbug build is empirically verified (PR1b), promote this
+  # from `cargo check` to `cargo test`. Submodule fetch deferred to that
+  # promotion since compile-check doesn't need fixture content.
+  windows-check:
+    name: cargo check (Windows)
+    runs-on: windows-latest
+    steps:
+      - name: git config core.symlinks (Windows submodule prep)
+        run: git config --global core.symlinks true
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install cmake (Windows)
+        run: choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' -y
+      - uses: Swatinem/rust-cache@v2
+      - name: cargo check --workspace (Windows)
+        run: cargo check --workspace --all-targets
+
+  # `cargo test` + `cargo tarpaulin` removed from CI: lbug 0.16.1 builds
+  # its C++ engine from source (LBUG_BUILD_FROM_SOURCE=1 is mandatory or the
+  # linker fails on yyjson/miniz/RE2 symbols) and that build takes ~20 min
+  # of compile time on a fresh runner — well past the GitHub Actions
+  # default budget. Local 5-gate CONTRIBUTING.md flow covers them. When
+  # lbug ships a binary-distributable build (or sccache is added),
+  # promote these back to required CI.
+
+  lbug-empirical:
+    # v1.5 PR9 / empirical sub-spec AS-003 — Run the lbug lifecycle
+    # empirical tests and upload per-test JSON results as an artifact.
+    # Bench gate readers (incremental-pipeline decision) inspect these
+    # files to decide whether dependent-expansion pipeline ships or
+    # falls back to full rebuild.
+    name: lbug lifecycle empirical (linux+macos)
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install cmake (macOS)
+        if: runner.os == 'macOS'
+        run: brew install cmake
+      - name: Install cmake (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y cmake
+      - uses: Swatinem/rust-cache@v2
+      - name: Run lbug lifecycle empirical tests
+        run: bash scripts/run-lbug-empirical.sh
+      - name: Upload empirical results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lbug-empirical-${{ matrix.os }}
+          path: target/lbug_lifecycle/*.json
+          if-no-files-found: warn
+      # v1.5 Tier B subprocess smoke — boots `graphatlas mcp` as a real
+      # child process and exercises the reindex lifecycle end-to-end
+      # (handshake, STALE_INDEX gate, ga_reindex, L1 watcher autofire).
+      # Caught a regression where rmcp `call_tool` bypassed the
+      # staleness gate; this gate prevents regressions cross-platform.
+      - name: Tier B subprocess smoke (reindex lifecycle)
+        run: bash scripts/smoke-reindex.sh
+
+  placeholders:
+    name: Foundation-C13 placeholder gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash scripts/check-no-placeholders.sh
+
+  anti-tautology:
+    # M3 bench S-002 AS-006 — fail CI if a bench rule imports a graphatlas
+    # analysis module. See scripts/check-anti-tautology.sh for the policy.
+    name: M3 bench anti-tautology gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash scripts/check-anti-tautology.sh
+
+  supply-chain:
+    # AS-030 Data line: "cargo audit + cargo deny for tree-sitter grammar CVE
+    # monitoring". Non-blocking-to-development for now (report-only) — can
+    # promote to required when the dep graph stabilizes post-M0.
+    name: supply-chain audit (cargo audit + deny)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install cmake
+        run: sudo apt-get update && sudo apt-get install -y cmake
+      - uses: Swatinem/rust-cache@v2
+      - name: cargo audit
+        uses: rustsec/audit-check@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install cargo-deny
+        run: cargo install cargo-deny --locked
+      - name: cargo deny check
+        run: cargo deny check advisories bans sources licenses

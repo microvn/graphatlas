@@ -1,0 +1,378 @@
+{
+  "repo": "mockito",
+  "lang": "java",
+  "enriched_at": "2026-04-26T19:57:13.600Z",
+  "count": 16,
+  "tasks": [
+    {
+      "task_id": "mockito-82998ff7",
+      "repo": "mockito",
+      "base_commit": "a7aa41d19742e78cd6c48eaf641445fb439a8ff0",
+      "fix_commit": "82998ff78a14b2111e07ba24c5a7fa731a5f0a82",
+      "subject": "Fix non-deterministic AssertionError when using MockMakers.SUBCLASS (#3406) (#3795)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/util/MockUtil.java",
+      "seed_symbol": "MockUtil",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/util/MockUtil.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/internal/util/MockUtil.java"
+      ],
+      "expected_tests": [
+        "mockito-integration-tests/programmatic-tests/src/test/java/org/mockito/ProgrammaticMockMakerTest.java"
+      ],
+      "should_touch_files": [
+        "mockito-core/src/main/java/org/mockito/Mockito.java",
+        "mockito-core/src/main/java/org/mockito/internal/MockitoCore.java"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-a7aa41d1",
+      "repo": "mockito",
+      "base_commit": "a231205b240e7884a63bf0f63440012867a4da21",
+      "fix_commit": "a7aa41d19742e78cd6c48eaf641445fb439a8ff0",
+      "subject": "Fixes #3536 : Implement SpyStatic API (#3794)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/Mockito.java",
+      "seed_symbol": "href",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/Mockito.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/Mockito.java"
+      ],
+      "expected_tests": [
+        "mockito-integration-tests/inline-mocks-tests/src/test/java/org/mockitoinline/SpyStaticTest.java"
+      ],
+      "should_touch_files": [
+        "mockito-core/src/main/java/org/mockito/internal/MockedStaticImpl.java",
+        "mockito-core/src/main/java/org/mockito/internal/util/MockUtil.java",
+        "mockito-core/src/main/java/org/mockito/stubbing/OngoingStubbing.java"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-25f13951",
+      "repo": "mockito",
+      "base_commit": "ef9ee5529853d96028b520f84a41ffd41afc9a1d",
+      "fix_commit": "25f13951d35ca391ee50207e6c564f3e869f3d91",
+      "subject": "Add core API to enable Kotlin singleton mocking (#3762)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+      "seed_symbol": "InlineDelegateByteBuddyMockMaker",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/MockedSingleton.java",
+        "mockito-core/src/main/java/org/mockito/Mockito.java",
+        "mockito-core/src/main/java/org/mockito/internal/MockedConstructionImpl.java",
+        "mockito-core/src/main/java/org/mockito/internal/MockedSingletonImpl.java",
+        "mockito-core/src/main/java/org/mockito/internal/MockedStaticImpl.java",
+        "mockito-core/src/main/java/org/mockito/internal/MockitoCore.java",
+        "mockito-core/src/main/java/org/mockito/internal/ScopedMockImpl.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineByteBuddyMockMaker.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineBytecodeGenerator.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/MockMethodAdvice.java",
+        "mockito-core/src/main/java/org/mockito/internal/util/MockUtil.java",
+        "mockito-core/src/main/java/org/mockito/plugins/MockMaker.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/MockedSingleton.java",
+        "mockito-core/src/main/java/org/mockito/Mockito.java",
+        "mockito-core/src/main/java/org/mockito/internal/MockedConstructionImpl.java",
+        "mockito-core/src/main/java/org/mockito/internal/MockedSingletonImpl.java",
+        "mockito-core/src/main/java/org/mockito/internal/MockedStaticImpl.java",
+        "mockito-core/src/main/java/org/mockito/internal/MockitoCore.java",
+        "mockito-core/src/main/java/org/mockito/internal/ScopedMockImpl.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineByteBuddyMockMaker.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineBytecodeGenerator.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/MockMethodAdvice.java",
+        "mockito-core/src/main/java/org/mockito/internal/util/MockUtil.java",
+        "mockito-core/src/main/java/org/mockito/plugins/MockMaker.java"
+      ],
+      "expected_tests": [
+        "mockito-integration-tests/inline-mocks-tests/src/test/java/org/mockitoinline/SingletonMockTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "mockito-756a3cf3",
+      "repo": "mockito",
+      "base_commit": "58ba4455209a126d025eecbf18b33a7e04dece3b",
+      "fix_commit": "756a3cf3fa890437603704f1dc2932e908ef3951",
+      "subject": "Add description of matchers to potential mismatch (#3760)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/junit/DefaultStubbingLookupListener.java",
+      "seed_symbol": "DefaultStubbingLookupListener",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/exceptions/Reporter.java",
+        "mockito-core/src/main/java/org/mockito/internal/junit/DefaultStubbingLookupListener.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/internal/exceptions/Reporter.java",
+        "mockito-core/src/main/java/org/mockito/internal/junit/DefaultStubbingLookupListener.java"
+      ],
+      "expected_tests": [
+        "mockito-core/src/test/java/org/mockitousage/junitrule/StrictJUnitRuleTest.java",
+        "mockito-core/src/test/java/org/mockitousage/strictness/ProductionCode.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "mockito-58ba4455",
+      "repo": "mockito",
+      "base_commit": "966d6009047c7f6617dbf080e68ee38ea049aa54",
+      "fix_commit": "58ba4455209a126d025eecbf18b33a7e04dece3b",
+      "subject": "Forbid mocking WeakReference with inline mock maker (#3759)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineBytecodeGenerator.java",
+      "seed_symbol": "InlineBytecodeGenerator",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineBytecodeGenerator.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineBytecodeGenerator.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java"
+      ],
+      "expected_tests": [
+        "mockito-core/src/test/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMakerTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "mockito-8564b43f",
+      "repo": "mockito",
+      "base_commit": "bf3a80983b99339716ec6070e09e60fbe3d9858c",
+      "fix_commit": "8564b43fbbdf4911a35148f7f11689dd5524c7c8",
+      "subject": "Fix primitives support in GenericArrayReturnType for Android (#3753)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/util/Primitives.java",
+      "seed_symbol": "Primitives",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/util/Primitives.java",
+        "mockito-core/src/main/java/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+        "mockito-integration-tests/android-tests/src/main/java/org/mockitousage/androidtest/BasicClassesForTesting.kt"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/internal/util/Primitives.java",
+        "mockito-core/src/main/java/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+        "mockito-integration-tests/android-tests/src/main/java/org/mockitousage/androidtest/BasicClassesForTesting.kt"
+      ],
+      "expected_tests": [
+        "mockito-integration-tests/android-tests/src/androidTest/java/org/mockitousage/androidtest/BasicInstrumentedTests.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "mockito-3a1a19ee",
+      "repo": "mockito",
+      "base_commit": "f3c957a74e39a78c31b7fd2e48bf9f4c3a13112c",
+      "fix_commit": "3a1a19ee40f1234048880393343405046fc3fa60",
+      "subject": "Add support for generic types in `MockedConstruction` and `MockedStatic` (#3729)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/configuration/MockAnnotationProcessor.java",
+      "seed_symbol": "MockAnnotationProcessor",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/configuration/MockAnnotationProcessor.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/internal/configuration/MockAnnotationProcessor.java"
+      ],
+      "expected_tests": [
+        "mockito-core/src/test/java/org/mockito/internal/configuration/MockAnnotationProcessorTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-37bb3e50",
+      "repo": "mockito",
+      "base_commit": "ef2fd6f8e12df2db9b1c3aef067c33f6fe2aba95",
+      "fix_commit": "37bb3e5062bbedda96dc3810c5e3d4f5c0c644e0",
+      "subject": "Fix metadata generation on GraalVM (#3710)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/SubclassBytecodeGenerator.java",
+      "seed_symbol": "SubclassBytecodeGenerator",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/SubclassBytecodeGenerator.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/SubclassBytecodeGenerator.java"
+      ],
+      "expected_tests": [
+        "mockito-integration-tests/graalvm-tests/src/test/java/org/mockito/graalvm/DummyObject.java",
+        "mockito-integration-tests/graalvm-tests/src/test/java/org/mockito/graalvm/GraalVMSubclassMockMakerTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-144751b0",
+      "repo": "mockito",
+      "base_commit": "b275c7d289b12787fb955fa75a3b831495905501",
+      "fix_commit": "144751b053da44970d78a31b65a0eb9a780a86fa",
+      "subject": "Add support for JDK21 Sequenced Collections. (#3708)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java",
+      "seed_symbol": "methods",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java"
+      ],
+      "expected_tests": [
+        "mockito-core/src/test/java/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValuesTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-8b580e2e",
+      "repo": "mockito",
+      "base_commit": "4817b0f3f406b7626d8d174f6385589a5f9d174a",
+      "fix_commit": "8b580e2e2db708db8d5b5b884c9eb18ec964651c",
+      "subject": "Bump errorprone from 2.23.0 to 2.39.0 (#3674)",
+      "seed_file": "buildSrc/src/main/kotlin/mockito.test-launcher-conventions.gradle.kts",
+      "seed_symbol": "tasks",
+      "source_files": [
+        "buildSrc/src/main/kotlin/mockito.test-launcher-conventions.gradle.kts"
+      ],
+      "expected_files": [
+        "buildSrc/src/main/kotlin/mockito.test-launcher-conventions.gradle.kts"
+      ],
+      "expected_tests": [
+        "mockito-core/src/test/java/org/mockito/internal/util/collections/HashCodeAndEqualsSafeSetTest.java",
+        "mockito-core/src/test/java/org/mockitousage/basicapi/ReplacingObjectMethodsTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-7764992d",
+      "repo": "mockito",
+      "base_commit": "ee92ad4916d9f3f6ae6836bdba5c30f8404d3d50",
+      "fix_commit": "7764992d1250f4e7f6ffd10f650dc89516139c8d",
+      "subject": "Remove mention of `mockito-inline` from mockmaker exception (#3628)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/plugins/MockMaker.java",
+      "seed_symbol": "MockMaker",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/plugins/MockMaker.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/plugins/MockMaker.java"
+      ],
+      "expected_tests": [
+        "mockito-core/src/test/java/org/mockito/MockitoTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-4f469c83",
+      "repo": "mockito",
+      "base_commit": "1764e62102f525ff9a82b8166b8596edd25f5b7f",
+      "fix_commit": "4f469c830b2f6ab0e1f061e9383aff2e6f9f8376",
+      "subject": "MockitoExtension fails cleanup when aborted before setup (#3623)",
+      "seed_file": "mockito-extensions/mockito-junit-jupiter/src/main/java/org/mockito/junit/jupiter/MockitoExtension.java",
+      "seed_symbol": "MockitoExtension",
+      "source_files": [
+        "mockito-extensions/mockito-junit-jupiter/src/main/java/org/mockito/junit/jupiter/MockitoExtension.java"
+      ],
+      "expected_files": [
+        "mockito-extensions/mockito-junit-jupiter/src/main/java/org/mockito/junit/jupiter/MockitoExtension.java"
+      ],
+      "expected_tests": [
+        "mockito-extensions/mockito-junit-jupiter/src/test/java/org/mockitousage/JunitJupiterSkippedTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-52e746cb",
+      "repo": "mockito",
+      "base_commit": "bb040915f447c3cd8ee56c1b2edeb07d92a4e9c0",
+      "fix_commit": "52e746cb8e8cf4691e44ad1b0c75f39051b9f397",
+      "subject": "Revisits #3534 and fix #3167 that was fixing #2984",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+      "seed_symbol": "InlineDelegateByteBuddyMockMaker",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/TypeSupport.java",
+        "mockito-core/src/main/java/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/TypeSupport.java",
+        "mockito-core/src/main/java/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java"
+      ],
+      "expected_tests": [
+        "mockito-integration-tests/java-21-tests/src/test/java/org/mockito/internal/stubbing/answers/DeepStubReturnsEnum_Java17_issue_2984_Test.java",
+        "mockito-integration-tests/java-21-tests/src/test/java/org/mockito/sealed/SealedClassUnsupportedTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "mockito-6e53f34a",
+      "repo": "mockito",
+      "base_commit": "a66dfa081c3703fcda9618f507d30248361f5e7b",
+      "fix_commit": "6e53f34a3f54d2b7dc23595566b9331a94b57263",
+      "subject": "Throw clear exception to avoid NullPointerException when handling answers (#3506)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/stubbing/InvocationContainerImpl.java",
+      "seed_symbol": "InvocationContainerImpl",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/stubbing/InvocationContainerImpl.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/internal/stubbing/InvocationContainerImpl.java"
+      ],
+      "expected_tests": [
+        "mockito-core/src/test/java/org/mockito/internal/stubbing/InvocationContainerImplTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-e2c56ccd",
+      "repo": "mockito",
+      "base_commit": "2064681d7c4084c3f76cdafbcb2bcb095f2b6c75",
+      "fix_commit": "e2c56ccd3f9bb1c1635de13b27f094348e288496",
+      "subject": "Handle JVM internal error when mocking class triggers `NoClassDefFoundError` (#3499)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineBytecodeGenerator.java",
+      "seed_symbol": "InlineBytecodeGenerator",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineBytecodeGenerator.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineBytecodeGenerator.java"
+      ],
+      "expected_tests": [
+        "mockito-core/src/test/java/org/mockitousage/bugs/creation/MockClassWithMissingStaticDepTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-915ed6e4",
+      "repo": "mockito",
+      "base_commit": "d01fecaed79e1879ebd0a2a01768f516d81f936f",
+      "fix_commit": "915ed6e4f98896192908ad94ea6e00cd92879d7a",
+      "subject": "Prevent NPEs for Disabled Mocks (#3476)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/framework/DisabledMockHandler.java",
+      "seed_symbol": "DisabledMockHandler",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+        "mockito-core/src/main/java/org/mockito/internal/framework/DisabledMockHandler.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+        "mockito-core/src/main/java/org/mockito/internal/framework/DisabledMockHandler.java"
+      ],
+      "expected_tests": [
+        "mockito-core/src/test/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMakerTest.java",
+        "mockito-core/src/test/java/org/mockito/internal/framework/DefaultMockitoFrameworkTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    }
+  ]
+}

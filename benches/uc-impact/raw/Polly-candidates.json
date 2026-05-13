@@ -1,0 +1,20 @@
+{
+  "repo": "Polly",
+  "lang": "csharp",
+  "mined_at": "2026-04-29T18:56:49.278Z",
+  "target": 20,
+  "actual": 1,
+  "candidates": [
+    {
+      "sha": "016dd909db880b9d8d07954ff5f4ea3cc1e11c67",
+      "parent_sha": "779aa834d9a317a7e26493385f2fdf48ce20f3ef",
+      "subject": "Fix `ScheduledTaskExecutor` deadlock when `TrySetResult` runs continuations inline (#2953)",
+      "source_files": [
+        "src/Polly.Core/CircuitBreaker/Controller/ScheduledTaskExecutor.cs"
+      ],
+      "test_files": [
+        "test/Polly.Core.Tests/CircuitBreaker/Controller/ScheduledTaskExecutorTests.cs"
+      ]
+    }
+  ]
+}

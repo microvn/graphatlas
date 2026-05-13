@@ -1,0 +1,262 @@
+{
+  "repo": "Polly",
+  "lang": "csharp",
+  "mined_at": "2026-04-26T17:27:19.867Z",
+  "target": 20,
+  "actual": 20,
+  "candidates": [
+    {
+      "sha": "c90c19c8705410fac7fac2e4e5216be526c36796",
+      "parent_sha": "3de65d1ec9ae6c49693494b054cf6790eabf0720",
+      "subject": "Fix CS8629 warnings",
+      "source_files": [
+        "Directory.Packages.props",
+        "bench/Polly.Benchmarks/Polly.Benchmarks.csproj"
+      ],
+      "test_files": [
+        "test/Polly.Core.Tests/CircuitBreaker/Controller/CircuitStateControllerTests.cs"
+      ]
+    },
+    {
+      "sha": "a852148cae0b62c4518982dc9c3479ea7dbace17",
+      "parent_sha": "3a92354e842bb4c16d88d6c0af8285e8cc6396e2",
+      "subject": "Fix warnings",
+      "source_files": [
+        "src/Shared/UnionsPolyfill.cs"
+      ],
+      "test_files": [
+        "test/Polly.Core.Tests/Issues/IssuesTests.HandleMultipleResults_898.cs",
+        "test/Polly.Core.Tests/OutcomeTests.cs",
+        "test/Polly.Extensions.Tests/Telemetry/TelemetryListenerImplTests.cs",
+        "test/Polly.TestUtils/TestUtilities.cs"
+      ]
+    },
+    {
+      "sha": "016dd909db880b9d8d07954ff5f4ea3cc1e11c67",
+      "parent_sha": "779aa834d9a317a7e26493385f2fdf48ce20f3ef",
+      "subject": "Fix `ScheduledTaskExecutor` deadlock when `TrySetResult` runs continuations inline (#2953)",
+      "source_files": [
+        "src/Polly.Core/CircuitBreaker/Controller/ScheduledTaskExecutor.cs"
+      ],
+      "test_files": [
+        "test/Polly.Core.Tests/CircuitBreaker/Controller/ScheduledTaskExecutorTests.cs"
+      ]
+    },
+    {
+      "sha": "402adfaafb0b4da47170ca198451dfba68cd17d6",
+      "parent_sha": "156a9bbee14397989490cc280f09de324ca85191",
+      "subject": "Refactor property-based tests",
+      "source_files": [
+        "src/Polly.Core/Retry/RetryHelper.cs"
+      ],
+      "test_files": [
+        "test/Polly.Core.Tests/Retry/RetryHelperTests.cs"
+      ]
+    },
+    {
+      "sha": "8eee77abe2a42da768cf9f05cdd998595df26c1c",
+      "parent_sha": "a4b66fbc31721d9f2902f3e7acea830d4bbc8a8b",
+      "subject": "Refactor project dependencies",
+      "source_files": [
+        "Directory.Build.props",
+        "Directory.Packages.props",
+        "samples/Chaos/Chaos.csproj",
+        "samples/DependencyInjection/DependencyInjection.csproj",
+        "samples/Directory.Build.props",
+        "samples/Extensibility/Extensibility.csproj",
+        "samples/GenericPipelines/GenericPipelines.csproj",
+        "samples/Intro.FSharp/Intro.FSharp.fsproj",
+        "samples/Intro.FSharp/Program.fs",
+        "samples/Intro.VisualBasic/Intro.VisualBasic.vbproj",
+        "samples/Intro/Intro.csproj",
+        "samples/Retries/Retries.csproj"
+      ],
+      "test_files": [
+        "test/Polly.Core.Tests/Retry/RetryResilienceStrategyTests.cs"
+      ]
+    },
+    {
+      "sha": "bbe8807723c4a3405831112a739312535c4d3caa",
+      "parent_sha": "2f078f9c27f6ae170c19e29090633beeacd76684",
+      "subject": "Fix overflow in BulkheadSemaphoreFactory (#2638)",
+      "source_files": [
+        "src/Polly/Bulkhead/BulkheadSemaphoreFactory.cs"
+      ],
+      "test_files": [
+        "test/Polly.Specs/Bulkhead/BulkheadAsyncSpecs.cs",
+        "test/Polly.Specs/Bulkhead/BulkheadSpecs.cs",
+        "test/Polly.Specs/Bulkhead/BulkheadTResultSpecs.cs"
+      ]
+    },
+    {
+      "sha": "f56e106c1cb74ebab1fc9178d866df1c05df5db0",
+      "parent_sha": "a750a18a774e6ade2b8458aebe54a42400df882e",
+      "subject": ".NET 10 preparation (#2620)",
+      "source_files": [
+        "Directory.Packages.props",
+        "src/Polly.Core/Utils/DefaultPredicates.cs"
+      ],
+      "test_files": [
+        "test/Polly.Core.Tests/OutcomeTests.cs",
+        "test/Polly.Core.Tests/Registry/ResiliencePipelineRegistryOptionsTests.cs",
+        "test/Polly.Core.Tests/Simmy/ChaosStrategyOptionsTests.cs",
+        "test/Polly.Core.Tests/Timeout/TimeoutUtilTests.cs"
+      ]
+    },
+    {
+      "sha": "dc50439e746241470df78eb4babc549d94c10e08",
+      "parent_sha": "bb83a991bdfd81354255a13328044f1b05976856",
+      "subject": "Add missing coverage",
+      "source_files": [
+        "src/Polly.Extensions/DependencyInjection/PollyServiceCollectionExtensions.cs",
+        "src/Polly/Bulkhead/AsyncBulkheadTResultSyntax.cs",
+        "src/Polly/Caching/CacheSyntax.cs",
+        "src/Polly/Policy.ContextAndKeys.cs",
+        "src/Polly/Registry/PolicyRegistry.cs"
+      ],
+      "test_files": [
+        "test/Polly.Extensions.Tests/DependencyInjection/PollyServiceCollectionExtensionTests.cs",
+        "test/Polly.Extensions.Tests/DisposablePipelineTests.cs",
+        "test/Polly.Extensions.Tests/Registry/ConfigureBuilderContextExtensionsTests.cs",
+        "test/Polly.Extensions.Tests/Telemetry/TelemetryOptionsTests.cs",
+        "test/Polly.Extensions.Tests/Telemetry/TelemetryResiliencePipelineBuilderExtensionsTests.cs",
+        "test/Polly.Specs/PolicyAsyncSpecs.cs"
+      ]
+    },
+    {
+      "sha": "7870787204d7c2bdeb8b12bbb8822add072ee848",
+      "parent_sha": "f58fcfbc2e8c4dc2bbe2a4d4be334f44715bc4c7",
+      "subject": "Fix Polly.Testing mutations",
+      "source_files": [
+        "build.cake",
+        "src/Polly.Testing/ResiliencePipelineExtensions.cs"
+      ],
+      "test_files": [
+        "test/Polly.Testing.Tests/ResiliencePipelineExtensionsTests.cs"
+      ]
+    },
+    {
+      "sha": "a953ba8119074d7f63cc69643d4ef1d1de52ee3f",
+      "parent_sha": "4f207a17ca6c03e40169b75e69c720f21c68c8ab",
+      "subject": "Fix for retry cancellation (#2456)",
+      "source_files": [
+        "src/Polly.Core/Retry/RetryResilienceStrategy.cs"
+      ],
+      "test_files": [
+        "test/Polly.Core.Tests/Retry/RetryResilienceStrategyTests.cs"
+      ]
+    },
+    {
+      "sha": "f982bb6f28b70ec846a22f83cf9d2c8934b4ad74",
+      "parent_sha": "c66d8cad20c2b59d23ccce77b875ce7c042556b5",
+      "subject": "Synchronize access to Validator (#2428)",
+      "source_files": [
+        "src/Polly.Core/Utils/ValidationHelper.cs"
+      ],
+      "test_files": [
+        "test/Polly.Core.Tests/Utils/ValidationHelperTests.cs"
+      ]
+    },
+    {
+      "sha": "74ac188ba7632c96f66627299c83b20999f77155",
+      "parent_sha": "056b27c23f043101d6d1e6b3fef9a0ebfe0737ae",
+      "subject": "Fix failing hedging test in Debug (#2321)",
+      "source_files": [
+        "src/Polly.Core/Hedging/Controller/HedgingExecutionContext.cs"
+      ],
+      "test_files": [
+        "test/Polly.Core.Tests/Hedging/HedgingResilienceStrategyTests.cs"
+      ]
+    },
+    {
+      "sha": "67f0b17d640c734ba5c650118b2580602adefce6",
+      "parent_sha": "31e96238afeae964d3a83a63eda87cd93c55afa9",
+      "subject": "Bump xunit from 2.9.0 to 2.9.1 in the xunit group (#2307)",
+      "source_files": [
+        "Directory.Packages.props"
+      ],
+      "test_files": [
+        "test/Polly.RateLimiting.Tests/RateLimiterResiliencePipelineBuilderExtensionsTests.cs"
+      ]
+    },
+    {
+      "sha": "957444f8a3ce923b298e9dee1ec653447ec4091d",
+      "parent_sha": "c6aaafb5f8ff7a91ae55cf95ecd12a8fe65f6b40",
+      "subject": "Bump the xunit group across 1 directory with 2 updates (#2186)",
+      "source_files": [
+        "Directory.Packages.props"
+      ],
+      "test_files": [
+        "test/Polly.Core.Tests/Polly.Core.Tests.csproj",
+        "test/Polly.Core.Tests/xunit.runner.json"
+      ]
+    },
+    {
+      "sha": "badf0df4dd735fa7f2281c3a95f1d46cf42bd623",
+      "parent_sha": "1aece4ebb06186983289d7c9cb651bbe27fe2e38",
+      "subject": "Fix TimeoutGenerator docs (#2275)",
+      "source_files": [
+        "src/Polly.Core/Timeout/TimeoutStrategyOptions.cs"
+      ],
+      "test_files": [
+        "test/Polly.Core.Tests/Timeout/TimeoutResilienceStrategyTests.cs"
+      ]
+    },
+    {
+      "sha": "6d758f53ee975d30c4ead20bf9e955b4a095a879",
+      "parent_sha": "975a640345cf27081907d98bcee5e528abf9c1f0",
+      "subject": "Fix CA1062 warnings (#2234)",
+      "source_files": [
+        "src/Polly/CircuitBreaker/CircuitBreakerPolicy.cs"
+      ],
+      "test_files": [
+        "test/Polly.Specs/CircuitBreaker/CircuitBreakerTResultSpecs.cs"
+      ]
+    },
+    {
+      "sha": "975a640345cf27081907d98bcee5e528abf9c1f0",
+      "parent_sha": "626f6d1e3a04e82dd212624004a4df50cbdfcabe",
+      "subject": "Fix CA1062 warnings (#2240)",
+      "source_files": [
+        "src/Polly/Caching/CacheSyntax.cs"
+      ],
+      "test_files": [
+        "test/Polly.Specs/Caching/CacheSpecs.cs"
+      ]
+    },
+    {
+      "sha": "626f6d1e3a04e82dd212624004a4df50cbdfcabe",
+      "parent_sha": "c572c4c1ae22bc7e955fabaa60722c531e4317a0",
+      "subject": "Fix CA1062 warnings (#2236)",
+      "source_files": [
+        "src/Polly/Bulkhead/BulkheadPolicy.cs"
+      ],
+      "test_files": [
+        "test/Polly.Specs/Bulkhead/BulkheadSpecs.cs",
+        "test/Polly.Specs/Bulkhead/BulkheadTResultSpecs.cs"
+      ]
+    },
+    {
+      "sha": "c572c4c1ae22bc7e955fabaa60722c531e4317a0",
+      "parent_sha": "05e86fe72704ef723a65b87440c3ffdf52073e11",
+      "subject": "Fix CA1062 warnings (#2231)",
+      "source_files": [
+        "src/Polly/Wrap/IAsyncPolicyPolicyWrapExtensions.cs"
+      ],
+      "test_files": [
+        "test/Polly.Specs/Caching/CacheAsyncSpecs.cs"
+      ]
+    },
+    {
+      "sha": "05e86fe72704ef723a65b87440c3ffdf52073e11",
+      "parent_sha": "786813231c614a6d2c126f4bea45a28caab75c45",
+      "subject": "Fix CA1062 warnings (#2242)",
+      "source_files": [
+        "src/Polly/Caching/AsyncCacheSyntax.cs"
+      ],
+      "test_files": [
+        "test/Polly.Specs/Caching/CacheAsyncSpecs.cs"
+      ]
+    }
+  ]
+}

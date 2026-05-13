@@ -1,0 +1,536 @@
+{
+  "repo": "Polly",
+  "lang": "csharp",
+  "enriched_at": "2026-04-26T19:57:34.656Z",
+  "count": 16,
+  "tasks": [
+    {
+      "task_id": "Polly-a852148c",
+      "repo": "Polly",
+      "base_commit": "3a92354e842bb4c16d88d6c0af8285e8cc6396e2",
+      "fix_commit": "a852148cae0b62c4518982dc9c3479ea7dbace17",
+      "subject": "Fix warnings",
+      "seed_file": "src/Shared/UnionsPolyfill.cs",
+      "seed_symbol": "IUnion",
+      "source_files": [
+        "src/Shared/UnionsPolyfill.cs"
+      ],
+      "expected_files": [
+        "src/Shared/UnionsPolyfill.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Core.Tests/Issues/IssuesTests.HandleMultipleResults_898.cs",
+        "test/Polly.Core.Tests/OutcomeTests.cs",
+        "test/Polly.Extensions.Tests/Telemetry/TelemetryListenerImplTests.cs",
+        "test/Polly.TestUtils/TestUtilities.cs"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "Polly-016dd909",
+      "repo": "Polly",
+      "base_commit": "779aa834d9a317a7e26493385f2fdf48ce20f3ef",
+      "fix_commit": "016dd909db880b9d8d07954ff5f4ea3cc1e11c67",
+      "subject": "Fix `ScheduledTaskExecutor` deadlock when `TrySetResult` runs continuations inline (#2953)",
+      "seed_file": "src/Polly.Core/CircuitBreaker/Controller/ScheduledTaskExecutor.cs",
+      "seed_symbol": "ScheduledTaskExecutor",
+      "source_files": [
+        "src/Polly.Core/CircuitBreaker/Controller/ScheduledTaskExecutor.cs"
+      ],
+      "expected_files": [
+        "src/Polly.Core/CircuitBreaker/Controller/ScheduledTaskExecutor.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Core.Tests/CircuitBreaker/Controller/ScheduledTaskExecutorTests.cs"
+      ],
+      "should_touch_files": [
+        "src/Polly.Core/CircuitBreaker/CircuitBreakerManualControl.cs",
+        "src/Polly.Core/CircuitBreaker/CircuitBreakerResilienceStrategy.cs",
+        "src/Polly.Core/CircuitBreaker/Controller/CircuitStateController.cs",
+        "src/Polly.Core/Hedging/Controller/HedgingExecutionContext.cs",
+        "src/Polly.Core/Registry/RegistryPipelineComponentBuilder.cs",
+        "src/Polly.Extensions/DependencyInjection/PollyServiceCollectionExtensions.cs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "Polly-402adfaa",
+      "repo": "Polly",
+      "base_commit": "156a9bbee14397989490cc280f09de324ca85191",
+      "fix_commit": "402adfaafb0b4da47170ca198451dfba68cd17d6",
+      "subject": "Refactor property-based tests",
+      "seed_file": "src/Polly.Core/Retry/RetryHelper.cs",
+      "seed_symbol": "RetryHelper",
+      "source_files": [
+        "src/Polly.Core/Retry/RetryHelper.cs"
+      ],
+      "expected_files": [
+        "src/Polly.Core/Retry/RetryHelper.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Core.Tests/Retry/RetryHelperTests.cs"
+      ],
+      "should_touch_files": [
+        "src/Polly.Core/Hedging/HedgingResilienceStrategy.cs",
+        "src/Polly.Core/Retry/RetryBackoffType.cs",
+        "src/Polly.Core/Retry/RetryConstants.cs",
+        "src/Polly.Core/Retry/RetryResilienceStrategy.cs",
+        "src/Polly.Core/Retry/RetryResilienceStrategyBuilderExtensions.cs",
+        "src/Polly.Core/Retry/RetryStrategyOptions.TResult.cs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "Polly-bbe88077",
+      "repo": "Polly",
+      "base_commit": "2f078f9c27f6ae170c19e29090633beeacd76684",
+      "fix_commit": "bbe8807723c4a3405831112a739312535c4d3caa",
+      "subject": "Fix overflow in BulkheadSemaphoreFactory (#2638)",
+      "seed_file": "src/Polly/Bulkhead/BulkheadSemaphoreFactory.cs",
+      "seed_symbol": "BulkheadSemaphoreFactory",
+      "source_files": [
+        "src/Polly/Bulkhead/BulkheadSemaphoreFactory.cs"
+      ],
+      "expected_files": [
+        "src/Polly/Bulkhead/BulkheadSemaphoreFactory.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Specs/Bulkhead/BulkheadAsyncSpecs.cs",
+        "test/Polly.Specs/Bulkhead/BulkheadSpecs.cs",
+        "test/Polly.Specs/Bulkhead/BulkheadTResultSpecs.cs"
+      ],
+      "should_touch_files": [
+        "src/Polly/Bulkhead/AsyncBulkheadEngine.cs",
+        "src/Polly/Bulkhead/AsyncBulkheadPolicy.cs",
+        "src/Polly/Bulkhead/AsyncBulkheadSyntax.cs",
+        "src/Polly/Bulkhead/AsyncBulkheadTResultSyntax.cs",
+        "src/Polly/Bulkhead/BulkheadEngine.cs",
+        "src/Polly/Bulkhead/BulkheadPolicy.cs",
+        "src/Polly/Bulkhead/BulkheadRejectedException.cs",
+        "src/Polly/Bulkhead/BulkheadSyntax.cs",
+        "src/Polly/Bulkhead/BulkheadTResultSyntax.cs",
+        "src/Polly/Bulkhead/IBulkheadPolicy.cs",
+        "src/Polly/Caching/AsyncCacheTResultSyntax.cs",
+        "src/Polly/Caching/AsyncGenericCacheProvider.cs",
+        "src/Polly/Caching/GenericCacheProvider.cs",
+        "src/Polly/Caching/IAsyncCacheProvider.cs",
+        "src/Polly/Caching/NonSlidingTtl.cs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "Polly-f56e106c",
+      "repo": "Polly",
+      "base_commit": "a750a18a774e6ade2b8458aebe54a42400df882e",
+      "fix_commit": "f56e106c1cb74ebab1fc9178d866df1c05df5db0",
+      "subject": ".NET 10 preparation (#2620)",
+      "seed_file": "src/Polly.Core/Utils/DefaultPredicates.cs",
+      "seed_symbol": "DefaultPredicates",
+      "source_files": [
+        "src/Polly.Core/Utils/DefaultPredicates.cs"
+      ],
+      "expected_files": [
+        "src/Polly.Core/Utils/DefaultPredicates.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Core.Tests/OutcomeTests.cs",
+        "test/Polly.Core.Tests/Registry/ResiliencePipelineRegistryOptionsTests.cs",
+        "test/Polly.Core.Tests/Simmy/ChaosStrategyOptionsTests.cs",
+        "test/Polly.Core.Tests/Timeout/TimeoutUtilTests.cs"
+      ],
+      "should_touch_files": [
+        "bench/Polly.Core.Benchmarks/PredicateBenchmark.cs",
+        "bench/Polly.Core.Benchmarks/Utils/Helper.Retry.cs",
+        "src/Polly.Core/CircuitBreaker/Controller/CircuitStateController.cs",
+        "src/Polly.Core/Hedging/Controller/TaskExecution.cs",
+        "src/Polly.Core/Hedging/HedgingResilienceStrategy.cs",
+        "src/Polly.Core/Retry/RetryResilienceStrategy.cs",
+        "src/Polly.Core/Retry/RetryStrategyOptions.TResult.cs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "Polly-dc50439e",
+      "repo": "Polly",
+      "base_commit": "bb83a991bdfd81354255a13328044f1b05976856",
+      "fix_commit": "dc50439e746241470df78eb4babc549d94c10e08",
+      "subject": "Add missing coverage",
+      "seed_file": "src/Polly/Registry/PolicyRegistry.cs",
+      "seed_symbol": "PolicyRegistry",
+      "source_files": [
+        "src/Polly.Extensions/DependencyInjection/PollyServiceCollectionExtensions.cs",
+        "src/Polly/Bulkhead/AsyncBulkheadTResultSyntax.cs",
+        "src/Polly/Caching/CacheSyntax.cs",
+        "src/Polly/Policy.ContextAndKeys.cs",
+        "src/Polly/Registry/PolicyRegistry.cs"
+      ],
+      "expected_files": [
+        "src/Polly.Extensions/DependencyInjection/PollyServiceCollectionExtensions.cs",
+        "src/Polly/Bulkhead/AsyncBulkheadTResultSyntax.cs",
+        "src/Polly/Caching/CacheSyntax.cs",
+        "src/Polly/Policy.ContextAndKeys.cs",
+        "src/Polly/Registry/PolicyRegistry.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Extensions.Tests/DependencyInjection/PollyServiceCollectionExtensionTests.cs",
+        "test/Polly.Extensions.Tests/DisposablePipelineTests.cs",
+        "test/Polly.Extensions.Tests/Registry/ConfigureBuilderContextExtensionsTests.cs",
+        "test/Polly.Extensions.Tests/Telemetry/TelemetryOptionsTests.cs",
+        "test/Polly.Extensions.Tests/Telemetry/TelemetryResiliencePipelineBuilderExtensionsTests.cs",
+        "test/Polly.Specs/PolicyAsyncSpecs.cs"
+      ],
+      "should_touch_files": [
+        "src/Polly.Benchmarks/Bulkhead.cs",
+        "src/Polly.Benchmarks/Cache.cs",
+        "src/Polly.Benchmarks/CircuitBreaker.cs",
+        "src/Polly.Benchmarks/Fallback.cs",
+        "src/Polly.Benchmarks/NoOp.cs",
+        "src/Polly.Benchmarks/PolicyWrap.cs",
+        "src/Polly.Benchmarks/RateLimit.cs",
+        "src/Polly.Benchmarks/Retry.cs",
+        "src/Polly.Benchmarks/Timeout.cs",
+        "src/Polly.Benchmarks/Workloads.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadAsyncSpecs.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadScenario.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadScenarios.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadSpecs.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadSpecsBase.cs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "Polly-78707872",
+      "repo": "Polly",
+      "base_commit": "f58fcfbc2e8c4dc2bbe2a4d4be334f44715bc4c7",
+      "fix_commit": "7870787204d7c2bdeb8b12bbb8822add072ee848",
+      "subject": "Fix Polly.Testing mutations",
+      "seed_file": "src/Polly.Testing/ResiliencePipelineExtensions.cs",
+      "seed_symbol": "ResiliencePipelineExtensions",
+      "source_files": [
+        "src/Polly.Testing/ResiliencePipelineExtensions.cs"
+      ],
+      "expected_files": [
+        "src/Polly.Testing/ResiliencePipelineExtensions.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Testing.Tests/ResiliencePipelineExtensionsTests.cs"
+      ],
+      "should_touch_files": [
+        "src/Polly.Core/Registry/ResiliencePipelineRegistry.cs",
+        "src/Polly.Core/ResiliencePipeline.Async.cs",
+        "src/Polly.Core/ResiliencePipeline.AsyncT.cs",
+        "src/Polly.Core/ResiliencePipeline.Sync.cs",
+        "src/Polly.Core/ResiliencePipeline.SyncT.cs",
+        "src/Polly.Core/ResiliencePipeline.cs",
+        "src/Polly.Core/ResiliencePipelineBuilderBase.cs",
+        "src/Polly.Core/ResiliencePipelineBuilderExtensions.cs",
+        "src/Polly.Core/ResiliencePipelineT.cs",
+        "src/Polly.Core/Utils/CompositeResiliencePipeline.cs",
+        "src/Polly.Core/Utils/Pipeline/PipelineComponentFactory.cs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "Polly-a953ba81",
+      "repo": "Polly",
+      "base_commit": "4f207a17ca6c03e40169b75e69c720f21c68c8ab",
+      "fix_commit": "a953ba8119074d7f63cc69643d4ef1d1de52ee3f",
+      "subject": "Fix for retry cancellation (#2456)",
+      "seed_file": "src/Polly.Core/Retry/RetryResilienceStrategy.cs",
+      "seed_symbol": "RetryResilienceStrategy",
+      "source_files": [
+        "src/Polly.Core/Retry/RetryResilienceStrategy.cs"
+      ],
+      "expected_files": [
+        "src/Polly.Core/Retry/RetryResilienceStrategy.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Core.Tests/Retry/RetryResilienceStrategyTests.cs"
+      ],
+      "should_touch_files": [
+        "bench/Polly.Core.Benchmarks/MultipleStrategiesBenchmark.cs",
+        "bench/Polly.Core.Benchmarks/PredicateBenchmark.cs",
+        "bench/Polly.Core.Benchmarks/TelemetryBenchmark.cs",
+        "bench/Polly.Core.Benchmarks/Utils/Helper.CircuitBreaker.cs",
+        "bench/Polly.Core.Benchmarks/Utils/Helper.Hedging.cs",
+        "bench/Polly.Core.Benchmarks/Utils/Helper.MultipleStrategies.cs",
+        "bench/Polly.Core.Benchmarks/Utils/Helper.Retry.cs",
+        "bench/Polly.Core.Benchmarks/Utils/Helper.cs",
+        "src/Polly.Core.Benchmarks/Utils/Helper.CircuitBreaker.cs",
+        "src/Polly.Core.Benchmarks/Utils/Helper.Retry.cs",
+        "src/Polly.Core.Tests/Issues/IssuesTests.FlowingContext_849.cs",
+        "src/Polly.Core.Tests/Issues/IssuesTests.HandleMultipleResults_898.cs",
+        "src/Polly.Core/CircuitBreaker/CircuitBreakerManualControl.cs",
+        "src/Polly.Core/CircuitBreaker/CircuitBreakerPredicateArguments.cs",
+        "src/Polly.Core/CircuitBreaker/CircuitBreakerResilienceStrategy.cs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "Polly-f982bb6f",
+      "repo": "Polly",
+      "base_commit": "c66d8cad20c2b59d23ccce77b875ce7c042556b5",
+      "fix_commit": "f982bb6f28b70ec846a22f83cf9d2c8934b4ad74",
+      "subject": "Synchronize access to Validator (#2428)",
+      "seed_file": "src/Polly.Core/Utils/ValidationHelper.cs",
+      "seed_symbol": "ValidationHelper",
+      "source_files": [
+        "src/Polly.Core/Utils/ValidationHelper.cs"
+      ],
+      "expected_files": [
+        "src/Polly.Core/Utils/ValidationHelper.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Core.Tests/Utils/ValidationHelperTests.cs"
+      ],
+      "should_touch_files": [
+        "src/Polly.Core/ResilienceStrategyBuilderBase.cs",
+        "src/Polly.Core/Retry/RetryResilienceStrategyBuilderExtensions.cs",
+        "src/Polly.Core/Telemetry/ResilienceStrategyTelemetry.cs",
+        "src/Polly.Core/Timeout/TimeoutResilienceStrategyBuilderExtensions.cs",
+        "src/Polly.Core/Timeout/TimeoutStrategyOptions.cs",
+        "src/Polly.Extensions/Telemetry/TelemetryResilienceStrategyBuilderExtensions.cs",
+        "src/Polly.RateLimiting/RateLimiterResilienceStrategyBuilderExtensions.cs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "Polly-74ac188b",
+      "repo": "Polly",
+      "base_commit": "056b27c23f043101d6d1e6b3fef9a0ebfe0737ae",
+      "fix_commit": "74ac188ba7632c96f66627299c83b20999f77155",
+      "subject": "Fix failing hedging test in Debug (#2321)",
+      "seed_file": "src/Polly.Core/Hedging/Controller/HedgingExecutionContext.cs",
+      "seed_symbol": "HedgingExecutionContext",
+      "source_files": [
+        "src/Polly.Core/Hedging/Controller/HedgingExecutionContext.cs"
+      ],
+      "expected_files": [
+        "src/Polly.Core/Hedging/Controller/HedgingExecutionContext.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Core.Tests/Hedging/HedgingResilienceStrategyTests.cs"
+      ],
+      "should_touch_files": [
+        "src/Polly.Core/CircuitBreaker/CircuitBreakerResilienceStrategy.cs",
+        "src/Polly.Core/CircuitBreaker/Controller/CircuitStateController.cs",
+        "src/Polly.Core/Fallback/FallbackHandler.cs",
+        "src/Polly.Core/Fallback/FallbackResilienceStrategy.cs",
+        "src/Polly.Core/Fallback/FallbackResilienceStrategyBuilderExtensions.cs",
+        "src/Polly.Core/Fallback/FallbackStrategyOptions.TResult.cs",
+        "src/Polly.Core/Hedging/Controller/HedgingController.cs",
+        "src/Polly.Core/Hedging/Controller/HedgingHandler.cs",
+        "src/Polly.Core/Hedging/Controller/TaskExecution.cs",
+        "src/Polly.Core/Hedging/HedgingHandler.Handler.cs",
+        "src/Polly.Core/Hedging/HedgingHandler.cs",
+        "src/Polly.Core/Hedging/HedgingResilienceStrategy.cs",
+        "src/Polly.Core/Hedging/HedgingResilienceStrategyBuilderExtensions.cs",
+        "src/Polly.Core/Hedging/HedgingStrategyOptions.cs",
+        "src/Polly.Core/Outcome.cs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "Polly-badf0df4",
+      "repo": "Polly",
+      "base_commit": "1aece4ebb06186983289d7c9cb651bbe27fe2e38",
+      "fix_commit": "badf0df4dd735fa7f2281c3a95f1d46cf42bd623",
+      "subject": "Fix TimeoutGenerator docs (#2275)",
+      "seed_file": "src/Polly.Core/Timeout/TimeoutStrategyOptions.cs",
+      "seed_symbol": "TimeoutStrategyOptions",
+      "source_files": [
+        "src/Polly.Core/Timeout/TimeoutStrategyOptions.cs"
+      ],
+      "expected_files": [
+        "src/Polly.Core/Timeout/TimeoutStrategyOptions.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Core.Tests/Timeout/TimeoutResilienceStrategyTests.cs"
+      ],
+      "should_touch_files": [
+        "src/Polly.Core/CircuitBreaker/AdvancedCircuitBreakerStrategyOptions.TResult.cs",
+        "src/Polly.Core/CircuitBreaker/CircuitBreakerResilienceStrategyBuilderExtensions.cs",
+        "src/Polly.Core/CircuitBreaker/CircuitBreakerStrategyOptions.TResult.cs",
+        "src/Polly.Core/CircuitBreaker/CircuitBreakerStrategyOptions.cs",
+        "src/Polly.Core/Fallback/FallbackResilienceStrategyBuilderExtensions.cs",
+        "src/Polly.Core/Fallback/FallbackStrategyOptions.TResult.cs",
+        "src/Polly.Core/Hedging/HedgingStrategyOptions.TResult.cs",
+        "src/Polly.Core/Hedging/HedgingStrategyOptions.cs",
+        "src/Polly.Core/ResilienceContext.cs",
+        "src/Polly.Core/ResilienceStrategyBuilderBase.cs",
+        "src/Polly.Core/ResilienceStrategyBuilderExtensions.cs",
+        "src/Polly.Core/ResilienceStrategyOptions.cs",
+        "src/Polly.Core/Retry/RetryResilienceStrategy.cs",
+        "src/Polly.Core/Retry/RetryResilienceStrategyBuilderExtensions.cs",
+        "src/Polly.Core/Retry/RetryStrategyOptions.TResult.cs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "Polly-6d758f53",
+      "repo": "Polly",
+      "base_commit": "975a640345cf27081907d98bcee5e528abf9c1f0",
+      "fix_commit": "6d758f53ee975d30c4ead20bf9e955b4a095a879",
+      "subject": "Fix CA1062 warnings (#2234)",
+      "seed_file": "src/Polly/CircuitBreaker/CircuitBreakerPolicy.cs",
+      "seed_symbol": "CircuitBreakerPolicy",
+      "source_files": [
+        "src/Polly/CircuitBreaker/CircuitBreakerPolicy.cs"
+      ],
+      "expected_files": [
+        "src/Polly/CircuitBreaker/CircuitBreakerPolicy.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Specs/CircuitBreaker/CircuitBreakerTResultSpecs.cs"
+      ],
+      "should_touch_files": [
+        "src/Polly.Benchmarks/Bulkhead.cs",
+        "src/Polly.Benchmarks/Cache.cs",
+        "src/Polly.Benchmarks/CircuitBreaker.cs",
+        "src/Polly.Benchmarks/Fallback.cs",
+        "src/Polly.Benchmarks/NoOp.cs",
+        "src/Polly.Benchmarks/PolicyWrap.cs",
+        "src/Polly.Benchmarks/RateLimit.cs",
+        "src/Polly.Benchmarks/Retry.cs",
+        "src/Polly.Benchmarks/Timeout.cs",
+        "src/Polly.Benchmarks/Workloads.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadAsyncSpecs.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadScenario.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadScenarios.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadSpecs.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadSpecsBase.cs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "Polly-975a6403",
+      "repo": "Polly",
+      "base_commit": "626f6d1e3a04e82dd212624004a4df50cbdfcabe",
+      "fix_commit": "975a640345cf27081907d98bcee5e528abf9c1f0",
+      "subject": "Fix CA1062 warnings (#2240)",
+      "seed_file": "src/Polly/Caching/CacheSyntax.cs",
+      "seed_symbol": "Policy",
+      "source_files": [
+        "src/Polly/Caching/CacheSyntax.cs"
+      ],
+      "expected_files": [
+        "src/Polly/Caching/CacheSyntax.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Specs/Caching/CacheSpecs.cs"
+      ],
+      "should_touch_files": [
+        "src/Polly.Benchmarks/Bulkhead.cs",
+        "src/Polly.Benchmarks/Cache.cs",
+        "src/Polly.Benchmarks/CircuitBreaker.cs",
+        "src/Polly.Benchmarks/Fallback.cs",
+        "src/Polly.Benchmarks/NoOp.cs",
+        "src/Polly.Benchmarks/PolicyWrap.cs",
+        "src/Polly.Benchmarks/RateLimit.cs",
+        "src/Polly.Benchmarks/Retry.cs",
+        "src/Polly.Benchmarks/Timeout.cs",
+        "src/Polly.Benchmarks/Workloads.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadAsyncSpecs.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadScenario.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadScenarios.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadSpecs.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadSpecsBase.cs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "Polly-626f6d1e",
+      "repo": "Polly",
+      "base_commit": "c572c4c1ae22bc7e955fabaa60722c531e4317a0",
+      "fix_commit": "626f6d1e3a04e82dd212624004a4df50cbdfcabe",
+      "subject": "Fix CA1062 warnings (#2236)",
+      "seed_file": "src/Polly/Bulkhead/BulkheadPolicy.cs",
+      "seed_symbol": "BulkheadPolicy",
+      "source_files": [
+        "src/Polly/Bulkhead/BulkheadPolicy.cs"
+      ],
+      "expected_files": [
+        "src/Polly/Bulkhead/BulkheadPolicy.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Specs/Bulkhead/BulkheadSpecs.cs",
+        "test/Polly.Specs/Bulkhead/BulkheadTResultSpecs.cs"
+      ],
+      "should_touch_files": [
+        "src/Polly.Benchmarks/Bulkhead.cs",
+        "src/Polly.Benchmarks/Cache.cs",
+        "src/Polly.Benchmarks/CircuitBreaker.cs",
+        "src/Polly.Benchmarks/Fallback.cs",
+        "src/Polly.Benchmarks/NoOp.cs",
+        "src/Polly.Benchmarks/PolicyWrap.cs",
+        "src/Polly.Benchmarks/RateLimit.cs",
+        "src/Polly.Benchmarks/Retry.cs",
+        "src/Polly.Benchmarks/Timeout.cs",
+        "src/Polly.Benchmarks/Workloads.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadAsyncSpecs.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadScenario.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadScenarios.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadSpecs.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadSpecsBase.cs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "Polly-c572c4c1",
+      "repo": "Polly",
+      "base_commit": "05e86fe72704ef723a65b87440c3ffdf52073e11",
+      "fix_commit": "c572c4c1ae22bc7e955fabaa60722c531e4317a0",
+      "subject": "Fix CA1062 warnings (#2231)",
+      "seed_file": "src/Polly/Wrap/IAsyncPolicyPolicyWrapExtensions.cs",
+      "seed_symbol": "IAsyncPolicyPolicyWrapExtensions",
+      "source_files": [
+        "src/Polly/Wrap/IAsyncPolicyPolicyWrapExtensions.cs"
+      ],
+      "expected_files": [
+        "src/Polly/Wrap/IAsyncPolicyPolicyWrapExtensions.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Specs/Caching/CacheAsyncSpecs.cs"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "Polly-05e86fe7",
+      "repo": "Polly",
+      "base_commit": "786813231c614a6d2c126f4bea45a28caab75c45",
+      "fix_commit": "05e86fe72704ef723a65b87440c3ffdf52073e11",
+      "subject": "Fix CA1062 warnings (#2242)",
+      "seed_file": "src/Polly/Caching/AsyncCacheSyntax.cs",
+      "seed_symbol": "Policy",
+      "source_files": [
+        "src/Polly/Caching/AsyncCacheSyntax.cs"
+      ],
+      "expected_files": [
+        "src/Polly/Caching/AsyncCacheSyntax.cs"
+      ],
+      "expected_tests": [
+        "test/Polly.Specs/Caching/CacheAsyncSpecs.cs"
+      ],
+      "should_touch_files": [
+        "src/Polly.Benchmarks/Bulkhead.cs",
+        "src/Polly.Benchmarks/Cache.cs",
+        "src/Polly.Benchmarks/CircuitBreaker.cs",
+        "src/Polly.Benchmarks/Fallback.cs",
+        "src/Polly.Benchmarks/NoOp.cs",
+        "src/Polly.Benchmarks/PolicyWrap.cs",
+        "src/Polly.Benchmarks/RateLimit.cs",
+        "src/Polly.Benchmarks/Retry.cs",
+        "src/Polly.Benchmarks/Timeout.cs",
+        "src/Polly.Benchmarks/Workloads.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadAsyncSpecs.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadScenario.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadScenarios.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadSpecs.cs",
+        "src/Polly.Specs/Bulkhead/BulkheadSpecsBase.cs"
+      ],
+      "max_expected_depth": 1
+    }
+  ]
+}

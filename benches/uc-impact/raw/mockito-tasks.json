@@ -1,0 +1,491 @@
+{
+  "repo": "mockito",
+  "lang": "java",
+  "enriched_at": "2026-04-29T18:58:34.436Z",
+  "count": 18,
+  "tasks": [
+    {
+      "task_id": "mockito-82998ff7",
+      "repo": "mockito",
+      "base_commit": "a7aa41d19742e78cd6c48eaf641445fb439a8ff0",
+      "fix_commit": "82998ff78a14b2111e07ba24c5a7fa731a5f0a82",
+      "subject": "Fix non-deterministic AssertionError when using MockMakers.SUBCLASS (#3406) (#3795)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/util/MockUtil.java",
+      "seed_symbol": "MockUtil",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/util/MockUtil.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/internal/util/MockUtil.java"
+      ],
+      "expected_tests": [
+        "mockito-integration-tests/programmatic-tests/src/test/java/org/mockito/ProgrammaticMockMakerTest.java"
+      ],
+      "should_touch_files": [
+        "mockito-core/src/main/java/org/mockito/Mockito.java",
+        "mockito-core/src/main/java/org/mockito/internal/MockitoCore.java"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-a7aa41d1",
+      "repo": "mockito",
+      "base_commit": "a231205b240e7884a63bf0f63440012867a4da21",
+      "fix_commit": "a7aa41d19742e78cd6c48eaf641445fb439a8ff0",
+      "subject": "Fixes #3536 : Implement SpyStatic API (#3794)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/Mockito.java",
+      "seed_symbol": "href",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/Mockito.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/Mockito.java"
+      ],
+      "expected_tests": [
+        "mockito-integration-tests/inline-mocks-tests/src/test/java/org/mockitoinline/SpyStaticTest.java"
+      ],
+      "should_touch_files": [
+        "mockito-core/src/main/java/org/mockito/internal/MockedStaticImpl.java",
+        "mockito-core/src/main/java/org/mockito/internal/util/MockUtil.java",
+        "mockito-core/src/main/java/org/mockito/stubbing/OngoingStubbing.java"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-8564b43f",
+      "repo": "mockito",
+      "base_commit": "bf3a80983b99339716ec6070e09e60fbe3d9858c",
+      "fix_commit": "8564b43fbbdf4911a35148f7f11689dd5524c7c8",
+      "subject": "Fix primitives support in GenericArrayReturnType for Android (#3753)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/util/Primitives.java",
+      "seed_symbol": "Primitives",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/util/Primitives.java",
+        "mockito-core/src/main/java/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+        "mockito-integration-tests/android-tests/src/main/java/org/mockitousage/androidtest/BasicClassesForTesting.kt"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/internal/util/Primitives.java",
+        "mockito-core/src/main/java/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+        "mockito-integration-tests/android-tests/src/main/java/org/mockitousage/androidtest/BasicClassesForTesting.kt"
+      ],
+      "expected_tests": [
+        "mockito-integration-tests/android-tests/src/androidTest/java/org/mockitousage/androidtest/BasicInstrumentedTests.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "mockito-37bb3e50",
+      "repo": "mockito",
+      "base_commit": "ef2fd6f8e12df2db9b1c3aef067c33f6fe2aba95",
+      "fix_commit": "37bb3e5062bbedda96dc3810c5e3d4f5c0c644e0",
+      "subject": "Fix metadata generation on GraalVM (#3710)",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/SubclassBytecodeGenerator.java",
+      "seed_symbol": "SubclassBytecodeGenerator",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/SubclassBytecodeGenerator.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/SubclassBytecodeGenerator.java"
+      ],
+      "expected_tests": [
+        "mockito-integration-tests/graalvm-tests/src/test/java/org/mockito/graalvm/DummyObject.java",
+        "mockito-integration-tests/graalvm-tests/src/test/java/org/mockito/graalvm/GraalVMSubclassMockMakerTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-52e746cb",
+      "repo": "mockito",
+      "base_commit": "bb040915f447c3cd8ee56c1b2edeb07d92a4e9c0",
+      "fix_commit": "52e746cb8e8cf4691e44ad1b0c75f39051b9f397",
+      "subject": "Revisits #3534 and fix #3167 that was fixing #2984",
+      "seed_file": "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+      "seed_symbol": "InlineDelegateByteBuddyMockMaker",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/TypeSupport.java",
+        "mockito-core/src/main/java/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java"
+      ],
+      "expected_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/TypeSupport.java",
+        "mockito-core/src/main/java/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java"
+      ],
+      "expected_tests": [
+        "mockito-integration-tests/java-21-tests/src/test/java/org/mockito/internal/stubbing/answers/DeepStubReturnsEnum_Java17_issue_2984_Test.java",
+        "mockito-integration-tests/java-21-tests/src/test/java/org/mockito/sealed/SealedClassUnsupportedTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "mockito-110a39bd",
+      "repo": "mockito",
+      "base_commit": "2d56bd7e0ad337b17c2c1947ab687669d67ebeb0",
+      "fix_commit": "110a39bd13faec6508d9cde97b420a0b8f556946",
+      "subject": "Fix NullPointerException in Only.verify by adding null check for unverified invocation (#3349)",
+      "seed_file": "src/main/java/org/mockito/internal/verification/Only.java",
+      "seed_symbol": "Only",
+      "source_files": [
+        "src/main/java/org/mockito/internal/verification/Only.java"
+      ],
+      "expected_files": [
+        "src/main/java/org/mockito/internal/verification/Only.java"
+      ],
+      "expected_tests": [
+        "src/test/java/org/mockito/internal/verification/OnlyTest.java"
+      ],
+      "should_touch_files": [
+        "src/main/java/org/mockito/AdditionalAnswers.java",
+        "src/main/java/org/mockito/AdditionalMatchers.java",
+        "src/main/java/org/mockito/Answers.java",
+        "src/main/java/org/mockito/ArgumentCaptor.java",
+        "src/main/java/org/mockito/ArgumentMatchers.java",
+        "src/main/java/org/mockito/InOrder.java",
+        "src/main/java/org/mockito/Mock.java",
+        "src/main/java/org/mockito/MockingDetails.java",
+        "src/main/java/org/mockito/Mockito.java",
+        "src/main/java/org/mockito/MockitoAnnotations.java",
+        "src/main/java/org/mockito/MockitoDebugger.java",
+        "src/main/java/org/mockito/Spy.java",
+        "src/main/java/org/mockito/configuration/DefaultMockitoConfiguration.java",
+        "src/main/java/org/mockito/exceptions/Reporter.java",
+        "src/main/java/org/mockito/exceptions/base/MockitoException.java"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-4058f071",
+      "repo": "mockito",
+      "base_commit": "d0a919c410d34fabd766af13d89db993a71a9327",
+      "fix_commit": "4058f0718eb61c31a487587791bcfb42c31b74f0",
+      "subject": "Fix reporting for `Mockito.only` when wanted call is first (#3287)",
+      "seed_file": "src/main/java/org/mockito/internal/verification/Only.java",
+      "seed_symbol": "Only",
+      "source_files": [
+        "src/main/java/org/mockito/internal/verification/Only.java"
+      ],
+      "expected_files": [
+        "src/main/java/org/mockito/internal/verification/Only.java"
+      ],
+      "expected_tests": [
+        "src/test/java/org/mockito/internal/verification/OnlyTest.java"
+      ],
+      "should_touch_files": [
+        "src/main/java/org/mockito/AdditionalAnswers.java",
+        "src/main/java/org/mockito/AdditionalMatchers.java",
+        "src/main/java/org/mockito/Answers.java",
+        "src/main/java/org/mockito/ArgumentCaptor.java",
+        "src/main/java/org/mockito/ArgumentMatchers.java",
+        "src/main/java/org/mockito/InOrder.java",
+        "src/main/java/org/mockito/Mock.java",
+        "src/main/java/org/mockito/MockingDetails.java",
+        "src/main/java/org/mockito/Mockito.java",
+        "src/main/java/org/mockito/MockitoAnnotations.java",
+        "src/main/java/org/mockito/MockitoDebugger.java",
+        "src/main/java/org/mockito/Spy.java",
+        "src/main/java/org/mockito/configuration/DefaultMockitoConfiguration.java",
+        "src/main/java/org/mockito/exceptions/Reporter.java",
+        "src/main/java/org/mockito/exceptions/base/MockitoException.java"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-b6554b29",
+      "repo": "mockito",
+      "base_commit": "bfee15dda7acc41ef497d8f8a44c74dacce2933a",
+      "fix_commit": "b6554b29ed6c204a0dd4b8a670877fe0ba2e808b",
+      "subject": "Fix interference between spies when spying on records (#3173)",
+      "seed_file": "src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+      "seed_symbol": "InlineDelegateByteBuddyMockMaker",
+      "source_files": [
+        "src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java"
+      ],
+      "expected_files": [
+        "src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java"
+      ],
+      "expected_tests": [
+        "subprojects/java21/src/test/java/org/mockito/java21/.gitkeep",
+        "subprojects/java21/src/test/java/org/mockito/java21/RecordTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-7d53c578",
+      "repo": "mockito",
+      "base_commit": "6e0c22890a5da72f4a919ede3fb2ae25b9eeab8e",
+      "fix_commit": "7d53c578b4eee0432496a8e801a40f23704be4a1",
+      "subject": "Fix `@Mock(serializable = true)` for parameterized types (#3007)",
+      "seed_file": "src/main/java/org/mockito/internal/creation/settings/CreationSettings.java",
+      "seed_symbol": "CreationSettings",
+      "source_files": [
+        "src/main/java/org/mockito/internal/creation/settings/CreationSettings.java"
+      ],
+      "expected_files": [
+        "src/main/java/org/mockito/internal/creation/settings/CreationSettings.java"
+      ],
+      "expected_tests": [
+        "src/test/java/org/mockitousage/basicapi/MocksSerializationForAnnotationTest.java"
+      ],
+      "should_touch_files": [
+        "src/main/java/org/mockito/internal/creation/MockSettingsImpl.java",
+        "src/main/java/org/mockito/internal/creation/bytebuddy/ByteBuddyCrossClassLoaderSerializationSupport.java",
+        "src/main/java/org/mockito/internal/handler/MockHandlerImpl.java",
+        "src/main/java/org/mockito/internal/junit/UniversalTestListener.java",
+        "src/main/java/org/mockito/internal/listeners/StubbingLookupNotifier.java",
+        "src/main/java/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+        "src/main/java/org/mockito/internal/util/MockUtil.java"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-02b9634b",
+      "repo": "mockito",
+      "base_commit": "6ffd23e1bf3866dc39ab13c86ebe1f667e07398d",
+      "fix_commit": "02b9634b74074dd584386c087d138ec1f5065e91",
+      "subject": "Fix NPE for handling `Object` (#2976)",
+      "seed_file": "src/main/java/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java",
+      "seed_symbol": "TypeBasedCandidateFilter",
+      "source_files": [
+        "src/main/java/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java"
+      ],
+      "expected_files": [
+        "src/main/java/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java"
+      ],
+      "expected_tests": [
+        "subprojects/junit-jupiter/src/test/java/org/mockitousage/GenericTypeMockTest.java"
+      ],
+      "should_touch_files": [
+        "src/main/java/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-84a5eee1",
+      "repo": "mockito",
+      "base_commit": "d65bba7e6a40a3bbd51dd7272dc5bc8bb5c2199f",
+      "fix_commit": "84a5eee1ce5bb0171532eb5da3d21ba9d1741bf9",
+      "subject": "Fix ClassCastException regression with parameterized types with InjectMocks (#2962)",
+      "seed_file": "src/main/java/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java",
+      "seed_symbol": "TypeBasedCandidateFilter",
+      "source_files": [
+        "src/main/java/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java"
+      ],
+      "expected_files": [
+        "src/main/java/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java"
+      ],
+      "expected_tests": [
+        "subprojects/junit-jupiter/src/test/java/org/mockitousage/GenericTypeMockTest.java"
+      ],
+      "should_touch_files": [
+        "src/main/java/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-51535267",
+      "repo": "mockito",
+      "base_commit": "d6e39b8c1e48f4c23164ef65c5694657e65f3fc4",
+      "fix_commit": "51535267e574cc80fac453aff25e56c7bc21e41b",
+      "subject": "Fix mocking of ThreadLocal (#2908)",
+      "seed_file": "src/main/java/org/mockito/internal/creation/bytebuddy/MockMethodAdvice.java",
+      "seed_symbol": "MockMethodAdvice",
+      "source_files": [
+        "src/main/java/org/mockito/internal/creation/bytebuddy/MockMethodAdvice.java"
+      ],
+      "expected_files": [
+        "src/main/java/org/mockito/internal/creation/bytebuddy/MockMethodAdvice.java"
+      ],
+      "expected_tests": [
+        "src/test/java/org/mockitousage/bugs/ThreadLocalTest.java"
+      ],
+      "should_touch_files": [
+        "src/main/java/org/mockito/ArgumentMatchers.java",
+        "src/main/java/org/mockito/Mockito.java",
+        "src/main/java/org/mockito/Spy.java",
+        "src/main/java/org/mockito/hamcrest/MockitoHamcrest.java",
+        "src/main/java/org/mockito/internal/MockedStaticImpl.java",
+        "src/main/java/org/mockito/internal/MockitoCore.java",
+        "src/main/java/org/mockito/internal/configuration/IndependentAnnotationEngine.java",
+        "src/main/java/org/mockito/internal/configuration/InjectingAnnotationEngine.java",
+        "src/main/java/org/mockito/internal/configuration/MockAnnotationProcessor.java",
+        "src/main/java/org/mockito/internal/configuration/SpyAnnotationEngine.java",
+        "src/main/java/org/mockito/internal/configuration/injection/SpyOnInjectedFieldsHandler.java",
+        "src/main/java/org/mockito/internal/configuration/injection/filter/TerminalMockCandidateFilter.java",
+        "src/main/java/org/mockito/internal/configuration/plugins/DefaultMockitoPlugins.java",
+        "src/main/java/org/mockito/internal/configuration/plugins/PluginFileReader.java",
+        "src/main/java/org/mockito/internal/configuration/plugins/PluginFinder.java"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-807b121c",
+      "repo": "mockito",
+      "base_commit": "512ee3949484e4765038a0410cd7a7f1b73cc655",
+      "fix_commit": "807b121cc9b677e22a3497509ac594525f0bc6a2",
+      "subject": "Fix nested static mock stubs (#2685)",
+      "seed_file": "src/main/java/org/mockito/internal/handler/MockHandlerImpl.java",
+      "seed_symbol": "MockHandlerImpl",
+      "source_files": [
+        "src/main/java/org/mockito/internal/handler/MockHandlerImpl.java"
+      ],
+      "expected_files": [
+        "src/main/java/org/mockito/internal/handler/MockHandlerImpl.java"
+      ],
+      "expected_tests": [
+        "src/test/java/org/mockitousage/spies/SpyAsDefaultMockUsageTest.java",
+        "subprojects/inline/src/test/java/org/mockitoinline/bugs/OngoingStubShiftTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-512ee394",
+      "repo": "mockito",
+      "base_commit": "14a1bb42babcf1519d45d7c6b3ba5b0627d5cafd",
+      "fix_commit": "512ee3949484e4765038a0410cd7a7f1b73cc655",
+      "subject": "Fix RETURNS_SELF for methods with generic return type (#2687)",
+      "seed_file": "src/main/java/org/mockito/internal/stubbing/defaultanswers/TriesToReturnSelf.java",
+      "seed_symbol": "TriesToReturnSelf",
+      "source_files": [
+        "src/main/java/org/mockito/internal/stubbing/defaultanswers/TriesToReturnSelf.java"
+      ],
+      "expected_files": [
+        "src/main/java/org/mockito/internal/stubbing/defaultanswers/TriesToReturnSelf.java"
+      ],
+      "expected_tests": [
+        "src/test/java/org/mockitousage/stubbing/StubbingReturnsSelfTest.java"
+      ],
+      "should_touch_files": [
+        "src/main/java/org/mockito/Answers.java"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-d539af2d",
+      "repo": "mockito",
+      "base_commit": "2947e9daf76a97fe179606248d5f1f5e040129a0",
+      "fix_commit": "d539af2d7afdcfaf1eda4a57911d7f9df107db2a",
+      "subject": "Fix mockito-inline for Groovy projects (#2618)",
+      "seed_file": "src/main/java/org/mockito/internal/creation/bytebuddy/SubclassBytecodeGenerator.java",
+      "seed_symbol": "SubclassBytecodeGenerator",
+      "source_files": [
+        "src/main/java/org/mockito/internal/creation/bytebuddy/BytecodeGenerator.java",
+        "src/main/java/org/mockito/internal/creation/bytebuddy/InlineBytecodeGenerator.java",
+        "src/main/java/org/mockito/internal/creation/bytebuddy/SubclassBytecodeGenerator.java"
+      ],
+      "expected_files": [
+        "src/main/java/org/mockito/internal/creation/bytebuddy/BytecodeGenerator.java",
+        "src/main/java/org/mockito/internal/creation/bytebuddy/InlineBytecodeGenerator.java",
+        "src/main/java/org/mockito/internal/creation/bytebuddy/SubclassBytecodeGenerator.java"
+      ],
+      "expected_tests": [
+        "subprojects/groovyInlineTest/src/test/groovy/org/mockito/groovy/GroovyMockitoTest.groovy"
+      ],
+      "should_touch_files": [
+        "src/main/java/org/mockito/Answers.java",
+        "src/main/java/org/mockito/ArgumentMatchers.java",
+        "src/main/java/org/mockito/MockSettings.java",
+        "src/main/java/org/mockito/MockedStatic.java",
+        "src/main/java/org/mockito/Mockito.java",
+        "src/main/java/org/mockito/MockitoAnnotations.java",
+        "src/main/java/org/mockito/Spy.java",
+        "src/main/java/org/mockito/hamcrest/MockitoHamcrest.java",
+        "src/main/java/org/mockito/internal/InOrderImpl.java",
+        "src/main/java/org/mockito/internal/MockedStaticImpl.java",
+        "src/main/java/org/mockito/internal/MockitoCore.java",
+        "src/main/java/org/mockito/internal/configuration/CaptorAnnotationProcessor.java",
+        "src/main/java/org/mockito/internal/configuration/GlobalConfiguration.java",
+        "src/main/java/org/mockito/internal/configuration/IndependentAnnotationEngine.java",
+        "src/main/java/org/mockito/internal/configuration/InjectingAnnotationEngine.java"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "mockito-02d63565",
+      "repo": "mockito",
+      "base_commit": "e0a25cb14fd0cf97e38b3ee8de8ab92b87c61549",
+      "fix_commit": "02d63565aa6ccca12a148c6f2f1ac5cf19357672",
+      "subject": "Fixes #2548: make InOrder able to verify static methods (#2549)",
+      "seed_file": "src/main/java/org/mockito/InOrder.java",
+      "seed_symbol": "InOrder",
+      "source_files": [
+        "src/main/java/org/mockito/InOrder.java",
+        "src/main/java/org/mockito/internal/InOrderImpl.java"
+      ],
+      "expected_files": [
+        "src/main/java/org/mockito/InOrder.java",
+        "src/main/java/org/mockito/internal/InOrderImpl.java"
+      ],
+      "expected_tests": [
+        "subprojects/inline/src/test/java/org/mockitoinline/InOrderVerificationTest.java"
+      ],
+      "should_touch_files": [
+        "src/main/java/org/mockito/internal/MockitoCore.java"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "mockito-f6ce1bb0",
+      "repo": "mockito",
+      "base_commit": "f8ffebe54fbfd4aee36dd755b27a9d25b3d1d5cd",
+      "fix_commit": "f6ce1bb04fe0d0ca65f88e4395dea528b6b749bc",
+      "subject": "Fix checking of declared exceptions for methods in parent classes (#2547)",
+      "seed_file": "src/main/java/org/mockito/internal/stubbing/answers/InvocationInfo.java",
+      "seed_symbol": "InvocationInfo",
+      "source_files": [
+        "src/main/java/org/mockito/internal/stubbing/answers/InvocationInfo.java"
+      ],
+      "expected_files": [
+        "src/main/java/org/mockito/internal/stubbing/answers/InvocationInfo.java"
+      ],
+      "expected_tests": [
+        "src/test/java/org/mockito/internal/invocation/InvocationBuilder.java",
+        "src/test/java/org/mockito/internal/stubbing/answers/InvocationInfoExceptionTest.java",
+        "src/test/java/org/mockito/internal/stubbing/answers/InvocationInfoTest.java"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "mockito-8cdf0cce",
+      "repo": "mockito",
+      "base_commit": "faa6e92aec0c5b854c11422224e0628fa787a1cb",
+      "fix_commit": "8cdf0cce796a3497460de93abbe395108feae74c",
+      "subject": "Fixes #2489 : Fixed issue related to exceptions thrown from the nested spies (#2546)",
+      "seed_file": "src/main/java/org/mockito/internal/creation/bytebuddy/MockMethodAdvice.java",
+      "seed_symbol": "MockMethodAdvice",
+      "source_files": [
+        "src/main/java/org/mockito/internal/creation/bytebuddy/MockMethodAdvice.java"
+      ],
+      "expected_files": [
+        "src/main/java/org/mockito/internal/creation/bytebuddy/MockMethodAdvice.java"
+      ],
+      "expected_tests": [
+        "src/test/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMakerTest.java"
+      ],
+      "should_touch_files": [
+        "src/main/java/org/mockito/ArgumentMatchers.java",
+        "src/main/java/org/mockito/Mockito.java",
+        "src/main/java/org/mockito/Spy.java",
+        "src/main/java/org/mockito/hamcrest/MockitoHamcrest.java",
+        "src/main/java/org/mockito/internal/MockitoCore.java",
+        "src/main/java/org/mockito/internal/configuration/IndependentAnnotationEngine.java",
+        "src/main/java/org/mockito/internal/configuration/InjectingAnnotationEngine.java",
+        "src/main/java/org/mockito/internal/configuration/MockAnnotationProcessor.java",
+        "src/main/java/org/mockito/internal/configuration/SpyAnnotationEngine.java",
+        "src/main/java/org/mockito/internal/configuration/injection/SpyOnInjectedFieldsHandler.java",
+        "src/main/java/org/mockito/internal/configuration/injection/filter/TerminalMockCandidateFilter.java",
+        "src/main/java/org/mockito/internal/configuration/plugins/DefaultMockitoPlugins.java",
+        "src/main/java/org/mockito/internal/configuration/plugins/PluginFileReader.java",
+        "src/main/java/org/mockito/internal/configuration/plugins/PluginFinder.java",
+        "src/main/java/org/mockito/internal/configuration/plugins/PluginInitializer.java"
+      ],
+      "max_expected_depth": 1
+    }
+  ]
+}

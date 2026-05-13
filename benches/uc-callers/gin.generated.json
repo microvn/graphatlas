@@ -1,0 +1,2938 @@
+{
+  "schema_version": 1,
+  "uc": "callers",
+  "fixture": "gin",
+  "tasks": [
+    {
+      "task_id": "textmatch_Templates",
+      "query": {
+        "__rationale": "2 sites reference `Templates` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Templates"
+      },
+      "expected": [
+        "debugPrintLoadTemplate"
+      ]
+    },
+    {
+      "task_id": "textmatch_decodeJSON",
+      "query": {
+        "__rationale": "2 sites reference `decodeJSON` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "decodeJSON"
+      },
+      "expected": [
+        "Bind",
+        "BindBody"
+      ]
+    },
+    {
+      "task_id": "textmatch_ReadAll",
+      "query": {
+        "__rationale": "5 sites reference `ReadAll` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ReadAll"
+      },
+      "expected": [
+        "Bind",
+        "GetRawData",
+        "ShouldBindBodyWith"
+      ]
+    },
+    {
+      "task_id": "textmatch_DecodeRuneInString",
+      "query": {
+        "__rationale": "2 sites reference `DecodeRuneInString` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "DecodeRuneInString"
+      },
+      "expected": [
+        "findCaseInsensitivePathRec"
+      ]
+    },
+    {
+      "task_id": "textmatch_calculateAbsolutePath",
+      "query": {
+        "__rationale": "3 sites reference `calculateAbsolutePath` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "calculateAbsolutePath"
+      },
+      "expected": [
+        "Group",
+        "createStaticHandler",
+        "handle"
+      ]
+    },
+    {
+      "task_id": "textmatch_Elem",
+      "query": {
+        "__rationale": "10 sites reference `Elem` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Elem"
+      },
+      "expected": [
+        "ValidateStruct",
+        "decodePlain",
+        "mapFormByTag",
+        "mapping",
+        "setFormMap",
+        "setWithProperType"
+      ]
+    },
+    {
+      "task_id": "textmatch_setIntField",
+      "query": {
+        "__rationale": "5 sites reference `setIntField` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setIntField"
+      },
+      "expected": [
+        "setWithProperType"
+      ]
+    },
+    {
+      "task_id": "textmatch_Must",
+      "query": {
+        "__rationale": "6 sites reference `Must` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Must"
+      },
+      "expected": [
+        "LoadHTMLFS",
+        "LoadHTMLFiles",
+        "LoadHTMLGlob",
+        "loadTemplate"
+      ]
+    },
+    {
+      "task_id": "textmatch_debugPrintError",
+      "query": {
+        "__rationale": "6 sites reference `debugPrintError` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "debugPrintError"
+      },
+      "expected": [
+        "Run",
+        "RunFd",
+        "RunListener",
+        "RunQUIC",
+        "RunTLS",
+        "RunUnix"
+      ]
+    },
+    {
+      "task_id": "textmatch_isUnsafeTrustedProxies",
+      "query": {
+        "__rationale": "6 sites reference `isUnsafeTrustedProxies` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isUnsafeTrustedProxies"
+      },
+      "expected": [
+        "Run",
+        "RunFd",
+        "RunListener",
+        "RunQUIC",
+        "RunTLS",
+        "RunUnix"
+      ]
+    },
+    {
+      "task_id": "textmatch_RLock",
+      "query": {
+        "__rationale": "2 sites reference `RLock` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "RLock"
+      },
+      "expected": [
+        "Copy",
+        "Get"
+      ]
+    },
+    {
+      "task_id": "textmatch_NewDecoder",
+      "query": {
+        "__rationale": "9 sites reference `NewDecoder` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "NewDecoder"
+      },
+      "expected": [
+        "NewDecoder",
+        "decodeJSON",
+        "decodeMsgPack",
+        "decodeToml",
+        "decodeXML",
+        "decodeYAML"
+      ]
+    },
+    {
+      "task_id": "textmatch_GetQueryArray",
+      "query": {
+        "__rationale": "2 sites reference `GetQueryArray` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "GetQueryArray"
+      },
+      "expected": [
+        "GetQuery",
+        "QueryArray"
+      ]
+    },
+    {
+      "task_id": "textmatch_FuncForPC",
+      "query": {
+        "__rationale": "2 sites reference `FuncForPC` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "FuncForPC"
+      },
+      "expected": [
+        "function",
+        "nameOfFunction"
+      ]
+    },
+    {
+      "task_id": "textmatch_Error",
+      "query": {
+        "__rationale": "7 sites reference `Error` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Error"
+      },
+      "expected": [
+        "AbortWithError",
+        "CustomRecoveryWithWriter",
+        "Error",
+        "Errors",
+        "JSON",
+        "Render"
+      ]
+    },
+    {
+      "task_id": "textmatch_addChild",
+      "query": {
+        "__rationale": "4 sites reference `addChild` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "addChild"
+      },
+      "expected": [
+        "addRoute",
+        "insertChild"
+      ]
+    },
+    {
+      "task_id": "textmatch_timeFormat",
+      "query": {
+        "__rationale": "2 sites reference `timeFormat` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "timeFormat"
+      },
+      "expected": [
+        "CustomRecoveryWithWriter"
+      ]
+    },
+    {
+      "task_id": "textmatch_Field",
+      "query": {
+        "__rationale": "2 sites reference `Field` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Field"
+      },
+      "expected": [
+        "mapping"
+      ]
+    },
+    {
+      "task_id": "textmatch_ParseUint",
+      "query": {
+        "__rationale": "3 sites reference `ParseUint` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ParseUint"
+      },
+      "expected": [
+        "getMinVer",
+        "setUintField"
+      ]
+    },
+    {
+      "task_id": "textmatch_combineHandlers",
+      "query": {
+        "__rationale": "4 sites reference `combineHandlers` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "combineHandlers"
+      },
+      "expected": [
+        "Group",
+        "handle",
+        "rebuild404Handlers",
+        "rebuild405Handlers"
+      ]
+    },
+    {
+      "task_id": "textmatch_requestHeader",
+      "query": {
+        "__rationale": "9 sites reference `requestHeader` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "requestHeader"
+      },
+      "expected": [
+        "BasicAuthForProxy",
+        "BasicAuthForRealm",
+        "ClientIP",
+        "ContentType",
+        "GetHeader",
+        "IsWebsocket",
+        "NegotiateFormat"
+      ]
+    },
+    {
+      "task_id": "textmatch_engine",
+      "query": {
+        "__rationale": "25 sites reference `engine` across 25 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "engine"
+      },
+      "expected": [
+        "Any",
+        "DELETE",
+        "GET",
+        "Group",
+        "HEAD",
+        "Handle",
+        "LoadHTMLFS",
+        "LoadHTMLFiles",
+        "LoadHTMLGlob",
+        "NoMethod",
+        "NoRoute",
+        "OPTIONS",
+        "PATCH",
+        "POST",
+        "PUT",
+        "Routes",
+        "Run",
+        "RunFd",
+        "RunTLS",
+        "RunUnix",
+        "SetHTMLTemplate",
+        "Static",
+        "StaticFS",
+        "StaticFile",
+        "Use"
+      ]
+    },
+    {
+      "task_id": "textmatch_Query",
+      "query": {
+        "__rationale": "2 sites reference `Query` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Query"
+      },
+      "expected": [
+        "Bind",
+        "initQueryCache"
+      ]
+    },
+    {
+      "task_id": "textmatch_GetPostForm",
+      "query": {
+        "__rationale": "2 sites reference `GetPostForm` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "GetPostForm"
+      },
+      "expected": [
+        "DefaultPostForm",
+        "PostForm"
+      ]
+    },
+    {
+      "task_id": "textmatch_validateStruct",
+      "query": {
+        "__rationale": "2 sites reference `validateStruct` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "validateStruct"
+      },
+      "expected": [
+        "ValidateStruct"
+      ]
+    },
+    {
+      "task_id": "textmatch_ReplaceAll",
+      "query": {
+        "__rationale": "5 sites reference `ReplaceAll` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ReplaceAll"
+      },
+      "expected": [
+        "function",
+        "tryToSetValue",
+        "updateRouteTree"
+      ]
+    },
+    {
+      "task_id": "textmatch_GET",
+      "query": {
+        "__rationale": "3 sites reference `GET` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "GET"
+      },
+      "expected": [
+        "GET",
+        "StaticFS",
+        "staticFileHandler"
+      ]
+    },
+    {
+      "task_id": "textmatch_Delims",
+      "query": {
+        "__rationale": "6 sites reference `Delims` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Delims"
+      },
+      "expected": [
+        "LoadHTMLFS",
+        "LoadHTMLFiles",
+        "LoadHTMLGlob",
+        "loadTemplate"
+      ]
+    },
+    {
+      "task_id": "textmatch_Sprintf",
+      "query": {
+        "__rationale": "4 sites reference `Sprintf` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Sprintf"
+      },
+      "expected": [
+        "MustGet",
+        "Render",
+        "RunFd"
+      ]
+    },
+    {
+      "task_id": "textmatch_debugPrint",
+      "query": {
+        "__rationale": "24 sites reference `debugPrint` across 16 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "debugPrint"
+      },
+      "expected": [
+        "Run",
+        "RunFd",
+        "RunListener",
+        "RunQUIC",
+        "RunTLS",
+        "RunUnix",
+        "WriteHeader",
+        "debugPrintLoadTemplate",
+        "debugPrintRoute",
+        "debugPrintWARNINGDefault",
+        "debugPrintWARNINGNew",
+        "debugPrintWARNINGSetHTMLTemplate",
+        "initFormCache",
+        "redirectRequest",
+        "resolveAddress",
+        "serveError"
+      ]
+    },
+    {
+      "task_id": "textmatch_Header",
+      "query": {
+        "__rationale": "11 sites reference `Header` across 9 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Header"
+      },
+      "expected": [
+        "BasicAuthForProxy",
+        "BasicAuthForRealm",
+        "FileAttachment",
+        "Header",
+        "Render",
+        "handleHTTPRequest",
+        "serveError",
+        "writeContentType",
+        "writeHeaders"
+      ]
+    },
+    {
+      "task_id": "textmatch_Len",
+      "query": {
+        "__rationale": "4 sites reference `Len` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Len"
+      },
+      "expected": [
+        "Error",
+        "ValidateStruct",
+        "setArrayOfMultipartFormFiles",
+        "setByForm"
+      ]
+    },
+    {
+      "task_id": "textmatch_IsNil",
+      "query": {
+        "__rationale": "2 sites reference `IsNil` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "IsNil"
+      },
+      "expected": [
+        "decodePlain",
+        "mapping"
+      ]
+    },
+    {
+      "task_id": "textmatch_New",
+      "query": {
+        "__rationale": "22 sites reference `New` across 13 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "New"
+      },
+      "expected": [
+        "Bind",
+        "BindBody",
+        "CustomRecoveryWithWriter",
+        "Default",
+        "GetRawData",
+        "LoadHTMLFS",
+        "LoadHTMLFiles",
+        "LoadHTMLGlob",
+        "Negotiate",
+        "lazyinit",
+        "loadTemplate",
+        "mapping",
+        "setWithProperType"
+      ]
+    },
+    {
+      "task_id": "textmatch_Unmarshal",
+      "query": {
+        "__rationale": "8 sites reference `Unmarshal` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Unmarshal"
+      },
+      "expected": [
+        "BindBody",
+        "Unmarshal",
+        "setWithProperType"
+      ]
+    },
+    {
+      "task_id": "textmatch_cleanPath",
+      "query": {
+        "__rationale": "2 sites reference `cleanPath` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "cleanPath"
+      },
+      "expected": [
+        "handleHTTPRequest",
+        "redirectFixedPath"
+      ]
+    },
+    {
+      "task_id": "textmatch_Getenv",
+      "query": {
+        "__rationale": "3 sites reference `Getenv` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Getenv"
+      },
+      "expected": [
+        "LoggerWithConfig",
+        "init",
+        "resolveAddress"
+      ]
+    },
+    {
+      "task_id": "textmatch_findCaseInsensitivePathRec",
+      "query": {
+        "__rationale": "5 sites reference `findCaseInsensitivePathRec` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "findCaseInsensitivePathRec"
+      },
+      "expected": [
+        "findCaseInsensitivePath",
+        "findCaseInsensitivePathRec"
+      ]
+    },
+    {
+      "task_id": "textmatch_ToLower",
+      "query": {
+        "__rationale": "4 sites reference `ToLower` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ToLower"
+      },
+      "expected": [
+        "IsWebsocket",
+        "findCaseInsensitivePathRec",
+        "setTimeField"
+      ]
+    },
+    {
+      "task_id": "textmatch_Index",
+      "query": {
+        "__rationale": "4 sites reference `Index` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Index"
+      },
+      "expected": [
+        "ValidateStruct",
+        "addRoute",
+        "setArray",
+        "setArrayOfMultipartFormFiles"
+      ]
+    },
+    {
+      "task_id": "textmatch_Abort",
+      "query": {
+        "__rationale": "5 sites reference `Abort` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Abort"
+      },
+      "expected": [
+        "AbortWithStatus",
+        "AbortWithStatusJSON",
+        "AbortWithStatusPureJSON",
+        "CustomRecoveryWithWriter",
+        "Render"
+      ]
+    },
+    {
+      "task_id": "textmatch_MarshalIndent",
+      "query": {
+        "__rationale": "5 sites reference `MarshalIndent` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "MarshalIndent"
+      },
+      "expected": [
+        "MarshalIndent",
+        "Render"
+      ]
+    },
+    {
+      "task_id": "textmatch_setUintField",
+      "query": {
+        "__rationale": "5 sites reference `setUintField` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setUintField"
+      },
+      "expected": [
+        "setWithProperType"
+      ]
+    },
+    {
+      "task_id": "textmatch_lazyinit",
+      "query": {
+        "__rationale": "2 sites reference `lazyinit` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "lazyinit"
+      },
+      "expected": [
+        "Engine",
+        "validateStruct"
+      ]
+    },
+    {
+      "task_id": "textmatch_rebuild405Handlers",
+      "query": {
+        "__rationale": "2 sites reference `rebuild405Handlers` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "rebuild405Handlers"
+      },
+      "expected": [
+        "NoMethod",
+        "Use"
+      ]
+    },
+    {
+      "task_id": "textmatch_formSource",
+      "query": {
+        "__rationale": "2 sites reference `formSource` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "formSource"
+      },
+      "expected": [
+        "mapFormByTag"
+      ]
+    },
+    {
+      "task_id": "textmatch_Unlock",
+      "query": {
+        "__rationale": "2 sites reference `Unlock` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Unlock"
+      },
+      "expected": [
+        "Delete",
+        "Set"
+      ]
+    },
+    {
+      "task_id": "textmatch_String",
+      "query": {
+        "__rationale": "9 sites reference `String` across 9 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "String"
+      },
+      "expected": [
+        "BytesToString",
+        "ClientIP",
+        "Error",
+        "JSON",
+        "LoggerWithConfig",
+        "String",
+        "debugPrintLoadTemplate",
+        "redirectRequest",
+        "setByForm"
+      ]
+    },
+    {
+      "task_id": "textmatch_Set",
+      "query": {
+        "__rationale": "20 sites reference `Set` across 15 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Set"
+      },
+      "expected": [
+        "BasicAuthForProxy",
+        "BasicAuthForRealm",
+        "Bind",
+        "FileAttachment",
+        "Header",
+        "Render",
+        "ShouldBindBodyWith",
+        "handleHTTPRequest",
+        "mapping",
+        "setByMultipartFormFile",
+        "setSlice",
+        "setTimeDuration",
+        "setTimeField",
+        "setWithProperType",
+        "writeHeaders"
+      ]
+    },
+    {
+      "task_id": "textmatch_WriteHeader",
+      "query": {
+        "__rationale": "4 sites reference `WriteHeader` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "WriteHeader"
+      },
+      "expected": [
+        "Status",
+        "WriteHeaderNow",
+        "createStaticHandler"
+      ]
+    },
+    {
+      "task_id": "textmatch_Lock",
+      "query": {
+        "__rationale": "2 sites reference `Lock` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Lock"
+      },
+      "expected": [
+        "Delete",
+        "Set"
+      ]
+    },
+    {
+      "task_id": "textmatch_ParseFS",
+      "query": {
+        "__rationale": "2 sites reference `ParseFS` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ParseFS"
+      },
+      "expected": [
+        "LoadHTMLFS",
+        "loadTemplate"
+      ]
+    },
+    {
+      "task_id": "textmatch_decodeMsgPack",
+      "query": {
+        "__rationale": "2 sites reference `decodeMsgPack` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "decodeMsgPack"
+      },
+      "expected": [
+        "Bind",
+        "BindBody"
+      ]
+    },
+    {
+      "task_id": "textmatch_LastIndexByte",
+      "query": {
+        "__rationale": "2 sites reference `LastIndexByte` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "LastIndexByte"
+      },
+      "expected": [
+        "function",
+        "getMinVer"
+      ]
+    },
+    {
+      "task_id": "textmatch_IsDebugging",
+      "query": {
+        "__rationale": "8 sites reference `IsDebugging` across 8 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "IsDebugging"
+      },
+      "expected": [
+        "CustomRecoveryWithWriter",
+        "LoadHTMLFS",
+        "LoadHTMLFiles",
+        "LoadHTMLGlob",
+        "debugPrint",
+        "debugPrintError",
+        "debugPrintLoadTemplate",
+        "debugPrintRoute"
+      ]
+    },
+    {
+      "task_id": "textmatch_ShouldBindBodyWith",
+      "query": {
+        "__rationale": "5 sites reference `ShouldBindBodyWith` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ShouldBindBodyWith"
+      },
+      "expected": [
+        "ShouldBindBodyWithJSON",
+        "ShouldBindBodyWithPlain",
+        "ShouldBindBodyWithTOML",
+        "ShouldBindBodyWithXML",
+        "ShouldBindBodyWithYAML"
+      ]
+    },
+    {
+      "task_id": "textmatch_insertChild",
+      "query": {
+        "__rationale": "2 sites reference `insertChild` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "insertChild"
+      },
+      "expected": [
+        "addRoute"
+      ]
+    },
+    {
+      "task_id": "textmatch_safeUint16",
+      "query": {
+        "__rationale": "2 sites reference `safeUint16` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "safeUint16"
+      },
+      "expected": [
+        "countParams",
+        "countSections"
+      ]
+    },
+    {
+      "task_id": "textmatch_setByForm",
+      "query": {
+        "__rationale": "3 sites reference `setByForm` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setByForm"
+      },
+      "expected": [
+        "TrySet"
+      ]
+    },
+    {
+      "task_id": "textmatch_EqualFold",
+      "query": {
+        "__rationale": "3 sites reference `EqualFold` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "EqualFold"
+      },
+      "expected": [
+        "IsWebsocket",
+        "findCaseInsensitivePathRec"
+      ]
+    },
+    {
+      "task_id": "textmatch_ParseForm",
+      "query": {
+        "__rationale": "2 sites reference `ParseForm` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ParseForm"
+      },
+      "expected": [
+        "Bind"
+      ]
+    },
+    {
+      "task_id": "textmatch_stack",
+      "query": {
+        "__rationale": "2 sites reference `stack` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "stack"
+      },
+      "expected": [
+        "CustomRecoveryWithWriter"
+      ]
+    },
+    {
+      "task_id": "textmatch_Itoa",
+      "query": {
+        "__rationale": "2 sites reference `Itoa` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Itoa"
+      },
+      "expected": [
+        "Error",
+        "Render"
+      ]
+    },
+    {
+      "task_id": "textmatch_ByType",
+      "query": {
+        "__rationale": "2 sites reference `ByType` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ByType"
+      },
+      "expected": [
+        "ErrorLoggerT",
+        "LoggerWithConfig"
+      ]
+    },
+    {
+      "task_id": "textmatch_MakeSlice",
+      "query": {
+        "__rationale": "2 sites reference `MakeSlice` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "MakeSlice"
+      },
+      "expected": [
+        "setByMultipartFormFile",
+        "setSlice"
+      ]
+    },
+    {
+      "task_id": "textmatch_Close",
+      "query": {
+        "__rationale": "8 sites reference `Close` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Close"
+      },
+      "expected": [
+        "FormFile",
+        "RunFd",
+        "RunUnix",
+        "SaveUploadedFile",
+        "createStaticHandler",
+        "readNthLine"
+      ]
+    },
+    {
+      "task_id": "textmatch_StaticFS",
+      "query": {
+        "__rationale": "2 sites reference `StaticFS` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "StaticFS"
+      },
+      "expected": [
+        "Static",
+        "StaticFS"
+      ]
+    },
+    {
+      "task_id": "textmatch_Bind",
+      "query": {
+        "__rationale": "2 sites reference `Bind` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Bind"
+      },
+      "expected": [
+        "Bind",
+        "ShouldBindWith"
+      ]
+    },
+    {
+      "task_id": "textmatch_lastChar",
+      "query": {
+        "__rationale": "2 sites reference `lastChar` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "lastChar"
+      },
+      "expected": [
+        "joinPaths"
+      ]
+    },
+    {
+      "task_id": "textmatch_isTrustedProxy",
+      "query": {
+        "__rationale": "4 sites reference `isTrustedProxy` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isTrustedProxy"
+      },
+      "expected": [
+        "ClientIP",
+        "isUnsafeTrustedProxies",
+        "validateHeader"
+      ]
+    },
+    {
+      "task_id": "textmatch_Fprintf",
+      "query": {
+        "__rationale": "7 sites reference `Fprintf` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Fprintf"
+      },
+      "expected": [
+        "String",
+        "WriteString",
+        "debugPrint",
+        "debugPrintError",
+        "stack"
+      ]
+    },
+    {
+      "task_id": "textmatch_Split",
+      "query": {
+        "__rationale": "6 sites reference `Split` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Split"
+      },
+      "expected": [
+        "parseAccept",
+        "secureRequestDump",
+        "setByForm",
+        "trySplit",
+        "validateHeader"
+      ]
+    },
+    {
+      "task_id": "textmatch_MustBindWith",
+      "query": {
+        "__rationale": "9 sites reference `MustBindWith` across 9 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "MustBindWith"
+      },
+      "expected": [
+        "Bind",
+        "BindHeader",
+        "BindJSON",
+        "BindPlain",
+        "BindQuery",
+        "BindTOML",
+        "BindWith",
+        "BindXML",
+        "BindYAML"
+      ]
+    },
+    {
+      "task_id": "textmatch_setArray",
+      "query": {
+        "__rationale": "2 sites reference `setArray` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setArray"
+      },
+      "expected": [
+        "setByForm",
+        "setSlice"
+      ]
+    },
+    {
+      "task_id": "textmatch_ServeFile",
+      "query": {
+        "__rationale": "2 sites reference `ServeFile` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ServeFile"
+      },
+      "expected": [
+        "File",
+        "FileAttachment"
+      ]
+    },
+    {
+      "task_id": "textmatch_Quote",
+      "query": {
+        "__rationale": "2 sites reference `Quote` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Quote"
+      },
+      "expected": [
+        "BasicAuthForProxy",
+        "BasicAuthForRealm"
+      ]
+    },
+    {
+      "task_id": "textmatch_QueryUnescape",
+      "query": {
+        "__rationale": "3 sites reference `QueryUnescape` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "QueryUnescape"
+      },
+      "expected": [
+        "Cookie",
+        "getValue"
+      ]
+    },
+    {
+      "task_id": "textmatch_mapping",
+      "query": {
+        "__rationale": "3 sites reference `mapping` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "mapping"
+      },
+      "expected": [
+        "mapping",
+        "mappingByPtr"
+      ]
+    },
+    {
+      "task_id": "textmatch_SetString",
+      "query": {
+        "__rationale": "2 sites reference `SetString` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "SetString"
+      },
+      "expected": [
+        "decodePlain",
+        "setWithProperType"
+      ]
+    },
+    {
+      "task_id": "textmatch_FileServer",
+      "query": {
+        "__rationale": "2 sites reference `FileServer` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "FileServer"
+      },
+      "expected": [
+        "FileFromFS",
+        "createStaticHandler"
+      ]
+    },
+    {
+      "task_id": "textmatch_decodeYAML",
+      "query": {
+        "__rationale": "2 sites reference `decodeYAML` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "decodeYAML"
+      },
+      "expected": [
+        "Bind",
+        "BindBody"
+      ]
+    },
+    {
+      "task_id": "textmatch_Now",
+      "query": {
+        "__rationale": "4 sites reference `Now` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Now"
+      },
+      "expected": [
+        "CustomRecoveryWithWriter",
+        "LoggerWithConfig"
+      ]
+    },
+    {
+      "task_id": "textmatch_Flush",
+      "query": {
+        "__rationale": "2 sites reference `Flush` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Flush"
+      },
+      "expected": [
+        "Flush",
+        "Stream"
+      ]
+    },
+    {
+      "task_id": "textmatch_Errorf",
+      "query": {
+        "__rationale": "3 sites reference `Errorf` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Errorf"
+      },
+      "expected": [
+        "decodePlain",
+        "setByForm",
+        "trySplit"
+      ]
+    },
+    {
+      "task_id": "textmatch_decodeXML",
+      "query": {
+        "__rationale": "2 sites reference `decodeXML` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "decodeXML"
+      },
+      "expected": [
+        "Bind",
+        "BindBody"
+      ]
+    },
+    {
+      "task_id": "textmatch_mapForm",
+      "query": {
+        "__rationale": "3 sites reference `mapForm` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "mapForm"
+      },
+      "expected": [
+        "Bind"
+      ]
+    },
+    {
+      "task_id": "textmatch_decodeToml",
+      "query": {
+        "__rationale": "2 sites reference `decodeToml` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "decodeToml"
+      },
+      "expected": [
+        "Bind",
+        "BindBody"
+      ]
+    },
+    {
+      "task_id": "textmatch_min",
+      "query": {
+        "__rationale": "3 sites reference `min` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "min"
+      },
+      "expected": [
+        "findCaseInsensitivePathRec",
+        "longestCommonPrefix"
+      ]
+    },
+    {
+      "task_id": "textmatch_ParseGlob",
+      "query": {
+        "__rationale": "2 sites reference `ParseGlob` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ParseGlob"
+      },
+      "expected": [
+        "LoadHTMLGlob",
+        "loadTemplate"
+      ]
+    },
+    {
+      "task_id": "textmatch_HasSuffix",
+      "query": {
+        "__rationale": "5 sites reference `HasSuffix` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "HasSuffix"
+      },
+      "expected": [
+        "Render",
+        "debugPrint",
+        "getValue"
+      ]
+    },
+    {
+      "task_id": "textmatch_Name",
+      "query": {
+        "__rationale": "3 sites reference `Name` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Name"
+      },
+      "expected": [
+        "debugPrintLoadTemplate",
+        "function",
+        "nameOfFunction"
+      ]
+    },
+    {
+      "task_id": "textmatch_handle",
+      "query": {
+        "__rationale": "11 sites reference `handle` across 11 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "handle"
+      },
+      "expected": [
+        "Any",
+        "CustomRecoveryWithWriter",
+        "DELETE",
+        "GET",
+        "HEAD",
+        "Handle",
+        "Match",
+        "OPTIONS",
+        "PATCH",
+        "POST",
+        "PUT"
+      ]
+    },
+    {
+      "task_id": "textmatch_Join",
+      "query": {
+        "__rationale": "5 sites reference `Join` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Join"
+      },
+      "expected": [
+        "ClientIP",
+        "StaticFS",
+        "handleHTTPRequest",
+        "joinPaths",
+        "secureRequestDump"
+      ]
+    },
+    {
+      "task_id": "textmatch_copy",
+      "query": {
+        "__rationale": "6 sites reference `copy` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "copy"
+      },
+      "expected": [
+        "Copy",
+        "bufApp",
+        "combineHandlers",
+        "getValue"
+      ]
+    },
+    {
+      "task_id": "textmatch_Use",
+      "query": {
+        "__rationale": "3 sites reference `Use` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Use"
+      },
+      "expected": [
+        "Default",
+        "Use"
+      ]
+    },
+    {
+      "task_id": "textmatch_Decode",
+      "query": {
+        "__rationale": "5 sites reference `Decode` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Decode"
+      },
+      "expected": [
+        "decodeJSON",
+        "decodeMsgPack",
+        "decodeToml",
+        "decodeXML",
+        "decodeYAML"
+      ]
+    },
+    {
+      "task_id": "textmatch_append",
+      "query": {
+        "__rationale": "21 sites reference `append` across 15 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "append"
+      },
+      "expected": [
+        "AddParam",
+        "ByType",
+        "Error",
+        "HandlerNames",
+        "Use",
+        "ValidateStruct",
+        "addChild",
+        "addRoute",
+        "findCaseInsensitivePathRec",
+        "handleHTTPRequest",
+        "iterate",
+        "parseAccept",
+        "prepareTrustedCIDRs",
+        "processAccounts",
+        "trySplit"
+      ]
+    },
+    {
+      "task_id": "textmatch_JSON",
+      "query": {
+        "__rationale": "7 sites reference `JSON` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "JSON"
+      },
+      "expected": [
+        "AbortWithStatusJSON",
+        "ErrorLoggerT",
+        "JSON",
+        "MarshalJSON",
+        "Negotiate"
+      ]
+    },
+    {
+      "task_id": "textmatch_trySetCustom",
+      "query": {
+        "__rationale": "4 sites reference `trySetCustom` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "trySetCustom"
+      },
+      "expected": [
+        "setByForm",
+        "setWithProperType"
+      ]
+    },
+    {
+      "task_id": "textmatch_Addr",
+      "query": {
+        "__rationale": "5 sites reference `Addr` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Addr"
+      },
+      "expected": [
+        "RunListener",
+        "setWithProperType",
+        "trySetCustom",
+        "trySetUsingParser"
+      ]
+    },
+    {
+      "task_id": "textmatch_ToUpper",
+      "query": {
+        "__rationale": "2 sites reference `ToUpper` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ToUpper"
+      },
+      "expected": [
+        "findCaseInsensitivePathRec"
+      ]
+    },
+    {
+      "task_id": "textmatch_setWithProperType",
+      "query": {
+        "__rationale": "3 sites reference `setWithProperType` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setWithProperType"
+      },
+      "expected": [
+        "setArray",
+        "setByForm",
+        "setWithProperType"
+      ]
+    },
+    {
+      "task_id": "textmatch_Context",
+      "query": {
+        "__rationale": "6 sites reference `Context` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Context"
+      },
+      "expected": [
+        "ClientIP",
+        "Deadline",
+        "Done",
+        "Err",
+        "Value",
+        "hasRequestContext"
+      ]
+    },
+    {
+      "task_id": "textmatch_Last",
+      "query": {
+        "__rationale": "5 sites reference `Last` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Last"
+      },
+      "expected": [
+        "Handler",
+        "HandlerName",
+        "JSON",
+        "debugPrintRoute",
+        "iterate"
+      ]
+    },
+    {
+      "task_id": "textmatch_WriteHeaderNow",
+      "query": {
+        "__rationale": "8 sites reference `WriteHeaderNow` across 8 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "WriteHeaderNow"
+      },
+      "expected": [
+        "AbortWithStatus",
+        "Flush",
+        "Render",
+        "Write",
+        "WriteString",
+        "handleHTTPRequest",
+        "redirectRequest",
+        "serveError"
+      ]
+    },
+    {
+      "task_id": "textmatch_GetPostFormArray",
+      "query": {
+        "__rationale": "2 sites reference `GetPostFormArray` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "GetPostFormArray"
+      },
+      "expected": [
+        "GetPostForm",
+        "PostFormArray"
+      ]
+    },
+    {
+      "task_id": "textmatch_ContentType",
+      "query": {
+        "__rationale": "2 sites reference `ContentType` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ContentType"
+      },
+      "expected": [
+        "Bind",
+        "ShouldBind"
+      ]
+    },
+    {
+      "task_id": "textmatch_staticFileHandler",
+      "query": {
+        "__rationale": "2 sites reference `staticFileHandler` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "staticFileHandler"
+      },
+      "expected": [
+        "StaticFile",
+        "StaticFileFS"
+      ]
+    },
+    {
+      "task_id": "textmatch_HasPrefix",
+      "query": {
+        "__rationale": "3 sites reference `HasPrefix` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "HasPrefix"
+      },
+      "expected": [
+        "ClientIP",
+        "Render",
+        "secureRequestDump"
+      ]
+    },
+    {
+      "task_id": "textmatch_Serve",
+      "query": {
+        "__rationale": "2 sites reference `Serve` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Serve"
+      },
+      "expected": [
+        "RunListener",
+        "RunUnix"
+      ]
+    },
+    {
+      "task_id": "textmatch_addRoute",
+      "query": {
+        "__rationale": "2 sites reference `addRoute` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "addRoute"
+      },
+      "expected": [
+        "addRoute",
+        "handle"
+      ]
+    },
+    {
+      "task_id": "textmatch_StringToBytes",
+      "query": {
+        "__rationale": "12 sites reference `StringToBytes` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "StringToBytes"
+      },
+      "expected": [
+        "Render",
+        "WriteString",
+        "authorizationHeader",
+        "searchCredential",
+        "setWithProperType"
+      ]
+    },
+    {
+      "task_id": "textmatch_HEAD",
+      "query": {
+        "__rationale": "3 sites reference `HEAD` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "HEAD"
+      },
+      "expected": [
+        "HEAD",
+        "StaticFS",
+        "staticFileHandler"
+      ]
+    },
+    {
+      "task_id": "textmatch_Open",
+      "query": {
+        "__rationale": "5 sites reference `Open` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Open"
+      },
+      "expected": [
+        "Open",
+        "SaveUploadedFile",
+        "createStaticHandler",
+        "readNthLine"
+      ]
+    },
+    {
+      "task_id": "textmatch_Copy",
+      "query": {
+        "__rationale": "3 sites reference `Copy` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Copy"
+      },
+      "expected": [
+        "Render",
+        "SaveUploadedFile",
+        "setFormMap"
+      ]
+    },
+    {
+      "task_id": "textmatch_validate",
+      "query": {
+        "__rationale": "11 sites reference `validate` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "validate"
+      },
+      "expected": [
+        "Bind",
+        "BindUri",
+        "decodeJSON",
+        "decodeMsgPack",
+        "decodeToml",
+        "decodeXML",
+        "decodeYAML"
+      ]
+    },
+    {
+      "task_id": "textmatch_trySplit",
+      "query": {
+        "__rationale": "2 sites reference `trySplit` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "trySplit"
+      },
+      "expected": [
+        "setByForm"
+      ]
+    },
+    {
+      "task_id": "textmatch_ParseInt",
+      "query": {
+        "__rationale": "2 sites reference `ParseInt` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ParseInt"
+      },
+      "expected": [
+        "setIntField",
+        "setTimeField"
+      ]
+    },
+    {
+      "task_id": "textmatch_initFormCache",
+      "query": {
+        "__rationale": "2 sites reference `initFormCache` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "initFormCache"
+      },
+      "expected": [
+        "GetPostFormArray",
+        "GetPostFormMap"
+      ]
+    },
+    {
+      "task_id": "textmatch_Interface",
+      "query": {
+        "__rationale": "14 sites reference `Interface` across 9 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Interface"
+      },
+      "expected": [
+        "Bind",
+        "JSON",
+        "ValidateStruct",
+        "decodePlain",
+        "mapFormByTag",
+        "setByMultipartFormFile",
+        "setWithProperType",
+        "trySetCustom",
+        "trySetUsingParser"
+      ]
+    },
+    {
+      "task_id": "textmatch_Default",
+      "query": {
+        "__rationale": "3 sites reference `Default` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Default"
+      },
+      "expected": [
+        "Bind",
+        "ShouldBind"
+      ]
+    },
+    {
+      "task_id": "textmatch_Funcs",
+      "query": {
+        "__rationale": "7 sites reference `Funcs` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Funcs"
+      },
+      "expected": [
+        "LoadHTMLFS",
+        "LoadHTMLFiles",
+        "LoadHTMLGlob",
+        "SetHTMLTemplate",
+        "loadTemplate"
+      ]
+    },
+    {
+      "task_id": "textmatch_Marshal",
+      "query": {
+        "__rationale": "14 sites reference `Marshal` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Marshal"
+      },
+      "expected": [
+        "Marshal",
+        "MarshalJSON",
+        "Render",
+        "WriteJSON"
+      ]
+    },
+    {
+      "task_id": "textmatch_SetHTMLTemplate",
+      "query": {
+        "__rationale": "4 sites reference `SetHTMLTemplate` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "SetHTMLTemplate"
+      },
+      "expected": [
+        "LoadHTMLFS",
+        "LoadHTMLFiles",
+        "LoadHTMLGlob",
+        "SetHTMLTemplate"
+      ]
+    },
+    {
+      "task_id": "textmatch_SetType",
+      "query": {
+        "__rationale": "3 sites reference `SetType` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "SetType"
+      },
+      "expected": [
+        "BindUri",
+        "MustBindWith"
+      ]
+    },
+    {
+      "task_id": "textmatch_head",
+      "query": {
+        "__rationale": "4 sites reference `head` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "head"
+      },
+      "expected": [
+        "tryToSetValue"
+      ]
+    },
+    {
+      "task_id": "textmatch_setArrayOfMultipartFormFiles",
+      "query": {
+        "__rationale": "2 sites reference `setArrayOfMultipartFormFiles` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setArrayOfMultipartFormFiles"
+      },
+      "expected": [
+        "setByMultipartFormFile"
+      ]
+    },
+    {
+      "task_id": "textmatch_searchCredential",
+      "query": {
+        "__rationale": "2 sites reference `searchCredential` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "searchCredential"
+      },
+      "expected": [
+        "BasicAuthForProxy",
+        "BasicAuthForRealm"
+      ]
+    },
+    {
+      "task_id": "textmatch_NewEncoder",
+      "query": {
+        "__rationale": "7 sites reference `NewEncoder` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "NewEncoder"
+      },
+      "expected": [
+        "NewEncoder",
+        "Render",
+        "WriteMsgPack"
+      ]
+    },
+    {
+      "task_id": "textmatch_EncodeToken",
+      "query": {
+        "__rationale": "2 sites reference `EncodeToken` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "EncodeToken"
+      },
+      "expected": [
+        "MarshalXML"
+      ]
+    },
+    {
+      "task_id": "textmatch_QueryEscape",
+      "query": {
+        "__rationale": "2 sites reference `QueryEscape` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "QueryEscape"
+      },
+      "expected": [
+        "FileAttachment",
+        "SetCookie"
+      ]
+    },
+    {
+      "task_id": "textmatch_AbortWithError",
+      "query": {
+        "__rationale": "4 sites reference `AbortWithError` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "AbortWithError"
+      },
+      "expected": [
+        "BindUri",
+        "MustBindWith",
+        "Negotiate"
+      ]
+    },
+    {
+      "task_id": "textmatch_StoreInt32",
+      "query": {
+        "__rationale": "3 sites reference `StoreInt32` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "StoreInt32"
+      },
+      "expected": [
+        "SetMode"
+      ]
+    },
+    {
+      "task_id": "textmatch_assert1",
+      "query": {
+        "__rationale": "7 sites reference `assert1` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "assert1"
+      },
+      "expected": [
+        "NegotiateFormat",
+        "addRoute",
+        "combineHandlers",
+        "processAccounts"
+      ]
+    },
+    {
+      "task_id": "textmatch_With",
+      "query": {
+        "__rationale": "2 sites reference `With` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "With"
+      },
+      "expected": [
+        "Default",
+        "New"
+      ]
+    },
+    {
+      "task_id": "textmatch_updateRouteTrees",
+      "query": {
+        "__rationale": "2 sites reference `updateRouteTrees` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "updateRouteTrees"
+      },
+      "expected": [
+        "Run",
+        "ServeHTTP"
+      ]
+    },
+    {
+      "task_id": "textmatch_Unix",
+      "query": {
+        "__rationale": "2 sites reference `Unix` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Unix"
+      },
+      "expected": [
+        "setTimeField"
+      ]
+    },
+    {
+      "task_id": "textmatch_NewReader",
+      "query": {
+        "__rationale": "5 sites reference `NewReader` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "NewReader"
+      },
+      "expected": [
+        "BindBody"
+      ]
+    },
+    {
+      "task_id": "textmatch_Cut",
+      "query": {
+        "__rationale": "3 sites reference `Cut` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Cut"
+      },
+      "expected": [
+        "addRoute",
+        "head",
+        "insertChild"
+      ]
+    },
+    {
+      "task_id": "textmatch_RecoveryWithWriter",
+      "query": {
+        "__rationale": "2 sites reference `RecoveryWithWriter` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "RecoveryWithWriter"
+      },
+      "expected": [
+        "CustomRecovery",
+        "Recovery"
+      ]
+    },
+    {
+      "task_id": "textmatch_LoggerWithConfig",
+      "query": {
+        "__rationale": "3 sites reference `LoggerWithConfig` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "LoggerWithConfig"
+      },
+      "expected": [
+        "Logger",
+        "LoggerWithFormatter",
+        "LoggerWithWriter"
+      ]
+    },
+    {
+      "task_id": "textmatch_writeContentType",
+      "query": {
+        "__rationale": "20 sites reference `writeContentType` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "writeContentType"
+      },
+      "expected": [
+        "WriteContentType",
+        "WriteJSON",
+        "WriteMsgPack",
+        "WriteString"
+      ]
+    },
+    {
+      "task_id": "textmatch_Printf",
+      "query": {
+        "__rationale": "3 sites reference `Printf` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Printf"
+      },
+      "expected": [
+        "CustomRecoveryWithWriter"
+      ]
+    },
+    {
+      "task_id": "textmatch_WriteContentType",
+      "query": {
+        "__rationale": "15 sites reference `WriteContentType` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "WriteContentType"
+      },
+      "expected": [
+        "Render"
+      ]
+    },
+    {
+      "task_id": "textmatch_CloseNotify",
+      "query": {
+        "__rationale": "2 sites reference `CloseNotify` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "CloseNotify"
+      },
+      "expected": [
+        "CloseNotify",
+        "Stream"
+      ]
+    },
+    {
+      "task_id": "textmatch_serveError",
+      "query": {
+        "__rationale": "2 sites reference `serveError` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "serveError"
+      },
+      "expected": [
+        "handleHTTPRequest"
+      ]
+    },
+    {
+      "task_id": "textmatch_shiftNRuneBytes",
+      "query": {
+        "__rationale": "6 sites reference `shiftNRuneBytes` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "shiftNRuneBytes"
+      },
+      "expected": [
+        "findCaseInsensitivePathRec"
+      ]
+    },
+    {
+      "task_id": "textmatch_Bytes",
+      "query": {
+        "__rationale": "2 sites reference `Bytes` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Bytes"
+      },
+      "expected": [
+        "Render",
+        "stack"
+      ]
+    },
+    {
+      "task_id": "textmatch_string",
+      "query": {
+        "__rationale": "2 sites reference `string` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "string"
+      },
+      "expected": [
+        "cleanPath",
+        "removeRepeatedChar"
+      ]
+    },
+    {
+      "task_id": "textmatch_initQueryCache",
+      "query": {
+        "__rationale": "2 sites reference `initQueryCache` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "initQueryCache"
+      },
+      "expected": [
+        "GetQueryArray",
+        "GetQueryMap"
+      ]
+    },
+    {
+      "task_id": "textmatch_rebuild404Handlers",
+      "query": {
+        "__rationale": "2 sites reference `rebuild404Handlers` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "rebuild404Handlers"
+      },
+      "expected": [
+        "NoRoute",
+        "Use"
+      ]
+    },
+    {
+      "task_id": "textmatch_Scan",
+      "query": {
+        "__rationale": "2 sites reference `Scan` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Scan"
+      },
+      "expected": [
+        "readNthLine"
+      ]
+    },
+    {
+      "task_id": "textmatch_updateRouteTree",
+      "query": {
+        "__rationale": "2 sites reference `updateRouteTree` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "updateRouteTree"
+      },
+      "expected": [
+        "updateRouteTree",
+        "updateRouteTrees"
+      ]
+    },
+    {
+      "task_id": "textmatch_AbortWithStatus",
+      "query": {
+        "__rationale": "4 sites reference `AbortWithStatus` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "AbortWithStatus"
+      },
+      "expected": [
+        "AbortWithError",
+        "BasicAuthForProxy",
+        "BasicAuthForRealm",
+        "defaultHandleRecovery"
+      ]
+    },
+    {
+      "task_id": "textmatch_GetQuery",
+      "query": {
+        "__rationale": "2 sites reference `GetQuery` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "GetQuery"
+      },
+      "expected": [
+        "DefaultQuery",
+        "Query"
+      ]
+    },
+    {
+      "task_id": "textmatch_CustomRecoveryWithWriter",
+      "query": {
+        "__rationale": "2 sites reference `CustomRecoveryWithWriter` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "CustomRecoveryWithWriter"
+      },
+      "expected": [
+        "RecoveryWithWriter"
+      ]
+    },
+    {
+      "task_id": "textmatch_ParseFiles",
+      "query": {
+        "__rationale": "2 sites reference `ParseFiles` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ParseFiles"
+      },
+      "expected": [
+        "LoadHTMLFiles",
+        "loadTemplate"
+      ]
+    },
+    {
+      "task_id": "textmatch_BytesToString",
+      "query": {
+        "__rationale": "6 sites reference `BytesToString` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "BytesToString"
+      },
+      "expected": [
+        "Render",
+        "addRoute",
+        "decodePlain",
+        "redirectFixedPath",
+        "secureRequestDump"
+      ]
+    },
+    {
+      "task_id": "textmatch_make",
+      "query": {
+        "__rationale": "27 sites reference `make` across 24 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "make"
+      },
+      "expected": [
+        "Copy",
+        "Errors",
+        "HandlerNames",
+        "JSON",
+        "LoggerWithConfig",
+        "New",
+        "Render",
+        "Set",
+        "ShouldBindUri",
+        "ValidateStruct",
+        "allocateContext",
+        "bufApp",
+        "cleanPath",
+        "combineHandlers",
+        "findCaseInsensitivePath",
+        "getMapFromFormData",
+        "getValue",
+        "handleHTTPRequest",
+        "initFormCache",
+        "parseAccept",
+        "prepareTrustedCIDRs",
+        "processAccounts",
+        "removeRepeatedChar",
+        "trySplit"
+      ]
+    },
+    {
+      "task_id": "textmatch_mapFormByTag",
+      "query": {
+        "__rationale": "3 sites reference `mapFormByTag` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "mapFormByTag"
+      },
+      "expected": [
+        "MapFormWithTag",
+        "mapForm",
+        "mapURI"
+      ]
+    },
+    {
+      "task_id": "textmatch_chooseData",
+      "query": {
+        "__rationale": "7 sites reference `chooseData` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "chooseData"
+      },
+      "expected": [
+        "Negotiate"
+      ]
+    },
+    {
+      "task_id": "textmatch_Next",
+      "query": {
+        "__rationale": "5 sites reference `Next` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Next"
+      },
+      "expected": [
+        "CustomRecoveryWithWriter",
+        "ErrorLoggerT",
+        "LoggerWithConfig",
+        "handleHTTPRequest",
+        "serveError"
+      ]
+    },
+    {
+      "task_id": "textmatch_Status",
+      "query": {
+        "__rationale": "4 sites reference `Status` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Status"
+      },
+      "expected": [
+        "AbortWithStatus",
+        "LoggerWithConfig",
+        "Render",
+        "serveError"
+      ]
+    },
+    {
+      "task_id": "textmatch_processAccounts",
+      "query": {
+        "__rationale": "2 sites reference `processAccounts` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "processAccounts"
+      },
+      "expected": [
+        "BasicAuthForProxy",
+        "BasicAuthForRealm"
+      ]
+    },
+    {
+      "task_id": "textmatch_Dir",
+      "query": {
+        "__rationale": "3 sites reference `Dir` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Dir"
+      },
+      "expected": [
+        "Dir",
+        "SaveUploadedFile",
+        "Static"
+      ]
+    },
+    {
+      "task_id": "textmatch_Type",
+      "query": {
+        "__rationale": "8 sites reference `Type` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Type"
+      },
+      "expected": [
+        "Bind",
+        "mapFormByTag",
+        "mapping",
+        "setByForm",
+        "setByMultipartFormFile",
+        "setSlice",
+        "setWithProperType"
+      ]
+    },
+    {
+      "task_id": "textmatch_int",
+      "query": {
+        "__rationale": "3 sites reference `int` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "int"
+      },
+      "expected": [
+        "combineHandlers",
+        "getValue"
+      ]
+    },
+    {
+      "task_id": "textmatch_bufApp",
+      "query": {
+        "__rationale": "5 sites reference `bufApp` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "bufApp"
+      },
+      "expected": [
+        "cleanPath",
+        "removeRepeatedChar"
+      ]
+    },
+    {
+      "task_id": "textmatch_RUnlock",
+      "query": {
+        "__rationale": "2 sites reference `RUnlock` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "RUnlock"
+      },
+      "expected": [
+        "Copy",
+        "Get"
+      ]
+    },
+    {
+      "task_id": "textmatch_ServeHTTP",
+      "query": {
+        "__rationale": "3 sites reference `ServeHTTP` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ServeHTTP"
+      },
+      "expected": [
+        "FileFromFS",
+        "WrapH",
+        "createStaticHandler"
+      ]
+    },
+    {
+      "task_id": "textmatch_RuneStart",
+      "query": {
+        "__rationale": "2 sites reference `RuneStart` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "RuneStart"
+      },
+      "expected": [
+        "findCaseInsensitivePathRec"
+      ]
+    },
+    {
+      "task_id": "textmatch_Contains",
+      "query": {
+        "__rationale": "7 sites reference `Contains` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Contains"
+      },
+      "expected": [
+        "IsWebsocket",
+        "StaticFS",
+        "isTrustedProxy",
+        "prepareTrustedCIDRs",
+        "staticFileHandler"
+      ]
+    },
+    {
+      "task_id": "textmatch_ParseIP",
+      "query": {
+        "__rationale": "5 sites reference `ParseIP` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ParseIP"
+      },
+      "expected": [
+        "ClientIP",
+        "isUnsafeTrustedProxies",
+        "parseIP",
+        "validateHeader"
+      ]
+    },
+    {
+      "task_id": "textmatch_setFloatField",
+      "query": {
+        "__rationale": "2 sites reference `setFloatField` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setFloatField"
+      },
+      "expected": [
+        "setWithProperType"
+      ]
+    },
+    {
+      "task_id": "textmatch_panic",
+      "query": {
+        "__rationale": "23 sites reference `panic` across 18 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "panic"
+      },
+      "expected": [
+        "Bind",
+        "Error",
+        "Handle",
+        "MustGet",
+        "Render",
+        "SetMode",
+        "StaticFS",
+        "addRoute",
+        "assert1",
+        "chooseData",
+        "findCaseInsensitivePathRec",
+        "findWildcard",
+        "getValue",
+        "insertChild",
+        "lastChar",
+        "loadTemplate",
+        "resolveAddress",
+        "staticFileHandler"
+      ]
+    },
+    {
+      "task_id": "textmatch_ValueOf",
+      "query": {
+        "__rationale": "13 sites reference `ValueOf` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ValueOf"
+      },
+      "expected": [
+        "Bind",
+        "JSON",
+        "ValidateStruct",
+        "decodePlain",
+        "mapFormByTag",
+        "mappingByPtr",
+        "nameOfFunction",
+        "setByMultipartFormFile",
+        "setTimeDuration",
+        "setTimeField"
+      ]
+    },
+    {
+      "task_id": "textmatch_Format",
+      "query": {
+        "__rationale": "2 sites reference `Format` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Format"
+      },
+      "expected": [
+        "timeFormat"
+      ]
+    },
+    {
+      "task_id": "textmatch_SetCookie",
+      "query": {
+        "__rationale": "2 sites reference `SetCookie` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "SetCookie"
+      },
+      "expected": [
+        "SetCookie",
+        "SetCookieData"
+      ]
+    },
+    {
+      "task_id": "textmatch_IndexByte",
+      "query": {
+        "__rationale": "4 sites reference `IndexByte` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "IndexByte"
+      },
+      "expected": [
+        "function",
+        "getMapFromFormData",
+        "getMinVer",
+        "parseAccept"
+      ]
+    },
+    {
+      "task_id": "textmatch_ParseMultipartForm",
+      "query": {
+        "__rationale": "5 sites reference `ParseMultipartForm` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ParseMultipartForm"
+      },
+      "expected": [
+        "Bind",
+        "FormFile",
+        "MultipartForm",
+        "initFormCache"
+      ]
+    },
+    {
+      "task_id": "textmatch_BindBody",
+      "query": {
+        "__rationale": "3 sites reference `BindBody` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "BindBody"
+      },
+      "expected": [
+        "Bind",
+        "ShouldBindBodyWith"
+      ]
+    },
+    {
+      "task_id": "textmatch_Handler",
+      "query": {
+        "__rationale": "5 sites reference `Handler` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Handler"
+      },
+      "expected": [
+        "Run",
+        "RunListener",
+        "RunQUIC",
+        "RunTLS",
+        "RunUnix"
+      ]
+    },
+    {
+      "task_id": "textmatch_Value",
+      "query": {
+        "__rationale": "2 sites reference `Value` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Value"
+      },
+      "expected": [
+        "ClientIP",
+        "Value"
+      ]
+    },
+    {
+      "task_id": "textmatch_handleHTTPRequest",
+      "query": {
+        "__rationale": "2 sites reference `handleHTTPRequest` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "handleHTTPRequest"
+      },
+      "expected": [
+        "HandleContext",
+        "ServeHTTP"
+      ]
+    },
+    {
+      "task_id": "textmatch_getValue",
+      "query": {
+        "__rationale": "2 sites reference `getValue` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getValue"
+      },
+      "expected": [
+        "handleHTTPRequest"
+      ]
+    },
+    {
+      "task_id": "textmatch_ValidateStruct",
+      "query": {
+        "__rationale": "4 sites reference `ValidateStruct` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ValidateStruct"
+      },
+      "expected": [
+        "ValidateStruct",
+        "validate"
+      ]
+    },
+    {
+      "task_id": "textmatch_EncodeRune",
+      "query": {
+        "__rationale": "4 sites reference `EncodeRune` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "EncodeRune"
+      },
+      "expected": [
+        "findCaseInsensitivePathRec"
+      ]
+    },
+    {
+      "task_id": "textmatch_secureRequestDump",
+      "query": {
+        "__rationale": "2 sites reference `secureRequestDump` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "secureRequestDump"
+      },
+      "expected": [
+        "CustomRecoveryWithWriter"
+      ]
+    },
+    {
+      "task_id": "textmatch_Println",
+      "query": {
+        "__rationale": "2 sites reference `Println` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Println"
+      },
+      "expected": [
+        "BindWith",
+        "ClientIP"
+      ]
+    },
+    {
+      "task_id": "textmatch_Encode",
+      "query": {
+        "__rationale": "3 sites reference `Encode` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Encode"
+      },
+      "expected": [
+        "Render",
+        "WriteMsgPack"
+      ]
+    },
+    {
+      "task_id": "textmatch_cap",
+      "query": {
+        "__rationale": "3 sites reference `cap` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "cap"
+      },
+      "expected": [
+        "bufApp",
+        "getValue"
+      ]
+    },
+    {
+      "task_id": "textmatch_Kind",
+      "query": {
+        "__rationale": "17 sites reference `Kind` across 11 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Kind"
+      },
+      "expected": [
+        "Bind",
+        "JSON",
+        "ValidateStruct",
+        "decodePlain",
+        "mapFormByTag",
+        "mapping",
+        "setByForm",
+        "setByMultipartFormFile",
+        "setFormMap",
+        "setWithProperType",
+        "tryToSetValue"
+      ]
+    },
+    {
+      "task_id": "textmatch_decodePlain",
+      "query": {
+        "__rationale": "2 sites reference `decodePlain` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "decodePlain"
+      },
+      "expected": [
+        "Bind",
+        "BindBody"
+      ]
+    },
+    {
+      "task_id": "textmatch_nameOfFunction",
+      "query": {
+        "__rationale": "4 sites reference `nameOfFunction` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "nameOfFunction"
+      },
+      "expected": [
+        "HandlerName",
+        "HandlerNames",
+        "debugPrintRoute",
+        "iterate"
+      ]
+    },
+    {
+      "task_id": "textmatch_File",
+      "query": {
+        "__rationale": "2 sites reference `File` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "File"
+      },
+      "expected": [
+        "Open",
+        "StaticFile"
+      ]
+    },
+    {
+      "task_id": "textmatch_Redirect",
+      "query": {
+        "__rationale": "2 sites reference `Redirect` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Redirect"
+      },
+      "expected": [
+        "Render",
+        "redirectRequest"
+      ]
+    },
+    {
+      "task_id": "textmatch_mappingByPtr",
+      "query": {
+        "__rationale": "3 sites reference `mappingByPtr` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "mappingByPtr"
+      },
+      "expected": [
+        "Bind",
+        "mapFormByTag",
+        "mapHeader"
+      ]
+    },
+    {
+      "task_id": "textmatch_WriteString",
+      "query": {
+        "__rationale": "7 sites reference `WriteString` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "WriteString"
+      },
+      "expected": [
+        "Error",
+        "Render",
+        "WriteString",
+        "debugPrintLoadTemplate"
+      ]
+    },
+    {
+      "task_id": "textmatch_Count",
+      "query": {
+        "__rationale": "4 sites reference `Count` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Count"
+      },
+      "expected": [
+        "countParams",
+        "countSections",
+        "trySplit"
+      ]
+    },
+    {
+      "task_id": "textmatch_headerSource",
+      "query": {
+        "__rationale": "2 sites reference `headerSource` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "headerSource"
+      },
+      "expected": [
+        "mapHeader"
+      ]
+    },
+    {
+      "task_id": "textmatch_getMapFromFormData",
+      "query": {
+        "__rationale": "2 sites reference `getMapFromFormData` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getMapFromFormData"
+      },
+      "expected": [
+        "GetPostFormMap",
+        "GetQueryMap"
+      ]
+    },
+    {
+      "task_id": "textmatch_Written",
+      "query": {
+        "__rationale": "3 sites reference `Written` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Written"
+      },
+      "expected": [
+        "WriteHeader",
+        "WriteHeaderNow",
+        "serveError"
+      ]
+    },
+    {
+      "task_id": "textmatch_TrimSpace",
+      "query": {
+        "__rationale": "5 sites reference `TrimSpace` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "TrimSpace"
+      },
+      "expected": [
+        "RemoteIP",
+        "parseAccept",
+        "readNthLine",
+        "setWithProperType",
+        "validateHeader"
+      ]
+    },
+    {
+      "task_id": "textmatch_Write",
+      "query": {
+        "__rationale": "20 sites reference `Write` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Write"
+      },
+      "expected": [
+        "Render",
+        "Write",
+        "WriteJSON",
+        "WriteString",
+        "serveError"
+      ]
+    },
+    {
+      "task_id": "textmatch_incrementChildPrio",
+      "query": {
+        "__rationale": "2 sites reference `incrementChildPrio` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "incrementChildPrio"
+      },
+      "expected": [
+        "addRoute"
+      ]
+    },
+    {
+      "task_id": "textmatch_returnObj",
+      "query": {
+        "__rationale": "6 sites reference `returnObj` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "returnObj"
+      },
+      "expected": [
+        "Any",
+        "Match",
+        "StaticFS",
+        "Use",
+        "handle",
+        "staticFileHandler"
+      ]
+    },
+    {
+      "task_id": "textmatch_Render",
+      "query": {
+        "__rationale": "20 sites reference `Render` across 19 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Render"
+      },
+      "expected": [
+        "AsciiJSON",
+        "BSON",
+        "Data",
+        "DataFromReader",
+        "HTML",
+        "IndentedJSON",
+        "JSON",
+        "JSONP",
+        "PDF",
+        "ProtoBuf",
+        "PureJSON",
+        "Redirect",
+        "Render",
+        "SSEvent",
+        "SecureJSON",
+        "String",
+        "TOML",
+        "XML",
+        "YAML"
+      ]
+    },
+    {
+      "task_id": "textmatch_iterate",
+      "query": {
+        "__rationale": "2 sites reference `iterate` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "iterate"
+      },
+      "expected": [
+        "Routes",
+        "iterate"
+      ]
+    },
+    {
+      "task_id": "textmatch_redirectRequest",
+      "query": {
+        "__rationale": "2 sites reference `redirectRequest` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "redirectRequest"
+      },
+      "expected": [
+        "redirectFixedPath",
+        "redirectTrailingSlash"
+      ]
+    },
+    {
+      "task_id": "textmatch_ShouldBindWith",
+      "query": {
+        "__rationale": "9 sites reference `ShouldBindWith` across 9 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ShouldBindWith"
+      },
+      "expected": [
+        "MustBindWith",
+        "ShouldBind",
+        "ShouldBindHeader",
+        "ShouldBindJSON",
+        "ShouldBindPlain",
+        "ShouldBindQuery",
+        "ShouldBindTOML",
+        "ShouldBindXML",
+        "ShouldBindYAML"
+      ]
+    },
+    {
+      "task_id": "textmatch_reset",
+      "query": {
+        "__rationale": "3 sites reference `reset` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "reset"
+      },
+      "expected": [
+        "HandleContext",
+        "ServeHTTP"
+      ]
+    },
+    {
+      "task_id": "textmatch_Get",
+      "query": {
+        "__rationale": "18 sites reference `Get` across 14 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Get"
+      },
+      "expected": [
+        "ByName",
+        "MustGet",
+        "ServeHTTP",
+        "ShouldBindBodyWith",
+        "Value",
+        "getTyped",
+        "mapping",
+        "redirectTrailingSlash",
+        "requestHeader",
+        "setByForm",
+        "setTimeField",
+        "trySplit",
+        "tryToSetValue",
+        "writeHeaders"
+      ]
+    },
+    {
+      "task_id": "textmatch_ParseBool",
+      "query": {
+        "__rationale": "2 sites reference `ParseBool` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ParseBool"
+      },
+      "expected": [
+        "setBoolField",
+        "setTimeField"
+      ]
+    },
+    {
+      "task_id": "textmatch_setByMultipartFormFile",
+      "query": {
+        "__rationale": "2 sites reference `setByMultipartFormFile` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setByMultipartFormFile"
+      },
+      "expected": [
+        "TrySet",
+        "setArrayOfMultipartFormFiles"
+      ]
+    },
+    {
+      "task_id": "textmatch_trySetUsingParser",
+      "query": {
+        "__rationale": "4 sites reference `trySetUsingParser` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "trySetUsingParser"
+      },
+      "expected": [
+        "setByForm",
+        "setWithProperType"
+      ]
+    },
+    {
+      "task_id": "textmatch_hasRequestContext",
+      "query": {
+        "__rationale": "4 sites reference `hasRequestContext` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "hasRequestContext"
+      },
+      "expected": [
+        "Deadline",
+        "Done",
+        "Err",
+        "Value"
+      ]
+    }
+  ]
+}

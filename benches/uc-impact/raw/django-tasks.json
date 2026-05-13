@@ -1,0 +1,511 @@
+{
+  "repo": "django",
+  "lang": "python",
+  "enriched_at": "2026-04-29T18:57:22.857Z",
+  "count": 20,
+  "tasks": [
+    {
+      "task_id": "django-673fa46d",
+      "repo": "django",
+      "base_commit": "d3ccbde03447a615b14dafc1352fa1f4d77a9f5e",
+      "fix_commit": "673fa46d8063577c92cfab3a73a28e9406372e33",
+      "subject": "Fixed #37046 -- Allowed Ready for checkin Trac status in PR checks.",
+      "seed_file": "scripts/pr_quality/check_pr.py",
+      "seed_symbol": "date",
+      "source_files": [
+        "scripts/pr_quality/check_pr.py",
+        "scripts/pr_quality/errors.py"
+      ],
+      "expected_files": [
+        "scripts/pr_quality/check_pr.py",
+        "scripts/pr_quality/errors.py"
+      ],
+      "expected_tests": [
+        "scripts/pr_quality/tests/test_check_pr.py"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "django-a284a491",
+      "repo": "django",
+      "base_commit": "d33364c7ba330a349e38449c98494323a4ed7c8d",
+      "fix_commit": "a284a49153f005f2a7af087025e5112ba06cbd5f",
+      "subject": "Fixed #37047 -- Fixed crash in Query.orderby_issubset_groupby for descending and random order_by strings.",
+      "seed_file": "django/db/models/sql/query.py",
+      "seed_symbol": "Query",
+      "source_files": [
+        "django/db/models/sql/query.py"
+      ],
+      "expected_files": [
+        "django/db/models/sql/query.py"
+      ],
+      "expected_tests": [
+        "tests/aggregation_regress/tests.py"
+      ],
+      "should_touch_files": [
+        "django/contrib/gis/db/models/lookups.py",
+        "django/db/models/fields/related_lookups.py",
+        "django/db/models/lookups.py",
+        "django/db/models/query_utils.py",
+        "django/db/models/sql/compiler.py"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-179aa21b",
+      "repo": "django",
+      "base_commit": "aad47fe1bfc789f4b0ad0dc6373c945663e91f93",
+      "fix_commit": "179aa21b6dfeb9a0560a8c2bbfcf056301fc619f",
+      "subject": "Fixed #37024 -- Made SITE_ID system check validation use Site._meta.pk.",
+      "seed_file": "django/contrib/sites/checks.py",
+      "seed_symbol": "check_site_id",
+      "source_files": [
+        "django/contrib/sites/checks.py"
+      ],
+      "expected_files": [
+        "django/contrib/sites/checks.py"
+      ],
+      "expected_tests": [
+        "tests/sites_tests/tests.py"
+      ],
+      "should_touch_files": [
+        "django/contrib/sites/apps.py"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-820c7d32",
+      "repo": "django",
+      "base_commit": "241b8e1aab7fc71018a059467b2ba17bce6556cc",
+      "fix_commit": "820c7d3248af6afbdf3390c97b29e41ba126a421",
+      "subject": "Fixed #37036 -- Added missing flat=True arg in DeferredAttribute.fetch_many().",
+      "seed_file": "django/db/models/query_utils.py",
+      "seed_symbol": "DeferredAttribute",
+      "source_files": [
+        "django/db/models/query_utils.py"
+      ],
+      "expected_files": [
+        "django/db/models/query_utils.py"
+      ],
+      "expected_tests": [
+        "tests/defer/tests.py",
+        "tests/many_to_one/tests.py"
+      ],
+      "should_touch_files": [
+        "django/contrib/auth/apps.py",
+        "django/contrib/contenttypes/fields.py",
+        "django/contrib/gis/db/models/proxy.py",
+        "django/db/models/__init__.py",
+        "django/db/models/constraints.py",
+        "django/db/models/deletion.py",
+        "django/db/models/expressions.py",
+        "django/db/models/fields/__init__.py",
+        "django/db/models/fields/files.py",
+        "django/db/models/fields/related.py",
+        "django/db/models/fields/related_descriptors.py",
+        "django/db/models/indexes.py",
+        "django/db/models/lookups.py",
+        "django/db/models/options.py",
+        "django/db/models/query.py"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-ed79c595",
+      "repo": "django",
+      "base_commit": "d687d412a9abd9c80e31945f16ce32c020512394",
+      "fix_commit": "ed79c5959add54b6e8ea589ec601e0d2e801517e",
+      "subject": "Fixed #37028 -- Added BitAnd(), BitOr(), and BitXor() aggregates.",
+      "seed_file": "django/db/models/aggregates.py",
+      "seed_symbol": "__all__",
+      "source_files": [
+        "django/contrib/postgres/aggregates/general.py",
+        "django/db/backends/base/features.py",
+        "django/db/backends/mysql/features.py",
+        "django/db/backends/oracle/features.py",
+        "django/db/backends/sqlite3/_functions.py",
+        "django/db/models/aggregates.py"
+      ],
+      "expected_files": [
+        "django/contrib/postgres/aggregates/general.py",
+        "django/db/backends/base/features.py",
+        "django/db/backends/mysql/features.py",
+        "django/db/backends/oracle/features.py",
+        "django/db/backends/sqlite3/_functions.py",
+        "django/db/models/aggregates.py"
+      ],
+      "expected_tests": [
+        "tests/aggregation/models.py",
+        "tests/aggregation/tests.py",
+        "tests/postgres_tests/test_aggregates.py"
+      ],
+      "should_touch_files": [
+        "django/db/models/__init__.py",
+        "django/db/models/sql/query.py"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "django-3157285e",
+      "repo": "django",
+      "base_commit": "8d326336c5fba4740114fea5294a7b426c96d65c",
+      "fix_commit": "3157285e27a426530ef571855e0e29c317e210df",
+      "subject": "Fixed #27150 -- Made base File objects truthy by default.",
+      "seed_file": "django/core/files/base.py",
+      "seed_symbol": "File",
+      "source_files": [
+        "django/core/files/base.py",
+        "django/core/files/uploadedfile.py",
+        "django/db/models/fields/files.py"
+      ],
+      "expected_files": [
+        "django/core/files/base.py",
+        "django/core/files/uploadedfile.py",
+        "django/db/models/fields/files.py"
+      ],
+      "expected_tests": [
+        "tests/files/tests.py"
+      ],
+      "should_touch_files": [
+        "django/contrib/staticfiles/storage.py",
+        "django/core/files/__init__.py"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "django-e2abe321",
+      "repo": "django",
+      "base_commit": "74e73dc1315d696330621a7f08310a2e87ea0eba",
+      "fix_commit": "e2abe321a6f1370e05c1a89a742125c9eafcac8c",
+      "subject": "Fixed #37021 -- Added Permission.user_perm_str property.",
+      "seed_file": "django/contrib/auth/models.py",
+      "seed_symbol": "Permission",
+      "source_files": [
+        "django/contrib/auth/models.py"
+      ],
+      "expected_files": [
+        "django/contrib/auth/models.py"
+      ],
+      "expected_tests": [
+        "tests/auth_tests/test_models.py"
+      ],
+      "should_touch_files": [
+        "django/contrib/auth/__init__.py",
+        "django/contrib/auth/admin.py",
+        "django/contrib/auth/backends.py",
+        "django/contrib/auth/context_processors.py",
+        "django/contrib/auth/forms.py",
+        "django/contrib/auth/management/__init__.py",
+        "django/contrib/auth/migrations/0001_initial.py"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-e27f23b2",
+      "repo": "django",
+      "base_commit": "78a3ffbb4cec25ed003f16cf4b1aa0b4bcdc2590",
+      "fix_commit": "e27f23b268c520957384054fb236cfc303f95f51",
+      "subject": "Fixed #36816 -- Allowed **kwargs in @task decorator.",
+      "seed_file": "django/tasks/base.py",
+      "seed_symbol": "TaskResultStatus",
+      "source_files": [
+        "django/tasks/base.py"
+      ],
+      "expected_files": [
+        "django/tasks/base.py"
+      ],
+      "expected_tests": [
+        "tests/tasks/test_custom_backend.py",
+        "tests/tasks/test_tasks.py"
+      ],
+      "should_touch_files": [
+        "django/tasks/backends/base.py",
+        "django/tasks/backends/dummy.py",
+        "django/tasks/backends/immediate.py"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-ed4dfda6",
+      "repo": "django",
+      "base_commit": "f13c20f81b56108ac477213fa5ada2524b5e5c98",
+      "fix_commit": "ed4dfda62718a0bb644b80ac8b1d3099861f2295",
+      "subject": "[4.2.x] Fixed CVE-2026-33034 -- Enforced DATA_UPLOAD_MAX_MEMORY_SIZE on body size in ASGI requests.",
+      "seed_file": "django/http/request.py",
+      "seed_symbol": "HttpRequest",
+      "source_files": [
+        "django/http/request.py"
+      ],
+      "expected_files": [
+        "django/http/request.py"
+      ],
+      "expected_tests": [
+        "tests/asgi/tests.py"
+      ],
+      "should_touch_files": [
+        "django/contrib/sites/models.py",
+        "django/http/__init__.py"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-f13c20f8",
+      "repo": "django",
+      "base_commit": "abfe1a1c57a57cfaf6dd4a0571c029401a0fe743",
+      "fix_commit": "f13c20f81b56108ac477213fa5ada2524b5e5c98",
+      "subject": "[4.2.x] Fixed CVE-2026-33033 -- Mitigated potential DoS in MultiPartParser.",
+      "seed_file": "django/http/multipartparser.py",
+      "seed_symbol": "MultiPartParser",
+      "source_files": [
+        "django/http/multipartparser.py"
+      ],
+      "expected_files": [
+        "django/http/multipartparser.py"
+      ],
+      "expected_tests": [
+        "tests/requests_tests/tests.py"
+      ],
+      "should_touch_files": [
+        "django/core/handlers/exception.py",
+        "django/http/request.py"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-abfe1a1c",
+      "repo": "django",
+      "base_commit": "051f3909e820360bbe84a21350e82f4961e3d917",
+      "fix_commit": "abfe1a1c57a57cfaf6dd4a0571c029401a0fe743",
+      "subject": "[4.2.x] Fixed CVE-2026-4292 -- Disallowed instance creation via ModelAdmin.list_editable.",
+      "seed_file": "django/contrib/admin/options.py",
+      "seed_symbol": "ModelAdmin",
+      "source_files": [
+        "django/contrib/admin/options.py"
+      ],
+      "expected_files": [
+        "django/contrib/admin/options.py"
+      ],
+      "expected_tests": [
+        "tests/admin_views/admin.py",
+        "tests/admin_views/tests.py"
+      ],
+      "should_touch_files": [
+        "django/contrib/admin/__init__.py",
+        "django/contrib/admin/checks.py",
+        "django/contrib/admin/filters.py",
+        "django/contrib/admin/views/main.py",
+        "django/contrib/auth/admin.py",
+        "django/contrib/contenttypes/admin.py"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-051f3909",
+      "repo": "django",
+      "base_commit": "4412731aa64d62a6dd7edae79e0c15b72666d7ca",
+      "fix_commit": "051f3909e820360bbe84a21350e82f4961e3d917",
+      "subject": "[4.2.x] Fixed CVE-2026-4277 -- Checked add permissions in GenericInlineModelAdmin.",
+      "seed_file": "django/contrib/contenttypes/admin.py",
+      "seed_symbol": "GenericInlineModelAdmin",
+      "source_files": [
+        "django/contrib/contenttypes/admin.py"
+      ],
+      "expected_files": [
+        "django/contrib/contenttypes/admin.py"
+      ],
+      "expected_tests": [
+        "tests/generic_inline_admin/tests.py"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-4412731a",
+      "repo": "django",
+      "base_commit": "8d2a05c35dafc71d21fc68a6eb81aa6cdd190270",
+      "fix_commit": "4412731aa64d62a6dd7edae79e0c15b72666d7ca",
+      "subject": "[4.2.x] Fixed CVE-2026-3902 -- Ignored headers with underscores in ASGIRequest.",
+      "seed_file": "django/core/handlers/asgi.py",
+      "seed_symbol": "ASGIRequest",
+      "source_files": [
+        "django/core/handlers/asgi.py"
+      ],
+      "expected_files": [
+        "django/core/handlers/asgi.py"
+      ],
+      "expected_tests": [
+        "django/test/client.py",
+        "tests/asgi/tests.py"
+      ],
+      "should_touch_files": [
+        "django/contrib/staticfiles/handlers.py"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-49e1e2b5",
+      "repo": "django",
+      "base_commit": "0b467893bdde69a2d23034338e76021a1e4f4322",
+      "fix_commit": "49e1e2b548999a35a025f9682598946bda9e9921",
+      "subject": "[5.2.x] Fixed CVE-2026-33034 -- Enforced DATA_UPLOAD_MAX_MEMORY_SIZE on body size in ASGI requests.",
+      "seed_file": "django/http/request.py",
+      "seed_symbol": "HttpRequest",
+      "source_files": [
+        "django/http/request.py"
+      ],
+      "expected_files": [
+        "django/http/request.py"
+      ],
+      "expected_tests": [
+        "tests/asgi/tests.py"
+      ],
+      "should_touch_files": [
+        "django/contrib/sites/models.py",
+        "django/http/__init__.py"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-0b467893",
+      "repo": "django",
+      "base_commit": "397c22048244db2cd4bb78f570e6c72a3967bf36",
+      "fix_commit": "0b467893bdde69a2d23034338e76021a1e4f4322",
+      "subject": "[5.2.x] Fixed CVE-2026-33033 -- Mitigated potential DoS in MultiPartParser.",
+      "seed_file": "django/http/multipartparser.py",
+      "seed_symbol": "MultiPartParser",
+      "source_files": [
+        "django/http/multipartparser.py"
+      ],
+      "expected_files": [
+        "django/http/multipartparser.py"
+      ],
+      "expected_tests": [
+        "tests/requests_tests/tests.py"
+      ],
+      "should_touch_files": [
+        "django/core/handlers/exception.py",
+        "django/http/request.py"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-397c2204",
+      "repo": "django",
+      "base_commit": "60ffa957c427e10a2eb0fc80d1674a8a8ccc30b0",
+      "fix_commit": "397c22048244db2cd4bb78f570e6c72a3967bf36",
+      "subject": "[5.2.x] Fixed CVE-2026-4292 -- Disallowed instance creation via ModelAdmin.list_editable.",
+      "seed_file": "django/contrib/admin/options.py",
+      "seed_symbol": "ModelAdmin",
+      "source_files": [
+        "django/contrib/admin/options.py"
+      ],
+      "expected_files": [
+        "django/contrib/admin/options.py"
+      ],
+      "expected_tests": [
+        "tests/admin_views/admin.py",
+        "tests/admin_views/tests.py"
+      ],
+      "should_touch_files": [
+        "django/contrib/admin/__init__.py",
+        "django/contrib/admin/checks.py",
+        "django/contrib/admin/filters.py",
+        "django/contrib/admin/templatetags/admin_urls.py",
+        "django/contrib/admin/views/main.py",
+        "django/contrib/auth/admin.py",
+        "django/contrib/contenttypes/admin.py"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-60ffa957",
+      "repo": "django",
+      "base_commit": "1cc2a7612f97c109b92415fc11ba9bd0501852e0",
+      "fix_commit": "60ffa957c427e10a2eb0fc80d1674a8a8ccc30b0",
+      "subject": "[5.2.x] Fixed CVE-2026-4277 -- Checked add permissions in GenericInlineModelAdmin.",
+      "seed_file": "django/contrib/contenttypes/admin.py",
+      "seed_symbol": "GenericInlineModelAdmin",
+      "source_files": [
+        "django/contrib/contenttypes/admin.py"
+      ],
+      "expected_files": [
+        "django/contrib/contenttypes/admin.py"
+      ],
+      "expected_tests": [
+        "tests/generic_inline_admin/tests.py"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-1cc2a761",
+      "repo": "django",
+      "base_commit": "2a8a76a002774e3f6bc10188594593e0104ceb66",
+      "fix_commit": "1cc2a7612f97c109b92415fc11ba9bd0501852e0",
+      "subject": "[5.2.x] Fixed CVE-2026-3902 -- Ignored headers with underscores in ASGIRequest.",
+      "seed_file": "django/core/handlers/asgi.py",
+      "seed_symbol": "ASGIRequest",
+      "source_files": [
+        "django/core/handlers/asgi.py"
+      ],
+      "expected_files": [
+        "django/core/handlers/asgi.py"
+      ],
+      "expected_tests": [
+        "django/test/client.py",
+        "tests/asgi/tests.py"
+      ],
+      "should_touch_files": [
+        "django/contrib/staticfiles/handlers.py"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-393dbc53",
+      "repo": "django",
+      "base_commit": "0910af60468216c856dfbcac1177372c225deb76",
+      "fix_commit": "393dbc53e848876fdba92fbf02e10ee6a6eace6b",
+      "subject": "[6.0.x] Fixed CVE-2026-33034 -- Enforced DATA_UPLOAD_MAX_MEMORY_SIZE on body size in ASGI requests.",
+      "seed_file": "django/http/request.py",
+      "seed_symbol": "HttpRequest",
+      "source_files": [
+        "django/http/request.py"
+      ],
+      "expected_files": [
+        "django/http/request.py"
+      ],
+      "expected_tests": [
+        "tests/asgi/tests.py"
+      ],
+      "should_touch_files": [
+        "django/contrib/sites/models.py",
+        "django/http/__init__.py"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "django-0910af60",
+      "repo": "django",
+      "base_commit": "428c48f358c5a0ed5ca2834fb721d615eb2b0e11",
+      "fix_commit": "0910af60468216c856dfbcac1177372c225deb76",
+      "subject": "[6.0.x] Fixed CVE-2026-33033 -- Mitigated potential DoS in MultiPartParser.",
+      "seed_file": "django/http/multipartparser.py",
+      "seed_symbol": "MultiPartParser",
+      "source_files": [
+        "django/http/multipartparser.py"
+      ],
+      "expected_files": [
+        "django/http/multipartparser.py"
+      ],
+      "expected_tests": [
+        "tests/requests_tests/tests.py"
+      ],
+      "should_touch_files": [
+        "django/core/handlers/exception.py",
+        "django/http/request.py"
+      ],
+      "max_expected_depth": 1
+    }
+  ]
+}

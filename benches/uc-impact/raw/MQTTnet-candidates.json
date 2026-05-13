@@ -1,0 +1,318 @@
+{
+  "repo": "MQTTnet",
+  "lang": "csharp",
+  "mined_at": "2026-04-29T18:56:49.061Z",
+  "target": 20,
+  "actual": 20,
+  "candidates": [
+    {
+      "sha": "5ebc5fcb7e667660d947c44730471466fb531b3e",
+      "parent_sha": "51979fa5a4fd70f5c4ee174284998c1dd6837537",
+      "subject": "Call enqueue interceptor for retained messages (fix) (#2212)",
+      "source_files": [
+        "Source/MQTTnet.Server/Internal/MqttClientSessionsManager.cs",
+        "Source/MQTTnet.Server/Internal/MqttConnectedClient.cs",
+        "Source/MQTTnet.Server/Internal/MqttServerEventContainer.cs",
+        "Source/MQTTnet.Server/Status/MqttSessionStatus.cs",
+        "Source/MQTTnet.Tests/BaseTestClass.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Server/Retained_Messages_Tests.cs"
+      ]
+    },
+    {
+      "sha": "4fb3604ad6e91ac77b11f9de2bd395f3f6ffea7c",
+      "parent_sha": "7636cd0fdb6887ea0d53f30c6b8b9214b510d7f3",
+      "subject": "Backport of: 2132 Fix support for enhanced authentication (#2171)",
+      "source_files": [
+        "Samples/Client/Client_Connection_Samples.cs",
+        "Source/MQTTnet/Client/ExtendedAuthenticationExchange/MqttExtendedAuthenticationExchangeContext.cs",
+        "Source/MQTTnet/Client/MqttClient.cs",
+        "Source/MQTTnet/Client/Options/MqttClientOptionsValidator.cs",
+        "Source/MQTTnet/MqttFactory.cs",
+        "Source/MQTTnet/Server/Events/ValidatingConnectionEventArgs.cs",
+        "Source/MQTTnet/Server/ExtendedAuthenticationExchange/MqttExtendedAuthenticationExchangeOptions.cs",
+        "Source/MQTTnet/Server/ExtendedAuthenticationExchange/MqttExtendedAuthenticationExchangeOptionsFactory.cs",
+        "Source/MQTTnet/Server/ExtendedAuthenticationExchange/MqttExtendedAuthenticationExchangeResult.cs",
+        "Source/MQTTnet/Server/ExtendedAuthenticationExchange/MqttExtendedAuthenticationExchangeResultFactory.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Clients/MqttClient/MqttClient_Connection_Tests.cs"
+      ]
+    },
+    {
+      "sha": "9177b6ae6819bd7fa69e8121e9c40d51c273974d",
+      "parent_sha": "f0ea5c9ecdef87cd9add43a349a589a7275d6aa4",
+      "subject": "Fix Unit Tests",
+      "source_files": [
+        "Source/MQTTnet.AspNetCore.Tests/MQTTnet.AspNetCore.Tests.csproj",
+        "Source/MQTTnet.Tests/MQTTnet.Tests.csproj",
+        "Source/MQTTnet/Implementations/CrossPlatformSocket.cs",
+        "Source/MQTTnet/Implementations/MqttTcpServerListener.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/MqttTcpChannel_Tests.cs"
+      ]
+    },
+    {
+      "sha": "2fdbb02dc8922937e751a75a1f2f3163dcf45300",
+      "parent_sha": "c4eb05105b89220a644e35dc832d719217e0cb13",
+      "subject": "Fix parsing error of AUTH packet with empty body (#2070)",
+      "source_files": [
+        "Source/MQTTnet.Tests/MqttPacketSerializationHelper.cs",
+        "Source/MQTTnet/Formatter/IMqttPacketFormatter.cs",
+        "Source/MQTTnet/Formatter/V5/MqttV5PacketDecoder.cs",
+        "Source/MQTTnet/Formatter/V5/MqttV5PacketEncoder.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Formatter/MqttPacketSerialization_V5_Tests.cs"
+      ]
+    },
+    {
+      "sha": "290419b3b65dc4f84338fdcbf561ca5eca3a528a",
+      "parent_sha": "32b6146532c587b4f15386a0d3e7d2ba9a698707",
+      "subject": "[Client] Fix endpoint handling (#1999)",
+      "source_files": [
+        "Source/MQTTnet/Client/Options/MqttClientOptionsBuilder.cs",
+        "Source/MQTTnet/Client/Options/MqttClientTcpOptions.cs",
+        "Source/MQTTnet/Implementations/CrossPlatformSocket.cs",
+        "Source/MQTTnet/Implementations/MqttTcpChannel.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Internal/CrossPlatformSocket_Tests.cs"
+      ]
+    },
+    {
+      "sha": "41d5b703441b9f2f1adf3887f22e51faafc4c58e",
+      "parent_sha": "b4769778af4c792550da0ba214034bcae036427f",
+      "subject": "Fix support for unix sockets (#1995)",
+      "source_files": [
+        "Source/MQTTnet/Client/Options/MqttClientOptionsBuilder.cs",
+        "Source/MQTTnet/Client/Options/MqttClientTcpOptions.cs",
+        "Source/MQTTnet/Implementations/CrossPlatformSocket.cs",
+        "Source/MQTTnet/Implementations/MqttTcpChannel.cs",
+        "Source/MQTTnet/Implementations/MqttTcpServerListener.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/MqttTcpChannel_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Connection_Tests.cs"
+      ]
+    },
+    {
+      "sha": "4481869d42e6c2d0a3205918e33291f1de97d297",
+      "parent_sha": "abbf14b1eca1941c70112dd4cc32f24e55c3797b",
+      "subject": "fix: time out and cancel propagation in managed client (#1987)",
+      "source_files": [
+        "Source/MQTTnet.Extensions.ManagedClient/ManagedMqttClient.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Clients/ManagedMqttClient/ManagedMqttClient_Tests.cs"
+      ]
+    },
+    {
+      "sha": "1aa91e3828ae80465f0cd0103197e481df5e335c",
+      "parent_sha": "2410d7b4c100d844ff231a57ffbac478b5c5c6a8",
+      "subject": "Fix unit tests for topic templates (#1976)",
+      "source_files": [
+        "Source/MQTTnet.Extensions.TopicTemplate/MqttTopicTemplate.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Extensions/MqttTopicTemplate_Tests.cs"
+      ]
+    },
+    {
+      "sha": "6fdee9e0db738817c6f457c3597f84460cff3cd0",
+      "parent_sha": "cae7206733052918f32b5d7348a63697c149977e",
+      "subject": "Fix wrong TLS usage (#1833)",
+      "source_files": [
+        "Source/MQTTnet.Extensions.WebSocket4Net/WebSocket4NetMqttChannel.cs",
+        "Source/MQTTnet/Client/Options/MqttClientOptionsBuilder.cs",
+        "Source/MQTTnet/Implementations/MqttWebSocketChannel.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.TestApp/PublicBrokerTest.cs"
+      ]
+    },
+    {
+      "sha": "3b5667c8827a6ad93b3229ee7fcda2457b850db2",
+      "parent_sha": "0790e5479429c8159906fbc3b3aa7b6ffcecc32d",
+      "subject": "Fix #1761: MQTTRetainedMessageManager, return task with NULL result instead of NULL (#1762)",
+      "source_files": [
+        "Source/MQTTnet/Server/Internal/MqttRetainedMessagesManager.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Server/MqttRetainedMessageManager_Tests.cs"
+      ]
+    },
+    {
+      "sha": "56750adfe40679554e1e19aad58528403b303142",
+      "parent_sha": "11e64ef0189a71409a0b179c291ef3a6424a6765",
+      "subject": "1592 bug of mqttbufferreader (#1593)",
+      "source_files": [
+        "Source/MQTTnet.Benchmarks/MqttBufferReaderBenchmark.cs",
+        "Source/MQTTnet.Benchmarks/Program.cs",
+        "Source/MQTTnet/Formatter/MqttBufferReader.cs",
+        "Source/MQTTnet/Formatter/MqttBufferWriter.cs",
+        "Source/MQTTnet/Formatter/MqttPacketBuffer.cs",
+        "Source/MQTTnet/Formatter/V3/MqttV3PacketFormatter.cs",
+        "Source/MQTTnet/Formatter/V5/MqttV5PacketEncoder.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Client/ManagedMqttClient_Tests.cs",
+        "Source/MQTTnet.Tests/Formatter/MqttBufferReader_Tests.cs",
+        "Source/MQTTnet.Tests/MQTTv5/Server_Tests.cs",
+        "Source/MQTTnet.Tests/Protocol_Tests.cs",
+        "Source/MQTTnet.Tests/Server/QoS_Tests.cs"
+      ]
+    },
+    {
+      "sha": "3937aa76e34f9e96fc5b368ebe358a547c92177e",
+      "parent_sha": "2090b08547b7aa884ddaf68d9ba60f0f53c6b935",
+      "subject": "Fix merge conflicts",
+      "source_files": [
+        "Source/MQTTnet.Extensions.ManagedClient/ManagedMqttClientExtensions.cs",
+        "Source/MQTTnet.Extensions.ManagedClient/New/NewManagedMqttClient.cs",
+        "Source/MQTTnet.Tests/Mockups/TestEnvironment.cs",
+        "Source/MQTTnet/Client/Disconnecting/MqttClientDisconnectOptions.cs",
+        "Source/MQTTnet/Server/MqttServerExtensions.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/ManagedMqttClient/ManagedMqttClient_Connection_Tests.cs",
+        "Source/MQTTnet.Tests/ManagedMqttClient/ManagedMqttClient_Event_Tests.cs",
+        "Source/MQTTnet.Tests/ManagedMqttClient/ManagedMqttClient_Messages_Tests.cs"
+      ]
+    },
+    {
+      "sha": "db1fc7625d9ae5c512bd42747c4aa901db75035b",
+      "parent_sha": "bfec9dc5ad58bc08a64432b1497f4e2cbc3f1346",
+      "subject": "1546 possible bug in server repeatedly sending the same message to client subscribed with cleansession=false (#1569)",
+      "source_files": [
+        "Source/MQTTnet.Extensions.ManagedClient/IManagedMqttClient.cs",
+        "Source/MQTTnet.Extensions.ManagedClient/ManagedMqttClient.cs",
+        "Source/MQTTnet.Tests/Mockups/TestApplicationMessageReceivedHandler.cs",
+        "Source/MQTTnet.Tests/Mockups/TestEnvironment.cs",
+        "Source/MQTTnet/Adapter/MqttChannelAdapter.cs",
+        "Source/MQTTnet/Client/MqttClientExtensions.cs",
+        "Source/MQTTnet/Formatter/ReadFixedHeaderResult.cs",
+        "Source/MQTTnet/Internal/MqttPacketBusItem.cs",
+        "Source/MQTTnet/Server/Internal/MqttClient.cs",
+        "Source/MQTTnet/Server/Internal/MqttSession.cs",
+        "Source/MQTTnet/Server/MqttServerExtensions.cs",
+        "Source/MQTTnet/Server/Status/MqttSessionStatus.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Client/LowLevelMqttClient_Tests.cs",
+        "Source/MQTTnet.Tests/Client/ManagedMqttClient_Tests.cs",
+        "Source/MQTTnet.Tests/Internal/MqttPacketBusItem_Tests.cs",
+        "Source/MQTTnet.Tests/Internal/MqttPacketBus_Tests.cs",
+        "Source/MQTTnet.Tests/Server/QoS_Tests.cs"
+      ]
+    },
+    {
+      "sha": "5c7472838721ac81b48884314510b66b18ba579d",
+      "parent_sha": "97c46bea0f8b001671a3868e15c0805bf6853c5e",
+      "subject": "Fix client session takeover",
+      "source_files": [
+        "Source/MQTTnet.AspNetCore.Tests/Mockups/ConnectionContextMockup.cs",
+        "Source/MQTTnet.AspNetCore.Tests/Mockups/ConnectionHandlerMockup.cs",
+        "Source/MQTTnet.AspNetCore.Tests/Mockups/DuplexPipeMockup.cs",
+        "Source/MQTTnet.AspNetCore.Tests/Mockups/LimitedMemoryPool.cs",
+        "Source/MQTTnet.AspNetCore.Tests/Mockups/MemoryOwner.cs",
+        "Source/MQTTnet.Tests/TopicGenerator.cs",
+        "Source/MQTTnet/Formatter/MqttUnsubAckPacketFactory.cs",
+        "Source/MQTTnet/Internal/AsyncEvent.cs",
+        "Source/MQTTnet/Server/Internal/MqttClient.cs",
+        "Source/MQTTnet/Server/Internal/MqttClientSessionsManager.cs",
+        "Source/MQTTnet/Server/Internal/MqttClientSubscriptionsManager.cs",
+        "Source/MQTTnet/Server/Internal/MqttSession.cs",
+        "Source/MQTTnet/Server/Internal/MqttSubscription.cs",
+        "Source/MQTTnet/Server/Internal/UnsubscribeResult.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.AspNetCore.Tests/MqttConnectionContextTest.cs",
+        "Source/MQTTnet.AspNetCore.Tests/ReaderExtensionsTest.cs",
+        "Source/MQTTnet.Tests/Formatter/MqttPacketSerialization_V3_Binary_Tests.cs",
+        "Source/MQTTnet.Tests/Formatter/MqttPacketSerialization_V3_Tests.cs",
+        "Source/MQTTnet.Tests/Formatter/MqttPacketSerialization_V5_Tests.cs",
+        "Source/MQTTnet.Tests/Server/MqttSubscriptionsManager_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Subscription_TopicHash_Tests.cs"
+      ]
+    },
+    {
+      "sha": "3fc6982e9a08bb8a78690ac9645724dc0a314d50",
+      "parent_sha": "5b1cc7d713cfdf76aa19b3d86c42a0b0f042acbf",
+      "subject": "Fix upgrading and downgrading of retained messages QoS for subscriptions (#1564)",
+      "source_files": [
+        "Source/MQTTnet/Formatter/MqttPacketFactories.cs",
+        "Source/MQTTnet/Formatter/MqttPublishPacketFactory.cs",
+        "Source/MQTTnet/Server/Internal/MqttClient.cs",
+        "Source/MQTTnet/Server/Internal/MqttClientSessionsManager.cs",
+        "Source/MQTTnet/Server/Internal/MqttClientSubscriptionsManager.cs",
+        "Source/MQTTnet/Server/Internal/SubscribeResult.cs",
+        "Source/MQTTnet/Server/MqttRetainedMessageMatch.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Server/Retained_Messages_Tests.cs"
+      ]
+    },
+    {
+      "sha": "5b1cc7d713cfdf76aa19b3d86c42a0b0f042acbf",
+      "parent_sha": "2842f27522fb3f5dbcb781e423564b1ef65043cf",
+      "subject": "Also cleanup `MqttClientSessionsManager._subscriberSessions` when session is taken over by a new one with CleanSession=true, fix #1552 (#1553)",
+      "source_files": [
+        "Source/MQTTnet/Server/Internal/MqttClientSessionsManager.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Internal/AsyncSignal_Tests.cs"
+      ]
+    },
+    {
+      "sha": "36736914bcebcfe6851319e71a932a170bbff806",
+      "parent_sha": "7823d8342e453dc448f62b05295908658821c062",
+      "subject": "Fix Xamarin connect freeze (#1545)",
+      "source_files": [
+        "Source/MQTTnet/Adapter/MqttChannelAdapter.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Client/MqttClient_Tests.cs"
+      ]
+    },
+    {
+      "sha": "e97754629740fa7610ad68484e57683a8d3df925",
+      "parent_sha": "ae92b0ed33931a7c49079468d8391b7f9c257f8a",
+      "subject": "Fix cross access to async events. (#1515)",
+      "source_files": [
+        "Source/MQTTnet/Internal/AsyncEvent.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Internal/AsyncEvent_Tests.cs"
+      ]
+    },
+    {
+      "sha": "d4dad4860a75459c9274ae2d5b4958634984a526",
+      "parent_sha": "c009cbef762e1d8be74132c8674af0c2c89e6fdf",
+      "subject": "Fix and improve session takeover process handling.",
+      "source_files": [
+        "MQTTnet.sln.DotSettings",
+        "Source/MQTTnet/Implementations/MqttTcpServerListener.cs",
+        "Source/MQTTnet/Server/Internal/MqttClient.cs",
+        "Source/MQTTnet/Server/Internal/MqttClientSessionsManager.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Server/Session_Tests.cs"
+      ]
+    },
+    {
+      "sha": "ad546adafe7b61a6182c4ff132f86893be3040db",
+      "parent_sha": "469caf656e36b50591c3ad01a1d1eae087d8ef9c",
+      "subject": "Fix removal of event handlers from async event.",
+      "source_files": [
+        "MQTTnet.sln.DotSettings",
+        "Source/MQTTnet/Internal/AsyncEventInvocator.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Internal/AsyncEvent_Tests.cs"
+      ]
+    }
+  ]
+}

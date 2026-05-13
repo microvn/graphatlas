@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Minimal Spring-mini fixture for v1.1-M4 Java extraction tests.
+  Indexer / parser do NOT read this file; it exists per Lang-C2
+  ("fixture-first development with hand-checked AST node kinds")
+  to mark the directory as a real Maven project layout for any
+  downstream integration test that walks the workspace tree.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example.spring</groupId>
+    <artifactId>spring-mini</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+</project>

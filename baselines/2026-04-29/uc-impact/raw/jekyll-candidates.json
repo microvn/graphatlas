@@ -1,0 +1,305 @@
+{
+  "repo": "jekyll",
+  "lang": "ruby",
+  "mined_at": "2026-04-27T01:45:58.843Z",
+  "target": 20,
+  "actual": 20,
+  "candidates": [
+    {
+      "sha": "65d534a701ed25b5eb85cb7dda56c79096637752",
+      "parent_sha": "baab7bf78537679af48d2d2bce1df87a3035c95f",
+      "subject": "build: fix broken CI on newer rubies (#9954)",
+      "source_files": [
+        "script/rubies",
+        "script/test"
+      ],
+      "test_files": [
+        "test/test_page_without_a_file.rb"
+      ]
+    },
+    {
+      "sha": "16a1e5cac427b493dd7a315c70af72136b34515c",
+      "parent_sha": "ecf098580d2362540a2627d8f663446458563b16",
+      "subject": "Fix `jekyll serve --detach` with jekyll-sass-converter 3.x (#9304)",
+      "source_files": [
+        "lib/jekyll/commands/serve.rb"
+      ],
+      "test_files": [
+        "test/test_commands_serve.rb"
+      ]
+    },
+    {
+      "sha": "6903f0b0f47c53513f59f9a005cc3c159b26c1e9",
+      "parent_sha": "bb851e235dfbe1f197388aea3e7f0eeb1b50c4e3",
+      "subject": "Fix false positive conflicts for static files in a collection (#9141)",
+      "source_files": [
+        "lib/jekyll/site.rb"
+      ],
+      "test_files": [
+        "test/test_site.rb"
+      ]
+    },
+    {
+      "sha": "e7f53e68e677d4561f1261eff315889f90edd6e4",
+      "parent_sha": "11b3d1e4779e94d8b8d63de5649717a53dc151a7",
+      "subject": "Fix response header for content served via `jekyll serve` (#8965)",
+      "source_files": [
+        "lib/jekyll/commands/serve.rb",
+        "lib/jekyll/commands/serve/mime_types_charset.json",
+        "lib/jekyll/commands/serve/servlet.rb",
+        "lib/jekyll/mime.types",
+        "script/vendor-mimes"
+      ],
+      "test_files": [
+        "test/helper.rb"
+      ]
+    },
+    {
+      "sha": "034d3e9f4b443c4575881511597b15fa0e6e40eb",
+      "parent_sha": "86907653ca56337df16193107913cada40e28c5f",
+      "subject": "Fix response header for content served via `jekyll serve` (#8965)",
+      "source_files": [
+        "lib/jekyll/commands/serve.rb",
+        "lib/jekyll/commands/serve/mime_types_charset.json",
+        "lib/jekyll/commands/serve/servlet.rb",
+        "lib/jekyll/mime.types",
+        "script/vendor-mimes"
+      ],
+      "test_files": [
+        "test/helper.rb"
+      ]
+    },
+    {
+      "sha": "ee1d210e774788c9d9cd971ee73cbe0c0ed7095f",
+      "parent_sha": "01ea2471eec16e347976a99b6d3c0fadd85793e8",
+      "subject": "Update and fix CI for `3.9-stable` on Ruby 3.x (#8942)",
+      "source_files": [
+        "Gemfile",
+        "lib/jekyll/readers/data_reader.rb",
+        "lib/jekyll/utils/platforms.rb"
+      ],
+      "test_files": [
+        "test/test_commands_serve.rb",
+        "test/test_generated_site.rb",
+        "test/test_redcarpet.rb",
+        "test/test_tags.rb"
+      ]
+    },
+    {
+      "sha": "433d449d1426a5a9437f1e65ac5fb466df8cb18d",
+      "parent_sha": "c50821b69c939486a08ca85dd28aee8b55899d1a",
+      "subject": "Fix CI for commits to `3.9-stable` branch",
+      "source_files": [
+        ".travis.yml",
+        "appveyor.yml",
+        "features/create_sites.feature"
+      ],
+      "test_files": [
+        "test/helper.rb",
+        "test/test_redcarpet.rb",
+        "test/test_tags.rb"
+      ]
+    },
+    {
+      "sha": "4fbbefeb7eecff17d877f14ee15cbf8b87a52a6e",
+      "parent_sha": "3fea30c86261bd1ff22f222c7254ea8a14e485de",
+      "subject": "Spelling (#8661)",
+      "source_files": [
+        "History.markdown",
+        "benchmark/find-filter-vs-where-first-filters.rb",
+        "features/post_excerpts.feature",
+        "features/rendering.feature",
+        "lib/jekyll.rb",
+        "lib/jekyll/cleaner.rb",
+        "lib/jekyll/converters/markdown/kramdown_parser.rb",
+        "lib/jekyll/deprecator.rb",
+        "lib/jekyll/excerpt.rb",
+        "lib/jekyll/filters.rb",
+        "lib/jekyll/static_file.rb",
+        "lib/jekyll/utils.rb"
+      ],
+      "test_files": [
+        "test/source/_tutorials/graduation-day.md",
+        "test/test_entry_filter.rb",
+        "test/test_kramdown.rb"
+      ]
+    },
+    {
+      "sha": "55624a57e39a9edd9ef1d3214ff35c927e08c53b",
+      "parent_sha": "8c6f8fb8560e3bfaeac2013259b74be9ff7fd735",
+      "subject": "Fix Kramdown converter based tests for v4.0.x (#8143)",
+      "source_files": [
+        "features/post_excerpts.feature"
+      ],
+      "test_files": [
+        "test/test_kramdown.rb"
+      ]
+    },
+    {
+      "sha": "0f5e15811fe8f9a33a6cd1e3c05859b627f12e93",
+      "parent_sha": "9a10ff9b5abc1949083becb2d265abace2ec5215",
+      "subject": "Remove warnings and fixes for deprecated config (#7440)",
+      "source_files": [
+        "features/markdown.feature",
+        "features/pagination.feature",
+        "features/plugins.feature",
+        "features/rendering.feature",
+        "jekyll.gemspec",
+        "lib/jekyll/configuration.rb"
+      ],
+      "test_files": [
+        "test/test_configuration.rb"
+      ]
+    },
+    {
+      "sha": "caddaebf50cdadc5164902b9a57619af8110942d",
+      "parent_sha": "0b83d760c4820eaada991cf5904ce3d580e80d9f",
+      "subject": "3.6.x: security: fix `include` bypass of `EntryFilter#filter` symlink check (#7229)",
+      "source_files": [
+        "lib/jekyll/entry_filter.rb"
+      ],
+      "test_files": [
+        "test/source/symlink-test/symlinked-file-outside-source",
+        "test/test_entry_filter.rb",
+        "test/test_layout_reader.rb"
+      ]
+    },
+    {
+      "sha": "d9a2758ff698c4efd244f5ce0d8bed49bc81ce92",
+      "parent_sha": "48e2de862d8396e6ff2f30e2231ac67c5f233b61",
+      "subject": "3.8.x: security: fix `include` bypass of `EntryFilter#filter` symlink check (#7228)",
+      "source_files": [
+        "lib/jekyll/entry_filter.rb"
+      ],
+      "test_files": [
+        "test/source/symlink-test/symlinked-file-outside-source",
+        "test/test_entry_filter.rb",
+        "test/test_layout_reader.rb"
+      ]
+    },
+    {
+      "sha": "f1c87a91294ed25bbe8c6e291fd1dd399c4b0d4e",
+      "parent_sha": "863a93f9ff36655d8f645565a436640da7a42c32",
+      "subject": "Security: fix `include` bypass of `EntryFilter#filter` symlink check (#7226)",
+      "source_files": [
+        "lib/jekyll/entry_filter.rb"
+      ],
+      "test_files": [
+        "test/source/symlink-test/symlinked-file-outside-source",
+        "test/test_entry_filter.rb",
+        "test/test_layout_reader.rb"
+      ]
+    },
+    {
+      "sha": "2c088e2596c9ad6bb15ded045adbde8da2c245f5",
+      "parent_sha": "a8b91de97b3196b3e0f282145f6bdefab1303bda",
+      "subject": "Update tests for EntryFilter#filter fix and add comments for it",
+      "source_files": [
+        "lib/jekyll/entry_filter.rb"
+      ],
+      "test_files": [
+        "test/test_entry_filter.rb",
+        "test/test_layout_reader.rb"
+      ]
+    },
+    {
+      "sha": "9adac3a11ea405b5395247ae224cf40553a7abb6",
+      "parent_sha": "06125425820eadbc412faaea087161fd8ef75da9",
+      "subject": "Fix Rubocop offences in test files (#7128)",
+      "source_files": [
+        ".rubocop.yml"
+      ],
+      "test_files": [
+        "test/helper.rb",
+        "test/test_coffeescript.rb",
+        "test/test_collections.rb",
+        "test/test_command.rb",
+        "test/test_commands_serve.rb",
+        "test/test_configuration.rb",
+        "test/test_convertible.rb",
+        "test/test_doctor_command.rb",
+        "test/test_document.rb",
+        "test/test_drop.rb",
+        "test/test_entry_filter.rb",
+        "test/test_excerpt.rb",
+        "test/test_filters.rb",
+        "test/test_front_matter_defaults.rb",
+        "test/test_generated_site.rb",
+        "test/test_kramdown.rb",
+        "test/test_layout_reader.rb",
+        "test/test_liquid_extensions.rb",
+        "test/test_page.rb",
+        "test/test_page_without_a_file.rb",
+        "test/test_plugin_manager.rb",
+        "test/test_regenerator.rb",
+        "test/test_related_posts.rb",
+        "test/test_sass.rb",
+        "test/test_site.rb",
+        "test/test_site_drop.rb",
+        "test/test_static_file.rb",
+        "test/test_tags.rb",
+        "test/test_utils.rb"
+      ]
+    },
+    {
+      "sha": "8f3363e2dc090c460a37b77fad0c15c38683cca4",
+      "parent_sha": "f7b5e313c12e45326bd7e9c47a9ac0eccbdb5d76",
+      "subject": "Fix passing multiline params to include tag when using the variable syntax  (#6858)",
+      "source_files": [
+        "lib/jekyll/tags/include.rb"
+      ],
+      "test_files": [
+        "test/test_tags.rb"
+      ]
+    },
+    {
+      "sha": "8fae0052c8e0888953da159045909ea2c1336b3d",
+      "parent_sha": "33017b702d44f6446f353620daf1f12dda29f331",
+      "subject": "Fix typos (#6764)",
+      "source_files": [
+        "History.markdown"
+      ],
+      "test_files": [
+        "test/test_page_without_a_file.rb"
+      ]
+    },
+    {
+      "sha": "cf5c689d9414c7ba5b6300e44178b2735faf8c06",
+      "parent_sha": "c9d2da8722f431d454fb68b1fa4ca199837e14c3",
+      "subject": "Fix timezone incosistencies between different ruby version (#6697)",
+      "source_files": [
+        "features/permalinks.feature",
+        "features/step_definitions.rb",
+        "lib/jekyll/document.rb"
+      ],
+      "test_files": [
+        "test/source/_dates/date_without_time.md",
+        "test/source/_dates/time_with_timezone.md",
+        "test/source/_dates/time_without_timezone.md",
+        "test/test_document.rb"
+      ]
+    },
+    {
+      "sha": "a7807e65ba09f6809ebebbaa7fea758d0f449ea1",
+      "parent_sha": "c1ac58dbb8443ae564e572681eeeb73ec4c1b929",
+      "subject": "Fix Drop#key? so it can handle a nil argument (#6281)",
+      "source_files": [
+        "lib/jekyll/drops/drop.rb"
+      ],
+      "test_files": [
+        "test/test_drop.rb"
+      ]
+    },
+    {
+      "sha": "bd31986ad6073d8174549fc75820a003cbd46b25",
+      "parent_sha": "3fab69e3c966076f3ccc92fd6abbc42a11867343",
+      "subject": "Fix Drop#key? so it can handle a nil argument (#6281)",
+      "source_files": [
+        "lib/jekyll/drops/drop.rb"
+      ],
+      "test_files": [
+        "test/test_drop.rb"
+      ]
+    }
+  ]
+}

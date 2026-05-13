@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "uc": "importers",
+  "fixture": "preact",
+  "tasks": [
+    {
+      "task_id": "importers_debug_src_check_props_js",
+      "query": {
+        "__rationale": "file `debug/src/check-props.js` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "debug/src/check-props.js"
+      },
+      "expected": [
+        "debug/src/debug.js",
+        "debug/src/index.js",
+        "debug/test/browser/serializeVNode.test.jsx"
+      ]
+    },
+    {
+      "task_id": "importers_src_options_js",
+      "query": {
+        "__rationale": "file `src/options.js` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/options.js"
+      },
+      "expected": [
+        "src/clone-element.js",
+        "src/component.js",
+        "src/create-context.js",
+        "src/create-element.js",
+        "src/diff/catch-error.js",
+        "src/diff/children.js",
+        "src/diff/index.js",
+        "src/diff/props.js",
+        "src/index.js",
+        "src/options.js",
+        "src/render.js",
+        "test/browser/getDomSibling.test.jsx"
+      ]
+    },
+    {
+      "task_id": "importers_src_constants_js",
+      "query": {
+        "__rationale": "file `src/constants.js` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/constants.js"
+      },
+      "expected": [
+        "compat/client.d.ts",
+        "compat/src/index.d.ts",
+        "compat/src/index.js",
+        "compat/src/internal.d.ts",
+        "compat/src/render.js",
+        "compat/src/suspense.d.ts",
+        "compat/src/suspense.js",
+        "compat/test/ts/forward-ref.tsx",
+        "compat/test/ts/index.tsx",
+        "compat/test/ts/lazy.tsx",
+        "compat/test/ts/memo.tsx",
+        "compat/test/ts/react-default.tsx",
+        "compat/test/ts/react-star.tsx",
+        "compat/test/ts/scheduler.ts",
+        "compat/test/ts/suspense.tsx",
+        "debug/src/index.d.ts",
+        "hooks/src/index.d.ts",
+        "hooks/src/index.js",
+        "jsx-runtime/src/index.d.ts",
+        "src/clone-element.js",
+        "src/component.js",
+        "src/create-context.js",
+        "src/create-element.js",
+        "src/diff/catch-error.js",
+        "src/diff/children.js",
+        "src/diff/index.js",
+        "src/diff/props.js",
+        "src/dom.d.ts",
+        "src/index.js",
+        "src/internal.d.ts",
+        "src/jsx.d.ts",
+        "src/options.js",
+        "src/render.js",
+        "src/util.js",
+        "test/browser/getDomSibling.test.jsx",
+        "test/shared/createContext.test.jsx",
+        "test/shared/createElement.test.jsx",
+        "test/shared/exports.test.js",
+        "test/shared/isValidElement.test.js",
+        "test/ts/preact-global.test-d.tsx"
+      ]
+    },
+    {
+      "task_id": "importers_src_create_context_js",
+      "query": {
+        "__rationale": "file `src/create-context.js` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/create-context.js"
+      },
+      "expected": [
+        "compat/client.d.ts",
+        "compat/src/index.d.ts",
+        "compat/src/suspense.d.ts",
+        "debug/src/index.d.ts",
+        "hooks/src/index.d.ts",
+        "jsx-runtime/src/index.d.ts",
+        "src/dom.d.ts",
+        "src/index.js",
+        "src/internal.d.ts",
+        "src/jsx.d.ts",
+        "test/browser/getDomSibling.test.jsx",
+        "test/shared/createContext.test.jsx",
+        "test/shared/createElement.test.jsx",
+        "test/shared/exports.test.js",
+        "test/shared/isValidElement.test.js",
+        "test/ts/preact-global.test-d.tsx"
+      ]
+    },
+    {
+      "task_id": "importers_src_util_js",
+      "query": {
+        "__rationale": "file `src/util.js` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/util.js"
+      },
+      "expected": [
+        "compat/client.d.ts",
+        "compat/src/index.d.ts",
+        "compat/src/suspense.d.ts",
+        "debug/src/index.d.ts",
+        "hooks/src/index.d.ts",
+        "jsx-runtime/src/index.d.ts",
+        "src/clone-element.js",
+        "src/component.js",
+        "src/create-context.js",
+        "src/create-element.js",
+        "src/diff/catch-error.js",
+        "src/diff/children.js",
+        "src/diff/index.js",
+        "src/dom.d.ts",
+        "src/index.js",
+        "src/internal.d.ts",
+        "src/jsx.d.ts",
+        "src/options.js",
+        "src/render.js",
+        "test/browser/getDomSibling.test.jsx",
+        "test/shared/createContext.test.jsx",
+        "test/shared/createElement.test.jsx",
+        "test/shared/exports.test.js",
+        "test/shared/isValidElement.test.js",
+        "test/ts/preact-global.test-d.tsx"
+      ]
+    },
+    {
+      "task_id": "importers_src_component_js",
+      "query": {
+        "__rationale": "file `src/component.js` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/component.js"
+      },
+      "expected": [
+        "compat/client.d.ts",
+        "compat/src/index.d.ts",
+        "compat/src/suspense.d.ts",
+        "debug/src/index.d.ts",
+        "hooks/src/index.d.ts",
+        "jsx-runtime/src/index.d.ts",
+        "src/component.js",
+        "src/create-context.js",
+        "src/create-element.js",
+        "src/diff/catch-error.js",
+        "src/diff/children.js",
+        "src/diff/index.js",
+        "src/diff/props.js",
+        "src/dom.d.ts",
+        "src/index.js",
+        "src/internal.d.ts",
+        "src/jsx.d.ts",
+        "src/options.js",
+        "src/render.js",
+        "test/browser/getDomSibling.test.jsx",
+        "test/shared/createContext.test.jsx",
+        "test/shared/createElement.test.jsx",
+        "test/shared/exports.test.js",
+        "test/shared/isValidElement.test.js",
+        "test/ts/preact-global.test-d.tsx"
+      ]
+    },
+    {
+      "task_id": "importers_src_clone_element_js",
+      "query": {
+        "__rationale": "file `src/clone-element.js` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/clone-element.js"
+      },
+      "expected": [
+        "compat/client.d.ts",
+        "compat/src/index.d.ts",
+        "compat/src/suspense.d.ts",
+        "debug/src/index.d.ts",
+        "hooks/src/index.d.ts",
+        "jsx-runtime/src/index.d.ts",
+        "src/dom.d.ts",
+        "src/index.js",
+        "src/internal.d.ts",
+        "src/jsx.d.ts",
+        "test/browser/getDomSibling.test.jsx",
+        "test/shared/createContext.test.jsx",
+        "test/shared/createElement.test.jsx",
+        "test/shared/exports.test.js",
+        "test/shared/isValidElement.test.js",
+        "test/ts/preact-global.test-d.tsx"
+      ]
+    },
+    {
+      "task_id": "importers_src_create_element_js",
+      "query": {
+        "__rationale": "file `src/create-element.js` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/create-element.js"
+      },
+      "expected": [
+        "compat/client.d.ts",
+        "compat/src/index.d.ts",
+        "compat/src/suspense.d.ts",
+        "debug/src/index.d.ts",
+        "hooks/src/index.d.ts",
+        "jsx-runtime/src/index.d.ts",
+        "src/clone-element.js",
+        "src/component.js",
+        "src/create-context.js",
+        "src/diff/catch-error.js",
+        "src/diff/children.js",
+        "src/diff/index.js",
+        "src/dom.d.ts",
+        "src/index.js",
+        "src/internal.d.ts",
+        "src/jsx.d.ts",
+        "src/options.js",
+        "src/render.js",
+        "test/browser/getDomSibling.test.jsx",
+        "test/shared/createContext.test.jsx",
+        "test/shared/createElement.test.jsx",
+        "test/shared/exports.test.js",
+        "test/shared/isValidElement.test.js",
+        "test/ts/preact-global.test-d.tsx"
+      ]
+    },
+    {
+      "task_id": "importers_src_diff_index_js",
+      "query": {
+        "__rationale": "file `src/diff/index.js` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/diff/index.js"
+      },
+      "expected": [
+        "src/component.js",
+        "src/create-context.js",
+        "src/diff/catch-error.js",
+        "src/diff/children.js",
+        "src/diff/index.js",
+        "src/index.js",
+        "src/options.js",
+        "src/render.js",
+        "test/browser/getDomSibling.test.jsx"
+      ]
+    },
+    {
+      "task_id": "importers_src_render_js",
+      "query": {
+        "__rationale": "file `src/render.js` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/render.js"
+      },
+      "expected": [
+        "compat/client.d.ts",
+        "compat/src/index.d.ts",
+        "compat/src/suspense.d.ts",
+        "debug/src/index.d.ts",
+        "hooks/src/index.d.ts",
+        "jsx-runtime/src/index.d.ts",
+        "src/dom.d.ts",
+        "src/index.js",
+        "src/internal.d.ts",
+        "src/jsx.d.ts",
+        "test/browser/getDomSibling.test.jsx",
+        "test/shared/createContext.test.jsx",
+        "test/shared/createElement.test.jsx",
+        "test/shared/exports.test.js",
+        "test/shared/isValidElement.test.js",
+        "test/ts/preact-global.test-d.tsx"
+      ]
+    },
+    {
+      "task_id": "importers_src_diff_props_js",
+      "query": {
+        "__rationale": "file `src/diff/props.js` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/diff/props.js"
+      },
+      "expected": [
+        "src/component.js",
+        "src/create-context.js",
+        "src/diff/catch-error.js",
+        "src/diff/children.js",
+        "src/diff/index.js",
+        "src/index.js",
+        "src/render.js",
+        "test/browser/getDomSibling.test.jsx"
+      ]
+    },
+    {
+      "task_id": "importers_src_diff_catch_error_js",
+      "query": {
+        "__rationale": "file `src/diff/catch-error.js` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/diff/catch-error.js"
+      },
+      "expected": [
+        "src/clone-element.js",
+        "src/component.js",
+        "src/create-context.js",
+        "src/create-element.js",
+        "src/diff/catch-error.js",
+        "src/diff/children.js",
+        "src/diff/index.js",
+        "src/diff/props.js",
+        "src/index.js",
+        "src/options.js",
+        "src/render.js",
+        "test/browser/getDomSibling.test.jsx"
+      ]
+    },
+    {
+      "task_id": "importers_src_diff_children_js",
+      "query": {
+        "__rationale": "file `src/diff/children.js` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/diff/children.js"
+      },
+      "expected": [
+        "src/component.js",
+        "src/create-context.js",
+        "src/diff/catch-error.js",
+        "src/diff/children.js",
+        "src/diff/index.js",
+        "src/index.js",
+        "src/render.js",
+        "test/browser/getDomSibling.test.jsx"
+      ]
+    },
+    {
+      "task_id": "importers_debug_src_component_stack_js",
+      "query": {
+        "__rationale": "file `debug/src/component-stack.js` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "debug/src/component-stack.js"
+      },
+      "expected": [
+        "debug/src/debug.js",
+        "debug/src/index.js",
+        "debug/test/browser/serializeVNode.test.jsx"
+      ]
+    },
+    {
+      "task_id": "importers_src_index_js",
+      "query": {
+        "__rationale": "file `src/index.js` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/index.js"
+      },
+      "expected": [
+        "compat/client.d.ts",
+        "compat/src/index.d.ts",
+        "compat/src/suspense.d.ts",
+        "debug/src/index.d.ts",
+        "hooks/src/index.d.ts",
+        "jsx-runtime/src/index.d.ts",
+        "src/dom.d.ts",
+        "src/internal.d.ts",
+        "src/jsx.d.ts",
+        "test/browser/getDomSibling.test.jsx",
+        "test/shared/createContext.test.jsx",
+        "test/shared/createElement.test.jsx",
+        "test/shared/exports.test.js",
+        "test/shared/isValidElement.test.js",
+        "test/ts/preact-global.test-d.tsx"
+      ]
+    }
+  ]
+}

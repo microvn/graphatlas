@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "uc": "importers",
+  "fixture": "radash",
+  "tasks": [
+    {
+      "task_id": "importers_src_curry_ts",
+      "query": {
+        "__rationale": "file `src/curry.ts` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/curry.ts"
+      },
+      "expected": [
+        "src/index.ts",
+        "src/tests/curry.test.ts"
+      ]
+    },
+    {
+      "task_id": "importers_src_typed_ts",
+      "query": {
+        "__rationale": "file `src/typed.ts` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/typed.ts"
+      },
+      "expected": [
+        "src/array.ts",
+        "src/async.ts",
+        "src/index.ts",
+        "src/object.ts",
+        "src/random.ts",
+        "src/series.ts",
+        "src/tests/async.test.ts"
+      ]
+    },
+    {
+      "task_id": "importers_src_array_ts",
+      "query": {
+        "__rationale": "file `src/array.ts` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/array.ts"
+      },
+      "expected": [
+        "src/async.ts",
+        "src/index.ts",
+        "src/object.ts",
+        "src/random.ts",
+        "src/series.ts",
+        "src/tests/async.test.ts"
+      ]
+    },
+    {
+      "task_id": "importers_src_async_ts",
+      "query": {
+        "__rationale": "file `src/async.ts` reached by ≥2 importers with ≥1 re_export hop (raw-AST resolver)",
+        "__rule": "H5-text",
+        "file": "src/async.ts"
+      },
+      "expected": [
+        "src/index.ts",
+        "src/tests/async.test.ts"
+      ]
+    }
+  ]
+}

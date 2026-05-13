@@ -1,0 +1,569 @@
+{
+  "repo": "kotlinx-serialization",
+  "lang": "kotlin",
+  "enriched_at": "2026-04-29T18:58:43.262Z",
+  "count": 20,
+  "tasks": [
+    {
+      "task_id": "kotlinx-serialization-53fb332d",
+      "repo": "kotlinx-serialization",
+      "base_commit": "6956af2e6073347c7832c3c5b374fa3b5a345956",
+      "fix_commit": "53fb332d9f5f505857c49caeb3ad1b2ac5e5a8ed",
+      "subject": "fix collection descriptors",
+      "seed_file": "core/commonMain/src/kotlinx/serialization/internal/CollectionDescriptors.kt",
+      "seed_symbol": "ListLikeDescriptor",
+      "source_files": [
+        "core/commonMain/src/kotlinx/serialization/descriptors/SerialDescriptor.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/CollectionDescriptors.kt"
+      ],
+      "expected_files": [
+        "core/commonMain/src/kotlinx/serialization/descriptors/SerialDescriptor.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/CollectionDescriptors.kt"
+      ],
+      "expected_tests": [
+        "core/commonTest/src/kotlinx/serialization/SerialDescriptorSpecificationTest.kt"
+      ],
+      "should_touch_files": [
+        "core/commonMain/src/kotlinx/serialization/descriptors/ContextAware.kt",
+        "core/commonMain/src/kotlinx/serialization/descriptors/SerialDescriptors.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-serialization-0311f163",
+      "repo": "kotlinx-serialization",
+      "base_commit": "975af2ca94b77f9117248f0c977f2791e7caac59",
+      "fix_commit": "0311f163cb4c7fde8268a45989f2b781a8847d57",
+      "subject": "Fix ProtoBuf packing for kotlin unsigned types (#3079)",
+      "seed_file": "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/Helpers.kt",
+      "seed_symbol": "ProtoDesc",
+      "source_files": [
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/Helpers.kt",
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/ProtobufDecoding.kt",
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/ProtobufEncoding.kt",
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/ProtobufTaggedDecoder.kt",
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/ProtobufTaggedEncoder.kt"
+      ],
+      "expected_files": [
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/Helpers.kt",
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/ProtobufDecoding.kt",
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/ProtobufEncoding.kt",
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/ProtobufTaggedDecoder.kt",
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/ProtobufTaggedEncoder.kt"
+      ],
+      "expected_tests": [
+        "formats/protobuf/commonTest/src/kotlinx/serialization/protobuf/PackedArraySerializerTest.kt"
+      ],
+      "should_touch_files": [
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/ProtoBuf.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-serialization-e334d1c3",
+      "repo": "kotlinx-serialization",
+      "base_commit": "d7ca108a77e69c80977e386eecca002187f0699f",
+      "fix_commit": "e334d1c3927753e579f064aa53327585d995a0c0",
+      "subject": "[CBOR] Fix various bugs in the decoder implementation",
+      "seed_file": "formats/cbor/commonMain/src/kotlinx/serialization/cbor/internal/Decoder.kt",
+      "seed_symbol": "CborReader",
+      "source_files": [
+        "formats/cbor/commonMain/src/kotlinx/serialization/cbor/Cbor.kt",
+        "formats/cbor/commonMain/src/kotlinx/serialization/cbor/internal/Decoder.kt",
+        "formats/cbor/commonMain/src/kotlinx/serialization/cbor/internal/Encoding.kt"
+      ],
+      "expected_files": [
+        "formats/cbor/commonMain/src/kotlinx/serialization/cbor/Cbor.kt",
+        "formats/cbor/commonMain/src/kotlinx/serialization/cbor/internal/Decoder.kt",
+        "formats/cbor/commonMain/src/kotlinx/serialization/cbor/internal/Encoding.kt"
+      ],
+      "expected_tests": [
+        "formats/cbor/commonTest/src/kotlinx/serialization/cbor/CborDecoderTest.kt",
+        "formats/cbor/commonTest/src/kotlinx/serialization/cbor/CborParserTest.kt",
+        "formats/cbor/commonTest/src/kotlinx/serialization/cbor/CborTaggedTest.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-serialization-bd6689dc",
+      "repo": "kotlinx-serialization",
+      "base_commit": "596bac8fd86769aa8f9fde030b804bbb517840f0",
+      "fix_commit": "bd6689dca01d45819868937cf1ec5f298b4d2f2e",
+      "subject": "Fix resize in JsonPath (#2995)",
+      "seed_file": "formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonPath.kt",
+      "seed_symbol": "JsonPath",
+      "source_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonPath.kt"
+      ],
+      "expected_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonPath.kt"
+      ],
+      "expected_tests": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/JsonPathTest.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "kotlinx-serialization-b26c67a7",
+      "repo": "kotlinx-serialization",
+      "base_commit": "88539170284dfc1489cf82039afc10fcf8cf49ab",
+      "fix_commit": "b26c67a756cbb868043a9abedbf93da724b1b9d4",
+      "subject": "Tests for fixes for #KT-62522 and #KT-62215 (#2474)",
+      "seed_file": "integration-test/src/commonMain/kotlin/sample/MultiFileHierarchyModuleA.kt",
+      "seed_symbol": "NotInConstructorBase",
+      "source_files": [
+        "integration-test/src/commonMain/kotlin/sample/MultiFileHierarchyModuleA.kt"
+      ],
+      "expected_files": [
+        "integration-test/src/commonMain/kotlin/sample/MultiFileHierarchyModuleA.kt"
+      ],
+      "expected_tests": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/GenericOverrideTest.kt",
+        "integration-test/src/commonTest/kotlin/sample/MultiFileHierarchyModuleB.kt",
+        "integration-test/src/commonTest/kotlin/sample/MultiFileHierarchyTest.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "kotlinx-serialization-f0ae399c",
+      "repo": "kotlinx-serialization",
+      "base_commit": "88539170284dfc1489cf82039afc10fcf8cf49ab",
+      "fix_commit": "f0ae399cc5d45af0b9a3e881a4a30ca203f1472e",
+      "subject": "Tests for fixes for #KT-62522 and #KT-62215",
+      "seed_file": "integration-test/src/commonMain/kotlin/sample/MultiFileHierarchyModuleA.kt",
+      "seed_symbol": "NotInConstructorBase",
+      "source_files": [
+        "integration-test/src/commonMain/kotlin/sample/MultiFileHierarchyModuleA.kt"
+      ],
+      "expected_files": [
+        "integration-test/src/commonMain/kotlin/sample/MultiFileHierarchyModuleA.kt"
+      ],
+      "expected_tests": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/GenericOverrideTest.kt",
+        "integration-test/src/commonTest/kotlin/sample/MultiFileHierarchyModuleB.kt",
+        "integration-test/src/commonTest/kotlin/sample/MultiFileHierarchyTest.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "kotlinx-serialization-9adedb46",
+      "repo": "kotlinx-serialization",
+      "base_commit": "27e352d5c208229d66e83dd717891c87788d16b4",
+      "fix_commit": "9adedb46bf552ba371a2236687cf3a3a2ea6e035",
+      "subject": "Fix incorrect enum coercion during deserialization from JsonElement (#2962)",
+      "seed_file": "formats/json/commonMain/src/kotlinx/serialization/json/internal/TreeJsonDecoder.kt",
+      "seed_symbol": "JsonTreeDecoder",
+      "source_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/TreeJsonDecoder.kt",
+        "formats/json/jsMain/src/kotlinx/serialization/json/internal/DynamicDecoders.kt"
+      ],
+      "expected_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/TreeJsonDecoder.kt",
+        "formats/json/jsMain/src/kotlinx/serialization/json/internal/DynamicDecoders.kt"
+      ],
+      "expected_tests": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/JsonCoerceInputValuesTest.kt",
+        "formats/json-tests/jsTest/src/kotlinx/serialization/json/JsonCoerceInputValuesDynamicTest.kt"
+      ],
+      "should_touch_files": [
+        "formats/json-okio/commonMain/src/kotlinx/serialization/json/okio/OkioStreams.kt",
+        "formats/json-okio/commonMain/src/kotlinx/serialization/json/okio/internal/OkioJsonStreams.kt",
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/JsonTestBase.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/Json.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonAnnotations.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonElement.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonTransformingSerializer.kt",
+        "formats/json/jvmMain/src/kotlinx/serialization/json/JvmStreams.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-serialization-2bf66659",
+      "repo": "kotlinx-serialization",
+      "base_commit": "46f406d97932bb50e38e884a7e6f88db205c511a",
+      "fix_commit": "2bf66659106aa0aa755da49185f67800ccf4c8dc",
+      "subject": "Remove methods used only for tests and fix 'Overload resolution ambiguity' (#2751)",
+      "seed_file": "formats/cbor/commonMain/src/kotlinx/serialization/cbor/internal/Decoder.kt",
+      "seed_symbol": "CborParser",
+      "source_files": [
+        "formats/cbor/commonMain/src/kotlinx/serialization/cbor/internal/Decoder.kt"
+      ],
+      "expected_files": [
+        "formats/cbor/commonMain/src/kotlinx/serialization/cbor/internal/Decoder.kt"
+      ],
+      "expected_tests": [
+        "formats/cbor/commonTest/src/kotlinx/serialization/cbor/CborParserTest.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "kotlinx-serialization-53fdc536",
+      "repo": "kotlinx-serialization",
+      "base_commit": "e35c28dd0ecbf99460635059a39669683bb24cbf",
+      "fix_commit": "53fdc536fa9951d39342e137d5dd4b42c34fb4a8",
+      "subject": "Fix confusing description of JsonPrimitive.content (#2670)",
+      "seed_file": "formats/json/commonMain/src/kotlinx/serialization/json/JsonElement.kt",
+      "seed_symbol": "JsonPrimitive",
+      "source_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonElement.kt"
+      ],
+      "expected_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonElement.kt"
+      ],
+      "expected_tests": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/serializers/JsonTreeTest.kt"
+      ],
+      "should_touch_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/Composers.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/StreamingJsonDecoder.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/StreamingJsonEncoder.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/TreeJsonDecoder.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/TreeJsonEncoder.kt"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "kotlinx-serialization-d4a26863",
+      "repo": "kotlinx-serialization",
+      "base_commit": "da020f9730ffbac18b380ef25f9a9a3e09745946",
+      "fix_commit": "d4a26863b85e68dd4ce97f86973d97f94d73dcb3",
+      "subject": "Fixed type discriminator value for custom serializer that uses `encodeJsonElement` (#2628)",
+      "seed_file": "formats/json/commonMain/src/kotlinx/serialization/json/internal/TreeJsonEncoder.kt",
+      "seed_symbol": "AbstractJsonTreeEncoder",
+      "source_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/Polymorphic.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/StreamingJsonEncoder.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/TreeJsonEncoder.kt",
+        "formats/json/jsMain/src/kotlinx/serialization/json/internal/DynamicEncoders.kt"
+      ],
+      "expected_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/Polymorphic.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/StreamingJsonEncoder.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/TreeJsonEncoder.kt",
+        "formats/json/jsMain/src/kotlinx/serialization/json/internal/DynamicEncoders.kt"
+      ],
+      "expected_tests": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/features/PolymorphismForCustomTest.kt"
+      ],
+      "should_touch_files": [
+        "formats/json-okio/commonMain/src/kotlinx/serialization/json/okio/OkioStreams.kt",
+        "formats/json-okio/commonMain/src/kotlinx/serialization/json/okio/internal/OkioJsonStreams.kt",
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/JsonTestBase.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/Json.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonAnnotations.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonElement.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonTransformingSerializer.kt",
+        "formats/json/jvmMain/src/kotlinx/serialization/json/JvmStreams.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-serialization-a2f92e4e",
+      "repo": "kotlinx-serialization",
+      "base_commit": "b811fa3ec06c8dfdd9a0a669c8654c008f24e542",
+      "fix_commit": "a2f92e4e5ff3b02167ad0045362cd80fe548930b",
+      "subject": "Fix serializing nulls for a property of a parameterized type with a nullable upper bound with Protobuf (#2561)",
+      "seed_file": "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/ProtobufTaggedEncoder.kt",
+      "seed_symbol": "ProtobufTaggedEncoder",
+      "source_files": [
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/ProtobufTaggedEncoder.kt",
+        "formats/protobuf/commonTest/src/kotlinx/serialization/protobuf/TestFunctions.kt"
+      ],
+      "expected_files": [
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/internal/ProtobufTaggedEncoder.kt",
+        "formats/protobuf/commonTest/src/kotlinx/serialization/protobuf/TestFunctions.kt"
+      ],
+      "expected_tests": [
+        "formats/protobuf/commonTest/src/kotlinx/serialization/protobuf/ProtobufNothingTest.kt",
+        "formats/protobuf/commonTest/src/kotlinx/serialization/protobuf/ProtobufPrimitivesTest.kt",
+        "formats/protobuf/commonTest/src/kotlinx/serialization/protobuf/ProtobufTypeParameterTest.kt"
+      ],
+      "should_touch_files": [
+        "formats/protobuf/commonMain/src/kotlinx/serialization/protobuf/ProtoBuf.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-serialization-b6f4d98d",
+      "repo": "kotlinx-serialization",
+      "base_commit": "1aff74e7d59af01d1224db5cde720a2daca6c4ea",
+      "fix_commit": "b6f4d98d456933b358223f0f683520a42dd4d6c0",
+      "subject": "fix all error messages",
+      "seed_file": "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/AbstractJsonLexer.kt",
+      "seed_symbol": "AbstractJsonLexer",
+      "source_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonIterator.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/AbstractJsonLexer.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/Json5Lexer.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/ReaderJsonLexer.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/StringJsonLexer.kt"
+      ],
+      "expected_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonIterator.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/AbstractJsonLexer.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/Json5Lexer.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/ReaderJsonLexer.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/StringJsonLexer.kt"
+      ],
+      "expected_tests": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/JsonErrorMessagesTest.kt"
+      ],
+      "should_touch_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/Json5.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonTreeReader.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-serialization-1aff74e7",
+      "repo": "kotlinx-serialization",
+      "base_commit": "eae192c177a5bfe0f9eb29241ef2ea757c9b3ec2",
+      "fix_commit": "1aff74e7d59af01d1224db5cde720a2daca6c4ea",
+      "subject": "fix various errors",
+      "seed_file": "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/Json5Lexer.kt",
+      "seed_symbol": "Json5Lexer",
+      "source_files": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/JsonTestBase.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/StreamingJsonDecoder.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/AbstractJsonLexer.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/Json5Lexer.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/StringJsonLexer.kt"
+      ],
+      "expected_files": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/JsonTestBase.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/StreamingJsonDecoder.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/AbstractJsonLexer.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/Json5Lexer.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/StringJsonLexer.kt"
+      ],
+      "expected_tests": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/JsonErrorMessagesTest.kt",
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/LenientTest.kt",
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json5/Json5Test.kt"
+      ],
+      "should_touch_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/Json5.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonTreeReader.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-serialization-56815ef7",
+      "repo": "kotlinx-serialization",
+      "base_commit": "3aabce405bd8b02eec3c93b0641ccb6a8dfde72a",
+      "fix_commit": "56815ef7550628c73242b0472eb147a311ff9765",
+      "subject": "fix unicode escapse",
+      "seed_file": "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/Json5Lexer.kt",
+      "seed_symbol": "Json5Lexer",
+      "source_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonTreeReader.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/Json5Lexer.kt"
+      ],
+      "expected_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonTreeReader.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/Json5Lexer.kt"
+      ],
+      "expected_tests": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json5/Json5Test.kt"
+      ],
+      "should_touch_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/Json5.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-serialization-3aabce40",
+      "repo": "kotlinx-serialization",
+      "base_commit": "b017cd30927fb661eb4767eebaef48fdd0f6f370",
+      "fix_commit": "3aabce405bd8b02eec3c93b0641ccb6a8dfde72a",
+      "subject": "fix error messages",
+      "seed_file": "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/AbstractJsonLexer.kt",
+      "seed_symbol": "AbstractJsonLexer",
+      "source_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/AbstractJsonLexer.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/StringJsonLexer.kt"
+      ],
+      "expected_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/AbstractJsonLexer.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/internal/lexer/StringJsonLexer.kt"
+      ],
+      "expected_tests": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/JsonErrorMessagesTest.kt"
+      ],
+      "should_touch_files": [
+        "formats/json/commonMain/src/kotlinx/serialization/json/Json5.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-serialization-3edbe31c",
+      "repo": "kotlinx-serialization",
+      "base_commit": "80d31878dbc5984afcbff6ee355b5f34ec86604f",
+      "fix_commit": "3edbe31cfa90b6153118458cbd9b1a9a87366488",
+      "subject": "fix tests",
+      "seed_file": "core/commonMain/src/kotlinx/serialization/Serializers.kt",
+      "seed_symbol": "serializerByKTypeImpl",
+      "source_files": [
+        "core/commonMain/src/kotlinx/serialization/Serializers.kt"
+      ],
+      "expected_files": [
+        "core/commonMain/src/kotlinx/serialization/Serializers.kt"
+      ],
+      "expected_tests": [
+        "core/commonTest/src/kotlinx/serialization/InterfaceContextualSerializerTest.kt"
+      ],
+      "should_touch_files": [
+        "core/commonMain/src/kotlinx/serialization/descriptors/SerialDescriptors.kt",
+        "core/commonMain/src/kotlinx/serialization/descriptors/SerialKinds.kt",
+        "core/commonMain/src/kotlinx/serialization/encoding/AbstractDecoder.kt",
+        "core/commonMain/src/kotlinx/serialization/encoding/AbstractEncoder.kt",
+        "core/commonMain/src/kotlinx/serialization/encoding/Decoding.kt",
+        "core/commonMain/src/kotlinx/serialization/encoding/Encoding.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/CollectionSerializers.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Enums.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Platform.common.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/PrimitiveArraysSerializers.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Primitives.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Tagged.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Tuples.kt",
+        "core/commonMain/src/kotlinx/serialization/modules/PolymorphicModuleBuilder.kt",
+        "core/commonMain/src/kotlinx/serialization/modules/SerializersModule.kt"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "kotlinx-serialization-80d31878",
+      "repo": "kotlinx-serialization",
+      "base_commit": "e0d64720c9cb57820c1c8e8ba2429cdfd7d3d223",
+      "fix_commit": "80d31878dbc5984afcbff6ee355b5f34ec86604f",
+      "subject": "fixed version of serializer() priority",
+      "seed_file": "core/commonMain/src/kotlinx/serialization/Serializers.kt",
+      "seed_symbol": "serializerByKTypeImpl",
+      "source_files": [
+        "core/commonMain/src/kotlinx/serialization/Serializers.kt",
+        "core/jsMain/src/kotlinx/serialization/internal/Platform.kt",
+        "core/jvmMain/src/kotlinx/serialization/internal/Platform.kt"
+      ],
+      "expected_files": [
+        "core/commonMain/src/kotlinx/serialization/Serializers.kt",
+        "core/jsMain/src/kotlinx/serialization/internal/Platform.kt",
+        "core/jvmMain/src/kotlinx/serialization/internal/Platform.kt"
+      ],
+      "expected_tests": [
+        "core/commonTest/src/kotlinx/serialization/InterfaceContextualSerializerTest.kt",
+        "core/commonTest/src/kotlinx/serialization/SerializersLookupNamedCompanionTest.kt",
+        "formats/json-tests/commonTest/src/kotlinx/serialization/SerializersLookupTest.kt"
+      ],
+      "should_touch_files": [
+        "core/commonMain/src/kotlinx/serialization/descriptors/SerialDescriptors.kt",
+        "core/commonMain/src/kotlinx/serialization/descriptors/SerialKinds.kt",
+        "core/commonMain/src/kotlinx/serialization/encoding/AbstractDecoder.kt",
+        "core/commonMain/src/kotlinx/serialization/encoding/AbstractEncoder.kt",
+        "core/commonMain/src/kotlinx/serialization/encoding/Decoding.kt",
+        "core/commonMain/src/kotlinx/serialization/encoding/Encoding.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/CollectionSerializers.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Enums.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Platform.common.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/PrimitiveArraysSerializers.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Primitives.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Tagged.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Tuples.kt",
+        "core/commonMain/src/kotlinx/serialization/modules/PolymorphicModuleBuilder.kt",
+        "core/commonMain/src/kotlinx/serialization/modules/SerializersModule.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-serialization-d8b98b5e",
+      "repo": "kotlinx-serialization",
+      "base_commit": "b9945728413253cd5d05141b5e1a26f1130da777",
+      "fix_commit": "d8b98b5ed3ff5f8c6074a1b59e6f0e23f62f0dea",
+      "subject": "Fix: Hocon polymorphic serialization (#2151)",
+      "seed_file": "formats/hocon/src/main/kotlin/kotlinx/serialization/hocon/Hocon.kt",
+      "seed_symbol": "Hocon",
+      "source_files": [
+        "formats/hocon/src/main/kotlin/kotlinx/serialization/hocon/Hocon.kt"
+      ],
+      "expected_files": [
+        "formats/hocon/src/main/kotlin/kotlinx/serialization/hocon/Hocon.kt"
+      ],
+      "expected_tests": [
+        "formats/hocon/src/test/kotlin/kotlinx/serialization/hocon/HoconPolymorphismTest.kt"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "kotlinx-serialization-cf71e088",
+      "repo": "kotlinx-serialization",
+      "base_commit": "b44f03f618f43a2ea691943077538bef5fe8ffd4",
+      "fix_commit": "cf71e0881b284ce8b2d3cf67218869fec4e37d82",
+      "subject": "Fix TaggedDecoder nullable decoding (#2456)",
+      "seed_file": "core/commonMain/src/kotlinx/serialization/encoding/Decoding.kt",
+      "seed_symbol": "Decoder",
+      "source_files": [
+        "core/commonMain/src/kotlinx/serialization/encoding/AbstractDecoder.kt",
+        "core/commonMain/src/kotlinx/serialization/encoding/Decoding.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Tagged.kt"
+      ],
+      "expected_files": [
+        "core/commonMain/src/kotlinx/serialization/encoding/AbstractDecoder.kt",
+        "core/commonMain/src/kotlinx/serialization/encoding/Decoding.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Tagged.kt"
+      ],
+      "expected_tests": [
+        "formats/json-tests/commonTest/src/kotlinx/serialization/json/JsonElementDecodingTest.kt"
+      ],
+      "should_touch_files": [
+        "core/commonMain/src/kotlinx/serialization/Annotations.kt",
+        "core/commonMain/src/kotlinx/serialization/ContextualSerializer.kt",
+        "core/commonMain/src/kotlinx/serialization/KSerializer.kt",
+        "core/commonMain/src/kotlinx/serialization/descriptors/SerialDescriptor.kt",
+        "core/commonMain/src/kotlinx/serialization/descriptors/SerialDescriptors.kt",
+        "core/commonMain/src/kotlinx/serialization/descriptors/SerialKinds.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/AbstractPolymorphicSerializer.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/CollectionSerializers.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Enums.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/InlineClassDescriptor.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/PrimitiveArraysSerializers.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Primitives.kt",
+        "core/commonMain/src/kotlinx/serialization/internal/Tuples.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonContentPolymorphicSerializer.kt",
+        "formats/json/commonMain/src/kotlinx/serialization/json/JsonDecoder.kt"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "kotlinx-serialization-b44f03f6",
+      "repo": "kotlinx-serialization",
+      "base_commit": "919062fbfb07e9bff9959486e4090257d85234fa",
+      "fix_commit": "b44f03f618f43a2ea691943077538bef5fe8ffd4",
+      "subject": "Fix IllegalAccessException (#2469)",
+      "seed_file": "core/jvmMain/src/kotlinx/serialization/internal/Platform.kt",
+      "seed_symbol": "createEnumSerializer",
+      "source_files": [
+        "core/jvmMain/src/kotlinx/serialization/internal/Platform.kt"
+      ],
+      "expected_files": [
+        "core/jvmMain/src/kotlinx/serialization/internal/Platform.kt"
+      ],
+      "expected_tests": [
+        "formats/json-tests/jvmTest/src/kotlinx/serialization/JavaCollectionsTest.kt",
+        "formats/json-tests/jvmTest/src/kotlinx/serialization/features/SerializerByTypeTest.kt",
+        "formats/json-tests/jvmTest/src/kotlinx/serialization/test/TypeToken.kt"
+      ],
+      "should_touch_files": [
+        "core/commonMain/src/kotlinx/serialization/ContextualSerializer.kt",
+        "core/commonMain/src/kotlinx/serialization/Serializers.kt",
+        "core/commonMain/src/kotlinx/serialization/modules/SerializersModule.kt",
+        "core/jvmMain/src/kotlinx/serialization/SerializersJvm.kt"
+      ],
+      "max_expected_depth": 1
+    }
+  ]
+}

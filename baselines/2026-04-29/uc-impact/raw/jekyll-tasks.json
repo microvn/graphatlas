@@ -1,0 +1,473 @@
+{
+  "repo": "jekyll",
+  "lang": "ruby",
+  "enriched_at": "2026-04-27T01:46:21.886Z",
+  "count": 15,
+  "tasks": [
+    {
+      "task_id": "jekyll-16a1e5ca",
+      "repo": "jekyll",
+      "base_commit": "ecf098580d2362540a2627d8f663446458563b16",
+      "fix_commit": "16a1e5cac427b493dd7a315c70af72136b34515c",
+      "subject": "Fix `jekyll serve --detach` with jekyll-sass-converter 3.x (#9304)",
+      "seed_file": "lib/jekyll/commands/serve.rb",
+      "seed_symbol": "boot_or_detach",
+      "source_files": [
+        "lib/jekyll/commands/serve.rb"
+      ],
+      "expected_files": [
+        "lib/jekyll/commands/serve.rb"
+      ],
+      "expected_tests": [
+        "test/test_commands_serve.rb"
+      ],
+      "should_touch_files": [
+        "features/support/helpers.rb",
+        "lib/jekyll.rb",
+        "lib/jekyll/collection.rb",
+        "lib/jekyll/command.rb",
+        "lib/jekyll/commands/build.rb",
+        "lib/jekyll/commands/clean.rb",
+        "lib/jekyll/commands/doctor.rb",
+        "lib/jekyll/commands/help.rb",
+        "lib/jekyll/commands/new.rb",
+        "lib/jekyll/commands/new_theme.rb",
+        "lib/jekyll/commands/serve/live_reload_reactor.rb",
+        "lib/jekyll/commands/serve/servlet.rb",
+        "lib/jekyll/configuration.rb",
+        "lib/jekyll/converters/markdown.rb",
+        "lib/jekyll/converters/markdown/kramdown_parser.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "jekyll-6903f0b0",
+      "repo": "jekyll",
+      "base_commit": "bb851e235dfbe1f197388aea3e7f0eeb1b50c4e3",
+      "fix_commit": "6903f0b0f47c53513f59f9a005cc3c159b26c1e9",
+      "subject": "Fix false positive conflicts for static files in a collection (#9141)",
+      "seed_file": "lib/jekyll/site.rb",
+      "seed_symbol": "each_site_file",
+      "source_files": [
+        "lib/jekyll/site.rb"
+      ],
+      "expected_files": [
+        "lib/jekyll/site.rb"
+      ],
+      "expected_tests": [
+        "test/test_site.rb"
+      ],
+      "should_touch_files": [
+        "lib/jekyll.rb",
+        "lib/jekyll/cache.rb",
+        "lib/jekyll/cleaner.rb",
+        "lib/jekyll/collection.rb",
+        "lib/jekyll/command.rb",
+        "lib/jekyll/commands/build.rb",
+        "lib/jekyll/commands/clean.rb",
+        "lib/jekyll/commands/doctor.rb",
+        "lib/jekyll/commands/help.rb",
+        "lib/jekyll/commands/new.rb",
+        "lib/jekyll/commands/new_theme.rb",
+        "lib/jekyll/commands/serve.rb",
+        "lib/jekyll/commands/serve/live_reload_reactor.rb",
+        "lib/jekyll/commands/serve/servlet.rb",
+        "lib/jekyll/configuration.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "jekyll-e7f53e68",
+      "repo": "jekyll",
+      "base_commit": "11b3d1e4779e94d8b8d63de5649717a53dc151a7",
+      "fix_commit": "e7f53e68e677d4561f1261eff315889f90edd6e4",
+      "subject": "Fix response header for content served via `jekyll serve` (#8965)",
+      "seed_file": "lib/jekyll/commands/serve/servlet.rb",
+      "seed_symbol": "initialize",
+      "source_files": [
+        "lib/jekyll/commands/serve.rb",
+        "lib/jekyll/commands/serve/servlet.rb"
+      ],
+      "expected_files": [
+        "lib/jekyll/commands/serve.rb",
+        "lib/jekyll/commands/serve/servlet.rb"
+      ],
+      "expected_tests": [
+        "test/helper.rb"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "jekyll-034d3e9f",
+      "repo": "jekyll",
+      "base_commit": "86907653ca56337df16193107913cada40e28c5f",
+      "fix_commit": "034d3e9f4b443c4575881511597b15fa0e6e40eb",
+      "subject": "Fix response header for content served via `jekyll serve` (#8965)",
+      "seed_file": "lib/jekyll/commands/serve/servlet.rb",
+      "seed_symbol": "initialize",
+      "source_files": [
+        "lib/jekyll/commands/serve.rb",
+        "lib/jekyll/commands/serve/servlet.rb"
+      ],
+      "expected_files": [
+        "lib/jekyll/commands/serve.rb",
+        "lib/jekyll/commands/serve/servlet.rb"
+      ],
+      "expected_tests": [
+        "test/helper.rb"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "jekyll-ee1d210e",
+      "repo": "jekyll",
+      "base_commit": "01ea2471eec16e347976a99b6d3c0fadd85793e8",
+      "fix_commit": "ee1d210e774788c9d9cd971ee73cbe0c0ed7095f",
+      "subject": "Update and fix CI for `3.9-stable` on Ruby 3.x (#8942)",
+      "seed_file": "lib/jekyll/readers/data_reader.rb",
+      "seed_symbol": "read_data_file",
+      "source_files": [
+        "lib/jekyll/readers/data_reader.rb",
+        "lib/jekyll/utils/platforms.rb"
+      ],
+      "expected_files": [
+        "lib/jekyll/readers/data_reader.rb",
+        "lib/jekyll/utils/platforms.rb"
+      ],
+      "expected_tests": [
+        "test/test_commands_serve.rb",
+        "test/test_generated_site.rb",
+        "test/test_redcarpet.rb",
+        "test/test_tags.rb"
+      ],
+      "should_touch_files": [
+        "features/support/helpers.rb",
+        "lib/jekyll/commands/doctor.rb",
+        "lib/jekyll/commands/serve/servlet.rb",
+        "lib/jekyll/converters/markdown.rb",
+        "lib/jekyll/converters/markdown/redcarpet_parser.rb",
+        "lib/jekyll/excerpt.rb",
+        "lib/jekyll/frontmatter_defaults.rb",
+        "lib/jekyll/hooks.rb",
+        "lib/jekyll/log_adapter.rb",
+        "lib/jekyll/plugin.rb",
+        "lib/jekyll/readers/post_reader.rb",
+        "lib/jekyll/tags/highlight.rb",
+        "lib/jekyll/theme_builder.rb"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "jekyll-4fbbefeb",
+      "repo": "jekyll",
+      "base_commit": "3fea30c86261bd1ff22f222c7254ea8a14e485de",
+      "fix_commit": "4fbbefeb7eecff17d877f14ee15cbf8b87a52a6e",
+      "subject": "Spelling (#8661)",
+      "seed_file": "lib/jekyll/utils.rb",
+      "seed_symbol": "has_liquid_construct",
+      "source_files": [
+        "benchmark/find-filter-vs-where-first-filters.rb",
+        "lib/jekyll.rb",
+        "lib/jekyll/cleaner.rb",
+        "lib/jekyll/converters/markdown/kramdown_parser.rb",
+        "lib/jekyll/deprecator.rb",
+        "lib/jekyll/excerpt.rb",
+        "lib/jekyll/filters.rb",
+        "lib/jekyll/static_file.rb",
+        "lib/jekyll/utils.rb"
+      ],
+      "expected_files": [
+        "benchmark/find-filter-vs-where-first-filters.rb",
+        "lib/jekyll.rb",
+        "lib/jekyll/cleaner.rb",
+        "lib/jekyll/converters/markdown/kramdown_parser.rb",
+        "lib/jekyll/deprecator.rb",
+        "lib/jekyll/excerpt.rb",
+        "lib/jekyll/filters.rb",
+        "lib/jekyll/static_file.rb",
+        "lib/jekyll/utils.rb"
+      ],
+      "expected_tests": [
+        "test/source/_tutorials/graduation-day.md",
+        "test/test_entry_filter.rb",
+        "test/test_kramdown.rb"
+      ],
+      "should_touch_files": [
+        "lib/jekyll/collection.rb",
+        "lib/jekyll/command.rb",
+        "lib/jekyll/commands/doctor.rb",
+        "lib/jekyll/commands/serve.rb",
+        "lib/jekyll/commands/serve/servlet.rb",
+        "lib/jekyll/configuration.rb",
+        "lib/jekyll/converters/markdown.rb",
+        "lib/jekyll/converters/markdown/redcarpet_parser.rb",
+        "lib/jekyll/convertible.rb",
+        "lib/jekyll/document.rb",
+        "lib/jekyll/drops/drop.rb",
+        "lib/jekyll/external.rb",
+        "lib/jekyll/frontmatter_defaults.rb",
+        "lib/jekyll/hooks.rb",
+        "lib/jekyll/page.rb"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "jekyll-0f5e1581",
+      "repo": "jekyll",
+      "base_commit": "9a10ff9b5abc1949083becb2d265abace2ec5215",
+      "fix_commit": "0f5e15811fe8f9a33a6cd1e3c05859b627f12e93",
+      "subject": "Remove warnings and fixes for deprecated config (#7440)",
+      "seed_file": "lib/jekyll/configuration.rb",
+      "seed_symbol": "user_config",
+      "source_files": [
+        "lib/jekyll/configuration.rb"
+      ],
+      "expected_files": [
+        "lib/jekyll/configuration.rb"
+      ],
+      "expected_tests": [
+        "test/test_configuration.rb"
+      ],
+      "should_touch_files": [
+        "features/step_definitions/jekyll_steps.rb",
+        "features/support/helpers.rb",
+        "lib/jekyll.rb",
+        "lib/jekyll/cleaner.rb",
+        "lib/jekyll/collection.rb",
+        "lib/jekyll/command.rb",
+        "lib/jekyll/commands/build.rb",
+        "lib/jekyll/commands/clean.rb",
+        "lib/jekyll/commands/doctor.rb",
+        "lib/jekyll/commands/help.rb",
+        "lib/jekyll/commands/serve.rb",
+        "lib/jekyll/commands/serve/servlet.rb",
+        "lib/jekyll/converters/markdown.rb",
+        "lib/jekyll/converters/markdown/kramdown_parser.rb",
+        "lib/jekyll/converters/markdown/redcarpet_parser.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "jekyll-caddaebf",
+      "repo": "jekyll",
+      "base_commit": "0b83d760c4820eaada991cf5904ce3d580e80d9f",
+      "fix_commit": "caddaebf50cdadc5164902b9a57619af8110942d",
+      "subject": "3.6.x: security: fix `include` bypass of `EntryFilter#filter` symlink check (#7229)",
+      "seed_file": "lib/jekyll/entry_filter.rb",
+      "seed_symbol": "filter",
+      "source_files": [
+        "lib/jekyll/entry_filter.rb"
+      ],
+      "expected_files": [
+        "lib/jekyll/entry_filter.rb"
+      ],
+      "expected_tests": [
+        "test/source/symlink-test/symlinked-file-outside-source",
+        "test/test_entry_filter.rb",
+        "test/test_layout_reader.rb"
+      ],
+      "should_touch_files": [
+        "lib/jekyll.rb",
+        "lib/jekyll/configuration.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "jekyll-d9a2758f",
+      "repo": "jekyll",
+      "base_commit": "48e2de862d8396e6ff2f30e2231ac67c5f233b61",
+      "fix_commit": "d9a2758ff698c4efd244f5ce0d8bed49bc81ce92",
+      "subject": "3.8.x: security: fix `include` bypass of `EntryFilter#filter` symlink check (#7228)",
+      "seed_file": "lib/jekyll/entry_filter.rb",
+      "seed_symbol": "filter",
+      "source_files": [
+        "lib/jekyll/entry_filter.rb"
+      ],
+      "expected_files": [
+        "lib/jekyll/entry_filter.rb"
+      ],
+      "expected_tests": [
+        "test/source/symlink-test/symlinked-file-outside-source",
+        "test/test_entry_filter.rb",
+        "test/test_layout_reader.rb"
+      ],
+      "should_touch_files": [
+        "lib/jekyll.rb",
+        "lib/jekyll/commands/serve.rb",
+        "lib/jekyll/commands/serve/servlet.rb",
+        "lib/jekyll/configuration.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "jekyll-f1c87a91",
+      "repo": "jekyll",
+      "base_commit": "863a93f9ff36655d8f645565a436640da7a42c32",
+      "fix_commit": "f1c87a91294ed25bbe8c6e291fd1dd399c4b0d4e",
+      "subject": "Security: fix `include` bypass of `EntryFilter#filter` symlink check (#7226)",
+      "seed_file": "lib/jekyll/entry_filter.rb",
+      "seed_symbol": "filter",
+      "source_files": [
+        "lib/jekyll/entry_filter.rb"
+      ],
+      "expected_files": [
+        "lib/jekyll/entry_filter.rb"
+      ],
+      "expected_tests": [
+        "test/source/symlink-test/symlinked-file-outside-source",
+        "test/test_entry_filter.rb",
+        "test/test_layout_reader.rb"
+      ],
+      "should_touch_files": [
+        "lib/jekyll.rb",
+        "lib/jekyll/collection.rb",
+        "lib/jekyll/command.rb",
+        "lib/jekyll/commands/doctor.rb",
+        "lib/jekyll/commands/serve.rb",
+        "lib/jekyll/commands/serve/servlet.rb",
+        "lib/jekyll/configuration.rb",
+        "lib/jekyll/convertible.rb",
+        "lib/jekyll/document.rb",
+        "lib/jekyll/external.rb",
+        "lib/jekyll/hooks.rb",
+        "lib/jekyll/liquid_renderer/table.rb",
+        "lib/jekyll/page.rb",
+        "lib/jekyll/plugin.rb",
+        "lib/jekyll/readers/data_reader.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "jekyll-2c088e25",
+      "repo": "jekyll",
+      "base_commit": "a8b91de97b3196b3e0f282145f6bdefab1303bda",
+      "fix_commit": "2c088e2596c9ad6bb15ded045adbde8da2c245f5",
+      "subject": "Update tests for EntryFilter#filter fix and add comments for it",
+      "seed_file": "lib/jekyll/entry_filter.rb",
+      "seed_symbol": "filter",
+      "source_files": [
+        "lib/jekyll/entry_filter.rb"
+      ],
+      "expected_files": [
+        "lib/jekyll/entry_filter.rb"
+      ],
+      "expected_tests": [
+        "test/test_entry_filter.rb",
+        "test/test_layout_reader.rb"
+      ],
+      "should_touch_files": [
+        "lib/jekyll.rb",
+        "lib/jekyll/configuration.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "jekyll-8f3363e2",
+      "repo": "jekyll",
+      "base_commit": "f7b5e313c12e45326bd7e9c47a9ac0eccbdb5d76",
+      "fix_commit": "8f3363e2dc090c460a37b77fad0c15c38683cca4",
+      "subject": "Fix passing multiline params to include tag when using the variable syntax  (#6858)",
+      "seed_file": "lib/jekyll/tags/include.rb",
+      "seed_symbol": "variable",
+      "source_files": [
+        "lib/jekyll/tags/include.rb"
+      ],
+      "expected_files": [
+        "lib/jekyll/tags/include.rb"
+      ],
+      "expected_tests": [
+        "test/test_tags.rb"
+      ],
+      "should_touch_files": [
+        "lib/jekyll.rb",
+        "lib/jekyll/cleaner.rb",
+        "lib/jekyll/collection.rb",
+        "lib/jekyll/command.rb",
+        "lib/jekyll/commands/doctor.rb",
+        "lib/jekyll/commands/serve/servlet.rb",
+        "lib/jekyll/configuration.rb",
+        "lib/jekyll/converters/markdown.rb",
+        "lib/jekyll/converters/markdown/redcarpet_parser.rb",
+        "lib/jekyll/convertible.rb",
+        "lib/jekyll/core_ext.rb",
+        "lib/jekyll/document.rb",
+        "lib/jekyll/drops/collection_drop.rb",
+        "lib/jekyll/drops/document_drop.rb",
+        "lib/jekyll/drops/drop.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "jekyll-cf5c689d",
+      "repo": "jekyll",
+      "base_commit": "c9d2da8722f431d454fb68b1fa4ca199837e14c3",
+      "fix_commit": "cf5c689d9414c7ba5b6300e44178b2735faf8c06",
+      "subject": "Fix timezone incosistencies between different ruby version (#6697)",
+      "seed_file": "features/step_definitions.rb",
+      "seed_symbol": "Before",
+      "source_files": [
+        "features/step_definitions.rb",
+        "lib/jekyll/document.rb"
+      ],
+      "expected_files": [
+        "features/step_definitions.rb",
+        "lib/jekyll/document.rb"
+      ],
+      "expected_tests": [
+        "test/source/_dates/date_without_time.md",
+        "test/source/_dates/time_with_timezone.md",
+        "test/source/_dates/time_without_timezone.md",
+        "test/test_document.rb"
+      ],
+      "should_touch_files": [
+        "features/support/helpers.rb",
+        "lib/jekyll/converters/markdown/redcarpet_parser.rb"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "jekyll-a7807e65",
+      "repo": "jekyll",
+      "base_commit": "c1ac58dbb8443ae564e572681eeeb73ec4c1b929",
+      "fix_commit": "a7807e65ba09f6809ebebbaa7fea758d0f449ea1",
+      "subject": "Fix Drop#key? so it can handle a nil argument (#6281)",
+      "seed_file": "lib/jekyll/drops/drop.rb",
+      "seed_symbol": "key",
+      "source_files": [
+        "lib/jekyll/drops/drop.rb"
+      ],
+      "expected_files": [
+        "lib/jekyll/drops/drop.rb"
+      ],
+      "expected_tests": [
+        "test/test_drop.rb"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "jekyll-bd31986a",
+      "repo": "jekyll",
+      "base_commit": "3fab69e3c966076f3ccc92fd6abbc42a11867343",
+      "fix_commit": "bd31986ad6073d8174549fc75820a003cbd46b25",
+      "subject": "Fix Drop#key? so it can handle a nil argument (#6281)",
+      "seed_file": "lib/jekyll/drops/drop.rb",
+      "seed_symbol": "key",
+      "source_files": [
+        "lib/jekyll/drops/drop.rb"
+      ],
+      "expected_files": [
+        "lib/jekyll/drops/drop.rb"
+      ],
+      "expected_tests": [
+        "test/test_drop.rb"
+      ],
+      "should_touch_files": [
+        "lib/jekyll.rb"
+      ],
+      "max_expected_depth": 1
+    }
+  ]
+}

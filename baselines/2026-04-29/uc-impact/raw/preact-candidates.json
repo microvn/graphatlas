@@ -1,0 +1,459 @@
+{
+  "repo": "preact",
+  "lang": "javascript",
+  "mined_at": "2026-04-22T19:44:22.251Z",
+  "target": 35,
+  "actual": 35,
+  "candidates": [
+    {
+      "sha": "21dd6d04c1a9a43e5b60976bb5eb7d856253195b",
+      "parent_sha": "2459326755dea9ad6184b42bda1128c5004b8544",
+      "subject": "forwardport from v10 (#5053)",
+      "source_files": [
+        "compat/src/index.js",
+        "compat/src/memo.js",
+        "compat/src/render.js",
+        "compat/src/suspense.js",
+        "hooks/src/index.js",
+        "src/component.js",
+        "src/diff/index.js"
+      ],
+      "test_files": [
+        "compat/test/browser/PureComponent.test.jsx",
+        "compat/test/browser/component.test.jsx",
+        "compat/test/browser/useSyncExternalStore.test.jsx",
+        "hooks/test/browser/useEffect.test.jsx",
+        "test/browser/components.test.jsx",
+        "test/browser/render.test.jsx"
+      ]
+    },
+    {
+      "sha": "d143a6edf9690560178da41e422470376e1a8b22",
+      "parent_sha": "5358f327b78b7b1635446c076fa044efa236b8c1",
+      "subject": "Resolve some suspense crashes (#4999)",
+      "source_files": [
+        "compat/src/suspense.js",
+        "mangle.json"
+      ],
+      "test_files": [
+        "compat/test/browser/suspense.test.jsx"
+      ]
+    },
+    {
+      "sha": "5a02923571f1af8599b77c83f3031057f4c5ddb3",
+      "parent_sha": "0999ff4f03a111e5b03bd62abfbf09c9176de1dd",
+      "subject": "Forwardport diffign fix (#4976)",
+      "source_files": [
+        "src/diff/children.js"
+      ],
+      "test_files": [
+        "test/browser/keys.test.jsx"
+      ]
+    },
+    {
+      "sha": "4a06d3fb985f48376866d2ca8d53b726fbc6f813",
+      "parent_sha": "87e912c126b56320b9976b5c2cccc7dcd8a16d34",
+      "subject": "Fix cascading renders with signals (#4966) (#4969)",
+      "source_files": [
+        "src/diff/index.js"
+      ],
+      "test_files": [
+        "hooks/test/browser/useState.test.jsx"
+      ]
+    },
+    {
+      "sha": "5e183563a101de2d7a750e7c606d0b13677637f1",
+      "parent_sha": "8e3e4ce550e574b9eacbfa3ef97f6b992081344e",
+      "subject": "fix: Support XHTML phrasing content in MathML token elements (#4924)",
+      "source_files": [
+        "src/constants.js",
+        "src/diff/index.js"
+      ],
+      "test_files": [
+        "test/browser/mathml.test.jsx"
+      ]
+    },
+    {
+      "sha": "aeb59e0cbb90fb1baf976cd29cd2d99d9faa9870",
+      "parent_sha": "9a54be8a822e07665684214a4e6c10c86351ff3a",
+      "subject": "refactor: Move most interfaces out of the JSX namespace (#4878)",
+      "source_files": [
+        "compat/src/index.d.ts",
+        "src/dom.d.ts",
+        "src/index.d.ts",
+        "src/jsx.d.ts"
+      ],
+      "test_files": [
+        "test/ts/custom-elements.tsx",
+        "test/ts/dom-attributes.test-d.tsx",
+        "test/ts/preact.tsx"
+      ]
+    },
+    {
+      "sha": "2c47637c8c873956e6d800abbe3075dc3ad988b0",
+      "parent_sha": "ac657fc0b101b0452eeef9ceec91aca442f56d37",
+      "subject": "Adapt to React api: add context argument to compat/Children map api (#3855)",
+      "source_files": [
+        "compat/src/Children.js",
+        "compat/src/index.d.ts"
+      ],
+      "test_files": [
+        "compat/test/browser/Children.test.js"
+      ]
+    },
+    {
+      "sha": "2d6811de49ec4b4d6c0820cebf5cfcc4442f2af1",
+      "parent_sha": "d21722e9cb3b4ec7235e16e0a1fa6599d4acef26",
+      "subject": "Revert state settling and unsafe (#4829)",
+      "source_files": [
+        "compat/src/render.js",
+        "hooks/src/index.js",
+        "hooks/src/internal.d.ts",
+        "mangle.json",
+        "src/constants.js",
+        "src/diff/index.js",
+        "src/internal.d.ts"
+      ],
+      "test_files": [
+        "compat/test/browser/component.test.js",
+        "hooks/test/browser/useState.test.js"
+      ]
+    },
+    {
+      "sha": "a62ee4de1dffb258d3052d9ab438e5dbab2bfc83",
+      "parent_sha": "a3565a40f81250f42ee64656028c557f202b7ae0",
+      "subject": "fix: signal attribute values not working with precompile transform",
+      "source_files": [
+        "jsx-runtime/src/index.js"
+      ],
+      "test_files": [
+        "jsx-runtime/test/browser/jsx-runtime.test.js"
+      ]
+    },
+    {
+      "sha": "681fc3f54a3c50983011226e3a182e512a9b19c3",
+      "parent_sha": "ba198b70522da291fced2a2619ebff915055092c",
+      "subject": "fix: escape style object value in precompile transform",
+      "source_files": [
+        "jsx-runtime/src/index.js"
+      ],
+      "test_files": [
+        "jsx-runtime/test/browser/jsx-runtime.test.js"
+      ]
+    },
+    {
+      "sha": "a76dd9be8d4f727fa2c8458f844bb9f2d1465907",
+      "parent_sha": "88cda26c2d93bf7ec36be291099f0fbcb809b68d",
+      "subject": "fix(compat): add .render property referencing original render function",
+      "source_files": [
+        "compat/src/forwardRef.js"
+      ],
+      "test_files": [
+        "compat/test/browser/forwardRef.test.js"
+      ]
+    },
+    {
+      "sha": "005d50816611b63f7127af17f2342f23df2e74fb",
+      "parent_sha": "fa1b8541d899b166b96857fad5789b37598ea21b",
+      "subject": "chore: Port non-dimensional regex fix to new v11 (#4772)",
+      "source_files": [
+        "compat/src/util.js"
+      ],
+      "test_files": [
+        "compat/test/browser/render.test.js"
+      ]
+    },
+    {
+      "sha": "d4d41f28fe26d995aef859b3a5a50ed1aaf114fc",
+      "parent_sha": "d1f876099440def1101c985aca2a4a98adf3c303",
+      "subject": "Implement deferring state updates (#4760)",
+      "source_files": [
+        "hooks/src/index.js",
+        "hooks/src/internal.d.ts",
+        "mangle.json",
+        "src/constants.js",
+        "src/diff/index.js",
+        "src/index-5.d.ts",
+        "src/internal.d.ts"
+      ],
+      "test_files": [
+        "hooks/test/browser/useState.test.js"
+      ]
+    },
+    {
+      "sha": "588a7bfe769b7d2305f557893e95404fe1b6aa13",
+      "parent_sha": "1ff9224fe96238a1811832c861b004183c50d597",
+      "subject": "refactor: Restrict aria roles by element type (#4607)",
+      "source_files": [
+        "src/jsx.d.ts"
+      ],
+      "test_files": [
+        "test/browser/refs.test.js",
+        "test/ts/dom-attributes-test.tsx"
+      ]
+    },
+    {
+      "sha": "c5feedc913682c7ab416b2dd9c42f93428afe3df",
+      "parent_sha": "7b54cee0169cf6987067bf6436284e5d330f8d38",
+      "subject": "Remove automatic px suffix (#4665)",
+      "source_files": [
+        "compat/src/render.js",
+        "compat/src/util.js",
+        "jsx-runtime/src/index.js",
+        "src/diff/props.js"
+      ],
+      "test_files": [
+        "compat/test/browser/render.test.js",
+        "jsx-runtime/test/browser/jsx-runtime.test.js",
+        "test/browser/style.test.js"
+      ]
+    },
+    {
+      "sha": "c4dc71edefe75c33bb6a9b0c5d7b129eb180ed7b",
+      "parent_sha": "3c556adc0c06cc4465f8ba404c3d1fc2ee0eeff8",
+      "subject": "Fix nullish default props (#4775)",
+      "source_files": [
+        "jsx-runtime/src/index.js",
+        "src/clone-element.js",
+        "src/create-element.js"
+      ],
+      "test_files": [
+        "jsx-runtime/test/browser/jsx-runtime.test.js",
+        "test/browser/cloneElement.test.js",
+        "test/shared/createElement.test.js"
+      ]
+    },
+    {
+      "sha": "b324105b9ab791b899ba2ef8634cd3f7795ef905",
+      "parent_sha": "fdfaeaf5fc615d9acb942e780999b9302b42cdb9",
+      "subject": "Fix some types",
+      "source_files": [
+        "vitest.config.mjs"
+      ],
+      "test_files": [
+        "test/extensions.d.ts"
+      ]
+    },
+    {
+      "sha": "edf8b795b8f072624a6091d4eccc70e5d78a4741",
+      "parent_sha": "bcd6310edee1d19ebee686c42841f503be85c6dd",
+      "subject": "fix: dedupe preact (#4702)",
+      "source_files": [
+        "package-lock.json",
+        "package.json",
+        "vitest.config.mjs",
+        "vitest.setup.js"
+      ],
+      "test_files": [
+        "compat/test/browser/textarea.test.js"
+      ]
+    },
+    {
+      "sha": "29b0021af790ee6a112387298d84d92639981274",
+      "parent_sha": "f35272e41795c336ed24f2c362f53cab8ab26e7c",
+      "subject": "fix: effect in memoed boundary should be re-executed when the lazy boundary resolves (#4631) (#4711)",
+      "source_files": [
+        "compat/src/suspense.js"
+      ],
+      "test_files": [
+        "compat/test/browser/suspense.test.js"
+      ]
+    },
+    {
+      "sha": "daba00255753b6c7764ca2649dd183163458a5f5",
+      "parent_sha": "55e9f52ed64a2dc2c212ffe022005ff6514f3f96",
+      "subject": "types: Refactor 'AllHTMLAttributes' interface (#4706)",
+      "source_files": [
+        "src/jsx.d.ts"
+      ],
+      "test_files": [
+        "test/ts/preact.tsx"
+      ]
+    },
+    {
+      "sha": "d7b47872734eafdd3fdc55eadd97898cf4232a86",
+      "parent_sha": "a54a914e3f136351151f46add97d279fac1e3a3c",
+      "subject": "chore: Fix mocha in Node v22+ (#4701)",
+      "source_files": [
+        ".editorconfig"
+      ],
+      "test_files": [
+        "test/node/package.json",
+        "test/shared/package.json"
+      ]
+    },
+    {
+      "sha": "b5eecc21eb060ffbe0b22fa2e7396327ea757e6e",
+      "parent_sha": "d16a34e275e31afd6738a9f82b5ba2fb9dbf032b",
+      "subject": "Allow for Context as JSX (#4618)",
+      "source_files": [
+        "mangle.json",
+        "src/create-context.js",
+        "src/index.d.ts"
+      ],
+      "test_files": [
+        "compat/test/browser/render.test.js",
+        "compat/test/ts/index.tsx",
+        "hooks/test/browser/useContext.test.js",
+        "test/browser/createContext.test.js",
+        "test/ts/custom-elements.tsx"
+      ]
+    },
+    {
+      "sha": "a32924c548a6b295325a6fd63e0ef51d4adb9220",
+      "parent_sha": "36187717839294897148bb1d99c7dc66add82fa2",
+      "subject": "fix: support multiple synchronous timings for act (#4619)",
+      "source_files": [
+        "test-utils/src/index.js"
+      ],
+      "test_files": [
+        "test-utils/test/shared/act.test.js"
+      ]
+    },
+    {
+      "sha": "36187717839294897148bb1d99c7dc66add82fa2",
+      "parent_sha": "3972db14a9f4308938064dd400b3bcf788854cd0",
+      "subject": "fix: Incorrect onToggle event type (#4615)",
+      "source_files": [
+        "src/jsx.d.ts"
+      ],
+      "test_files": [
+        "test/ts/preact.tsx"
+      ]
+    },
+    {
+      "sha": "bb6845682c04692a09d3265deb59b158e7f43efb",
+      "parent_sha": "2b82799e3d4dbd6c9a791e4b319ac85cd1c99ea6",
+      "subject": "fix: Wrap hydration debug message vars in quotes (#4609)",
+      "source_files": [
+        "debug/src/debug.js"
+      ],
+      "test_files": [
+        "debug/test/browser/debug.test.js"
+      ]
+    },
+    {
+      "sha": "daa124a934ca18e87f24c2972ed0f0d1dc927caf",
+      "parent_sha": "f7ac8dc40958484e15420e34b8ec452151c9bec0",
+      "subject": "fix: Ensure resolution of core types goes through typesVersions resolution (#4576)",
+      "source_files": [
+        "compat/client.d.ts",
+        "compat/src/index.d.ts",
+        "compat/src/suspense-list.d.ts",
+        "compat/src/suspense.d.ts",
+        "hooks/src/index.d.ts",
+        "jsx-runtime/src/index.d.ts",
+        "src/internal.d.ts",
+        "src/jsx.d.ts"
+      ],
+      "test_files": [
+        "compat/test/ts/tsconfig.json"
+      ]
+    },
+    {
+      "sha": "cf6942dc229dcb16d8257a6aa01e7d4d673da58f",
+      "parent_sha": "db47ab6fad46838c5266a89d9704c3752a44fc49",
+      "subject": "fix: `createElement` & `h` types (#4578)",
+      "source_files": [
+        "src/index-5.d.ts",
+        "src/index.d.ts"
+      ],
+      "test_files": [
+        "test/ts/preact.tsx"
+      ]
+    },
+    {
+      "sha": "b66c0aef2964a06a3547e44dec4043f22100bcaa",
+      "parent_sha": "bd1443795c912239ea3561fdde5496c8d9e865f1",
+      "subject": "Fix portal children ordering (#4573)",
+      "source_files": [
+        "compat/src/portals.js"
+      ],
+      "test_files": [
+        "compat/test/browser/portals.test.js"
+      ]
+    },
+    {
+      "sha": "675bcad05e387ea2a5d84159b7abce9b73b012fe",
+      "parent_sha": "d54bd31ada56059242ec319ee28a067176c05a76",
+      "subject": "refactor: Warn on NaN in dep arrays instead of throwing (#4527)",
+      "source_files": [
+        "debug/src/debug.js"
+      ],
+      "test_files": [
+        "debug/test/browser/validateHookArgs.test.js"
+      ]
+    },
+    {
+      "sha": "7b5b240f0c3697d95c64bcd43fe87139d3983d4f",
+      "parent_sha": "91679e5f4d06087cafe943b779c53cbdc8633b30",
+      "subject": "Add stress test and another fix (#4472)",
+      "source_files": [
+        "src/diff/children.js"
+      ],
+      "test_files": [
+        "test/browser/render.test.js"
+      ]
+    },
+    {
+      "sha": "91679e5f4d06087cafe943b779c53cbdc8633b30",
+      "parent_sha": "ab743a9332d6982e14f7848bae4d37d00da7e404",
+      "subject": "Add TypeScript support for Container.contains (#4471)",
+      "source_files": [
+        "src/diff/children.js",
+        "src/index.d.ts"
+      ],
+      "test_files": [
+        "test/ts/preact.tsx"
+      ]
+    },
+    {
+      "sha": "ab743a9332d6982e14f7848bae4d37d00da7e404",
+      "parent_sha": "8d86fe1b2df6b372a7465c5473807cce782b4b1a",
+      "subject": "chore: oxlint v0.7.0 (#4469)",
+      "source_files": [
+        ".eslintignore",
+        "package-lock.json",
+        "package.json"
+      ],
+      "test_files": [
+        "compat/test/browser/memo.test.js",
+        "compat/test/ts/suspense.tsx",
+        "test/browser/components.test.js"
+      ]
+    },
+    {
+      "sha": "f5738915a0d67c87f54f0ccd5b946e7a4ce0d5c1",
+      "parent_sha": "16c7fb70b4d48939beb9e706c252efb5101957f5",
+      "subject": "fix(child-diffing): Should shift keyed fragmented lists (#4448)",
+      "source_files": [
+        "src/diff/children.js"
+      ],
+      "test_files": [
+        "test/browser/render.test.js"
+      ]
+    },
+    {
+      "sha": "16c7fb70b4d48939beb9e706c252efb5101957f5",
+      "parent_sha": "a75b217bb7ae17880ac7fe04634b794ce3f847ae",
+      "subject": "Fix debug check not firing when it has a parent (#4449)",
+      "source_files": [
+        "debug/src/debug.js"
+      ],
+      "test_files": [
+        "debug/test/browser/debug.test.js"
+      ]
+    },
+    {
+      "sha": "a75b217bb7ae17880ac7fe04634b794ce3f847ae",
+      "parent_sha": "f7f9d9bf4309d09bcd0a432acd72787b7d9baecb",
+      "subject": "Publish fixes for streaming renders (#4446)",
+      "source_files": [
+        "src/diff/index.js"
+      ],
+      "test_files": [
+        "compat/test/browser/suspense-hydration.test.js"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+[toolchain]
+# MSRV floor = 1.85 per PLAN R8 + v1:C9 (lbug 0.15 transitive deps require edition2024).
+# Pin "stable" — always ≥1.85 at this point in the release cadence. CI verifies the
+# floor via cargo rust-version in crate manifests.
+channel = "stable"
+profile = "minimal"
+components = ["rustfmt", "clippy"]

@@ -1,0 +1,270 @@
+{
+  "repo": "mockito",
+  "lang": "java",
+  "mined_at": "2026-04-25T20:49:30.489Z",
+  "target": 20,
+  "actual": 20,
+  "candidates": [
+    {
+      "sha": "9929fcf0ca6f7d3e1d49d8a1943e99b42045805e",
+      "parent_sha": "42c68ec6330c52f678971a5c95e273809df459a5",
+      "subject": "Fixes #2398 : Implement global suppress static initialization leveraging java agent (#3801)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/Mockito.java",
+        "mockito-core/src/main/java/org/mockito/internal/PremainAttach.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/ClinitSuppressionTransformer.java",
+        "mockito-integration-tests/inline-mocks-tests/build.gradle.kts"
+      ],
+      "test_files": [
+        "mockito-core/src/test/java/org/mockito/internal/PremainAttachTest.java",
+        "mockito-core/src/test/java/org/mockito/internal/creation/bytebuddy/ClinitSuppressionTransformerTest.java",
+        "mockito-integration-tests/inline-mocks-tests/src/test/java/org/mockitoinline/PremainClinitSuppressionTest.java"
+      ]
+    },
+    {
+      "sha": "82998ff78a14b2111e07ba24c5a7fa731a5f0a82",
+      "parent_sha": "a7aa41d19742e78cd6c48eaf641445fb439a8ff0",
+      "subject": "Fix non-deterministic AssertionError when using MockMakers.SUBCLASS (#3406) (#3795)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/util/MockUtil.java"
+      ],
+      "test_files": [
+        "mockito-integration-tests/programmatic-tests/src/test/java/org/mockito/ProgrammaticMockMakerTest.java"
+      ]
+    },
+    {
+      "sha": "a7aa41d19742e78cd6c48eaf641445fb439a8ff0",
+      "parent_sha": "a231205b240e7884a63bf0f63440012867a4da21",
+      "subject": "Fixes #3536 : Implement SpyStatic API (#3794)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/Mockito.java"
+      ],
+      "test_files": [
+        "mockito-integration-tests/inline-mocks-tests/src/test/java/org/mockitoinline/SpyStaticTest.java"
+      ]
+    },
+    {
+      "sha": "a231205b240e7884a63bf0f63440012867a4da21",
+      "parent_sha": "f6a91a6a6138c776fa8b41ffb3fd078c64802044",
+      "subject": "Fix StackOverflowError with AbstractList after using mockSingleton (#3790)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+        "mockito-core/src/main/java/org/mockito/internal/util/collections/WeakIdentityMap.java"
+      ],
+      "test_files": [
+        "mockito-core/src/test/java/org/mockito/internal/util/collections/WeakIdentityMapTest.java",
+        "mockito-integration-tests/inline-mocks-tests/src/test/java/org/mockitoinline/RecursionTest.java"
+      ]
+    },
+    {
+      "sha": "25f13951d35ca391ee50207e6c564f3e869f3d91",
+      "parent_sha": "ef9ee5529853d96028b520f84a41ffd41afc9a1d",
+      "subject": "Add core API to enable Kotlin singleton mocking (#3762)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/MockedSingleton.java",
+        "mockito-core/src/main/java/org/mockito/Mockito.java",
+        "mockito-core/src/main/java/org/mockito/internal/MockedConstructionImpl.java",
+        "mockito-core/src/main/java/org/mockito/internal/MockedSingletonImpl.java",
+        "mockito-core/src/main/java/org/mockito/internal/MockedStaticImpl.java",
+        "mockito-core/src/main/java/org/mockito/internal/MockitoCore.java",
+        "mockito-core/src/main/java/org/mockito/internal/ScopedMockImpl.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineByteBuddyMockMaker.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineBytecodeGenerator.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/MockMethodAdvice.java",
+        "mockito-core/src/main/java/org/mockito/internal/util/MockUtil.java",
+        "mockito-core/src/main/java/org/mockito/plugins/MockMaker.java"
+      ],
+      "test_files": [
+        "mockito-integration-tests/inline-mocks-tests/src/test/java/org/mockitoinline/SingletonMockTest.java"
+      ]
+    },
+    {
+      "sha": "756a3cf3fa890437603704f1dc2932e908ef3951",
+      "parent_sha": "58ba4455209a126d025eecbf18b33a7e04dece3b",
+      "subject": "Add description of matchers to potential mismatch (#3760)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/exceptions/Reporter.java",
+        "mockito-core/src/main/java/org/mockito/internal/junit/DefaultStubbingLookupListener.java"
+      ],
+      "test_files": [
+        "mockito-core/src/test/java/org/mockitousage/junitrule/StrictJUnitRuleTest.java",
+        "mockito-core/src/test/java/org/mockitousage/strictness/ProductionCode.java"
+      ]
+    },
+    {
+      "sha": "58ba4455209a126d025eecbf18b33a7e04dece3b",
+      "parent_sha": "966d6009047c7f6617dbf080e68ee38ea049aa54",
+      "subject": "Forbid mocking WeakReference with inline mock maker (#3759)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineBytecodeGenerator.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java"
+      ],
+      "test_files": [
+        "mockito-core/src/test/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMakerTest.java"
+      ]
+    },
+    {
+      "sha": "8564b43fbbdf4911a35148f7f11689dd5524c7c8",
+      "parent_sha": "bf3a80983b99339716ec6070e09e60fbe3d9858c",
+      "subject": "Fix primitives support in GenericArrayReturnType for Android (#3753)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/util/Primitives.java",
+        "mockito-core/src/main/java/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+        "mockito-integration-tests/android-tests/src/main/java/org/mockitousage/androidtest/BasicClassesForTesting.kt"
+      ],
+      "test_files": [
+        "mockito-integration-tests/android-tests/src/androidTest/java/org/mockitousage/androidtest/BasicInstrumentedTests.kt"
+      ]
+    },
+    {
+      "sha": "3a1a19ee40f1234048880393343405046fc3fa60",
+      "parent_sha": "f3c957a74e39a78c31b7fd2e48bf9f4c3a13112c",
+      "subject": "Add support for generic types in `MockedConstruction` and `MockedStatic` (#3729)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/configuration/MockAnnotationProcessor.java"
+      ],
+      "test_files": [
+        "mockito-core/src/test/java/org/mockito/internal/configuration/MockAnnotationProcessorTest.java"
+      ]
+    },
+    {
+      "sha": "37bb3e5062bbedda96dc3810c5e3d4f5c0c644e0",
+      "parent_sha": "ef2fd6f8e12df2db9b1c3aef067c33f6fe2aba95",
+      "subject": "Fix metadata generation on GraalVM (#3710)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/SubclassBytecodeGenerator.java",
+        "mockito-integration-tests/graalvm-tests/.gitignore",
+        "mockito-integration-tests/graalvm-tests/build.gradle.kts",
+        "settings.gradle.kts"
+      ],
+      "test_files": [
+        "mockito-integration-tests/graalvm-tests/src/test/java/org/mockito/graalvm/DummyObject.java",
+        "mockito-integration-tests/graalvm-tests/src/test/java/org/mockito/graalvm/GraalVMSubclassMockMakerTest.java"
+      ]
+    },
+    {
+      "sha": "144751b053da44970d78a31b65a0eb9a780a86fa",
+      "parent_sha": "b275c7d289b12787fb955fa75a3b831495905501",
+      "subject": "Add support for JDK21 Sequenced Collections. (#3708)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java"
+      ],
+      "test_files": [
+        "mockito-core/src/test/java/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValuesTest.java"
+      ]
+    },
+    {
+      "sha": "8b580e2e2db708db8d5b5b884c9eb18ec964651c",
+      "parent_sha": "4817b0f3f406b7626d8d174f6385589a5f9d174a",
+      "subject": "Bump errorprone from 2.23.0 to 2.39.0 (#3674)",
+      "source_files": [
+        "buildSrc/src/main/kotlin/mockito.test-launcher-conventions.gradle.kts",
+        "gradle/libs.versions.toml"
+      ],
+      "test_files": [
+        "mockito-core/src/test/java/org/mockito/internal/util/collections/HashCodeAndEqualsSafeSetTest.java",
+        "mockito-core/src/test/java/org/mockitousage/basicapi/ReplacingObjectMethodsTest.java"
+      ]
+    },
+    {
+      "sha": "7764992d1250f4e7f6ffd10f650dc89516139c8d",
+      "parent_sha": "ee92ad4916d9f3f6ae6836bdba5c30f8404d3d50",
+      "subject": "Remove mention of `mockito-inline` from mockmaker exception (#3628)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/plugins/MockMaker.java"
+      ],
+      "test_files": [
+        "mockito-core/src/test/java/org/mockito/MockitoTest.java"
+      ]
+    },
+    {
+      "sha": "bfab74365e91135b2f88ccb0228372a8799d9279",
+      "parent_sha": "4f469c830b2f6ab0e1f061e9383aff2e6f9f8376",
+      "subject": "Fall back to Throwable Location strategy on Android (#3619)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/debugging/LocationFactory.java",
+        "mockito-core/src/main/java/org/mockito/internal/util/AndroidPlatform.java"
+      ],
+      "test_files": [
+        "mockito-integration-tests/android-tests/src/androidTest/java/org/mockitousage/androidtest/AaaMustRunFirstLocationTests.kt"
+      ]
+    },
+    {
+      "sha": "4f469c830b2f6ab0e1f061e9383aff2e6f9f8376",
+      "parent_sha": "1764e62102f525ff9a82b8166b8596edd25f5b7f",
+      "subject": "MockitoExtension fails cleanup when aborted before setup (#3623)",
+      "source_files": [
+        "mockito-extensions/mockito-junit-jupiter/src/main/java/org/mockito/junit/jupiter/MockitoExtension.java"
+      ],
+      "test_files": [
+        "mockito-extensions/mockito-junit-jupiter/src/test/java/org/mockitousage/JunitJupiterSkippedTest.java"
+      ]
+    },
+    {
+      "sha": "52e746cb8e8cf4691e44ad1b0c75f39051b9f397",
+      "parent_sha": "bb040915f447c3cd8ee56c1b2edeb07d92a4e9c0",
+      "subject": "Revisits #3534 and fix #3167 that was fixing #2984",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/TypeSupport.java",
+        "mockito-core/src/main/java/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java"
+      ],
+      "test_files": [
+        "mockito-integration-tests/java-21-tests/src/test/java/org/mockito/internal/stubbing/answers/DeepStubReturnsEnum_Java17_issue_2984_Test.java",
+        "mockito-integration-tests/java-21-tests/src/test/java/org/mockito/sealed/SealedClassUnsupportedTest.java"
+      ]
+    },
+    {
+      "sha": "6e53f34a3f54d2b7dc23595566b9331a94b57263",
+      "parent_sha": "a66dfa081c3703fcda9618f507d30248361f5e7b",
+      "subject": "Throw clear exception to avoid NullPointerException when handling answers (#3506)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/stubbing/InvocationContainerImpl.java"
+      ],
+      "test_files": [
+        "mockito-core/src/test/java/org/mockito/internal/stubbing/InvocationContainerImplTest.java"
+      ]
+    },
+    {
+      "sha": "e2c56ccd3f9bb1c1635de13b27f094348e288496",
+      "parent_sha": "2064681d7c4084c3f76cdafbcb2bcb095f2b6c75",
+      "subject": "Handle JVM internal error when mocking class triggers `NoClassDefFoundError` (#3499)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineBytecodeGenerator.java"
+      ],
+      "test_files": [
+        "mockito-core/src/test/java/org/mockitousage/bugs/creation/MockClassWithMissingStaticDepTest.java"
+      ]
+    },
+    {
+      "sha": "915ed6e4f98896192908ad94ea6e00cd92879d7a",
+      "parent_sha": "d01fecaed79e1879ebd0a2a01768f516d81f936f",
+      "subject": "Prevent NPEs for Disabled Mocks (#3476)",
+      "source_files": [
+        "mockito-core/src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+        "mockito-core/src/main/java/org/mockito/internal/framework/DisabledMockHandler.java"
+      ],
+      "test_files": [
+        "mockito-core/src/test/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMakerTest.java",
+        "mockito-core/src/test/java/org/mockito/internal/framework/DefaultMockitoFrameworkTest.java"
+      ]
+    },
+    {
+      "sha": "8a0e586e73f7f307c83c341698ec86fd3c4e18a6",
+      "parent_sha": "d28b0122775d81f7d4e51d7cb22cecc867c45ed5",
+      "subject": "Disable mocks with an error message (#3424)",
+      "source_files": [
+        "src/main/java/org/mockito/MockitoFramework.java",
+        "src/main/java/org/mockito/exceptions/misusing/DisabledMockException.java",
+        "src/main/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.java",
+        "src/main/java/org/mockito/internal/framework/DisabledMockHandler.java",
+        "src/main/java/org/mockito/plugins/InlineMockMaker.java"
+      ],
+      "test_files": [
+        "src/test/java/org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMakerTest.java",
+        "src/test/java/org/mockito/internal/framework/DefaultMockitoFrameworkTest.java"
+      ]
+    }
+  ]
+}

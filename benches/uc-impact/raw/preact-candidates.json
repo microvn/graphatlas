@@ -1,0 +1,245 @@
+{
+  "repo": "preact",
+  "lang": "javascript",
+  "mined_at": "2026-04-29T18:56:33.560Z",
+  "target": 20,
+  "actual": 20,
+  "candidates": [
+    {
+      "sha": "5a02923571f1af8599b77c83f3031057f4c5ddb3",
+      "parent_sha": "0999ff4f03a111e5b03bd62abfbf09c9176de1dd",
+      "subject": "Forwardport diffign fix (#4976)",
+      "source_files": [
+        "src/diff/children.js"
+      ],
+      "test_files": [
+        "test/browser/keys.test.jsx"
+      ]
+    },
+    {
+      "sha": "4a06d3fb985f48376866d2ca8d53b726fbc6f813",
+      "parent_sha": "87e912c126b56320b9976b5c2cccc7dcd8a16d34",
+      "subject": "Fix cascading renders with signals (#4966) (#4969)",
+      "source_files": [
+        "src/diff/index.js"
+      ],
+      "test_files": [
+        "hooks/test/browser/useState.test.jsx"
+      ]
+    },
+    {
+      "sha": "5e183563a101de2d7a750e7c606d0b13677637f1",
+      "parent_sha": "8e3e4ce550e574b9eacbfa3ef97f6b992081344e",
+      "subject": "fix: Support XHTML phrasing content in MathML token elements (#4924)",
+      "source_files": [
+        "src/constants.js",
+        "src/diff/index.js"
+      ],
+      "test_files": [
+        "test/browser/mathml.test.jsx"
+      ]
+    },
+    {
+      "sha": "a62ee4de1dffb258d3052d9ab438e5dbab2bfc83",
+      "parent_sha": "a3565a40f81250f42ee64656028c557f202b7ae0",
+      "subject": "fix: signal attribute values not working with precompile transform",
+      "source_files": [
+        "jsx-runtime/src/index.js"
+      ],
+      "test_files": [
+        "jsx-runtime/test/browser/jsx-runtime.test.js"
+      ]
+    },
+    {
+      "sha": "681fc3f54a3c50983011226e3a182e512a9b19c3",
+      "parent_sha": "ba198b70522da291fced2a2619ebff915055092c",
+      "subject": "fix: escape style object value in precompile transform",
+      "source_files": [
+        "jsx-runtime/src/index.js"
+      ],
+      "test_files": [
+        "jsx-runtime/test/browser/jsx-runtime.test.js"
+      ]
+    },
+    {
+      "sha": "a76dd9be8d4f727fa2c8458f844bb9f2d1465907",
+      "parent_sha": "88cda26c2d93bf7ec36be291099f0fbcb809b68d",
+      "subject": "fix(compat): add .render property referencing original render function",
+      "source_files": [
+        "compat/src/forwardRef.js"
+      ],
+      "test_files": [
+        "compat/test/browser/forwardRef.test.js"
+      ]
+    },
+    {
+      "sha": "c4dc71edefe75c33bb6a9b0c5d7b129eb180ed7b",
+      "parent_sha": "3c556adc0c06cc4465f8ba404c3d1fc2ee0eeff8",
+      "subject": "Fix nullish default props (#4775)",
+      "source_files": [
+        "jsx-runtime/src/index.js",
+        "src/clone-element.js",
+        "src/create-element.js"
+      ],
+      "test_files": [
+        "jsx-runtime/test/browser/jsx-runtime.test.js",
+        "test/browser/cloneElement.test.js",
+        "test/shared/createElement.test.js"
+      ]
+    },
+    {
+      "sha": "b324105b9ab791b899ba2ef8634cd3f7795ef905",
+      "parent_sha": "fdfaeaf5fc615d9acb942e780999b9302b42cdb9",
+      "subject": "Fix some types",
+      "source_files": [
+        "vitest.config.mjs"
+      ],
+      "test_files": [
+        "test/extensions.d.ts"
+      ]
+    },
+    {
+      "sha": "edf8b795b8f072624a6091d4eccc70e5d78a4741",
+      "parent_sha": "bcd6310edee1d19ebee686c42841f503be85c6dd",
+      "subject": "fix: dedupe preact (#4702)",
+      "source_files": [
+        "package-lock.json",
+        "package.json",
+        "vitest.config.mjs",
+        "vitest.setup.js"
+      ],
+      "test_files": [
+        "compat/test/browser/textarea.test.js"
+      ]
+    },
+    {
+      "sha": "29b0021af790ee6a112387298d84d92639981274",
+      "parent_sha": "f35272e41795c336ed24f2c362f53cab8ab26e7c",
+      "subject": "fix: effect in memoed boundary should be re-executed when the lazy boundary resolves (#4631) (#4711)",
+      "source_files": [
+        "compat/src/suspense.js"
+      ],
+      "test_files": [
+        "compat/test/browser/suspense.test.js"
+      ]
+    },
+    {
+      "sha": "a32924c548a6b295325a6fd63e0ef51d4adb9220",
+      "parent_sha": "36187717839294897148bb1d99c7dc66add82fa2",
+      "subject": "fix: support multiple synchronous timings for act (#4619)",
+      "source_files": [
+        "test-utils/src/index.js"
+      ],
+      "test_files": [
+        "test-utils/test/shared/act.test.js"
+      ]
+    },
+    {
+      "sha": "36187717839294897148bb1d99c7dc66add82fa2",
+      "parent_sha": "3972db14a9f4308938064dd400b3bcf788854cd0",
+      "subject": "fix: Incorrect onToggle event type (#4615)",
+      "source_files": [
+        "src/jsx.d.ts"
+      ],
+      "test_files": [
+        "test/ts/preact.tsx"
+      ]
+    },
+    {
+      "sha": "bb6845682c04692a09d3265deb59b158e7f43efb",
+      "parent_sha": "2b82799e3d4dbd6c9a791e4b319ac85cd1c99ea6",
+      "subject": "fix: Wrap hydration debug message vars in quotes (#4609)",
+      "source_files": [
+        "debug/src/debug.js"
+      ],
+      "test_files": [
+        "debug/test/browser/debug.test.js"
+      ]
+    },
+    {
+      "sha": "daa124a934ca18e87f24c2972ed0f0d1dc927caf",
+      "parent_sha": "f7ac8dc40958484e15420e34b8ec452151c9bec0",
+      "subject": "fix: Ensure resolution of core types goes through typesVersions resolution (#4576)",
+      "source_files": [
+        "compat/client.d.ts",
+        "compat/src/index.d.ts",
+        "compat/src/suspense-list.d.ts",
+        "compat/src/suspense.d.ts",
+        "hooks/src/index.d.ts",
+        "jsx-runtime/src/index.d.ts",
+        "src/internal.d.ts",
+        "src/jsx.d.ts"
+      ],
+      "test_files": [
+        "compat/test/ts/tsconfig.json"
+      ]
+    },
+    {
+      "sha": "cf6942dc229dcb16d8257a6aa01e7d4d673da58f",
+      "parent_sha": "db47ab6fad46838c5266a89d9704c3752a44fc49",
+      "subject": "fix: `createElement` & `h` types (#4578)",
+      "source_files": [
+        "src/index-5.d.ts",
+        "src/index.d.ts"
+      ],
+      "test_files": [
+        "test/ts/preact.tsx"
+      ]
+    },
+    {
+      "sha": "b66c0aef2964a06a3547e44dec4043f22100bcaa",
+      "parent_sha": "bd1443795c912239ea3561fdde5496c8d9e865f1",
+      "subject": "Fix portal children ordering (#4573)",
+      "source_files": [
+        "compat/src/portals.js"
+      ],
+      "test_files": [
+        "compat/test/browser/portals.test.js"
+      ]
+    },
+    {
+      "sha": "7b5b240f0c3697d95c64bcd43fe87139d3983d4f",
+      "parent_sha": "91679e5f4d06087cafe943b779c53cbdc8633b30",
+      "subject": "Add stress test and another fix (#4472)",
+      "source_files": [
+        "src/diff/children.js"
+      ],
+      "test_files": [
+        "test/browser/render.test.js"
+      ]
+    },
+    {
+      "sha": "f5738915a0d67c87f54f0ccd5b946e7a4ce0d5c1",
+      "parent_sha": "16c7fb70b4d48939beb9e706c252efb5101957f5",
+      "subject": "fix(child-diffing): Should shift keyed fragmented lists (#4448)",
+      "source_files": [
+        "src/diff/children.js"
+      ],
+      "test_files": [
+        "test/browser/render.test.js"
+      ]
+    },
+    {
+      "sha": "16c7fb70b4d48939beb9e706c252efb5101957f5",
+      "parent_sha": "a75b217bb7ae17880ac7fe04634b794ce3f847ae",
+      "subject": "Fix debug check not firing when it has a parent (#4449)",
+      "source_files": [
+        "debug/src/debug.js"
+      ],
+      "test_files": [
+        "debug/test/browser/debug.test.js"
+      ]
+    },
+    {
+      "sha": "a75b217bb7ae17880ac7fe04634b794ce3f847ae",
+      "parent_sha": "f7f9d9bf4309d09bcd0a432acd72787b7d9baecb",
+      "subject": "Publish fixes for streaming renders (#4446)",
+      "source_files": [
+        "src/diff/index.js"
+      ],
+      "test_files": [
+        "compat/test/browser/suspense-hydration.test.js"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "repo": "nest",
+  "lang": "typescript",
+  "mined_at": "2026-04-29T18:56:35.886Z",
+  "target": 20,
+  "actual": 20,
+  "candidates": [
+    {
+      "sha": "895fdf321e7089f0dcf24d73ce929e2f346c5bb3",
+      "parent_sha": "cc69cd0273144e8e1542c5326ec5cb50624ac63b",
+      "subject": "fix(core): Use strict null check for SSE message id",
+      "source_files": [
+        "packages/core/router/sse-stream.ts"
+      ],
+      "test_files": [
+        "packages/core/test/router/sse-stream.spec.ts"
+      ]
+    },
+    {
+      "sha": "298857e2c2eacd6e34ceeb59db31afe321c8fc00",
+      "parent_sha": "8d7295fafd43d1ef1ffea9470c5371e440f9040d",
+      "subject": "fix(microservices): prevent stack overflow in jsonsocket.handledata()",
+      "source_files": [
+        "packages/microservices/helpers/json-socket.ts"
+      ],
+      "test_files": [
+        "integration/microservices/e2e/tcp-json-socket-pipeline.spec.ts",
+        "packages/microservices/test/helpers/json-socket.spec.ts"
+      ]
+    },
+    {
+      "sha": "77063fb39a331446db4d8d8f5c4d7d6e7c4cee1a",
+      "parent_sha": "8d7295fafd43d1ef1ffea9470c5371e440f9040d",
+      "subject": "fix(microservices): use backing field for consumer crash event listener",
+      "source_files": [
+        "packages/microservices/client/client-kafka.ts"
+      ],
+      "test_files": [
+        "packages/microservices/test/client/client-kafka.spec.ts"
+      ]
+    },
+    {
+      "sha": "457630a65f404ee9d96ed84f6083767ef4b8ef8c",
+      "parent_sha": "b1364f7a86b220a0963a1e3d4d4e113667e76d2e",
+      "subject": "fix(core): defer sse writehead until after lifecycle completes",
+      "source_files": [
+        "integration/nest-application/sse/src/app.controller.ts",
+        "packages/core/router/router-execution-context.ts",
+        "packages/core/router/router-response-controller.ts",
+        "packages/core/router/sse-stream.ts"
+      ],
+      "test_files": [
+        "integration/nest-application/sse/e2e/express.spec.ts",
+        "integration/nest-application/sse/e2e/fastify.spec.ts",
+        "packages/core/test/router/router-execution-context.spec.ts",
+        "packages/core/test/router/router-response-controller.spec.ts",
+        "packages/core/test/router/sse-stream.spec.ts"
+      ]
+    },
+    {
+      "sha": "3b47081e722016be7369b4ef3e43688cec30d832",
+      "parent_sha": "90efeef7301092cf73deeb4dc9b62a223553aa45",
+      "subject": "fix(socket.io): Deduplicate disconnect listener in bindMessageHandlers",
+      "source_files": [
+        "packages/platform-socket.io/adapters/io-adapter.ts"
+      ],
+      "test_files": [
+        "packages/platform-socket.io/test/io-adapter.spec.ts"
+      ]
+    },
+    {
+      "sha": "368691c35fa221b68baad8d4e569d9d8685c0ea1",
+      "parent_sha": "dea5279ef8fcb568de158003e4281759a2cd7675",
+      "subject": "fix(core): prevent injector hang when design:paramtypes is missing",
+      "source_files": [
+        "packages/core/injector/injector.ts"
+      ],
+      "test_files": [
+        "packages/core/test/injector/injector.spec.ts"
+      ]
+    },
+    {
+      "sha": "9e6774bdbd2541a1ac8d216387294814046c9388",
+      "parent_sha": "dea5279ef8fcb568de158003e4281759a2cd7675",
+      "subject": "fix(microservices): preserve packet headers in nats serializer",
+      "source_files": [
+        "packages/microservices/serializers/nats-record.serializer.ts"
+      ],
+      "test_files": [
+        "packages/microservices/test/serializers/nats-record.serializer.spec.ts"
+      ]
+    },
+    {
+      "sha": "7493b94647fc51d6d774f1e20f1b2f66c692182f",
+      "parent_sha": "9603c682d99f2782723d830736529022a1a2dd8d",
+      "subject": "fix(core): dependency injection edge case with moduleref.create",
+      "source_files": [
+        "packages/core/injector/module-ref.ts"
+      ],
+      "test_files": [
+        "packages/core/test/scope/transient-scope.spec.ts"
+      ]
+    },
+    {
+      "sha": "011bff66014e24e82b25f7acf9302b9efb70b02b",
+      "parent_sha": "c4fd4da993f887ba3e6cd3535e6115e9aed84d72",
+      "subject": "fix(core): dont inherit the optional decorator metadata",
+      "source_files": [
+        "packages/common/decorators/core/optional.decorator.ts",
+        "packages/core/injector/injector.ts"
+      ],
+      "test_files": [
+        "integration/injector/e2e/inherited-optional.spec.ts"
+      ]
+    },
+    {
+      "sha": "e5fc97476a537cd4cba4b78ffd3c5a4daa33e34b",
+      "parent_sha": "b4b492f27667ca6a1c35f410f98669d4b2e57e9c",
+      "subject": "fix(core): refine unknown dependencies message token display",
+      "source_files": [
+        "packages/core/errors/messages.ts"
+      ],
+      "test_files": [
+        "integration/injector/e2e/optional-factory-provider-dep.spec.ts",
+        "packages/core/test/errors/test/messages.spec.ts"
+      ]
+    },
+    {
+      "sha": "ec7fc4f341a823df0b5c733de321fa1f4435a041",
+      "parent_sha": "cb1faffd04b7a57869f9ee4559a80f50e9f7c857",
+      "subject": "fix(common): fix test for v12 branch compatibility",
+      "source_files": [
+        "packages/common/exceptions/conflict.exception.ts"
+      ],
+      "test_files": [
+        "packages/common/test/exceptions/http.exception.spec.ts"
+      ]
+    },
+    {
+      "sha": "efe43519110bd72626965593c832277a667368d6",
+      "parent_sha": "6b278afc2fd75cd57997372927e93c4a3c25c061",
+      "subject": "fix(websockets): send WsException errors to native WebSocket clients",
+      "source_files": [
+        "integration/websockets/src/ws-error.gateway.ts",
+        "packages/websockets/exceptions/base-ws-exception-filter.ts",
+        "packages/websockets/exceptions/ws-exceptions-handler.ts"
+      ],
+      "test_files": [
+        "integration/websockets/e2e/ws-error-gateway.spec.ts",
+        "packages/websockets/test/exceptions/ws-exceptions-handler.spec.ts"
+      ]
+    },
+    {
+      "sha": "bc6b0880fe530fc0bc757beb74397b9ddd2acdc9",
+      "parent_sha": "efe43519110bd72626965593c832277a667368d6",
+      "subject": "fix(websockets): detect native ws clients before calling emit",
+      "source_files": [
+        "packages/websockets/exceptions/base-ws-exception-filter.ts"
+      ],
+      "test_files": [
+        "packages/websockets/test/exceptions/ws-exceptions-handler.spec.ts"
+      ]
+    },
+    {
+      "sha": "ca7d95a2197d371950e97b9b83814727058cff0d",
+      "parent_sha": "cd7501b5c8b237f4daf237fda8409250d7ae4ead",
+      "subject": "fix: transform pattern regression",
+      "source_files": [
+        "packages/microservices/utils/transform-pattern.utils.ts"
+      ],
+      "test_files": [
+        "packages/microservices/test/utils/transform-pattern.utils.spec.ts"
+      ]
+    },
+    {
+      "sha": "e099625a338f61e880ea75920ede3fe8f2be0070",
+      "parent_sha": "5d31df7eb62d89952d827eadc19123fb441f541e",
+      "subject": "fix(microservices): introuduce max pattern depth and object complexity",
+      "source_files": [
+        "packages/microservices/utils/transform-pattern.utils.ts"
+      ],
+      "test_files": [
+        "packages/microservices/test/utils/transform-pattern.utils.spec.ts"
+      ]
+    },
+    {
+      "sha": "d74e9a8c5f3f1785445fd0dd37ea4818127b1f1c",
+      "parent_sha": "dd90f57f40737916cb5606faef10ef8ebae5c319",
+      "subject": "fix(fastify): fastify middleware bypass cve",
+      "source_files": [
+        "packages/platform-fastify/adapters/fastify-adapter.ts",
+        "packages/platform-fastify/adapters/middie/fastify-middie.ts"
+      ],
+      "test_files": [
+        "integration/hello-world/e2e/middleware-fastify.spec.ts"
+      ]
+    },
+    {
+      "sha": "0eb2340e64a1ded18c78a76f380d4811405d936d",
+      "parent_sha": "1c43374d92ddb8336721154c51ec7be14dba8612",
+      "subject": "fix: Handle FastifyError as before",
+      "source_files": [
+        "packages/core/exceptions/base-exception-filter.ts"
+      ],
+      "test_files": [
+        "packages/core/test/exceptions/exceptions-handler.spec.ts"
+      ]
+    },
+    {
+      "sha": "1c43374d92ddb8336721154c51ec7be14dba8612",
+      "parent_sha": "5adeb427df7c3b5269405b2d6c4b5d8ece4162b8",
+      "subject": "fix: make `isHttpError` check stricter",
+      "source_files": [
+        "packages/core/exceptions/base-exception-filter.ts"
+      ],
+      "test_files": [
+        "packages/core/test/exceptions/exceptions-handler.spec.ts"
+      ]
+    },
+    {
+      "sha": "e483cbe2ef4202c1813a3f4178a1866d46bb32ab",
+      "parent_sha": "643162916fdaae7870e6681b0aa3b0233e5d5f30",
+      "subject": "fix(sample): update gql federation samples to use production-ready",
+      "source_files": [
+        "sample/31-graphql-federation-code-first/gateway/.gitignore",
+        "sample/31-graphql-federation-code-first/gateway/generate-supergraph.ts",
+        "sample/31-graphql-federation-code-first/gateway/package.json",
+        "sample/31-graphql-federation-code-first/gateway/src/app.module.ts",
+        "sample/31-graphql-federation-code-first/gateway/supergraph.yaml",
+        "sample/31-graphql-federation-code-first/gateway/vitest.config.e2e.mts",
+        "sample/32-graphql-federation-schema-first/gateway/.gitignore",
+        "sample/32-graphql-federation-schema-first/gateway/generate-supergraph.ts",
+        "sample/32-graphql-federation-schema-first/gateway/generate-typings.ts",
+        "sample/32-graphql-federation-schema-first/gateway/package.json",
+        "sample/32-graphql-federation-schema-first/gateway/src/app.module.ts",
+        "sample/32-graphql-federation-schema-first/gateway/supergraph.yaml",
+        "sample/32-graphql-federation-schema-first/gateway/vitest.config.e2e.mts"
+      ],
+      "test_files": [
+        "sample/31-graphql-federation-code-first/gateway/test/app.e2e-spec.ts",
+        "sample/32-graphql-federation-schema-first/gateway/test/app.e2e-spec.ts"
+      ]
+    },
+    {
+      "sha": "9170ecb83fc45d7cb49b640b171daabc3159c642",
+      "parent_sha": "43041eb779130a923bebc63c1fa9f1428a98d119",
+      "subject": "fix: update incorrect package import",
+      "source_files": [
+        "packages/microservices/server/server-nats.ts"
+      ],
+      "test_files": [
+        "packages/microservices/test/client/client-nats.spec.ts"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,389 @@
+{
+  "repo": "MQTTnet",
+  "lang": "csharp",
+  "mined_at": "2026-04-26T12:58:15.533Z",
+  "target": 20,
+  "actual": 20,
+  "candidates": [
+    {
+      "sha": "1a3e97afec65b7aae01616cef0378f95b4193a0e",
+      "parent_sha": "d74d83453f18aa6e366314c7c71b21628733e151",
+      "subject": "Add support for dotnet 10 (#2229)",
+      "source_files": [
+        "Directory.Build.props",
+        "Samples/Server/Server_TLS_Samples.cs",
+        "Source/MQTTnet.Server/Internal/Adapter/MqttTcpServerListener.cs",
+        "Source/MQTTnet.TestApp/MQTTnet.TestApp.csproj",
+        "Source/MQTTnet.Tests/MQTTnet.Tests.csproj",
+        "Source/MQTTnet/Certificates/BlobCertificateProvider.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Server/HotSwapCerts_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Load_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Subscription_TopicHash_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Tls_Tests.cs"
+      ]
+    },
+    {
+      "sha": "535a4e010cf4d8c2e2dbf9a1b6873150657efe3e",
+      "parent_sha": "37c1eecce567194623c5a16ffcd39311ef959007",
+      "subject": "Add validations of variable byte integers (#2214)",
+      "source_files": [
+        "Samples/Server/Server_Intercepting_Samples.cs",
+        "Source/MQTTnet.Server/Options/MqttServerOptionsBuilder.cs",
+        "Source/MQTTnet.Server/Options/MqttServerTcpEndpointBaseOptions.cs",
+        "Source/MQTTnet/Exceptions/MqttProtocolViolationException.cs",
+        "Source/MQTTnet/Formatter/MqttBufferWriter.cs",
+        "Source/MQTTnet/MqttApplicationMessageBuilder.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Exceptions/MqttProtocolViolationException_Tests.cs"
+      ]
+    },
+    {
+      "sha": "5ebc5fcb7e667660d947c44730471466fb531b3e",
+      "parent_sha": "51979fa5a4fd70f5c4ee174284998c1dd6837537",
+      "subject": "Call enqueue interceptor for retained messages (fix) (#2212)",
+      "source_files": [
+        "Source/MQTTnet.Server/Internal/MqttClientSessionsManager.cs",
+        "Source/MQTTnet.Server/Internal/MqttConnectedClient.cs",
+        "Source/MQTTnet.Server/Internal/MqttServerEventContainer.cs",
+        "Source/MQTTnet.Server/Status/MqttSessionStatus.cs",
+        "Source/MQTTnet.Tests/BaseTestClass.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Server/Retained_Messages_Tests.cs"
+      ]
+    },
+    {
+      "sha": "7ac7f256ef4daacda3be01a9f932a71355a95088",
+      "parent_sha": "e7ccd897b004310dcc656177faaff34349468719",
+      "subject": "Update nugets (#2210)",
+      "source_files": [
+        "Source/MQTTnet.Benchmarks/AssemblyInfo.cs",
+        "Source/MQTTnet.Benchmarks/MQTTnet.Benchmarks.csproj",
+        "Source/MQTTnet.Benchmarks/RoundtripProcessingBenchmark.cs",
+        "Source/MQTTnet.Benchmarks/ServerProcessingBenchmark.cs",
+        "Source/MQTTnet.Extensions.TopicTemplate/MQTTnet.Extensions.TopicTemplate.csproj",
+        "Source/MQTTnet.Server/Internal/MqttRetainedMessagesManager.cs",
+        "Source/MQTTnet.TestApp/MQTTnet.TestApp.csproj",
+        "Source/MQTTnet.Tests/AssemblyInfo.cs",
+        "Source/MQTTnet.Tests/MQTTnet.Tests.csproj",
+        "Source/MQTTnet.Tests/Server/General.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/ASP/MqttConnectionContextTest.cs",
+        "Source/MQTTnet.Tests/Clients/LowLevelMqttClient/LowLevelMqttClient_Tests.cs",
+        "Source/MQTTnet.Tests/Clients/MqttClient/MqttClient_Connection_Tests.cs",
+        "Source/MQTTnet.Tests/Clients/MqttClient/MqttClient_Tests.cs",
+        "Source/MQTTnet.Tests/Diagnostics/PacketInspection_Tests.cs",
+        "Source/MQTTnet.Tests/Extensions/MqttTopicTemplate_Tests.cs",
+        "Source/MQTTnet.Tests/Extensions/Rpc_Tests.cs",
+        "Source/MQTTnet.Tests/Formatter/MqttBufferReader_Tests.cs",
+        "Source/MQTTnet.Tests/Formatter/MqttPacketSerialization_V3_Binary_Tests.cs",
+        "Source/MQTTnet.Tests/Formatter/MqttPacketSerialization_V3_Tests.cs",
+        "Source/MQTTnet.Tests/Formatter/MqttPacketSerialization_V5_Tests.cs",
+        "Source/MQTTnet.Tests/Formatter/MqttPacketWriter_Tests.cs",
+        "Source/MQTTnet.Tests/Internal/AsyncEvent_Tests.cs",
+        "Source/MQTTnet.Tests/Internal/AsyncLock_Tests.cs",
+        "Source/MQTTnet.Tests/Internal/AsyncQueue_Tests.cs",
+        "Source/MQTTnet.Tests/Internal/AsyncSignal_Tests.cs",
+        "Source/MQTTnet.Tests/Internal/BlockingQueue_Tests.cs",
+        "Source/MQTTnet.Tests/Internal/CrossPlatformSocket_Tests.cs",
+        "Source/MQTTnet.Tests/Internal/MqttPacketBusItem_Tests.cs",
+        "Source/MQTTnet.Tests/Internal/MqttPacketBus_Tests.cs",
+        "Source/MQTTnet.Tests/MQTTv5/Client_Tests.cs",
+        "Source/MQTTnet.Tests/MQTTv5/Server_Tests.cs",
+        "Source/MQTTnet.Tests/MqttApplicationMessageBuilder_Tests.cs",
+        "Source/MQTTnet.Tests/MqttApplicationMessageValidator_Tests.cs",
+        "Source/MQTTnet.Tests/MqttClientOptionsValidator_Tests.cs",
+        "Source/MQTTnet.Tests/MqttTopicValidatorSubscribe_Tests.cs",
+        "Source/MQTTnet.Tests/MqttTopicValidator_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Cross_Version_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Events_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Injection_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Keep_Alive_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Load_Tests.cs",
+        "Source/MQTTnet.Tests/Server/MqttSubscriptionsManager_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Publishing_Tests.cs",
+        "Source/MQTTnet.Tests/Server/QoS_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Security_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Session_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Status_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Subscribe_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Subscription_Identifier_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Subscription_TopicHash_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Tls_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Topic_Alias_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Unsubscribe_Tests.cs",
+        "Source/MQTTnet.Tests/Server/User_Properties_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Will_Tests.cs",
+        "Source/MQTTnet.Tests/TopicFilterComparer_Tests.cs"
+      ]
+    },
+    {
+      "sha": "4fb3604ad6e91ac77b11f9de2bd395f3f6ffea7c",
+      "parent_sha": "7636cd0fdb6887ea0d53f30c6b8b9214b510d7f3",
+      "subject": "Backport of: 2132 Fix support for enhanced authentication (#2171)",
+      "source_files": [
+        "Samples/Client/Client_Connection_Samples.cs",
+        "Source/MQTTnet/Client/ExtendedAuthenticationExchange/MqttExtendedAuthenticationExchangeContext.cs",
+        "Source/MQTTnet/Client/MqttClient.cs",
+        "Source/MQTTnet/Client/Options/MqttClientOptionsValidator.cs",
+        "Source/MQTTnet/MqttFactory.cs",
+        "Source/MQTTnet/Server/Events/ValidatingConnectionEventArgs.cs",
+        "Source/MQTTnet/Server/ExtendedAuthenticationExchange/MqttExtendedAuthenticationExchangeOptions.cs",
+        "Source/MQTTnet/Server/ExtendedAuthenticationExchange/MqttExtendedAuthenticationExchangeOptionsFactory.cs",
+        "Source/MQTTnet/Server/ExtendedAuthenticationExchange/MqttExtendedAuthenticationExchangeResult.cs",
+        "Source/MQTTnet/Server/ExtendedAuthenticationExchange/MqttExtendedAuthenticationExchangeResultFactory.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Clients/MqttClient/MqttClient_Connection_Tests.cs"
+      ]
+    },
+    {
+      "sha": "27771f0146c9e555d8ae2a47b9ab8fc966fc9549",
+      "parent_sha": "e7de2b913ac66ac0b2a8b317cc8d21ab06bf4034",
+      "subject": "Improve session message injection (#2117)",
+      "source_files": [
+        "Source/MQTTnet.Server/Exceptions/MqttPendingMessagesOverflowException.cs",
+        "Source/MQTTnet.Server/Internal/MqttSession.cs",
+        "Source/MQTTnet.Server/Options/MqttServerOptionsBuilder.cs",
+        "Source/MQTTnet.Server/Status/MqttSessionStatus.cs",
+        "Source/MQTTnet.Tests/BaseTestClass.cs",
+        "Source/MQTTnet.Tests/Mockups/TestEnvironment.cs",
+        "Source/MQTTnet/InjectMqttApplicationMessageResult.cs",
+        "Source/MQTTnet/Internal/MqttPacketBus.cs",
+        "Source/MQTTnet/Internal/MqttPacketBusItem.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Server/Injection_Tests.cs"
+      ]
+    },
+    {
+      "sha": "9177b6ae6819bd7fa69e8121e9c40d51c273974d",
+      "parent_sha": "f0ea5c9ecdef87cd9add43a349a589a7275d6aa4",
+      "subject": "Fix Unit Tests",
+      "source_files": [
+        "Source/MQTTnet.AspNetCore.Tests/MQTTnet.AspNetCore.Tests.csproj",
+        "Source/MQTTnet.Tests/MQTTnet.Tests.csproj",
+        "Source/MQTTnet/Implementations/CrossPlatformSocket.cs",
+        "Source/MQTTnet/Implementations/MqttTcpServerListener.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/MqttTcpChannel_Tests.cs"
+      ]
+    },
+    {
+      "sha": "2fdbb02dc8922937e751a75a1f2f3163dcf45300",
+      "parent_sha": "c4eb05105b89220a644e35dc832d719217e0cb13",
+      "subject": "Fix parsing error of AUTH packet with empty body (#2070)",
+      "source_files": [
+        "Source/MQTTnet.Tests/MqttPacketSerializationHelper.cs",
+        "Source/MQTTnet/Formatter/IMqttPacketFormatter.cs",
+        "Source/MQTTnet/Formatter/V5/MqttV5PacketDecoder.cs",
+        "Source/MQTTnet/Formatter/V5/MqttV5PacketEncoder.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Formatter/MqttPacketSerialization_V5_Tests.cs"
+      ]
+    },
+    {
+      "sha": "25c1da6a213b91a536ce7b7ed26f3ffe39e61ca3",
+      "parent_sha": "4e3ede42c60a6beafbc446efe13ee34a2d87ba75",
+      "subject": "Restore behavior of _Server_ and _Port_ in client options (#2009)",
+      "source_files": [
+        "Source/MQTTnet/Client/Options/MqttClientTcpOptions.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Clients/MqttClient/MqttClient_Tests.cs"
+      ]
+    },
+    {
+      "sha": "290419b3b65dc4f84338fdcbf561ca5eca3a528a",
+      "parent_sha": "32b6146532c587b4f15386a0d3e7d2ba9a698707",
+      "subject": "[Client] Fix endpoint handling (#1999)",
+      "source_files": [
+        "Source/MQTTnet/Client/Options/MqttClientOptionsBuilder.cs",
+        "Source/MQTTnet/Client/Options/MqttClientTcpOptions.cs",
+        "Source/MQTTnet/Implementations/CrossPlatformSocket.cs",
+        "Source/MQTTnet/Implementations/MqttTcpChannel.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Internal/CrossPlatformSocket_Tests.cs"
+      ]
+    },
+    {
+      "sha": "41d5b703441b9f2f1adf3887f22e51faafc4c58e",
+      "parent_sha": "b4769778af4c792550da0ba214034bcae036427f",
+      "subject": "Fix support for unix sockets (#1995)",
+      "source_files": [
+        "Source/MQTTnet/Client/Options/MqttClientOptionsBuilder.cs",
+        "Source/MQTTnet/Client/Options/MqttClientTcpOptions.cs",
+        "Source/MQTTnet/Implementations/CrossPlatformSocket.cs",
+        "Source/MQTTnet/Implementations/MqttTcpChannel.cs",
+        "Source/MQTTnet/Implementations/MqttTcpServerListener.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/MqttTcpChannel_Tests.cs",
+        "Source/MQTTnet.Tests/Server/Connection_Tests.cs"
+      ]
+    },
+    {
+      "sha": "f4b2a106167c67d70f555f4cac704c9767daa4e1",
+      "parent_sha": "ed63aa4910100dc18f2b6c925652e3835835b62a",
+      "subject": "Fix build errors and several warnings",
+      "source_files": [
+        "Source/MQTTnet.Extensions.TopicTemplate/TopicTemplateExtensions.cs",
+        "Source/MQTTnet/Server/Internal/MqttServerKeepAliveMonitor.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Clients/ManagedMqttClient/ManagedMqttClient_Tests.cs"
+      ]
+    },
+    {
+      "sha": "4481869d42e6c2d0a3205918e33291f1de97d297",
+      "parent_sha": "abbf14b1eca1941c70112dd4cc32f24e55c3797b",
+      "subject": "fix: time out and cancel propagation in managed client (#1987)",
+      "source_files": [
+        "Source/MQTTnet.Extensions.ManagedClient/ManagedMqttClient.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Clients/ManagedMqttClient/ManagedMqttClient_Tests.cs"
+      ]
+    },
+    {
+      "sha": "1aa91e3828ae80465f0cd0103197e481df5e335c",
+      "parent_sha": "2410d7b4c100d844ff231a57ffbac478b5c5c6a8",
+      "subject": "Fix unit tests for topic templates (#1976)",
+      "source_files": [
+        "Source/MQTTnet.Extensions.TopicTemplate/MqttTopicTemplate.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Extensions/MqttTopicTemplate_Tests.cs"
+      ]
+    },
+    {
+      "sha": "c12096705f0d534900dcf1a0c5b229000e35bcbe",
+      "parent_sha": "eb25500f508751365d18ca1e0d7d1b911b1d1c66",
+      "subject": "1908 support unix domain sockets (#1919)",
+      "source_files": [
+        "MQTTnet.sln.DotSettings",
+        "Source/MQTTnet.AspnetCore/Client/MqttClientConnectionContextFactory.cs",
+        "Source/MQTTnet.AspnetCore/Client/Tcp/SocketConnection.cs",
+        "Source/MQTTnet.AspnetCore/MqttConnectionContext.cs",
+        "Source/MQTTnet.Benchmarks/TcpPipesBenchmark.cs",
+        "Source/MQTTnet.TestApp/MQTTnet.TestApp.csproj",
+        "Source/MQTTnet/Client/Options/MqttClientOptionsBuilder.cs",
+        "Source/MQTTnet/Client/Options/MqttClientTcpOptions.cs",
+        "Source/MQTTnet/Client/Options/MqttClientTcpOptionsExtensions.cs",
+        "Source/MQTTnet/Implementations/CrossPlatformSocket.cs",
+        "Source/MQTTnet/Implementations/MqttTcpChannel.Uwp.cs",
+        "Source/MQTTnet/Implementations/MqttTcpChannel.cs",
+        "Source/MQTTnet/Protocol/MqttPorts.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.AspNetCore.Tests/MqttConnectionContextTest.cs",
+        "Source/MQTTnet.TestApp/ClientTest.cs",
+        "Source/MQTTnet.TestApp/ManagedClientTest.cs",
+        "Source/MQTTnet.TestApp/PerformanceTest.cs",
+        "Source/MQTTnet.TestApp/PublicBrokerTest.cs"
+      ]
+    },
+    {
+      "sha": "ec637f7946b454c6c659e7e34657ad5e50a8a09f",
+      "parent_sha": "2599b3dfdcfa86e6db43100a17557f28fa4de9b7",
+      "subject": "Handle unobserved tasks exceptions (#1871)",
+      "source_files": [
+        "MQTTnet.sln.DotSettings",
+        "Source/MQTTnet.Tests/Mockups/TestEnvironment.cs",
+        "Source/MQTTnet/Adapter/MqttChannelAdapter.cs",
+        "Source/MQTTnet/Client/MqttClient.cs",
+        "Source/MQTTnet/LowLevelClient/LowLevelMqttClient.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Clients/ManagedMqttClient/ManagedMqttClient_Tests.cs",
+        "Source/MQTTnet.Tests/Clients/MqttClient/MqttClient_Connection_Tests.cs",
+        "Source/MQTTnet.Tests/Extensions/Rpc_Tests.cs",
+        "Source/MQTTnet.Tests/Server/HotSwapCerts_Tests.cs"
+      ]
+    },
+    {
+      "sha": "6fdee9e0db738817c6f457c3597f84460cff3cd0",
+      "parent_sha": "cae7206733052918f32b5d7348a63697c149977e",
+      "subject": "Fix wrong TLS usage (#1833)",
+      "source_files": [
+        "Source/MQTTnet.Extensions.WebSocket4Net/WebSocket4NetMqttChannel.cs",
+        "Source/MQTTnet/Client/Options/MqttClientOptionsBuilder.cs",
+        "Source/MQTTnet/Implementations/MqttWebSocketChannel.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.TestApp/PublicBrokerTest.cs"
+      ]
+    },
+    {
+      "sha": "111a0d69cffc1e788c2bea4bd21d60c05df57d4e",
+      "parent_sha": "1a08ec17ba95e54339084baf77542eaffae3217f",
+      "subject": "Add support for hot reloading of client certificates (#1783)",
+      "source_files": [
+        "Samples/Client/Client_Connection_Samples.cs",
+        "Source/MQTTnet.Extensions.WebSocket4Net/WebSocket4NetMqttChannel.cs",
+        "Source/MQTTnet/Client/Options/DefaultMqttCertificatesProvider.cs",
+        "Source/MQTTnet/Client/Options/IMqttClientCertificatesProvider.cs",
+        "Source/MQTTnet/Client/Options/MqttClientOptionsBuilder.cs",
+        "Source/MQTTnet/Client/Options/MqttClientOptionsBuilderTlsParameters.cs",
+        "Source/MQTTnet/Client/Options/MqttClientOptionsBuilderWebSocketParameters.cs",
+        "Source/MQTTnet/Client/Options/MqttClientTcpOptionsExtensions.cs",
+        "Source/MQTTnet/Client/Options/MqttClientTlsOptions.cs",
+        "Source/MQTTnet/Client/Options/MqttClientTlsOptionsBuilder.cs",
+        "Source/MQTTnet/Client/Options/MqttClientWebSocketOptionsBuilder.cs",
+        "Source/MQTTnet/Client/Options/MqttClientWebSocketProxyOptionsBuilder.cs",
+        "Source/MQTTnet/Implementations/MqttTcpChannel.Uwp.cs",
+        "Source/MQTTnet/Implementations/MqttTcpChannel.cs",
+        "Source/MQTTnet/Implementations/MqttWebSocketChannel.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.TestApp/PublicBrokerTest.cs",
+        "Source/MQTTnet.Tests/Clients/ManagedMqttClient/ManagedMqttClient_Tests.cs",
+        "Source/MQTTnet.Tests/Clients/MqttClient/MqttClient_Tests.cs",
+        "Source/MQTTnet.Tests/Extensions/WebSocket4Net_Tests.cs",
+        "Source/MQTTnet.Tests/MqttApplicationMessageBuilder_Tests.cs",
+        "Source/MQTTnet.Tests/Server/HotSwapCerts_Tests.cs"
+      ]
+    },
+    {
+      "sha": "3b5667c8827a6ad93b3229ee7fcda2457b850db2",
+      "parent_sha": "0790e5479429c8159906fbc3b3aa7b6ffcecc32d",
+      "subject": "Fix #1761: MQTTRetainedMessageManager, return task with NULL result instead of NULL (#1762)",
+      "source_files": [
+        "Source/MQTTnet/Server/Internal/MqttRetainedMessagesManager.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Server/MqttRetainedMessageManager_Tests.cs"
+      ]
+    },
+    {
+      "sha": "36c6d8974eac9ed4f04e342229e7d35b6a836471",
+      "parent_sha": "d6cab767288c35aa82e0a5dc1b66fceb7a269eac",
+      "subject": "Allow disabling of packet fragmentation (#1709)",
+      "source_files": [
+        "Samples/Client/Client_Connection_Samples.cs",
+        "Source/MQTTnet.AspnetCore/MqttWebSocketServerAdapter.cs",
+        "Source/MQTTnet.Benchmarks/ChannelAdapterBenchmark.cs",
+        "Source/MQTTnet.Benchmarks/SerializerBenchmark.cs",
+        "Source/MQTTnet.Extensions.ManagedClient/ManagedMqttClientOptions.cs",
+        "Source/MQTTnet.Extensions.WebSocket4Net/WebSocket4NetMqttClientAdapterFactory.cs",
+        "Source/MQTTnet.Tests/MqttPacketSerializationHelper.cs",
+        "Source/MQTTnet/Adapter/MqttChannelAdapter.cs",
+        "Source/MQTTnet/Client/Options/MqttClientOptions.cs",
+        "Source/MQTTnet/Client/Options/MqttClientOptionsBuilder.cs",
+        "Source/MQTTnet/Implementations/MqttClientAdapterFactory.cs",
+        "Source/MQTTnet/Implementations/MqttTcpServerAdapter.Uwp.cs",
+        "Source/MQTTnet/Implementations/MqttTcpServerListener.cs"
+      ],
+      "test_files": [
+        "Source/MQTTnet.Tests/Formatter/MqttPacketSerialization_V3_Binary_Tests.cs"
+      ]
+    }
+  ]
+}

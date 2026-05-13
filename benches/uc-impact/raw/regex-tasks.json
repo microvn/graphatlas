@@ -1,0 +1,693 @@
+{
+  "repo": "regex",
+  "lang": "rust",
+  "enriched_at": "2026-04-29T18:58:16.180Z",
+  "count": 20,
+  "tasks": [
+    {
+      "task_id": "regex-4733e28b",
+      "repo": "regex",
+      "base_commit": "5ea3eb1e95f0338e283f5f0b4681f0891a1cd836",
+      "fix_commit": "4733e28ba4f281f643ce93e4089eccbb9a9d5a5a",
+      "subject": "automata: fix `onepass::DFA::try_search_slots` panic when too many slots are given",
+      "seed_file": "regex-automata/src/dfa/onepass.rs",
+      "seed_symbol": "compiled",
+      "source_files": [
+        "regex-automata/src/dfa/onepass.rs"
+      ],
+      "expected_files": [
+        "regex-automata/src/dfa/onepass.rs"
+      ],
+      "expected_tests": [
+        "regex-automata/tests/dfa/onepass/mod.rs",
+        "regex-automata/tests/dfa/onepass/regression.rs",
+        "regex-automata/tests/nfa/thompson/backtrack/mod.rs",
+        "regex-automata/tests/nfa/thompson/backtrack/regression.rs",
+        "regex-automata/tests/nfa/thompson/pikevm/mod.rs",
+        "regex-automata/tests/nfa/thompson/pikevm/regression.rs"
+      ],
+      "should_touch_files": [
+        "regex-automata/src/dfa/automaton.rs",
+        "regex-automata/src/dfa/dense.rs",
+        "regex-automata/src/dfa/determinize.rs",
+        "regex-automata/src/dfa/mod.rs",
+        "regex-automata/src/dfa/sparse.rs",
+        "regex-automata/src/hybrid/dfa.rs",
+        "regex-automata/src/hybrid/id.rs",
+        "regex-automata/src/meta/limited.rs",
+        "regex-automata/src/meta/regex.rs",
+        "regex-automata/src/meta/strategy.rs",
+        "regex-automata/src/meta/wrappers.rs",
+        "regex-automata/src/nfa/thompson/error.rs",
+        "regex-automata/src/nfa/thompson/nfa.rs",
+        "regex-automata/src/nfa/thompson/pikevm.rs",
+        "regex-automata/src/nfa/thompson/range_trie.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "regex-bd345d74",
+      "repo": "regex",
+      "base_commit": "72618c64c85611a30939252a823c000e35f7cffd",
+      "fix_commit": "bd345d74a1c5b7869abf063443bc4663cd20f1ea",
+      "subject": "automata: fix broken universal start states with sparse DFA",
+      "seed_file": "regex-automata/src/dfa/sparse.rs",
+      "seed_symbol": "StartTable",
+      "source_files": [
+        "regex-automata/src/dfa/sparse.rs"
+      ],
+      "expected_files": [
+        "regex-automata/src/dfa/sparse.rs"
+      ],
+      "expected_tests": [
+        "regex-automata/tests/dfa/api.rs"
+      ],
+      "should_touch_files": [
+        "regex-automata/src/dfa/automaton.rs",
+        "regex-automata/src/dfa/dense.rs",
+        "regex-automata/src/dfa/mod.rs",
+        "regex-automata/src/dfa/onepass.rs",
+        "regex-automata/src/dfa/regex.rs",
+        "regex-automata/src/hybrid/dfa.rs",
+        "regex-automata/src/hybrid/error.rs",
+        "regex-automata/src/hybrid/regex.rs",
+        "regex-automata/src/hybrid/search.rs",
+        "regex-automata/src/meta/error.rs",
+        "regex-automata/src/meta/limited.rs",
+        "regex-automata/src/meta/regex.rs",
+        "regex-automata/src/meta/strategy.rs",
+        "regex-automata/src/meta/wrappers.rs",
+        "regex-automata/src/nfa/thompson/error.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "regex-bb70b106",
+      "repo": "regex",
+      "base_commit": "ca5a742701963f1aa37b4103d3e638f7540e0e57",
+      "fix_commit": "bb70b106e9a47108da0c3cff13b693133c077c1c",
+      "subject": "automata: fix broken universal start states with sparse DFA",
+      "seed_file": "regex-automata/src/dfa/sparse.rs",
+      "seed_symbol": "StartTable",
+      "source_files": [
+        "regex-automata/src/dfa/sparse.rs"
+      ],
+      "expected_files": [
+        "regex-automata/src/dfa/sparse.rs"
+      ],
+      "expected_tests": [
+        "regex-automata/tests/dfa/api.rs"
+      ],
+      "should_touch_files": [
+        "regex-automata/src/dfa/automaton.rs",
+        "regex-automata/src/dfa/dense.rs",
+        "regex-automata/src/dfa/mod.rs",
+        "regex-automata/src/dfa/onepass.rs",
+        "regex-automata/src/dfa/regex.rs",
+        "regex-automata/src/hybrid/dfa.rs",
+        "regex-automata/src/hybrid/error.rs",
+        "regex-automata/src/hybrid/regex.rs",
+        "regex-automata/src/hybrid/search.rs",
+        "regex-automata/src/meta/error.rs",
+        "regex-automata/src/meta/limited.rs",
+        "regex-automata/src/meta/regex.rs",
+        "regex-automata/src/meta/strategy.rs",
+        "regex-automata/src/meta/wrappers.rs",
+        "regex-automata/src/nfa/thompson/error.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "regex-0086dec6",
+      "repo": "regex",
+      "base_commit": "4ae14720e9599830f653ca1a881b42e620eba11e",
+      "fix_commit": "0086dec69a77a9e1153e97cd050ab567b5c7f109",
+      "subject": "lite: fix stack overflow test",
+      "seed_file": "regex-lite/src/hir/mod.rs",
+      "seed_symbol": "Hir",
+      "source_files": [
+        "regex-lite/src/hir/mod.rs",
+        "regex-lite/src/hir/parse.rs"
+      ],
+      "expected_files": [
+        "regex-lite/src/hir/mod.rs",
+        "regex-lite/src/hir/parse.rs"
+      ],
+      "expected_tests": [
+        "regex-lite/tests/fuzz/mod.rs"
+      ],
+      "should_touch_files": [
+        "regex-lite/src/lib.rs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "regex-466e42ca",
+      "repo": "regex",
+      "base_commit": "5dff4bd7e3bf8b87a272e31c23f1b64417e4c5de",
+      "fix_commit": "466e42ca2bea2480ff367e0e26e3967435ac3e30",
+      "subject": "lite: fix stack overflow in NFA compiler",
+      "seed_file": "regex-lite/src/hir/parse.rs",
+      "seed_symbol": "Parser",
+      "source_files": [
+        "regex-lite/src/hir/parse.rs"
+      ],
+      "expected_files": [
+        "regex-lite/src/hir/parse.rs"
+      ],
+      "expected_tests": [
+        "regex-lite/tests/fuzz/mod.rs"
+      ],
+      "should_touch_files": [
+        "regex-lite/src/hir/mod.rs",
+        "regex-lite/src/lib.rs",
+        "regex-lite/src/nfa.rs",
+        "regex-lite/src/string.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "regex-40d883d4",
+      "repo": "regex",
+      "base_commit": "d555d6122d1d1a354c45361d029571413beca8ef",
+      "fix_commit": "40d883d405ba3e992d84367a6e9ede4053125ab3",
+      "subject": "bug: fix complete literal optimization issue",
+      "seed_file": "src/exec.rs",
+      "seed_symbol": "ExecReadOnly",
+      "source_files": [
+        "src/exec.rs"
+      ],
+      "expected_files": [
+        "src/exec.rs"
+      ],
+      "expected_tests": [
+        "tests/regression.rs"
+      ],
+      "should_touch_files": [
+        "bench/build.rs",
+        "bench/src/bench.rs",
+        "bench/src/ffi/pcre2.rs",
+        "bench/src/ffi/re2.rs",
+        "bench/src/main.rs",
+        "bench/src/misc.rs",
+        "bench/src/sherlock.rs",
+        "benches/bench_dynamic_compile.rs",
+        "benches/src/bench_onig.rs",
+        "benches/src/bench_pcre.rs",
+        "benches/src/bench_rust.rs",
+        "benches/src/bench_rust_bytes.rs",
+        "benches/src/bench_rust_plugin.rs",
+        "benches/src/misc.rs",
+        "examples/shootout-regex-dna-bytes.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "regex-f9aec417",
+      "repo": "regex",
+      "base_commit": "65ec58cbd4dd9a0fcfa0823876b7dd0bb1736bd1",
+      "fix_commit": "f9aec4179fb59c33d19b1fafd05ff9e2bf4dd735",
+      "subject": "syntax: fix overflow for big counted repetitions",
+      "seed_file": "regex-syntax/src/hir/mod.rs",
+      "seed_symbol": "Properties",
+      "source_files": [
+        "regex-syntax/src/hir/mod.rs"
+      ],
+      "expected_files": [
+        "regex-syntax/src/hir/mod.rs"
+      ],
+      "expected_tests": [
+        "tests/regression.rs"
+      ],
+      "should_touch_files": [
+        "bench/build.rs",
+        "bench/src/bench.rs",
+        "bench/src/ffi/pcre2.rs",
+        "bench/src/main.rs",
+        "regex-capi/src/lib.rs",
+        "regex-debug/src/main.rs",
+        "regex-syntax/benches/bench.rs",
+        "regex-syntax/src/ast/mod.rs",
+        "regex-syntax/src/ast/parse.rs",
+        "regex-syntax/src/ast/print.rs",
+        "regex-syntax/src/ast/visitor.rs",
+        "regex-syntax/src/error.rs",
+        "regex-syntax/src/hir/interval.rs",
+        "regex-syntax/src/hir/literal.rs",
+        "regex-syntax/src/hir/literal/mod.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "regex-f003d725",
+      "repo": "regex",
+      "base_commit": "93316a3b1adc43cc12fab6c73a59f646658cd984",
+      "fix_commit": "f003d72578c84d3b849fa1c59724e003338a3ca1",
+      "subject": "impl: fix prefix literal matching bug",
+      "seed_file": "regex-syntax/src/hir/mod.rs",
+      "seed_symbol": "PropertiesI",
+      "source_files": [
+        "regex-syntax/src/hir/mod.rs",
+        "regex-syntax/src/hir/translate.rs",
+        "src/exec.rs"
+      ],
+      "expected_files": [
+        "regex-syntax/src/hir/mod.rs",
+        "regex-syntax/src/hir/translate.rs",
+        "src/exec.rs"
+      ],
+      "expected_tests": [
+        "tests/regression.rs"
+      ],
+      "should_touch_files": [
+        "bench/build.rs",
+        "bench/src/bench.rs",
+        "bench/src/ffi/pcre2.rs",
+        "bench/src/main.rs",
+        "regex-capi/src/lib.rs",
+        "regex-debug/src/main.rs",
+        "regex-syntax/benches/bench.rs",
+        "regex-syntax/src/ast/mod.rs",
+        "regex-syntax/src/ast/parse.rs",
+        "regex-syntax/src/ast/print.rs",
+        "regex-syntax/src/ast/visitor.rs",
+        "regex-syntax/src/error.rs",
+        "regex-syntax/src/hir/interval.rs",
+        "regex-syntax/src/hir/literal.rs",
+        "regex-syntax/src/hir/literal/mod.rs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "regex-33898de8",
+      "repo": "regex",
+      "base_commit": "cf8751aaffd4613d69e56eb1e04a44ced2ca27c0",
+      "fix_commit": "33898de870fc584ce912651590d8715d1178e667",
+      "subject": "syntax: fix bug in new alternation literal analysis",
+      "seed_file": "regex-syntax/src/hir/mod.rs",
+      "seed_symbol": "Properties",
+      "source_files": [
+        "regex-syntax/src/hir/mod.rs",
+        "regex-syntax/src/hir/translate.rs"
+      ],
+      "expected_files": [
+        "regex-syntax/src/hir/mod.rs",
+        "regex-syntax/src/hir/translate.rs"
+      ],
+      "expected_tests": [
+        "tests/regression_fuzz.rs"
+      ],
+      "should_touch_files": [
+        "bench/build.rs",
+        "bench/src/bench.rs",
+        "bench/src/ffi/pcre2.rs",
+        "bench/src/main.rs",
+        "regex-capi/src/lib.rs",
+        "regex-debug/src/main.rs",
+        "regex-syntax/benches/bench.rs",
+        "regex-syntax/src/ast/mod.rs",
+        "regex-syntax/src/ast/parse.rs",
+        "regex-syntax/src/ast/print.rs",
+        "regex-syntax/src/ast/visitor.rs",
+        "regex-syntax/src/error.rs",
+        "regex-syntax/src/hir/interval.rs",
+        "regex-syntax/src/hir/literal.rs",
+        "regex-syntax/src/hir/literal/mod.rs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "regex-d94f9552",
+      "repo": "regex",
+      "base_commit": "32fed9429eafba0ae92a64b01796a0c5a75b88c8",
+      "fix_commit": "d94f95523aed7fecc71fc2e082d1458f69dd8de3",
+      "subject": "dfa: fix bug in how the reverse DFA is called",
+      "seed_file": "src/exec.rs",
+      "seed_symbol": "ExecNoSync",
+      "source_files": [
+        "src/exec.rs"
+      ],
+      "expected_files": [
+        "src/exec.rs"
+      ],
+      "expected_tests": [
+        "tests/test_default.rs"
+      ],
+      "should_touch_files": [
+        "bench/build.rs",
+        "bench/src/bench.rs",
+        "bench/src/ffi/pcre2.rs",
+        "bench/src/ffi/re2.rs",
+        "bench/src/main.rs",
+        "bench/src/misc.rs",
+        "bench/src/sherlock.rs",
+        "benches/bench_dynamic_compile.rs",
+        "benches/src/bench_onig.rs",
+        "benches/src/bench_pcre.rs",
+        "benches/src/bench_rust.rs",
+        "benches/src/bench_rust_bytes.rs",
+        "benches/src/bench_rust_plugin.rs",
+        "benches/src/misc.rs",
+        "examples/shootout-regex-dna-bytes.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "regex-1c196196",
+      "repo": "regex",
+      "base_commit": "88a2a62d861d189faae539990f63cb9cf195bd8c",
+      "fix_commit": "1c19619672c2ef16dc9f64fec38af5719c4ec06c",
+      "subject": "syntax: fix literal extraction for 'ab??'",
+      "seed_file": "regex-syntax/src/hir/literal/mod.rs",
+      "seed_symbol": "repeat_zero_or_one_literals",
+      "source_files": [
+        "regex-syntax/src/hir/literal/mod.rs"
+      ],
+      "expected_files": [
+        "regex-syntax/src/hir/literal/mod.rs"
+      ],
+      "expected_tests": [
+        "tests/regression.rs"
+      ],
+      "should_touch_files": [
+        "bench/build.rs",
+        "bench/src/bench.rs",
+        "bench/src/ffi/pcre2.rs",
+        "bench/src/main.rs",
+        "regex-capi/src/lib.rs",
+        "regex-debug/src/main.rs",
+        "regex-syntax/benches/bench.rs",
+        "regex-syntax/src/ast/mod.rs",
+        "regex-syntax/src/ast/parse.rs",
+        "regex-syntax/src/ast/print.rs",
+        "regex-syntax/src/ast/visitor.rs",
+        "regex-syntax/src/error.rs",
+        "regex-syntax/src/hir/interval.rs",
+        "regex-syntax/src/hir/mod.rs",
+        "regex-syntax/src/hir/translate.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "regex-ae70b41d",
+      "repo": "regex",
+      "base_commit": "b92ffd5471018419ec48dbdef32757424439f065",
+      "fix_commit": "ae70b41d4f46641dbc45c7a4f87954aea356283e",
+      "subject": "security: fix denial-of-service bug in compiler",
+      "seed_file": "src/compile.rs",
+      "seed_symbol": "Compiler",
+      "source_files": [
+        "src/compile.rs"
+      ],
+      "expected_files": [
+        "src/compile.rs"
+      ],
+      "expected_tests": [
+        "tests/test_default.rs"
+      ],
+      "should_touch_files": [
+        "bench/build.rs",
+        "bench/src/bench.rs",
+        "bench/src/ffi/pcre2.rs",
+        "bench/src/main.rs",
+        "benches/bench_dynamic_compile.rs",
+        "examples/shootout-regex-dna-bytes.rs",
+        "examples/shootout-regex-dna-cheat.rs",
+        "examples/shootout-regex-dna-replace.rs",
+        "examples/shootout-regex-dna-single-cheat.rs",
+        "examples/shootout-regex-dna-single.rs",
+        "examples/shootout-regex-dna.rs",
+        "regex-capi/src/lib.rs",
+        "regex-debug/src/main.rs",
+        "regex-syntax/benches/bench.rs",
+        "regex-syntax/src/ast/mod.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "regex-ea4009a2",
+      "repo": "regex",
+      "base_commit": "2a8ddd0b36095d3810f3556627cd59c5014edd01",
+      "fix_commit": "ea4009a22da6d91665930ff01a503a0d93e59b14",
+      "subject": "syntax: fix flag scoping issue",
+      "seed_file": "regex-syntax/src/hir/translate.rs",
+      "seed_symbol": "HirFrame",
+      "source_files": [
+        "regex-syntax/src/hir/translate.rs"
+      ],
+      "expected_files": [
+        "regex-syntax/src/hir/translate.rs"
+      ],
+      "expected_tests": [
+        "tests/regression.rs"
+      ],
+      "should_touch_files": [
+        "regex-debug/src/main.rs",
+        "regex-syntax/benches/bench.rs",
+        "regex-syntax/src/ast/mod.rs",
+        "regex-syntax/src/ast/parse.rs",
+        "regex-syntax/src/ast/print.rs",
+        "regex-syntax/src/ast/visitor.rs",
+        "regex-syntax/src/error.rs",
+        "regex-syntax/src/hir/interval.rs",
+        "regex-syntax/src/hir/literal/mod.rs",
+        "regex-syntax/src/hir/mod.rs",
+        "regex-syntax/src/hir/visitor.rs",
+        "regex-syntax/src/lib.rs",
+        "regex-syntax/src/parser.rs",
+        "regex-syntax/src/unicode.rs",
+        "regex-syntax/src/unicode_tables/mod.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "regex-65d6bba9",
+      "repo": "regex",
+      "base_commit": "b9d1bb5e988edc497c59a7e61b01faab6d587dc7",
+      "fix_commit": "65d6bba9254d514a16e0bf89d76cbd9b90740e5c",
+      "subject": "api: fix for splitn(\"a\", 2) returning extra \"\"",
+      "seed_file": "src/re_bytes.rs",
+      "seed_symbol": "SplitN",
+      "source_files": [
+        "src/re_bytes.rs",
+        "src/re_unicode.rs"
+      ],
+      "expected_files": [
+        "src/re_bytes.rs",
+        "src/re_unicode.rs"
+      ],
+      "expected_tests": [
+        "tests/api.rs"
+      ],
+      "should_touch_files": [
+        "bench/src/ffi/re2.rs",
+        "examples/shootout-regex-dna-bytes.rs",
+        "examples/shootout-regex-dna-cheat.rs",
+        "examples/shootout-regex-dna-replace.rs",
+        "examples/shootout-regex-dna-single-cheat.rs",
+        "examples/shootout-regex-dna-single.rs",
+        "examples/shootout-regex-dna.rs",
+        "regex-capi/src/rure.rs",
+        "regex-syntax/src/lib.rs",
+        "src/backtrack.rs",
+        "src/compile.rs",
+        "src/dfa.rs",
+        "src/error.rs",
+        "src/exec.rs",
+        "src/expand.rs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "regex-b9d1bb5e",
+      "repo": "regex",
+      "base_commit": "2f3fd66edff75835e205a63525cc1b8f8c1f24a6",
+      "fix_commit": "b9d1bb5e988edc497c59a7e61b01faab6d587dc7",
+      "subject": "api: fix for split() not returning last \"\"",
+      "seed_file": "src/re_bytes.rs",
+      "seed_symbol": "Split",
+      "source_files": [
+        "src/re_bytes.rs",
+        "src/re_unicode.rs"
+      ],
+      "expected_files": [
+        "src/re_bytes.rs",
+        "src/re_unicode.rs"
+      ],
+      "expected_tests": [
+        "tests/api.rs",
+        "tests/macros.rs",
+        "tests/macros_bytes.rs",
+        "tests/macros_str.rs"
+      ],
+      "should_touch_files": [
+        "bench/src/ffi/re2.rs",
+        "examples/shootout-regex-dna-bytes.rs",
+        "examples/shootout-regex-dna-cheat.rs",
+        "examples/shootout-regex-dna-replace.rs",
+        "examples/shootout-regex-dna-single-cheat.rs",
+        "examples/shootout-regex-dna-single.rs",
+        "examples/shootout-regex-dna.rs",
+        "regex-capi/src/rure.rs",
+        "regex-syntax/src/lib.rs",
+        "src/backtrack.rs",
+        "src/compile.rs",
+        "src/dfa.rs",
+        "src/error.rs",
+        "src/exec.rs",
+        "src/expand.rs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "regex-cd05a244",
+      "repo": "regex",
+      "base_commit": "9687986de45378c744180cc696286aad7db83c5e",
+      "fix_commit": "cd05a244949c2225d7f776d7ea51db7b7dd4bb27",
+      "subject": "input: fix infinite loop regression",
+      "seed_file": "src/pikevm.rs",
+      "seed_symbol": "Input",
+      "source_files": [
+        "src/backtrack.rs",
+        "src/pikevm.rs"
+      ],
+      "expected_files": [
+        "src/backtrack.rs",
+        "src/pikevm.rs"
+      ],
+      "expected_tests": [
+        "tests/regression.rs"
+      ],
+      "should_touch_files": [
+        "src/dfa.rs",
+        "src/exec.rs",
+        "src/prog.rs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "regex-23164324",
+      "repo": "regex",
+      "base_commit": "7b1599f2f6903e4087c6cd109404be4056406ad9",
+      "fix_commit": "231643248b585eae007c46fad0c4830978c0d425",
+      "subject": "syntax: fix bug when parsing ((?x))",
+      "seed_file": "regex-syntax/src/hir/translate.rs",
+      "seed_symbol": "TranslatorI",
+      "source_files": [
+        "regex-syntax/src/hir/translate.rs"
+      ],
+      "expected_files": [
+        "regex-syntax/src/hir/translate.rs"
+      ],
+      "expected_tests": [
+        "tests/regression.rs"
+      ],
+      "should_touch_files": [
+        "regex-syntax/src/ast/parse.rs",
+        "regex-syntax/src/hir/mod.rs",
+        "regex-syntax/src/parser.rs",
+        "regex-syntax/src/unicode.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "regex-7b1599f2",
+      "repo": "regex",
+      "base_commit": "67fca6cbfff22bb297e0935bc3c267bc336d4e3b",
+      "fix_commit": "7b1599f2f6903e4087c6cd109404be4056406ad9",
+      "subject": "syntax: fix counted repetition bug",
+      "seed_file": "regex-syntax/src/ast/parse.rs",
+      "seed_symbol": "Borrow",
+      "source_files": [
+        "regex-syntax/src/ast/parse.rs"
+      ],
+      "expected_files": [
+        "regex-syntax/src/ast/parse.rs"
+      ],
+      "expected_tests": [
+        "tests/regression.rs"
+      ],
+      "should_touch_files": [
+        "regex-syntax/src/ast/mod.rs",
+        "regex-syntax/src/hir/translate.rs"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "regex-3563d734",
+      "repo": "regex",
+      "base_commit": "6152de43c9a30ad8ccc107d5c61f0726b92fd0a7",
+      "fix_commit": "3563d734ae13ff6d0601d0933f0890470367fe5b",
+      "subject": "exec: fix a bug in capture with match",
+      "seed_file": "src/exec.rs",
+      "seed_symbol": "ExecNoSync",
+      "source_files": [
+        "src/backtrack.rs",
+        "src/exec.rs",
+        "src/pikevm.rs"
+      ],
+      "expected_files": [
+        "src/backtrack.rs",
+        "src/exec.rs",
+        "src/pikevm.rs"
+      ],
+      "expected_tests": [
+        "tests/regression.rs"
+      ],
+      "should_touch_files": [
+        "benches/bench_dynamic_compile.rs",
+        "benches/src/bench_onig.rs",
+        "benches/src/bench_pcre.rs",
+        "benches/src/bench_rust.rs",
+        "benches/src/bench_rust_bytes.rs",
+        "benches/src/bench_rust_plugin.rs",
+        "benches/src/misc.rs",
+        "examples/shootout-regex-dna-replace.rs",
+        "examples/shootout-regex-dna.rs",
+        "regex-debug/src/main.rs",
+        "regex-syntax/src/lib.rs",
+        "regex-syntax/src/parser.rs",
+        "regex_macros/src/lib.rs",
+        "src/compile.rs",
+        "src/dfa.rs"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "regex-edf45e6f",
+      "repo": "regex",
+      "base_commit": "9fb112e0d7c3cb14c2881a57b565fbfbf3a390fb",
+      "fix_commit": "edf45e6f5fa54705298ba14f3216cfb5277c0908",
+      "subject": "literal: fix reverse suffix literal optimization again",
+      "seed_file": "src/exec.rs",
+      "seed_symbol": "ExecNoSync",
+      "source_files": [
+        "src/exec.rs"
+      ],
+      "expected_files": [
+        "src/exec.rs"
+      ],
+      "expected_tests": [
+        "tests/regression.rs"
+      ],
+      "should_touch_files": [
+        "benches/bench_dynamic_compile.rs",
+        "benches/src/bench_onig.rs",
+        "benches/src/bench_pcre.rs",
+        "benches/src/bench_rust.rs",
+        "benches/src/bench_rust_bytes.rs",
+        "benches/src/bench_rust_plugin.rs",
+        "benches/src/misc.rs",
+        "examples/shootout-regex-dna-replace.rs",
+        "examples/shootout-regex-dna.rs",
+        "regex-debug/src/main.rs",
+        "regex-syntax/src/lib.rs",
+        "regex-syntax/src/parser.rs",
+        "regex_macros/src/lib.rs",
+        "src/backtrack.rs",
+        "src/compile.rs"
+      ],
+      "max_expected_depth": 1
+    }
+  ]
+}

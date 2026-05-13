@@ -1,0 +1,2273 @@
+{
+  "schema_version": 1,
+  "uc": "callers",
+  "fixture": "httpx",
+  "tasks": [
+    {
+      "task_id": "textmatch_as_dict",
+      "query": {
+        "__rationale": "2 sites reference `as_dict` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "as_dict"
+      },
+      "expected": [
+        "_set_timeout",
+        "build_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_ByteStream",
+      "query": {
+        "__rationale": "9 sites reference `ByteStream` across 9 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ByteStream"
+      },
+      "expected": [
+        "aread",
+        "encode_content",
+        "encode_html",
+        "encode_json",
+        "encode_request",
+        "encode_response",
+        "encode_text",
+        "encode_urlencoded_data",
+        "read"
+      ]
+    },
+    {
+      "task_id": "textmatch_HTTPTransport",
+      "query": {
+        "__rationale": "2 sites reference `HTTPTransport` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "HTTPTransport"
+      },
+      "expected": [
+        "_init_proxy_transport",
+        "_init_transport"
+      ]
+    },
+    {
+      "task_id": "textmatch_Console",
+      "query": {
+        "__rationale": "7 sites reference `Console` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Console"
+      },
+      "expected": [
+        "download_response",
+        "main",
+        "print_help",
+        "print_request_headers",
+        "print_response",
+        "print_response_headers",
+        "trace"
+      ]
+    },
+    {
+      "task_id": "textmatch_write",
+      "query": {
+        "__rationale": "7 sites reference `write` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "write"
+      },
+      "expected": [
+        "decode",
+        "download_response"
+      ]
+    },
+    {
+      "task_id": "textmatch__send_handling_auth",
+      "query": {
+        "__rationale": "2 sites reference `_send_handling_auth` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_send_handling_auth"
+      },
+      "expected": [
+        "send"
+      ]
+    },
+    {
+      "task_id": "textmatch_request_context",
+      "query": {
+        "__rationale": "12 sites reference `request_context` across 11 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "request_context"
+      },
+      "expected": [
+        "_send_single_request",
+        "aclose",
+        "aiter_bytes",
+        "aiter_lines",
+        "aiter_raw",
+        "aiter_text",
+        "close",
+        "iter_bytes",
+        "iter_lines",
+        "iter_raw",
+        "iter_text"
+      ]
+    },
+    {
+      "task_id": "textmatch_digest",
+      "query": {
+        "__rationale": "4 sites reference `digest` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "digest"
+      },
+      "expected": [
+        "_build_auth_header"
+      ]
+    },
+    {
+      "task_id": "textmatch_print_request_headers",
+      "query": {
+        "__rationale": "2 sites reference `print_request_headers` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "print_request_headers"
+      },
+      "expected": [
+        "trace"
+      ]
+    },
+    {
+      "task_id": "textmatch_Syntax",
+      "query": {
+        "__rationale": "5 sites reference `Syntax` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Syntax"
+      },
+      "expected": [
+        "print_request_headers",
+        "print_response",
+        "print_response_headers"
+      ]
+    },
+    {
+      "task_id": "textmatch__build_redirect_request",
+      "query": {
+        "__rationale": "2 sites reference `_build_redirect_request` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_build_redirect_request"
+      },
+      "expected": [
+        "_send_handling_redirects"
+      ]
+    },
+    {
+      "task_id": "textmatch_isprintable",
+      "query": {
+        "__rationale": "4 sites reference `isprintable` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isprintable"
+      },
+      "expected": [
+        "urlparse"
+      ]
+    },
+    {
+      "task_id": "textmatch_ValueError",
+      "query": {
+        "__rationale": "6 sites reference `ValueError` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ValueError"
+      },
+      "expected": [
+        "encoding"
+      ]
+    },
+    {
+      "task_id": "textmatch_Proxy",
+      "query": {
+        "__rationale": "4 sites reference `Proxy` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Proxy"
+      },
+      "expected": [
+        "_get_proxy_map"
+      ]
+    },
+    {
+      "task_id": "textmatch_endswith",
+      "query": {
+        "__rationale": "4 sites reference `endswith` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "endswith"
+      },
+      "expected": [
+        "_build_auth_header",
+        "_enforce_trailing_slash",
+        "decode",
+        "urlparse"
+      ]
+    },
+    {
+      "task_id": "textmatch__CookieCompatRequest",
+      "query": {
+        "__rationale": "2 sites reference `_CookieCompatRequest` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_CookieCompatRequest"
+      },
+      "expected": [
+        "extract_cookies",
+        "set_cookie_header"
+      ]
+    },
+    {
+      "task_id": "textmatch_int",
+      "query": {
+        "__rationale": "4 sites reference `int` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "int"
+      },
+      "expected": [
+        "download_response",
+        "handle_request",
+        "normalize_port"
+      ]
+    },
+    {
+      "task_id": "textmatch_strip",
+      "query": {
+        "__rationale": "12 sites reference `strip` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "strip"
+      },
+      "expected": [
+        "_get_content_decoder",
+        "_parse_challenge",
+        "_parse_header_links",
+        "get_environment_proxies",
+        "get_lexer_for_response",
+        "get_list",
+        "get_multipart_boundary_from_content_type"
+      ]
+    },
+    {
+      "task_id": "textmatch_append",
+      "query": {
+        "__rationale": "25 sites reference `append` across 12 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "append"
+      },
+      "expected": [
+        "_get_content_decoder",
+        "_parse_header_links",
+        "_prepare",
+        "_send_handling_auth",
+        "clear",
+        "decode",
+        "encode_urlencoded_data",
+        "format_certificate",
+        "normalize_path",
+        "quote",
+        "render_headers",
+        "send"
+      ]
+    },
+    {
+      "task_id": "textmatch__format_form_param",
+      "query": {
+        "__rationale": "3 sites reference `_format_form_param` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_format_form_param"
+      },
+      "expected": [
+        "render_headers"
+      ]
+    },
+    {
+      "task_id": "textmatch_IPv6Address",
+      "query": {
+        "__rationale": "2 sites reference `IPv6Address` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "IPv6Address"
+      },
+      "expected": [
+        "encode_host",
+        "is_ipv6_hostname"
+      ]
+    },
+    {
+      "task_id": "textmatch_setdefault",
+      "query": {
+        "__rationale": "3 sites reference `setdefault` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setdefault"
+      },
+      "expected": [
+        "_prepare"
+      ]
+    },
+    {
+      "task_id": "textmatch_extend",
+      "query": {
+        "__rationale": "6 sites reference `extend` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "extend"
+      },
+      "expected": [
+        "encode_urlencoded_data",
+        "get_list",
+        "multi_items",
+        "render_headers",
+        "update"
+      ]
+    },
+    {
+      "task_id": "textmatch_LineDecoder",
+      "query": {
+        "__rationale": "2 sites reference `LineDecoder` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "LineDecoder"
+      },
+      "expected": [
+        "aiter_lines",
+        "iter_lines"
+      ]
+    },
+    {
+      "task_id": "textmatch_group",
+      "query": {
+        "__rationale": "2 sites reference `group` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "group"
+      },
+      "expected": [
+        "quote",
+        "replacer"
+      ]
+    },
+    {
+      "task_id": "textmatch_read",
+      "query": {
+        "__rationale": "14 sites reference `read` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "read"
+      },
+      "expected": [
+        "_send_handling_auth",
+        "_send_handling_redirects",
+        "handle_request",
+        "main",
+        "render_data",
+        "send",
+        "sync_auth_flow"
+      ]
+    },
+    {
+      "task_id": "textmatch_groupdict",
+      "query": {
+        "__rationale": "2 sites reference `groupdict` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "groupdict"
+      },
+      "expected": [
+        "urlparse"
+      ]
+    },
+    {
+      "task_id": "textmatch_map_httpcore_exceptions",
+      "query": {
+        "__rationale": "6 sites reference `map_httpcore_exceptions` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "map_httpcore_exceptions"
+      },
+      "expected": [
+        "handle_async_request",
+        "handle_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_set_cookie",
+      "query": {
+        "__rationale": "3 sites reference `set_cookie` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "set_cookie"
+      },
+      "expected": [
+        "set",
+        "update"
+      ]
+    },
+    {
+      "task_id": "textmatch_iter_bytes",
+      "query": {
+        "__rationale": "3 sites reference `iter_bytes` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "iter_bytes"
+      },
+      "expected": [
+        "download_response",
+        "iter_text",
+        "read"
+      ]
+    },
+    {
+      "task_id": "textmatch_set",
+      "query": {
+        "__rationale": "6 sites reference `set` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "set"
+      },
+      "expected": [
+        "copy_set_param",
+        "handle_async_request",
+        "send"
+      ]
+    },
+    {
+      "task_id": "textmatch_Timeout",
+      "query": {
+        "__rationale": "5 sites reference `Timeout` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Timeout"
+      },
+      "expected": [
+        "_set_timeout",
+        "build_request",
+        "timeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_hook",
+      "query": {
+        "__rationale": "4 sites reference `hook` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "hook"
+      },
+      "expected": [
+        "_send_handling_redirects"
+      ]
+    },
+    {
+      "task_id": "textmatch_AsyncHTTPTransport",
+      "query": {
+        "__rationale": "2 sites reference `AsyncHTTPTransport` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "AsyncHTTPTransport"
+      },
+      "expected": [
+        "_init_proxy_transport",
+        "_init_transport"
+      ]
+    },
+    {
+      "task_id": "textmatch__send_single_request",
+      "query": {
+        "__rationale": "2 sites reference `_send_single_request` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_send_single_request"
+      },
+      "expected": [
+        "_send_handling_redirects"
+      ]
+    },
+    {
+      "task_id": "textmatch_quote",
+      "query": {
+        "__rationale": "7 sites reference `quote` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "quote"
+      },
+      "expected": [
+        "encode_host",
+        "urlparse"
+      ]
+    },
+    {
+      "task_id": "textmatch_perf_counter",
+      "query": {
+        "__rationale": "4 sites reference `perf_counter` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "perf_counter"
+      },
+      "expected": [
+        "_send_single_request",
+        "aclose",
+        "close"
+      ]
+    },
+    {
+      "task_id": "textmatch_BasicAuth",
+      "query": {
+        "__rationale": "2 sites reference `BasicAuth` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "BasicAuth"
+      },
+      "expected": [
+        "_build_auth",
+        "_build_request_auth"
+      ]
+    },
+    {
+      "task_id": "textmatch_StreamClosed",
+      "query": {
+        "__rationale": "4 sites reference `StreamClosed` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "StreamClosed"
+      },
+      "expected": [
+        "aiter_raw",
+        "iter_raw"
+      ]
+    },
+    {
+      "task_id": "textmatch_loads",
+      "query": {
+        "__rationale": "2 sites reference `loads` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "loads"
+      },
+      "expected": [
+        "json",
+        "validate_json"
+      ]
+    },
+    {
+      "task_id": "textmatch_dict",
+      "query": {
+        "__rationale": "14 sites reference `dict` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "dict"
+      },
+      "expected": [
+        "_set_timeout",
+        "add",
+        "build_request",
+        "main",
+        "remove",
+        "set"
+      ]
+    },
+    {
+      "task_id": "textmatch_is_set",
+      "query": {
+        "__rationale": "2 sites reference `is_set` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "is_set"
+      },
+      "expected": [
+        "handle_async_request",
+        "send"
+      ]
+    },
+    {
+      "task_id": "textmatch_range",
+      "query": {
+        "__rationale": "11 sites reference `range` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "range"
+      },
+      "expected": [
+        "aiter_bytes",
+        "decode",
+        "iter_bytes"
+      ]
+    },
+    {
+      "task_id": "textmatch_pop",
+      "query": {
+        "__rationale": "15 sites reference `pop` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "pop"
+      },
+      "expected": [
+        "_redirect_headers",
+        "decode",
+        "normalize_path",
+        "remove",
+        "update",
+        "urlparse"
+      ]
+    },
+    {
+      "task_id": "textmatch_exit",
+      "query": {
+        "__rationale": "4 sites reference `exit` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "exit"
+      },
+      "expected": [
+        "handle_help",
+        "main"
+      ]
+    },
+    {
+      "task_id": "textmatch_warn",
+      "query": {
+        "__rationale": "6 sites reference `warn` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "warn"
+      },
+      "expected": [
+        "create_ssl_context",
+        "encode_request",
+        "raw",
+        "request"
+      ]
+    },
+    {
+      "task_id": "textmatch_keys",
+      "query": {
+        "__rationale": "7 sites reference `keys` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "keys"
+      },
+      "expected": [
+        "keys",
+        "update"
+      ]
+    },
+    {
+      "task_id": "textmatch__build_auth_header",
+      "query": {
+        "__rationale": "4 sites reference `_build_auth_header` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_build_auth_header"
+      },
+      "expected": [
+        "auth_flow"
+      ]
+    },
+    {
+      "task_id": "textmatch_urandom",
+      "query": {
+        "__rationale": "2 sites reference `urandom` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "urandom"
+      },
+      "expected": [
+        "_get_client_nonce"
+      ]
+    },
+    {
+      "task_id": "textmatch_decode",
+      "query": {
+        "__rationale": "55 sites reference `decode` across 27 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "decode"
+      },
+      "expected": [
+        "_build_auth_header",
+        "_redirect_headers",
+        "aiter_bytes",
+        "aiter_lines",
+        "aiter_raw",
+        "aiter_text",
+        "decode",
+        "encode_host",
+        "encoding",
+        "flush",
+        "format_request_headers",
+        "format_response_headers",
+        "get_list",
+        "handle_request",
+        "host",
+        "http_version",
+        "items",
+        "iter_bytes",
+        "iter_lines",
+        "iter_raw",
+        "iter_text",
+        "keys",
+        "multi_items",
+        "reason_phrase",
+        "text",
+        "to_str",
+        "values"
+      ]
+    },
+    {
+      "task_id": "textmatch_add_row",
+      "query": {
+        "__rationale": "17 sites reference `add_row` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "add_row"
+      },
+      "expected": [
+        "print_help"
+      ]
+    },
+    {
+      "task_id": "textmatch_ProtocolError",
+      "query": {
+        "__rationale": "2 sites reference `ProtocolError` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ProtocolError"
+      },
+      "expected": [
+        "_parse_challenge",
+        "_resolve_qop"
+      ]
+    },
+    {
+      "task_id": "textmatch_seek",
+      "query": {
+        "__rationale": "9 sites reference `seek` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "seek"
+      },
+      "expected": [
+        "decode",
+        "flush",
+        "peek_filelike_length",
+        "render_data"
+      ]
+    },
+    {
+      "task_id": "textmatch_truncate",
+      "query": {
+        "__rationale": "6 sites reference `truncate` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "truncate"
+      },
+      "expected": [
+        "decode",
+        "flush"
+      ]
+    },
+    {
+      "task_id": "textmatch_multi_items",
+      "query": {
+        "__rationale": "5 sites reference `multi_items` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "multi_items"
+      },
+      "expected": [
+        "info"
+      ]
+    },
+    {
+      "task_id": "textmatch__set_timeout",
+      "query": {
+        "__rationale": "2 sites reference `_set_timeout` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_set_timeout"
+      },
+      "expected": [
+        "send"
+      ]
+    },
+    {
+      "task_id": "textmatch_Request",
+      "query": {
+        "__rationale": "4 sites reference `Request` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Request"
+      },
+      "expected": [
+        "_build_redirect_request",
+        "build_request",
+        "handle_async_request",
+        "handle_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_urlparse",
+      "query": {
+        "__rationale": "2 sites reference `urlparse` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "urlparse"
+      },
+      "expected": [
+        "copy_with"
+      ]
+    },
+    {
+      "task_id": "textmatch_ByteChunker",
+      "query": {
+        "__rationale": "4 sites reference `ByteChunker` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ByteChunker"
+      },
+      "expected": [
+        "aiter_bytes",
+        "aiter_raw",
+        "iter_bytes",
+        "iter_raw"
+      ]
+    },
+    {
+      "task_id": "textmatch_Event",
+      "query": {
+        "__rationale": "2 sites reference `Event` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Event"
+      },
+      "expected": [
+        "create_event"
+      ]
+    },
+    {
+      "task_id": "textmatch_DecodingError",
+      "query": {
+        "__rationale": "8 sites reference `DecodingError` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "DecodingError"
+      },
+      "expected": [
+        "decode",
+        "flush"
+      ]
+    },
+    {
+      "task_id": "textmatch_list",
+      "query": {
+        "__rationale": "17 sites reference `list` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "list"
+      },
+      "expected": [
+        "_send_handling_auth",
+        "_send_handling_redirects",
+        "event_hooks",
+        "get_list",
+        "main"
+      ]
+    },
+    {
+      "task_id": "textmatch_primitive_value_to_str",
+      "query": {
+        "__rationale": "6 sites reference `primitive_value_to_str` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "primitive_value_to_str"
+      },
+      "expected": [
+        "add",
+        "encode_urlencoded_data",
+        "set"
+      ]
+    },
+    {
+      "task_id": "textmatch_any",
+      "query": {
+        "__rationale": "3 sites reference `any` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "any"
+      },
+      "expected": [
+        "urlparse"
+      ]
+    },
+    {
+      "task_id": "textmatch_get_list",
+      "query": {
+        "__rationale": "3 sites reference `get_list` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "get_list"
+      },
+      "expected": [
+        "_get_content_decoder",
+        "add",
+        "auth_flow"
+      ]
+    },
+    {
+      "task_id": "textmatch_partition",
+      "query": {
+        "__rationale": "6 sites reference `partition` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "partition"
+      },
+      "expected": [
+        "_parse_challenge",
+        "get_lexer_for_response",
+        "password",
+        "urlparse",
+        "username"
+      ]
+    },
+    {
+      "task_id": "textmatch_lower",
+      "query": {
+        "__rationale": "26 sites reference `lower` across 14 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "lower"
+      },
+      "expected": [
+        "_build_auth_header",
+        "_get_content_decoder",
+        "_obfuscate_sensitive_headers",
+        "_parse_challenge",
+        "_prepare",
+        "auth_flow",
+        "encode_host",
+        "format_request_headers",
+        "get_environment_proxies",
+        "get_list",
+        "get_multipart_boundary_from_content_type",
+        "handle_async_request",
+        "print_response",
+        "urlparse"
+      ]
+    },
+    {
+      "task_id": "textmatch_bool",
+      "query": {
+        "__rationale": "4 sites reference `bool` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "bool"
+      },
+      "expected": [
+        "is_absolute_url",
+        "set"
+      ]
+    },
+    {
+      "task_id": "textmatch_handle_request",
+      "query": {
+        "__rationale": "2 sites reference `handle_request` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "handle_request"
+      },
+      "expected": [
+        "_send_single_request",
+        "handle_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_get_reason_phrase",
+      "query": {
+        "__rationale": "2 sites reference `get_reason_phrase` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "get_reason_phrase"
+      },
+      "expected": [
+        "format_response_headers",
+        "reason_phrase"
+      ]
+    },
+    {
+      "task_id": "textmatch_handler",
+      "query": {
+        "__rationale": "2 sites reference `handler` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "handler"
+      },
+      "expected": [
+        "handle_async_request",
+        "handle_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_escape",
+      "query": {
+        "__rationale": "5 sites reference `escape` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "escape"
+      },
+      "expected": [
+        "download_response"
+      ]
+    },
+    {
+      "task_id": "textmatch_str",
+      "query": {
+        "__rationale": "39 sites reference `str` across 19 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "str"
+      },
+      "expected": [
+        "_get_client_nonce",
+        "add",
+        "decode",
+        "encode_content",
+        "encode_html",
+        "encode_json",
+        "encode_text",
+        "encode_urlencoded_data",
+        "flush",
+        "get",
+        "get_headers",
+        "get_list",
+        "handle_request",
+        "join",
+        "map_httpcore_exceptions",
+        "primitive_value_to_str",
+        "remove",
+        "set",
+        "urlparse"
+      ]
+    },
+    {
+      "task_id": "textmatch_split",
+      "query": {
+        "__rationale": "15 sites reference `split` across 11 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "split"
+      },
+      "expected": [
+        "_parse_challenge",
+        "_parse_header_links",
+        "_resolve_qop",
+        "get_environment_proxies",
+        "get_list",
+        "get_multipart_boundary_from_content_type",
+        "handle_async_request",
+        "handle_request",
+        "is_ipv4_hostname",
+        "is_ipv6_hostname",
+        "normalize_path"
+      ]
+    },
+    {
+      "task_id": "textmatch_TextDecoder",
+      "query": {
+        "__rationale": "3 sites reference `TextDecoder` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "TextDecoder"
+      },
+      "expected": [
+        "aiter_text",
+        "iter_text",
+        "text"
+      ]
+    },
+    {
+      "task_id": "textmatch_print_response_headers",
+      "query": {
+        "__rationale": "2 sites reference `print_response_headers` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "print_response_headers"
+      },
+      "expected": [
+        "trace"
+      ]
+    },
+    {
+      "task_id": "textmatch_next",
+      "query": {
+        "__rationale": "5 sites reference `next` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "next"
+      },
+      "expected": [
+        "_send_handling_auth",
+        "async_auth_flow",
+        "sync_auth_flow",
+        "urlparse"
+      ]
+    },
+    {
+      "task_id": "textmatch_getvalue",
+      "query": {
+        "__rationale": "5 sites reference `getvalue` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getvalue"
+      },
+      "expected": [
+        "decode",
+        "flush"
+      ]
+    },
+    {
+      "task_id": "textmatch_render_data",
+      "query": {
+        "__rationale": "3 sites reference `render_data` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "render_data"
+      },
+      "expected": [
+        "get_length",
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_hexdigest",
+      "query": {
+        "__rationale": "2 sites reference `hexdigest` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "hexdigest"
+      },
+      "expected": [
+        "_get_client_nonce",
+        "digest"
+      ]
+    },
+    {
+      "task_id": "textmatch_join",
+      "query": {
+        "__rationale": "39 sites reference `join` across 17 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "join"
+      },
+      "expected": [
+        "PERCENT",
+        "_build_auth_header",
+        "_redirect_url",
+        "aread",
+        "authority",
+        "decode",
+        "flush",
+        "format_certificate",
+        "format_request_headers",
+        "format_response_headers",
+        "netloc",
+        "normalize_path",
+        "percent_encoded",
+        "quote",
+        "read",
+        "render_headers",
+        "text"
+      ]
+    },
+    {
+      "task_id": "textmatch_get_extra_info",
+      "query": {
+        "__rationale": "2 sites reference `get_extra_info` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "get_extra_info"
+      },
+      "expected": [
+        "trace"
+      ]
+    },
+    {
+      "task_id": "textmatch_auth_flow",
+      "query": {
+        "__rationale": "2 sites reference `auth_flow` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "auth_flow"
+      },
+      "expected": [
+        "async_auth_flow",
+        "sync_auth_flow"
+      ]
+    },
+    {
+      "task_id": "textmatch_RuntimeError",
+      "query": {
+        "__rationale": "16 sites reference `RuntimeError` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "RuntimeError"
+      },
+      "expected": [
+        "_send_single_request",
+        "aclose",
+        "aiter_raw",
+        "close",
+        "elapsed",
+        "iter_raw",
+        "raise_for_status",
+        "request",
+        "send",
+        "update"
+      ]
+    },
+    {
+      "task_id": "textmatch_encode_content",
+      "query": {
+        "__rationale": "3 sites reference `encode_content` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "encode_content"
+      },
+      "expected": [
+        "encode_request",
+        "encode_response"
+      ]
+    },
+    {
+      "task_id": "textmatch_aclose",
+      "query": {
+        "__rationale": "13 sites reference `aclose` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "aclose"
+      },
+      "expected": [
+        "_send_handling_auth",
+        "_send_handling_redirects",
+        "aclose",
+        "aiter_raw",
+        "send",
+        "stream"
+      ]
+    },
+    {
+      "task_id": "textmatch_build_request",
+      "query": {
+        "__rationale": "4 sites reference `build_request` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "build_request"
+      },
+      "expected": [
+        "request",
+        "stream"
+      ]
+    },
+    {
+      "task_id": "textmatch_decompress",
+      "query": {
+        "__rationale": "4 sites reference `decompress` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "decompress"
+      },
+      "expected": [
+        "decode"
+      ]
+    },
+    {
+      "task_id": "textmatch_Response",
+      "query": {
+        "__rationale": "4 sites reference `Response` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Response"
+      },
+      "expected": [
+        "handle_async_request",
+        "handle_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_urlencode",
+      "query": {
+        "__rationale": "2 sites reference `urlencode` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "urlencode"
+      },
+      "expected": [
+        "encode_urlencoded_data"
+      ]
+    },
+    {
+      "task_id": "textmatch_DataField",
+      "query": {
+        "__rationale": "2 sites reference `DataField` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "DataField"
+      },
+      "expected": [
+        "_iter_fields"
+      ]
+    },
+    {
+      "task_id": "textmatch_info",
+      "query": {
+        "__rationale": "2 sites reference `info` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "info"
+      },
+      "expected": [
+        "_send_single_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_update",
+      "query": {
+        "__rationale": "8 sites reference `update` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "update"
+      },
+      "expected": [
+        "_merge_cookies",
+        "_merge_headers",
+        "copy_with",
+        "download_response",
+        "headers"
+      ]
+    },
+    {
+      "task_id": "textmatch_iter",
+      "query": {
+        "__rationale": "3 sites reference `iter` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "iter"
+      },
+      "expected": [
+        "_skip_leading_empty_chunks"
+      ]
+    },
+    {
+      "task_id": "textmatch_Headers",
+      "query": {
+        "__rationale": "11 sites reference `Headers` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Headers"
+      },
+      "expected": [
+        "_merge_headers",
+        "_prepare",
+        "_redirect_headers",
+        "copy",
+        "headers",
+        "update"
+      ]
+    },
+    {
+      "task_id": "textmatch_InvalidURL",
+      "query": {
+        "__rationale": "12 sites reference `InvalidURL` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "InvalidURL"
+      },
+      "expected": [
+        "encode_host",
+        "normalize_port",
+        "urlparse",
+        "validate_path"
+      ]
+    },
+    {
+      "task_id": "textmatch_NotImplementedError",
+      "query": {
+        "__rationale": "7 sites reference `NotImplementedError` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "NotImplementedError"
+      },
+      "expected": [
+        "_resolve_qop",
+        "decode",
+        "flush",
+        "handle_async_request",
+        "handle_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_matches",
+      "query": {
+        "__rationale": "2 sites reference `matches` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "matches"
+      },
+      "expected": [
+        "_transport_for_url"
+      ]
+    },
+    {
+      "task_id": "textmatch_encode",
+      "query": {
+        "__rationale": "44 sites reference `encode` across 27 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "encode"
+      },
+      "expected": [
+        "PERCENT",
+        "_build_auth_header",
+        "_format_form_param",
+        "_get_client_nonce",
+        "_normalize_header_key",
+        "_normalize_header_value",
+        "_parse_challenge",
+        "digest",
+        "encode_content",
+        "encode_host",
+        "encode_html",
+        "encode_json",
+        "encode_text",
+        "encode_urlencoded_data",
+        "get_list",
+        "handle_request",
+        "headers",
+        "netloc",
+        "query",
+        "raw_auth",
+        "raw_host",
+        "raw_path",
+        "raw_scheme",
+        "render_headers",
+        "to_bytes",
+        "to_bytes_or_str",
+        "userinfo"
+      ]
+    },
+    {
+      "task_id": "textmatch_aread",
+      "query": {
+        "__rationale": "8 sites reference `aread` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "aread"
+      },
+      "expected": [
+        "_send_handling_auth",
+        "_send_handling_redirects",
+        "async_auth_flow",
+        "handle_async_request",
+        "send"
+      ]
+    },
+    {
+      "task_id": "textmatch_URL",
+      "query": {
+        "__rationale": "18 sites reference `URL` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "URL"
+      },
+      "expected": [
+        "_merge_url",
+        "_redirect_url",
+        "base_url",
+        "copy_with",
+        "handle_async_request",
+        "handle_request",
+        "join"
+      ]
+    },
+    {
+      "task_id": "textmatch_handle_async_request",
+      "query": {
+        "__rationale": "2 sites reference `handle_async_request` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "handle_async_request"
+      },
+      "expected": [
+        "_send_single_request",
+        "handle_async_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_send",
+      "query": {
+        "__rationale": "7 sites reference `send` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "send"
+      },
+      "expected": [
+        "_send_handling_auth",
+        "async_auth_flow",
+        "request",
+        "stream",
+        "sync_auth_flow"
+      ]
+    },
+    {
+      "task_id": "textmatch_add_column",
+      "query": {
+        "__rationale": "2 sites reference `add_column` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "add_column"
+      },
+      "expected": [
+        "print_help"
+      ]
+    },
+    {
+      "task_id": "textmatch_unquote",
+      "query": {
+        "__rationale": "5 sites reference `unquote` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "unquote"
+      },
+      "expected": [
+        "_parse_challenge",
+        "fragment",
+        "password",
+        "path",
+        "username"
+      ]
+    },
+    {
+      "task_id": "textmatch_QueryParams",
+      "query": {
+        "__rationale": "9 sites reference `QueryParams` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "QueryParams"
+      },
+      "expected": [
+        "_merge_queryparams",
+        "add",
+        "merge",
+        "params",
+        "remove",
+        "set"
+      ]
+    },
+    {
+      "task_id": "textmatch_values",
+      "query": {
+        "__rationale": "8 sites reference `values` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "values"
+      },
+      "expected": [
+        "aclose",
+        "close",
+        "values"
+      ]
+    },
+    {
+      "task_id": "textmatch_percent_encoded",
+      "query": {
+        "__rationale": "2 sites reference `percent_encoded` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "percent_encoded"
+      },
+      "expected": [
+        "quote"
+      ]
+    },
+    {
+      "task_id": "textmatch_clear",
+      "query": {
+        "__rationale": "3 sites reference `clear` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "clear"
+      },
+      "expected": [
+        "clear",
+        "delete"
+      ]
+    },
+    {
+      "task_id": "textmatch_render_headers",
+      "query": {
+        "__rationale": "4 sites reference `render_headers` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "render_headers"
+      },
+      "expected": [
+        "get_length",
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_timedelta",
+      "query": {
+        "__rationale": "2 sites reference `timedelta` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "timedelta"
+      },
+      "expected": [
+        "aclose",
+        "close"
+      ]
+    },
+    {
+      "task_id": "textmatch_contextmanager",
+      "query": {
+        "__rationale": "4 sites reference `contextmanager` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "contextmanager"
+      },
+      "expected": [
+        "Client"
+      ]
+    },
+    {
+      "task_id": "textmatch_isascii",
+      "query": {
+        "__rationale": "5 sites reference `isascii` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isascii"
+      },
+      "expected": [
+        "encode_host",
+        "urlparse"
+      ]
+    },
+    {
+      "task_id": "textmatch_format",
+      "query": {
+        "__rationale": "5 sites reference `format` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "format"
+      },
+      "expected": [
+        "_get_header_value",
+        "raise_for_status"
+      ]
+    },
+    {
+      "task_id": "textmatch_flush",
+      "query": {
+        "__rationale": "17 sites reference `flush` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "flush"
+      },
+      "expected": [
+        "aiter_bytes",
+        "aiter_lines",
+        "aiter_raw",
+        "aiter_text",
+        "flush",
+        "iter_bytes",
+        "iter_lines",
+        "iter_raw",
+        "iter_text",
+        "text"
+      ]
+    },
+    {
+      "task_id": "textmatch_BytesIO",
+      "query": {
+        "__rationale": "3 sites reference `BytesIO` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "BytesIO"
+      },
+      "expected": [
+        "decode",
+        "handle_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_merge",
+      "query": {
+        "__rationale": "2 sites reference `merge` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "merge"
+      },
+      "expected": [
+        "_merge_queryparams",
+        "copy_merge_params"
+      ]
+    },
+    {
+      "task_id": "textmatch_max",
+      "query": {
+        "__rationale": "2 sites reference `max` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "max"
+      },
+      "expected": [
+        "aiter_bytes",
+        "iter_bytes"
+      ]
+    },
+    {
+      "task_id": "textmatch_close",
+      "query": {
+        "__rationale": "13 sites reference `close` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "close"
+      },
+      "expected": [
+        "_send_handling_auth",
+        "_send_handling_redirects",
+        "close",
+        "iter_raw",
+        "send",
+        "stream"
+      ]
+    },
+    {
+      "task_id": "textmatch_hasattr",
+      "query": {
+        "__rationale": "25 sites reference `hasattr` across 15 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "hasattr"
+      },
+      "expected": [
+        "_get_content_decoder",
+        "aclose",
+        "aiter_bytes",
+        "aread",
+        "close",
+        "content",
+        "cookies",
+        "elapsed",
+        "encoding",
+        "flush",
+        "iter_bytes",
+        "read",
+        "render_data",
+        "render_headers",
+        "text"
+      ]
+    },
+    {
+      "task_id": "textmatch__send_handling_redirects",
+      "query": {
+        "__rationale": "2 sites reference `_send_handling_redirects` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_send_handling_redirects"
+      },
+      "expected": [
+        "_send_handling_auth"
+      ]
+    },
+    {
+      "task_id": "textmatch__build_auth",
+      "query": {
+        "__rationale": "3 sites reference `_build_auth` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_build_auth"
+      },
+      "expected": [
+        "_build_request_auth",
+        "auth"
+      ]
+    },
+    {
+      "task_id": "textmatch_peek_filelike_length",
+      "query": {
+        "__rationale": "2 sites reference `peek_filelike_length` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "peek_filelike_length"
+      },
+      "expected": [
+        "encode_content",
+        "get_length"
+      ]
+    },
+    {
+      "task_id": "textmatch_load_cert_chain",
+      "query": {
+        "__rationale": "2 sites reference `load_cert_chain` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "load_cert_chain"
+      },
+      "expected": [
+        "create_ssl_context"
+      ]
+    },
+    {
+      "task_id": "textmatch_startswith",
+      "query": {
+        "__rationale": "12 sites reference `startswith` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "startswith"
+      },
+      "expected": [
+        "auth_flow",
+        "get_multipart_boundary_from_content_type",
+        "host",
+        "set",
+        "urlparse",
+        "validate_path"
+      ]
+    },
+    {
+      "task_id": "textmatch_request",
+      "query": {
+        "__rationale": "22 sites reference `request` across 8 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "request"
+      },
+      "expected": [
+        "delete",
+        "get",
+        "head",
+        "options",
+        "patch",
+        "post",
+        "put",
+        "request"
+      ]
+    },
+    {
+      "task_id": "textmatch_TextChunker",
+      "query": {
+        "__rationale": "2 sites reference `TextChunker` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "TextChunker"
+      },
+      "expected": [
+        "aiter_text",
+        "iter_text"
+      ]
+    },
+    {
+      "task_id": "textmatch_to_str",
+      "query": {
+        "__rationale": "2 sites reference `to_str` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "to_str"
+      },
+      "expected": [
+        "_get_header_value",
+        "_obfuscate_sensitive_headers"
+      ]
+    },
+    {
+      "task_id": "textmatch_print",
+      "query": {
+        "__rationale": "22 sites reference `print` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "print"
+      },
+      "expected": [
+        "download_response",
+        "main",
+        "print_help",
+        "print_request_headers",
+        "print_response",
+        "print_response_headers",
+        "trace"
+      ]
+    },
+    {
+      "task_id": "textmatch_create_default_context",
+      "query": {
+        "__rationale": "5 sites reference `create_default_context` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "create_default_context"
+      },
+      "expected": [
+        "create_ssl_context"
+      ]
+    },
+    {
+      "task_id": "textmatch__port_or_default",
+      "query": {
+        "__rationale": "4 sites reference `_port_or_default` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_port_or_default"
+      },
+      "expected": [
+        "_is_https_redirect",
+        "_same_origin"
+      ]
+    },
+    {
+      "task_id": "textmatch_decompressobj",
+      "query": {
+        "__rationale": "5 sites reference `decompressobj` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "decompressobj"
+      },
+      "expected": [
+        "decode"
+      ]
+    },
+    {
+      "task_id": "textmatch_len",
+      "query": {
+        "__rationale": "46 sites reference `len` across 21 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "len"
+      },
+      "expected": [
+        "_get_content_decoder",
+        "_send_handling_redirects",
+        "aiter_bytes",
+        "aiter_raw",
+        "decode",
+        "encode_content",
+        "encode_html",
+        "encode_json",
+        "encode_text",
+        "encode_urlencoded_data",
+        "format_certificate",
+        "get_content_length",
+        "get_length",
+        "get_multipart_boundary_from_content_type",
+        "iter_bytes",
+        "iter_raw",
+        "map_httpcore_exceptions",
+        "print_response",
+        "priority",
+        "quote",
+        "urlparse"
+      ]
+    },
+    {
+      "task_id": "textmatch__transport_for_url",
+      "query": {
+        "__rationale": "2 sites reference `_transport_for_url` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_transport_for_url"
+      },
+      "expected": [
+        "_send_single_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_Client",
+      "query": {
+        "__rationale": "3 sites reference `Client` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Client"
+      },
+      "expected": [
+        "main",
+        "request",
+        "stream"
+      ]
+    },
+    {
+      "task_id": "textmatch_encode_json",
+      "query": {
+        "__rationale": "2 sites reference `encode_json` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "encode_json"
+      },
+      "expected": [
+        "encode_request",
+        "encode_response"
+      ]
+    },
+    {
+      "task_id": "textmatch_Message",
+      "query": {
+        "__rationale": "2 sites reference `Message` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Message"
+      },
+      "expected": [
+        "_parse_content_type_charset",
+        "info"
+      ]
+    },
+    {
+      "task_id": "textmatch_type",
+      "query": {
+        "__rationale": "7 sites reference `type` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "type"
+      },
+      "expected": [
+        "_normalize_header_value",
+        "encode_content",
+        "main"
+      ]
+    },
+    {
+      "task_id": "textmatch_property",
+      "query": {
+        "__rationale": "53 sites reference `property` across 9 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "property"
+      },
+      "expected": [
+        "BaseClient",
+        "HTTPError",
+        "Headers",
+        "ParseResult",
+        "Proxy",
+        "Request",
+        "Response",
+        "URL",
+        "URLPattern"
+      ]
+    },
+    {
+      "task_id": "textmatch_aiter_bytes",
+      "query": {
+        "__rationale": "2 sites reference `aiter_bytes` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "aiter_bytes"
+      },
+      "expected": [
+        "aiter_text",
+        "aread"
+      ]
+    },
+    {
+      "task_id": "textmatch_get",
+      "query": {
+        "__rationale": "33 sites reference `get` across 14 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "get"
+      },
+      "expected": [
+        "_parse_challenge",
+        "_port_or_default",
+        "charset_encoding",
+        "create_ssl_context",
+        "download_response",
+        "event_hooks",
+        "get_environment_proxies",
+        "get_lexer_for_response",
+        "get_list",
+        "links",
+        "normalize_port",
+        "raise_for_status",
+        "send",
+        "urlparse"
+      ]
+    },
+    {
+      "task_id": "textmatch__get_content_decoder",
+      "query": {
+        "__rationale": "2 sites reference `_get_content_decoder` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_get_content_decoder"
+      },
+      "expected": [
+        "aiter_bytes",
+        "iter_bytes"
+      ]
+    },
+    {
+      "task_id": "textmatch_app",
+      "query": {
+        "__rationale": "2 sites reference `app` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "app"
+      },
+      "expected": [
+        "handle_async_request",
+        "handle_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_extract_cookies",
+      "query": {
+        "__rationale": "4 sites reference `extract_cookies` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "extract_cookies"
+      },
+      "expected": [
+        "_send_single_request",
+        "cookies",
+        "extract_cookies"
+      ]
+    },
+    {
+      "task_id": "textmatch_match",
+      "query": {
+        "__rationale": "5 sites reference `match` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "match"
+      },
+      "expected": [
+        "encode_host",
+        "matches",
+        "urlparse"
+      ]
+    },
+    {
+      "task_id": "textmatch_b64encode",
+      "query": {
+        "__rationale": "2 sites reference `b64encode` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "b64encode"
+      },
+      "expected": [
+        "_build_auth_header"
+      ]
+    },
+    {
+      "task_id": "textmatch_set_cookie_header",
+      "query": {
+        "__rationale": "2 sites reference `set_cookie_header` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "set_cookie_header"
+      },
+      "expected": [
+        "auth_flow"
+      ]
+    },
+    {
+      "task_id": "textmatch_ZstdDecompressor",
+      "query": {
+        "__rationale": "2 sites reference `ZstdDecompressor` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ZstdDecompressor"
+      },
+      "expected": [
+        "decode"
+      ]
+    },
+    {
+      "task_id": "textmatch_TypeError",
+      "query": {
+        "__rationale": "11 sites reference `TypeError` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "TypeError"
+      },
+      "expected": [
+        "_build_auth",
+        "_normalize_header_value",
+        "encode_content",
+        "handle_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_setter",
+      "query": {
+        "__rationale": "12 sites reference `setter` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setter"
+      },
+      "expected": [
+        "BaseClient",
+        "HTTPError",
+        "Headers",
+        "Response"
+      ]
+    },
+    {
+      "task_id": "textmatch_copy_with",
+      "query": {
+        "__rationale": "10 sites reference `copy_with` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "copy_with"
+      },
+      "expected": [
+        "_enforce_trailing_slash",
+        "_merge_url",
+        "_redirect_url",
+        "copy_add_param",
+        "copy_merge_params",
+        "copy_remove_param",
+        "copy_set_param"
+      ]
+    },
+    {
+      "task_id": "textmatch_find",
+      "query": {
+        "__rationale": "2 sites reference `find` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "find"
+      },
+      "expected": [
+        "urlparse"
+      ]
+    },
+    {
+      "task_id": "textmatch_TooManyRedirects",
+      "query": {
+        "__rationale": "2 sites reference `TooManyRedirects` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "TooManyRedirects"
+      },
+      "expected": [
+        "_send_handling_redirects"
+      ]
+    },
+    {
+      "task_id": "textmatch_IPv4Address",
+      "query": {
+        "__rationale": "2 sites reference `IPv4Address` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "IPv4Address"
+      },
+      "expected": [
+        "encode_host",
+        "is_ipv4_hostname"
+      ]
+    },
+    {
+      "task_id": "textmatch_StreamConsumed",
+      "query": {
+        "__rationale": "4 sites reference `StreamConsumed` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "StreamConsumed"
+      },
+      "expected": [
+        "aiter_raw",
+        "iter_raw"
+      ]
+    },
+    {
+      "task_id": "textmatch_tell",
+      "query": {
+        "__rationale": "3 sites reference `tell` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "tell"
+      },
+      "expected": [
+        "decode",
+        "peek_filelike_length"
+      ]
+    },
+    {
+      "task_id": "textmatch_Cookies",
+      "query": {
+        "__rationale": "8 sites reference `Cookies` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Cookies"
+      },
+      "expected": [
+        "_build_redirect_request",
+        "_merge_cookies",
+        "auth_flow",
+        "cookies",
+        "update"
+      ]
+    },
+    {
+      "task_id": "textmatch_stream",
+      "query": {
+        "__rationale": "2 sites reference `stream` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "stream"
+      },
+      "expected": [
+        "main",
+        "stream"
+      ]
+    },
+    {
+      "task_id": "textmatch__enforce_trailing_slash",
+      "query": {
+        "__rationale": "2 sites reference `_enforce_trailing_slash` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_enforce_trailing_slash"
+      },
+      "expected": [
+        "base_url"
+      ]
+    },
+    {
+      "task_id": "textmatch__build_request_auth",
+      "query": {
+        "__rationale": "2 sites reference `_build_request_auth` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_build_request_auth"
+      },
+      "expected": [
+        "send"
+      ]
+    },
+    {
+      "task_id": "textmatch_classmethod",
+      "query": {
+        "__rationale": "7 sites reference `classmethod` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "classmethod"
+      },
+      "expected": [
+        "codes"
+      ]
+    },
+    {
+      "task_id": "textmatch_upper",
+      "query": {
+        "__rationale": "3 sites reference `upper` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "upper"
+      },
+      "expected": [
+        "_build_auth_header",
+        "handle_request"
+      ]
+    },
+    {
+      "task_id": "textmatch_enumerate",
+      "query": {
+        "__rationale": "3 sites reference `enumerate` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "enumerate"
+      },
+      "expected": [
+        "_get_header_value"
+      ]
+    },
+    {
+      "task_id": "textmatch_items",
+      "query": {
+        "__rationale": "34 sites reference `items` across 13 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "items"
+      },
+      "expected": [
+        "_get_header_value",
+        "_get_proxy_map",
+        "_iter_fields",
+        "_prepare",
+        "_transport_for_url",
+        "encode_urlencoded_data",
+        "format_certificate",
+        "items",
+        "map_httpcore_exceptions",
+        "multi_items",
+        "render_headers",
+        "urlparse",
+        "values"
+      ]
+    },
+    {
+      "task_id": "textmatch_to_bytes",
+      "query": {
+        "__rationale": "10 sites reference `to_bytes` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "to_bytes"
+      },
+      "expected": [
+        "_build_auth_header",
+        "get_length",
+        "render_data"
+      ]
+    }
+  ]
+}

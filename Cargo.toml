@@ -1,0 +1,121 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/ga-core",
+    "crates/ga-parser",
+    "crates/ga-index",
+    "crates/ga-query",
+    "crates/ga-mcp",
+    "crates/ga-bench",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/microvn/GraphAtlas"
+
+# Workspace-level clippy allow-list — style lints from clippy 1.95+ that are
+# pre-existing, style-only, and not worth touching during OSS launch. Real
+# bug-class lints (correctness, suspicious, perf) stay at -D warnings via
+# the gate in CONTRIBUTING.md.
+[workspace.lints.clippy]
+collapsible_match = "allow"
+field_reassign_with_default = "allow"
+ptr_arg = "allow"
+type_complexity = "allow"
+derivable_impls = "allow"
+doc_lazy_continuation = "allow"
+doc_overindented_list_items = "allow"
+if_same_then_else = "allow"
+len_zero = "allow"
+manual_contains = "allow"
+manual_pattern_char_comparison = "allow"
+manual_split_once = "allow"
+match_like_matches_macro = "allow"
+needless_range_loop = "allow"
+never_loop = "allow"
+single_char_add_str = "allow"
+unnecessary_map_or = "allow"
+unnecessary_sort_by = "allow"
+useless_format = "allow"
+write_literal = "allow"
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+anyhow = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "time"] }
+clap = { version = "4", features = ["derive"] }
+lbug = "=0.16.1"
+blake3 = "1"
+
+# v1.5 PR3 foundation S-004 — structured logging.
+# Pinned to current stable; subscriber default-features=false keeps the
+# `fmt` layer in, drops `ansi`/`json` to opt-in only.
+tracing = { version = "0.1", default-features = false, features = ["std", "attributes"] }
+tracing-subscriber = { version = "0.3", default-features = false, features = ["fmt", "env-filter"] }
+
+ga-core = { path = "crates/ga-core", version = "0.1.0" }
+ga-parser = { path = "crates/ga-parser", version = "0.1.0" }
+ga-index = { path = "crates/ga-index", version = "0.1.0" }
+ga-query = { path = "crates/ga-query", version = "0.1.0" }
+ga-mcp = { path = "crates/ga-mcp", version = "0.1.0" }
+ga-bench = { path = "crates/ga-bench", version = "0.1.0" }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[package]
+name = "graphatlas"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "OSS Rust-native MCP server for code-analysis tools"
+
+[lib]
+name = "graphatlas"
+path = "src/lib.rs"
+
+[[bin]]
+name = "graphatlas"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = { workspace = true }
+clap = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+ga-core = { workspace = true }
+ga-index = { workspace = true }
+ga-mcp = { workspace = true }
+ga-parser = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+ga-query = { workspace = true }
+ga-bench = { workspace = true }
+toml = "0.8"
+tempfile = "3"
+
+[dev-dependencies]
+ga-index = { workspace = true }
+lbug = { workspace = true }
+# v1.5 Tier B smoke test (tests/smoke_reindex_subprocess.rs) drives a real
+# `graphatlas mcp` subprocess via newline-delimited JSON-RPC. Needs
+# tokio::process + io-util on top of the runtime features the bin crate
+# already pulls in.
+tokio = { workspace = true, features = ["rt-multi-thread", "macros", "process", "io-util", "time"] }
+serde_json = { workspace = true }
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = "symbols"
+
+[lints]
+workspace = true

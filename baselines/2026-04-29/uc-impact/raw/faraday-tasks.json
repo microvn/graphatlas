@@ -1,0 +1,494 @@
+{
+  "repo": "faraday",
+  "lang": "ruby",
+  "enriched_at": "2026-04-27T01:46:40.006Z",
+  "count": 20,
+  "tasks": [
+    {
+      "task_id": "faraday-d0fc049b",
+      "repo": "faraday",
+      "base_commit": "41c990ee1f82f74270c084cca8f398b186f09262",
+      "fix_commit": "d0fc049beb0b0e4e3bd4a52711189130bba7c5f4",
+      "subject": "Backport security fix for CVE-2026-25765 to 1.x branch (#1665)",
+      "seed_file": "lib/faraday/connection.rb",
+      "seed_symbol": "url",
+      "source_files": [
+        "lib/faraday/connection.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/connection.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/connection_spec.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "faraday-c6988a84",
+      "repo": "faraday",
+      "base_commit": "32e010f1c3d5cf0f854fd52df553adf9b29985f4",
+      "fix_commit": "c6988a840738760fae1a40d653fa2ccd0da425b9",
+      "subject": "Modernize RuboCop configuration and fix offenses (#1660)",
+      "seed_file": "lib/faraday/adapter.rb",
+      "seed_symbol": "initialize",
+      "source_files": [
+        "lib/faraday/adapter.rb",
+        "lib/faraday/encoders/flat_params_encoder.rb",
+        "lib/faraday/encoders/nested_params_encoder.rb",
+        "lib/faraday/error.rb",
+        "lib/faraday/middleware.rb",
+        "lib/faraday/options.rb",
+        "lib/faraday/options/env.rb",
+        "lib/faraday/options/proxy_options.rb",
+        "lib/faraday/options/request_options.rb",
+        "lib/faraday/rack_builder.rb",
+        "lib/faraday/utils/headers.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/adapter.rb",
+        "lib/faraday/encoders/flat_params_encoder.rb",
+        "lib/faraday/encoders/nested_params_encoder.rb",
+        "lib/faraday/error.rb",
+        "lib/faraday/middleware.rb",
+        "lib/faraday/options.rb",
+        "lib/faraday/options/env.rb",
+        "lib/faraday/options/proxy_options.rb",
+        "lib/faraday/options/request_options.rb",
+        "lib/faraday/rack_builder.rb",
+        "lib/faraday/utils/headers.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/middleware_spec.rb",
+        "spec/faraday/response/json_spec.rb",
+        "spec/faraday/response/logger_spec.rb",
+        "spec/faraday/utils_spec.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday.rb"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "faraday-a6d3a3a0",
+      "repo": "faraday",
+      "base_commit": "b23f710d28c0dba169470f568df4017a1e8beea7",
+      "fix_commit": "a6d3a3a0bf59c2ab307d0abd91bc126aef5561bc",
+      "subject": "Merge commit from fork",
+      "seed_file": "lib/faraday/connection.rb",
+      "seed_symbol": "url",
+      "source_files": [
+        "lib/faraday/connection.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/connection.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/connection_spec.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "faraday-edd8cc51",
+      "repo": "faraday",
+      "base_commit": "0e008c584ddcf7d0554e470a8cea158e4b3532db",
+      "fix_commit": "edd8cc513d407951be712b555f7d859f06326335",
+      "subject": "Fix `Faraday::Response#to_hash` when request is not finished yet (#1639)",
+      "seed_file": "lib/faraday/response.rb",
+      "seed_symbol": "url",
+      "source_files": [
+        "lib/faraday/response.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/response.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/response_spec.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "faraday-cd1c44a4",
+      "repo": "faraday",
+      "base_commit": "1551c32371b42acd22c3d8c87bcbd19872624d5a",
+      "fix_commit": "cd1c44a4aa749b9c2d40e90c66d9cb06d384383e",
+      "subject": "Fix thread safety issue by avoiding mutation of proxy options hash (#1617)",
+      "seed_file": "lib/faraday/options/proxy_options.rb",
+      "seed_symbol": "uri",
+      "source_files": [
+        "lib/faraday/options/proxy_options.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/options/proxy_options.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/options/proxy_options_spec.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday/options.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "faraday-f0f549d7",
+      "repo": "faraday",
+      "base_commit": "caa4ff42f8b5738176fd306c48c2c60037c656c3",
+      "fix_commit": "f0f549d7ef0b59cfd9fdeb59613909e21045b194",
+      "subject": "Fix Rubocop offenses",
+      "seed_file": "lib/faraday/response/raise_error.rb",
+      "seed_symbol": "RaiseError",
+      "source_files": [
+        "lib/faraday/connection.rb",
+        "lib/faraday/encoders/nested_params_encoder.rb",
+        "lib/faraday/options/env.rb",
+        "lib/faraday/request/json.rb",
+        "lib/faraday/response/raise_error.rb",
+        "lib/faraday/utils.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/connection.rb",
+        "lib/faraday/encoders/nested_params_encoder.rb",
+        "lib/faraday/options/env.rb",
+        "lib/faraday/request/json.rb",
+        "lib/faraday/response/raise_error.rb",
+        "lib/faraday/utils.rb"
+      ],
+      "expected_tests": [
+        "spec/spec_helper.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday/response.rb"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "faraday-990799a8",
+      "repo": "faraday",
+      "base_commit": "be98e8ef6fd97513ce7d4967b796ef44d8b16bcf",
+      "fix_commit": "990799a850247adeb21810903410c1730f50b4e7",
+      "subject": "Fix: Logging headers & errors fails when ConnectionFailed is raised (#1512)",
+      "seed_file": "lib/faraday/logging/formatter.rb",
+      "seed_symbol": "dump_headers",
+      "source_files": [
+        "lib/faraday/logging/formatter.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/logging/formatter.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/response/logger_spec.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday/response/logger.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "faraday-b54e7aef",
+      "repo": "faraday",
+      "base_commit": "de709cda8d7e3e4394afd4a2601a9f26b46b9bd7",
+      "fix_commit": "b54e7aefccba1bd1a1e070859ba1737f4262d23e",
+      "subject": "Fix implementation of Faraday::Error helpers. Fix #1509",
+      "seed_file": "lib/faraday/error.rb",
+      "seed_symbol": "response_status",
+      "source_files": [
+        "lib/faraday/error.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/error.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/error_spec.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "faraday-6d37ef7e",
+      "repo": "faraday",
+      "base_commit": "111d354b7f232f6bc3292e4cde6d08d2b983e9ae",
+      "fix_commit": "6d37ef7e3c9414e142551857eefa4f59d1f06b73",
+      "subject": "Encode `false` to `\"false\"` in `Faraday::Request::Json` (#1504)",
+      "seed_file": "lib/faraday/request/json.rb",
+      "seed_symbol": "body",
+      "source_files": [
+        "lib/faraday/request/json.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/request/json.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/request/json_spec.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday/request.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "faraday-2b9a6241",
+      "repo": "faraday",
+      "base_commit": "cc7e7bcea9fbbc0690a5d76b29b25dd9851f5576",
+      "fix_commit": "2b9a6241c6835a71a1ac64c9712f9e1f2a2d689d",
+      "subject": "Use Uri.parse instead of Utils.URI (#1485)",
+      "seed_file": "lib/faraday/connection.rb",
+      "seed_symbol": "url",
+      "source_files": [
+        "lib/faraday/connection.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/connection.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/connection_spec.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "faraday-c02a1044",
+      "repo": "faraday",
+      "base_commit": "9a16831147676bfeb3aabe3cfc169a9cb99e8024",
+      "fix_commit": "c02a104469bf6209ece5f8b28e1b5a5c21771251",
+      "subject": "Rename Faraday::Logger::Formatter#error to #exception (#1468)",
+      "seed_file": "lib/faraday/logging/formatter.rb",
+      "seed_symbol": "log_body",
+      "source_files": [
+        "lib/faraday/logging/formatter.rb",
+        "lib/faraday/response/logger.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/logging/formatter.rb",
+        "lib/faraday/response/logger.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/response/logger_spec.rb"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "faraday-43d67977",
+      "repo": "faraday",
+      "base_commit": "5e01af382894f2c946b5b06b6c5d6e8808a5d632",
+      "fix_commit": "43d67977708d98cda0f47a3fc4f6f9a224cbd921",
+      "subject": "Enables and fixes all new cops. (#1443)",
+      "seed_file": "lib/faraday/adapter/test.rb",
+      "seed_symbol": "stub",
+      "source_files": [
+        "lib/faraday/adapter/test.rb",
+        "lib/faraday/connection.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/adapter/test.rb",
+        "lib/faraday/connection.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/connection_spec.rb",
+        "spec/support/shared_examples/adapter.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday/adapter.rb"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "faraday-85dfdf82",
+      "repo": "faraday",
+      "base_commit": "33563e3d63863f40caa318d2ea9ccc63831b5bea",
+      "fix_commit": "85dfdf824cfdabbfa94c4d5232a6c4be106a6b0c",
+      "subject": "Re-add register middleware w/ Symbol, String, Proc",
+      "seed_file": "lib/faraday/middleware_registry.rb",
+      "seed_symbol": "lookup_middleware",
+      "source_files": [
+        "lib/faraday/middleware_registry.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/middleware_registry.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/middleware_registry_spec.rb",
+        "spec/faraday/rack_builder_spec.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "faraday-816d824b",
+      "repo": "faraday",
+      "base_commit": "9f80f875f75ced2ada1578fb6d7f4da7cf5f5f6f",
+      "fix_commit": "816d824bc18453e86027c9c5fcf8427020566e50",
+      "subject": "Removing all sushi.com references and change to httpbingo.org (#1384)",
+      "seed_file": "lib/faraday/connection.rb",
+      "seed_symbol": "get",
+      "source_files": [
+        "lib/faraday/connection.rb",
+        "lib/faraday/rack_builder.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/connection.rb",
+        "lib/faraday/rack_builder.rb"
+      ],
+      "expected_tests": [
+        "examples/client_spec.rb",
+        "examples/client_test.rb",
+        "spec/faraday/connection_spec.rb",
+        "spec/faraday/request_spec.rb",
+        "spec/faraday/utils/headers_spec.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday.rb"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "faraday-506e97af",
+      "repo": "faraday",
+      "base_commit": "04c43898ee15a87145861ac0398380d9b32161b1",
+      "fix_commit": "506e97afe606efcb24f7f007cb1885c04f56fb93",
+      "subject": "Fix passing a URL with embedded basic auth (#1324)",
+      "seed_file": "lib/faraday/request/authorization.rb",
+      "seed_symbol": "Request",
+      "source_files": [
+        "lib/faraday/connection.rb",
+        "lib/faraday/request/authorization.rb",
+        "lib/faraday/utils.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/connection.rb",
+        "lib/faraday/request/authorization.rb",
+        "lib/faraday/utils.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/connection_spec.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday/request.rb"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "faraday-6ed220ca",
+      "repo": "faraday",
+      "base_commit": "8727853801bc2ee651c31f664089c71ce265ab52",
+      "fix_commit": "6ed220cabfceeed7e5657a4dfa5b07583d6872d8",
+      "subject": "Fix jruby incompatibility after moving out EM adapters (#1294)",
+      "seed_file": "lib/faraday.rb",
+      "seed_symbol": "defined",
+      "source_files": [
+        "lib/faraday.rb"
+      ],
+      "expected_files": [
+        "lib/faraday.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/adapter/em_http_spec.rb",
+        "spec/faraday/adapter/em_synchrony_spec.rb"
+      ],
+      "should_touch_files": [
+        "spec/spec_helper.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "faraday-4dd36897",
+      "repo": "faraday",
+      "base_commit": "830b696ae7cbcdcaafe78deed7104e34792e5826",
+      "fix_commit": "4dd36897af3c8ce7fc4b836b863a24aa95971022",
+      "subject": "Always dup url_prefix in Connection#build_exclusive_url (#1288)",
+      "seed_file": "lib/faraday/connection.rb",
+      "seed_symbol": "build_exclusive_url",
+      "source_files": [
+        "lib/faraday/connection.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/connection.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/connection_spec.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "faraday-1f496a7f",
+      "repo": "faraday",
+      "base_commit": "11d793dd7e7d5c0c52b082b307c59dd2841e84ca",
+      "fix_commit": "1f496a7f1786c674cb7d9998856678f336439163",
+      "subject": "Default proxy scheme to http:// if necessary, fixes #1282 (#1283)",
+      "seed_file": "lib/faraday/options/proxy_options.rb",
+      "seed_symbol": "value",
+      "source_files": [
+        "lib/faraday/options/proxy_options.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/options/proxy_options.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/options/proxy_options_spec.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday/options.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "faraday-53e4baed",
+      "repo": "faraday",
+      "base_commit": "67c5f7b239c98f874dace072c0700c2cca276a9a",
+      "fix_commit": "53e4baedc728988ba8f1c48064edc047c54bb799",
+      "subject": "Add proxy setting when url_prefix is changed (#1276)",
+      "seed_file": "lib/faraday/connection.rb",
+      "seed_symbol": "proxy_from_env",
+      "source_files": [
+        "lib/faraday/connection.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/connection.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/connection_spec.rb"
+      ],
+      "should_touch_files": [
+        "lib/faraday.rb"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "faraday-3e45edec",
+      "repo": "faraday",
+      "base_commit": "a58e25b3dce2da207ee71030dc0f12c1e44676f0",
+      "fix_commit": "3e45edecab990f359a220a55c609da8279b7a6b0",
+      "subject": "Fix === for subclasses of deprecated classes (#1243)",
+      "seed_file": "lib/faraday/deprecate.rb",
+      "seed_symbol": "proxy_class",
+      "source_files": [
+        "lib/faraday/deprecate.rb"
+      ],
+      "expected_files": [
+        "lib/faraday/deprecate.rb"
+      ],
+      "expected_tests": [
+        "spec/faraday/deprecate_spec.rb"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    }
+  ]
+}
