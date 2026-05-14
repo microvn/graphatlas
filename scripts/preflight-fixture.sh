@@ -205,7 +205,8 @@ echo
 echo "── §1.1 H4: License ─────────────────────────────────────────────"
 if [ -f LICENSE ] || [ -f LICENSE.txt ] || [ -f LICENSE.md ]; then
   LIC_FILE=$(ls LICENSE* 2>/dev/null | head -1)
-  LIC=$(head -10 "$LIC_FILE" | grep -oE "Apache License|MIT License|BSD|GNU General Public|GNU Lesser|Mozilla Public|Eclipse Public|Unlicense|ISC" | head -1)
+  # `|| true` — grep -oE exits 1 on no-match; with pipefail, that aborts script. Tolerate.
+  LIC=$( (head -10 "$LIC_FILE" | grep -oE "Apache License|MIT License|BSD|GNU General Public|GNU Lesser|Mozilla Public|Eclipse Public|Unlicense|ISC" | head -1) 2>/dev/null || true )
   echo "  License (from $LIC_FILE): ${LIC:-UNKNOWN}"
   case "$LIC" in
     "Apache License"|"MIT License"|BSD|"Mozilla Public"|Unlicense|ISC)

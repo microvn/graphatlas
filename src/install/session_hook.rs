@@ -67,7 +67,9 @@ pub fn install_session_hook(project_root: &Path, binary_path: &Path) -> Result<S
 
     // Check if an *identical* entry already exists outside our tag —
     // if so, leave it alone (user hand-rolled it).
-    let already_unmanaged = session_start.iter().any(|e| matches_command(e, binary_path));
+    let already_unmanaged = session_start
+        .iter()
+        .any(|e| matches_command(e, binary_path));
 
     if already_unmanaged && !replaced {
         return Ok(SessionHookOutcome::AlreadyPresent(target));

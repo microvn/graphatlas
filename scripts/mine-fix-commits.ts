@@ -45,6 +45,10 @@ const REPOS: { name: string; lang: string }[] = [
   { name: "Polly", lang: "csharp" },
   { name: "jekyll", lang: "ruby" },
   { name: "faraday", lang: "ruby" },
+  // v1.2-php S-002 AS-008 — PHP fixtures pinned per preflight log
+  // docs/explore/php-fixture-preflight-2026-05-14.md
+  { name: "php-symfony-console", lang: "php" },
+  { name: "php-monolog", lang: "php" },
 ];
 
 // Test-file detection. v1.1-M4 covers Java/Kotlin/C#/Ruby suffixes.
@@ -54,7 +58,8 @@ const REPOS: { name: string; lang: string }[] = [
 // S-004-bench additions: Ruby Minitest prefix `test_*.rb` (jekyll uses this)
 // alongside the existing `_test.rb`/`_spec.rb` suffix arms.
 // Per docs/guide/dataset-for-new-language.md §0.6-G + §4.2 lock-step.
-const TEST_PATTERN = /(^|\/)(test|tests|__tests__|spec|specs|testing)\/|\/[a-zA-Z]+Test\/kotlin\/|(^|\/)[^/]*(\.test|\.spec|_test|_spec)\.[a-z]+$|(^|\/)test_[^/]+\.py$|(^|\/)[^/]+(Test|Tests|Spec|IT)\.java$|(^|\/)[^/]+(Test|Tests|Spec|IT)\.kt$|(^|\/)[^/]+(Test|Tests)\.cs$|(^|\/)[^/]+_(test|spec)\.rb$|(^|\/)test_[^/]+\.rb$/;
+// v1.2-php S-002 AS-010 — PHPUnit suffix `*Test.php` / `*Tests.php` added.
+const TEST_PATTERN = /(^|\/)(test|tests|__tests__|spec|specs|testing)\/|\/[a-zA-Z]+Test\/kotlin\/|(^|\/)[^/]*(\.test|\.spec|_test|_spec)\.[a-z]+$|(^|\/)test_[^/]+\.py$|(^|\/)[^/]+(Test|Tests|Spec|IT)\.java$|(^|\/)[^/]+(Test|Tests|Spec|IT)\.kt$|(^|\/)[^/]+(Test|Tests)\.cs$|(^|\/)[^/]+_(test|spec)\.rb$|(^|\/)test_[^/]+\.rb$|(^|\/)[^/]+(Test|Tests)\.php$/;
 // VENDORED_PATTERN: v1.1-M4 baseline + Kotlin generated dirs (kapt/ksp output
 // land in build/generated/, already covered by `build` segment; explicit ksp
 // path only fires when projects use non-standard layouts).

@@ -56,6 +56,10 @@ fn fixtures_with_sources() -> Vec<&'static str> {
         "Polly",
         "jekyll",
         "faraday",
+        // v1.2 S-001 AS-006 — PHP tiny fixture (symlink to crates/ga-parser/tests/fixtures/php-tiny/symfony-mini)
+        // provides M1 atomic-UC coverage for PHP until S-002 ships a real OSS submodule
+        // (monolog/monolog or symfony/console).
+        "php-tiny",
     ]
     .into_iter()
     .filter(|name| {

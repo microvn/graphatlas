@@ -75,7 +75,12 @@ pub fn cmd_init(opts: InitOptions) -> Result<()> {
     println!("graphatlas init: {}", project_root.display());
     for p in &platforms {
         println!("  → {}", p.display());
-        apply_platform(*p, &project_root, &opts, with_hook && *p == Platform::ClaudeCode)?;
+        apply_platform(
+            *p,
+            &project_root,
+            &opts,
+            with_hook && *p == Platform::ClaudeCode,
+        )?;
     }
     Ok(())
 }
@@ -148,9 +153,7 @@ fn apply_claude_code(
         let binary = resolve_binary(opts)?;
         report_session_hook(&install_session_hook(project_root, &binary)?);
     } else {
-        println!(
-            "    (SessionStart hook NOT installed; pass --with-hook to enable.)"
-        );
+        println!("    (SessionStart hook NOT installed; pass --with-hook to enable.)");
     }
     Ok(())
 }
@@ -366,12 +369,19 @@ pub fn interactive_pick_platforms_io<R: BufRead, W: Write>(
     writeln!(writer, "Will install:")?;
     for p in &picked {
         let summary = match p {
-            Platform::ClaudeCode => "skill + CLAUDE.md block + permissions"
-                .to_string()
-                + if with_hook { " + SessionStart hook" } else { "" },
+            Platform::ClaudeCode => {
+                "skill + CLAUDE.md block + permissions".to_string()
+                    + if with_hook {
+                        " + SessionStart hook"
+                    } else {
+                        ""
+                    }
+            }
             Platform::Cursor => "MCP register + .cursor/rules/graphatlas.mdc".to_string(),
             Platform::Cline => "MCP register + .clinerules".to_string(),
-            Platform::CodexCli => "MCP register (~/.codex/config.toml) + AGENTS.md block".to_string(),
+            Platform::CodexCli => {
+                "MCP register (~/.codex/config.toml) + AGENTS.md block".to_string()
+            }
             Platform::GeminiCli => "MCP register + GEMINI.md block".to_string(),
             Platform::Windsurf => "MCP register + .windsurfrules".to_string(),
             Platform::Continue => "MCP register (.continue/mcpServers/graphatlas.json)".to_string(),
@@ -418,9 +428,9 @@ fn parse_toggle_command(input: &str, max: usize) -> std::result::Result<ToggleCm
             if piece.is_empty() {
                 continue;
             }
-            let n: usize = piece.parse().map_err(|_| {
-                format!("expected number / done / all / none; got {piece:?}")
-            })?;
+            let n: usize = piece
+                .parse()
+                .map_err(|_| format!("expected number / done / all / none; got {piece:?}"))?;
             if n == 0 || n > max {
                 return Err(format!("number must be 1..{max}; got {n}"));
             }
@@ -515,7 +525,9 @@ fn report_session_hook(outcome: &SessionHookOutcome) {
 fn report_mcp(outcome: &crate::install::mcp_config::InstallOutcome) {
     use crate::install::mcp_config::InstallOutcome as O;
     match outcome {
-        O::Created { config_path, .. } => println!("    ✓ Created MCP entry in {}", config_path.display()),
+        O::Created { config_path, .. } => {
+            println!("    ✓ Created MCP entry in {}", config_path.display())
+        }
         O::Updated {
             config_path,
             had_existing_entry,

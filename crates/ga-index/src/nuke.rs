@@ -51,5 +51,8 @@ pub(crate) fn placeholder_metadata() -> Metadata {
         index_generation: String::new(),
         indexed_root_hash: String::new(),
         graph_generation: 0,
+        // Placeholder is consumed-and-replaced by commit; lang_set populated
+        // by the real begin_indexing() metadata that replaces it.
+        cache_lang_set: Vec::new(),
     }
 }

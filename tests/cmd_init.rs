@@ -309,7 +309,10 @@ fn codex_writes_toml_mcp_and_agents_md() {
     // Project-local .codex/config.toml — verify TOML shape.
     let toml = read_toml(&root.join(".codex/config.toml"));
     let server = toml.get("mcp_servers").and_then(|t| t.get("graphatlas"));
-    assert!(server.is_some(), "expected [mcp_servers.graphatlas]: {toml:?}");
+    assert!(
+        server.is_some(),
+        "expected [mcp_servers.graphatlas]: {toml:?}"
+    );
     let cmd = server
         .and_then(|t| t.get("command"))
         .and_then(|v| v.as_str())
@@ -445,7 +448,11 @@ fn codex_preserves_user_agents_md_content() {
     let scratch = scratch();
     let root = scratch.path();
     let _home = HomeGuard::set(root);
-    fs::write(root.join("AGENTS.md"), "# Project rules\n\nDon't touch this.\n").unwrap();
+    fs::write(
+        root.join("AGENTS.md"),
+        "# Project rules\n\nDon't touch this.\n",
+    )
+    .unwrap();
     cmd_init(platform_opts(root, Platform::CodexCli)).unwrap();
     let after = fs::read_to_string(root.join("AGENTS.md")).unwrap();
     assert!(after.contains("Don't touch this."));
@@ -547,13 +554,10 @@ fn interactive_invalid_toggle_input_reprompts() {
     let answers = b"xyz\ndone\nn\ny\n";
     let mut reader = std::io::Cursor::new(answers);
     let mut writer: Vec<u8> = Vec::new();
-    let _ = graphatlas::cmd_init::interactive_pick_platforms_io(
-        &detected,
-        &mut reader,
-        &mut writer,
-    )
-    .unwrap()
-    .expect("confirmed after retry");
+    let _ =
+        graphatlas::cmd_init::interactive_pick_platforms_io(&detected, &mut reader, &mut writer)
+            .unwrap()
+            .expect("confirmed after retry");
     let rendered = String::from_utf8_lossy(&writer);
     assert!(
         rendered.contains("expected number"),
@@ -575,7 +579,10 @@ fn interactive_hook_prompt_only_when_claude_selected() {
     .unwrap()
     .expect("confirmed");
     assert_eq!(plats, vec![Platform::Cursor]);
-    assert!(!hook, "hook should default false when claude-code not picked");
+    assert!(
+        !hook,
+        "hook should default false when claude-code not picked"
+    );
     let rendered = String::from_utf8_lossy(&writer);
     assert!(
         !rendered.contains("Install Claude Code SessionStart hook"),
@@ -678,7 +685,10 @@ fn codex_init_installs_reindex_hook_toml() {
         .find(|e| e.get("_managed_by").and_then(|v| v.as_str()) == Some("graphatlas"))
         .expect("GA-managed Codex hook");
     let inner = ga.get("hooks").and_then(|h| h.as_array()).unwrap();
-    assert_eq!(inner[0].get("type").and_then(|v| v.as_str()), Some("command"));
+    assert_eq!(
+        inner[0].get("type").and_then(|v| v.as_str()),
+        Some("command")
+    );
     let cmd = inner[0].get("command").and_then(|v| v.as_str()).unwrap();
     assert!(cmd.ends_with(" reindex"), "command was {cmd:?}");
 }
@@ -751,8 +761,8 @@ fn continue_and_zed_get_no_reindex_hook() {
         let scratch = scratch();
         let root = scratch.path();
         cmd_init(platform_opts(root, platform)).expect("init");
-        let any_hook = root.join(".windsurf/hooks.json").exists()
-            || root.join(".clinerules/hooks").exists();
+        let any_hook =
+            root.join(".windsurf/hooks.json").exists() || root.join(".clinerules/hooks").exists();
         assert!(!any_hook, "{platform:?} should not write hooks");
     }
 }

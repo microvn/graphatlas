@@ -1,0 +1,266 @@
+{
+  "repo": "php-symfony-console",
+  "lang": "php",
+  "mined_at": "2026-05-13T20:34:07.739Z",
+  "target": 20,
+  "actual": 20,
+  "candidates": [
+    {
+      "sha": "c132f1215fe4aa45b70173cc00ce9a755dd31ec5",
+      "parent_sha": "997de0a2c0a133c4ef09eb4bf707867215919d17",
+      "subject": "[Console] Fix signal handler scoping",
+      "source_files": [
+        "SignalRegistry/SignalRegistry.php"
+      ],
+      "test_files": [
+        "Tests/SignalRegistry/SignalRegistryTest.php"
+      ]
+    },
+    {
+      "sha": "f9f8ca824967b8543fba4906ce9d0f172edcb04d",
+      "parent_sha": "1c7c2500f5ad21e8fe110f205d055031a99f19d2",
+      "subject": "CS fixes",
+      "source_files": [
+        "Attribute/Ask.php",
+        "Command/TraceableCommand.php"
+      ],
+      "test_files": [
+        "Tests/ApplicationTest.php"
+      ]
+    },
+    {
+      "sha": "7bbcaf3fdb1e18fa42a7f0b84a10d091c10548f5",
+      "parent_sha": "2f04c68868959c7fc2db8ff9be080528213fd077",
+      "subject": "More CS fixes",
+      "source_files": [
+        "Command/TraceableCommand.php",
+        "Input/ArgvInput.php",
+        "Output/AnsiColorMode.php"
+      ],
+      "test_files": [
+        "Tests/Formatter/OutputFormatterTest.php"
+      ]
+    },
+    {
+      "sha": "2f04c68868959c7fc2db8ff9be080528213fd077",
+      "parent_sha": "545cb3522d2ab46020c1bb8ecc3ebb7518a57186",
+      "subject": "CS fixes - native_function_invocation & static_lambda",
+      "source_files": [
+        "Application.php",
+        "Command/CompleteCommand.php",
+        "Command/DumpCompletionCommand.php",
+        "Command/HelpCommand.php",
+        "Command/ListCommand.php",
+        "Descriptor/MarkdownDescriptor.php",
+        "Descriptor/TextDescriptor.php",
+        "Helper/Dumper.php",
+        "Helper/ProgressBar.php",
+        "Helper/ProgressIndicator.php",
+        "Helper/QuestionHelper.php",
+        "Input/Input.php",
+        "Question/ConfirmationQuestion.php",
+        "SignalRegistry/SignalMap.php"
+      ],
+      "test_files": [
+        "Tests/ApplicationTest.php",
+        "Tests/Command/CommandTest.php",
+        "Tests/CommandLoader/ContainerCommandLoaderTest.php",
+        "Tests/CommandLoader/FactoryCommandLoaderTest.php",
+        "Tests/Helper/ProcessHelperTest.php",
+        "Tests/Helper/ProgressBarTest.php",
+        "Tests/Helper/QuestionHelperTest.php",
+        "Tests/Helper/SymfonyQuestionHelperTest.php",
+        "Tests/Input/InputArgumentTest.php",
+        "Tests/Input/InputOptionTest.php",
+        "Tests/Question/QuestionTest.php",
+        "Tests/SignalRegistry/SignalRegistryTest.php",
+        "Tests/Tester/ApplicationTesterTest.php",
+        "Tests/Tester/CommandTesterTest.php"
+      ]
+    },
+    {
+      "sha": "230baf2bc6b432be15ea0acde011e252f90a6977",
+      "parent_sha": "6ecad7f62a8672ba0d419bc69aaf79d7bfee77fc",
+      "subject": "[Console] Fix allowing invalid `#[Autowire]` references in command arguments",
+      "source_files": [
+        "DependencyInjection/RegisterCommandArgumentLocatorsPass.php"
+      ],
+      "test_files": [
+        "Tests/DependencyInjection/RegisterCommandArgumentLocatorsPassTest.php"
+      ]
+    },
+    {
+      "sha": "49257c96304c508223815ee965c251e7c79e614e",
+      "parent_sha": "4d5318a66a747418eb12544ac38dc1ce78f3a482",
+      "subject": "[Console] Fix `ApplicationTester` ignoring `interactive` and `verbosity` options when `SHELL_VERBOSITY` is set",
+      "source_files": [
+        "Tester/ApplicationTester.php"
+      ],
+      "test_files": [
+        "Tests/Tester/ApplicationTesterTest.php"
+      ]
+    },
+    {
+      "sha": "4d5318a66a747418eb12544ac38dc1ce78f3a482",
+      "parent_sha": "7b1f1c37eff5910ddda2831345467e593a5120ad",
+      "subject": "[Console] Fix OUTPUT_RAW corrupting binary content on Windows",
+      "source_files": [
+        "Output/ConsoleOutput.php",
+        "Tests/Fixtures/binary_output.php"
+      ],
+      "test_files": [
+        "Tests/Output/StreamOutputTest.php"
+      ]
+    },
+    {
+      "sha": "ec5b5670aa44405f0fec61b8f96513a6aab51dec",
+      "parent_sha": "9a236c65e14c30d27cca642888a40a969f7c081a",
+      "subject": " PHP CS Fixer: fix minor detected issues",
+      "source_files": [
+        "ArgumentResolver/ValueResolver/DateTimeValueResolver.php"
+      ],
+      "test_files": [
+        "Tests/Helper/QuestionHelperTest.php"
+      ]
+    },
+    {
+      "sha": "7b1f1c37eff5910ddda2831345467e593a5120ad",
+      "parent_sha": "a0613ffdb5895e2f1fa3689e8155d278275b8b42",
+      "subject": "[Console] Fix various completion edge cases",
+      "source_files": [
+        "Application.php",
+        "Command/CompleteCommand.php",
+        "Tests/Fixtures/ManyAliasesCommand.php"
+      ],
+      "test_files": [
+        "Tests/ApplicationTest.php",
+        "Tests/Command/CompleteCommandTest.php"
+      ]
+    },
+    {
+      "sha": "a0613ffdb5895e2f1fa3689e8155d278275b8b42",
+      "parent_sha": "4d8ecef682873f53f55e4e7adf02ddb44e5af803",
+      "subject": "[Console] Fix validator exception masked by MissingInputException on empty input",
+      "source_files": [
+        "Helper/QuestionHelper.php"
+      ],
+      "test_files": [
+        "Tests/Helper/QuestionHelperTest.php"
+      ]
+    },
+    {
+      "sha": "bfece2aa8b7f7510ef8cfcac03584459ed5c9f34",
+      "parent_sha": "0db91ea82d0fa2a012f3e3051c6f6969286d64da",
+      "subject": "[Console] Fix arguments set via #[Ask] wrongly considered null in profiler",
+      "source_files": [
+        "Command/TraceableCommand.php"
+      ],
+      "test_files": [
+        "Tests/Command/TraceableCommandTest.php"
+      ]
+    },
+    {
+      "sha": "0db91ea82d0fa2a012f3e3051c6f6969286d64da",
+      "parent_sha": "01df35fd7c50f21c2ef99111b61ac4368ab5a26c",
+      "subject": "[Console] Fix profiling commands that use #[Ask]",
+      "source_files": [
+        "Command/TraceableCommand.php",
+        "Tests/Fixtures/InvokableWithAskCommand.php"
+      ],
+      "test_files": [
+        "Tests/Command/TraceableCommandTest.php"
+      ]
+    },
+    {
+      "sha": "91d46a6fe02b17348aabbfe1134b74697cd9ea36",
+      "parent_sha": "4227be750dc1c23350b0272444117ca85d6e2eab",
+      "subject": "[Console] Fix ProgressBar %remaining% and %estimated% placeholder guards",
+      "source_files": [
+        "Helper/ProgressBar.php"
+      ],
+      "test_files": [
+        "Tests/Helper/ProgressBarTest.php",
+        "Tests/Style/SymfonyStyleTest.php"
+      ]
+    },
+    {
+      "sha": "7c07368b23e5fad55b4870ee6596a8d0e3336871",
+      "parent_sha": "734ce2f530022498ebefa94196084de5cb5a8ac1",
+      "subject": "[Console] Fix SymfonyStyle block output broken with \\r\\n line endings",
+      "source_files": [
+        "Style/SymfonyStyle.php"
+      ],
+      "test_files": [
+        "Tests/Style/SymfonyStyleTest.php"
+      ]
+    },
+    {
+      "sha": "9b0f9e1a56df9215294f336b95de5996f600c47f",
+      "parent_sha": "ea6b012025cb31417fe040088ff1cb6c746e5351",
+      "subject": "[Console] Fix choice autocomplete issue when string has spaces",
+      "source_files": [
+        "Helper/QuestionHelper.php"
+      ],
+      "test_files": [
+        "Tests/Helper/QuestionHelperTest.php"
+      ]
+    },
+    {
+      "sha": "b52819a90fc96e962c7f804614cfd75dcc7f9377",
+      "parent_sha": "6d0d25cc1138bb7bab0685fbe4184e6289914406",
+      "subject": "bug #62763 [Console] Escape the description passed to the lazy command so the container can be build without wanting to replace the %not-a-param% to parameters",
+      "source_files": [
+        "DependencyInjection/AddConsoleCommandPass.php"
+      ],
+      "test_files": [
+        "Tests/DependencyInjection/AddConsoleCommandPassTest.php"
+      ]
+    },
+    {
+      "sha": "245d678a1f19846c113b02fffe50ce183631758a",
+      "parent_sha": "0bc0f45254b99c58d45a8fbf9fb955d46cbd1bb8",
+      "subject": "[Console] Fix profile invokable command",
+      "source_files": [
+        "Command/TraceableCommand.php"
+      ],
+      "test_files": [
+        "Tests/Command/TraceableCommandTest.php"
+      ]
+    },
+    {
+      "sha": "18c5fd1168a388a42e79f3ab77334733b2895fb9",
+      "parent_sha": "7f0dd9a0d4449e183d3976568dd1320e3d8dbb92",
+      "subject": "[Console] Fix exception message when abbreviation matches multiple hidden commands",
+      "source_files": [
+        "Application.php"
+      ],
+      "test_files": [
+        "Tests/ApplicationTest.php"
+      ]
+    },
+    {
+      "sha": "7f0dd9a0d4449e183d3976568dd1320e3d8dbb92",
+      "parent_sha": "32d9216a85709f0f6bb0cf6a66073f18336fe99d",
+      "subject": "[Console] Fix completion for global options values",
+      "source_files": [
+        "Application.php"
+      ],
+      "test_files": [
+        "Tests/Command/CompleteCommandTest.php"
+      ]
+    },
+    {
+      "sha": "32d9216a85709f0f6bb0cf6a66073f18336fe99d",
+      "parent_sha": "13d3176cf8ad8ced24202844e9f95af11e2959fc",
+      "subject": "[Console] Fix signal handlers not being cleared after command termination",
+      "source_files": [
+        "Application.php",
+        "SignalRegistry/SignalRegistry.php"
+      ],
+      "test_files": [
+        "Tests/ApplicationTest.php",
+        "Tests/SignalRegistry/SignalRegistryTest.php"
+      ]
+    }
+  ]
+}

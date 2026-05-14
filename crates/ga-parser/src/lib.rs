@@ -516,6 +516,7 @@ impl ParserPool {
                 Box::new(langs::kotlin::KotlinLang),
                 Box::new(langs::csharp::CSharpLang),
                 Box::new(langs::ruby::RubyLang),
+                Box::new(langs::php::PhpLang),
             ],
         }
     }

@@ -1,0 +1,500 @@
+{
+  "repo": "php-symfony-console",
+  "lang": "php",
+  "enriched_at": "2026-05-13T20:38:45.848Z",
+  "count": 19,
+  "tasks": [
+    {
+      "task_id": "php-symfony-console-c132f121",
+      "repo": "php-symfony-console",
+      "base_commit": "997de0a2c0a133c4ef09eb4bf707867215919d17",
+      "fix_commit": "c132f1215fe4aa45b70173cc00ce9a755dd31ec5",
+      "subject": "[Console] Fix signal handler scoping",
+      "seed_file": "SignalRegistry/SignalRegistry.php",
+      "seed_symbol": "SignalRegistry",
+      "source_files": [
+        "SignalRegistry/SignalRegistry.php"
+      ],
+      "expected_files": [
+        "SignalRegistry/SignalRegistry.php"
+      ],
+      "expected_tests": [
+        "Tests/SignalRegistry/SignalRegistryTest.php"
+      ],
+      "should_touch_files": [
+        "Application.php"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "php-symfony-console-f9f8ca82",
+      "repo": "php-symfony-console",
+      "base_commit": "1c7c2500f5ad21e8fe110f205d055031a99f19d2",
+      "fix_commit": "f9f8ca824967b8543fba4906ce9d0f172edcb04d",
+      "subject": "CS fixes",
+      "seed_file": "Attribute/Ask.php",
+      "seed_symbol": "Ask",
+      "source_files": [
+        "Attribute/Ask.php",
+        "Command/TraceableCommand.php"
+      ],
+      "expected_files": [
+        "Attribute/Ask.php",
+        "Command/TraceableCommand.php"
+      ],
+      "expected_tests": [
+        "Tests/ApplicationTest.php"
+      ],
+      "should_touch_files": [
+        "Tests/Fixtures/InvokableWithInteractiveAttributesTestCommand.php"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "php-symfony-console-7bbcaf3f",
+      "repo": "php-symfony-console",
+      "base_commit": "2f04c68868959c7fc2db8ff9be080528213fd077",
+      "fix_commit": "7bbcaf3fdb1e18fa42a7f0b84a10d091c10548f5",
+      "subject": "More CS fixes",
+      "seed_file": "Output/AnsiColorMode.php",
+      "seed_symbol": "AnsiColorMode",
+      "source_files": [
+        "Command/TraceableCommand.php",
+        "Input/ArgvInput.php",
+        "Output/AnsiColorMode.php"
+      ],
+      "expected_files": [
+        "Command/TraceableCommand.php",
+        "Input/ArgvInput.php",
+        "Output/AnsiColorMode.php"
+      ],
+      "expected_tests": [
+        "Tests/Formatter/OutputFormatterTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "php-symfony-console-2f04c688",
+      "repo": "php-symfony-console",
+      "base_commit": "545cb3522d2ab46020c1bb8ecc3ebb7518a57186",
+      "fix_commit": "2f04c68868959c7fc2db8ff9be080528213fd077",
+      "subject": "CS fixes - native_function_invocation & static_lambda",
+      "seed_file": "Helper/ProgressBar.php",
+      "seed_symbol": "ProgressBar",
+      "source_files": [
+        "Application.php",
+        "Command/CompleteCommand.php",
+        "Command/DumpCompletionCommand.php",
+        "Command/HelpCommand.php",
+        "Command/ListCommand.php",
+        "Descriptor/MarkdownDescriptor.php",
+        "Descriptor/TextDescriptor.php",
+        "Helper/Dumper.php",
+        "Helper/ProgressBar.php",
+        "Helper/ProgressIndicator.php",
+        "Helper/QuestionHelper.php",
+        "Input/Input.php",
+        "Question/ConfirmationQuestion.php",
+        "SignalRegistry/SignalMap.php"
+      ],
+      "expected_files": [
+        "Application.php",
+        "Command/CompleteCommand.php",
+        "Command/DumpCompletionCommand.php",
+        "Command/HelpCommand.php",
+        "Command/ListCommand.php",
+        "Descriptor/MarkdownDescriptor.php",
+        "Descriptor/TextDescriptor.php",
+        "Helper/Dumper.php",
+        "Helper/ProgressBar.php",
+        "Helper/ProgressIndicator.php",
+        "Helper/QuestionHelper.php",
+        "Input/Input.php",
+        "Question/ConfirmationQuestion.php",
+        "SignalRegistry/SignalMap.php"
+      ],
+      "expected_tests": [
+        "Tests/ApplicationTest.php",
+        "Tests/Command/CommandTest.php",
+        "Tests/CommandLoader/ContainerCommandLoaderTest.php",
+        "Tests/CommandLoader/FactoryCommandLoaderTest.php",
+        "Tests/Helper/ProcessHelperTest.php",
+        "Tests/Helper/ProgressBarTest.php",
+        "Tests/Helper/QuestionHelperTest.php",
+        "Tests/Helper/SymfonyQuestionHelperTest.php",
+        "Tests/Input/InputArgumentTest.php",
+        "Tests/Input/InputOptionTest.php",
+        "Tests/Question/QuestionTest.php",
+        "Tests/SignalRegistry/SignalRegistryTest.php",
+        "Tests/Tester/ApplicationTesterTest.php",
+        "Tests/Tester/CommandTesterTest.php"
+      ],
+      "should_touch_files": [
+        "Style/OutputStyle.php",
+        "Style/SymfonyStyle.php"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "php-symfony-console-230baf2b",
+      "repo": "php-symfony-console",
+      "base_commit": "6ecad7f62a8672ba0d419bc69aaf79d7bfee77fc",
+      "fix_commit": "230baf2bc6b432be15ea0acde011e252f90a6977",
+      "subject": "[Console] Fix allowing invalid `#[Autowire]` references in command arguments",
+      "seed_file": "DependencyInjection/RegisterCommandArgumentLocatorsPass.php",
+      "seed_symbol": "RegisterCommandArgumentLocatorsPass",
+      "source_files": [
+        "DependencyInjection/RegisterCommandArgumentLocatorsPass.php"
+      ],
+      "expected_files": [
+        "DependencyInjection/RegisterCommandArgumentLocatorsPass.php"
+      ],
+      "expected_tests": [
+        "Tests/DependencyInjection/RegisterCommandArgumentLocatorsPassTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "php-symfony-console-49257c96",
+      "repo": "php-symfony-console",
+      "base_commit": "4d5318a66a747418eb12544ac38dc1ce78f3a482",
+      "fix_commit": "49257c96304c508223815ee965c251e7c79e614e",
+      "subject": "[Console] Fix `ApplicationTester` ignoring `interactive` and `verbosity` options when `SHELL_VERBOSITY` is set",
+      "seed_file": "Tester/ApplicationTester.php",
+      "seed_symbol": "ApplicationTester",
+      "source_files": [
+        "Tester/ApplicationTester.php"
+      ],
+      "expected_files": [
+        "Tester/ApplicationTester.php"
+      ],
+      "expected_tests": [
+        "Tests/Tester/ApplicationTesterTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "php-symfony-console-4d5318a6",
+      "repo": "php-symfony-console",
+      "base_commit": "7b1f1c37eff5910ddda2831345467e593a5120ad",
+      "fix_commit": "4d5318a66a747418eb12544ac38dc1ce78f3a482",
+      "subject": "[Console] Fix OUTPUT_RAW corrupting binary content on Windows",
+      "seed_file": "Output/ConsoleOutput.php",
+      "seed_symbol": "ConsoleOutput",
+      "source_files": [
+        "Output/ConsoleOutput.php",
+        "Tests/Fixtures/binary_output.php"
+      ],
+      "expected_files": [
+        "Output/ConsoleOutput.php",
+        "Tests/Fixtures/binary_output.php"
+      ],
+      "expected_tests": [
+        "Tests/Output/StreamOutputTest.php"
+      ],
+      "should_touch_files": [
+        "Application.php",
+        "Tester/TesterTrait.php"
+      ],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "php-symfony-console-ec5b5670",
+      "repo": "php-symfony-console",
+      "base_commit": "9a236c65e14c30d27cca642888a40a969f7c081a",
+      "fix_commit": "ec5b5670aa44405f0fec61b8f96513a6aab51dec",
+      "subject": " PHP CS Fixer: fix minor detected issues",
+      "seed_file": "ArgumentResolver/ValueResolver/DateTimeValueResolver.php",
+      "seed_symbol": "DateTimeValueResolver",
+      "source_files": [
+        "ArgumentResolver/ValueResolver/DateTimeValueResolver.php"
+      ],
+      "expected_files": [
+        "ArgumentResolver/ValueResolver/DateTimeValueResolver.php"
+      ],
+      "expected_tests": [
+        "Tests/Helper/QuestionHelperTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "php-symfony-console-7b1f1c37",
+      "repo": "php-symfony-console",
+      "base_commit": "a0613ffdb5895e2f1fa3689e8155d278275b8b42",
+      "fix_commit": "7b1f1c37eff5910ddda2831345467e593a5120ad",
+      "subject": "[Console] Fix various completion edge cases",
+      "seed_file": "Command/CompleteCommand.php",
+      "seed_symbol": "CompleteCommand",
+      "source_files": [
+        "Application.php",
+        "Command/CompleteCommand.php",
+        "Tests/Fixtures/ManyAliasesCommand.php"
+      ],
+      "expected_files": [
+        "Application.php",
+        "Command/CompleteCommand.php",
+        "Tests/Fixtures/ManyAliasesCommand.php"
+      ],
+      "expected_tests": [
+        "Tests/ApplicationTest.php",
+        "Tests/Command/CompleteCommandTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    },
+    {
+      "task_id": "php-symfony-console-a0613ffd",
+      "repo": "php-symfony-console",
+      "base_commit": "4d8ecef682873f53f55e4e7adf02ddb44e5af803",
+      "fix_commit": "a0613ffdb5895e2f1fa3689e8155d278275b8b42",
+      "subject": "[Console] Fix validator exception masked by MissingInputException on empty input",
+      "seed_file": "Helper/QuestionHelper.php",
+      "seed_symbol": "QuestionHelper",
+      "source_files": [
+        "Helper/QuestionHelper.php"
+      ],
+      "expected_files": [
+        "Helper/QuestionHelper.php"
+      ],
+      "expected_tests": [
+        "Tests/Helper/QuestionHelperTest.php"
+      ],
+      "should_touch_files": [
+        "Application.php",
+        "Style/SymfonyStyle.php"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "php-symfony-console-bfece2aa",
+      "repo": "php-symfony-console",
+      "base_commit": "0db91ea82d0fa2a012f3e3051c6f6969286d64da",
+      "fix_commit": "bfece2aa8b7f7510ef8cfcac03584459ed5c9f34",
+      "subject": "[Console] Fix arguments set via #[Ask] wrongly considered null in profiler",
+      "seed_file": "Command/TraceableCommand.php",
+      "seed_symbol": "TraceableCommand",
+      "source_files": [
+        "Command/TraceableCommand.php"
+      ],
+      "expected_files": [
+        "Command/TraceableCommand.php"
+      ],
+      "expected_tests": [
+        "Tests/Command/TraceableCommandTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "php-symfony-console-91d46a6f",
+      "repo": "php-symfony-console",
+      "base_commit": "4227be750dc1c23350b0272444117ca85d6e2eab",
+      "fix_commit": "91d46a6fe02b17348aabbfe1134b74697cd9ea36",
+      "subject": "[Console] Fix ProgressBar %remaining% and %estimated% placeholder guards",
+      "seed_file": "Helper/ProgressBar.php",
+      "seed_symbol": "ProgressBar",
+      "source_files": [
+        "Helper/ProgressBar.php"
+      ],
+      "expected_files": [
+        "Helper/ProgressBar.php"
+      ],
+      "expected_tests": [
+        "Tests/Helper/ProgressBarTest.php",
+        "Tests/Style/SymfonyStyleTest.php"
+      ],
+      "should_touch_files": [
+        "Style/OutputStyle.php",
+        "Style/SymfonyStyle.php"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "php-symfony-console-7c07368b",
+      "repo": "php-symfony-console",
+      "base_commit": "734ce2f530022498ebefa94196084de5cb5a8ac1",
+      "fix_commit": "7c07368b23e5fad55b4870ee6596a8d0e3336871",
+      "subject": "[Console] Fix SymfonyStyle block output broken with \\r\\n line endings",
+      "seed_file": "Style/SymfonyStyle.php",
+      "seed_symbol": "SymfonyStyle",
+      "source_files": [
+        "Style/SymfonyStyle.php"
+      ],
+      "expected_files": [
+        "Style/SymfonyStyle.php"
+      ],
+      "expected_tests": [
+        "Tests/Style/SymfonyStyleTest.php"
+      ],
+      "should_touch_files": [
+        "Application.php",
+        "Helper/SymfonyQuestionHelper.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_13.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_2.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_22.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_4.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_4_with_iterators.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_5.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_6.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_7.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_8.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_9.php"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "php-symfony-console-9b0f9e1a",
+      "repo": "php-symfony-console",
+      "base_commit": "ea6b012025cb31417fe040088ff1cb6c746e5351",
+      "fix_commit": "9b0f9e1a56df9215294f336b95de5996f600c47f",
+      "subject": "[Console] Fix choice autocomplete issue when string has spaces",
+      "seed_file": "Helper/QuestionHelper.php",
+      "seed_symbol": "QuestionHelper",
+      "source_files": [
+        "Helper/QuestionHelper.php"
+      ],
+      "expected_files": [
+        "Helper/QuestionHelper.php"
+      ],
+      "expected_tests": [
+        "Tests/Helper/QuestionHelperTest.php"
+      ],
+      "should_touch_files": [
+        "Application.php",
+        "Style/SymfonyStyle.php"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "php-symfony-console-b52819a9",
+      "repo": "php-symfony-console",
+      "base_commit": "6d0d25cc1138bb7bab0685fbe4184e6289914406",
+      "fix_commit": "b52819a90fc96e962c7f804614cfd75dcc7f9377",
+      "subject": "bug #62763 [Console] Escape the description passed to the lazy command so the container can be build without wanting to replace the %not-a-param% to parameters",
+      "seed_file": "DependencyInjection/AddConsoleCommandPass.php",
+      "seed_symbol": "AddConsoleCommandPass",
+      "source_files": [
+        "DependencyInjection/AddConsoleCommandPass.php"
+      ],
+      "expected_files": [
+        "DependencyInjection/AddConsoleCommandPass.php"
+      ],
+      "expected_tests": [
+        "Tests/DependencyInjection/AddConsoleCommandPassTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "php-symfony-console-245d678a",
+      "repo": "php-symfony-console",
+      "base_commit": "0bc0f45254b99c58d45a8fbf9fb955d46cbd1bb8",
+      "fix_commit": "245d678a1f19846c113b02fffe50ce183631758a",
+      "subject": "[Console] Fix profile invokable command",
+      "seed_file": "Command/TraceableCommand.php",
+      "seed_symbol": "TraceableCommand",
+      "source_files": [
+        "Command/TraceableCommand.php"
+      ],
+      "expected_files": [
+        "Command/TraceableCommand.php"
+      ],
+      "expected_tests": [
+        "Tests/Command/TraceableCommandTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "php-symfony-console-18c5fd11",
+      "repo": "php-symfony-console",
+      "base_commit": "7f0dd9a0d4449e183d3976568dd1320e3d8dbb92",
+      "fix_commit": "18c5fd1168a388a42e79f3ab77334733b2895fb9",
+      "subject": "[Console] Fix exception message when abbreviation matches multiple hidden commands",
+      "seed_file": "Application.php",
+      "seed_symbol": "Application",
+      "source_files": [
+        "Application.php"
+      ],
+      "expected_files": [
+        "Application.php"
+      ],
+      "expected_tests": [
+        "Tests/ApplicationTest.php"
+      ],
+      "should_touch_files": [
+        "Command/Command.php",
+        "Command/LazyCommand.php",
+        "Descriptor/ApplicationDescription.php",
+        "Descriptor/Descriptor.php",
+        "Descriptor/JsonDescriptor.php",
+        "Descriptor/MarkdownDescriptor.php",
+        "Descriptor/TextDescriptor.php",
+        "Descriptor/XmlDescriptor.php",
+        "SingleCommandApplication.php",
+        "Tester/ApplicationTester.php",
+        "Tests/Fixtures/application_signalable.php"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "php-symfony-console-7f0dd9a0",
+      "repo": "php-symfony-console",
+      "base_commit": "32d9216a85709f0f6bb0cf6a66073f18336fe99d",
+      "fix_commit": "7f0dd9a0d4449e183d3976568dd1320e3d8dbb92",
+      "subject": "[Console] Fix completion for global options values",
+      "seed_file": "Application.php",
+      "seed_symbol": "Application",
+      "source_files": [
+        "Application.php"
+      ],
+      "expected_files": [
+        "Application.php"
+      ],
+      "expected_tests": [
+        "Tests/Command/CompleteCommandTest.php"
+      ],
+      "should_touch_files": [
+        "Command/Command.php",
+        "Command/LazyCommand.php",
+        "Descriptor/ApplicationDescription.php",
+        "Descriptor/Descriptor.php",
+        "Descriptor/JsonDescriptor.php",
+        "Descriptor/MarkdownDescriptor.php",
+        "Descriptor/TextDescriptor.php",
+        "Descriptor/XmlDescriptor.php",
+        "SingleCommandApplication.php",
+        "Tester/ApplicationTester.php",
+        "Tests/Fixtures/application_signalable.php"
+      ],
+      "max_expected_depth": 1
+    },
+    {
+      "task_id": "php-symfony-console-32d9216a",
+      "repo": "php-symfony-console",
+      "base_commit": "13d3176cf8ad8ced24202844e9f95af11e2959fc",
+      "fix_commit": "32d9216a85709f0f6bb0cf6a66073f18336fe99d",
+      "subject": "[Console] Fix signal handlers not being cleared after command termination",
+      "seed_file": "SignalRegistry/SignalRegistry.php",
+      "seed_symbol": "array",
+      "source_files": [
+        "Application.php",
+        "SignalRegistry/SignalRegistry.php"
+      ],
+      "expected_files": [
+        "Application.php",
+        "SignalRegistry/SignalRegistry.php"
+      ],
+      "expected_tests": [
+        "Tests/ApplicationTest.php",
+        "Tests/SignalRegistry/SignalRegistryTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2
+    }
+  ]
+}

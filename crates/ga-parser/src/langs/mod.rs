@@ -10,6 +10,7 @@ pub mod go;
 pub mod java;
 pub mod js;
 pub mod kotlin;
+pub mod php;
 pub mod py;
 pub mod rs;
 pub mod ruby;

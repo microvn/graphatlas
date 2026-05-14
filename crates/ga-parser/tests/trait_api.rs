@@ -15,8 +15,8 @@ fn spec(lang: Lang) -> Box<dyn LanguageSpec> {
         // v1.1-M4 — Phase C langs (Java/Kotlin/CSharp/Ruby) have Lang variants
         // but no LanguageSpec impl yet; test arrays below iterate v1 langs only.
         // AS-017 covers the "registered-but-no-spec" path via ParserPool.spec_for.
-        Lang::Java | Lang::Kotlin | Lang::CSharp | Lang::Ruby => {
-            unreachable!("trait_api test fixture: {lang:?} not yet wired (S-005a scope)")
+        Lang::Java | Lang::Kotlin | Lang::CSharp | Lang::Ruby | Lang::Php => {
+            unreachable!("trait_api test fixture: {lang:?} not wired in this test (covered by per-lang test suites)")
         }
     }
 }

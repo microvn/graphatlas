@@ -19,6 +19,7 @@ pub mod indexer;
 pub mod large_functions;
 pub mod minimal_context;
 mod phase_b;
+pub mod psr4_resolve;
 pub mod rename_safety;
 pub mod risk;
 pub mod signals;

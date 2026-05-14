@@ -1,0 +1,98 @@
+name: grammar-archive-watch
+
+# Observe-only daily check that the upstream tree-sitter grammar repos
+# pinned in `crates/ga-parser/grammar-pins.toml` haven't been archived.
+#
+# Per docs/specs/graphatlas-v1.2/graphatlas-v1.2-grammar-pins.md S-002 AS-005.
+#
+# - Runs daily 00:00 UTC.
+# - Can be triggered manually via workflow_dispatch.
+# - Reads grammar-pins.toml, calls `gh api repos/<upstream>` per entry,
+#   checks the `archived` boolean.
+# - On detection: exits non-zero AND auto-files an issue.
+# - DOES NOT touch Cargo.toml, Cargo.lock, or grammar-pins.toml — observe-only.
+#   Maintainer must follow docs/guide/grammar-archival-recovery.md to recover.
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check-archived:
+    name: Check upstream grammar repos for archival
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Iterate grammar-pins.toml and call gh api repos/<upstream>
+        id: scan
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -eu
+          PINS=crates/ga-parser/grammar-pins.toml
+          if [ ! -f "$PINS" ]; then
+            echo "::error::$PINS not found"
+            exit 2
+          fi
+
+          # Extract upstream values from each [pins.<lang>] entry. Format:
+          #   upstream      = "org/repo"
+          UPSTREAMS=$(grep -E '^upstream\s*=' "$PINS" | sed -E 's/^upstream\s*=\s*"([^"]+)".*/\1/')
+
+          ARCHIVED_LIST=""
+          MISSING_LIST=""
+          for repo in $UPSTREAMS; do
+            echo "Checking $repo..."
+            # gh api repos/<upstream> — captures HTTP status separately so we
+            # distinguish 404 (deleted) from archived=true. `--include` would
+            # mix headers; we use jq + error fallthrough.
+            response=$(gh api "repos/$repo" 2>&1) || rc=$? || rc=0
+            if [ "${rc:-0}" -ne 0 ]; then
+              echo "  not reachable: $response"
+              MISSING_LIST="$MISSING_LIST $repo"
+              continue
+            fi
+            archived=$(echo "$response" | jq -r '.archived // false')
+            if [ "$archived" = "true" ]; then
+              echo "  ARCHIVED"
+              ARCHIVED_LIST="$ARCHIVED_LIST $repo"
+            else
+              echo "  ok (archived=$archived)"
+            fi
+          done
+
+          {
+            echo "archived_list=$ARCHIVED_LIST"
+            echo "missing_list=$MISSING_LIST"
+          } >> "$GITHUB_OUTPUT"
+
+          if [ -n "$ARCHIVED_LIST" ] || [ -n "$MISSING_LIST" ]; then
+            echo "::error::grammar upstream(s) archived or missing — see issue"
+            exit 1
+          fi
+
+      - name: File issue on detection
+        if: failure() && steps.scan.outputs.archived_list != '' || steps.scan.outputs.missing_list != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -eu
+          BODY="Daily grammar-archive-watch run detected upstream(s) in non-active state.\n\n"
+          if [ -n "${{ steps.scan.outputs.archived_list }}" ]; then
+            BODY="${BODY}Archived: ${{ steps.scan.outputs.archived_list }}\n"
+          fi
+          if [ -n "${{ steps.scan.outputs.missing_list }}" ]; then
+            BODY="${BODY}Missing / not reachable: ${{ steps.scan.outputs.missing_list }}\n"
+          fi
+          BODY="${BODY}\nRecovery: docs/guide/grammar-archival-recovery.md"
+
+          gh issue create \
+            --title "[Lang-C9] Upstream grammar archived/deleted (detected $(date -u +%Y-%m-%d))" \
+            --body "$(printf "$BODY")" \
+            --label lang-c9,grammar

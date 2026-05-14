@@ -324,11 +324,17 @@ fn as_006_install_for_codex_writes_toml_with_postrooluse_entry() {
         "AS-006: Codex fresh install must return Created; got {outcome:?}"
     );
     let body = fs::read_to_string(&cfg).unwrap();
-    assert!(body.contains("PostToolUse"), "TOML must include PostToolUse");
+    assert!(
+        body.contains("PostToolUse"),
+        "TOML must include PostToolUse"
+    );
     assert!(
         body.contains("type = \"command\""),
         "Codex hooks use type=\"command\", not mcp_tool: {body}"
     );
     assert!(body.contains("reindex"), "command must invoke reindex");
-    assert!(body.contains("apply_patch"), "matcher must include apply_patch");
+    assert!(
+        body.contains("apply_patch"),
+        "matcher must include apply_patch"
+    );
 }

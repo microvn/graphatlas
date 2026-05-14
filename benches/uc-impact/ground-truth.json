@@ -1,10 +1,10 @@
 {
   "schema_version": 3,
-  "source": "git-mining-2026-04-29",
+  "source": "git-mining-2026-05-13",
   "uc": "impact",
   "spec": "S-004 AS-009",
   "mining_tool": "scripts/mine-fix-commits.ts + scripts/extract-seeds.ts + should_touch_files-v3",
-  "total_tasks": 198,
+  "total_tasks": 234,
   "per_repo": {
     "django": 13,
     "preact": 16,
@@ -19,7 +19,9 @@
     "MQTTnet": 20,
     "Polly": 1,
     "jekyll": 0,
-    "faraday": 18
+    "faraday": 18,
+    "php-symfony-console": 19,
+    "php-monolog": 17
   },
   "per_lang": {
     "python": 13,
@@ -30,11 +32,12 @@
     "java": 18,
     "kotlin": 31,
     "csharp": 21,
-    "ruby": 18
+    "ruby": 18,
+    "php": 36
   },
   "splits": {
-    "dev": 54,
-    "test": 144
+    "dev": 64,
+    "test": 170
   },
   "tasks": [
     {
@@ -6288,6 +6291,1038 @@
       ],
       "max_expected_depth": 1,
       "lang": "ruby",
+      "split": "test"
+    },
+    {
+      "task_id": "php-symfony-console-18c5fd11",
+      "repo": "php-symfony-console",
+      "base_commit": "7f0dd9a0d4449e183d3976568dd1320e3d8dbb92",
+      "fix_commit": "18c5fd1168a388a42e79f3ab77334733b2895fb9",
+      "subject": "[Console] Fix exception message when abbreviation matches multiple hidden commands",
+      "seed_file": "Application.php",
+      "seed_symbol": "Application",
+      "source_files": [
+        "Application.php"
+      ],
+      "expected_files": [
+        "Application.php"
+      ],
+      "expected_tests": [
+        "Tests/ApplicationTest.php"
+      ],
+      "should_touch_files": [
+        "Command/Command.php",
+        "Command/LazyCommand.php",
+        "Descriptor/ApplicationDescription.php",
+        "Descriptor/Descriptor.php",
+        "Descriptor/JsonDescriptor.php",
+        "Descriptor/MarkdownDescriptor.php",
+        "Descriptor/TextDescriptor.php",
+        "Descriptor/XmlDescriptor.php",
+        "SingleCommandApplication.php",
+        "Tester/ApplicationTester.php",
+        "Tests/Fixtures/application_signalable.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "dev"
+    },
+    {
+      "task_id": "php-symfony-console-230baf2b",
+      "repo": "php-symfony-console",
+      "base_commit": "6ecad7f62a8672ba0d419bc69aaf79d7bfee77fc",
+      "fix_commit": "230baf2bc6b432be15ea0acde011e252f90a6977",
+      "subject": "[Console] Fix allowing invalid `#[Autowire]` references in command arguments",
+      "seed_file": "DependencyInjection/RegisterCommandArgumentLocatorsPass.php",
+      "seed_symbol": "RegisterCommandArgumentLocatorsPass",
+      "source_files": [
+        "DependencyInjection/RegisterCommandArgumentLocatorsPass.php"
+      ],
+      "expected_files": [
+        "DependencyInjection/RegisterCommandArgumentLocatorsPass.php"
+      ],
+      "expected_tests": [
+        "Tests/DependencyInjection/RegisterCommandArgumentLocatorsPassTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "dev"
+    },
+    {
+      "task_id": "php-symfony-console-245d678a",
+      "repo": "php-symfony-console",
+      "base_commit": "0bc0f45254b99c58d45a8fbf9fb955d46cbd1bb8",
+      "fix_commit": "245d678a1f19846c113b02fffe50ce183631758a",
+      "subject": "[Console] Fix profile invokable command",
+      "seed_file": "Command/TraceableCommand.php",
+      "seed_symbol": "TraceableCommand",
+      "source_files": [
+        "Command/TraceableCommand.php"
+      ],
+      "expected_files": [
+        "Command/TraceableCommand.php"
+      ],
+      "expected_tests": [
+        "Tests/Command/TraceableCommandTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "dev"
+    },
+    {
+      "task_id": "php-symfony-console-2f04c688",
+      "repo": "php-symfony-console",
+      "base_commit": "545cb3522d2ab46020c1bb8ecc3ebb7518a57186",
+      "fix_commit": "2f04c68868959c7fc2db8ff9be080528213fd077",
+      "subject": "CS fixes - native_function_invocation & static_lambda",
+      "seed_file": "Helper/ProgressBar.php",
+      "seed_symbol": "ProgressBar",
+      "source_files": [
+        "Application.php",
+        "Command/CompleteCommand.php",
+        "Command/DumpCompletionCommand.php",
+        "Command/HelpCommand.php",
+        "Command/ListCommand.php",
+        "Descriptor/MarkdownDescriptor.php",
+        "Descriptor/TextDescriptor.php",
+        "Helper/Dumper.php",
+        "Helper/ProgressBar.php",
+        "Helper/ProgressIndicator.php",
+        "Helper/QuestionHelper.php",
+        "Input/Input.php",
+        "Question/ConfirmationQuestion.php",
+        "SignalRegistry/SignalMap.php"
+      ],
+      "expected_files": [
+        "Application.php",
+        "Command/CompleteCommand.php",
+        "Command/DumpCompletionCommand.php",
+        "Command/HelpCommand.php",
+        "Command/ListCommand.php",
+        "Descriptor/MarkdownDescriptor.php",
+        "Descriptor/TextDescriptor.php",
+        "Helper/Dumper.php",
+        "Helper/ProgressBar.php",
+        "Helper/ProgressIndicator.php",
+        "Helper/QuestionHelper.php",
+        "Input/Input.php",
+        "Question/ConfirmationQuestion.php",
+        "SignalRegistry/SignalMap.php"
+      ],
+      "expected_tests": [
+        "Tests/ApplicationTest.php",
+        "Tests/Command/CommandTest.php",
+        "Tests/CommandLoader/ContainerCommandLoaderTest.php",
+        "Tests/CommandLoader/FactoryCommandLoaderTest.php",
+        "Tests/Helper/ProcessHelperTest.php",
+        "Tests/Helper/ProgressBarTest.php",
+        "Tests/Helper/QuestionHelperTest.php",
+        "Tests/Helper/SymfonyQuestionHelperTest.php",
+        "Tests/Input/InputArgumentTest.php",
+        "Tests/Input/InputOptionTest.php",
+        "Tests/Question/QuestionTest.php",
+        "Tests/SignalRegistry/SignalRegistryTest.php",
+        "Tests/Tester/ApplicationTesterTest.php",
+        "Tests/Tester/CommandTesterTest.php"
+      ],
+      "should_touch_files": [
+        "Style/OutputStyle.php",
+        "Style/SymfonyStyle.php"
+      ],
+      "max_expected_depth": 2,
+      "lang": "php",
+      "split": "dev"
+    },
+    {
+      "task_id": "php-symfony-console-32d9216a",
+      "repo": "php-symfony-console",
+      "base_commit": "13d3176cf8ad8ced24202844e9f95af11e2959fc",
+      "fix_commit": "32d9216a85709f0f6bb0cf6a66073f18336fe99d",
+      "subject": "[Console] Fix signal handlers not being cleared after command termination",
+      "seed_file": "SignalRegistry/SignalRegistry.php",
+      "seed_symbol": "array",
+      "source_files": [
+        "Application.php",
+        "SignalRegistry/SignalRegistry.php"
+      ],
+      "expected_files": [
+        "Application.php",
+        "SignalRegistry/SignalRegistry.php"
+      ],
+      "expected_tests": [
+        "Tests/ApplicationTest.php",
+        "Tests/SignalRegistry/SignalRegistryTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2,
+      "lang": "php",
+      "split": "dev"
+    },
+    {
+      "task_id": "php-symfony-console-49257c96",
+      "repo": "php-symfony-console",
+      "base_commit": "4d5318a66a747418eb12544ac38dc1ce78f3a482",
+      "fix_commit": "49257c96304c508223815ee965c251e7c79e614e",
+      "subject": "[Console] Fix `ApplicationTester` ignoring `interactive` and `verbosity` options when `SHELL_VERBOSITY` is set",
+      "seed_file": "Tester/ApplicationTester.php",
+      "seed_symbol": "ApplicationTester",
+      "source_files": [
+        "Tester/ApplicationTester.php"
+      ],
+      "expected_files": [
+        "Tester/ApplicationTester.php"
+      ],
+      "expected_tests": [
+        "Tests/Tester/ApplicationTesterTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-symfony-console-4d5318a6",
+      "repo": "php-symfony-console",
+      "base_commit": "7b1f1c37eff5910ddda2831345467e593a5120ad",
+      "fix_commit": "4d5318a66a747418eb12544ac38dc1ce78f3a482",
+      "subject": "[Console] Fix OUTPUT_RAW corrupting binary content on Windows",
+      "seed_file": "Output/ConsoleOutput.php",
+      "seed_symbol": "ConsoleOutput",
+      "source_files": [
+        "Output/ConsoleOutput.php",
+        "Tests/Fixtures/binary_output.php"
+      ],
+      "expected_files": [
+        "Output/ConsoleOutput.php",
+        "Tests/Fixtures/binary_output.php"
+      ],
+      "expected_tests": [
+        "Tests/Output/StreamOutputTest.php"
+      ],
+      "should_touch_files": [
+        "Application.php",
+        "Tester/TesterTrait.php"
+      ],
+      "max_expected_depth": 2,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-symfony-console-7b1f1c37",
+      "repo": "php-symfony-console",
+      "base_commit": "a0613ffdb5895e2f1fa3689e8155d278275b8b42",
+      "fix_commit": "7b1f1c37eff5910ddda2831345467e593a5120ad",
+      "subject": "[Console] Fix various completion edge cases",
+      "seed_file": "Command/CompleteCommand.php",
+      "seed_symbol": "CompleteCommand",
+      "source_files": [
+        "Application.php",
+        "Command/CompleteCommand.php",
+        "Tests/Fixtures/ManyAliasesCommand.php"
+      ],
+      "expected_files": [
+        "Application.php",
+        "Command/CompleteCommand.php",
+        "Tests/Fixtures/ManyAliasesCommand.php"
+      ],
+      "expected_tests": [
+        "Tests/ApplicationTest.php",
+        "Tests/Command/CompleteCommandTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-symfony-console-7bbcaf3f",
+      "repo": "php-symfony-console",
+      "base_commit": "2f04c68868959c7fc2db8ff9be080528213fd077",
+      "fix_commit": "7bbcaf3fdb1e18fa42a7f0b84a10d091c10548f5",
+      "subject": "More CS fixes",
+      "seed_file": "Output/AnsiColorMode.php",
+      "seed_symbol": "AnsiColorMode",
+      "source_files": [
+        "Command/TraceableCommand.php",
+        "Input/ArgvInput.php",
+        "Output/AnsiColorMode.php"
+      ],
+      "expected_files": [
+        "Command/TraceableCommand.php",
+        "Input/ArgvInput.php",
+        "Output/AnsiColorMode.php"
+      ],
+      "expected_tests": [
+        "Tests/Formatter/OutputFormatterTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-symfony-console-7c07368b",
+      "repo": "php-symfony-console",
+      "base_commit": "734ce2f530022498ebefa94196084de5cb5a8ac1",
+      "fix_commit": "7c07368b23e5fad55b4870ee6596a8d0e3336871",
+      "subject": "[Console] Fix SymfonyStyle block output broken with \\r\\n line endings",
+      "seed_file": "Style/SymfonyStyle.php",
+      "seed_symbol": "SymfonyStyle",
+      "source_files": [
+        "Style/SymfonyStyle.php"
+      ],
+      "expected_files": [
+        "Style/SymfonyStyle.php"
+      ],
+      "expected_tests": [
+        "Tests/Style/SymfonyStyleTest.php"
+      ],
+      "should_touch_files": [
+        "Application.php",
+        "Helper/SymfonyQuestionHelper.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_13.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_2.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_22.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_4.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_4_with_iterators.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_5.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_6.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_7.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_8.php",
+        "Tests/Fixtures/Style/SymfonyStyle/command/command_9.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-symfony-console-7f0dd9a0",
+      "repo": "php-symfony-console",
+      "base_commit": "32d9216a85709f0f6bb0cf6a66073f18336fe99d",
+      "fix_commit": "7f0dd9a0d4449e183d3976568dd1320e3d8dbb92",
+      "subject": "[Console] Fix completion for global options values",
+      "seed_file": "Application.php",
+      "seed_symbol": "Application",
+      "source_files": [
+        "Application.php"
+      ],
+      "expected_files": [
+        "Application.php"
+      ],
+      "expected_tests": [
+        "Tests/Command/CompleteCommandTest.php"
+      ],
+      "should_touch_files": [
+        "Command/Command.php",
+        "Command/LazyCommand.php",
+        "Descriptor/ApplicationDescription.php",
+        "Descriptor/Descriptor.php",
+        "Descriptor/JsonDescriptor.php",
+        "Descriptor/MarkdownDescriptor.php",
+        "Descriptor/TextDescriptor.php",
+        "Descriptor/XmlDescriptor.php",
+        "SingleCommandApplication.php",
+        "Tester/ApplicationTester.php",
+        "Tests/Fixtures/application_signalable.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-symfony-console-91d46a6f",
+      "repo": "php-symfony-console",
+      "base_commit": "4227be750dc1c23350b0272444117ca85d6e2eab",
+      "fix_commit": "91d46a6fe02b17348aabbfe1134b74697cd9ea36",
+      "subject": "[Console] Fix ProgressBar %remaining% and %estimated% placeholder guards",
+      "seed_file": "Helper/ProgressBar.php",
+      "seed_symbol": "ProgressBar",
+      "source_files": [
+        "Helper/ProgressBar.php"
+      ],
+      "expected_files": [
+        "Helper/ProgressBar.php"
+      ],
+      "expected_tests": [
+        "Tests/Helper/ProgressBarTest.php",
+        "Tests/Style/SymfonyStyleTest.php"
+      ],
+      "should_touch_files": [
+        "Style/OutputStyle.php",
+        "Style/SymfonyStyle.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-symfony-console-9b0f9e1a",
+      "repo": "php-symfony-console",
+      "base_commit": "ea6b012025cb31417fe040088ff1cb6c746e5351",
+      "fix_commit": "9b0f9e1a56df9215294f336b95de5996f600c47f",
+      "subject": "[Console] Fix choice autocomplete issue when string has spaces",
+      "seed_file": "Helper/QuestionHelper.php",
+      "seed_symbol": "QuestionHelper",
+      "source_files": [
+        "Helper/QuestionHelper.php"
+      ],
+      "expected_files": [
+        "Helper/QuestionHelper.php"
+      ],
+      "expected_tests": [
+        "Tests/Helper/QuestionHelperTest.php"
+      ],
+      "should_touch_files": [
+        "Application.php",
+        "Style/SymfonyStyle.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-symfony-console-a0613ffd",
+      "repo": "php-symfony-console",
+      "base_commit": "4d8ecef682873f53f55e4e7adf02ddb44e5af803",
+      "fix_commit": "a0613ffdb5895e2f1fa3689e8155d278275b8b42",
+      "subject": "[Console] Fix validator exception masked by MissingInputException on empty input",
+      "seed_file": "Helper/QuestionHelper.php",
+      "seed_symbol": "QuestionHelper",
+      "source_files": [
+        "Helper/QuestionHelper.php"
+      ],
+      "expected_files": [
+        "Helper/QuestionHelper.php"
+      ],
+      "expected_tests": [
+        "Tests/Helper/QuestionHelperTest.php"
+      ],
+      "should_touch_files": [
+        "Application.php",
+        "Style/SymfonyStyle.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-symfony-console-b52819a9",
+      "repo": "php-symfony-console",
+      "base_commit": "6d0d25cc1138bb7bab0685fbe4184e6289914406",
+      "fix_commit": "b52819a90fc96e962c7f804614cfd75dcc7f9377",
+      "subject": "bug #62763 [Console] Escape the description passed to the lazy command so the container can be build without wanting to replace the %not-a-param% to parameters",
+      "seed_file": "DependencyInjection/AddConsoleCommandPass.php",
+      "seed_symbol": "AddConsoleCommandPass",
+      "source_files": [
+        "DependencyInjection/AddConsoleCommandPass.php"
+      ],
+      "expected_files": [
+        "DependencyInjection/AddConsoleCommandPass.php"
+      ],
+      "expected_tests": [
+        "Tests/DependencyInjection/AddConsoleCommandPassTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-symfony-console-bfece2aa",
+      "repo": "php-symfony-console",
+      "base_commit": "0db91ea82d0fa2a012f3e3051c6f6969286d64da",
+      "fix_commit": "bfece2aa8b7f7510ef8cfcac03584459ed5c9f34",
+      "subject": "[Console] Fix arguments set via #[Ask] wrongly considered null in profiler",
+      "seed_file": "Command/TraceableCommand.php",
+      "seed_symbol": "TraceableCommand",
+      "source_files": [
+        "Command/TraceableCommand.php"
+      ],
+      "expected_files": [
+        "Command/TraceableCommand.php"
+      ],
+      "expected_tests": [
+        "Tests/Command/TraceableCommandTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-symfony-console-c132f121",
+      "repo": "php-symfony-console",
+      "base_commit": "997de0a2c0a133c4ef09eb4bf707867215919d17",
+      "fix_commit": "c132f1215fe4aa45b70173cc00ce9a755dd31ec5",
+      "subject": "[Console] Fix signal handler scoping",
+      "seed_file": "SignalRegistry/SignalRegistry.php",
+      "seed_symbol": "SignalRegistry",
+      "source_files": [
+        "SignalRegistry/SignalRegistry.php"
+      ],
+      "expected_files": [
+        "SignalRegistry/SignalRegistry.php"
+      ],
+      "expected_tests": [
+        "Tests/SignalRegistry/SignalRegistryTest.php"
+      ],
+      "should_touch_files": [
+        "Application.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-symfony-console-ec5b5670",
+      "repo": "php-symfony-console",
+      "base_commit": "9a236c65e14c30d27cca642888a40a969f7c081a",
+      "fix_commit": "ec5b5670aa44405f0fec61b8f96513a6aab51dec",
+      "subject": " PHP CS Fixer: fix minor detected issues",
+      "seed_file": "ArgumentResolver/ValueResolver/DateTimeValueResolver.php",
+      "seed_symbol": "DateTimeValueResolver",
+      "source_files": [
+        "ArgumentResolver/ValueResolver/DateTimeValueResolver.php"
+      ],
+      "expected_files": [
+        "ArgumentResolver/ValueResolver/DateTimeValueResolver.php"
+      ],
+      "expected_tests": [
+        "Tests/Helper/QuestionHelperTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-symfony-console-f9f8ca82",
+      "repo": "php-symfony-console",
+      "base_commit": "1c7c2500f5ad21e8fe110f205d055031a99f19d2",
+      "fix_commit": "f9f8ca824967b8543fba4906ce9d0f172edcb04d",
+      "subject": "CS fixes",
+      "seed_file": "Attribute/Ask.php",
+      "seed_symbol": "Ask",
+      "source_files": [
+        "Attribute/Ask.php",
+        "Command/TraceableCommand.php"
+      ],
+      "expected_files": [
+        "Attribute/Ask.php",
+        "Command/TraceableCommand.php"
+      ],
+      "expected_tests": [
+        "Tests/ApplicationTest.php"
+      ],
+      "should_touch_files": [
+        "Tests/Fixtures/InvokableWithInteractiveAttributesTestCommand.php"
+      ],
+      "max_expected_depth": 2,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-monolog-05c6b188",
+      "repo": "php-monolog",
+      "base_commit": "daa0acaec23ef0a6e2c39422362cb505a5167ab3",
+      "fix_commit": "05c6b188963c47b961d75a071c34e00a4b05c023",
+      "subject": "Fix json formatter does not catch to string exceptions (#1968)",
+      "seed_file": "src/Monolog/Formatter/JsonFormatter.php",
+      "seed_symbol": "JsonFormatter",
+      "source_files": [
+        "src/Monolog/Formatter/JsonFormatter.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Formatter/JsonFormatter.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/Formatter/JsonFormatterTest.php"
+      ],
+      "should_touch_files": [
+        "src/Monolog/Handler/AmqpHandler.php",
+        "src/Monolog/Handler/CouchDBHandler.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "dev"
+    },
+    {
+      "task_id": "php-monolog-06276fcf",
+      "repo": "php-monolog",
+      "base_commit": "b05bf55097060ec20f49ccec0cf2f8e5aaa468b3",
+      "fix_commit": "06276fcf773a6deaa9ff495b66c6e5859b1564e8",
+      "subject": "FingersCrossedHandler fix passthruLevel checking (Fixes #1800) (#1801)",
+      "seed_file": "src/Monolog/Handler/FingersCrossedHandler.php",
+      "seed_symbol": "FingersCrossedHandler",
+      "source_files": [
+        "src/Monolog/Handler/FingersCrossedHandler.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Handler/FingersCrossedHandler.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/Handler/FingersCrossedHandlerTest.php"
+      ],
+      "should_touch_files": [
+        "src/Monolog/Handler/FingersCrossed/ChannelLevelActivationStrategy.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "dev"
+    },
+    {
+      "task_id": "php-monolog-07450385",
+      "repo": "php-monolog",
+      "base_commit": "595847346a82c9abdac70a2436893d8d08c2976d",
+      "fix_commit": "074503850ba6ebbc1b32e7bb7491d45ed257c3c7",
+      "subject": "Remove empty lines if a custom stack trace parser returns null, fixes #1925",
+      "seed_file": "src/Monolog/Formatter/LineFormatter.php",
+      "seed_symbol": "LineFormatter",
+      "source_files": [
+        "src/Monolog/Formatter/LineFormatter.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Formatter/LineFormatter.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/Formatter/LineFormatterTest.php"
+      ],
+      "should_touch_files": [
+        "src/Monolog/Handler/AbstractSyslogHandler.php",
+        "src/Monolog/Handler/BrowserConsoleHandler.php",
+        "src/Monolog/Handler/ErrorLogHandler.php",
+        "src/Monolog/Handler/FleepHookHandler.php",
+        "src/Monolog/Handler/FormattableHandlerTrait.php",
+        "src/Monolog/Handler/NativeMailerHandler.php",
+        "src/Monolog/Handler/PHPConsoleHandler.php",
+        "src/Monolog/Handler/RedisHandler.php",
+        "src/Monolog/Handler/RedisPubSubHandler.php",
+        "src/Monolog/Handler/SymfonyMailerHandler.php",
+        "src/Monolog/Handler/SyslogHandler.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "dev"
+    },
+    {
+      "task_id": "php-monolog-0f014206",
+      "repo": "php-monolog",
+      "base_commit": "58f503004d3ed587ea1a0395382e336015378b6e",
+      "fix_commit": "0f014206a44e9b095b93a69c64187733366c1aa3",
+      "subject": "Fix cycle detection within fibers (#1753)",
+      "seed_file": "src/Monolog/Logger.php",
+      "seed_symbol": "Logger",
+      "source_files": [
+        "src/Monolog/Logger.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Logger.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/LoggerTest.php"
+      ],
+      "should_touch_files": [
+        "src/Monolog/Formatter/ChromePHPFormatter.php",
+        "src/Monolog/Formatter/FluentdFormatter.php",
+        "src/Monolog/Formatter/GelfMessageFormatter.php",
+        "src/Monolog/Formatter/HtmlFormatter.php",
+        "src/Monolog/Formatter/WildfireFormatter.php",
+        "src/Monolog/Handler/AbstractHandler.php",
+        "src/Monolog/Handler/AbstractSyslogHandler.php",
+        "src/Monolog/Handler/AmqpHandler.php",
+        "src/Monolog/Handler/BrowserConsoleHandler.php",
+        "src/Monolog/Handler/BufferHandler.php",
+        "src/Monolog/Handler/ChromePHPHandler.php",
+        "src/Monolog/Handler/CouchDBHandler.php",
+        "src/Monolog/Handler/CubeHandler.php",
+        "src/Monolog/Handler/DeduplicationHandler.php",
+        "src/Monolog/Handler/DoctrineCouchDBHandler.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "dev"
+    },
+    {
+      "task_id": "php-monolog-2ae04448",
+      "repo": "php-monolog",
+      "base_commit": "e1c0ae1528ce313a450e5e1ad782765c4a8dd3cb",
+      "fix_commit": "2ae044482cd301d95fcd1565667259f94e833e87",
+      "subject": "Fix serializability of Logger class, fixes #1792",
+      "seed_file": "src/Monolog/Logger.php",
+      "seed_symbol": "Logger",
+      "source_files": [
+        "src/Monolog/Logger.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Logger.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/LoggerTest.php"
+      ],
+      "should_touch_files": [
+        "src/Monolog/Formatter/ChromePHPFormatter.php",
+        "src/Monolog/Formatter/FluentdFormatter.php",
+        "src/Monolog/Formatter/GelfMessageFormatter.php",
+        "src/Monolog/Formatter/HtmlFormatter.php",
+        "src/Monolog/Formatter/WildfireFormatter.php",
+        "src/Monolog/Handler/AbstractHandler.php",
+        "src/Monolog/Handler/AbstractSyslogHandler.php",
+        "src/Monolog/Handler/AmqpHandler.php",
+        "src/Monolog/Handler/BrowserConsoleHandler.php",
+        "src/Monolog/Handler/BufferHandler.php",
+        "src/Monolog/Handler/ChromePHPHandler.php",
+        "src/Monolog/Handler/CouchDBHandler.php",
+        "src/Monolog/Handler/CubeHandler.php",
+        "src/Monolog/Handler/DeduplicationHandler.php",
+        "src/Monolog/Handler/DoctrineCouchDBHandler.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "dev"
+    },
+    {
+      "task_id": "php-monolog-467e764f",
+      "repo": "php-monolog",
+      "base_commit": "7ca003e6aeb410f209896500e40bbec38fd56c13",
+      "fix_commit": "467e764fb6ebf5c931ba3edffda938ff755cad19",
+      "subject": "Fix gelf message formatter failing to handle context/extra numeric keys, fixes #1932",
+      "seed_file": "src/Monolog/Formatter/GelfMessageFormatter.php",
+      "seed_symbol": "GelfMessageFormatter",
+      "source_files": [
+        "src/Monolog/Formatter/GelfMessageFormatter.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Formatter/GelfMessageFormatter.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/Formatter/GelfMessageFormatterTest.php"
+      ],
+      "should_touch_files": [
+        "src/Monolog/Handler/GelfHandler.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-monolog-69bd3637",
+      "repo": "php-monolog",
+      "base_commit": "e18aa33d2f7e1bee700ba44cf8e5d598878bf081",
+      "fix_commit": "69bd3637ba5abac909136db7fb21f891e1689f2a",
+      "subject": "Fix date/time field for GCP logging (#1759)",
+      "seed_file": "src/Monolog/Formatter/GoogleCloudLoggingFormatter.php",
+      "seed_symbol": "GoogleCloudLoggingFormatter",
+      "source_files": [
+        "src/Monolog/Formatter/GoogleCloudLoggingFormatter.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Formatter/GoogleCloudLoggingFormatter.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/Formatter/GoogleCloudLoggingFormatterTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-monolog-884aa47a",
+      "repo": "php-monolog",
+      "base_commit": "233e0b27a0eb090624351f9e8080b852491d50a2",
+      "fix_commit": "884aa47a055ea3e8e351ceaf4dfc67f52fff44c0",
+      "subject": "Fix json formatter handling of incomplete classes, fixes #1834",
+      "seed_file": "src/Monolog/Formatter/JsonFormatter.php",
+      "seed_symbol": "JsonFormatter",
+      "source_files": [
+        "src/Monolog/Formatter/JsonFormatter.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Formatter/JsonFormatter.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/Formatter/JsonFormatterTest.php"
+      ],
+      "should_touch_files": [
+        "src/Monolog/Handler/AmqpHandler.php",
+        "src/Monolog/Handler/CouchDBHandler.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-monolog-8ff4ab5c",
+      "repo": "php-monolog",
+      "base_commit": "5d317e2c6fadb57a1c7a72ff589617a3d00abcef",
+      "fix_commit": "8ff4ab5c94708d403e95a5c90dc2abc8643e766c",
+      "subject": "Add ability to indent stack traces in LineFormatter, fixes #1835",
+      "seed_file": "src/Monolog/Formatter/LineFormatter.php",
+      "seed_symbol": "LineFormatter",
+      "source_files": [
+        "src/Monolog/Formatter/LineFormatter.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Formatter/LineFormatter.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/Formatter/LineFormatterTest.php"
+      ],
+      "should_touch_files": [
+        "src/Monolog/Handler/AbstractSyslogHandler.php",
+        "src/Monolog/Handler/BrowserConsoleHandler.php",
+        "src/Monolog/Handler/ErrorLogHandler.php",
+        "src/Monolog/Handler/FleepHookHandler.php",
+        "src/Monolog/Handler/FormattableHandlerTrait.php",
+        "src/Monolog/Handler/NativeMailerHandler.php",
+        "src/Monolog/Handler/PHPConsoleHandler.php",
+        "src/Monolog/Handler/RedisHandler.php",
+        "src/Monolog/Handler/RedisPubSubHandler.php",
+        "src/Monolog/Handler/SyslogHandler.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-monolog-9d6bcfc9",
+      "repo": "php-monolog",
+      "base_commit": "45b5e0e33e5b95f82d7b99b304ae20ff26e31f3f",
+      "fix_commit": "9d6bcfc94d60a4199d98ea1b8685af5de32188c3",
+      "subject": "Fix build (#1954)",
+      "seed_file": "src/Monolog/Handler/BufferHandler.php",
+      "seed_symbol": "BufferHandler",
+      "source_files": [
+        "src/Monolog/Handler/BufferHandler.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Handler/BufferHandler.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/Formatter/ElasticsearchFormatterTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-monolog-b0f4bf7e",
+      "repo": "php-monolog",
+      "base_commit": "8ff4ab5c94708d403e95a5c90dc2abc8643e766c",
+      "fix_commit": "b0f4bf7eb78ed93cbec78c3639e7a36ad6864f06",
+      "subject": "Fix LogRecord \"extra\" data leaking between handlers (#1819)",
+      "seed_file": "src/Monolog/Logger.php",
+      "seed_symbol": "Logger",
+      "source_files": [
+        "src/Monolog/Handler/FallbackGroupHandler.php",
+        "src/Monolog/Handler/GroupHandler.php",
+        "src/Monolog/Handler/WhatFailureGroupHandler.php",
+        "src/Monolog/Logger.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Handler/FallbackGroupHandler.php",
+        "src/Monolog/Handler/GroupHandler.php",
+        "src/Monolog/Handler/WhatFailureGroupHandler.php",
+        "src/Monolog/Logger.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/Handler/ExceptionTestHandler.php",
+        "tests/Monolog/Handler/FallbackGroupHandlerTest.php",
+        "tests/Monolog/Handler/GroupHandlerTest.php",
+        "tests/Monolog/Handler/WhatFailureGroupHandlerTest.php",
+        "tests/Monolog/LoggerTest.php"
+      ],
+      "should_touch_files": [
+        "src/Monolog/Formatter/FluentdFormatter.php",
+        "src/Monolog/Handler/AbstractHandler.php",
+        "src/Monolog/Handler/DeduplicationHandler.php",
+        "src/Monolog/Handler/ElasticaHandler.php",
+        "src/Monolog/Handler/ElasticsearchHandler.php",
+        "src/Monolog/Handler/FilterHandler.php",
+        "src/Monolog/Handler/FingersCrossed/ChannelLevelActivationStrategy.php",
+        "src/Monolog/Handler/FingersCrossed/ErrorLevelActivationStrategy.php",
+        "src/Monolog/Handler/FingersCrossedHandler.php",
+        "src/Monolog/Handler/MongoDBHandler.php",
+        "src/Monolog/Handler/NullHandler.php",
+        "src/Monolog/Handler/OverflowHandler.php",
+        "src/Monolog/Handler/PHPConsoleHandler.php",
+        "src/Monolog/Handler/ProcessHandler.php",
+        "src/Monolog/Handler/PushoverHandler.php"
+      ],
+      "max_expected_depth": 2,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-monolog-c8b1e0e7",
+      "repo": "php-monolog",
+      "base_commit": "3e92e9d2437f1f9034a807571f60a36b8f2e20df",
+      "fix_commit": "c8b1e0e78928865e7fd34c9a2a6ee6272a92f8f6",
+      "subject": "Fix serialization implementation",
+      "seed_file": "src/Monolog/Logger.php",
+      "seed_symbol": "Logger",
+      "source_files": [
+        "src/Monolog/Logger.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Logger.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/LoggerTest.php"
+      ],
+      "should_touch_files": [
+        "src/Monolog/Formatter/ChromePHPFormatter.php",
+        "src/Monolog/Formatter/FluentdFormatter.php",
+        "src/Monolog/Formatter/GelfMessageFormatter.php",
+        "src/Monolog/Formatter/HtmlFormatter.php",
+        "src/Monolog/Formatter/WildfireFormatter.php",
+        "src/Monolog/Handler/AbstractHandler.php",
+        "src/Monolog/Handler/AbstractSyslogHandler.php",
+        "src/Monolog/Handler/AmqpHandler.php",
+        "src/Monolog/Handler/BrowserConsoleHandler.php",
+        "src/Monolog/Handler/BufferHandler.php",
+        "src/Monolog/Handler/ChromePHPHandler.php",
+        "src/Monolog/Handler/CouchDBHandler.php",
+        "src/Monolog/Handler/CubeHandler.php",
+        "src/Monolog/Handler/DeduplicationHandler.php",
+        "src/Monolog/Handler/DoctrineCouchDBHandler.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-monolog-e01926b0",
+      "repo": "php-monolog",
+      "base_commit": "cfa4aa746d401f69e5c71ae28f3acb7be1eced50",
+      "fix_commit": "e01926b069b331b13708b1c1b3669d871ea93e6b",
+      "subject": "Fix deprecations",
+      "seed_file": "src/Monolog/Processor/GitProcessor.php",
+      "seed_symbol": "GitProcessor",
+      "source_files": [
+        "src/Monolog/Processor/GitProcessor.php",
+        "src/Monolog/Processor/MercurialProcessor.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Processor/GitProcessor.php",
+        "src/Monolog/Processor/MercurialProcessor.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/Processor/MercurialProcessorTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-monolog-eb028b6d",
+      "repo": "php-monolog",
+      "base_commit": "28961f4174dd1793f8e86a11938137438851339f",
+      "fix_commit": "eb028b6de2aef7bea36df2162479495e6b8be048",
+      "subject": "Fix PHP 8.4 E_STRICT deprecation notices (#1970)",
+      "seed_file": "src/Monolog/ErrorHandler.php",
+      "seed_symbol": "ErrorHandler",
+      "source_files": [
+        "src/Monolog/ErrorHandler.php"
+      ],
+      "expected_files": [
+        "src/Monolog/ErrorHandler.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/ErrorHandlerTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-monolog-ed80d53a",
+      "repo": "php-monolog",
+      "base_commit": "70e1c2f405de7b9c6a47fb71d2e620a0218fa266",
+      "fix_commit": "ed80d53ab293f2a62beb9a6d2e9e6c53f2a37d7c",
+      "subject": "Fix fatal error in NormalizeFormatter: method_exists(): The script tried to execute a method or access a property of an incomplete object.",
+      "seed_file": "src/Monolog/Formatter/NormalizerFormatter.php",
+      "seed_symbol": "NormalizerFormatter",
+      "source_files": [
+        "src/Monolog/Formatter/NormalizerFormatter.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Formatter/NormalizerFormatter.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/Formatter/NormalizerFormatterTest.php"
+      ],
+      "should_touch_files": [
+        "src/Monolog/Handler/DoctrineCouchDBHandler.php",
+        "src/Monolog/Handler/NewRelicHandler.php",
+        "src/Monolog/Handler/Slack/SlackRecord.php",
+        "src/Monolog/Handler/ZendMonitorHandler.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-monolog-efab5aab",
+      "repo": "php-monolog",
+      "base_commit": "f049cfdcda074923b89c995bb6aa13e7f486f56a",
+      "fix_commit": "efab5aabaff311872c00a0b56203b97e1257f25c",
+      "subject": "Fix PHP 8.5 `__sleep` deprecation (#1997)",
+      "seed_file": "src/Monolog/Handler/Handler.php",
+      "seed_symbol": "Handler",
+      "source_files": [
+        "src/Monolog/Handler/Handler.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Handler/Handler.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/Handler/StreamHandlerTest.php"
+      ],
+      "should_touch_files": [
+        "src/Monolog/Formatter/FluentdFormatter.php",
+        "src/Monolog/Handler/ElasticaHandler.php",
+        "src/Monolog/Handler/ElasticsearchHandler.php",
+        "src/Monolog/Handler/MongoDBHandler.php",
+        "src/Monolog/Handler/OverflowHandler.php",
+        "src/Monolog/Handler/PHPConsoleHandler.php",
+        "src/Monolog/Handler/ProcessHandler.php",
+        "src/Monolog/Handler/RedisHandler.php",
+        "src/Monolog/Handler/SyslogHandler.php"
+      ],
+      "max_expected_depth": 1,
+      "lang": "php",
+      "split": "test"
+    },
+    {
+      "task_id": "php-monolog-fac282e8",
+      "repo": "php-monolog",
+      "base_commit": "62366ef23be2348e46075fa9579b50f86c09edc5",
+      "fix_commit": "fac282e8e7e160c4279ab1b99de53c6ba040fa39",
+      "subject": "Fix build issues",
+      "seed_file": "src/Monolog/Handler/ProcessHandler.php",
+      "seed_symbol": "ProcessHandler",
+      "source_files": [
+        "src/Monolog/Handler/ProcessHandler.php",
+        "src/Monolog/Handler/SlackWebhookHandler.php",
+        "src/Monolog/Handler/StreamHandler.php"
+      ],
+      "expected_files": [
+        "src/Monolog/Handler/ProcessHandler.php",
+        "src/Monolog/Handler/SlackWebhookHandler.php",
+        "src/Monolog/Handler/StreamHandler.php"
+      ],
+      "expected_tests": [
+        "tests/Monolog/Formatter/LineFormatterTest.php"
+      ],
+      "should_touch_files": [],
+      "max_expected_depth": 2,
+      "lang": "php",
       "split": "test"
     }
   ]

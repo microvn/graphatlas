@@ -196,13 +196,9 @@ pub fn install_hook_at_with_binary(
         HookClient::ClaudeCode => install_json_hook(client, path),
         // Cursor + Codex shape-verified 2026-05: both use shell-command
         // hooks (type:"command"), NOT type:"mcp_tool".
-        HookClient::Cursor => {
-            extra_backends::install_cursor_hooks(client, path, binary_path)
-        }
+        HookClient::Cursor => extra_backends::install_cursor_hooks(client, path, binary_path),
         HookClient::Codex => extra_backends::install_codex_toml_hook(client, path, binary_path),
-        HookClient::ClineScript => {
-            extra_backends::install_cline_script(client, path, binary_path)
-        }
+        HookClient::ClineScript => extra_backends::install_cline_script(client, path, binary_path),
         HookClient::GeminiCli => {
             extra_backends::install_gemini_aftertool(client, path, binary_path)
         }

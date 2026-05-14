@@ -160,12 +160,12 @@ fn symbol_line_numbers_are_1_based() {
 
 #[test]
 fn parser_pool_registers_all_v1_plus_phase_c_langs() {
-    // v1 shipped 5 langs (Python/TS/JS/Go/Rust); v1.1-M4 phase C adds
+    // v1 shipped 5 langs (Python/TS/JS/Go/Rust); v1.1-M4 phase C added
     // Java (S-001), Kotlin (S-002), CSharp (S-003), Ruby (S-004a).
-    // Total = 9 — matches Lang::ALL.len().
+    // v1.2 S-001 adds Php. Total = 10 — matches Lang::ALL.len().
     use ga_parser::ParserPool;
     let pool = ParserPool::new();
-    assert_eq!(pool.registered_langs().len(), 9);
+    assert_eq!(pool.registered_langs().len(), 10);
     for lang in [
         Lang::Python,
         Lang::TypeScript,
@@ -176,6 +176,7 @@ fn parser_pool_registers_all_v1_plus_phase_c_langs() {
         Lang::Kotlin,
         Lang::CSharp,
         Lang::Ruby,
+        Lang::Php,
     ] {
         assert!(
             pool.spec_for(lang).is_some(),

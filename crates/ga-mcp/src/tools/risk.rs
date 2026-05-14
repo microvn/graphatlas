@@ -22,15 +22,14 @@ use std::time::Instant;
 pub(super) fn descriptor() -> ToolDescriptor {
     ToolDescriptor {
         name: "ga_risk".to_string(),
-        description:
-            "**Use when** the user asks `is it risky to touch X`, `risk of changing X`, \
+        description: "**Use when** the user asks `is it risky to touch X`, `risk of changing X`, \
              `should I refactor X`, or wants a gate-decision before a refactor. Composite \
              score ∈ [0,1] + `level` (low|medium|high) + ranked `reasons`. Combines \
              test-coverage gap (40%), blast radius via callers/refs (30%), git-blame churn \
              (15%, commits/90d), and bug-fix correlation (15%, % commits matching \
              `fix|bug|error|crash|regression`). Plain grep + `git log` cannot compose these \
              dims — this tool does. Accepts `symbol` or `changed_files` list."
-                .to_string(),
+            .to_string(),
         input_schema: json!({
             "type": "object",
             "properties": {

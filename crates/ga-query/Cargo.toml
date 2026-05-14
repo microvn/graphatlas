@@ -12,6 +12,7 @@ ga-core = { workspace = true }
 ga-index = { workspace = true }
 ga-parser = { workspace = true }
 serde = { workspace = true }
+serde_json = { workspace = true }
 anyhow = { workspace = true }
 blake3 = { workspace = true }
 lbug = { workspace = true }

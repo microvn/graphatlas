@@ -9,7 +9,8 @@
 
 use super::{HookClient, HookOutcome, VerifyOutcome};
 use crate::install::json_io::{
-    atomic_write_bytes, atomic_write_json, atomic_write_toml, read_json_or_empty, read_toml_or_empty,
+    atomic_write_bytes, atomic_write_json, atomic_write_toml, read_json_or_empty,
+    read_toml_or_empty,
 };
 use anyhow::{anyhow, Result};
 use serde_json::{json, Value};
@@ -253,7 +254,10 @@ pub(super) fn verify_gemini_aftertool(path: &Path) -> Result<VerifyOutcome> {
         Ok(VerifyOutcome::Ok)
     } else {
         Ok(VerifyOutcome::Missing {
-            hint: format!("AfterTool exists but contains no GA entry in {}", path.display()),
+            hint: format!(
+                "AfterTool exists but contains no GA entry in {}",
+                path.display()
+            ),
         })
     }
 }
@@ -545,8 +549,14 @@ fn codex_hook_entry_toml(cmd: &str) -> toml::Value {
     inner.insert("type".into(), toml::Value::String("command".into()));
     inner.insert("command".into(), toml::Value::String(cmd.to_string()));
     let mut entry = toml::value::Table::new();
-    entry.insert(HOOK_TAG_KEY.into(), toml::Value::String(HOOK_TAG_VALUE.into()));
-    entry.insert("matcher".into(), toml::Value::String("Edit|Write|apply_patch".into()));
+    entry.insert(
+        HOOK_TAG_KEY.into(),
+        toml::Value::String(HOOK_TAG_VALUE.into()),
+    );
+    entry.insert(
+        "matcher".into(),
+        toml::Value::String("Edit|Write|apply_patch".into()),
+    );
     entry.insert(
         "hooks".into(),
         toml::Value::Array(vec![toml::Value::Table(inner)]),
@@ -584,7 +594,10 @@ pub(super) fn verify_codex_toml_hook(path: &Path) -> Result<VerifyOutcome> {
         Ok(VerifyOutcome::Ok)
     } else {
         Ok(VerifyOutcome::Missing {
-            hint: format!("[[hooks.PostToolUse]] has no GA entry in {}", path.display()),
+            hint: format!(
+                "[[hooks.PostToolUse]] has no GA entry in {}",
+                path.display()
+            ),
         })
     }
 }

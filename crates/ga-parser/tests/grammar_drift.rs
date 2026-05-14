@@ -146,6 +146,31 @@ module App\n\
   end\n\
 end\n"
         }
+        Lang::Php => {
+            // Exercises every kind in `langs::php::PhpLang::*_node_kinds`:
+            // class / interface / trait / enum / method / function / property
+            // + namespace_definition + namespace_use_declaration
+            // + function_call / member_call / nullsafe_member_call / scoped_call
+            //   / object_creation.
+            "<?php\n\
+namespace App\\X;\n\
+use App\\Y\\Z;\n\
+interface I { public function run(): void; }\n\
+trait T { public function log(): void {} }\n\
+enum E { case A; }\n\
+class C extends B implements I {\n\
+    use T;\n\
+    public Z $z;\n\
+    public function run(): void {\n\
+        $this->log();\n\
+        $this?->log();\n\
+        B::cls();\n\
+        helper();\n\
+        new Z();\n\
+    }\n\
+}\n\
+function helper(): int { return 1; }\n"
+        }
     }
 }
 

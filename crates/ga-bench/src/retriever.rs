@@ -18,6 +18,7 @@
 //! crashing the whole bench.
 
 use crate::BenchError;
+use ga_core::Lang;
 use serde_json::Value;
 use std::path::Path;
 
@@ -25,6 +26,25 @@ pub trait Retriever: Send {
     /// Short identifier written into leaderboard `retriever` column (e.g.
     /// `"ga"`, `"ripgrep"`, `"codegraphcontext"`).
     fn name(&self) -> &str;
+
+    /// v1.2-php S-002 AS-022 — declared lang coverage.
+    ///
+    /// Returned slice is the set of `Lang` variants this retriever indexes or
+    /// natively understands. The bench harness uses this to distinguish three
+    /// outcomes that previously all looked like "0.00":
+    ///
+    /// 1. **Not supported** — `Lang::Php ∉ supported_langs()` → harness emits
+    ///    `[skip: lang_unsupported]` in the leaderboard row. Honest disable.
+    /// 2. **Supported but errored** — query path crashes or returns Err →
+    ///    surfaces as `0.00 (error)` in the leaderboard.
+    /// 3. **Supported, ran, zero hits** — legitimate empty result → `0.00`.
+    ///
+    /// Default returns the full `Lang::ALL` slice so existing retrievers keep
+    /// their previous "claim everything" behavior — explicit narrowing is
+    /// opt-in per retriever as PHP/other-lang coverage matures.
+    fn supported_langs(&self) -> &'static [Lang] {
+        Lang::ALL
+    }
 
     /// Pre-flight — build indices, spawn child processes, warm caches.
     /// Default impl no-op so retrievers that don't need setup just get it free.

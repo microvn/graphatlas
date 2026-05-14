@@ -3,7 +3,7 @@
 
 use crate::cache::{verify_file_perms, write_file_0600, CacheLayout};
 use crate::SCHEMA_VERSION;
-use ga_core::{Error, IndexState, Result};
+use ga_core::{Error, IndexState, Lang, Result};
 use serde::{Deserialize, Serialize};
 use std::path::Path;
 use std::time::{SystemTime, UNIX_EPOCH};
@@ -38,6 +38,18 @@ pub struct Metadata {
     /// fresh build". First commit lifts to 1.
     #[serde(default)]
     pub graph_generation: u64,
+
+    /// v1.2-php S-001 AS-019 — snapshot of engine-supported `Lang` set at
+    /// the moment this cache was built. Used by [`cache_outdated_for_lang_set`]
+    /// to detect upgrade / downgrade where the engine's supported langs
+    /// diverge from what was indexed.
+    ///
+    /// Serde default `Vec::new()` distinguishes "v1.1-era cache (no
+    /// fingerprint)" from "v1.2+ cache with explicit empty set". The
+    /// empty case is treated as "unknown — assume mismatch when the repo
+    /// has files matching any current engine lang".
+    #[serde(default)]
+    pub cache_lang_set: Vec<Lang>,
 }
 
 /// Decision made at cold-load time.
@@ -78,6 +90,9 @@ impl Metadata {
             // graph_generation starts at 0 (sentinel "never committed").
             // commit/commit_in_place bumps to >=1 on first success.
             graph_generation: 0,
+            // v1.2-php S-001 AS-019 — snapshot engine's full lang set so
+            // future versions can detect upgrade gap.
+            cache_lang_set: Lang::ALL.to_vec(),
         };
         m.write(layout)?;
         Ok(m)
@@ -151,4 +166,92 @@ fn unix_now() -> u64 {
         .duration_since(UNIX_EPOCH)
         .map(|d| d.as_secs())
         .unwrap_or(0)
+}
+
+/// Langs that existed before v1.2 introduced the `cache_lang_set` fingerprint.
+/// An empty `cache.cache_lang_set` in a v1.1-era metadata.json is implicitly
+/// equivalent to this set: v1.1 supported these 9, so the cache covers them
+/// implicitly. Invalidation triggers when the repo has langs NOT in this
+/// baseline (e.g., PHP added in v1.2).
+const PRE_FINGERPRINT_BASELINE: &[Lang] = &[
+    Lang::Python,
+    Lang::TypeScript,
+    Lang::JavaScript,
+    Lang::Go,
+    Lang::Rust,
+    Lang::Java,
+    Lang::Kotlin,
+    Lang::CSharp,
+    Lang::Ruby,
+];
+
+/// v1.2-php S-001 AS-019 — decide whether the cache is outdated relative to
+/// the engine's current `Lang` support and the repo's actual language mix.
+///
+/// Returns `Some(reason)` when an invalidate-and-rebuild is required:
+///   - **Upgrade gap**: engine supports langs not in `cache.cache_lang_set`
+///     AND the repo contains files matching at least one of those new langs.
+///     This is the common case (v1.1 → v1.2 with PHP files in repo).
+///   - **Downgrade gap**: cache references langs the engine no longer
+///     supports. Safer to rebuild than serve stale references.
+///   - **Empty fingerprint + new-lang files**: v1.1-era caches have empty
+///     `cache_lang_set` (serde default). Treated via [`PRE_FINGERPRINT_BASELINE`]
+///     substitution — assume cache covered the v1.1 lang set; invalidate
+///     only if repo has a v1.2+ lang.
+///
+/// Returns `None` when the cache is sufficient for serving the repo:
+///   - cache_lang_set ⊇ engine.lang_set (no new langs added)
+///   - cache_lang_set ⊊ engine.lang_set but the new langs aren't present
+///     in this repo
+///   - empty cache_lang_set + empty repo
+pub fn cache_outdated_for_lang_set(
+    cache: &Metadata,
+    engine_langs: &[Lang],
+    repo_langs: &[Lang],
+) -> Option<String> {
+    use std::collections::HashSet;
+
+    // Empty cache_lang_set (v1.1-era cache) → substitute the documented
+    // pre-fingerprint baseline as the implicit "what the cache covered".
+    let effective_cache: HashSet<Lang> = if cache.cache_lang_set.is_empty() {
+        PRE_FINGERPRINT_BASELINE.iter().copied().collect()
+    } else {
+        cache.cache_lang_set.iter().copied().collect()
+    };
+    let engine_set: HashSet<Lang> = engine_langs.iter().copied().collect();
+    let repo_set: HashSet<Lang> = repo_langs.iter().copied().collect();
+
+    // Downgrade — cache claims langs the engine dropped. Always invalidate
+    // (cache may reference symbols / edges for dropped langs).
+    let mut dropped: Vec<Lang> = effective_cache.difference(&engine_set).copied().collect();
+    dropped.sort_by_key(|l| l.as_str());
+    if !dropped.is_empty() {
+        return Some(format!(
+            "cache_lang_set_downgrade: cache built with langs {:?} that this engine no longer supports",
+            dropped
+        ));
+    }
+
+    // Upgrade gap — engine supports langs the cache (effective) doesn't.
+    // Invalidate only if the repo has files for one of those new langs.
+    let new_in_engine: HashSet<Lang> = engine_set.difference(&effective_cache).copied().collect();
+    if new_in_engine.is_empty() {
+        return None;
+    }
+
+    let mut trigger: Vec<Lang> = new_in_engine.intersection(&repo_set).copied().collect();
+    trigger.sort_by_key(|l| l.as_str());
+    if !trigger.is_empty() {
+        let prefix = if cache.cache_lang_set.is_empty() {
+            "cache_lang_set_pre_v1_2"
+        } else {
+            "cache_lang_set_upgrade"
+        };
+        return Some(format!(
+            "{prefix}: engine added support for langs {:?} which exist in this repo — rebuild to index them",
+            trigger
+        ));
+    }
+
+    None
 }

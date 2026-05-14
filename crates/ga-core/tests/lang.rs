@@ -16,9 +16,10 @@ fn from_ext_known() {
 #[test]
 fn from_ext_unknown_returns_none() {
     // Truly unknown extensions (no v1.1 lang claims them).
+    // `php` removed — v1.2 S-001 added Lang::Php.
     assert_eq!(Lang::from_ext("swift"), None);
-    assert_eq!(Lang::from_ext("php"), None);
     assert_eq!(Lang::from_ext("hs"), None);
+    assert_eq!(Lang::from_ext("c"), None);
     assert_eq!(Lang::from_ext(""), None);
 }
 
@@ -79,7 +80,8 @@ fn lang_all_covers_every_variant() {
             | Lang::Java
             | Lang::Kotlin
             | Lang::CSharp
-            | Lang::Ruby => true,
+            | Lang::Ruby
+            | Lang::Php => true,
         }
     }
 
@@ -101,9 +103,9 @@ fn lang_all_covers_every_variant() {
     // adding a new variant, update both ALL and this number.
     assert_eq!(
         Lang::ALL.len(),
-        9,
-        "Lang::ALL has {} entries; v1.1-M4 expects 9. Adding a new variant? \
-         Update Lang::ALL in types.rs and this expected count.",
+        10,
+        "Lang::ALL has {} entries; v1.2 expects 10 (9 v1+v1.1 + Php). \
+         Adding a new variant? Update Lang::ALL in types.rs and this expected count.",
         Lang::ALL.len()
     );
 }

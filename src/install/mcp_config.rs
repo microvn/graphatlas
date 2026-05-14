@@ -178,11 +178,7 @@ pub fn write_mcp_config(
     }
 }
 
-fn write_json_config(
-    client: Client,
-    path: &Path,
-    binary_path: &Path,
-) -> Result<InstallOutcome> {
+fn write_json_config(client: Client, path: &Path, binary_path: &Path) -> Result<InstallOutcome> {
     let root_key = client.json_root_key();
     let entry = graphatlas_json_entry(client, binary_path);
 
@@ -229,11 +225,7 @@ fn write_json_config(
     })
 }
 
-fn write_toml_config(
-    client: Client,
-    path: &Path,
-    binary_path: &Path,
-) -> Result<InstallOutcome> {
+fn write_toml_config(client: Client, path: &Path, binary_path: &Path) -> Result<InstallOutcome> {
     let existed = path.exists();
     let mut doc = read_toml_or_empty(path)?;
 

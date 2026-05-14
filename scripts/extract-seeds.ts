@@ -29,6 +29,9 @@ const REPOS = [
   "kotlinx-coroutines", "kotlinx-serialization",
   "MQTTnet", "Polly",
   "jekyll", "faraday",
+  // v1.2-php S-002 AS-008 — PHP fixtures pinned per preflight log
+  // docs/explore/php-fixture-preflight-2026-05-14.md
+  "php-symfony-console", "php-monolog",
 ] as const;
 
 // Build/config files — exclude from "affected source" set.
@@ -36,7 +39,7 @@ const REPOS = [
 // GA doesn't index), bundler configs (vitest.config.*, mangle.json), and YAML
 // lint configs (.golangci.yml) that aren't GA-parseable source.
 const BUILD_FILE_PATTERN =
-  /(^|\/)(Cargo\.lock|Cargo\.toml|package\.json|package-lock\.json|yarn\.lock|pnpm-lock\.yaml|go\.mod|go\.sum|poetry\.lock|requirements.*\.txt|setup\.py|setup\.cfg|pyproject\.toml|Gemfile\.lock|Pipfile\.lock|composer\.lock|Makefile|CMakeLists\.txt|\.gitignore|\.gitattributes|\.editorconfig|tsconfig.*\.json|jest\.config.*|webpack\.config.*|vite\.config.*|vitest\.config.*|vitest\.setup\.*|rollup\.config.*|babel\.config.*|\.eslintrc.*|\.prettierrc.*|mangle\.json|\.golangci\.ya?ml|\.codecov\.ya?ml|pom\.xml|build\.gradle.*|settings\.gradle.*|gradlew|gradlew\.bat|gradle\.properties|\.mvn|\.idea|\.iml|build\.sbt|project\.clj|deps\.edn|gemspec|Rakefile)$/;
+  /(^|\/)(Cargo\.lock|Cargo\.toml|package\.json|package-lock\.json|yarn\.lock|pnpm-lock\.yaml|go\.mod|go\.sum|poetry\.lock|requirements.*\.txt|setup\.py|setup\.cfg|pyproject\.toml|Gemfile\.lock|Pipfile\.lock|composer\.json|composer\.lock|Makefile|CMakeLists\.txt|\.gitignore|\.gitattributes|\.editorconfig|tsconfig.*\.json|jest\.config.*|webpack\.config.*|vite\.config.*|vitest\.config.*|vitest\.setup\.*|rollup\.config.*|babel\.config.*|\.eslintrc.*|\.prettierrc.*|mangle\.json|\.golangci\.ya?ml|\.codecov\.ya?ml|pom\.xml|build\.gradle.*|settings\.gradle.*|gradlew|gradlew\.bat|gradle\.properties|\.mvn|\.idea|\.iml|build\.sbt|project\.clj|deps\.edn|gemspec|Rakefile|phpunit\.xml.*)$/;
 
 // Extensions GA parsers understand. Anything else will never return a graph
 // node → should not be a seed_file or counted in expected_files.
@@ -46,6 +49,9 @@ const BUILD_FILE_PATTERN =
 // excluded from seed/expected sets via BUILD_FILE_PATTERN.
 const GA_SUPPORTED_EXT = new Set([
   "py", "ts", "tsx", "js", "jsx", "mjs", "cjs", "go", "rs", "java", "kt", "kts", "cs", "rb",
+  // v1.2 S-001 — PHP support. `.phtml` templates intentionally excluded
+  // (mixed HTML+PHP, different parse strategy — see v1.2-php.md Not in Scope).
+  "php",
 ]);
 
 function fileExt(path: string): string | null {
@@ -612,6 +618,38 @@ function conventionTests(source: string): string[] {
     }
   }
 
+  // v1.2 S-001 — PHP / PHPUnit: src/<Foo>.php ↔ tests/<Foo>Test.php
+  // (or Tests/, both seen in the wild). symfony/console uses Tests/;
+  // monolog uses tests/.
+  if (source.endsWith(".php")) {
+    const base = basenameNoExt(source);
+    const dir = source.includes("/") ? source.replace(/\/[^/]+$/, "") : "";
+    // src/<Foo>.php → tests/<Foo>Test.php  (lowercase tests/)
+    const lowerTestsPath = source
+      .replace(/^src\//, "tests/")
+      .replace(/\.php$/, "Test.php");
+    // src/<Foo>.php → Tests/<Foo>Test.php  (PascalCase Tests/ — Symfony style)
+    const pascalTestsPath = source
+      .replace(/^src\//, "Tests/")
+      .replace(/\.php$/, "Test.php");
+    // Mirror: src/Sub/<Foo>.php → tests/Sub/<Foo>Test.php
+    const mirrorPath = source
+      .replace(/^src\//, "tests/")
+      .replace(/\/([^/]+)\.php$/, "/$1Test.php");
+    // Plural form: <Foo>Tests.php (less common but seen).
+    const pluralPath = source
+      .replace(/^src\//, "tests/")
+      .replace(/\.php$/, "Tests.php");
+
+    if (lowerTestsPath !== source) candidates.push(lowerTestsPath);
+    if (pascalTestsPath !== source) candidates.push(pascalTestsPath);
+    if (mirrorPath !== source && mirrorPath !== lowerTestsPath)
+      candidates.push(mirrorPath);
+    if (pluralPath !== source) candidates.push(pluralPath);
+    candidates.push(`${dir}/${base}Test.php`);
+    candidates.push(`${dir}/${base}Tests.php`);
+  }
+
   return candidates;
 }
 
@@ -672,7 +710,9 @@ function isTestFile(path: string): boolean {
     // S-004-bench — Ruby suffix `_spec.rb`/`_test.rb` (RSpec/Minitest)
     // AND Minitest prefix `test_*.rb` (jekyll uses this).
     /(?:^|\/)[^/]+_(spec|test)\.rb$/.test(path) ||
-    /(?:^|\/)test_[^/]+\.rb$/.test(path)
+    /(?:^|\/)test_[^/]+\.rb$/.test(path) ||
+    // v1.2 S-002 AS-010 — PHP / PHPUnit suffix `*Test.php` / `*Tests.php`.
+    /(Test|Tests)\.php$/.test(path)
   );
 }
 
@@ -895,6 +935,28 @@ function importGrepSpec(
         `require[ ]+['\"]${escapeRegex(requirePath)}['\"]|` +
         `require_relative[ ]+['\"][^'\"]*${escapeRegex(altStem)}['\"]`;
       return { pattern, globs: ["*.rb"] };
+    }
+    // v1.2 S-001 — PHP importGrepSpec.
+    //
+    // PHP module identity = namespace declaration (NOT filename — PSR-4
+    // maps namespace ↔ directory). Importers cite the class via:
+    //   - `use App\Service\UserService;`       (fully-qualified)
+    //   - `use App\Service\{UserService, X};`  (group import, PHP 7+)
+    //   - `use App\Service\UserService as US;`  (alias)
+    //   - `new \App\Service\UserService(...)`  (inline FQN)
+    //
+    // Heuristic without parsing composer.json's psr-4 map: extract the file
+    // stem (class name) + match any `use ... <stem>` site. This sometimes
+    // over-matches (different namespaces sharing a class name) but optimises
+    // for recall per the design constraint above.
+    case "php": {
+      // Strip src/ prefix to match Symfony / Composer convention; bare
+      // filename is the class name (PSR-4 canonical case).
+      const className = stem;
+      return {
+        pattern: `use[ ]+[^;]*${escapeRegex(className)}[ ;,}]|new[ ]+[^(]*${escapeRegex(className)}\\(`,
+        globs: ["*.php"],
+      };
     }
     default:
       return null;

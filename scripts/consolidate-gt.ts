@@ -24,6 +24,9 @@ const REPOS = [
   "kotlinx-coroutines", "kotlinx-serialization",
   "MQTTnet", "Polly",
   "jekyll", "faraday",
+  // v1.2-php S-002 AS-008 — PHP fixtures pinned per preflight log
+  // docs/explore/php-fixture-preflight-2026-05-14.md
+  "php-symfony-console", "php-monolog",
 ] as const;
 const TASKS_PER_REPO = 20;
 const DEV_PER_REPO = 6; // 30% → 6/20
@@ -64,6 +67,8 @@ const LANG_BY_REPO: Record<string, string> = {
   Polly: "csharp",
   jekyll: "ruby",
   faraday: "ruby",
+  "php-symfony-console": "php",
+  "php-monolog": "php",
 };
 
 // Deterministic stratified split — use task_id lex sort to pick dev vs test.
