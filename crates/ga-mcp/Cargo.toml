@@ -24,7 +24,7 @@ chrono = { version = "0.4", default-features = false, features = ["clock", "std"
 # macOS / RDCW on Windows) plus a `PollWatcher` fallback used for exotic
 # filesystems (StPR5.AS-010 + watcher AS-009) and inotify ENOSPC
 # recovery (AS-011).
-notify = "6"
+notify = "8"
 tracing = { workspace = true }
 
 [dev-dependencies]
