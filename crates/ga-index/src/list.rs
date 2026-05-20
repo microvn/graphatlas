@@ -14,6 +14,13 @@ pub struct CacheEntry {
     pub size_bytes: u64,
     pub last_indexed_unix: u64,
     pub index_state: ga_core::IndexState,
+    /// ga-ui Spec A S-003 — populated when post-reindex hook wrote the
+    /// sidecar fields. None for caches built before the migration.
+    pub index_counts: Option<ga_core::IndexCounts>,
+    pub health_summary: Option<ga_core::HealthSummary>,
+    /// ga-ui — full lang set as recorded at index time (used by
+    /// ga-server to build the Page 1 row languages column).
+    pub cache_lang_set: Vec<ga_core::Lang>,
 }
 
 /// Scan `cache_root` (typically `~/.graphatlas`) and return one entry per valid
@@ -59,6 +66,9 @@ pub fn list_caches(cache_root: &Path) -> Result<Vec<CacheEntry>> {
             size_bytes,
             last_indexed_unix,
             index_state: md.index_state,
+            index_counts: md.index_counts,
+            health_summary: md.health_summary,
+            cache_lang_set: md.cache_lang_set,
         });
     }
     Ok(out)

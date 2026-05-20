@@ -160,3 +160,37 @@ pub enum IndexState {
     Building,
     Complete,
 }
+
+// ============================================================
+// ga-ui Spec A S-003 — metadata.json sidecar extensions.
+//
+// Both structs are Optional fields on `Metadata` (ga-index). Caches
+// written before this migration deserialize with the field absent →
+// `None` (serde default). Old caches keep working unchanged.
+// ============================================================
+
+/// Cached index size + duration tallies. Populated at the end of a
+/// successful reindex so `GET /api/projects` renders without a lbug
+/// round-trip per row (Spec A AS-010 / Spec B AS-001 perf target).
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct IndexCounts {
+    pub node_count: u64,
+    pub edge_count: u64,
+    pub file_count: u64,
+    pub last_index_duration_ms: u64,
+    pub db_size_bytes: u64,
+}
+
+/// Cached health-signal tallies. Same lifecycle as `IndexCounts` —
+/// computed once after reindex commits, persisted to metadata.json,
+/// read directly by the projects-list endpoint.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct HealthSummary {
+    pub computed_at_unix: u64,
+    pub hubs_count: u64,
+    pub bridges_count: u64,
+    pub dead_code_count: u64,
+    pub large_functions_count: u64,
+    pub tested_count: u64,
+}
+

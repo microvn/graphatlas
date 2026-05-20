@@ -1,0 +1,49 @@
+[package]
+name = "ga-server"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "GraphAtlas UI HTTP backend — axum-based, 127.0.0.1 only, CSRF-protected (Spec A)"
+publish = false
+
+[lib]
+name = "ga_server"
+path = "src/lib.rs"
+
+[[bin]]
+name = "ga-server"
+path = "src/main.rs"
+
+[dependencies]
+ga-core = { workspace = true }
+ga-index = { workspace = true }
+ga-query = { workspace = true }
+lbug = { workspace = true }
+notify = "6"
+anyhow = { workspace = true }
+clap = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true, features = ["io-util", "macros", "rt-multi-thread", "signal", "net"] }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+axum = { workspace = true }
+tower = { workspace = true }
+tower-http = { workspace = true }
+hex = { workspace = true }
+blake3 = { workspace = true }
+
+[features]
+default = []
+test-fixture = []
+
+[dev-dependencies]
+tempfile = "3"
+tokio = { workspace = true, features = ["io-util", "macros", "rt-multi-thread", "time", "net"] }
+tower = { workspace = true, features = ["util"] }
+http-body-util = "0.1"
+ga-server = { path = ".", features = ["test-fixture"] }
+
+[lints]
+workspace = true

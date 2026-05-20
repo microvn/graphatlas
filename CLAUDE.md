@@ -152,3 +152,18 @@ Quick routing:
 
 Use Grep/Bash only for non-code content (logs, configs, prose).
 <!-- graphatlas:end -->
+
+## Design System
+
+Always read `DESIGN.md` before making any visual or UI decisions for `ga-ui`
+(crates/ga-server, ui/ frontend, prototype/index.html). Fonts, colors, spacing,
+density, motion, and aesthetic direction live there — do NOT deviate without
+explicit user approval.
+
+Prototype reference: `prototype/index.html` (Page 1 + Page 2 + Index Control tab).
+When implementing real frontend, copy CSS variables block from DESIGN.md "CSS
+Variable Reference" section verbatim; don't re-invent tokens.
+
+When reviewing UI code, flag any of the anti-patterns listed in DESIGN.md
+"Anti-patterns — Never Ship" (purple gradients, icon-circle grids, Inter/Space
+Grotesk fonts, bubble border-radius, system-ui as display, etc.).

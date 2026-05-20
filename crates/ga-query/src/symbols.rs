@@ -14,6 +14,9 @@ pub enum SymbolsMatch {
     Exact,
     /// Levenshtein-ranked fuzzy match across all symbol names.
     Fuzzy,
+    /// Case-insensitive substring match with prefix-priority ranking.
+    /// Intended for HTTP search-as-you-type — caps at 50 (Spec E C-2).
+    Contains,
 }
 
 /// AS-008/AS-009/AS-010. Cap = 10 per Tools-C5 guidance (atomic tool, LLM-sized
@@ -42,12 +45,18 @@ pub fn symbols(store: &Store, pattern: &str, mode: SymbolsMatch) -> Result<Symbo
     let candidates = match mode {
         SymbolsMatch::Exact => collect_exact(&conn, pattern)?,
         SymbolsMatch::Fuzzy => collect_fuzzy(&conn, pattern)?,
+        SymbolsMatch::Contains => collect_contains(&conn, pattern)?,
     };
     let total_available = candidates.len() as u32;
 
-    const CAP: usize = 10;
-    let truncated = candidates.len() > CAP;
-    let symbols_out: Vec<SymbolEntry> = candidates.into_iter().take(CAP).collect();
+    // CAP per mode: Exact/Fuzzy serve MCP (LLM-sized output, Tools-C5);
+    // Contains serves the HTTP search dropdown (Spec E C-2 = 50 hits).
+    let cap = match mode {
+        SymbolsMatch::Exact | SymbolsMatch::Fuzzy => 10,
+        SymbolsMatch::Contains => 50,
+    };
+    let truncated = candidates.len() > cap;
+    let symbols_out: Vec<SymbolEntry> = candidates.into_iter().take(cap).collect();
 
     Ok(SymbolsResponse {
         symbols: symbols_out,
@@ -117,6 +126,41 @@ fn collect_fuzzy(conn: &lbug::Connection<'_>, pattern: &str) -> Result<Vec<Symbo
             e
         })
         .collect())
+}
+
+/// Spec E S-001 Contains mode. Full scan + Rust-side filter so we can
+/// case-fold both sides (lbug Cypher CONTAINS is case-sensitive). Score:
+/// 2.0 for prefix matches (start_with), 1.0 for mid-string. Sorted by
+/// score desc, then case-insensitive name asc for deterministic ties.
+fn collect_contains(conn: &lbug::Connection<'_>, pattern: &str) -> Result<Vec<SymbolEntry>> {
+    let needle = pattern.to_lowercase();
+    let cypher =
+        "MATCH (s:Symbol) WHERE s.kind <> 'external' RETURN s.name, s.kind, s.file, s.line";
+    let rs = conn
+        .query(cypher)
+        .map_err(|e| Error::Other(anyhow::anyhow!("symbols contains query: {e}")))?;
+
+    let mut out: Vec<SymbolEntry> = Vec::new();
+    for row in rs {
+        let Some(mut entry) = row_to_entry(row, 1.0) else {
+            continue;
+        };
+        let name_lc = entry.name.to_lowercase();
+        if !name_lc.contains(&needle) {
+            continue;
+        }
+        entry.score = if name_lc.starts_with(&needle) { 2.0 } else { 1.0 };
+        out.push(entry);
+    }
+    out.sort_by(|a, b| {
+        b.score
+            .partial_cmp(&a.score)
+            .unwrap_or(std::cmp::Ordering::Equal)
+            .then_with(|| a.name.to_lowercase().cmp(&b.name.to_lowercase()))
+            .then_with(|| a.file.cmp(&b.file))
+            .then_with(|| a.line.cmp(&b.line))
+    });
+    Ok(out)
 }
 
 fn row_to_entry<R: IntoIterator<Item = lbug::Value>>(

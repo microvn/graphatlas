@@ -7,6 +7,7 @@ members = [
     "crates/ga-query",
     "crates/ga-mcp",
     "crates/ga-bench",
+    "crates/ga-server",
 ]
 
 [workspace.package]
@@ -64,6 +65,15 @@ ga-index = { path = "crates/ga-index", version = "0.1.0" }
 ga-query = { path = "crates/ga-query", version = "0.1.0" }
 ga-mcp = { path = "crates/ga-mcp", version = "0.1.0" }
 ga-bench = { path = "crates/ga-bench", version = "0.1.0" }
+ga-server = { path = "crates/ga-server", version = "0.1.0" }
+
+# v1.6 PR — ga-ui Spec A S-001 HTTP backend.
+# axum 0.7 + tower-http for middleware (CORS-free since we own Origin
+# allowlist + custom token header). tokio comes from workspace base.
+axum = { version = "0.7", default-features = false, features = ["http1", "tokio", "json", "query"] }
+tower = { version = "0.5", default-features = false }
+tower-http = { version = "0.6", default-features = false, features = ["trace", "fs"] }
+hex = "0.4"
 
 [workspace.lints.rust]
 unsafe_code = "forbid"
@@ -98,6 +108,7 @@ tracing = { workspace = true }
 tracing-subscriber = { workspace = true }
 ga-query = { workspace = true }
 ga-bench = { workspace = true }
+hex = { workspace = true }
 toml = "1"
 tempfile = "3"
 # Advisory flock for cross-process TOCTOU defense on .claude/settings.json.
@@ -107,6 +118,7 @@ fs4 = "0.13"
 
 [dev-dependencies]
 ga-index = { workspace = true }
+ga-server = { workspace = true }
 lbug = { workspace = true }
 # v1.5 Tier B smoke test (tests/smoke_reindex_subprocess.rs) drives a real
 # `graphatlas mcp` subprocess via newline-delimited JSON-RPC. Needs

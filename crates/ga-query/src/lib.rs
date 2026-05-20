@@ -7,6 +7,8 @@ pub mod blame;
 pub mod bridges;
 pub mod callees;
 pub mod common;
+/// ga-ui Spec A S-003 follow-up — post-reindex tally helpers.
+pub mod counts;
 pub mod dead_code;
 pub mod entry_points;
 pub mod file_summary;
@@ -19,6 +21,8 @@ pub mod indexer;
 pub mod large_functions;
 pub mod minimal_context;
 mod phase_b;
+/// ga-ui Spec A S-003 — render symbol signatures for UI detail panel.
+pub mod render;
 pub mod psr4_resolve;
 pub mod rename_safety;
 pub mod risk;

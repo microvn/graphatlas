@@ -120,6 +120,11 @@ EXAMPLES:
         /// Repo root to reindex. Defaults to the current directory.
         #[arg(value_name = "PATH")]
         repo: Option<PathBuf>,
+        /// Emit one NDJSON `{phase,percent}` line per milestone on stdout.
+        /// Used by `ga-server` subprocess monitor to surface live progress
+        /// in the UI; humans usually want it off.
+        #[arg(long)]
+        json_progress: bool,
     },
 
     /// Diagnose install + cache health (S-002).
@@ -240,6 +245,38 @@ EXAMPLES:
 ")]
     Update,
 
+    /// Launch the local UI (Spec D, ga-ui v0).
+    #[command(long_about = "\
+Start ga-server + Bun frontend bound to 127.0.0.1, generate a per-session
+token, write `~/.graphatlas/.ui.session` (mode 0600), and open the browser.
+Phase 1 is single-instance per machine; second `ga ui` rejects with the
+existing PID.
+
+EXAMPLES:
+  graphatlas ui                          # default ports 4317/4318
+  graphatlas ui --no-open                # don't auto-launch the browser
+  graphatlas ui --ui-dir ./ui            # override frontend bundle dir
+  graphatlas ui --dev                    # Bun HMR mode
+")]
+    Ui {
+        #[arg(long, default_value_t = 4317)]
+        port: u16,
+        #[arg(long, default_value_t = 4318)]
+        frontend_port: u16,
+        #[arg(long, default_value = "127.0.0.1")]
+        bind: String,
+        #[arg(long)]
+        no_open: bool,
+        #[arg(long, value_name = "PATH")]
+        cache_root: Option<PathBuf>,
+        #[arg(long, default_value = "info")]
+        log_level: String,
+        #[arg(long)]
+        dev: bool,
+        #[arg(long, value_name = "PATH")]
+        ui_dir: Option<PathBuf>,
+    },
+
     /// Cache management (S-003).
     #[command(long_about = "\
 Manage the per-repo cache at ~/.graphatlas. Future subcommands: clear,
@@ -337,7 +374,28 @@ fn main() -> Result<()> {
         Some(Command::Hook { subcommand }) => match subcommand {
             HookSubcommand::SessionStart => graphatlas::cmd_hook::cmd_hook_session_start(),
         },
-        Some(Command::Reindex { repo }) => graphatlas::cmd_reindex::cmd_reindex(repo),
+        Some(Command::Reindex { repo, json_progress }) => {
+            graphatlas::cmd_reindex::cmd_reindex(repo, json_progress)
+        }
+        Some(Command::Ui {
+            port,
+            frontend_port,
+            bind,
+            no_open,
+            cache_root,
+            log_level,
+            dev,
+            ui_dir,
+        }) => graphatlas::cmd_ui::run(graphatlas::cmd_ui::UiArgs {
+            port,
+            frontend_port,
+            bind,
+            no_open,
+            cache_root,
+            log_level,
+            dev,
+            ui_dir,
+        }),
         Some(Command::Cache) => {
             println!("graphatlas cache: S-001 stub — not implemented.");
             println!("This subcommand is reserved per Foundation-C6 (8-subcommand lock).");

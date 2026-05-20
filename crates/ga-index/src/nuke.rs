@@ -54,5 +54,9 @@ pub(crate) fn placeholder_metadata() -> Metadata {
         // Placeholder is consumed-and-replaced by commit; lang_set populated
         // by the real begin_indexing() metadata that replaces it.
         cache_lang_set: Vec::new(),
+        // S-003 — sidecar tallies absent on placeholder; populated by
+        // the real reindex commit via set_index_counts / set_health_summary.
+        index_counts: None,
+        health_summary: None,
     }
 }

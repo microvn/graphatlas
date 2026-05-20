@@ -1,0 +1,20 @@
+{
+  "name": "graphatlas-ui",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "bun build index.html --outdir ../dist/ui --minify",
+    "dev": "bun --hot index.html",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "react": "^19",
+    "react-dom": "^19"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "happy-dom": "^15"
+  }
+}

@@ -29,6 +29,10 @@ fn meta_with_lang_set(cache_langs: Vec<Lang>) -> Metadata {
         indexed_root_hash: String::new(),
         graph_generation: 1,
         cache_lang_set: cache_langs,
+        // S-003 — sidecar tallies absent for this lang-set fixture;
+        // tests don't exercise the projects-list endpoint.
+        index_counts: None,
+        health_summary: None,
     }
 }
 

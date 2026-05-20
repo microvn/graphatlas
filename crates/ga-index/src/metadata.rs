@@ -3,7 +3,7 @@
 
 use crate::cache::{verify_file_perms, write_file_0600, CacheLayout};
 use crate::SCHEMA_VERSION;
-use ga_core::{Error, IndexState, Lang, Result};
+use ga_core::{Error, HealthSummary, IndexCounts, IndexState, Lang, Result};
 use serde::{Deserialize, Serialize};
 use std::path::Path;
 use std::time::{SystemTime, UNIX_EPOCH};
@@ -50,6 +50,20 @@ pub struct Metadata {
     /// has files matching any current engine lang".
     #[serde(default)]
     pub cache_lang_set: Vec<Lang>,
+
+    /// ga-ui Spec A S-003 AS-026 — cached index size + duration. None
+    /// for caches built before the migration (Spec A AS-030 backward
+    /// compat). Populated by `set_index_counts` after a successful
+    /// reindex commit; consumers (Spec A `GET /api/projects`) read it
+    /// directly so the projects-list endpoint avoids lbug round-trip
+    /// per row.
+    #[serde(default)]
+    pub index_counts: Option<IndexCounts>,
+
+    /// ga-ui Spec A S-003 AS-027 — cached health-signal tallies.
+    /// Same lifecycle + backward-compat policy as `index_counts`.
+    #[serde(default)]
+    pub health_summary: Option<HealthSummary>,
 }
 
 /// Decision made at cold-load time.
@@ -93,6 +107,11 @@ impl Metadata {
             // v1.2-php S-001 AS-019 — snapshot engine's full lang set so
             // future versions can detect upgrade gap.
             cache_lang_set: Lang::ALL.to_vec(),
+            // S-003 — left None until the post-commit migration hook
+            // populates them. Old caches that already exist on disk
+            // also deserialize with these fields = None.
+            index_counts: None,
+            health_summary: None,
         };
         m.write(layout)?;
         Ok(m)
@@ -113,6 +132,30 @@ impl Metadata {
     pub fn commit_in_place(&mut self, layout: &CacheLayout) -> Result<()> {
         self.index_state = IndexState::Complete;
         self.committed_at = Some(unix_now());
+        self.write(layout)
+    }
+
+    /// ga-ui Spec A S-003 — attach `index_counts` post-commit. The
+    /// projects-list endpoint reads these directly so reindex must
+    /// persist them next to the existing metadata fields. Returns the
+    /// updated metadata so callers can chain.
+    pub fn set_index_counts(
+        &mut self,
+        counts: IndexCounts,
+        layout: &CacheLayout,
+    ) -> Result<()> {
+        self.index_counts = Some(counts);
+        self.write(layout)
+    }
+
+    /// ga-ui Spec A S-003 — attach `health_summary` post-commit. Same
+    /// lifecycle as [`set_index_counts`].
+    pub fn set_health_summary(
+        &mut self,
+        summary: HealthSummary,
+        layout: &CacheLayout,
+    ) -> Result<()> {
+        self.health_summary = Some(summary);
         self.write(layout)
     }
 
