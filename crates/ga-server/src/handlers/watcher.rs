@@ -116,16 +116,16 @@ pub async fn watcher_action(
     }
 }
 
-pub async fn watcher_status(
-    State(state): State<AppState>,
-    Path(slug): Path<String>,
-) -> Response {
+pub async fn watcher_status(State(state): State<AppState>, Path(slug): Path<String>) -> Response {
     // Project must exist.
     if find_cache_dir(&state.cfg.cache_root, &slug).is_none() {
         return (StatusCode::NOT_FOUND, err("project_not_found", "")).into_response();
     }
     let entry = state.watchers.entry(&slug);
-    let snap = entry.lock().expect("WatcherEntry mutex poisoned").snapshot();
+    let snap = entry
+        .lock()
+        .expect("WatcherEntry mutex poisoned")
+        .snapshot();
     (StatusCode::OK, Json(snap)).into_response()
 }
 

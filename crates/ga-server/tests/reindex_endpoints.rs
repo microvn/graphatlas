@@ -128,9 +128,11 @@ async fn as042_post_reindex_returns_202_and_status_initially_running() {
     let resp = app
         .clone()
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/happy001/reindex"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/happy001/reindex"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -143,10 +145,9 @@ async fn as042_post_reindex_returns_202_and_status_initially_running() {
     // 2. GET status
     let resp = app
         .oneshot(
-            auth(Request::builder().uri(format!(
-                "/api/projects/happy001/reindex/{}/status",
-                job_id
-            )))
+            auth(
+                Request::builder().uri(format!("/api/projects/happy001/reindex/{}/status", job_id)),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -176,15 +177,20 @@ async fn as042_state_can_transition_to_done() {
     let resp = app
         .clone()
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/donesim1/reindex"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/donesim1/reindex"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
         .await
         .unwrap();
-    let job_id = body_json(resp).await["job_id"].as_str().unwrap().to_string();
+    let job_id = body_json(resp).await["job_id"]
+        .as_str()
+        .unwrap()
+        .to_string();
 
     // Simulate monitor loop completing — set state to Done.
     {
@@ -199,10 +205,9 @@ async fn as042_state_can_transition_to_done() {
 
     let resp = app
         .oneshot(
-            auth(Request::builder().uri(format!(
-                "/api/projects/donesim1/reindex/{}/status",
-                job_id
-            )))
+            auth(
+                Request::builder().uri(format!("/api/projects/donesim1/reindex/{}/status", job_id)),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -229,23 +234,30 @@ async fn as043_second_post_returns_409_with_same_job_id() {
     let resp = app
         .clone()
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/conflict/reindex"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/conflict/reindex"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
         .await
         .unwrap();
     assert_eq!(resp.status(), StatusCode::ACCEPTED);
-    let first_job_id = body_json(resp).await["job_id"].as_str().unwrap().to_string();
+    let first_job_id = body_json(resp).await["job_id"]
+        .as_str()
+        .unwrap()
+        .to_string();
 
     // Second POST while first still active.
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/conflict/reindex"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/conflict/reindex"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -271,9 +283,11 @@ async fn as044_different_slugs_reindex_in_parallel() {
     let r1 = app
         .clone()
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/par00001/reindex"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/par00001/reindex"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -281,9 +295,11 @@ async fn as044_different_slugs_reindex_in_parallel() {
         .unwrap();
     let r2 = app
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/par00002/reindex"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/par00002/reindex"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -308,24 +324,28 @@ async fn as045_job_id_resolves_via_lookup_by_id_after_simulated_refresh() {
     let resp = app
         .clone()
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/refresh1/reindex"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/refresh1/reindex"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
         .await
         .unwrap();
-    let job_id = body_json(resp).await["job_id"].as_str().unwrap().to_string();
+    let job_id = body_json(resp).await["job_id"]
+        .as_str()
+        .unwrap()
+        .to_string();
 
     // Simulate refresh — issue a new GET with just the job_id (no
     // in-memory client state). The server must still find the handle.
     let resp = app
         .oneshot(
-            auth(Request::builder().uri(format!(
-                "/api/projects/refresh1/reindex/{}/status",
-                job_id
-            )))
+            auth(
+                Request::builder().uri(format!("/api/projects/refresh1/reindex/{}/status", job_id)),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -349,15 +369,20 @@ async fn as046_cancel_marks_state_cancelled_and_cache_corrupt() {
     let resp = app
         .clone()
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/cancel01/reindex"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/cancel01/reindex"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
         .await
         .unwrap();
-    let job_id = body_json(resp).await["job_id"].as_str().unwrap().to_string();
+    let job_id = body_json(resp).await["job_id"]
+        .as_str()
+        .unwrap()
+        .to_string();
 
     // Hold a reference to the state Arc so we can inspect after cancel
     // (cancel removes the slug→handle binding from the registry).
@@ -366,9 +391,11 @@ async fn as046_cancel_marks_state_cancelled_and_cache_corrupt() {
     let resp = app
         .clone()
         .oneshot(
-            auth(Request::builder()
-                .method("DELETE")
-                .uri(format!("/api/projects/cancel01/reindex/{}", job_id)))
+            auth(
+                Request::builder()
+                    .method("DELETE")
+                    .uri(format!("/api/projects/cancel01/reindex/{}", job_id)),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -395,9 +422,11 @@ async fn cancel_unknown_job_id_returns_404() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .method("DELETE")
-                .uri("/api/projects/any/reindex/nope"))
+            auth(
+                Request::builder()
+                    .method("DELETE")
+                    .uri("/api/projects/any/reindex/nope"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -419,15 +448,20 @@ async fn as047_error_state_includes_error_and_log_tail() {
     let resp = app
         .clone()
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/errsim01/reindex"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/errsim01/reindex"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
         .await
         .unwrap();
-    let job_id = body_json(resp).await["job_id"].as_str().unwrap().to_string();
+    let job_id = body_json(resp).await["job_id"]
+        .as_str()
+        .unwrap()
+        .to_string();
 
     {
         let handle = h.state.jobs.lookup_by_id(&job_id).unwrap();
@@ -442,10 +476,9 @@ async fn as047_error_state_includes_error_and_log_tail() {
 
     let resp = app
         .oneshot(
-            auth(Request::builder().uri(format!(
-                "/api/projects/errsim01/reindex/{}/status",
-                job_id
-            )))
+            auth(
+                Request::builder().uri(format!("/api/projects/errsim01/reindex/{}/status", job_id)),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -474,9 +507,11 @@ async fn as048_spawn_call_receives_literal_canonical_path() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/argv0001/reindex"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/argv0001/reindex"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -570,9 +605,11 @@ async fn as056_confirm_token_expired_returns_403() {
     let resp = app
         .clone()
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/ttl00001/delete-intent"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/ttl00001/delete-intent"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -589,9 +626,11 @@ async fn as056_confirm_token_expired_returns_403() {
     // Step 3: DELETE with now-expired token.
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .method("DELETE")
-                .uri(format!("/api/projects/ttl00001?confirm={}", token)))
+            auth(
+                Request::builder()
+                    .method("DELETE")
+                    .uri(format!("/api/projects/ttl00001?confirm={}", token)),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -630,9 +669,11 @@ async fn stale_building_without_live_job_is_cleared_and_reindex_proceeds() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/stale001/reindex"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/stale001/reindex"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -696,9 +737,11 @@ async fn stale_building_with_live_pidfile_is_not_unlinked() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/alive001/reindex"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/alive001/reindex"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -721,13 +764,19 @@ async fn stale_building_with_live_pidfile_is_not_unlinked() {
 #[tokio::test]
 async fn post_reindex_with_orphan_repo_root_returns_400() {
     let h = make_harness();
-    seed_cache(&h.cache_root, "ghost001", Path::new("/tmp/__never_exists_xyzzy__"));
+    seed_cache(
+        &h.cache_root,
+        "ghost001",
+        Path::new("/tmp/__never_exists_xyzzy__"),
+    );
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/ghost001/reindex"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/ghost001/reindex"),
+            )
             .body(Body::empty())
             .unwrap(),
         )

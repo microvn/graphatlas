@@ -50,9 +50,6 @@ impl ServerConfig {
 
     /// Build the canonical Host allowlist for the backend port.
     pub fn hosts_for_port(port: u16) -> Vec<String> {
-        vec![
-            format!("127.0.0.1:{}", port),
-            format!("localhost:{}", port),
-        ]
+        vec![format!("127.0.0.1:{}", port), format!("localhost:{}", port)]
     }
 }

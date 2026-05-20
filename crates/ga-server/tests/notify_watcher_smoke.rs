@@ -83,7 +83,10 @@ fn notify_driver_skips_git_internal_events() {
 
     let outcome = driver.start("gitskip1", repo.path());
     assert!(
-        matches!(outcome, StartOutcome::Started(_) | StartOutcome::FallbackPoll(_)),
+        matches!(
+            outcome,
+            StartOutcome::Started(_) | StartOutcome::FallbackPoll(_)
+        ),
         "start should succeed"
     );
 

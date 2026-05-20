@@ -31,10 +31,7 @@ fn fixture_repo() -> TempDir {
 }
 
 fn locate_metadata(cache_root: &std::path::Path, repo_root: &std::path::Path) -> PathBuf {
-    let target = repo_root
-        .file_name()
-        .and_then(|n| n.to_str())
-        .unwrap_or("");
+    let target = repo_root.file_name().and_then(|n| n.to_str()).unwrap_or("");
     let entries = std::fs::read_dir(cache_root).unwrap();
     for e in entries.flatten() {
         let p = e.path();
@@ -60,11 +57,7 @@ fn reindex_populates_index_counts_and_health_summary_in_metadata() {
     #[cfg(unix)]
     {
         use std::os::unix::fs::PermissionsExt;
-        std::fs::set_permissions(
-            cache.path(),
-            std::fs::Permissions::from_mode(0o700),
-        )
-        .unwrap();
+        std::fs::set_permissions(cache.path(), std::fs::Permissions::from_mode(0o700)).unwrap();
     }
     // Cache root override — Store::open reads GRAPHATLAS_CACHE_DIR.
     std::env::set_var("GRAPHATLAS_CACHE_DIR", cache.path());
@@ -82,9 +75,10 @@ fn reindex_populates_index_counts_and_health_summary_in_metadata() {
     assert!(matches!(md.index_state, IndexState::Complete));
 
     // index_counts must be populated.
-    let counts = md.index_counts.as_ref().expect(
-        "S-003 follow-up: reindex must persist index_counts; got None",
-    );
+    let counts = md
+        .index_counts
+        .as_ref()
+        .expect("S-003 follow-up: reindex must persist index_counts; got None");
     assert!(
         counts.last_index_duration_ms > 0,
         "duration must be non-zero, got {}",
@@ -102,9 +96,10 @@ fn reindex_populates_index_counts_and_health_summary_in_metadata() {
     );
 
     // health_summary must be populated (values may be 0 for tiny fixture).
-    let health = md.health_summary.as_ref().expect(
-        "S-003 follow-up: reindex must persist health_summary; got None",
-    );
+    let health = md
+        .health_summary
+        .as_ref()
+        .expect("S-003 follow-up: reindex must persist health_summary; got None");
     assert!(
         health.computed_at_unix > 0,
         "computed_at_unix should be a real epoch second"

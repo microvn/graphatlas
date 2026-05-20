@@ -139,11 +139,7 @@ impl Metadata {
     /// projects-list endpoint reads these directly so reindex must
     /// persist them next to the existing metadata fields. Returns the
     /// updated metadata so callers can chain.
-    pub fn set_index_counts(
-        &mut self,
-        counts: IndexCounts,
-        layout: &CacheLayout,
-    ) -> Result<()> {
+    pub fn set_index_counts(&mut self, counts: IndexCounts, layout: &CacheLayout) -> Result<()> {
         self.index_counts = Some(counts);
         self.write(layout)
     }

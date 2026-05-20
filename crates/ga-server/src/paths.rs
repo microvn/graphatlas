@@ -52,9 +52,7 @@ pub fn validate_repo_path(input: &Path, cache_root: &Path) -> Result<PathBuf, Pa
     // Layer 2 — reject ".." in raw input before canonicalize swallows it.
     for c in input.components() {
         if matches!(c, Component::ParentDir) {
-            return Err(PathRejection::Unsafe(
-                "path contains '..' component",
-            ));
+            return Err(PathRejection::Unsafe("path contains '..' component"));
         }
     }
 
@@ -74,9 +72,7 @@ pub fn validate_repo_path(input: &Path, cache_root: &Path) -> Result<PathBuf, Pa
         .canonicalize()
         .unwrap_or_else(|_| cache_root.to_path_buf());
     if path_starts_with_case_insensitive(&canonical, &cache_canonical) {
-        return Err(PathRejection::Unsafe(
-            "path resolves into cache directory",
-        ));
+        return Err(PathRejection::Unsafe("path resolves into cache directory"));
     }
 
     // Layer 4 — walk children one level looking for symlinks that point
@@ -96,9 +92,10 @@ pub fn validate_repo_path(input: &Path, cache_root: &Path) -> Result<PathBuf, Pa
                 let resolved = if target.is_absolute() {
                     target.canonicalize().unwrap_or(target)
                 } else {
-                    canonical.join(target).canonicalize().unwrap_or_else(|_| {
-                        canonical.join("__unresolved__")
-                    })
+                    canonical
+                        .join(target)
+                        .canonicalize()
+                        .unwrap_or_else(|_| canonical.join("__unresolved__"))
                 };
                 if !resolved.starts_with(&canonical) {
                     return Err(PathRejection::ExternalSymlink(
@@ -177,8 +174,8 @@ mod tests {
         let cache = tempdir().unwrap();
         let repo = tempdir().unwrap();
         let outside = tempdir().unwrap(); // Pretend /etc.
-        // Need to leak outside path so the link target survives the
-        // test — actually `tempdir()` keeps it alive via guard, fine.
+                                          // Need to leak outside path so the link target survives the
+                                          // test — actually `tempdir()` keeps it alive via guard, fine.
         std::os::unix::fs::symlink(outside.path(), repo.path().join("evil")).unwrap();
         let err = validate_repo_path(repo.path(), cache.path()).unwrap_err();
         assert!(matches!(err, PathRejection::ExternalSymlink(_)));

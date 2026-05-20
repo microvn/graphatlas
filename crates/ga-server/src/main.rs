@@ -105,7 +105,9 @@ fn main() -> ExitCode {
         .cache_root
         .or_else(|| std::env::var_os("GRAPHATLAS_CACHE_DIR").map(PathBuf::from))
         .unwrap_or_else(|| {
-            dirs_home().unwrap_or_else(|| PathBuf::from(".")).join(".graphatlas")
+            dirs_home()
+                .unwrap_or_else(|| PathBuf::from("."))
+                .join(".graphatlas")
         });
 
     let addr = SocketAddr::new(ip, cli.port);

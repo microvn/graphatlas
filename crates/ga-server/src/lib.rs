@@ -32,8 +32,8 @@ use serde::Serialize;
 
 pub use config::ServerConfig;
 pub use data::ProjectDataSource;
-pub use lbug_source::LbugDataSource;
 pub use jobs::{JobLauncher, JobRegistry, SubprocessLauncher};
+pub use lbug_source::LbugDataSource;
 pub use state::AppState;
 
 /// Build axum router with security middleware applied to all non-health
@@ -44,15 +44,15 @@ pub fn build_app(state: AppState) -> Router {
     // Protected routes: must pass security middleware.
     let protected = Router::new()
         .route("/api/config", get(handler_config))
-        .route("/api/projects", get(projects::list_projects).post(projects::add_project))
+        .route(
+            "/api/projects",
+            get(projects::list_projects).post(projects::add_project),
+        )
         .route(
             "/api/projects/:slug/delete-intent",
             post(projects::delete_intent),
         )
-        .route(
-            "/api/projects/:slug",
-            delete(projects::delete_project),
-        )
+        .route("/api/projects/:slug", delete(projects::delete_project))
         // S-004 data endpoints.
         .route("/api/projects/:slug/graph", get(graph::graph_endpoint))
         .route(
@@ -67,20 +67,26 @@ pub fn build_app(state: AppState) -> Router {
             "/api/projects/:slug/symbol/:symbol_id/callees",
             get(graph::callees_endpoint),
         )
-        .route("/api/projects/:slug/importers", get(graph::importers_endpoint))
-        .route("/api/projects/:slug/file", get(graph::file_summary_endpoint))
+        .route(
+            "/api/projects/:slug/importers",
+            get(graph::importers_endpoint),
+        )
+        .route(
+            "/api/projects/:slug/file",
+            get(graph::file_summary_endpoint),
+        )
         // Spec E search + layers.
-        .route("/api/projects/:slug/symbols", get(graph::symbols_search_endpoint))
+        .route(
+            "/api/projects/:slug/symbols",
+            get(graph::symbols_search_endpoint),
+        )
         .route("/api/projects/:slug/layers", get(graph::layers_endpoint))
         .route(
             "/api/projects/:slug/layers/:layer_name/symbols",
             get(graph::layer_symbols_endpoint),
         )
         // S-005 reindex job lifecycle.
-        .route(
-            "/api/projects/:slug/reindex",
-            post(reindex::start_reindex),
-        )
+        .route("/api/projects/:slug/reindex", post(reindex::start_reindex))
         .route(
             "/api/projects/:slug/reindex/:job_id/status",
             get(reindex::job_status),

@@ -220,10 +220,9 @@ async fn as034_graph_focus_returns_focused_subgraph() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .uri("/api/projects/egofcs99/graph?focus=sym_3&hops=2"))
-            .body(Body::empty())
-            .unwrap(),
+            auth(Request::builder().uri("/api/projects/egofcs99/graph?focus=sym_3&hops=2"))
+                .body(Body::empty())
+                .unwrap(),
         )
         .await
         .unwrap();
@@ -315,8 +314,10 @@ async fn as037_callers_paginated_offset_50_limit_50() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .uri("/api/projects/callpg02/symbol/hub/callers?offset=50&limit=50"))
+            auth(
+                Request::builder()
+                    .uri("/api/projects/callpg02/symbol/hub/callers?offset=50&limit=50"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -340,8 +341,10 @@ async fn callers_last_page_has_more_false() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .uri("/api/projects/callpg03/symbol/hub/callers?offset=50&limit=50"))
+            auth(
+                Request::builder()
+                    .uri("/api/projects/callpg03/symbol/hub/callers?offset=50&limit=50"),
+            )
             .body(Body::empty())
             .unwrap(),
         )
@@ -403,10 +406,9 @@ async fn as039_file_summary_returns_symbols_imports_reverse_imports() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .uri("/api/projects/filsum01/file?path=src/router/mod.rs"))
-            .body(Body::empty())
-            .unwrap(),
+            auth(Request::builder().uri("/api/projects/filsum01/file?path=src/router/mod.rs"))
+                .body(Body::empty())
+                .unwrap(),
         )
         .await
         .unwrap();
@@ -510,7 +512,11 @@ async fn as041_cache_corrupt_returns_503() {
         "graph_generation": 1,
         "cache_lang_set": []
     });
-    std::fs::write(dir.join("metadata.json"), serde_json::to_vec(&body).unwrap()).unwrap();
+    std::fs::write(
+        dir.join("metadata.json"),
+        serde_json::to_vec(&body).unwrap(),
+    )
+    .unwrap();
     h.fake.insert("corp0001", ProjectFixture::default());
 
     let app = build_app(h.state);
@@ -557,10 +563,9 @@ async fn pagination_clamped_to_max_page_size() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .uri("/api/projects/cap00001/symbol/hub/callers?limit=99999"))
-            .body(Body::empty())
-            .unwrap(),
+            auth(Request::builder().uri("/api/projects/cap00001/symbol/hub/callers?limit=99999"))
+                .body(Body::empty())
+                .unwrap(),
         )
         .await
         .unwrap();

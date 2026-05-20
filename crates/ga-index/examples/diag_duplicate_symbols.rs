@@ -44,7 +44,10 @@ fn main() {
     dups.sort_by_key(|(_, v)| std::cmp::Reverse(v.len()));
 
     println!("Total Symbol rows: {total}");
-    println!("Distinct composites (file::name:line): {}", by_composite.len());
+    println!(
+        "Distinct composites (file::name:line): {}",
+        by_composite.len()
+    );
     println!("Duplicate groups: {}", dups.len());
     println!(
         "Extra rows (sum of count-1): {}",

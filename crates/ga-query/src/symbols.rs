@@ -149,7 +149,11 @@ fn collect_contains(conn: &lbug::Connection<'_>, pattern: &str) -> Result<Vec<Sy
         if !name_lc.contains(&needle) {
             continue;
         }
-        entry.score = if name_lc.starts_with(&needle) { 2.0 } else { 1.0 };
+        entry.score = if name_lc.starts_with(&needle) {
+            2.0
+        } else {
+            1.0
+        };
         out.push(entry);
     }
     out.sort_by(|a, b| {

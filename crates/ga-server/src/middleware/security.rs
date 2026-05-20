@@ -35,11 +35,7 @@ fn header_str<'a>(headers: &'a HeaderMap, key: &str) -> Option<&'a str> {
 ///
 /// Health endpoint is routed OUTSIDE this layer (see lib.rs build_app),
 /// so it never sees this function.
-pub async fn enforce<B>(
-    State(state): State<AppState>,
-    req: Request<B>,
-    next: Next,
-) -> Response
+pub async fn enforce<B>(State(state): State<AppState>, req: Request<B>, next: Next) -> Response
 where
     B: Send + 'static,
     Request<B>: Into<Request<axum::body::Body>>,
@@ -52,10 +48,7 @@ where
     // Browsers don't send `Origin` on same-origin GET / HEAD (Fetch spec
     // §3.1). For state-changing methods we still require Origin — the
     // CSRF risk vector is POST/DELETE from a malicious tab.
-    let require_origin = matches!(
-        method.as_str(),
-        "POST" | "PUT" | "DELETE" | "PATCH"
-    );
+    let require_origin = matches!(method.as_str(), "POST" | "PUT" | "DELETE" | "PATCH");
     if let Some(origin) = header_str(headers, "origin") {
         if !state.cfg.allowed_origins.iter().any(|a| a == origin) {
             return err_response(
@@ -83,7 +76,12 @@ where
             );
         }
     };
-    if !state.cfg.allowed_hosts.iter().any(|allowed| allowed == host) {
+    if !state
+        .cfg
+        .allowed_hosts
+        .iter()
+        .any(|allowed| allowed == host)
+    {
         return err_response(
             StatusCode::MISDIRECTED_REQUEST,
             "bad_host",

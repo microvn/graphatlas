@@ -77,9 +77,15 @@ pub fn compute_index_counts(store: &Store, duration_ms: u64) -> IndexCounts {
     // so we sum per-kind counts.
     let edge_kinds = [
         ("CALLS", "MATCH ()-[r:CALLS]->() RETURN count(r)"),
-        ("CALLS_HEURISTIC", "MATCH ()-[r:CALLS_HEURISTIC]->() RETURN count(r)"),
+        (
+            "CALLS_HEURISTIC",
+            "MATCH ()-[r:CALLS_HEURISTIC]->() RETURN count(r)",
+        ),
         ("IMPORTS", "MATCH ()-[r:IMPORTS]->() RETURN count(r)"),
-        ("IMPORTS_NAMED", "MATCH ()-[r:IMPORTS_NAMED]->() RETURN count(r)"),
+        (
+            "IMPORTS_NAMED",
+            "MATCH ()-[r:IMPORTS_NAMED]->() RETURN count(r)",
+        ),
         ("DEFINES", "MATCH ()-[r:DEFINES]->() RETURN count(r)"),
         ("CONTAINS", "MATCH ()-[r:CONTAINS]->() RETURN count(r)"),
         ("EXTENDS", "MATCH ()-[r:EXTENDS]->() RETURN count(r)"),
@@ -88,7 +94,10 @@ pub fn compute_index_counts(store: &Store, duration_ms: u64) -> IndexCounts {
         ("REFERENCES", "MATCH ()-[r:REFERENCES]->() RETURN count(r)"),
         ("DECORATES", "MATCH ()-[r:DECORATES]->() RETURN count(r)"),
         ("TESTED_BY", "MATCH ()-[r:TESTED_BY]->() RETURN count(r)"),
-        ("MODULE_TYPED", "MATCH ()-[r:MODULE_TYPED]->() RETURN count(r)"),
+        (
+            "MODULE_TYPED",
+            "MATCH ()-[r:MODULE_TYPED]->() RETURN count(r)",
+        ),
     ];
     let mut edge_count = 0u64;
     for (label, cypher) in edge_kinds {
@@ -181,6 +190,9 @@ mod tests {
 
     #[test]
     fn dir_size_returns_zero_for_missing_path() {
-        assert_eq!(dir_size_bytes(std::path::Path::new("/tmp/__no_exist_xyz__")), 0);
+        assert_eq!(
+            dir_size_bytes(std::path::Path::new("/tmp/__no_exist_xyz__")),
+            0
+        );
     }
 }

@@ -59,11 +59,7 @@ impl Serialize for WatcherMode {
                 {
                     "rdcw"
                 }
-                #[cfg(not(any(
-                    target_os = "macos",
-                    target_os = "linux",
-                    target_os = "windows"
-                )))]
+                #[cfg(not(any(target_os = "macos", target_os = "linux", target_os = "windows")))]
                 {
                     "native"
                 }
@@ -470,10 +466,12 @@ impl WatcherDriver for NotifyWatcherDriver {
         match notify::recommended_watcher(handler.clone()) {
             Ok(mut w) => match w.watch(repo_root, notify::RecursiveMode::Recursive) {
                 Ok(()) => {
-                    self.sessions
-                        .lock()
-                        .unwrap()
-                        .insert(slug_owned, WatcherSession { _watcher: Box::new(w) });
+                    self.sessions.lock().unwrap().insert(
+                        slug_owned,
+                        WatcherSession {
+                            _watcher: Box::new(w),
+                        },
+                    );
                     StartOutcome::Started(WatcherMode::Inotify)
                 }
                 Err(e) => {
@@ -516,15 +514,16 @@ fn try_poll_fallback<F>(
 where
     F: notify::EventHandler + Clone + Send + 'static,
 {
-    let cfg = notify::Config::default()
-        .with_poll_interval(std::time::Duration::from_secs(3));
+    let cfg = notify::Config::default().with_poll_interval(std::time::Duration::from_secs(3));
     match notify::PollWatcher::new(handler, cfg) {
         Ok(mut w) => match w.watch(repo_root, notify::RecursiveMode::Recursive) {
             Ok(()) => {
-                sessions
-                    .lock()
-                    .unwrap()
-                    .insert(slug, WatcherSession { _watcher: Box::new(w) });
+                sessions.lock().unwrap().insert(
+                    slug,
+                    WatcherSession {
+                        _watcher: Box::new(w),
+                    },
+                );
                 StartOutcome::FallbackPoll(format!("inotify failed: {inotify_err}"))
             }
             Err(e) => StartOutcome::Failed(format!("PollWatcher.watch: {e}")),

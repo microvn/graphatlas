@@ -86,12 +86,14 @@ fn monitor_thread_flips_state_to_done_after_subprocess_exits() {
     assert_eq!(snap.percent, 100.0);
 
     // Cache must have been written.
-    assert!(find_cache_dir(cache.path(), "").is_some() || {
-        std::fs::read_dir(cache.path())
-            .unwrap()
-            .flatten()
-            .any(|e| e.path().is_dir())
-    });
+    assert!(
+        find_cache_dir(cache.path(), "").is_some() || {
+            std::fs::read_dir(cache.path())
+                .unwrap()
+                .flatten()
+                .any(|e| e.path().is_dir())
+        }
+    );
 
     std::env::remove_var("GRAPHATLAS_CACHE_DIR");
 }

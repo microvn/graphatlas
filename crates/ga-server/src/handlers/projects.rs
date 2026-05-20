@@ -18,9 +18,7 @@ use axum::response::IntoResponse;
 use axum::Json;
 use serde::Deserialize;
 
-use crate::handlers::projects_types::{
-    ErrorBody, ProjectIndexState, ProjectRow, WatcherStatus,
-};
+use crate::handlers::projects_types::{ErrorBody, ProjectIndexState, ProjectRow, WatcherStatus};
 use crate::paths::{validate_repo_path, PathRejection};
 use crate::state::AppState;
 
@@ -114,16 +112,17 @@ fn scan_projects(cache_root: &std::path::Path) -> (Vec<ProjectRow>, u64) {
                         last_index_duration_ms: c.last_index_duration_ms,
                         db_size_bytes: c.db_size_bytes,
                     });
-            let health = e.health_summary.as_ref().map(|h| {
-                crate::handlers::projects_types::HealthSummary {
-                    computed_at_unix: h.computed_at_unix,
-                    hubs_count: h.hubs_count,
-                    bridges_count: h.bridges_count,
-                    dead_code_count: h.dead_code_count,
-                    large_functions_count: h.large_functions_count,
-                    tested_count: h.tested_count,
-                }
-            });
+            let health =
+                e.health_summary
+                    .as_ref()
+                    .map(|h| crate::handlers::projects_types::HealthSummary {
+                        computed_at_unix: h.computed_at_unix,
+                        hubs_count: h.hubs_count,
+                        bridges_count: h.bridges_count,
+                        dead_code_count: h.dead_code_count,
+                        large_functions_count: h.large_functions_count,
+                        tested_count: h.tested_count,
+                    });
             ProjectRow {
                 slug,
                 name,
@@ -321,11 +320,7 @@ pub async fn delete_project(
                 .into_response()
         }
         crate::jobs::ConfirmResult::Mismatch | crate::jobs::ConfirmResult::Missing => {
-            return (
-                StatusCode::FORBIDDEN,
-                err_body("invalid_confirm_token", ""),
-            )
-                .into_response()
+            return (StatusCode::FORBIDDEN, err_body("invalid_confirm_token", "")).into_response()
         }
     }
 
@@ -340,7 +335,9 @@ pub async fn delete_project(
     };
     let canonical = match cache_dir.canonicalize() {
         Ok(c) => c,
-        Err(_) => return (StatusCode::NOT_FOUND, err_body("project_not_found", "")).into_response(),
+        Err(_) => {
+            return (StatusCode::NOT_FOUND, err_body("project_not_found", "")).into_response()
+        }
     };
     if !canonical.starts_with(&cache_root_canonical) {
         return (

@@ -18,7 +18,9 @@ use http_body_util::BodyExt;
 use tower::ServiceExt;
 
 use ga_server::lbug_source::fake::FakeDataSource;
-use ga_server::{build_app, validate_bind_addr, AppState, JobLauncher, ProjectDataSource, ServerConfig};
+use ga_server::{
+    build_app, validate_bind_addr, AppState, JobLauncher, ProjectDataSource, ServerConfig,
+};
 
 /// Test stub — never spawns a real subprocess.
 struct NoopLauncher;
@@ -218,7 +220,10 @@ async fn as008_config_endpoint_returns_frontend_origin() {
         .unwrap();
     assert_eq!(resp.status(), StatusCode::OK);
     let body = body_json(resp).await;
-    assert_eq!(body["frontend_origin_expected"], format!("http://localhost:{}", FRONTEND_PORT));
+    assert_eq!(
+        body["frontend_origin_expected"],
+        format!("http://localhost:{}", FRONTEND_PORT)
+    );
     assert!(body["server_version"].as_str().is_some());
 }
 

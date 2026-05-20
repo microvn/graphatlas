@@ -138,7 +138,10 @@ async fn as010_list_projects_returns_rows() {
     let first = &arr[0];
     assert!(first["slug"].as_str().is_some());
     assert_eq!(first["index_state"], "Fresh");
-    assert!(first["index_counts"].is_null(), "pre-migration cache → index_counts: null");
+    assert!(
+        first["index_counts"].is_null(),
+        "pre-migration cache → index_counts: null"
+    );
     assert!(first["health"].is_null());
 }
 
@@ -289,7 +292,11 @@ async fn as014_attach_with_existing_cache_no_spawn() {
     let body = body_json(resp).await;
     assert!(body["job_id"].is_null());
     assert_eq!(body["mode"], "attach");
-    assert_eq!(h.launcher.calls.lock().unwrap().len(), 0, "attach must not spawn");
+    assert_eq!(
+        h.launcher.calls.lock().unwrap().len(),
+        0,
+        "attach must not spawn"
+    );
 }
 
 // ============================================================
@@ -502,7 +509,8 @@ async fn as020_argv_literal_no_shell_expansion() {
                     .header("Content-Type", "application/json"),
             )
             .body(Body::from(
-                serde_json::json!({"path": weird.display().to_string(), "mode":"index"}).to_string(),
+                serde_json::json!({"path": weird.display().to_string(), "mode":"index"})
+                    .to_string(),
             ))
             .unwrap(),
         )

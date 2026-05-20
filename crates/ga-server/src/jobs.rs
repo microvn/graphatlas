@@ -326,7 +326,14 @@ impl JobLauncher for SubprocessLauncher {
         for (k, v) in std::env::vars() {
             if matches!(
                 k.as_str(),
-                "HOME" | "PATH" | "USER" | "LOGNAME" | "LANG" | "LC_ALL" | "TMPDIR" | "GRAPHATLAS_CACHE_DIR"
+                "HOME"
+                    | "PATH"
+                    | "USER"
+                    | "LOGNAME"
+                    | "LANG"
+                    | "LC_ALL"
+                    | "TMPDIR"
+                    | "GRAPHATLAS_CACHE_DIR"
             ) {
                 cmd.env(k, v);
             }
@@ -477,7 +484,11 @@ mod tests {
         assert_eq!(st.files_done, 42);
         assert_eq!(st.files_total, 42);
         assert_eq!(st.log_tail.len(), 3);
-        assert_eq!(st.status, JobStatus::Running, "consumer must not touch terminal status");
+        assert_eq!(
+            st.status,
+            JobStatus::Running,
+            "consumer must not touch terminal status"
+        );
     }
 
     #[test]
@@ -502,7 +513,10 @@ mod tests {
             (JobInsertResult::Inserted(a), JobInsertResult::Existing(b)) => (a.job_id, b.job_id),
             _ => panic!("expected Inserted then Existing"),
         };
-        assert_eq!(id_first, id_second, "Existing must echo the original job_id");
+        assert_eq!(
+            id_first, id_second,
+            "Existing must echo the original job_id"
+        );
     }
 
     #[test]

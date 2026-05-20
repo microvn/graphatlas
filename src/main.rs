@@ -374,9 +374,10 @@ fn main() -> Result<()> {
         Some(Command::Hook { subcommand }) => match subcommand {
             HookSubcommand::SessionStart => graphatlas::cmd_hook::cmd_hook_session_start(),
         },
-        Some(Command::Reindex { repo, json_progress }) => {
-            graphatlas::cmd_reindex::cmd_reindex(repo, json_progress)
-        }
+        Some(Command::Reindex {
+            repo,
+            json_progress,
+        }) => graphatlas::cmd_reindex::cmd_reindex(repo, json_progress),
         Some(Command::Ui {
             port,
             frontend_port,
