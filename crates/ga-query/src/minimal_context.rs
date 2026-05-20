@@ -1159,6 +1159,7 @@ fn extract_class_signature_with_docstring(body: &str) -> String {
 /// - Java/Kotlin: `import `
 /// - C#:     `using `
 /// - Ruby:   `require ` / `require_relative `
+/// - PHP:    `use ` / `require[_once] ` / `include[_once] `
 /// Unknown ext → conservative: any line containing `import` token.
 fn read_top_level_imports(repo_root: &std::path::Path, file: &str) -> Vec<String> {
     let path = if std::path::Path::new(file).is_absolute() {
@@ -1183,6 +1184,16 @@ fn read_top_level_imports(repo_root: &std::path::Path, file: &str) -> Vec<String
         let is_comment =
             trimmed.starts_with("//") || trimmed.starts_with('#') || trimmed.starts_with("/*");
         if is_comment && !seen_non_import {
+            continue;
+        }
+        // PHP preamble — `<?php`, `declare(...)`, `namespace ...;` precede
+        // `use` imports. Skip them so the import cluster is still detected.
+        if ext == "php"
+            && !seen_non_import
+            && (trimmed.starts_with("<?php")
+                || trimmed.starts_with("declare(")
+                || trimmed.starts_with("namespace "))
+        {
             continue;
         }
 
@@ -1213,6 +1224,13 @@ fn read_top_level_imports(repo_root: &std::path::Path, file: &str) -> Vec<String
             "java" | "kt" | "kts" => trimmed.starts_with("import "),
             "cs" => trimmed.starts_with("using ") && !trimmed.starts_with("using ("),
             "rb" => trimmed.starts_with("require ") || trimmed.starts_with("require_relative "),
+            "php" => {
+                trimmed.starts_with("use ")
+                    || trimmed.starts_with("require ")
+                    || trimmed.starts_with("require_once ")
+                    || trimmed.starts_with("include ")
+                    || trimmed.starts_with("include_once ")
+            }
             _ => trimmed.contains("import"),
         };
         if is_import {
@@ -1410,4 +1428,39 @@ fn count_word_boundary_occurrences(body: &str, needle: &str) -> u32 {
         i += 1;
     }
     count
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn read_top_level_imports_recognises_php_use_and_require() {
+        // Regression: v1.2-php — PHP fell into the `_ => contains("import")`
+        // fallback, which never matches PHP's `use` / `require` / `include`
+        // keywords, so `ga_minimal_context` returned PHP files with an
+        // empty imports section.
+        let tmp = tempfile::TempDir::new().unwrap();
+        let php = "<?php\n\
+                   namespace App\\Console;\n\
+                   \n\
+                   use Symfony\\Component\\Console\\Application;\n\
+                   use Symfony\\Component\\Console\\Command\\Command;\n\
+                   require_once __DIR__ . '/bootstrap.php';\n\
+                   \n\
+                   class Foo extends Command {}\n";
+        let path = tmp.path().join("Foo.php");
+        std::fs::write(&path, php).unwrap();
+
+        let imports = read_top_level_imports(tmp.path(), "Foo.php");
+        let joined = imports.join("\n");
+        assert!(
+            joined.contains("use Symfony\\Component\\Console\\Application"),
+            "PHP `use` imports missing; got: {joined}"
+        );
+        assert!(
+            joined.contains("require_once"),
+            "PHP `require_once` missing; got: {joined}"
+        );
+    }
 }

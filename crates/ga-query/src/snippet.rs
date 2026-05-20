@@ -113,7 +113,7 @@ pub fn extract_signature(body: &str, ext: &str) -> String {
     match ext {
         "py" => extract_python_signature(body),
         "rs" | "ts" | "tsx" | "js" | "jsx" | "mjs" | "cjs" | "go" | "java" | "kt" | "kts"
-        | "cs" => extract_brace_signature(body),
+        | "cs" | "php" => extract_brace_signature(body),
         "rb" => first_nonempty_line(body),
         _ => first_nonempty_line(body),
     }
@@ -161,5 +161,38 @@ fn resolve_path(repo_root: &Path, file: &str) -> PathBuf {
         p.to_path_buf()
     } else {
         repo_root.join(p)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn php_multiline_signature_kept_intact() {
+        // Regression: v1.2-php — PHP supports multi-line signatures (params
+        // wrapped across lines) like Java/C#/Kt. `extract_signature` did not
+        // list `"php"` in the brace arm, so the first-nonempty fallback
+        // truncated the signature at the opening paren line, dropping
+        // typed params + return type.
+        let body = "public function execute(\n\
+                    \x20   InputInterface $input,\n\
+                    \x20   OutputInterface $output\n\
+                    ): int {\n\
+                    \x20   return 0;\n\
+                    }\n";
+        let sig = extract_signature(body, "php");
+        assert!(
+            sig.contains("InputInterface $input"),
+            "PHP multi-line signature must keep params; got: {sig:?}"
+        );
+        assert!(
+            sig.contains("): int"),
+            "PHP multi-line signature must keep return type; got: {sig:?}"
+        );
+        assert!(
+            !sig.contains("return 0"),
+            "PHP signature must stop at brace; got: {sig:?}"
+        );
     }
 }
