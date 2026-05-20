@@ -112,6 +112,28 @@ graphatlas doctor              # verify health
 
 `reindex` builds (or rebuilds) the on-disk graph for the current repo — the MCP server then serves queries against it. The agent sees `ga_impact`, `ga_callers`, `ga_minimal_context`, etc. as native tools; no extra prompting needed.
 
+## UI dashboard
+
+A local web dashboard for browsing the graph, watching reindex jobs, and managing project caches — useful when you want a visual on what the agent is seeing.
+
+```sh
+graphatlas ui                  # bind 127.0.0.1:4317 + open browser
+graphatlas ui --no-open        # headless (e.g. remote ssh tunnel)
+graphatlas ui --port 5000      # custom backend port
+graphatlas ui --dev            # Bun HMR for hacking on ui/ frontend
+```
+
+What you get:
+
+- **Projects list** — every cache under `~/.graphatlas/` with size, last-indexed timestamp, stale/orphan/corrupt badges.
+- **Graph canvas** (Sigma + ForceAtlas2) — focus a symbol, view ego × 2 layout, per-kind colored nodes, click to read signature + callers + callees + impact, dupe-fanout collapse for symbols defined in N test files.
+- **Index Control tab** — Reindex now with live phase progress (`opening`/`indexing`/`graph`/`committing`/`done`), Watcher toggle (FSEvents on macOS, inotify on Linux, RDCW on Windows; polling fallback on ENOSPC), Delete cache (2-step confirm).
+- **Search + layer chips** — global symbol search, click a layer to filter the canvas to that module.
+
+Phase 1 is single-instance per machine — a second `graphatlas ui` rejects with the existing PID. State lives in `~/.graphatlas/.ui.session` (mode 0600). Binds loopback only; Origin + Host headers gate every state-changing request.
+
+Source under `ui/` (Bun + React); rebuild with `cd ui && bun run build` after edits.
+
 ## The 12 tools
 
 | Tool | What it answers |
