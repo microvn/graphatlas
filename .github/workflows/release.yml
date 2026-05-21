@@ -80,9 +80,14 @@ jobs:
             os: macos-14
             bin: graphatlas
             archive_ext: tar.gz
+          # macos-13 (Intel runner) is being phased out by GitHub — jobs
+          # routinely queue for hours. Cross-compile x86_64 from the
+          # Apple Silicon runner instead: Apple ships a universal toolchain,
+          # cc-rs + cmake-rs honor CMAKE_OSX_ARCHITECTURES via the
+          # rust-target triple.
           - target: darwin-x86_64
             rust_target: x86_64-apple-darwin
-            os: macos-13
+            os: macos-14
             bin: graphatlas
             archive_ext: tar.gz
           # ubuntu-24.04 ships GCC 13 — required by lbug 0.16.1's bundled
