@@ -359,7 +359,8 @@ pub const SEARCH_LIMIT_DEFAULT: u64 = 50;
 pub const SEARCH_LIMIT_MAX: u64 = 50;
 
 pub fn clamp_search_limit(req: Option<u64>) -> u64 {
-    req.unwrap_or(SEARCH_LIMIT_DEFAULT).clamp(1, SEARCH_LIMIT_MAX)
+    req.unwrap_or(SEARCH_LIMIT_DEFAULT)
+        .clamp(1, SEARCH_LIMIT_MAX)
 }
 
 #[cfg(test)]

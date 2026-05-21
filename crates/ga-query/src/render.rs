@@ -112,11 +112,7 @@ mod tests {
 
     #[test]
     fn as028_qualified_name() {
-        let sig = render_signature(
-            "Router::new",
-            "Self",
-            &[ParamSlot::new("path", "&str")],
-        );
+        let sig = render_signature("Router::new", "Self", &[ParamSlot::new("path", "&str")]);
         assert_eq!(sig, "Router::new(path: &str) -> Self");
     }
 
@@ -124,11 +120,7 @@ mod tests {
 
     #[test]
     fn as029_empty_return_type_omits_arrow() {
-        let sig = render_signature(
-            "log",
-            "",
-            &[ParamSlot::new("msg", "&str")],
-        );
+        let sig = render_signature("log", "", &[ParamSlot::new("msg", "&str")]);
         assert_eq!(sig, "log(msg: &str)");
     }
 
@@ -150,11 +142,7 @@ mod tests {
 
     #[test]
     fn name_only_param() {
-        let sig = render_signature(
-            "greet",
-            "",
-            &[ParamSlot::new("name", "")],
-        );
+        let sig = render_signature("greet", "", &[ParamSlot::new("name", "")]);
         assert_eq!(sig, "greet(name)");
     }
 
@@ -162,11 +150,7 @@ mod tests {
 
     #[test]
     fn type_only_param() {
-        let sig = render_signature(
-            "consume",
-            "",
-            &[ParamSlot::new("", "Box<dyn Trait>")],
-        );
+        let sig = render_signature("consume", "", &[ParamSlot::new("", "Box<dyn Trait>")]);
         assert_eq!(sig, "consume(Box<dyn Trait>)");
     }
 

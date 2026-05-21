@@ -52,8 +52,7 @@ impl LbugDataSource {
     /// mtime of `<cache_dir>/metadata.json` — invalidator for arch cache.
     /// Reindex rewrites metadata.json atomically, bumping the mtime.
     fn cache_mtime(&self, slug: &str) -> Result<SystemTime, DataError> {
-        let cache_dir = find_cache_dir(&self.cache_root, slug)
-            .ok_or(DataError::ProjectNotFound)?;
+        let cache_dir = find_cache_dir(&self.cache_root, slug).ok_or(DataError::ProjectNotFound)?;
         std::fs::metadata(cache_dir.join("metadata.json"))
             .and_then(|m| m.modified())
             .map_err(|e| DataError::Backend(format!("mtime: {e}")))
@@ -90,8 +89,8 @@ impl LbugDataSource {
             crate::cache_state::CacheState::Corrupt => Err(DataError::CacheCorrupt),
             crate::cache_state::CacheState::Building => Err(DataError::CacheBuilding),
             crate::cache_state::CacheState::Fresh => {
-                let cache_dir = find_cache_dir(&self.cache_root, slug)
-                    .ok_or(DataError::ProjectNotFound)?;
+                let cache_dir =
+                    find_cache_dir(&self.cache_root, slug).ok_or(DataError::ProjectNotFound)?;
                 let bytes = std::fs::read(cache_dir.join("metadata.json"))
                     .map_err(|e| DataError::Backend(format!("metadata read: {e}")))?;
                 let v: serde_json::Value = serde_json::from_slice(&bytes)
@@ -162,7 +161,7 @@ impl ProjectDataSource for LbugDataSource {
             let hops = hops.clamp(1, 2) as usize;
             let edges_clause = (0..hops).map(|_| "[:CALLS|:CALLS_HEURISTIC|:REFERENCES|:IMPORTS|:CONTAINS|:EXTENDS|:IMPLEMENTS|:OVERRIDES]").collect::<Vec<_>>().join("-()-");
             let _ = edges_clause; // placeholder: lbug Cypher path expansion varies;
-            // Conservative ego query — 1 hop in/out for now.
+                                  // Conservative ego query — 1 hop in/out for now.
             let q = format!(
                 "MATCH (center:Symbol {{name: '{}'}})-[r]-(n:Symbol) \
                  RETURN center.id, center.name, center.kind, center.file, center.line, \
@@ -370,8 +369,7 @@ impl ProjectDataSource for LbugDataSource {
             // Render signature with name + return_type only (degrade path
             // AS-017). Counts + tested + dead_code + hub flags hydrate
             // via separate queries below.
-            let rendered_signature =
-                render_signature(&name, &return_type, &[] as &[ParamSlot]);
+            let rendered_signature = render_signature(&name, &return_type, &[] as &[ParamSlot]);
 
             // Counts via ga_query — at most O(callers+callees+importers)
             // per detail call. Acceptable for single-symbol detail panel.
@@ -522,11 +520,7 @@ impl ProjectDataSource for LbugDataSource {
             .into_iter()
             .map(|i| RelationEntry {
                 id: format!("{}:{}", i.path, i.import_line),
-                name: i
-                    .imported_names
-                    .first()
-                    .cloned()
-                    .unwrap_or_default(),
+                name: i.imported_names.first().cloned().unwrap_or_default(),
                 file: i.path,
                 line: i.import_line,
                 kind: "Import".into(),
@@ -587,7 +581,10 @@ impl ProjectDataSource for LbugDataSource {
                         .cmp(&a.symbol_count)
                         .then(a.name.cmp(&b.name))
                 });
-                Ok(LayersResponse { layers, degraded: false })
+                Ok(LayersResponse {
+                    layers,
+                    degraded: false,
+                })
             }
             Err(_) => Ok(LayersResponse {
                 layers: vec![],
@@ -652,7 +649,10 @@ impl ProjectDataSource for LbugDataSource {
             });
         }
         let symbol_ids: Vec<String> = symbols.iter().map(|s| s.id.clone()).collect();
-        Ok(LayerSymbolsResponse { symbols, symbol_ids })
+        Ok(LayerSymbolsResponse {
+            symbols,
+            symbol_ids,
+        })
     }
 
     fn file_summary(&self, slug: &str, file_path: &str) -> Result<FileSummary, DataError> {
@@ -811,7 +811,10 @@ pub mod fake {
         fn symbol_detail(&self, slug: &str, id: &str) -> Result<SymbolDetail, DataError> {
             let g = self.inner.lock().unwrap();
             let fx = g.get(slug).ok_or(DataError::ProjectNotFound)?;
-            fx.symbol_detail.get(id).cloned().ok_or(DataError::SymbolNotFound)
+            fx.symbol_detail
+                .get(id)
+                .cloned()
+                .ok_or(DataError::SymbolNotFound)
         }
 
         fn callers(
@@ -865,7 +868,10 @@ pub mod fake {
         fn file_summary(&self, slug: &str, path: &str) -> Result<FileSummary, DataError> {
             let g = self.inner.lock().unwrap();
             let fx = g.get(slug).ok_or(DataError::ProjectNotFound)?;
-            fx.file_summary.get(path).cloned().ok_or(DataError::FileNotFound)
+            fx.file_summary
+                .get(path)
+                .cloned()
+                .ok_or(DataError::FileNotFound)
         }
 
         fn symbols_search(
@@ -880,7 +886,10 @@ pub mod fake {
                 .symbol_search
                 .get(pattern)
                 .cloned()
-                .unwrap_or(SymbolSearchResponse { hits: vec![], truncated: false }))
+                .unwrap_or(SymbolSearchResponse {
+                    hits: vec![],
+                    truncated: false,
+                }))
         }
 
         fn layers(&self, slug: &str) -> Result<LayersResponse, DataError> {

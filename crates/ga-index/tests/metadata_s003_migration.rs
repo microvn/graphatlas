@@ -50,8 +50,14 @@ fn as030_pre_migration_cache_parses_with_none_fields() {
     // Cold-load via the public read path.
     let bytes = std::fs::read(lay.dir().join("metadata.json")).unwrap();
     let m: Metadata = serde_json::from_slice(&bytes).expect("old metadata must still parse");
-    assert!(m.index_counts.is_none(), "pre-migration → index_counts None");
-    assert!(m.health_summary.is_none(), "pre-migration → health_summary None");
+    assert!(
+        m.index_counts.is_none(),
+        "pre-migration → index_counts None"
+    );
+    assert!(
+        m.health_summary.is_none(),
+        "pre-migration → health_summary None"
+    );
     assert_eq!(m.schema_version, 5);
     assert_eq!(m.repo_root, "/tmp/spec-s003-fixture");
 }

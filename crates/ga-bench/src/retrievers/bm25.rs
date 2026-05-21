@@ -9,6 +9,9 @@
 
 use crate::retriever::{ImpactActual, Retriever};
 use crate::BenchError;
+// S-002-bench §4.2.6 medium-term refactor — single canonical via
+// `ga_query::common::is_test_path`.
+use ga_query::common::is_test_path;
 use serde_json::Value;
 use std::collections::HashMap;
 use std::path::{Path, PathBuf};
@@ -237,9 +240,19 @@ fn is_interesting(name: &str) -> bool {
             | Some("jsx")
             | Some("mjs")
             | Some("cjs")
+            | Some("php")
     )
 }
 
-// S-002-bench §4.2.6 medium-term refactor — single canonical via
-// `ga_query::common::is_test_path`.
-use ga_query::common::is_test_path;
+#[cfg(test)]
+mod is_interesting_tests {
+    use super::is_interesting;
+
+    #[test]
+    fn includes_php_source_files() {
+        // Regression: v1.2-php — `.php` missing from corpus filter made BM25
+        // silently return empty results for PHP impact queries.
+        assert!(is_interesting("Application.php"));
+        assert!(is_interesting("src/Console/Command.php"));
+    }
+}

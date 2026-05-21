@@ -282,7 +282,7 @@ pub fn consume_progress<R: std::io::BufRead>(reader: R, state: Arc<Mutex<JobStat
     // — converting at the Vec<String> serialization boundary added more
     // complexity than the saved cycles.
     const LOG_TAIL_CAP: usize = 200;
-    for line in reader.lines().flatten() {
+    for line in reader.lines().map_while(Result::ok) {
         let parsed: Option<serde_json::Value> = serde_json::from_str(&line).ok();
         let mut st = state.lock().expect("JobState mutex poisoned");
         // Always keep the raw line in log_tail (capped).
@@ -326,7 +326,14 @@ impl JobLauncher for SubprocessLauncher {
         for (k, v) in std::env::vars() {
             if matches!(
                 k.as_str(),
-                "HOME" | "PATH" | "USER" | "LOGNAME" | "LANG" | "LC_ALL" | "TMPDIR" | "GRAPHATLAS_CACHE_DIR"
+                "HOME"
+                    | "PATH"
+                    | "USER"
+                    | "LOGNAME"
+                    | "LANG"
+                    | "LC_ALL"
+                    | "TMPDIR"
+                    | "GRAPHATLAS_CACHE_DIR"
             ) {
                 cmd.env(k, v);
             }
@@ -359,7 +366,10 @@ impl JobLauncher for SubprocessLauncher {
             std::thread::spawn(move || {
                 use std::io::BufRead;
                 const STDERR_TAIL_CAP: usize = 50;
-                for line in std::io::BufReader::new(stderr).lines().flatten() {
+                for line in std::io::BufReader::new(stderr)
+                    .lines()
+                    .map_while(Result::ok)
+                {
                     {
                         let mut b = buf.lock().expect("stderr buf mutex poisoned");
                         if b.len() >= STDERR_TAIL_CAP {
@@ -477,7 +487,11 @@ mod tests {
         assert_eq!(st.files_done, 42);
         assert_eq!(st.files_total, 42);
         assert_eq!(st.log_tail.len(), 3);
-        assert_eq!(st.status, JobStatus::Running, "consumer must not touch terminal status");
+        assert_eq!(
+            st.status,
+            JobStatus::Running,
+            "consumer must not touch terminal status"
+        );
     }
 
     #[test]
@@ -502,7 +516,10 @@ mod tests {
             (JobInsertResult::Inserted(a), JobInsertResult::Existing(b)) => (a.job_id, b.job_id),
             _ => panic!("expected Inserted then Existing"),
         };
-        assert_eq!(id_first, id_second, "Existing must echo the original job_id");
+        assert_eq!(
+            id_first, id_second,
+            "Existing must echo the original job_id"
+        );
     }
 
     #[test]

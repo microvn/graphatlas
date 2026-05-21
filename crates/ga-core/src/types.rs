@@ -193,4 +193,3 @@ pub struct HealthSummary {
     pub large_functions_count: u64,
     pub tested_count: u64,
 }
-

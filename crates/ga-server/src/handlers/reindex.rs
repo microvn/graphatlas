@@ -61,10 +61,7 @@ struct ReindexStatusResponse {
 
 // ============== POST /api/projects/:slug/reindex (AS-042..AS-044, AS-048) ==============
 
-pub async fn start_reindex(
-    State(state): State<AppState>,
-    Path(slug): Path<String>,
-) -> Response {
+pub async fn start_reindex(State(state): State<AppState>, Path(slug): Path<String>) -> Response {
     // Project must exist on disk + not already corrupt-blocked.
     let cache_dir = match recovery::find_cache_dir(&state.cfg.cache_root, &slug) {
         Some(d) => d,
@@ -121,18 +118,19 @@ pub async fn start_reindex(
     };
     // Defense in depth — same path-safety rules as POST /api/projects.
     // Canonical form is what we hand to the launcher (AS-048 invariant).
-    let canonical_repo_root = match crate::paths::validate_repo_path(&repo_root, &state.cfg.cache_root) {
-        Ok(p) => p,
-        Err(rej) => {
-            let msg = match &rej {
-                PathRejection::NotFound => "repo path missing on disk",
-                PathRejection::NotDirectory => "repo path is not a directory",
-                PathRejection::Unsafe(_) => "repo path failed safety check",
-                PathRejection::ExternalSymlink(_) => "repo path contains external symlink",
-            };
-            return (StatusCode::BAD_REQUEST, err(rej.code(), msg)).into_response();
-        }
-    };
+    let canonical_repo_root =
+        match crate::paths::validate_repo_path(&repo_root, &state.cfg.cache_root) {
+            Ok(p) => p,
+            Err(rej) => {
+                let msg = match &rej {
+                    PathRejection::NotFound => "repo path missing on disk",
+                    PathRejection::NotDirectory => "repo path is not a directory",
+                    PathRejection::Unsafe(_) => "repo path failed safety check",
+                    PathRejection::ExternalSymlink(_) => "repo path contains external symlink",
+                };
+                return (StatusCode::BAD_REQUEST, err(rej.code(), msg)).into_response();
+            }
+        };
 
     match state.jobs.try_insert(&slug) {
         JobInsertResult::Existing(handle) => (
@@ -192,7 +190,11 @@ pub async fn job_status(
     let Some(handle) = state.jobs.lookup_by_id(&job_id) else {
         return (StatusCode::NOT_FOUND, err("job_not_found", "")).into_response();
     };
-    let snap = handle.state.lock().expect("JobState mutex poisoned").clone();
+    let snap = handle
+        .state
+        .lock()
+        .expect("JobState mutex poisoned")
+        .clone();
     let body = ReindexStatusResponse {
         job_id: handle.job_id,
         slug: handle.slug,

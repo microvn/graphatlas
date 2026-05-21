@@ -64,7 +64,11 @@ fn lbug_source_full_smoke_against_real_reindex() {
 
     // 1. callers — `beta` is called by `alpha`.
     let page = src.callers(&slug, "beta", 0, 50).expect("callers");
-    assert!(page.total >= 1, "expected ≥1 caller of beta, got {}", page.total);
+    assert!(
+        page.total >= 1,
+        "expected ≥1 caller of beta, got {}",
+        page.total
+    );
     assert!(page.entries.iter().any(|e| e.name == "alpha"));
 
     // 2. callees — `alpha` calls `beta`.

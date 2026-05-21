@@ -66,6 +66,7 @@ fn err(code: &'static str, message: impl Into<String>) -> Json<ErrorBody> {
 /// (AS-040 / AS-041). Returns either:
 ///   * `Err(response)` — handler should return this immediately.
 ///   * `Ok(headers)`   — augmenting headers to attach on the success path.
+#[allow(clippy::result_large_err)] // axum Response is intentionally large; boxing would force unwrap at every callsite
 fn pre_gate(state: &AppState, slug: &str) -> Result<HeaderMap, Response> {
     // AS-041 cache state.
     match lookup_cache_state(&state.cfg.cache_root, slug) {
@@ -108,10 +109,7 @@ fn map_data_err(e: DataError) -> Response {
     (status, err(e.error_code(), e.message())).into_response()
 }
 
-fn ok_with_headers<T: serde::Serialize>(
-    headers: HeaderMap,
-    body: T,
-) -> Response {
+fn ok_with_headers<T: serde::Serialize>(headers: HeaderMap, body: T) -> Response {
     let mut resp = (StatusCode::OK, Json(body)).into_response();
     for (k, v) in headers.iter() {
         resp.headers_mut().insert(k, v.clone());
@@ -221,7 +219,10 @@ pub async fn symbols_search_endpoint(
     if !is_safe_pattern(&pattern) {
         return (
             StatusCode::BAD_REQUEST,
-            err("bad_pattern", "pattern contains characters outside [A-Za-z0-9_$.]"),
+            err(
+                "bad_pattern",
+                "pattern contains characters outside [A-Za-z0-9_$.]",
+            ),
         )
             .into_response();
     }
@@ -237,10 +238,7 @@ pub async fn symbols_search_endpoint(
 }
 
 // Spec E AS-006 / AS-007 — module list (layer chip strip).
-pub async fn layers_endpoint(
-    State(state): State<AppState>,
-    Path(slug): Path<String>,
-) -> Response {
+pub async fn layers_endpoint(State(state): State<AppState>, Path(slug): Path<String>) -> Response {
     let headers = match pre_gate(&state, &slug) {
         Ok(h) => h,
         Err(resp) => return resp,

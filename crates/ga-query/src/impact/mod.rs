@@ -295,6 +295,7 @@ fn lang_from_path(path: &str) -> Option<&'static str> {
         "rs" => Some("rust"),
         "ts" | "tsx" => Some("typescript"),
         "js" | "jsx" | "mjs" | "cjs" => Some("javascript"),
+        "php" => Some("php"),
         _ => None,
     }
 }
@@ -339,6 +340,18 @@ mod tests {
                 .map(|f| f.depth)
                 .collect::<Vec<_>>()
         );
+    }
+
+    #[test]
+    fn lang_from_path_recognises_php() {
+        // Regression: v1.2-php S-002 — PHP missing from lang_from_path silently
+        // skipped co_change_importers Phase C signal for PHP impact tasks.
+        assert_eq!(lang_from_path("src/Console/Application.php"), Some("php"));
+        assert_eq!(lang_from_path("Application.php"), Some("php"));
+        // Existing langs still resolved.
+        assert_eq!(lang_from_path("a/b.py"), Some("python"));
+        assert_eq!(lang_from_path("x.go"), Some("go"));
+        assert_eq!(lang_from_path("x.unknown"), None);
     }
 
     #[test]

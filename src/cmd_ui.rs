@@ -195,9 +195,7 @@ pub fn default_pid_alive(pid: u32) -> bool {
 // ---------- bind validation — AS-008 ----------
 
 pub fn validate_bind_str(s: &str) -> Result<IpAddr> {
-    let ip: IpAddr = s
-        .parse()
-        .with_context(|| format!("invalid --bind {s:?}"))?;
+    let ip: IpAddr = s.parse().with_context(|| format!("invalid --bind {s:?}"))?;
     if !ip.is_loopback() {
         return Err(anyhow!(
             "Phase 1: --bind 127.0.0.1 only; got {ip} (per Spec D AS-008)"
@@ -306,7 +304,9 @@ fn auto_bundle(bun_bin: &Path, workspace_root: &Path, target: &Path) -> Result<(
             "build",
             "ui/index.html",
             "--outdir",
-            target.to_str().ok_or_else(|| anyhow!("non-utf8 target path"))?,
+            target
+                .to_str()
+                .ok_or_else(|| anyhow!("non-utf8 target path"))?,
             "--minify",
         ])
         .status()
@@ -365,11 +365,7 @@ pub fn run(args: UiArgs) -> Result<()> {
     let ip = validate_bind_str(&args.bind)?;
     let home = dirs_home().ok_or_else(|| anyhow!("could not resolve $HOME for cache root"))?;
     let env_cache = std::env::var_os("GRAPHATLAS_CACHE_DIR").map(PathBuf::from);
-    let cache_root = resolve_cache_root(
-        args.cache_root.as_deref(),
-        env_cache.as_deref(),
-        &home,
-    );
+    let cache_root = resolve_cache_root(args.cache_root.as_deref(), env_cache.as_deref(), &home);
 
     // AS-016/017 — single-instance lock.
     match check_lock_status(&cache_root, default_pid_alive)? {
@@ -467,14 +463,20 @@ pub fn run(args: UiArgs) -> Result<()> {
     eprintln!("  cache root  : {}", cache_root.display());
 
     let mut child = std::process::Command::new(&ga_server_bin)
-        .arg("--port").arg(args.port.to_string())
-        .arg("--bind").arg(format!("{}", ip))
+        .arg("--port")
+        .arg(args.port.to_string())
+        .arg("--bind")
+        .arg(format!("{}", ip))
         // --token retained for ga-server CLI back-compat; empty value
         // means "auth disabled" (the middleware never reads it anyway).
-        .arg("--token").arg("")
-        .arg("--frontend-port").arg(args.frontend_port.to_string())
-        .arg("--cache-root").arg(&cache_root)
-        .arg("--ui-dir").arg(&bundle_dir)
+        .arg("--token")
+        .arg("")
+        .arg("--frontend-port")
+        .arg(args.frontend_port.to_string())
+        .arg("--cache-root")
+        .arg(&cache_root)
+        .arg("--ui-dir")
+        .arg(&bundle_dir)
         .spawn()
         .with_context(|| format!("spawn {}", ga_server_bin.display()))?;
 
@@ -485,11 +487,8 @@ pub fn run(args: UiArgs) -> Result<()> {
     let started = std::time::Instant::now();
     let deadline = started + std::time::Duration::from_secs(15);
     loop {
-        if std::net::TcpStream::connect_timeout(
-            &probe_addr,
-            std::time::Duration::from_millis(200),
-        )
-        .is_ok()
+        if std::net::TcpStream::connect_timeout(&probe_addr, std::time::Duration::from_millis(200))
+            .is_ok()
         {
             break;
         }
@@ -561,17 +560,6 @@ fn resolve_ga_server_bin(_args: &UiArgs) -> Result<PathBuf> {
     Err(anyhow!(
         "ga-server binary not found; ensure `cargo build -p ga-server` ran or install it on PATH"
     ))
-}
-
-fn redacted(url: &str) -> String {
-    // Replace the token in the URL with `<token>` for terminal display.
-    // The full URL is still passed to the browser open call below; this
-    // is purely cosmetic for the terminal that runs `ga ui`.
-    if let Some(hash_idx) = url.find("#token=") {
-        let prefix = &url[..hash_idx + "#token=".len()];
-        return format!("{}<hidden>", prefix);
-    }
-    url.to_string()
 }
 
 /// Cross-platform browser launcher. Shells out via the OS-native

@@ -52,7 +52,7 @@ fn canonicalize_accepts_inside_repo_root() {
     let (_tmp, repo) = setup_repo();
     let resolved = canonicalize_psr4_root(&repo, "src/").expect("src/ canonicalizes");
     assert!(
-        resolved.starts_with(&repo.canonicalize().unwrap()),
+        resolved.starts_with(repo.canonicalize().unwrap()),
         "resolved {} must start with canonicalized repo root {}",
         resolved.display(),
         repo.display()

@@ -21,10 +21,10 @@ pub mod indexer;
 pub mod large_functions;
 pub mod minimal_context;
 mod phase_b;
-/// ga-ui Spec A S-003 — render symbol signatures for UI detail panel.
-pub mod render;
 pub mod psr4_resolve;
 pub mod rename_safety;
+/// ga-ui Spec A S-003 — render symbol signatures for UI detail panel.
+pub mod render;
 pub mod risk;
 pub mod signals;
 pub mod snippet;

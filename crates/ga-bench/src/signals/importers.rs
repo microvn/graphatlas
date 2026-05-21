@@ -216,6 +216,17 @@ pub fn import_grep_spec(repo: &Path, seed_file: &str, lang: &str) -> Option<Impo
                 "*.cjs".into(),
             ],
         }),
+        // v1.2-php S-002 — mirror of ga-query PHP arm; see that file for the
+        // PSR-4 + grouped-use rationale + POSIX-ERE word-boundary form.
+        "php" => Some(ImportGrepSpec {
+            pattern: format!(
+                "use [^;]*(\\\\|\\{{|,[[:space:]]*){s}([^A-Za-z0-9_]|$)\
+                 |new {s}([^A-Za-z0-9_]|$)\
+                 |(^|[^A-Za-z0-9_]){s}::",
+                s = escape_regex(&stem),
+            ),
+            globs: vec!["*.php".into()],
+        }),
         _ => None,
     }
 }
@@ -306,6 +317,88 @@ mod tests {
         assert!(spec.pattern.contains("from ['\"].*injector['\"]"));
         assert!(spec.globs.contains(&"*.ts".to_string()));
         assert!(spec.globs.contains(&"*.tsx".to_string()));
+    }
+
+    #[test]
+    fn php_spec_matches_psr4_use_statement() {
+        // Regression: v1.2-php S-002 — mirror of ga-query gap; bench
+        // retriever signal returned empty for PHP fixtures. Drive the
+        // pattern through `git grep` so we catch POSIX-ERE incompatibility
+        // (e.g. `\b` not supported) and grouped-use recall.
+        let spec = import_grep_spec(
+            Path::new("/nonexistent"),
+            "src/Console/Application.php",
+            "php",
+        )
+        .unwrap();
+        let tmp = tempfile::TempDir::new().unwrap();
+        let fixtures = [
+            (
+                "a_psr4.php",
+                "<?php\nuse Symfony\\Component\\Console\\Application;\n",
+            ),
+            (
+                "b_aliased.php",
+                "<?php\nuse Symfony\\Component\\Console\\Application as App;\n",
+            ),
+            (
+                "c_grouped_first.php",
+                "<?php\nuse Symfony\\Component\\Console\\{Application, Command};\n",
+            ),
+            (
+                "d_grouped_later.php",
+                "<?php\nuse Symfony\\Component\\Console\\{Command, Application};\n",
+            ),
+            (
+                "e_prefix_collision.php",
+                "<?php\nuse Foo\\ApplicationKernel;\n",
+            ),
+        ];
+        for (name, body) in &fixtures {
+            std::fs::write(tmp.path().join(name), body).unwrap();
+        }
+        std::process::Command::new("git")
+            .args(["init", "-q"])
+            .current_dir(tmp.path())
+            .output()
+            .unwrap();
+        std::process::Command::new("git")
+            .args(["-c", "user.email=t@t", "-c", "user.name=t", "add", "."])
+            .current_dir(tmp.path())
+            .output()
+            .unwrap();
+        std::process::Command::new("git")
+            .args([
+                "-c",
+                "user.email=t@t",
+                "-c",
+                "user.name=t",
+                "commit",
+                "-q",
+                "-m",
+                "x",
+            ])
+            .current_dir(tmp.path())
+            .output()
+            .unwrap();
+
+        let matched = git_grep_importers(tmp.path(), &spec);
+        assert!(matched.contains("a_psr4.php"), "PSR-4 use must match");
+        assert!(matched.contains("b_aliased.php"), "aliased use must match");
+        assert!(
+            matched.contains("c_grouped_first.php"),
+            "grouped use first must match"
+        );
+        assert!(
+            matched.contains("d_grouped_later.php"),
+            "grouped use later must match"
+        );
+        assert!(
+            !matched.contains("e_prefix_collision.php"),
+            "prefix collision must not match — pattern: {}",
+            spec.pattern
+        );
+        assert_eq!(spec.globs, vec!["*.php"]);
     }
 
     #[test]

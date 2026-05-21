@@ -12,8 +12,7 @@ use std::time::{Duration, Instant};
 
 #[test]
 fn spec_b_ui_bundle_served_via_ga_server() {
-    let bundle_dir = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-        .join("prototype-react");
+    let bundle_dir = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("prototype-react");
     if !bundle_dir.is_dir() {
         eprintln!(
             "SKIP: {} missing — run `cd ui && bun build index.html --outdir ../prototype-react`",
@@ -33,9 +32,12 @@ fn spec_b_ui_bundle_served_via_ga_server() {
     let bin = std::path::PathBuf::from(env!("CARGO_BIN_EXE_graphatlas"));
     let mut child = Command::new(&bin)
         .arg("ui")
-        .arg("--port").arg(port.to_string())
-        .arg("--frontend-port").arg((port + 1).to_string())
-        .arg("--ui-dir").arg(&bundle_dir)
+        .arg("--port")
+        .arg(port.to_string())
+        .arg("--frontend-port")
+        .arg((port + 1).to_string())
+        .arg("--ui-dir")
+        .arg(&bundle_dir)
         .arg("--no-open")
         .env("GRAPHATLAS_CACHE_DIR", cache.path())
         .stdout(Stdio::piped())
@@ -134,7 +136,10 @@ fn http_status(url: &str) -> u16 {
     let mut buf = [0u8; 64];
     let n = s.read(&mut buf).unwrap_or(0);
     let head = String::from_utf8_lossy(&buf[..n]);
-    head.split_whitespace().nth(1).and_then(|c| c.parse().ok()).unwrap_or(0)
+    head.split_whitespace()
+        .nth(1)
+        .and_then(|c| c.parse().ok())
+        .unwrap_or(0)
 }
 
 fn wait_with_timeout(child: &mut std::process::Child, budget: Duration) -> bool {

@@ -3,6 +3,9 @@
 
 use crate::retriever::{ImpactActual, Retriever};
 use crate::BenchError;
+// S-002-bench §4.2.6 medium-term refactor — single canonical via
+// `ga_query::common::is_test_path`.
+use ga_query::common::is_test_path;
 use serde_json::Value;
 use std::path::{Path, PathBuf};
 
@@ -158,9 +161,19 @@ fn is_interesting_source(name: &str) -> bool {
             | Some("jsx")
             | Some("mjs")
             | Some("cjs")
+            | Some("php")
     )
 }
 
-// S-002-bench §4.2.6 medium-term refactor — single canonical via
-// `ga_query::common::is_test_path`.
-use ga_query::common::is_test_path;
+#[cfg(test)]
+mod is_interesting_tests {
+    use super::is_interesting_source;
+
+    #[test]
+    fn includes_php_source_files() {
+        // Regression: v1.2-php — mirror of bm25 filter; PHP fixtures got
+        // empty random-baseline floor, biasing M2 gate scoring.
+        assert!(is_interesting_source("Application.php"));
+        assert!(is_interesting_source("src/Console/Command.php"));
+    }
+}

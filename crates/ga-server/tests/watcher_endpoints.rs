@@ -105,10 +105,12 @@ async fn as050_start_watcher_returns_running() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/wstart01/watcher")
-                .header("Content-Type", "application/json"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/wstart01/watcher")
+                    .header("Content-Type", "application/json"),
+            )
             .body(Body::from(r#"{"action":"start"}"#))
             .unwrap(),
         )
@@ -136,18 +138,18 @@ async fn as053_enospc_failure_falls_back_to_poll_mode() {
     seed_cache(&h.cache_root, "enospc01", repo.path());
     h.fake_driver.set_outcome(
         "enospc01",
-        StartOutcome::Failed(
-            "inotify_init: ENOSPC: max watches exceeded for user".into(),
-        ),
+        StartOutcome::Failed("inotify_init: ENOSPC: max watches exceeded for user".into()),
     );
 
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/enospc01/watcher")
-                .header("Content-Type", "application/json"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/enospc01/watcher")
+                    .header("Content-Type", "application/json"),
+            )
             .body(Body::from(r#"{"action":"start"}"#))
             .unwrap(),
         )
@@ -176,10 +178,12 @@ async fn explicit_fallback_poll_outcome_is_honored() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/fallbk01/watcher")
-                .header("Content-Type", "application/json"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/fallbk01/watcher")
+                    .header("Content-Type", "application/json"),
+            )
             .body(Body::from(r#"{"action":"start"}"#))
             .unwrap(),
         )
@@ -205,10 +209,12 @@ async fn unexpected_start_failure_marks_errored() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/errored1/watcher")
-                .header("Content-Type", "application/json"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/errored1/watcher")
+                    .header("Content-Type", "application/json"),
+            )
             .body(Body::from(r#"{"action":"start"}"#))
             .unwrap(),
         )
@@ -216,7 +222,10 @@ async fn unexpected_start_failure_marks_errored() {
         .unwrap();
     let body = body_json(resp).await;
     assert_eq!(body["status"], "Errored");
-    assert!(body["error"].as_str().unwrap_or("").contains("permission denied"));
+    assert!(body["error"]
+        .as_str()
+        .unwrap_or("")
+        .contains("permission denied"));
 }
 
 // ============== AS-055 — POST stop ==============
@@ -233,10 +242,12 @@ async fn as055_stop_watcher_returns_stopped_and_clears_state() {
     let resp = app
         .clone()
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/wstop001/watcher")
-                .header("Content-Type", "application/json"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/wstop001/watcher")
+                    .header("Content-Type", "application/json"),
+            )
             .body(Body::from(r#"{"action":"start"}"#))
             .unwrap(),
         )
@@ -255,10 +266,12 @@ async fn as055_stop_watcher_returns_stopped_and_clears_state() {
 
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .method("POST")
-                .uri("/api/projects/wstop001/watcher")
-                .header("Content-Type", "application/json"))
+            auth(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/projects/wstop001/watcher")
+                    .header("Content-Type", "application/json"),
+            )
             .body(Body::from(r#"{"action":"stop"}"#))
             .unwrap(),
         )

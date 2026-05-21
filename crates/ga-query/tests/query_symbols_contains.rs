@@ -39,7 +39,10 @@ fn as001_contains_substring_case_insensitive() {
 
     let resp = symbols(&store, "connect", SymbolsMatch::Contains).unwrap();
     let names: Vec<&str> = resp.symbols.iter().map(|s| s.name.as_str()).collect();
-    assert!(names.contains(&"ConnectingFailedEventArgs"), "names: {names:?}");
+    assert!(
+        names.contains(&"ConnectingFailedEventArgs"),
+        "names: {names:?}"
+    );
     assert!(names.contains(&"OnConnect"), "names: {names:?}");
     assert!(names.contains(&"reconnect_handler"), "names: {names:?}");
     assert!(!names.contains(&"unrelated"), "names: {names:?}");

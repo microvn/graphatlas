@@ -9,6 +9,11 @@ ignore = []
 [bans]
 multiple-versions = "warn"
 wildcards = "deny"
+# Allow wildcard versions for path-based deps (e.g. ga-server's self-dep
+# `ga-server = { path = ".", features = ["test-fixture"] }` to enable a
+# feature only under dev-dependencies). Path deps are local, not registry
+# crates — the supply-chain risk wildcards guard against doesn't apply.
+allow-wildcard-paths = true
 highlight = "all"
 # Deny crates with known issues or problematic maintenance status when we
 # discover them. Empty for now.

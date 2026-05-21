@@ -28,10 +28,7 @@ pub enum RecoveryAction {
     Adopt(ReindexPidFile),
     /// PID is dead — delete the pidfile + mark cache as Corrupt so the
     /// next GET /api/projects shows the badge.
-    Cleanup {
-        slug: String,
-        cache_dir: PathBuf,
-    },
+    Cleanup { slug: String, cache_dir: PathBuf },
 }
 
 /// Scan every cache dir under `cache_root` for a `.reindex.pid` file.
@@ -40,10 +37,7 @@ pub enum RecoveryAction {
 ///
 /// `pid_alive` is the probe (Spec D `cmd_ui::default_pid_alive` pattern
 /// — `kill -0 PID` subprocess on unix). Tests inject a closure.
-pub fn scan_orphan_pids(
-    cache_root: &Path,
-    pid_alive: impl Fn(u32) -> bool,
-) -> Vec<RecoveryAction> {
+pub fn scan_orphan_pids(cache_root: &Path, pid_alive: impl Fn(u32) -> bool) -> Vec<RecoveryAction> {
     let mut actions = Vec::new();
     let entries = match std::fs::read_dir(cache_root) {
         Ok(e) => e,

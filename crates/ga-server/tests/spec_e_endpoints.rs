@@ -77,7 +77,12 @@ fn make_harness() -> Harness {
     let wd: Arc<dyn ga_server::watcher::WatcherDriver> =
         Arc::new(ga_server::watcher::fake::FakeWatcherDriver::new());
     let state = AppState::new(cfg, Arc::new(NoopLauncher), data, wd);
-    Harness { _tmp: tmp, cache_root, fake, state }
+    Harness {
+        _tmp: tmp,
+        cache_root,
+        fake,
+        state,
+    }
 }
 
 fn auth(req: axum::http::request::Builder) -> axum::http::request::Builder {
@@ -165,7 +170,10 @@ async fn as002_symbols_endpoint_truncated_flag_when_capped() {
     let mut fx = ProjectFixture::default();
     fx.symbol_search.insert(
         "get".into(),
-        SymbolSearchResponse { hits, truncated: true },
+        SymbolSearchResponse {
+            hits,
+            truncated: true,
+        },
     );
     h.fake.insert("search02", fx);
 
@@ -194,10 +202,9 @@ async fn as003_symbols_endpoint_bad_pattern_returns_400() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .uri("/api/projects/search03/symbols?q=foo%28%29"))
-            .body(Body::empty())
-            .unwrap(),
+            auth(Request::builder().uri("/api/projects/search03/symbols?q=foo%28%29"))
+                .body(Body::empty())
+                .unwrap(),
         )
         .await
         .unwrap();
@@ -244,10 +251,9 @@ async fn as005_symbols_endpoint_no_match_returns_empty_hits() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .uri("/api/projects/search05/symbols?q=zzznonexistentzzz"))
-            .body(Body::empty())
-            .unwrap(),
+            auth(Request::builder().uri("/api/projects/search05/symbols?q=zzznonexistentzzz"))
+                .body(Body::empty())
+                .unwrap(),
         )
         .await
         .unwrap();
@@ -268,9 +274,18 @@ async fn as006_layers_endpoint_returns_modules_sorted_desc() {
     let mut fx = ProjectFixture::default();
     fx.layers = Some(ga_server::data::LayersResponse {
         layers: vec![
-            LayerEntry { name: "ga-query".into(), symbol_count: 800 },
-            LayerEntry { name: "ga-index".into(), symbol_count: 600 },
-            LayerEntry { name: "ga-server".into(), symbol_count: 400 },
+            LayerEntry {
+                name: "ga-query".into(),
+                symbol_count: 800,
+            },
+            LayerEntry {
+                name: "ga-index".into(),
+                symbol_count: 600,
+            },
+            LayerEntry {
+                name: "ga-server".into(),
+                symbol_count: 400,
+            },
         ],
         degraded: false,
     });
@@ -346,10 +361,9 @@ async fn as008_layer_symbols_endpoint_returns_symbols_and_ids() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .uri("/api/projects/layers03/layers/ga-query/symbols"))
-            .body(Body::empty())
-            .unwrap(),
+            auth(Request::builder().uri("/api/projects/layers03/layers/ga-query/symbols"))
+                .body(Body::empty())
+                .unwrap(),
         )
         .await
         .unwrap();
@@ -369,10 +383,9 @@ async fn layer_symbols_endpoint_unknown_layer_returns_404() {
     let app = build_app(h.state);
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .uri("/api/projects/layers04/layers/nonexistent/symbols"))
-            .body(Body::empty())
-            .unwrap(),
+            auth(Request::builder().uri("/api/projects/layers04/layers/nonexistent/symbols"))
+                .body(Body::empty())
+                .unwrap(),
         )
         .await
         .unwrap();
@@ -389,10 +402,9 @@ async fn layer_name_with_unsafe_chars_returns_400() {
     // "../" segment → path traversal attempt.
     let resp = app
         .oneshot(
-            auth(Request::builder()
-                .uri("/api/projects/layers05/layers/..%2Fetc/symbols"))
-            .body(Body::empty())
-            .unwrap(),
+            auth(Request::builder().uri("/api/projects/layers05/layers/..%2Fetc/symbols"))
+                .body(Body::empty())
+                .unwrap(),
         )
         .await
         .unwrap();
@@ -430,8 +442,16 @@ fn detail_full() -> SymbolDetail {
         importer_count: 2,
         impact_edge_count: 8,
         params: Some(vec![
-            ParamSlotDto { name: "self".into(), type_: "&mut Self".into(), default_value: String::new() },
-            ParamSlotDto { name: "path".into(), type_: "&str".into(), default_value: String::new() },
+            ParamSlotDto {
+                name: "self".into(),
+                type_: "&mut Self".into(),
+                default_value: String::new(),
+            },
+            ParamSlotDto {
+                name: "path".into(),
+                type_: "&str".into(),
+                default_value: String::new(),
+            },
         ]),
     }
 }
@@ -600,9 +620,16 @@ async fn as017_symbol_detail_params_degrade_when_decoder_off() {
         .unwrap();
     assert_eq!(resp.status(), StatusCode::OK);
     let body = body_json(resp).await;
-    assert!(body["params"].is_null(), "expected null, got {:?}", body["params"]);
+    assert!(
+        body["params"].is_null(),
+        "expected null, got {:?}",
+        body["params"]
+    );
     // Signature still renders (existing rendered_signature).
-    assert_eq!(body["rendered_signature"], "register(self, path: &str) -> Router");
+    assert_eq!(
+        body["rendered_signature"],
+        "register(self, path: &str) -> Router"
+    );
 }
 
 #[tokio::test]
