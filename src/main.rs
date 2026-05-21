@@ -301,7 +301,7 @@ fn main() -> Result<()> {
         Some(Command::Update) => {
             println!(
                 "Self-update deferred to v1.1. Download latest release:\n  \
-                 https://github.com/graphatlas-dev/graphatlas/releases\n\
+                 https://github.com/microvn/graphatlas/releases\n\
                  Or reinstall via install.sh from GitHub Releases."
             );
             Ok(())

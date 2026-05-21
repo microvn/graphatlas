@@ -2,11 +2,11 @@
 # graphatlas install.sh — AS-004 one-liner installer.
 #
 # Usage (normal):
-#   curl -fsSL https://graphatlas.dev/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/microvn/graphatlas/main/install.sh | sh
 #
 # Env overrides (primarily for tests + alternative release channels):
 #   GRAPHATLAS_RELEASE_BASE   base URL for release assets
-#                             (default: https://github.com/graphatlas-dev/graphatlas/releases/latest/download)
+#                             (default: https://github.com/microvn/graphatlas/releases/latest/download)
 #   GRAPHATLAS_VERSION        override detected version tag (default: latest)
 #   GRAPHATLAS_BIN_DIR        install target (default: ~/.local/bin)
 #   GRAPHATLAS_SKIP_SHA256    "1" to skip sha256 check — STRONGLY NOT RECOMMENDED
@@ -20,7 +20,7 @@
 
 set -euo pipefail
 
-RELEASE_BASE="${GRAPHATLAS_RELEASE_BASE:-https://github.com/graphatlas-dev/graphatlas/releases/latest/download}"
+RELEASE_BASE="${GRAPHATLAS_RELEASE_BASE:-https://github.com/microvn/graphatlas/releases/latest/download}"
 BIN_DIR="${GRAPHATLAS_BIN_DIR:-$HOME/.local/bin}"
 SKIP_SHA="${GRAPHATLAS_SKIP_SHA256:-0}"
 

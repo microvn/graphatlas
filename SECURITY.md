@@ -5,7 +5,7 @@
 Please report security issues through GitHub's **Private Vulnerability
 Reporting**:
 
-> https://github.com/microvn/GraphAtlas/security/advisories/new
+> https://github.com/microvn/graphatlas/security/advisories/new
 
 Do not open a public issue for suspected vulnerabilities.
 

@@ -36,7 +36,7 @@ done
 
 if [[ "$FAIL" -ne 0 ]]; then
     echo "ERROR: unresolved placeholder literal(s) found in release-artifact paths." >&2
-    echo "Resolve per R28 (register GitHub org + graphatlas.dev domain)." >&2
+    echo "Resolve per R28 — point each placeholder at the real owner (microvn/graphatlas)." >&2
     exit 1
 fi
 

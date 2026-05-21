@@ -2,7 +2,7 @@
 
 Graph-based code-context engine for AI coding agents. Rust workspace, MCP-native, dual-licensed MIT/Apache.
 
-[![CI](https://github.com/microvn/GraphAtlas/actions/workflows/ci.yml/badge.svg)](https://github.com/microvn/GraphAtlas/actions)
+[![CI](https://github.com/microvn/graphatlas/actions/workflows/ci.yml/badge.svg)](https://github.com/microvn/graphatlas/actions)
 [![License: MIT/Apache-2.0](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](LICENSE-MIT)
 [![MCP](https://img.shields.io/badge/MCP-compatible-green.svg)](https://modelcontextprotocol.io)
 [![Rust](https://img.shields.io/badge/rust-stable-orange.svg)](rust-toolchain.toml)
@@ -88,12 +88,12 @@ Reproducible from a fresh clone: `cargo test -p ga-bench --test m2_gate_impact -
 ## Install
 
 ```sh
-git clone https://github.com/microvn/GraphAtlas
+git clone https://github.com/microvn/graphatlas
 cd GraphAtlas
 cargo install --path .
 
 # Or one-shot installer (downloads release tarball + wires MCP config)
-curl -fsSL https://raw.githubusercontent.com/microvn/GraphAtlas/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/microvn/graphatlas/main/install.sh | bash
 ```
 
 Requires Rust stable (toolchain pinned by `rust-toolchain.toml`) and `cmake` for `lbug`'s embedded graph engine.
