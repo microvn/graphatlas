@@ -10,14 +10,17 @@ name: Release
 #   graphatlas-<target>.tar.gz       — binary + ui-bundle/ + LICENSE-* + README
 #   graphatlas-<target>.tar.gz.sha256
 #
-# Matrix targets (native where possible — lbug 0.16.1 needs cmake + a C++
-# toolchain; cross-compile is painful so we stick to native runners):
+# Matrix targets (native where possible — lbug 0.16.1 needs cmake + GCC 12+
+# (uses C++20 <format> and AVX-512 FP16 intrinsics in bundled simsimd), so
+# Ubuntu 24.04 is the minimum. Cross-compile is painful so we stick to
+# native runners):
 #   darwin-arm64        macos-14         (Apple Silicon)
 #   darwin-x86_64       macos-13         (Intel)
-#   linux-x86_64-gnu    ubuntu-22.04
-#   linux-x86_64-musl   ubuntu-22.04     (musl-tools + x86_64-unknown-linux-musl)
-#   linux-aarch64       ubuntu-22.04-arm (GitHub-hosted arm64)
+#   linux-x86_64-gnu    ubuntu-24.04
+#   linux-aarch64       ubuntu-24.04-arm (GitHub-hosted arm64)
 #   windows-x86_64      windows-2022
+# musl deferred: musl-tools provides musl-gcc but not musl-g++; lbug = C++,
+# so musl needs a custom toolchain (cross / Docker). Revisit post-v0.1.0.
 
 on:
   push:
@@ -82,19 +85,17 @@ jobs:
             os: macos-13
             bin: graphatlas
             archive_ext: tar.gz
+          # ubuntu-24.04 ships GCC 13 — required by lbug 0.16.1's bundled
+          # simsimd (AVX-512 FP16 intrinsics, `__m512h`) and the C++20
+          # `<format>` header. GCC 11 on 22.04 fails both.
           - target: linux-x86_64-gnu
             rust_target: x86_64-unknown-linux-gnu
-            os: ubuntu-22.04
-            bin: graphatlas
-            archive_ext: tar.gz
-          - target: linux-x86_64-musl
-            rust_target: x86_64-unknown-linux-musl
-            os: ubuntu-22.04
+            os: ubuntu-24.04
             bin: graphatlas
             archive_ext: tar.gz
           - target: linux-aarch64
             rust_target: aarch64-unknown-linux-gnu
-            os: ubuntu-22.04-arm
+            os: ubuntu-24.04-arm
             bin: graphatlas
             archive_ext: tar.gz
           - target: windows-x86_64
@@ -116,11 +117,6 @@ jobs:
       - name: install cmake (windows)
         if: startsWith(matrix.os, 'windows')
         run: choco install cmake -y --no-progress
-
-      # musl-tools — for x86_64-unknown-linux-musl target.
-      - name: install musl-tools
-        if: matrix.target == 'linux-x86_64-musl'
-        run: sudo apt-get install -y musl-tools
 
       - uses: dtolnay/rust-toolchain@stable
         with:

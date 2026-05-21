@@ -40,20 +40,21 @@ case "$os" in
         esac
         ;;
     Linux)
-        # Musl detection: common signal is that `ldd --version` mentions 'musl'
-        # and dynamic-link check on /bin/sh comes back with ld-musl-*.
-        libc=gnu
+        # v0.1.0 ships glibc-linked binaries only. Detect musl + warn so
+        # the user gets a clear error instead of a runtime "not found".
+        # Musl support is tracked for a future release (needs musl-g++ in
+        # the build matrix; `musl-tools` alone doesn't cover lbug's C++).
         if ldd --version 2>&1 | grep -qi musl; then
-            libc=musl
+            err "musl libc detected — v0.1.0 ships glibc binaries only. Build from source: cargo install --git https://github.com/microvn/graphatlas"
         fi
         case "$arch" in
-            x86_64)  target="linux-x86_64-$libc" ;;
+            x86_64)  target="linux-x86_64-gnu" ;;
             aarch64) target="linux-aarch64" ;;
             *) err "unsupported Linux arch: $arch" ;;
         esac
         ;;
     MINGW*|MSYS*|CYGWIN*)
-        target="windows-x86_64"
+        err "Windows: download graphatlas-windows-x86_64.zip from the GitHub release page and extract manually — install.sh handles tarballs only."
         ;;
     *) err "unsupported OS: $os" ;;
 esac
