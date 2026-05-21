@@ -111,14 +111,40 @@ fi
 mkdir -p "$BIN_DIR"
 tar -xzf "$tar_path" -C "$tmp"
 
-# Tarball layout: graphatlas binary at the root.
-src_bin="$tmp/graphatlas"
-[ -f "$src_bin" ] || err "tarball missing graphatlas binary at root"
+# Tarball layout:
+#   graphatlas-<target>/
+#     ├── graphatlas         (CLI / MCP entry)
+#     ├── ga-server          (backend that `graphatlas ui` spawns)
+#     ├── ui-bundle/         (Bun-built React frontend)
+#     ├── LICENSE-MIT, LICENSE-APACHE, README.md
+extract_dir="$tmp/graphatlas-${target}"
+src_bin="$extract_dir/graphatlas"
+src_server="$extract_dir/ga-server"
+src_ui="$extract_dir/ui-bundle"
+[ -f "$src_bin" ] || err "tarball missing graphatlas binary at $src_bin"
 
 cp "$src_bin" "$BIN_DIR/graphatlas"
 chmod 0755 "$BIN_DIR/graphatlas"
-
 info "installed: $BIN_DIR/graphatlas"
+
+# ga-server lives next to graphatlas — resolve_ga_server_bin checks the
+# binary's own directory first, then PATH.
+if [ -f "$src_server" ]; then
+    cp "$src_server" "$BIN_DIR/ga-server"
+    chmod 0755 "$BIN_DIR/ga-server"
+    info "installed: $BIN_DIR/ga-server"
+fi
+
+# UI bundle — `graphatlas ui` looks for ~/.graphatlas/ui-bundle/ as one of
+# its fallback paths (see crates ga-server resolve_frontend_bundle).
+# Without this step, `graphatlas ui` errors with "frontend bundle not found".
+if [ -d "$src_ui" ]; then
+    ui_target="${GRAPHATLAS_UI_DIR:-$HOME/.graphatlas/ui-bundle}"
+    mkdir -p "$(dirname "$ui_target")"
+    rm -rf "$ui_target"
+    cp -R "$src_ui" "$ui_target"
+    info "installed UI bundle: $ui_target"
+fi
 
 # --- PATH hint ------------------------------------------------------------
 

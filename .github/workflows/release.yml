@@ -134,7 +134,10 @@ jobs:
       - name: cargo build --release
         env:
           LBUG_BUILD_FROM_SOURCE: "1"
-        run: cargo build --release --bin graphatlas --target ${{ matrix.rust_target }}
+        # `graphatlas ui` shells out to ga-server (axum backend) — both
+        # binaries must ship in the tarball. `-p` scoping is required
+        # because `--bin ga-server` would only search the root crate.
+        run: cargo build --release -p graphatlas -p ga-server --target ${{ matrix.rust_target }}
 
       - uses: actions/download-artifact@v4
         with:
@@ -148,7 +151,12 @@ jobs:
           set -euo pipefail
           STAGE="graphatlas-${{ matrix.target }}"
           mkdir -p "$STAGE"
-          cp "target/${{ matrix.rust_target }}/release/${{ matrix.bin }}" "$STAGE/"
+          # Both binaries — graphatlas is the CLI / MCP entry, ga-server is
+          # the backend `graphatlas ui` spawns. .exe suffix on Windows.
+          ext=""
+          [[ "${{ matrix.archive_ext }}" == "zip" ]] && ext=".exe"
+          cp "target/${{ matrix.rust_target }}/release/graphatlas${ext}" "$STAGE/"
+          cp "target/${{ matrix.rust_target }}/release/ga-server${ext}" "$STAGE/"
           cp -r ui-bundle "$STAGE/ui-bundle"
           cp LICENSE-MIT LICENSE-APACHE README.md "$STAGE/"
           ls -la "$STAGE"
