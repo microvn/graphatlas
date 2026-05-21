@@ -132,7 +132,7 @@ impl Store {
 
         let repo_root_str = repo_root.to_string_lossy().to_string();
         let metadata = match decision {
-            SchemaDecision::Match(m) => m,
+            SchemaDecision::Match(m) => *m,
             _ => Metadata::begin_indexing_with_schema(&layout, &repo_root_str, binary_schema)?,
         };
 
@@ -221,7 +221,7 @@ impl Store {
         // partial state. Refuse with a retryable error.
         let decision = Metadata::cold_load(&layout, binary_schema)?;
         let metadata = match decision {
-            SchemaDecision::Match(m) => m,
+            SchemaDecision::Match(m) => *m,
             SchemaDecision::NoCache | SchemaDecision::CrashedBuilding { .. } => {
                 return Err(Error::Other(anyhow::anyhow!(
                     "graphatlas: another instance is indexing this repo; no committed \

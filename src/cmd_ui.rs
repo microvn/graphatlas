@@ -562,17 +562,6 @@ fn resolve_ga_server_bin(_args: &UiArgs) -> Result<PathBuf> {
     ))
 }
 
-fn redacted(url: &str) -> String {
-    // Replace the token in the URL with `<token>` for terminal display.
-    // The full URL is still passed to the browser open call below; this
-    // is purely cosmetic for the terminal that runs `ga ui`.
-    if let Some(hash_idx) = url.find("#token=") {
-        let prefix = &url[..hash_idx + "#token=".len()];
-        return format!("{}<hidden>", prefix);
-    }
-    url.to_string()
-}
-
 /// Cross-platform browser launcher. Shells out via the OS-native
 /// opener; returns an error if the opener itself fails or isn't found.
 /// AS-010 — headless environments (no DISPLAY) typically have `open` /

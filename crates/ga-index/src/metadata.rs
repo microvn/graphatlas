@@ -72,7 +72,9 @@ pub enum SchemaDecision {
     /// No cache dir/file exists — indexer should fresh-build.
     NoCache,
     /// Cache matches binary schema and is `complete` — use it.
-    Match(Metadata),
+    /// Boxed because `Metadata` is ~240 B while other variants are ≤24 B
+    /// (clippy::large_enum_variant).
+    Match(Box<Metadata>),
     /// Cache schema_version != binary — delete + rebuild (AS-008 / AS-027).
     Mismatch { cache: u32, binary: u32 },
     /// Cache is `building` → previous indexer crashed; delete + rebuild (AS-025).
@@ -175,7 +177,7 @@ impl Metadata {
                 generation: m.index_generation,
             });
         }
-        Ok(SchemaDecision::Match(m))
+        Ok(SchemaDecision::Match(Box::new(m)))
     }
 
     /// Read metadata.json unconditionally (for doctor / list / tests).

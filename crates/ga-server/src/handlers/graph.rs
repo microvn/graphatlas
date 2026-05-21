@@ -66,6 +66,7 @@ fn err(code: &'static str, message: impl Into<String>) -> Json<ErrorBody> {
 /// (AS-040 / AS-041). Returns either:
 ///   * `Err(response)` — handler should return this immediately.
 ///   * `Ok(headers)`   — augmenting headers to attach on the success path.
+#[allow(clippy::result_large_err)] // axum Response is intentionally large; boxing would force unwrap at every callsite
 fn pre_gate(state: &AppState, slug: &str) -> Result<HeaderMap, Response> {
     // AS-041 cache state.
     match lookup_cache_state(&state.cfg.cache_root, slug) {

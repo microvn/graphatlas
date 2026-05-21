@@ -282,7 +282,7 @@ pub fn consume_progress<R: std::io::BufRead>(reader: R, state: Arc<Mutex<JobStat
     // — converting at the Vec<String> serialization boundary added more
     // complexity than the saved cycles.
     const LOG_TAIL_CAP: usize = 200;
-    for line in reader.lines().flatten() {
+    for line in reader.lines().map_while(Result::ok) {
         let parsed: Option<serde_json::Value> = serde_json::from_str(&line).ok();
         let mut st = state.lock().expect("JobState mutex poisoned");
         // Always keep the raw line in log_tail (capped).
@@ -366,7 +366,10 @@ impl JobLauncher for SubprocessLauncher {
             std::thread::spawn(move || {
                 use std::io::BufRead;
                 const STDERR_TAIL_CAP: usize = 50;
-                for line in std::io::BufReader::new(stderr).lines().flatten() {
+                for line in std::io::BufReader::new(stderr)
+                    .lines()
+                    .map_while(Result::ok)
+                {
                     {
                         let mut b = buf.lock().expect("stderr buf mutex poisoned");
                         if b.len() >= STDERR_TAIL_CAP {

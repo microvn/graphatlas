@@ -308,6 +308,7 @@ pub mod fake {
 }
 
 #[cfg(test)]
+#[allow(clippy::items_after_test_module)] // production driver follows the unit-test block by design
 mod unit {
     use super::*;
     use tempfile::tempdir;

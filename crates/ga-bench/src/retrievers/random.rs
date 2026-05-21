@@ -3,6 +3,9 @@
 
 use crate::retriever::{ImpactActual, Retriever};
 use crate::BenchError;
+// S-002-bench §4.2.6 medium-term refactor — single canonical via
+// `ga_query::common::is_test_path`.
+use ga_query::common::is_test_path;
 use serde_json::Value;
 use std::path::{Path, PathBuf};
 
@@ -174,7 +177,3 @@ mod is_interesting_tests {
         assert!(is_interesting_source("src/Console/Command.php"));
     }
 }
-
-// S-002-bench §4.2.6 medium-term refactor — single canonical via
-// `ga_query::common::is_test_path`.
-use ga_query::common::is_test_path;
