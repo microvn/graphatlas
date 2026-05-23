@@ -45,10 +45,11 @@ fn single_definition_yields_confidence_one() {
 }
 
 #[test]
-fn multi_def_no_filter_yields_ambiguous_confidence() {
-    // "target" defined in both a.py and b.py, each with its own caller.
-    // Without a file filter the query cannot prove which def any caller
-    // intended → confidence 0.6 for every entry.
+fn multi_def_no_filter_returns_ambiguous() {
+    // Updated 2026-05-22 (CORE-2): previously this test asserted the legacy
+    // fan-out at confidence 0.6 when a multi-def symbol was queried without
+    // a file hint. CORE-2 replaced that fan-out with an ambiguity-first
+    // response. See docs/investigate/ga-vs-codegraph-head-to-head-2026-05-21.md.
     let tmp = TempDir::new().unwrap();
     let (cache, repo) = setup(&tmp);
     write(
@@ -63,15 +64,12 @@ fn multi_def_no_filter_yields_ambiguous_confidence() {
     build_index(&store, &repo).unwrap();
 
     let resp = callers(&store, "target", None).unwrap();
-    assert_eq!(resp.callers.len(), 2);
-    for c in &resp.callers {
-        assert!(
-            (c.confidence - 0.6).abs() < 1e-6,
-            "expected 0.6 for {}, got {}",
-            c.symbol,
-            c.confidence
-        );
-    }
+    let dis = resp
+        .disambiguation
+        .as_ref()
+        .expect("multi-def + no hint → ambiguous disambiguation");
+    assert!(dis.candidates.len() >= 2);
+    assert!(resp.callers.is_empty());
 }
 
 #[test]

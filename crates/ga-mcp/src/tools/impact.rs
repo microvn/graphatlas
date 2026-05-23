@@ -69,6 +69,30 @@ pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     let start = Instant::now();
     let req = validate_args(args)?;
     let response = ga_query::impact(ctx.store().as_ref(), &req)?;
+    // P1.5 (2026-05-22) — Markdown opt-in for impact summaries.
+    if crate::markdown::wants_markdown(args) {
+        let seed_label = req.symbol.as_deref().unwrap_or_else(|| {
+            req.changed_files
+                .as_deref()
+                .and_then(|fs| fs.first().map(String::as_str))
+                .unwrap_or("(diff)")
+        });
+        let text = crate::markdown::render_impact(
+            seed_label,
+            &response.impacted_files,
+            &response.affected_tests,
+            &response.affected_routes,
+            &response.affected_configs,
+            &response.break_points,
+            response.disambiguation.as_ref(),
+        );
+        let _ = start;
+        return Ok(ToolsCallResult {
+            content: vec![ContentBlock::Text { text }],
+            is_error: false,
+        });
+    }
+
     let mut payload = json!({
         "tool": "ga_impact",
         "impacted_files": response.impacted_files,
@@ -79,6 +103,11 @@ pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
         "break_points": response.break_points,
         "meta": response.meta,
     });
+    // CORE-2 (2026-05-22) — forward disambiguation payload when seed is
+    // ambiguous (multi-def + no file hint).
+    if let Some(dis) = response.disambiguation.as_ref() {
+        payload["disambiguation"] = json!(dis);
+    }
     inject_common_meta(&mut payload, ctx, start);
     Ok(ToolsCallResult {
         content: vec![ContentBlock::Json { json: payload }],

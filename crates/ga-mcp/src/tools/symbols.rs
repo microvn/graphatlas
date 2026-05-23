@@ -65,6 +65,17 @@ pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     let start = Instant::now();
     let (pattern, mode) = validate_args(args)?;
     let response = ga_query::symbols(ctx.store().as_ref(), pattern, mode)?;
+
+    // P1.5 (2026-05-22) — Markdown opt-in.
+    if crate::markdown::wants_markdown(args) {
+        let text = crate::markdown::render_symbols(pattern, &response.symbols);
+        let _ = start;
+        return Ok(ToolsCallResult {
+            content: vec![ContentBlock::Text { text }],
+            is_error: false,
+        });
+    }
+
     let mut payload = json!({
         "tool": "ga_symbols",
         "pattern": pattern,

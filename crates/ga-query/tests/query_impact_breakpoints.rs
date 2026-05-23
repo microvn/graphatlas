@@ -93,12 +93,15 @@ fn breakpoints_multiple_callers_same_file() {
 }
 
 #[test]
-fn breakpoints_multi_file_callers() {
+fn breakpoints_multi_file_callers_now_ambiguous() {
+    // Updated 2026-05-22 (CORE-2): pre-CORE-2 this test traversed all 3 same-
+    // name defs and asserted break_points covered all 3 files. CORE-2 now
+    // returns a disambiguation when the seed is multi-def + no file hint, so
+    // no traversal happens. The test setup is preserved; assertion validates
+    // the new behavior. A separate test (`breakpoints_multi_file_with_hint`)
+    // could exercise the file-hint path that DOES traverse.
     let tmp = TempDir::new().unwrap();
     let (cache, repo) = setup(&tmp);
-    // `target` defined in 3 files (polymorphic). Each file has a local caller.
-    // CALLS resolution is same-file only today, so each caller calls the
-    // target-in-same-file. The break point list must cover all 3 files.
     write(
         &repo.join("a.py"),
         "def target(): pass\n\ndef a_caller():\n    target()\n",
@@ -115,9 +118,13 @@ fn breakpoints_multi_file_callers() {
     build_index(&store, &repo).unwrap();
 
     let resp = run_impact(&store, "target");
-    let mut files: Vec<String> = resp.break_points.iter().map(|bp| bp.file.clone()).collect();
-    files.sort();
-    assert_eq!(files, vec!["a.py", "b.py", "c.py"]);
+    let dis = resp
+        .disambiguation
+        .as_ref()
+        .expect("multi-def + no hint → ambiguous");
+    assert!(dis.candidates.len() >= 3, "{:?}", dis.candidates);
+    assert!(resp.break_points.is_empty());
+    assert!(resp.impacted_files.is_empty());
 }
 
 #[test]

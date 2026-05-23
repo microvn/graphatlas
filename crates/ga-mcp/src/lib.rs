@@ -9,9 +9,11 @@
 //!   handlers.rs / tools/ — transport-agnostic request dispatch. rmcp
 //!             wraps these; neither types nor tool descriptors change.
 
+pub(crate) mod compact;
 pub mod context;
 pub mod error;
 pub mod handlers;
+pub(crate) mod markdown;
 pub mod telemetry;
 pub mod tools;
 pub mod types;

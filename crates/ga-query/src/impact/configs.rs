@@ -6,8 +6,14 @@
 //! one [`AffectedConfig`] per `(path, line)` hit.
 //!
 //! Heavy / vendored directories are skipped: `.git`, `node_modules`, `target`,
-//! `vendor`, `dist`, `build`, `.graphatlas`. This keeps the scan bounded on
-//! monorepos without pulling in a gitignore parser for v1.
+//! `vendor`, `dist`, `build`, `.graphatlas`. CI vendor dirs (`.github`,
+//! `.gitlab`, `.gitea`, `.circleci`), tool-cache dirs from other graph tools
+//! (`.arbor`, `.playwright-mcp`, `.codegraph`, `.code-review-graph`, `.axon`,
+//! `.gitnexus`, `.gstack`), and IDE workspaces (`.idea`, `.vscode`) are also
+//! skipped — they hold repo plumbing, not app runtime config. CORE-1
+//! (2026-05-22). Well-known repo-root tooling files (`.golangci.yml`,
+//! `.eslintrc.json`, `.travis.yml`, etc.) are filtered by filename via
+//! [`SKIP_FILES`] so app yaml/toml/json continues to surface.
 
 use super::types::AffectedConfig;
 use crate::common;
@@ -16,6 +22,7 @@ use ga_index::Store;
 use std::path::{Path, PathBuf};
 
 const SKIP_DIRS: &[&str] = &[
+    // Heavy / vendored
     ".git",
     ".graphatlas",
     "node_modules",
@@ -23,6 +30,60 @@ const SKIP_DIRS: &[&str] = &[
     "vendor",
     "dist",
     "build",
+    // CI vendor dirs — CORE-1 (2026-05-22). These hold pipeline metadata, not
+    // app runtime config; mentioning a symbol there is repo plumbing, not a
+    // runtime dependency. Confirmed leak on gin (.github/) and tokio
+    // (.github/labeler.yml).
+    ".github",
+    ".gitlab",
+    ".gitea",
+    ".circleci",
+    // Tool-cache / artifact dirs from other graph + code-review tools.
+    // These end up inside user repos when users try alternatives — treat as
+    // user-installed caches, not config. Confirmed leak on cardshield.
+    ".arbor",
+    ".playwright-mcp",
+    ".codegraph",
+    ".code-review-graph",
+    ".axon",
+    ".gitnexus",
+    ".gstack",
+    // IDE workspace settings — editor metadata, not runtime config.
+    ".idea",
+    ".vscode",
+];
+
+/// Repo-root tooling/lint configs that match the .yaml/.toml/.json extension
+/// gate but are *not* app runtime config. Exact filename match keeps the list
+/// conservative — a yaml *not* on this list will still surface (so app yaml
+/// like `config/prod.yaml` is unaffected). CORE-1 (2026-05-22).
+const SKIP_FILES: &[&str] = &[
+    // Go ecosystem tooling
+    ".golangci.yml",
+    ".golangci.yaml",
+    ".goreleaser.yml",
+    ".goreleaser.yaml",
+    // JS / TS ecosystem linters / formatters
+    ".eslintrc.json",
+    ".eslintrc.yaml",
+    ".eslintrc.yml",
+    ".prettierrc.json",
+    ".prettierrc.yaml",
+    ".prettierrc.yml",
+    ".stylelintrc.json",
+    ".stylelintrc.yaml",
+    ".stylelintrc.yml",
+    ".babelrc.json",
+    ".markdownlintrc.json",
+    ".markdownlint.json",
+    ".markdownlint.yaml",
+    ".markdownlint.yml",
+    // CI files at repo root (no parent dir to skip)
+    ".travis.yml",
+    ".travis.yaml",
+    "dependabot.yml",
+    "dependabot.yaml",
+    "renovate.json",
 ];
 
 pub(super) fn collect_affected_configs(
@@ -71,6 +132,12 @@ fn walk(base: &Path, dir: &Path, symbol: &str, stems: &[String], out: &mut Vec<A
 }
 
 fn is_config_file(name: &str) -> bool {
+    // CORE-1: skip well-known tooling configs by exact filename even though
+    // they match the extension gate. Keeps app config (config/*.yaml,
+    // pyproject.toml, package.json) flowing through.
+    if SKIP_FILES.contains(&name) {
+        return false;
+    }
     if name.starts_with(".env") {
         return true;
     }

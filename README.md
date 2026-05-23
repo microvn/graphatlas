@@ -159,6 +159,35 @@ Tree-sitter parsers ship for **Rust, TypeScript, JavaScript, Python, Go, Java, K
 
 Adding a language is a `LanguageSpec` impl plus a tree-sitter dependency.
 
+## How it's built
+
+GraphAtlas is a Rust workspace, ~45K LOC across 7 crates. Each crate is a layer; dependencies only point downward.
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  Surface       ga-mcp · ga-server                            │  MCP stdio + HTTP/UI
+├──────────────────────────────────────────────────────────────┤
+│  Query         ga-query                                      │  callers · callees · impact · symbols
+├──────────────────────────────────────────────────────────────┤
+│  Index         ga-index                                      │  graph CRUD · generation · lifecycle · lock
+├──────────────────────────────────────────────────────────────┤
+│  Extraction    ga-parser                                     │  tree-sitter · LanguageSpec · 10 langs
+├──────────────────────────────────────────────────────────────┤
+│  Core          ga-core                                       │  Symbol · Edge · Error types
+└──────────────────────────────────────────────────────────────┘
+                          ga-bench  ⟵  drives the full stack end-to-end for the M1/M2/M3 gates
+```
+
+**Core** is tiny — types and errors, no IO. **Extraction** is a pure tree-sitter front-end: parse a file, emit symbols / references / calls / imports. No knowledge of storage. **Index** owns the graph: it wraps [LadybugDB](https://ladybugdb.com/) (embedded property graph, Cypher), handles schema, generation hashes, file locks, and incremental rebuilds. **Query** is read-side — every MCP tool resolves to one query function with deterministic ranking. **Surface** is the adapter layer: MCP wire protocol for agents, HTTP + bundled UI for humans.
+
+Three design choices worth calling out:
+
+- **Embedded graph DB, not a service.** Zero infra to run. `cargo install` + `graphatlas reindex` and you have a queryable graph. The cost is per-machine indexing; the win is no daemon, no port, no network hop.
+- **Polymorphic dispatch resolved at index time.** Overrides, trait impls, and re-exports become first-class edges in the graph — not regex heuristics at query time. That's what lets `ga_callers` see the subscription override grep can't.
+- **No LLM anywhere in the engine.** Extraction is tree-sitter, ranking is deterministic, compaction is rule-based. The LLM only sees the result. Determinism is the feature — same graph + same query = byte-identical answer.
+
+Honest note: `ga-query` currently owns the indexer build code as well as the read path (~2.3K LOC of build logic lives there for historical reasons). Splitting it into a dedicated pipeline crate is on the roadmap; it doesn't affect API or correctness, only crate boundaries.
+
 ## Status
 
 Pre-1.0 — API and graph schema may change between minor versions until v1.0.0. See `CHANGELOG.md` for what's released vs in-flight, `CONTRIBUTING.md` for build / test gates, and `crates/` for the workspace breakdown.

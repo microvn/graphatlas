@@ -109,10 +109,46 @@ pub struct CallersMeta {
     pub suggestion: Vec<String>,
 }
 
+/// CORE-2 (2026-05-22) — one candidate definition when a symbol query
+/// resolves to multiple defs and the caller did not narrow with `file:`.
+/// The LLM (or human) retries with `file: candidate.file` or a qualified name
+/// (`file::symbol`) to pin to exactly one def.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct DefCandidate {
+    /// `<file>::<symbol>` — drop-in qualified name for the next call.
+    pub qualified_name: String,
+    pub file: String,
+    pub line: u32,
+    /// Symbol kind from the graph node (`"function"`, `"method"`, `"class"`, …).
+    pub kind: String,
+}
+
+/// CORE-2 (2026-05-22) — ambiguity-first payload returned by `callers`,
+/// `callees`, `impact` when a multi-def symbol is queried without a hint.
+///
+/// Inspired by CRG (code-review-graph). Cleaner than fan-out at confidence
+/// 0.6 — forces the caller to disambiguate before traversal. Saves 30-100×
+/// tokens on hot symbols (`block_on`, `Default`, `JoinHandle`).
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Disambiguation {
+    /// Always `"ambiguous"` in v1. Reserved for future reasons
+    /// (e.g. `"not_found_but_similar"`).
+    pub reason: String,
+    /// Human/LLM-readable hint describing how to retry.
+    pub hint: String,
+    /// All defs of the queried symbol (one per file).
+    pub candidates: Vec<DefCandidate>,
+}
+
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct CallersResponse {
     pub callers: Vec<CallerEntry>,
     pub meta: CallersMeta,
+    /// Populated only when the queried symbol has >1 definition AND no
+    /// `file:` hint was passed (CORE-2). `callers` is empty in this case.
+    /// Bypass with env `GA_AMBIGUITY_LEGACY=1` to restore fan-out behaviour.
+    #[serde(skip_serializing_if = "Option::is_none", default)]
+    pub disambiguation: Option<Disambiguation>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -145,6 +181,9 @@ pub struct CalleesMeta {
 pub struct CalleesResponse {
     pub callees: Vec<CalleeEntry>,
     pub meta: CalleesMeta,
+    /// CORE-2 — see [`CallersResponse::disambiguation`].
+    #[serde(skip_serializing_if = "Option::is_none", default)]
+    pub disambiguation: Option<Disambiguation>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -194,6 +233,31 @@ pub fn callers(store: &Store, symbol: &str, file: Option<&str>) -> Result<Caller
 
     // Drives AS-003 polymorphic confidence.
     let def_count = common::count_defs(&conn, symbol)?;
+
+    // CORE-2 (2026-05-22) — ambiguity-first multi-def resolution. When the
+    // symbol has >1 def AND the caller did not narrow with `file:`, we used to
+    // fan out callers of all defs at confidence 0.6 (tokio `block_on`: 17k
+    // tokens of mostly noise). Return a structured disambiguation instead so
+    // the LLM (or human) retries with a hint or qualified name.
+    // Opt-out: `GA_AMBIGUITY_LEGACY=1`.
+    if def_count > 1 && file.is_none() && !common::ambiguity_legacy_enabled() {
+        let candidates = common::list_defs(&conn, symbol)?;
+        return Ok(CallersResponse {
+            callers: Vec::new(),
+            meta: CallersMeta {
+                symbol_found: true,
+                suggestion: Vec::new(),
+            },
+            disambiguation: Some(Disambiguation {
+                reason: "ambiguous".into(),
+                hint: format!(
+                    "Symbol '{}' has {} definitions. Re-issue with `file:` hint or use a `<file>::<symbol>` qualified target.",
+                    symbol, def_count
+                ),
+                candidates,
+            }),
+        });
+    }
 
     // Always pull callee.file so we can classify each edge's confidence.
     // File filter is applied in Rust (not Cypher) because polymorphic
@@ -337,5 +401,6 @@ pub fn callers(store: &Store, symbol: &str, file: Option<&str>) -> Result<Caller
             symbol_found,
             suggestion,
         },
+        disambiguation: None,
     })
 }
