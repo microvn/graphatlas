@@ -1,0 +1,2938 @@
+{
+  "schema_version": 1,
+  "uc": "callees",
+  "fixture": "gin",
+  "tasks": [
+    {
+      "task_id": "textmatch_AbortWithError",
+      "query": {
+        "__rationale": "2 callees appear inside `AbortWithError`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "AbortWithError"
+      },
+      "expected": [
+        "AbortWithStatus",
+        "Error"
+      ]
+    },
+    {
+      "task_id": "textmatch_AbortWithStatus",
+      "query": {
+        "__rationale": "3 callees appear inside `AbortWithStatus`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "AbortWithStatus"
+      },
+      "expected": [
+        "Abort",
+        "Status",
+        "WriteHeaderNow"
+      ]
+    },
+    {
+      "task_id": "textmatch_AbortWithStatusJSON",
+      "query": {
+        "__rationale": "2 callees appear inside `AbortWithStatusJSON`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "AbortWithStatusJSON"
+      },
+      "expected": [
+        "Abort",
+        "JSON"
+      ]
+    },
+    {
+      "task_id": "textmatch_AbortWithStatusPureJSON",
+      "query": {
+        "__rationale": "2 callees appear inside `AbortWithStatusPureJSON`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "AbortWithStatusPureJSON"
+      },
+      "expected": [
+        "Abort",
+        "PureJSON"
+      ]
+    },
+    {
+      "task_id": "textmatch_Any",
+      "query": {
+        "__rationale": "4 callees appear inside `Any`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "ginS/gins.go",
+        "symbol": "Any"
+      },
+      "expected": [
+        "Any",
+        "engine",
+        "handle",
+        "returnObj"
+      ]
+    },
+    {
+      "task_id": "textmatch_BasicAuthForProxy",
+      "query": {
+        "__rationale": "7 callees appear inside `BasicAuthForProxy`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "auth.go",
+        "symbol": "BasicAuthForProxy"
+      },
+      "expected": [
+        "AbortWithStatus",
+        "Header",
+        "Quote",
+        "Set",
+        "processAccounts",
+        "requestHeader",
+        "searchCredential"
+      ]
+    },
+    {
+      "task_id": "textmatch_BasicAuthForRealm",
+      "query": {
+        "__rationale": "7 callees appear inside `BasicAuthForRealm`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "auth.go",
+        "symbol": "BasicAuthForRealm"
+      },
+      "expected": [
+        "AbortWithStatus",
+        "Header",
+        "Quote",
+        "Set",
+        "processAccounts",
+        "requestHeader",
+        "searchCredential"
+      ]
+    },
+    {
+      "task_id": "textmatch_Bind",
+      "query": {
+        "__rationale": "26 callees appear inside `Bind`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form.go",
+        "symbol": "Bind"
+      },
+      "expected": [
+        "Bind",
+        "BindBody",
+        "ContentType",
+        "Default",
+        "Interface",
+        "Kind",
+        "MustBindWith",
+        "New",
+        "ParseForm",
+        "ParseMultipartForm",
+        "Query",
+        "ReadAll",
+        "Set",
+        "Type",
+        "ValueOf",
+        "decodeJSON",
+        "decodeMsgPack",
+        "decodePlain",
+        "decodeToml",
+        "decodeXML",
+        "decodeYAML",
+        "mapForm",
+        "mapHeader",
+        "mappingByPtr",
+        "panic",
+        "validate"
+      ]
+    },
+    {
+      "task_id": "textmatch_BindBody",
+      "query": {
+        "__rationale": "9 callees appear inside `BindBody`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/json.go",
+        "symbol": "BindBody"
+      },
+      "expected": [
+        "New",
+        "NewReader",
+        "Unmarshal",
+        "decodeJSON",
+        "decodeMsgPack",
+        "decodePlain",
+        "decodeToml",
+        "decodeXML",
+        "decodeYAML"
+      ]
+    },
+    {
+      "task_id": "textmatch_BindUri",
+      "query": {
+        "__rationale": "5 callees appear inside `BindUri`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/uri.go",
+        "symbol": "BindUri"
+      },
+      "expected": [
+        "AbortWithError",
+        "SetType",
+        "ShouldBindUri",
+        "mapURI",
+        "validate"
+      ]
+    },
+    {
+      "task_id": "textmatch_BindWith",
+      "query": {
+        "__rationale": "2 callees appear inside `BindWith`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "deprecated.go",
+        "symbol": "BindWith"
+      },
+      "expected": [
+        "MustBindWith",
+        "Println"
+      ]
+    },
+    {
+      "task_id": "textmatch_ByType",
+      "query": {
+        "__rationale": "3 callees appear inside `ByType`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "errors.go",
+        "symbol": "ByType"
+      },
+      "expected": [
+        "IsType",
+        "append",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_BytesToString",
+      "query": {
+        "__rationale": "3 callees appear inside `BytesToString`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "internal/bytesconv/bytesconv.go",
+        "symbol": "BytesToString"
+      },
+      "expected": [
+        "SliceData",
+        "String",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_ClientIP",
+      "query": {
+        "__rationale": "7 callees appear inside `ClientIP`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "ClientIP"
+      },
+      "expected": [
+        "ParseIP",
+        "Println",
+        "RemoteIP",
+        "String",
+        "isTrustedProxy",
+        "requestHeader",
+        "validateHeader"
+      ]
+    },
+    {
+      "task_id": "textmatch_ContentType",
+      "query": {
+        "__rationale": "2 callees appear inside `ContentType`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "ContentType"
+      },
+      "expected": [
+        "filterFlags",
+        "requestHeader"
+      ]
+    },
+    {
+      "task_id": "textmatch_Cookie",
+      "query": {
+        "__rationale": "2 callees appear inside `Cookie`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "Cookie"
+      },
+      "expected": [
+        "Cookie",
+        "QueryUnescape"
+      ]
+    },
+    {
+      "task_id": "textmatch_Copy",
+      "query": {
+        "__rationale": "6 callees appear inside `Copy`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "Copy"
+      },
+      "expected": [
+        "Clone",
+        "RLock",
+        "RUnlock",
+        "copy",
+        "len",
+        "make"
+      ]
+    },
+    {
+      "task_id": "textmatch_CreateTestContext",
+      "query": {
+        "__rationale": "3 callees appear inside `CreateTestContext`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "test_helpers.go",
+        "symbol": "CreateTestContext"
+      },
+      "expected": [
+        "New",
+        "allocateContext",
+        "reset"
+      ]
+    },
+    {
+      "task_id": "textmatch_CreateTestContextOnly",
+      "query": {
+        "__rationale": "2 callees appear inside `CreateTestContextOnly`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "test_helpers.go",
+        "symbol": "CreateTestContextOnly"
+      },
+      "expected": [
+        "allocateContext",
+        "reset"
+      ]
+    },
+    {
+      "task_id": "textmatch_CustomRecoveryWithWriter",
+      "query": {
+        "__rationale": "14 callees appear inside `CustomRecoveryWithWriter`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "recovery.go",
+        "symbol": "CustomRecoveryWithWriter"
+      },
+      "expected": [
+        "Abort",
+        "Contains",
+        "Error",
+        "IsDebugging",
+        "New",
+        "Next",
+        "Now",
+        "Printf",
+        "ToLower",
+        "handle",
+        "recover",
+        "secureRequestDump",
+        "stack",
+        "timeFormat"
+      ]
+    },
+    {
+      "task_id": "textmatch_DELETE",
+      "query": {
+        "__rationale": "3 callees appear inside `DELETE`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "ginS/gins.go",
+        "symbol": "DELETE"
+      },
+      "expected": [
+        "DELETE",
+        "engine",
+        "handle"
+      ]
+    },
+    {
+      "task_id": "textmatch_Deadline",
+      "query": {
+        "__rationale": "3 callees appear inside `Deadline`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "Deadline"
+      },
+      "expected": [
+        "Context",
+        "Deadline",
+        "hasRequestContext"
+      ]
+    },
+    {
+      "task_id": "textmatch_Default",
+      "query": {
+        "__rationale": "6 callees appear inside `Default`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "Default"
+      },
+      "expected": [
+        "Logger",
+        "New",
+        "Recovery",
+        "Use",
+        "With",
+        "debugPrintWARNINGDefault"
+      ]
+    },
+    {
+      "task_id": "textmatch_Descriptor",
+      "query": {
+        "__rationale": "2 callees appear inside `Descriptor`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "testdata/protoexample/test.pb.go",
+        "symbol": "Descriptor"
+      },
+      "expected": [
+        "Descriptor",
+        "file_test_proto_rawDescGZIP"
+      ]
+    },
+    {
+      "task_id": "textmatch_Done",
+      "query": {
+        "__rationale": "3 callees appear inside `Done`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "Done"
+      },
+      "expected": [
+        "Context",
+        "Done",
+        "hasRequestContext"
+      ]
+    },
+    {
+      "task_id": "textmatch_Err",
+      "query": {
+        "__rationale": "3 callees appear inside `Err`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "Err"
+      },
+      "expected": [
+        "Context",
+        "Err",
+        "hasRequestContext"
+      ]
+    },
+    {
+      "task_id": "textmatch_Error",
+      "query": {
+        "__rationale": "8 callees appear inside `Error`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/default_validator.go",
+        "symbol": "Error"
+      },
+      "expected": [
+        "Error",
+        "Itoa",
+        "Len",
+        "String",
+        "WriteString",
+        "append",
+        "len",
+        "panic"
+      ]
+    },
+    {
+      "task_id": "textmatch_ErrorLoggerT",
+      "query": {
+        "__rationale": "4 callees appear inside `ErrorLoggerT`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "logger.go",
+        "symbol": "ErrorLoggerT"
+      },
+      "expected": [
+        "ByType",
+        "JSON",
+        "Next",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_Errors",
+      "query": {
+        "__rationale": "3 callees appear inside `Errors`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "errors.go",
+        "symbol": "Errors"
+      },
+      "expected": [
+        "Error",
+        "len",
+        "make"
+      ]
+    },
+    {
+      "task_id": "textmatch_FileAttachment",
+      "query": {
+        "__rationale": "6 callees appear inside `FileAttachment`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "FileAttachment"
+      },
+      "expected": [
+        "Header",
+        "QueryEscape",
+        "ServeFile",
+        "Set",
+        "escapeQuotes",
+        "isASCII"
+      ]
+    },
+    {
+      "task_id": "textmatch_FileFromFS",
+      "query": {
+        "__rationale": "2 callees appear inside `FileFromFS`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "FileFromFS"
+      },
+      "expected": [
+        "FileServer",
+        "ServeHTTP"
+      ]
+    },
+    {
+      "task_id": "textmatch_Flush",
+      "query": {
+        "__rationale": "2 callees appear inside `Flush`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "response_writer.go",
+        "symbol": "Flush"
+      },
+      "expected": [
+        "Flush",
+        "WriteHeaderNow"
+      ]
+    },
+    {
+      "task_id": "textmatch_FormFile",
+      "query": {
+        "__rationale": "3 callees appear inside `FormFile`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "FormFile"
+      },
+      "expected": [
+        "Close",
+        "FormFile",
+        "ParseMultipartForm"
+      ]
+    },
+    {
+      "task_id": "textmatch_GET",
+      "query": {
+        "__rationale": "3 callees appear inside `GET`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "ginS/gins.go",
+        "symbol": "GET"
+      },
+      "expected": [
+        "GET",
+        "engine",
+        "handle"
+      ]
+    },
+    {
+      "task_id": "textmatch_Get",
+      "query": {
+        "__rationale": "2 callees appear inside `Get`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "Get"
+      },
+      "expected": [
+        "RLock",
+        "RUnlock"
+      ]
+    },
+    {
+      "task_id": "textmatch_GetPostFormMap",
+      "query": {
+        "__rationale": "2 callees appear inside `GetPostFormMap`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "GetPostFormMap"
+      },
+      "expected": [
+        "getMapFromFormData",
+        "initFormCache"
+      ]
+    },
+    {
+      "task_id": "textmatch_GetQueryMap",
+      "query": {
+        "__rationale": "2 callees appear inside `GetQueryMap`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "GetQueryMap"
+      },
+      "expected": [
+        "getMapFromFormData",
+        "initQueryCache"
+      ]
+    },
+    {
+      "task_id": "textmatch_GetRawData",
+      "query": {
+        "__rationale": "2 callees appear inside `GetRawData`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "GetRawData"
+      },
+      "expected": [
+        "New",
+        "ReadAll"
+      ]
+    },
+    {
+      "task_id": "textmatch_Group",
+      "query": {
+        "__rationale": "4 callees appear inside `Group`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "ginS/gins.go",
+        "symbol": "Group"
+      },
+      "expected": [
+        "Group",
+        "calculateAbsolutePath",
+        "combineHandlers",
+        "engine"
+      ]
+    },
+    {
+      "task_id": "textmatch_HEAD",
+      "query": {
+        "__rationale": "3 callees appear inside `HEAD`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "ginS/gins.go",
+        "symbol": "HEAD"
+      },
+      "expected": [
+        "HEAD",
+        "engine",
+        "handle"
+      ]
+    },
+    {
+      "task_id": "textmatch_HTML",
+      "query": {
+        "__rationale": "2 callees appear inside `HTML`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "HTML"
+      },
+      "expected": [
+        "Instance",
+        "Render"
+      ]
+    },
+    {
+      "task_id": "textmatch_Handle",
+      "query": {
+        "__rationale": "5 callees appear inside `Handle`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "ginS/gins.go",
+        "symbol": "Handle"
+      },
+      "expected": [
+        "Handle",
+        "MatchString",
+        "engine",
+        "handle",
+        "panic"
+      ]
+    },
+    {
+      "task_id": "textmatch_HandleContext",
+      "query": {
+        "__rationale": "2 callees appear inside `HandleContext`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "HandleContext"
+      },
+      "expected": [
+        "handleHTTPRequest",
+        "reset"
+      ]
+    },
+    {
+      "task_id": "textmatch_Handler",
+      "query": {
+        "__rationale": "2 callees appear inside `Handler`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "Handler"
+      },
+      "expected": [
+        "Last",
+        "NewHandler"
+      ]
+    },
+    {
+      "task_id": "textmatch_HandlerName",
+      "query": {
+        "__rationale": "2 callees appear inside `HandlerName`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "HandlerName"
+      },
+      "expected": [
+        "Last",
+        "nameOfFunction"
+      ]
+    },
+    {
+      "task_id": "textmatch_HandlerNames",
+      "query": {
+        "__rationale": "4 callees appear inside `HandlerNames`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "HandlerNames"
+      },
+      "expected": [
+        "append",
+        "len",
+        "make",
+        "nameOfFunction"
+      ]
+    },
+    {
+      "task_id": "textmatch_Header",
+      "query": {
+        "__rationale": "3 callees appear inside `Header`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "Header"
+      },
+      "expected": [
+        "Del",
+        "Header",
+        "Set"
+      ]
+    },
+    {
+      "task_id": "textmatch_IsWebsocket",
+      "query": {
+        "__rationale": "4 callees appear inside `IsWebsocket`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "IsWebsocket"
+      },
+      "expected": [
+        "Contains",
+        "EqualFold",
+        "ToLower",
+        "requestHeader"
+      ]
+    },
+    {
+      "task_id": "textmatch_JSON",
+      "query": {
+        "__rationale": "12 callees appear inside `JSON`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "JSON"
+      },
+      "expected": [
+        "Error",
+        "Interface",
+        "JSON",
+        "Kind",
+        "Last",
+        "MapIndex",
+        "MapKeys",
+        "Render",
+        "String",
+        "ValueOf",
+        "len",
+        "make"
+      ]
+    },
+    {
+      "task_id": "textmatch_JSONP",
+      "query": {
+        "__rationale": "2 callees appear inside `JSONP`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "JSONP"
+      },
+      "expected": [
+        "DefaultQuery",
+        "Render"
+      ]
+    },
+    {
+      "task_id": "textmatch_LoadHTMLFS",
+      "query": {
+        "__rationale": "9 callees appear inside `LoadHTMLFS`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "LoadHTMLFS"
+      },
+      "expected": [
+        "Delims",
+        "Funcs",
+        "IsDebugging",
+        "LoadHTMLFS",
+        "Must",
+        "New",
+        "ParseFS",
+        "SetHTMLTemplate",
+        "engine"
+      ]
+    },
+    {
+      "task_id": "textmatch_LoadHTMLFiles",
+      "query": {
+        "__rationale": "9 callees appear inside `LoadHTMLFiles`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "LoadHTMLFiles"
+      },
+      "expected": [
+        "Delims",
+        "Funcs",
+        "IsDebugging",
+        "LoadHTMLFiles",
+        "Must",
+        "New",
+        "ParseFiles",
+        "SetHTMLTemplate",
+        "engine"
+      ]
+    },
+    {
+      "task_id": "textmatch_LoadHTMLGlob",
+      "query": {
+        "__rationale": "10 callees appear inside `LoadHTMLGlob`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "LoadHTMLGlob"
+      },
+      "expected": [
+        "Delims",
+        "Funcs",
+        "IsDebugging",
+        "LoadHTMLGlob",
+        "Must",
+        "New",
+        "ParseGlob",
+        "SetHTMLTemplate",
+        "debugPrintLoadTemplate",
+        "engine"
+      ]
+    },
+    {
+      "task_id": "textmatch_LoggerWithConfig",
+      "query": {
+        "__rationale": "16 callees appear inside `LoggerWithConfig`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "logger.go",
+        "symbol": "LoggerWithConfig"
+      },
+      "expected": [
+        "ByType",
+        "ClientIP",
+        "Fprint",
+        "Getenv",
+        "IsCygwinTerminal",
+        "IsTerminal",
+        "Next",
+        "Now",
+        "Size",
+        "Skip",
+        "Status",
+        "String",
+        "Sub",
+        "formatter",
+        "len",
+        "make"
+      ]
+    },
+    {
+      "task_id": "textmatch_MarshalJSON",
+      "query": {
+        "__rationale": "2 callees appear inside `MarshalJSON`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "errors.go",
+        "symbol": "MarshalJSON"
+      },
+      "expected": [
+        "JSON",
+        "Marshal"
+      ]
+    },
+    {
+      "task_id": "textmatch_MarshalXML",
+      "query": {
+        "__rationale": "2 callees appear inside `MarshalXML`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "utils.go",
+        "symbol": "MarshalXML"
+      },
+      "expected": [
+        "EncodeElement",
+        "EncodeToken"
+      ]
+    },
+    {
+      "task_id": "textmatch_Match",
+      "query": {
+        "__rationale": "2 callees appear inside `Match`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "routergroup.go",
+        "symbol": "Match"
+      },
+      "expected": [
+        "handle",
+        "returnObj"
+      ]
+    },
+    {
+      "task_id": "textmatch_MustBindWith",
+      "query": {
+        "__rationale": "3 callees appear inside `MustBindWith`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "MustBindWith"
+      },
+      "expected": [
+        "AbortWithError",
+        "SetType",
+        "ShouldBindWith"
+      ]
+    },
+    {
+      "task_id": "textmatch_MustGet",
+      "query": {
+        "__rationale": "3 callees appear inside `MustGet`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "MustGet"
+      },
+      "expected": [
+        "Get",
+        "Sprintf",
+        "panic"
+      ]
+    },
+    {
+      "task_id": "textmatch_Negotiate",
+      "query": {
+        "__rationale": "9 callees appear inside `Negotiate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "Negotiate"
+      },
+      "expected": [
+        "AbortWithError",
+        "HTML",
+        "JSON",
+        "NegotiateFormat",
+        "New",
+        "TOML",
+        "XML",
+        "YAML",
+        "chooseData"
+      ]
+    },
+    {
+      "task_id": "textmatch_NegotiateFormat",
+      "query": {
+        "__rationale": "4 callees appear inside `NegotiateFormat`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "NegotiateFormat"
+      },
+      "expected": [
+        "assert1",
+        "len",
+        "parseAccept",
+        "requestHeader"
+      ]
+    },
+    {
+      "task_id": "textmatch_New",
+      "query": {
+        "__rationale": "4 callees appear inside `New`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "New"
+      },
+      "expected": [
+        "With",
+        "allocateContext",
+        "debugPrintWARNINGNew",
+        "make"
+      ]
+    },
+    {
+      "task_id": "textmatch_Next",
+      "query": {
+        "__rationale": "2 callees appear inside `Next`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "Next"
+      },
+      "expected": [
+        "int8",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_NoMethod",
+      "query": {
+        "__rationale": "3 callees appear inside `NoMethod`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "NoMethod"
+      },
+      "expected": [
+        "NoMethod",
+        "engine",
+        "rebuild405Handlers"
+      ]
+    },
+    {
+      "task_id": "textmatch_NoRoute",
+      "query": {
+        "__rationale": "3 callees appear inside `NoRoute`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "NoRoute"
+      },
+      "expected": [
+        "NoRoute",
+        "engine",
+        "rebuild404Handlers"
+      ]
+    },
+    {
+      "task_id": "textmatch_OPTIONS",
+      "query": {
+        "__rationale": "3 callees appear inside `OPTIONS`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "ginS/gins.go",
+        "symbol": "OPTIONS"
+      },
+      "expected": [
+        "OPTIONS",
+        "engine",
+        "handle"
+      ]
+    },
+    {
+      "task_id": "textmatch_Open",
+      "query": {
+        "__rationale": "2 callees appear inside `Open`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "fs.go",
+        "symbol": "Open"
+      },
+      "expected": [
+        "File",
+        "Open"
+      ]
+    },
+    {
+      "task_id": "textmatch_PATCH",
+      "query": {
+        "__rationale": "3 callees appear inside `PATCH`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "ginS/gins.go",
+        "symbol": "PATCH"
+      },
+      "expected": [
+        "PATCH",
+        "engine",
+        "handle"
+      ]
+    },
+    {
+      "task_id": "textmatch_POST",
+      "query": {
+        "__rationale": "3 callees appear inside `POST`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "ginS/gins.go",
+        "symbol": "POST"
+      },
+      "expected": [
+        "POST",
+        "engine",
+        "handle"
+      ]
+    },
+    {
+      "task_id": "textmatch_PUT",
+      "query": {
+        "__rationale": "3 callees appear inside `PUT`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "ginS/gins.go",
+        "symbol": "PUT"
+      },
+      "expected": [
+        "PUT",
+        "engine",
+        "handle"
+      ]
+    },
+    {
+      "task_id": "textmatch_ProtoReflect",
+      "query": {
+        "__rationale": "5 callees appear inside `ProtoReflect`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "testdata/protoexample/test.pb.go",
+        "symbol": "ProtoReflect"
+      },
+      "expected": [
+        "LoadMessageInfo",
+        "MessageOf",
+        "MessageStateOf",
+        "Pointer",
+        "StoreMessageInfo"
+      ]
+    },
+    {
+      "task_id": "textmatch_RecoveryWithWriter",
+      "query": {
+        "__rationale": "2 callees appear inside `RecoveryWithWriter`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "recovery.go",
+        "symbol": "RecoveryWithWriter"
+      },
+      "expected": [
+        "CustomRecoveryWithWriter",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_RemoteIP",
+      "query": {
+        "__rationale": "2 callees appear inside `RemoteIP`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "RemoteIP"
+      },
+      "expected": [
+        "SplitHostPort",
+        "TrimSpace"
+      ]
+    },
+    {
+      "task_id": "textmatch_Reset",
+      "query": {
+        "__rationale": "3 callees appear inside `Reset`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "testdata/protoexample/test.pb.go",
+        "symbol": "Reset"
+      },
+      "expected": [
+        "MessageStateOf",
+        "Pointer",
+        "StoreMessageInfo"
+      ]
+    },
+    {
+      "task_id": "textmatch_Routes",
+      "query": {
+        "__rationale": "3 callees appear inside `Routes`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "Routes"
+      },
+      "expected": [
+        "Routes",
+        "engine",
+        "iterate"
+      ]
+    },
+    {
+      "task_id": "textmatch_Run",
+      "query": {
+        "__rationale": "9 callees appear inside `Run`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "Run"
+      },
+      "expected": [
+        "Handler",
+        "ListenAndServe",
+        "Run",
+        "debugPrint",
+        "debugPrintError",
+        "engine",
+        "isUnsafeTrustedProxies",
+        "resolveAddress",
+        "updateRouteTrees"
+      ]
+    },
+    {
+      "task_id": "textmatch_RunFd",
+      "query": {
+        "__rationale": "11 callees appear inside `RunFd`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "RunFd"
+      },
+      "expected": [
+        "Close",
+        "FileListener",
+        "NewFile",
+        "RunFd",
+        "RunListener",
+        "Sprintf",
+        "debugPrint",
+        "debugPrintError",
+        "engine",
+        "isUnsafeTrustedProxies",
+        "uintptr"
+      ]
+    },
+    {
+      "task_id": "textmatch_RunListener",
+      "query": {
+        "__rationale": "6 callees appear inside `RunListener`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "RunListener"
+      },
+      "expected": [
+        "Addr",
+        "Handler",
+        "Serve",
+        "debugPrint",
+        "debugPrintError",
+        "isUnsafeTrustedProxies"
+      ]
+    },
+    {
+      "task_id": "textmatch_RunQUIC",
+      "query": {
+        "__rationale": "5 callees appear inside `RunQUIC`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "RunQUIC"
+      },
+      "expected": [
+        "Handler",
+        "ListenAndServeQUIC",
+        "debugPrint",
+        "debugPrintError",
+        "isUnsafeTrustedProxies"
+      ]
+    },
+    {
+      "task_id": "textmatch_RunTLS",
+      "query": {
+        "__rationale": "7 callees appear inside `RunTLS`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "RunTLS"
+      },
+      "expected": [
+        "Handler",
+        "ListenAndServeTLS",
+        "RunTLS",
+        "debugPrint",
+        "debugPrintError",
+        "engine",
+        "isUnsafeTrustedProxies"
+      ]
+    },
+    {
+      "task_id": "textmatch_RunUnix",
+      "query": {
+        "__rationale": "10 callees appear inside `RunUnix`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "RunUnix"
+      },
+      "expected": [
+        "Close",
+        "Handler",
+        "Listen",
+        "Remove",
+        "RunUnix",
+        "Serve",
+        "debugPrint",
+        "debugPrintError",
+        "engine",
+        "isUnsafeTrustedProxies"
+      ]
+    },
+    {
+      "task_id": "textmatch_SaveUploadedFile",
+      "query": {
+        "__rationale": "8 callees appear inside `SaveUploadedFile`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "SaveUploadedFile"
+      },
+      "expected": [
+        "Chmod",
+        "Close",
+        "Copy",
+        "Create",
+        "Dir",
+        "MkdirAll",
+        "Open",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_ServeHTTP",
+      "query": {
+        "__rationale": "4 callees appear inside `ServeHTTP`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "ServeHTTP"
+      },
+      "expected": [
+        "Get",
+        "Put",
+        "handleHTTPRequest",
+        "reset"
+      ]
+    },
+    {
+      "task_id": "textmatch_Set",
+      "query": {
+        "__rationale": "3 callees appear inside `Set`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "Set"
+      },
+      "expected": [
+        "Lock",
+        "Unlock",
+        "make"
+      ]
+    },
+    {
+      "task_id": "textmatch_SetCookie",
+      "query": {
+        "__rationale": "2 callees appear inside `SetCookie`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "SetCookie"
+      },
+      "expected": [
+        "QueryEscape",
+        "SetCookie"
+      ]
+    },
+    {
+      "task_id": "textmatch_SetHTMLTemplate",
+      "query": {
+        "__rationale": "5 callees appear inside `SetHTMLTemplate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "SetHTMLTemplate"
+      },
+      "expected": [
+        "Funcs",
+        "SetHTMLTemplate",
+        "debugPrintWARNINGSetHTMLTemplate",
+        "engine",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_SetMode",
+      "query": {
+        "__rationale": "4 callees appear inside `SetMode`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "mode.go",
+        "symbol": "SetMode"
+      },
+      "expected": [
+        "Lookup",
+        "Store",
+        "StoreInt32",
+        "panic"
+      ]
+    },
+    {
+      "task_id": "textmatch_ShouldBind",
+      "query": {
+        "__rationale": "3 callees appear inside `ShouldBind`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "ShouldBind"
+      },
+      "expected": [
+        "ContentType",
+        "Default",
+        "ShouldBindWith"
+      ]
+    },
+    {
+      "task_id": "textmatch_ShouldBindBodyWith",
+      "query": {
+        "__rationale": "4 callees appear inside `ShouldBindBodyWith`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "ShouldBindBodyWith"
+      },
+      "expected": [
+        "BindBody",
+        "Get",
+        "ReadAll",
+        "Set"
+      ]
+    },
+    {
+      "task_id": "textmatch_ShouldBindUri",
+      "query": {
+        "__rationale": "3 callees appear inside `ShouldBindUri`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "ShouldBindUri"
+      },
+      "expected": [
+        "BindUri",
+        "len",
+        "make"
+      ]
+    },
+    {
+      "task_id": "textmatch_Static",
+      "query": {
+        "__rationale": "4 callees appear inside `Static`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "ginS/gins.go",
+        "symbol": "Static"
+      },
+      "expected": [
+        "Dir",
+        "Static",
+        "StaticFS",
+        "engine"
+      ]
+    },
+    {
+      "task_id": "textmatch_StaticFS",
+      "query": {
+        "__rationale": "9 callees appear inside `StaticFS`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "ginS/gins.go",
+        "symbol": "StaticFS"
+      },
+      "expected": [
+        "Contains",
+        "GET",
+        "HEAD",
+        "Join",
+        "StaticFS",
+        "createStaticHandler",
+        "engine",
+        "panic",
+        "returnObj"
+      ]
+    },
+    {
+      "task_id": "textmatch_StaticFile",
+      "query": {
+        "__rationale": "4 callees appear inside `StaticFile`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "ginS/gins.go",
+        "symbol": "StaticFile"
+      },
+      "expected": [
+        "File",
+        "StaticFile",
+        "engine",
+        "staticFileHandler"
+      ]
+    },
+    {
+      "task_id": "textmatch_StaticFileFS",
+      "query": {
+        "__rationale": "2 callees appear inside `StaticFileFS`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "routergroup.go",
+        "symbol": "StaticFileFS"
+      },
+      "expected": [
+        "FileFromFS",
+        "staticFileHandler"
+      ]
+    },
+    {
+      "task_id": "textmatch_Stream",
+      "query": {
+        "__rationale": "3 callees appear inside `Stream`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "Stream"
+      },
+      "expected": [
+        "CloseNotify",
+        "Flush",
+        "step"
+      ]
+    },
+    {
+      "task_id": "textmatch_String",
+      "query": {
+        "__rationale": "8 callees appear inside `String`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "String"
+      },
+      "expected": [
+        "Descriptor",
+        "EnumNumber",
+        "EnumStringOf",
+        "Fprintf",
+        "MessageStringOf",
+        "Render",
+        "String",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_StringToBytes",
+      "query": {
+        "__rationale": "3 callees appear inside `StringToBytes`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "internal/bytesconv/bytesconv.go",
+        "symbol": "StringToBytes"
+      },
+      "expected": [
+        "Slice",
+        "StringData",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_TrySet",
+      "query": {
+        "__rationale": "4 callees appear inside `TrySet`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "TrySet"
+      },
+      "expected": [
+        "CanonicalMIMEHeaderKey",
+        "len",
+        "setByForm",
+        "setByMultipartFormFile"
+      ]
+    },
+    {
+      "task_id": "textmatch_UnmarshalJSON",
+      "query": {
+        "__rationale": "3 callees appear inside `UnmarshalJSON`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "testdata/protoexample/test.pb.go",
+        "symbol": "UnmarshalJSON"
+      },
+      "expected": [
+        "Descriptor",
+        "FOO",
+        "UnmarshalJSONEnum"
+      ]
+    },
+    {
+      "task_id": "textmatch_Use",
+      "query": {
+        "__rationale": "6 callees appear inside `Use`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "Use"
+      },
+      "expected": [
+        "Use",
+        "append",
+        "engine",
+        "rebuild404Handlers",
+        "rebuild405Handlers",
+        "returnObj"
+      ]
+    },
+    {
+      "task_id": "textmatch_ValidateStruct",
+      "query": {
+        "__rationale": "11 callees appear inside `ValidateStruct`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/default_validator.go",
+        "symbol": "ValidateStruct"
+      },
+      "expected": [
+        "Elem",
+        "Index",
+        "Interface",
+        "Kind",
+        "Len",
+        "ValidateStruct",
+        "ValueOf",
+        "append",
+        "len",
+        "make",
+        "validateStruct"
+      ]
+    },
+    {
+      "task_id": "textmatch_Value",
+      "query": {
+        "__rationale": "4 callees appear inside `Value`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "Value"
+      },
+      "expected": [
+        "Context",
+        "Get",
+        "Value",
+        "hasRequestContext"
+      ]
+    },
+    {
+      "task_id": "textmatch_Write",
+      "query": {
+        "__rationale": "2 callees appear inside `Write`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "response_writer.go",
+        "symbol": "Write"
+      },
+      "expected": [
+        "Write",
+        "WriteHeaderNow"
+      ]
+    },
+    {
+      "task_id": "textmatch_WriteHeader",
+      "query": {
+        "__rationale": "2 callees appear inside `WriteHeader`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "response_writer.go",
+        "symbol": "WriteHeader"
+      },
+      "expected": [
+        "Written",
+        "debugPrint"
+      ]
+    },
+    {
+      "task_id": "textmatch_WriteHeaderNow",
+      "query": {
+        "__rationale": "2 callees appear inside `WriteHeaderNow`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "response_writer.go",
+        "symbol": "WriteHeaderNow"
+      },
+      "expected": [
+        "WriteHeader",
+        "Written"
+      ]
+    },
+    {
+      "task_id": "textmatch_WriteJSON",
+      "query": {
+        "__rationale": "3 callees appear inside `WriteJSON`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "render/json.go",
+        "symbol": "WriteJSON"
+      },
+      "expected": [
+        "Marshal",
+        "Write",
+        "writeContentType"
+      ]
+    },
+    {
+      "task_id": "textmatch_WriteMsgPack",
+      "query": {
+        "__rationale": "3 callees appear inside `WriteMsgPack`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "render/msgpack.go",
+        "symbol": "WriteMsgPack"
+      },
+      "expected": [
+        "Encode",
+        "NewEncoder",
+        "writeContentType"
+      ]
+    },
+    {
+      "task_id": "textmatch_WriteString",
+      "query": {
+        "__rationale": "7 callees appear inside `WriteString`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "render/text.go",
+        "symbol": "WriteString"
+      },
+      "expected": [
+        "Fprintf",
+        "StringToBytes",
+        "Write",
+        "WriteHeaderNow",
+        "WriteString",
+        "len",
+        "writeContentType"
+      ]
+    },
+    {
+      "task_id": "textmatch_addChild",
+      "query": {
+        "__rationale": "2 callees appear inside `addChild`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "tree.go",
+        "symbol": "addChild"
+      },
+      "expected": [
+        "append",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_addRoute",
+      "query": {
+        "__rationale": "17 callees appear inside `addRoute`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "addRoute"
+      },
+      "expected": [
+        "BytesToString",
+        "Cut",
+        "Index",
+        "addChild",
+        "addRoute",
+        "append",
+        "assert1",
+        "countParams",
+        "countSections",
+        "debugPrintRoute",
+        "get",
+        "incrementChildPrio",
+        "insertChild",
+        "len",
+        "longestCommonPrefix",
+        "new",
+        "panic"
+      ]
+    },
+    {
+      "task_id": "textmatch_authorizationHeader",
+      "query": {
+        "__rationale": "2 callees appear inside `authorizationHeader`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "auth.go",
+        "symbol": "authorizationHeader"
+      },
+      "expected": [
+        "EncodeToString",
+        "StringToBytes"
+      ]
+    },
+    {
+      "task_id": "textmatch_bufApp",
+      "query": {
+        "__rationale": "4 callees appear inside `bufApp`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "path.go",
+        "symbol": "bufApp"
+      },
+      "expected": [
+        "cap",
+        "copy",
+        "len",
+        "make"
+      ]
+    },
+    {
+      "task_id": "textmatch_cleanPath",
+      "query": {
+        "__rationale": "4 callees appear inside `cleanPath`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "path.go",
+        "symbol": "cleanPath"
+      },
+      "expected": [
+        "bufApp",
+        "len",
+        "make",
+        "string"
+      ]
+    },
+    {
+      "task_id": "textmatch_combineHandlers",
+      "query": {
+        "__rationale": "5 callees appear inside `combineHandlers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "routergroup.go",
+        "symbol": "combineHandlers"
+      },
+      "expected": [
+        "assert1",
+        "copy",
+        "int",
+        "len",
+        "make"
+      ]
+    },
+    {
+      "task_id": "textmatch_countParams",
+      "query": {
+        "__rationale": "3 callees appear inside `countParams`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "tree.go",
+        "symbol": "countParams"
+      },
+      "expected": [
+        "Count",
+        "StringToBytes",
+        "uint16"
+      ]
+    },
+    {
+      "task_id": "textmatch_countSections",
+      "query": {
+        "__rationale": "3 callees appear inside `countSections`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "tree.go",
+        "symbol": "countSections"
+      },
+      "expected": [
+        "Count",
+        "StringToBytes",
+        "uint16"
+      ]
+    },
+    {
+      "task_id": "textmatch_createStaticHandler",
+      "query": {
+        "__rationale": "8 callees appear inside `createStaticHandler`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "routergroup.go",
+        "symbol": "createStaticHandler"
+      },
+      "expected": [
+        "Close",
+        "FileServer",
+        "Open",
+        "Param",
+        "ServeHTTP",
+        "StripPrefix",
+        "WriteHeader",
+        "calculateAbsolutePath"
+      ]
+    },
+    {
+      "task_id": "textmatch_debugPrint",
+      "query": {
+        "__rationale": "4 callees appear inside `debugPrint`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "debug.go",
+        "symbol": "debugPrint"
+      },
+      "expected": [
+        "DebugPrintFunc",
+        "Fprintf",
+        "HasSuffix",
+        "IsDebugging"
+      ]
+    },
+    {
+      "task_id": "textmatch_debugPrintError",
+      "query": {
+        "__rationale": "2 callees appear inside `debugPrintError`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "debug.go",
+        "symbol": "debugPrintError"
+      },
+      "expected": [
+        "Fprintf",
+        "IsDebugging"
+      ]
+    },
+    {
+      "task_id": "textmatch_debugPrintLoadTemplate",
+      "query": {
+        "__rationale": "7 callees appear inside `debugPrintLoadTemplate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "debug.go",
+        "symbol": "debugPrintLoadTemplate"
+      },
+      "expected": [
+        "IsDebugging",
+        "Name",
+        "String",
+        "Templates",
+        "WriteString",
+        "debugPrint",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_debugPrintRoute",
+      "query": {
+        "__rationale": "6 callees appear inside `debugPrintRoute`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "debug.go",
+        "symbol": "debugPrintRoute"
+      },
+      "expected": [
+        "DebugPrintRouteFunc",
+        "IsDebugging",
+        "Last",
+        "debugPrint",
+        "len",
+        "nameOfFunction"
+      ]
+    },
+    {
+      "task_id": "textmatch_debugPrintWARNINGDefault",
+      "query": {
+        "__rationale": "3 callees appear inside `debugPrintWARNINGDefault`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "debug.go",
+        "symbol": "debugPrintWARNINGDefault"
+      },
+      "expected": [
+        "Version",
+        "debugPrint",
+        "getMinVer"
+      ]
+    },
+    {
+      "task_id": "textmatch_decodeJSON",
+      "query": {
+        "__rationale": "5 callees appear inside `decodeJSON`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/json.go",
+        "symbol": "decodeJSON"
+      },
+      "expected": [
+        "Decode",
+        "DisallowUnknownFields",
+        "NewDecoder",
+        "UseNumber",
+        "validate"
+      ]
+    },
+    {
+      "task_id": "textmatch_decodeMsgPack",
+      "query": {
+        "__rationale": "4 callees appear inside `decodeMsgPack`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/msgpack.go",
+        "symbol": "decodeMsgPack"
+      },
+      "expected": [
+        "Decode",
+        "NewDecoder",
+        "new",
+        "validate"
+      ]
+    },
+    {
+      "task_id": "textmatch_decodePlain",
+      "query": {
+        "__rationale": "9 callees appear inside `decodePlain`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/plain.go",
+        "symbol": "decodePlain"
+      },
+      "expected": [
+        "BytesToString",
+        "Elem",
+        "Errorf",
+        "Interface",
+        "IsNil",
+        "Kind",
+        "SetBytes",
+        "SetString",
+        "ValueOf"
+      ]
+    },
+    {
+      "task_id": "textmatch_decodeToml",
+      "query": {
+        "__rationale": "3 callees appear inside `decodeToml`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/toml.go",
+        "symbol": "decodeToml"
+      },
+      "expected": [
+        "Decode",
+        "NewDecoder",
+        "validate"
+      ]
+    },
+    {
+      "task_id": "textmatch_decodeXML",
+      "query": {
+        "__rationale": "3 callees appear inside `decodeXML`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/xml.go",
+        "symbol": "decodeXML"
+      },
+      "expected": [
+        "Decode",
+        "NewDecoder",
+        "validate"
+      ]
+    },
+    {
+      "task_id": "textmatch_decodeYAML",
+      "query": {
+        "__rationale": "3 callees appear inside `decodeYAML`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/yaml.go",
+        "symbol": "decodeYAML"
+      },
+      "expected": [
+        "Decode",
+        "NewDecoder",
+        "validate"
+      ]
+    },
+    {
+      "task_id": "textmatch_file_test_proto_init",
+      "query": {
+        "__rationale": "3 callees appear inside `file_test_proto_init`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "testdata/protoexample/test.pb.go",
+        "symbol": "file_test_proto_init"
+      },
+      "expected": [
+        "Build",
+        "PkgPath",
+        "TypeOf"
+      ]
+    },
+    {
+      "task_id": "textmatch_findCaseInsensitivePath",
+      "query": {
+        "__rationale": "3 callees appear inside `findCaseInsensitivePath`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "tree.go",
+        "symbol": "findCaseInsensitivePath"
+      },
+      "expected": [
+        "findCaseInsensitivePathRec",
+        "len",
+        "make"
+      ]
+    },
+    {
+      "task_id": "textmatch_findCaseInsensitivePathRec",
+      "query": {
+        "__rationale": "12 callees appear inside `findCaseInsensitivePathRec`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "tree.go",
+        "symbol": "findCaseInsensitivePathRec"
+      },
+      "expected": [
+        "DecodeRuneInString",
+        "EncodeRune",
+        "EqualFold",
+        "RuneStart",
+        "ToLower",
+        "ToUpper",
+        "append",
+        "findCaseInsensitivePathRec",
+        "len",
+        "min",
+        "panic",
+        "shiftNRuneBytes"
+      ]
+    },
+    {
+      "task_id": "textmatch_function",
+      "query": {
+        "__rationale": "5 callees appear inside `function`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "recovery.go",
+        "symbol": "function"
+      },
+      "expected": [
+        "FuncForPC",
+        "IndexByte",
+        "LastIndexByte",
+        "Name",
+        "ReplaceAll"
+      ]
+    },
+    {
+      "task_id": "textmatch_getMapFromFormData",
+      "query": {
+        "__rationale": "3 callees appear inside `getMapFromFormData`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "getMapFromFormData"
+      },
+      "expected": [
+        "IndexByte",
+        "len",
+        "make"
+      ]
+    },
+    {
+      "task_id": "textmatch_getMinVer",
+      "query": {
+        "__rationale": "3 callees appear inside `getMinVer`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "debug.go",
+        "symbol": "getMinVer"
+      },
+      "expected": [
+        "IndexByte",
+        "LastIndexByte",
+        "ParseUint"
+      ]
+    },
+    {
+      "task_id": "textmatch_getValue",
+      "query": {
+        "__rationale": "8 callees appear inside `getValue`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "tree.go",
+        "symbol": "getValue"
+      },
+      "expected": [
+        "HasSuffix",
+        "QueryUnescape",
+        "cap",
+        "copy",
+        "int",
+        "len",
+        "make",
+        "panic"
+      ]
+    },
+    {
+      "task_id": "textmatch_handle",
+      "query": {
+        "__rationale": "4 callees appear inside `handle`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "routergroup.go",
+        "symbol": "handle"
+      },
+      "expected": [
+        "addRoute",
+        "calculateAbsolutePath",
+        "combineHandlers",
+        "returnObj"
+      ]
+    },
+    {
+      "task_id": "textmatch_handleHTTPRequest",
+      "query": {
+        "__rationale": "13 callees appear inside `handleHTTPRequest`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "handleHTTPRequest"
+      },
+      "expected": [
+        "Header",
+        "Join",
+        "Next",
+        "Set",
+        "WriteHeaderNow",
+        "append",
+        "cleanPath",
+        "getValue",
+        "len",
+        "make",
+        "redirectFixedPath",
+        "redirectTrailingSlash",
+        "serveError"
+      ]
+    },
+    {
+      "task_id": "textmatch_init",
+      "query": {
+        "__rationale": "3 callees appear inside `init`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "mode.go",
+        "symbol": "init"
+      },
+      "expected": [
+        "Getenv",
+        "SetMode",
+        "file_test_proto_init"
+      ]
+    },
+    {
+      "task_id": "textmatch_initFormCache",
+      "query": {
+        "__rationale": "3 callees appear inside `initFormCache`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "context.go",
+        "symbol": "initFormCache"
+      },
+      "expected": [
+        "ParseMultipartForm",
+        "debugPrint",
+        "make"
+      ]
+    },
+    {
+      "task_id": "textmatch_insertChild",
+      "query": {
+        "__rationale": "5 callees appear inside `insertChild`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "tree.go",
+        "symbol": "insertChild"
+      },
+      "expected": [
+        "Cut",
+        "addChild",
+        "findWildcard",
+        "len",
+        "panic"
+      ]
+    },
+    {
+      "task_id": "textmatch_isUnsafeTrustedProxies",
+      "query": {
+        "__rationale": "2 callees appear inside `isUnsafeTrustedProxies`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "isUnsafeTrustedProxies"
+      },
+      "expected": [
+        "ParseIP",
+        "isTrustedProxy"
+      ]
+    },
+    {
+      "task_id": "textmatch_iterate",
+      "query": {
+        "__rationale": "5 callees appear inside `iterate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "iterate"
+      },
+      "expected": [
+        "Last",
+        "append",
+        "iterate",
+        "len",
+        "nameOfFunction"
+      ]
+    },
+    {
+      "task_id": "textmatch_joinPaths",
+      "query": {
+        "__rationale": "2 callees appear inside `joinPaths`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "utils.go",
+        "symbol": "joinPaths"
+      },
+      "expected": [
+        "Join",
+        "lastChar"
+      ]
+    },
+    {
+      "task_id": "textmatch_lastChar",
+      "query": {
+        "__rationale": "2 callees appear inside `lastChar`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "utils.go",
+        "symbol": "lastChar"
+      },
+      "expected": [
+        "len",
+        "panic"
+      ]
+    },
+    {
+      "task_id": "textmatch_lazyinit",
+      "query": {
+        "__rationale": "2 callees appear inside `lazyinit`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/default_validator.go",
+        "symbol": "lazyinit"
+      },
+      "expected": [
+        "New",
+        "SetTagName"
+      ]
+    },
+    {
+      "task_id": "textmatch_loadTemplate",
+      "query": {
+        "__rationale": "9 callees appear inside `loadTemplate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "render/html.go",
+        "symbol": "loadTemplate"
+      },
+      "expected": [
+        "Delims",
+        "Funcs",
+        "Must",
+        "New",
+        "ParseFS",
+        "ParseFiles",
+        "ParseGlob",
+        "len",
+        "panic"
+      ]
+    },
+    {
+      "task_id": "textmatch_longestCommonPrefix",
+      "query": {
+        "__rationale": "2 callees appear inside `longestCommonPrefix`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "tree.go",
+        "symbol": "longestCommonPrefix"
+      },
+      "expected": [
+        "len",
+        "min"
+      ]
+    },
+    {
+      "task_id": "textmatch_mapFormByTag",
+      "query": {
+        "__rationale": "9 callees appear inside `mapFormByTag`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "mapFormByTag"
+      },
+      "expected": [
+        "Elem",
+        "Interface",
+        "Key",
+        "Kind",
+        "Type",
+        "ValueOf",
+        "formSource",
+        "mappingByPtr",
+        "setFormMap"
+      ]
+    },
+    {
+      "task_id": "textmatch_mapHeader",
+      "query": {
+        "__rationale": "2 callees appear inside `mapHeader`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/header.go",
+        "symbol": "mapHeader"
+      },
+      "expected": [
+        "headerSource",
+        "mappingByPtr"
+      ]
+    },
+    {
+      "task_id": "textmatch_mapping",
+      "query": {
+        "__rationale": "11 callees appear inside `mapping`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "mapping"
+      },
+      "expected": [
+        "Elem",
+        "Field",
+        "Get",
+        "IsNil",
+        "Kind",
+        "New",
+        "NumField",
+        "Set",
+        "Type",
+        "mapping",
+        "tryToSetValue"
+      ]
+    },
+    {
+      "task_id": "textmatch_mappingByPtr",
+      "query": {
+        "__rationale": "2 callees appear inside `mappingByPtr`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "mappingByPtr"
+      },
+      "expected": [
+        "ValueOf",
+        "mapping"
+      ]
+    },
+    {
+      "task_id": "textmatch_nameOfFunction",
+      "query": {
+        "__rationale": "4 callees appear inside `nameOfFunction`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "utils.go",
+        "symbol": "nameOfFunction"
+      },
+      "expected": [
+        "FuncForPC",
+        "Name",
+        "Pointer",
+        "ValueOf"
+      ]
+    },
+    {
+      "task_id": "textmatch_parseAccept",
+      "query": {
+        "__rationale": "6 callees appear inside `parseAccept`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "utils.go",
+        "symbol": "parseAccept"
+      },
+      "expected": [
+        "IndexByte",
+        "Split",
+        "TrimSpace",
+        "append",
+        "len",
+        "make"
+      ]
+    },
+    {
+      "task_id": "textmatch_parseIP",
+      "query": {
+        "__rationale": "2 callees appear inside `parseIP`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "parseIP"
+      },
+      "expected": [
+        "ParseIP",
+        "To4"
+      ]
+    },
+    {
+      "task_id": "textmatch_prepareTrustedCIDRs",
+      "query": {
+        "__rationale": "6 callees appear inside `prepareTrustedCIDRs`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "prepareTrustedCIDRs"
+      },
+      "expected": [
+        "Contains",
+        "ParseCIDR",
+        "append",
+        "len",
+        "make",
+        "parseIP"
+      ]
+    },
+    {
+      "task_id": "textmatch_processAccounts",
+      "query": {
+        "__rationale": "5 callees appear inside `processAccounts`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "auth.go",
+        "symbol": "processAccounts"
+      },
+      "expected": [
+        "append",
+        "assert1",
+        "authorizationHeader",
+        "len",
+        "make"
+      ]
+    },
+    {
+      "task_id": "textmatch_redirectFixedPath",
+      "query": {
+        "__rationale": "4 callees appear inside `redirectFixedPath`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "redirectFixedPath"
+      },
+      "expected": [
+        "BytesToString",
+        "cleanPath",
+        "findCaseInsensitivePath",
+        "redirectRequest"
+      ]
+    },
+    {
+      "task_id": "textmatch_redirectRequest",
+      "query": {
+        "__rationale": "4 callees appear inside `redirectRequest`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "redirectRequest"
+      },
+      "expected": [
+        "Redirect",
+        "String",
+        "WriteHeaderNow",
+        "debugPrint"
+      ]
+    },
+    {
+      "task_id": "textmatch_redirectTrailingSlash",
+      "query": {
+        "__rationale": "5 callees appear inside `redirectTrailingSlash`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "redirectTrailingSlash"
+      },
+      "expected": [
+        "Clean",
+        "Get",
+        "ReplaceAllString",
+        "len",
+        "redirectRequest"
+      ]
+    },
+    {
+      "task_id": "textmatch_resolveAddress",
+      "query": {
+        "__rationale": "4 callees appear inside `resolveAddress`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "utils.go",
+        "symbol": "resolveAddress"
+      },
+      "expected": [
+        "Getenv",
+        "debugPrint",
+        "len",
+        "panic"
+      ]
+    },
+    {
+      "task_id": "textmatch_searchCredential",
+      "query": {
+        "__rationale": "2 callees appear inside `searchCredential`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "auth.go",
+        "symbol": "searchCredential"
+      },
+      "expected": [
+        "ConstantTimeCompare",
+        "StringToBytes"
+      ]
+    },
+    {
+      "task_id": "textmatch_secureRequestDump",
+      "query": {
+        "__rationale": "5 callees appear inside `secureRequestDump`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "recovery.go",
+        "symbol": "secureRequestDump"
+      },
+      "expected": [
+        "BytesToString",
+        "DumpRequest",
+        "HasPrefix",
+        "Join",
+        "Split"
+      ]
+    },
+    {
+      "task_id": "textmatch_serveError",
+      "query": {
+        "__rationale": "7 callees appear inside `serveError`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "serveError"
+      },
+      "expected": [
+        "Header",
+        "Next",
+        "Status",
+        "Write",
+        "WriteHeaderNow",
+        "Written",
+        "debugPrint"
+      ]
+    },
+    {
+      "task_id": "textmatch_setArray",
+      "query": {
+        "__rationale": "2 callees appear inside `setArray`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "setArray"
+      },
+      "expected": [
+        "Index",
+        "setWithProperType"
+      ]
+    },
+    {
+      "task_id": "textmatch_setArrayOfMultipartFormFiles",
+      "query": {
+        "__rationale": "4 callees appear inside `setArrayOfMultipartFormFiles`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/multipart_form_mapping.go",
+        "symbol": "setArrayOfMultipartFormFiles"
+      },
+      "expected": [
+        "Index",
+        "Len",
+        "len",
+        "setByMultipartFormFile"
+      ]
+    },
+    {
+      "task_id": "textmatch_setBoolField",
+      "query": {
+        "__rationale": "2 callees appear inside `setBoolField`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "setBoolField"
+      },
+      "expected": [
+        "ParseBool",
+        "SetBool"
+      ]
+    },
+    {
+      "task_id": "textmatch_setByForm",
+      "query": {
+        "__rationale": "13 callees appear inside `setByForm`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "setByForm"
+      },
+      "expected": [
+        "Errorf",
+        "Get",
+        "Kind",
+        "Len",
+        "Split",
+        "String",
+        "Type",
+        "len",
+        "setArray",
+        "setSlice",
+        "setWithProperType",
+        "trySetCustom",
+        "trySplit"
+      ]
+    },
+    {
+      "task_id": "textmatch_setByMultipartFormFile",
+      "query": {
+        "__rationale": "8 callees appear inside `setByMultipartFormFile`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/multipart_form_mapping.go",
+        "symbol": "setByMultipartFormFile"
+      },
+      "expected": [
+        "Interface",
+        "Kind",
+        "MakeSlice",
+        "Set",
+        "Type",
+        "ValueOf",
+        "len",
+        "setArrayOfMultipartFormFiles"
+      ]
+    },
+    {
+      "task_id": "textmatch_setFloatField",
+      "query": {
+        "__rationale": "2 callees appear inside `setFloatField`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "setFloatField"
+      },
+      "expected": [
+        "ParseFloat",
+        "SetFloat"
+      ]
+    },
+    {
+      "task_id": "textmatch_setFormMap",
+      "query": {
+        "__rationale": "5 callees appear inside `setFormMap`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "setFormMap"
+      },
+      "expected": [
+        "Copy",
+        "Elem",
+        "Kind",
+        "TypeOf",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_setIntField",
+      "query": {
+        "__rationale": "2 callees appear inside `setIntField`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "setIntField"
+      },
+      "expected": [
+        "ParseInt",
+        "SetInt"
+      ]
+    },
+    {
+      "task_id": "textmatch_setSlice",
+      "query": {
+        "__rationale": "5 callees appear inside `setSlice`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "setSlice"
+      },
+      "expected": [
+        "MakeSlice",
+        "Set",
+        "Type",
+        "len",
+        "setArray"
+      ]
+    },
+    {
+      "task_id": "textmatch_setTimeDuration",
+      "query": {
+        "__rationale": "3 callees appear inside `setTimeDuration`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "setTimeDuration"
+      },
+      "expected": [
+        "ParseDuration",
+        "Set",
+        "ValueOf"
+      ]
+    },
+    {
+      "task_id": "textmatch_setTimeField",
+      "query": {
+        "__rationale": "11 callees appear inside `setTimeField`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "setTimeField"
+      },
+      "expected": [
+        "Get",
+        "LoadLocation",
+        "ParseBool",
+        "ParseInLocation",
+        "ParseInt",
+        "Set",
+        "ToLower",
+        "Unix",
+        "UnixMicro",
+        "UnixMilli",
+        "ValueOf"
+      ]
+    },
+    {
+      "task_id": "textmatch_setUintField",
+      "query": {
+        "__rationale": "2 callees appear inside `setUintField`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "setUintField"
+      },
+      "expected": [
+        "ParseUint",
+        "SetUint"
+      ]
+    },
+    {
+      "task_id": "textmatch_setWithProperType",
+      "query": {
+        "__rationale": "18 callees appear inside `setWithProperType`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "setWithProperType"
+      },
+      "expected": [
+        "Addr",
+        "Elem",
+        "Interface",
+        "IsValid",
+        "Kind",
+        "New",
+        "Set",
+        "SetString",
+        "StringToBytes",
+        "Type",
+        "Unmarshal",
+        "setBoolField",
+        "setFloatField",
+        "setIntField",
+        "setTimeDuration",
+        "setTimeField",
+        "setUintField",
+        "setWithProperType"
+      ]
+    },
+    {
+      "task_id": "textmatch_source",
+      "query": {
+        "__rationale": "2 callees appear inside `source`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "recovery.go",
+        "symbol": "source"
+      },
+      "expected": [
+        "TrimSpace",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_stack",
+      "query": {
+        "__rationale": "8 callees appear inside `stack`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "recovery.go",
+        "symbol": "stack"
+      },
+      "expected": [
+        "Bytes",
+        "Caller",
+        "Fprintf",
+        "ReadFile",
+        "Split",
+        "function",
+        "new",
+        "source"
+      ]
+    },
+    {
+      "task_id": "textmatch_staticFileHandler",
+      "query": {
+        "__rationale": "5 callees appear inside `staticFileHandler`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "routergroup.go",
+        "symbol": "staticFileHandler"
+      },
+      "expected": [
+        "Contains",
+        "GET",
+        "HEAD",
+        "panic",
+        "returnObj"
+      ]
+    },
+    {
+      "task_id": "textmatch_trySetCustom",
+      "query": {
+        "__rationale": "3 callees appear inside `trySetCustom`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "trySetCustom"
+      },
+      "expected": [
+        "Addr",
+        "Interface",
+        "UnmarshalParam"
+      ]
+    },
+    {
+      "task_id": "textmatch_trySplit",
+      "query": {
+        "__rationale": "6 callees appear inside `trySplit`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "trySplit"
+      },
+      "expected": [
+        "Count",
+        "Errorf",
+        "Get",
+        "Split",
+        "append",
+        "make"
+      ]
+    },
+    {
+      "task_id": "textmatch_tryToSetValue",
+      "query": {
+        "__rationale": "6 callees appear inside `tryToSetValue`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/form_mapping.go",
+        "symbol": "tryToSetValue"
+      },
+      "expected": [
+        "Get",
+        "Kind",
+        "ReplaceAll",
+        "TrySet",
+        "head",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_updateRouteTree",
+      "query": {
+        "__rationale": "2 callees appear inside `updateRouteTree`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "updateRouteTree"
+      },
+      "expected": [
+        "ReplaceAll",
+        "updateRouteTree"
+      ]
+    },
+    {
+      "task_id": "textmatch_validateHeader",
+      "query": {
+        "__rationale": "5 callees appear inside `validateHeader`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "gin.go",
+        "symbol": "validateHeader"
+      },
+      "expected": [
+        "ParseIP",
+        "Split",
+        "TrimSpace",
+        "isTrustedProxy",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_validateStruct",
+      "query": {
+        "__rationale": "2 callees appear inside `validateStruct`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "binding/default_validator.go",
+        "symbol": "validateStruct"
+      },
+      "expected": [
+        "Struct",
+        "lazyinit"
+      ]
+    },
+    {
+      "task_id": "textmatch_writeContentType",
+      "query": {
+        "__rationale": "2 callees appear inside `writeContentType`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "render/render.go",
+        "symbol": "writeContentType"
+      },
+      "expected": [
+        "Header",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_writeHeaders",
+      "query": {
+        "__rationale": "3 callees appear inside `writeHeaders`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "render/reader.go",
+        "symbol": "writeHeaders"
+      },
+      "expected": [
+        "Get",
+        "Header",
+        "Set"
+      ]
+    }
+  ]
+}

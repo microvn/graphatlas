@@ -5,7 +5,9 @@
 
 use crate::leaderboard::{write_leaderboard, LeaderEntry, Leaderboard};
 use crate::retriever::Retriever;
-use crate::retrievers::{CgcRetriever, CmRetriever, CrgRetriever, GaRetriever, RipgrepRetriever};
+use crate::retrievers::{
+    CgcRetriever, CmRetriever, CrgRetriever, GaRetriever, GnRetriever, RipgrepRetriever,
+};
 use crate::score::{f1, mrr, precision, recall};
 use crate::{BenchError, M1GroundTruth};
 use std::path::{Path, PathBuf};
@@ -19,6 +21,7 @@ pub const RETRIEVER_NAMES: &[&str] = &[
     "codegraphcontext",
     "codebase-memory",
     "code-review-graph",
+    "gitnexus",
 ];
 
 /// Resolve a list of retriever names (as from `--retrievers ga,cgc,…`) into
@@ -43,6 +46,7 @@ pub fn build_retrievers(
             "codegraphcontext" | "cgc" => Box::new(CgcRetriever::new()),
             "codebase-memory" | "cm" => Box::new(CmRetriever::new()),
             "code-review-graph" | "crg" => Box::new(CrgRetriever::new()),
+            "gitnexus" | "gn" => Box::new(GnRetriever::new()),
             other => {
                 return Err(BenchError::Other(anyhow::anyhow!(
                     "unknown retriever `{other}` — supported: {}",

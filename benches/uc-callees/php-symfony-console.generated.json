@@ -1,0 +1,5750 @@
+{
+  "schema_version": 1,
+  "uc": "callees",
+  "fixture": "php-symfony-console",
+  "tasks": [
+    {
+      "task_id": "textmatch___invoke",
+      "query": {
+        "__rationale": "19 callees appear inside `__invoke`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/InvokableCommand.php",
+        "symbol": "__invoke"
+      },
+      "expected": [
+        "BufferedOutput",
+        "RunCommandContext",
+        "RunCommandFailedException",
+        "StringInput",
+        "TypeError",
+        "fetch",
+        "getName",
+        "getParameters",
+        "get_debug_type",
+        "implode",
+        "invoke",
+        "is_int",
+        "lock",
+        "release",
+        "run",
+        "setCatchExceptions",
+        "sprintf",
+        "trigger_deprecation",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch___toString",
+      "query": {
+        "__rationale": "8 callees appear inside `__toString`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Completion/CompletionInput.php",
+        "symbol": "__toString"
+      },
+      "expected": [
+        "array_map",
+        "escapeToken",
+        "getValue",
+        "implode",
+        "is_array",
+        "is_string",
+        "preg_match",
+        "rtrim"
+      ]
+    },
+    {
+      "task_id": "textmatch_acceptValue",
+      "query": {
+        "__rationale": "2 callees appear inside `acceptValue`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/InputOption.php",
+        "symbol": "acceptValue"
+      },
+      "expected": [
+        "isValueOptional",
+        "isValueRequired"
+      ]
+    },
+    {
+      "task_id": "textmatch_add",
+      "query": {
+        "__rationale": "2 callees appear inside `add`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "add"
+      },
+      "expected": [
+        "addCommand",
+        "trigger_deprecation"
+      ]
+    },
+    {
+      "task_id": "textmatch_addArgument",
+      "query": {
+        "__rationale": "11 callees appear inside `addArgument`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "addArgument"
+      },
+      "expected": [
+        "InputArgument",
+        "InvalidArgumentException",
+        "LogicException",
+        "addArgument",
+        "getCommand",
+        "getName",
+        "hasArgument",
+        "isArray",
+        "isRequired",
+        "isset",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_addChild",
+      "query": {
+        "__rationale": "2 callees appear inside `addChild`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/TreeNode.php",
+        "symbol": "addChild"
+      },
+      "expected": [
+        "is_string",
+        "self"
+      ]
+    },
+    {
+      "task_id": "textmatch_addCommand",
+      "query": {
+        "__rationale": "10 callees appear inside `addCommand`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "addCommand"
+      },
+      "expected": [
+        "Command",
+        "LogicException",
+        "getAliases",
+        "getDefinition",
+        "getName",
+        "get_debug_type",
+        "init",
+        "isEnabled",
+        "setApplication",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_addContent",
+      "query": {
+        "__rationale": "8 callees appear inside `addContent`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Output/ConsoleSectionOutput.php",
+        "symbol": "addContent"
+      },
+      "expected": [
+        "array_splice",
+        "ceil",
+        "count",
+        "end",
+        "explode",
+        "getDisplayLength",
+        "getWidth",
+        "str_ends_with"
+      ]
+    },
+    {
+      "task_id": "textmatch_addLineBreaks",
+      "query": {
+        "__rationale": "4 callees appear inside `addLineBreaks`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Formatter/OutputFormatter.php",
+        "symbol": "addLineBreaks"
+      },
+      "expected": [
+        "mb_detect_encoding",
+        "toByteString",
+        "toUnicodeString",
+        "wordwrap"
+      ]
+    },
+    {
+      "task_id": "textmatch_addLongOption",
+      "query": {
+        "__rationale": "16 callees appear inside `addLongOption`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/ArgvInput.php",
+        "symbol": "addLongOption"
+      },
+      "expected": [
+        "InvalidOptionException",
+        "RuntimeException",
+        "acceptValue",
+        "array_shift",
+        "array_unshift",
+        "count",
+        "getOption",
+        "hasNegation",
+        "hasOption",
+        "in_array",
+        "isArray",
+        "isValueOptional",
+        "isValueRequired",
+        "isset",
+        "negationToName",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_addOption",
+      "query": {
+        "__rationale": "11 callees appear inside `addOption`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "addOption"
+      },
+      "expected": [
+        "InputOption",
+        "LogicException",
+        "addOption",
+        "equals",
+        "explode",
+        "getCommand",
+        "getName",
+        "getShortcut",
+        "isNegatable",
+        "isset",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_addShortOption",
+      "query": {
+        "__rationale": "7 callees appear inside `addShortOption`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/ArgvInput.php",
+        "symbol": "addShortOption"
+      },
+      "expected": [
+        "InvalidOptionException",
+        "RuntimeException",
+        "addLongOption",
+        "getName",
+        "getOptionForShortcut",
+        "hasShortcut",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_addUsage",
+      "query": {
+        "__rationale": "4 callees appear inside `addUsage`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "addUsage"
+      },
+      "expected": [
+        "addUsage",
+        "getCommand",
+        "sprintf",
+        "str_starts_with"
+      ]
+    },
+    {
+      "task_id": "textmatch_advance",
+      "query": {
+        "__rationale": "5 callees appear inside `advance`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProgressBar.php",
+        "symbol": "advance"
+      },
+      "expected": [
+        "LogicException",
+        "display",
+        "getCurrentTimeInMilliseconds",
+        "isDecorated",
+        "setProgress"
+      ]
+    },
+    {
+      "task_id": "textmatch_all",
+      "query": {
+        "__rationale": "7 callees appear inside `all`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "all"
+      },
+      "expected": [
+        "extractNamespace",
+        "get",
+        "getNames",
+        "has",
+        "init",
+        "isset",
+        "substr_count"
+      ]
+    },
+    {
+      "task_id": "textmatch_appendDocument",
+      "query": {
+        "__rationale": "2 callees appear inside `appendDocument`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/XmlDescriptor.php",
+        "symbol": "appendDocument"
+      },
+      "expected": [
+        "appendChild",
+        "importNode"
+      ]
+    },
+    {
+      "task_id": "textmatch_appendRow",
+      "query": {
+        "__rationale": "6 callees appear inside `appendRow`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "appendRow"
+      },
+      "expected": [
+        "RuntimeException",
+        "addRow",
+        "calculateRowCount",
+        "clear",
+        "render",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_apply",
+      "query": {
+        "__rationale": "5 callees appear inside `apply`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Color.php",
+        "symbol": "apply"
+      },
+      "expected": [
+        "apply",
+        "getenv",
+        "isset",
+        "set",
+        "unset"
+      ]
+    },
+    {
+      "task_id": "textmatch_applyCurrentStyle",
+      "query": {
+        "__rationale": "13 callees appear inside `applyCurrentStyle`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Formatter/OutputFormatter.php",
+        "symbol": "applyCurrentStyle"
+      },
+      "expected": [
+        "addLineBreaks",
+        "apply",
+        "explode",
+        "getCurrent",
+        "implode",
+        "isDecorated",
+        "isset",
+        "length",
+        "ltrim",
+        "preg_match",
+        "rtrim",
+        "str_ends_with",
+        "substr"
+      ]
+    },
+    {
+      "task_id": "textmatch_ask",
+      "query": {
+        "__rationale": "11 callees appear inside `ask`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/QuestionHelper.php",
+        "symbol": "ask"
+      },
+      "expected": [
+        "Question",
+        "askQuestion",
+        "doAsk",
+        "getDefaultAnswer",
+        "getErrorOutput",
+        "getStream",
+        "getValidator",
+        "isInteractive",
+        "setInteractive",
+        "setValidator",
+        "validateAttempts"
+      ]
+    },
+    {
+      "task_id": "textmatch_askHidden",
+      "query": {
+        "__rationale": "4 callees appear inside `askHidden`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "askHidden"
+      },
+      "expected": [
+        "Question",
+        "askQuestion",
+        "setHidden",
+        "setValidator"
+      ]
+    },
+    {
+      "task_id": "textmatch_askQuestion",
+      "query": {
+        "__rationale": "7 callees appear inside `askQuestion`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "askQuestion"
+      },
+      "expected": [
+        "SymfonyQuestionHelper",
+        "addNewLineOfInputSubmit",
+        "ask",
+        "autoPrependBlock",
+        "isInteractive",
+        "newLine",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_assertCommandIsSuccessful",
+      "query": {
+        "__rationale": "2 callees appear inside `assertCommandIsSuccessful`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tester/TesterTrait.php",
+        "symbol": "assertCommandIsSuccessful"
+      },
+      "expected": [
+        "CommandIsSuccessful",
+        "assertThat"
+      ]
+    },
+    {
+      "task_id": "textmatch_assertDescription",
+      "query": {
+        "__rationale": "6 callees appear inside `assertDescription`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tests/Descriptor/AbstractDescriptorTestCase.php",
+        "symbol": "assertDescription"
+      },
+      "expected": [
+        "BufferedOutput",
+        "assertEquals",
+        "describe",
+        "fetch",
+        "getDescriptor",
+        "normalizeOutput"
+      ]
+    },
+    {
+      "task_id": "textmatch_autoPrependBlock",
+      "query": {
+        "__rationale": "6 callees appear inside `autoPrependBlock`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "autoPrependBlock"
+      },
+      "expected": [
+        "fetch",
+        "isset",
+        "newLine",
+        "str_replace",
+        "substr",
+        "substr_count"
+      ]
+    },
+    {
+      "task_id": "textmatch_autoPrependText",
+      "query": {
+        "__rationale": "3 callees appear inside `autoPrependText`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "autoPrependText"
+      },
+      "expected": [
+        "fetch",
+        "newLine",
+        "str_ends_with"
+      ]
+    },
+    {
+      "task_id": "textmatch_bind",
+      "query": {
+        "__rationale": "18 callees appear inside `bind`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Completion/CompletionInput.php",
+        "symbol": "bind"
+      },
+      "expected": [
+        "acceptValue",
+        "array_key_last",
+        "bind",
+        "count",
+        "explode",
+        "getArgument",
+        "getArguments",
+        "getName",
+        "getOptionFromToken",
+        "getRelevantToken",
+        "isArray",
+        "isCursorFree",
+        "is_array",
+        "isset",
+        "parse",
+        "str_starts_with",
+        "substr",
+        "trim"
+      ]
+    },
+    {
+      "task_id": "textmatch_block",
+      "query": {
+        "__rationale": "6 callees appear inside `block`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "block"
+      },
+      "expected": [
+        "array_values",
+        "autoPrependBlock",
+        "createBlock",
+        "is_array",
+        "newLine",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_buildLine",
+      "query": {
+        "__rationale": "15 callees appear inside `buildLine`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProgressBar.php",
+        "symbol": "buildLine"
+      },
+      "expected": [
+        "$formatter",
+        "array_map",
+        "assert",
+        "explode",
+        "getFormatter",
+        "getPlaceholderFormatter",
+        "getWidth",
+        "isset",
+        "max",
+        "preg_replace_callback",
+        "removeDecoration",
+        "rtrim",
+        "setBarWidth",
+        "sprintf",
+        "width"
+      ]
+    },
+    {
+      "task_id": "textmatch_buildTableRows",
+      "query": {
+        "__rationale": "22 callees appear inside `buildTableRows`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "buildTableRows"
+      },
+      "expected": [
+        "TableCell",
+        "TableRows",
+        "array_key_exists",
+        "array_map",
+        "copyRow",
+        "count",
+        "escapeTrailingBackslash",
+        "explode",
+        "fillCells",
+        "fillNextRows",
+        "formatAndWrap",
+        "getCellRowContentFormat",
+        "getColspan",
+        "getColumnSeparatorWidth",
+        "getFormatter",
+        "implode",
+        "isset",
+        "min",
+        "removeDecoration",
+        "str_contains",
+        "str_replace",
+        "width"
+      ]
+    },
+    {
+      "task_id": "textmatch_calculateColumnsWidth",
+      "query": {
+        "__rationale": "9 callees appear inside `calculateColumnsWidth`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "calculateColumnsWidth"
+      },
+      "expected": [
+        "ceil",
+        "getCellRowContentFormat",
+        "getCellWidth",
+        "getColspan",
+        "getFormatter",
+        "max",
+        "mb_str_split",
+        "removeDecoration",
+        "width"
+      ]
+    },
+    {
+      "task_id": "textmatch_calculateNumberOfColumns",
+      "query": {
+        "__rationale": "2 callees appear inside `calculateNumberOfColumns`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "calculateNumberOfColumns"
+      },
+      "expected": [
+        "getNumberOfColumns",
+        "max"
+      ]
+    },
+    {
+      "task_id": "textmatch_calculateRowCount",
+      "query": {
+        "__rationale": "5 callees appear inside `calculateRowCount`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "calculateRowCount"
+      },
+      "expected": [
+        "TableSeparator",
+        "array_merge",
+        "buildTableRows",
+        "count",
+        "iterator_to_array"
+      ]
+    },
+    {
+      "task_id": "textmatch_calculateTotalWidthForOptions",
+      "query": {
+        "__rationale": "7 callees appear inside `calculateTotalWidthForOptions`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/TextDescriptor.php",
+        "symbol": "calculateTotalWidthForOptions"
+      },
+      "expected": [
+        "acceptValue",
+        "getName",
+        "getShortcut",
+        "isNegatable",
+        "isValueOptional",
+        "max",
+        "width"
+      ]
+    },
+    {
+      "task_id": "textmatch_checkForKillSignal",
+      "query": {
+        "__rationale": "5 callees appear inside `checkForKillSignal`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/TerminalInputHelper.php",
+        "symbol": "checkForKillSignal"
+      },
+      "expected": [
+        "function_exists",
+        "getmypid",
+        "in_array",
+        "pcntl_signal",
+        "posix_kill"
+      ]
+    },
+    {
+      "task_id": "textmatch_choice",
+      "query": {
+        "__rationale": "4 callees appear inside `choice`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "choice"
+      },
+      "expected": [
+        "ChoiceQuestion",
+        "array_flip",
+        "askQuestion",
+        "setMultiselect"
+      ]
+    },
+    {
+      "task_id": "textmatch_clear",
+      "query": {
+        "__rationale": "8 callees appear inside `clear`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProgressBar.php",
+        "symbol": "clear"
+      },
+      "expected": [
+        "array_splice",
+        "determineBestFormat",
+        "doWrite",
+        "isDecorated",
+        "min",
+        "overwrite",
+        "popStreamContentUntilCurrentSection",
+        "setRealFormat"
+      ]
+    },
+    {
+      "task_id": "textmatch_cloneInputStream",
+      "query": {
+        "__rationale": "7 callees appear inside `cloneInputStream`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/QuestionHelper.php",
+        "symbol": "cloneInputStream"
+      },
+      "expected": [
+        "fopen",
+        "fseek",
+        "ftell",
+        "in_array",
+        "rewind",
+        "stream_copy_to_stream",
+        "stream_get_meta_data"
+      ]
+    },
+    {
+      "task_id": "textmatch_collect",
+      "query": {
+        "__rationale": "12 callees appear inside `collect`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "DataCollector/CommandDataCollector.php",
+        "symbol": "collect"
+      },
+      "expected": [
+        "array_map",
+        "cloneVar",
+        "getApplication",
+        "getDefinition",
+        "getHelperSet",
+        "getSubscribedSignals",
+        "getVerbosity",
+        "hasArgument",
+        "hasOption",
+        "isEnabled",
+        "isHidden",
+        "iterator_to_array"
+      ]
+    },
+    {
+      "task_id": "textmatch_collectInteractions",
+      "query": {
+        "__rationale": "9 callees appear inside `collectInteractions`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/InvokableCommand.php",
+        "symbol": "collectInteractions"
+      },
+      "expected": [
+        "Interaction",
+        "getClosureCalledClass",
+        "getClosureThis",
+        "getInteractiveAttribute",
+        "getMethodInteractions",
+        "getMethods",
+        "getParameters",
+        "getPropertyInteractions",
+        "tryFrom"
+      ]
+    },
+    {
+      "task_id": "textmatch_configureIO",
+      "query": {
+        "__rationale": "9 callees appear inside `configureIO`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "configureIO"
+      },
+      "expected": [
+        "function_exists",
+        "getParameterOption",
+        "getVerbosity",
+        "getenv",
+        "hasParameterOption",
+        "putenv",
+        "setDecorated",
+        "setInteractive",
+        "setVerbosity"
+      ]
+    },
+    {
+      "task_id": "textmatch_confirm",
+      "query": {
+        "__rationale": "2 callees appear inside `confirm`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "confirm"
+      },
+      "expected": [
+        "ConfirmationQuestion",
+        "askQuestion"
+      ]
+    },
+    {
+      "task_id": "textmatch_convertFromHexToAnsiColorCode",
+      "query": {
+        "__rationale": "6 callees appear inside `convertFromHexToAnsiColorCode`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Output/AnsiColorMode.php",
+        "symbol": "convertFromHexToAnsiColorCode"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "convertFromRGB",
+        "hexdec",
+        "sprintf",
+        "str_replace",
+        "strlen"
+      ]
+    },
+    {
+      "task_id": "textmatch_convertFromRGB",
+      "query": {
+        "__rationale": "3 callees appear inside `convertFromRGB`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Output/AnsiColorMode.php",
+        "symbol": "convertFromRGB"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "degradeHexColorToAnsi4",
+        "degradeHexColorToAnsi8"
+      ]
+    },
+    {
+      "task_id": "textmatch_copyRow",
+      "query": {
+        "__rationale": "2 callees appear inside `copyRow`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "copyRow"
+      },
+      "expected": [
+        "TableCell",
+        "getColspan"
+      ]
+    },
+    {
+      "task_id": "textmatch_createBlock",
+      "query": {
+        "__rationale": "15 callees appear inside `createBlock`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "createBlock"
+      },
+      "expected": [
+        "OutputWrapper",
+        "array_merge",
+        "array_unshift",
+        "count",
+        "escape",
+        "explode",
+        "getFormatter",
+        "isDecorated",
+        "max",
+        "removeDecoration",
+        "sprintf",
+        "str_repeat",
+        "str_replace",
+        "width",
+        "wrap"
+      ]
+    },
+    {
+      "task_id": "textmatch_createCompletionInput",
+      "query": {
+        "__rationale": "7 callees appear inside `createCompletionInput`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/CompleteCommand.php",
+        "symbol": "createCompletionInput"
+      },
+      "expected": [
+        "RuntimeException",
+        "bind",
+        "ctype_digit",
+        "fromTokens",
+        "getApplication",
+        "getDefinition",
+        "getOption"
+      ]
+    },
+    {
+      "task_id": "textmatch_createProgressBar",
+      "query": {
+        "__rationale": "6 callees appear inside `createProgressBar`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/OutputStyle.php",
+        "symbol": "createProgressBar"
+      },
+      "expected": [
+        "ProgressBar",
+        "createProgressBar",
+        "getenv",
+        "setBarCharacter",
+        "setEmptyBarCharacter",
+        "setProgressCharacter"
+      ]
+    },
+    {
+      "task_id": "textmatch_createSignalHandlers",
+      "query": {
+        "__rationale": "7 callees appear inside `createSignalHandlers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/TerminalInputHelper.php",
+        "symbol": "createSignalHandlers"
+      },
+      "expected": [
+        "$originalHandler",
+        "function_exists",
+        "is_callable",
+        "pcntl_async_signals",
+        "pcntl_signal",
+        "pcntl_signal_get_handler",
+        "shell_exec"
+      ]
+    },
+    {
+      "task_id": "textmatch_createStream",
+      "query": {
+        "__rationale": "4 callees appear inside `createStream`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tester/TesterTrait.php",
+        "symbol": "createStream"
+      },
+      "expected": [
+        "fopen",
+        "fwrite",
+        "rewind",
+        "str_ends_with"
+      ]
+    },
+    {
+      "task_id": "textmatch_createStreamableInputInterfaceMock",
+      "query": {
+        "__rationale": "3 callees appear inside `createStreamableInputInterfaceMock`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tests/Helper/AbstractQuestionHelperTestCase.php",
+        "symbol": "createStreamableInputInterfaceMock"
+      },
+      "expected": [
+        "createStub",
+        "method",
+        "willReturn"
+      ]
+    },
+    {
+      "task_id": "textmatch_createStyleFromString",
+      "query": {
+        "__rationale": "10 callees appear inside `createStyleFromString`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Formatter/OutputFormatter.php",
+        "symbol": "createStyleFromString"
+      },
+      "expected": [
+        "OutputFormatterStyle",
+        "array_shift",
+        "isset",
+        "preg_match_all",
+        "preg_replace",
+        "setBackground",
+        "setForeground",
+        "setHref",
+        "setOption",
+        "strtolower"
+      ]
+    },
+    {
+      "task_id": "textmatch_createTable",
+      "query": {
+        "__rationale": "5 callees appear inside `createTable`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "createTable"
+      },
+      "expected": [
+        "Table",
+        "getStyleDefinition",
+        "section",
+        "setCellHeaderFormat",
+        "setStyle"
+      ]
+    },
+    {
+      "task_id": "textmatch_createTableOfContents",
+      "query": {
+        "__rationale": "10 callees appear inside `createTableOfContents`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/ReStructuredTextDescriptor.php",
+        "symbol": "createTableOfContents"
+      },
+      "expected": [
+        "all",
+        "array_keys",
+        "array_map",
+        "implode",
+        "removeAliasesAndHiddenCommands",
+        "setVisibleNamespaces",
+        "sprintf",
+        "str_repeat",
+        "width",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_createTree",
+      "query": {
+        "__rationale": "6 callees appear inside `createTree`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/TreeHelper.php",
+        "symbol": "createTree"
+      },
+      "expected": [
+        "TreeNode",
+        "createTree",
+        "default",
+        "fromValues",
+        "section",
+        "self"
+      ]
+    },
+    {
+      "task_id": "textmatch_definitionList",
+      "query": {
+        "__rationale": "7 callees appear inside `definitionList`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "definitionList"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "TableCell",
+        "current",
+        "horizontalTable",
+        "is_array",
+        "is_string",
+        "key"
+      ]
+    },
+    {
+      "task_id": "textmatch_describe",
+      "query": {
+        "__rationale": "13 callees appear inside `describe`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/Descriptor.php",
+        "symbol": "describe"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "array_merge",
+        "describe",
+        "describeApplication",
+        "describeCommand",
+        "describeInputArgument",
+        "describeInputDefinition",
+        "describeInputOption",
+        "get_debug_type",
+        "isDecorated",
+        "isset",
+        "setDecorated",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_describeCommand",
+      "query": {
+        "__rationale": "23 callees appear inside `describeCommand`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/JsonDescriptor.php",
+        "symbol": "describeCommand"
+      },
+      "expected": [
+        "array_merge",
+        "array_reduce",
+        "describeInputDefinition",
+        "escape",
+        "getAliases",
+        "getArguments",
+        "getCommandData",
+        "getCommandDocument",
+        "getDefinition",
+        "getDescription",
+        "getName",
+        "getOptions",
+        "getProcessedHelp",
+        "getSynopsis",
+        "getUsages",
+        "mergeApplicationDefinition",
+        "str_repeat",
+        "str_replace",
+        "width",
+        "write",
+        "writeData",
+        "writeDocument",
+        "writeText"
+      ]
+    },
+    {
+      "task_id": "textmatch_describeCommands",
+      "query": {
+        "__rationale": "6 callees appear inside `describeCommands`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/ReStructuredTextDescriptor.php",
+        "symbol": "describeCommands"
+      },
+      "expected": [
+        "all",
+        "describeCommand",
+        "removeAliasesAndHiddenCommands",
+        "str_repeat",
+        "width",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_describeInputArgument",
+      "query": {
+        "__rationale": "21 callees appear inside `describeInputArgument`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/JsonDescriptor.php",
+        "symbol": "describeInputArgument"
+      },
+      "expected": [
+        "count",
+        "formatDefaultValue",
+        "getDefault",
+        "getDescription",
+        "getInputArgumentData",
+        "getInputArgumentDocument",
+        "getName",
+        "isArray",
+        "isRequired",
+        "is_array",
+        "preg_replace",
+        "sprintf",
+        "str_repeat",
+        "str_replace",
+        "strlen",
+        "var_export",
+        "width",
+        "write",
+        "writeData",
+        "writeDocument",
+        "writeText"
+      ]
+    },
+    {
+      "task_id": "textmatch_describeInputDefinition",
+      "query": {
+        "__rationale": "20 callees appear inside `describeInputDefinition`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/JsonDescriptor.php",
+        "symbol": "describeInputDefinition"
+      },
+      "expected": [
+        "array_merge",
+        "calculateTotalWidthForOptions",
+        "count",
+        "describeInputArgument",
+        "describeInputOption",
+        "getArguments",
+        "getInputDefinitionData",
+        "getInputDefinitionDocument",
+        "getName",
+        "getNonDefaultOptions",
+        "getOptions",
+        "getShortcut",
+        "max",
+        "str_repeat",
+        "strlen",
+        "width",
+        "write",
+        "writeData",
+        "writeDocument",
+        "writeText"
+      ]
+    },
+    {
+      "task_id": "textmatch_describeInputOption",
+      "query": {
+        "__rationale": "28 callees appear inside `describeInputOption`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/JsonDescriptor.php",
+        "symbol": "describeInputOption"
+      },
+      "expected": [
+        "UnicodeString",
+        "acceptValue",
+        "ascii",
+        "calculateTotalWidthForOptions",
+        "count",
+        "formatDefaultValue",
+        "getDefault",
+        "getDescription",
+        "getInputOptionData",
+        "getInputOptionDocument",
+        "getName",
+        "getShortcut",
+        "isArray",
+        "isNegatable",
+        "isValueOptional",
+        "isValueRequired",
+        "is_array",
+        "preg_replace",
+        "sprintf",
+        "str_repeat",
+        "str_replace",
+        "strtoupper",
+        "var_export",
+        "width",
+        "write",
+        "writeData",
+        "writeDocument",
+        "writeText"
+      ]
+    },
+    {
+      "task_id": "textmatch_determineBestFormat",
+      "query": {
+        "__rationale": "2 callees appear inside `determineBestFormat`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProgressBar.php",
+        "symbol": "determineBestFormat"
+      },
+      "expected": [
+        "getVerbosity",
+        "isDecorated"
+      ]
+    },
+    {
+      "task_id": "textmatch_display",
+      "query": {
+        "__rationale": "8 callees appear inside `display`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProgressBar.php",
+        "symbol": "display"
+      },
+      "expected": [
+        "$formatter",
+        "buildLine",
+        "determineBestFormat",
+        "getPlaceholderFormatterDefinition",
+        "getVerbosity",
+        "overwrite",
+        "preg_replace_callback",
+        "setRealFormat"
+      ]
+    },
+    {
+      "task_id": "textmatch_doAsk",
+      "query": {
+        "__rationale": "18 callees appear inside `doAsk`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/QuestionHelper.php",
+        "symbol": "doAsk"
+      },
+      "expected": [
+        "$normalizer",
+        "MissingInputException",
+        "addContent",
+        "autocomplete",
+        "getAutocompleterCallback",
+        "getDefault",
+        "getHiddenResponse",
+        "getNormalizer",
+        "hasSttyAvailable",
+        "isHidden",
+        "isHiddenFallback",
+        "isTrimmable",
+        "readInput",
+        "stream_get_meta_data",
+        "stream_set_blocking",
+        "strlen",
+        "trim",
+        "writePrompt"
+      ]
+    },
+    {
+      "task_id": "textmatch_doReadInput",
+      "query": {
+        "__rationale": "5 callees appear inside `doReadInput`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/QuestionHelper.php",
+        "symbol": "doReadInput"
+      },
+      "expected": [
+        "MissingInputException",
+        "TerminalInputHelper",
+        "feof",
+        "fread",
+        "waitForInput"
+      ]
+    },
+    {
+      "task_id": "textmatch_doRenderThrowable",
+      "query": {
+        "__rationale": "27 callees appear inside `doRenderThrowable`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "doRenderThrowable"
+      },
+      "expected": [
+        "array_unshift",
+        "basename",
+        "class_exists",
+        "class_implements",
+        "count",
+        "escape",
+        "getCode",
+        "getFile",
+        "getLine",
+        "getMessage",
+        "getPrevious",
+        "getTrace",
+        "getVerbosity",
+        "getWidth",
+        "get_debug_type",
+        "get_parent_class",
+        "key",
+        "max",
+        "preg_replace_callback",
+        "preg_split",
+        "splitStringByWidth",
+        "sprintf",
+        "str_contains",
+        "str_repeat",
+        "trim",
+        "width",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_doRunCommand",
+      "query": {
+        "__rationale": "26 callees appear inside `doRunCommand`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "doRunCommand"
+      },
+      "expected": [
+        "ConsoleAlarmEvent",
+        "ConsoleCommandEvent",
+        "ConsoleErrorEvent",
+        "ConsoleSignalEvent",
+        "ConsoleTerminateEvent",
+        "abortExit",
+        "array_diff",
+        "bind",
+        "commandShouldRun",
+        "dispatch",
+        "getDefinition",
+        "getError",
+        "getExitCode",
+        "getHelperSet",
+        "getSignalRegistry",
+        "getSubscribedSignals",
+        "handleSignal",
+        "in_array",
+        "mergeApplicationDefinition",
+        "popPreviousHandlers",
+        "pushCurrentHandlers",
+        "register",
+        "run",
+        "scheduleAlarm",
+        "setExitCode",
+        "setInput"
+      ]
+    },
+    {
+      "task_id": "textmatch_doWrite",
+      "query": {
+        "__rationale": "12 callees appear inside `doWrite`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Output/ConsoleSectionOutput.php",
+        "symbol": "doWrite"
+      },
+      "expected": [
+        "addContent",
+        "array_slice",
+        "doWrite",
+        "end",
+        "fflush",
+        "fwrite",
+        "implode",
+        "isDecorated",
+        "popStreamContentUntilCurrentSection",
+        "str_ends_with",
+        "strlen",
+        "substr"
+      ]
+    },
+    {
+      "task_id": "textmatch_equals",
+      "query": {
+        "__rationale": "7 callees appear inside `equals`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/InputOption.php",
+        "symbol": "equals"
+      },
+      "expected": [
+        "getDefault",
+        "getName",
+        "getShortcut",
+        "isArray",
+        "isNegatable",
+        "isValueOptional",
+        "isValueRequired"
+      ]
+    },
+    {
+      "task_id": "textmatch_error",
+      "query": {
+        "__rationale": "2 callees appear inside `error`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "CI/GithubActionReporter.php",
+        "symbol": "error"
+      },
+      "expected": [
+        "block",
+        "log"
+      ]
+    },
+    {
+      "task_id": "textmatch_escape",
+      "query": {
+        "__rationale": "2 callees appear inside `escape`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Formatter/OutputFormatter.php",
+        "symbol": "escape"
+      },
+      "expected": [
+        "escapeTrailingBackslash",
+        "preg_replace"
+      ]
+    },
+    {
+      "task_id": "textmatch_escapeToken",
+      "query": {
+        "__rationale": "2 callees appear inside `escapeToken`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/Input.php",
+        "symbol": "escapeToken"
+      },
+      "expected": [
+        "escapeshellarg",
+        "preg_match"
+      ]
+    },
+    {
+      "task_id": "textmatch_escapeTrailingBackslash",
+      "query": {
+        "__rationale": "5 callees appear inside `escapeTrailingBackslash`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Formatter/OutputFormatter.php",
+        "symbol": "escapeTrailingBackslash"
+      },
+      "expected": [
+        "rtrim",
+        "str_ends_with",
+        "str_repeat",
+        "str_replace",
+        "strlen"
+      ]
+    },
+    {
+      "task_id": "textmatch_extractAllNamespaces",
+      "query": {
+        "__rationale": "3 callees appear inside `extractAllNamespaces`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "extractAllNamespaces"
+      },
+      "expected": [
+        "count",
+        "end",
+        "explode"
+      ]
+    },
+    {
+      "task_id": "textmatch_extractInteractiveInputs",
+      "query": {
+        "__rationale": "4 callees appear inside `extractInteractiveInputs`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/TraceableCommand.php",
+        "symbol": "extractInteractiveInputs"
+      },
+      "expected": [
+        "array_key_exists",
+        "getArguments",
+        "getNativeDefinition",
+        "getOptions"
+      ]
+    },
+    {
+      "task_id": "textmatch_extractNamespace",
+      "query": {
+        "__rationale": "3 callees appear inside `extractNamespace`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "extractNamespace"
+      },
+      "expected": [
+        "array_slice",
+        "explode",
+        "implode"
+      ]
+    },
+    {
+      "task_id": "textmatch_fillCells",
+      "query": {
+        "__rationale": "2 callees appear inside `fillCells`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "fillCells"
+      },
+      "expected": [
+        "getColspan",
+        "range"
+      ]
+    },
+    {
+      "task_id": "textmatch_fillNextRows",
+      "query": {
+        "__rationale": "20 callees appear inside `fillNextRows`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "fillNextRows"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "TableCell",
+        "array_fill",
+        "array_replace_recursive",
+        "array_splice",
+        "copyRow",
+        "count",
+        "explode",
+        "getColspan",
+        "getNumberOfColumns",
+        "getRowspan",
+        "getStyle",
+        "get_debug_type",
+        "is_array",
+        "is_scalar",
+        "isset",
+        "sprintf",
+        "str_contains",
+        "str_replace",
+        "substr_count"
+      ]
+    },
+    {
+      "task_id": "textmatch_findAlternatives",
+      "query": {
+        "__rationale": "8 callees appear inside `findAlternatives`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "findAlternatives"
+      },
+      "expected": [
+        "array_filter",
+        "array_keys",
+        "explode",
+        "isset",
+        "ksort",
+        "levenshtein",
+        "str_contains",
+        "strlen"
+      ]
+    },
+    {
+      "task_id": "textmatch_findCommand",
+      "query": {
+        "__rationale": "3 callees appear inside `findCommand`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/CompleteCommand.php",
+        "symbol": "findCommand"
+      },
+      "expected": [
+        "find",
+        "getApplication",
+        "getFirstArgument"
+      ]
+    },
+    {
+      "task_id": "textmatch_findNamespace",
+      "query": {
+        "__rationale": "13 callees appear inside `findNamespace`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "findNamespace"
+      },
+      "expected": [
+        "NamespaceNotFoundException",
+        "array_map",
+        "array_values",
+        "count",
+        "explode",
+        "findAlternatives",
+        "getAbbreviationSuggestions",
+        "getNamespaces",
+        "implode",
+        "in_array",
+        "preg_grep",
+        "reset",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_finish",
+      "query": {
+        "__rationale": "13 callees appear inside `finish`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProgressBar.php",
+        "symbol": "finish"
+      },
+      "expected": [
+        "LogicException",
+        "TypeError",
+        "checkForKillSignal",
+        "display",
+        "func_get_arg",
+        "func_num_args",
+        "get_debug_type",
+        "is_string",
+        "pcntl_signal",
+        "setProgress",
+        "shell_exec",
+        "sprintf",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_formatAndWrap",
+      "query": {
+        "__rationale": "10 callees appear inside `formatAndWrap`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Formatter/OutputFormatter.php",
+        "symbol": "formatAndWrap"
+      },
+      "expected": [
+        "applyCurrentStyle",
+        "createStyleFromString",
+        "length",
+        "pop",
+        "preg_match",
+        "preg_match_all",
+        "push",
+        "strlen",
+        "strtr",
+        "substr"
+      ]
+    },
+    {
+      "task_id": "textmatch_formatBlock",
+      "query": {
+        "__rationale": "8 callees appear inside `formatBlock`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/FormatterHelper.php",
+        "symbol": "formatBlock"
+      },
+      "expected": [
+        "escape",
+        "implode",
+        "is_array",
+        "isset",
+        "max",
+        "sprintf",
+        "str_repeat",
+        "width"
+      ]
+    },
+    {
+      "task_id": "textmatch_formatChoiceQuestionChoices",
+      "query": {
+        "__rationale": "7 callees appear inside `formatChoiceQuestionChoices`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/QuestionHelper.php",
+        "symbol": "formatChoiceQuestionChoices"
+      },
+      "expected": [
+        "array_keys",
+        "array_map",
+        "getChoices",
+        "max",
+        "sprintf",
+        "str_repeat",
+        "width"
+      ]
+    },
+    {
+      "task_id": "textmatch_formatDefaultValue",
+      "query": {
+        "__rationale": "5 callees appear inside `formatDefaultValue`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/TextDescriptor.php",
+        "symbol": "formatDefaultValue"
+      },
+      "expected": [
+        "escape",
+        "is_array",
+        "is_string",
+        "json_encode",
+        "str_replace"
+      ]
+    },
+    {
+      "task_id": "textmatch_formatTime",
+      "query": {
+        "__rationale": "4 callees appear inside `formatTime`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Helper.php",
+        "symbol": "formatTime"
+      },
+      "expected": [
+        "array_reverse",
+        "floor",
+        "implode",
+        "isset"
+      ]
+    },
+    {
+      "task_id": "textmatch_fromEnumValue",
+      "query": {
+        "__rationale": "4 callees appear inside `fromEnumValue`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Exception/InvalidArgumentException.php",
+        "symbol": "fromEnumValue"
+      },
+      "expected": [
+        "implode",
+        "is_array",
+        "self",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_fromString",
+      "query": {
+        "__rationale": "2 callees appear inside `fromString`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Completion/CompletionInput.php",
+        "symbol": "fromString"
+      },
+      "expected": [
+        "fromTokens",
+        "preg_match_all"
+      ]
+    },
+    {
+      "task_id": "textmatch_fromValues",
+      "query": {
+        "__rationale": "4 callees appear inside `fromValues`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/TreeNode.php",
+        "symbol": "fromValues"
+      },
+      "expected": [
+        "addChild",
+        "fromValues",
+        "is_iterable",
+        "self"
+      ]
+    },
+    {
+      "task_id": "textmatch_get",
+      "query": {
+        "__rationale": "9 callees appear inside `get`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "get"
+      },
+      "expected": [
+        "$factory",
+        "CommandNotFoundException",
+        "InvalidArgumentException",
+        "get",
+        "has",
+        "init",
+        "isset",
+        "setCommand",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_getAbbreviations",
+      "query": {
+        "__rationale": "2 callees appear inside `getAbbreviations`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "getAbbreviations"
+      },
+      "expected": [
+        "strlen",
+        "substr"
+      ]
+    },
+    {
+      "task_id": "textmatch_getApplicationDocument",
+      "query": {
+        "__rationale": "12 callees appear inside `getApplicationDocument`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/XmlDescriptor.php",
+        "symbol": "getApplicationDocument"
+      },
+      "expected": [
+        "ApplicationDescription",
+        "DOMDocument",
+        "appendChild",
+        "appendDocument",
+        "createElement",
+        "createTextNode",
+        "getCommandDocument",
+        "getCommands",
+        "getName",
+        "getNamespaces",
+        "getVersion",
+        "setAttribute"
+      ]
+    },
+    {
+      "task_id": "textmatch_getApplicationTitle",
+      "query": {
+        "__rationale": "3 callees appear inside `getApplicationTitle`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/MarkdownDescriptor.php",
+        "symbol": "getApplicationTitle"
+      },
+      "expected": [
+        "getName",
+        "getVersion",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_getApplications",
+      "query": {
+        "__rationale": "2 callees appear inside `getApplications`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tests/Descriptor/ObjectsProvider.php",
+        "symbol": "getApplications"
+      },
+      "expected": [
+        "DescriptorApplication1",
+        "DescriptorApplication2"
+      ]
+    },
+    {
+      "task_id": "textmatch_getArgument",
+      "query": {
+        "__rationale": "7 callees appear inside `getArgument`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/Input.php",
+        "symbol": "getArgument"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "array_values",
+        "getArgument",
+        "getDefault",
+        "hasArgument",
+        "is_int",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_getArgumentDefaults",
+      "query": {
+        "__rationale": "2 callees appear inside `getArgumentDefaults`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/InputDefinition.php",
+        "symbol": "getArgumentDefaults"
+      },
+      "expected": [
+        "getDefault",
+        "getName"
+      ]
+    },
+    {
+      "task_id": "textmatch_getArguments",
+      "query": {
+        "__rationale": "3 callees appear inside `getArguments`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Attribute/MapInput.php",
+        "symbol": "getArguments"
+      },
+      "expected": [
+        "array_merge",
+        "getArgumentDefaults",
+        "getArguments"
+      ]
+    },
+    {
+      "task_id": "textmatch_getAttribute",
+      "query": {
+        "__rationale": "2 callees appear inside `getAttribute`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Attribute/Reflection/ReflectionMember.php",
+        "symbol": "getAttribute"
+      },
+      "expected": [
+        "getAttributes",
+        "newInstance"
+      ]
+    },
+    {
+      "task_id": "textmatch_getAutocompleterValues",
+      "query": {
+        "__rationale": "2 callees appear inside `getAutocompleterValues`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Question/Question.php",
+        "symbol": "getAutocompleterValues"
+      },
+      "expected": [
+        "$callback",
+        "getAutocompleterCallback"
+      ]
+    },
+    {
+      "task_id": "textmatch_getBarOffset",
+      "query": {
+        "__rationale": "2 callees appear inside `getBarOffset`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProgressBar.php",
+        "symbol": "getBarOffset"
+      },
+      "expected": [
+        "floor",
+        "min"
+      ]
+    },
+    {
+      "task_id": "textmatch_getCellWidth",
+      "query": {
+        "__rationale": "6 callees appear inside `getCellWidth`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "getCellWidth"
+      },
+      "expected": [
+        "getFormatter",
+        "isset",
+        "max",
+        "min",
+        "removeDecoration",
+        "width"
+      ]
+    },
+    {
+      "task_id": "textmatch_getChildren",
+      "query": {
+        "__rationale": "4 callees appear inside `getChildren`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/TreeHelper.php",
+        "symbol": "getChildren"
+      },
+      "expected": [
+        "$child",
+        "current",
+        "is_callable",
+        "self"
+      ]
+    },
+    {
+      "task_id": "textmatch_getClientIp",
+      "query": {
+        "__rationale": "3 callees appear inside `getClientIp`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Debug/CliRequest.php",
+        "symbol": "getClientIp"
+      },
+      "expected": [
+        "getApplication",
+        "getName",
+        "getVersion"
+      ]
+    },
+    {
+      "task_id": "textmatch_getClosure",
+      "query": {
+        "__rationale": "6 callees appear inside `getClosure`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/InvokableCommand.php",
+        "symbol": "getClosure"
+      },
+      "expected": [
+        "$code",
+        "ReflectionFunction",
+        "bind",
+        "getClosureThis",
+        "restore_error_handler",
+        "set_error_handler"
+      ]
+    },
+    {
+      "task_id": "textmatch_getColorMode",
+      "query": {
+        "__rationale": "5 callees appear inside `getColorMode`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Terminal.php",
+        "symbol": "getColorMode"
+      },
+      "expected": [
+        "getenv",
+        "is_string",
+        "setColorMode",
+        "str_contains",
+        "strtolower"
+      ]
+    },
+    {
+      "task_id": "textmatch_getColumnSeparatorWidth",
+      "query": {
+        "__rationale": "4 callees appear inside `getColumnSeparatorWidth`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "getColumnSeparatorWidth"
+      },
+      "expected": [
+        "getBorderChars",
+        "getBorderFormat",
+        "sprintf",
+        "width"
+      ]
+    },
+    {
+      "task_id": "textmatch_getColumnWidth",
+      "query": {
+        "__rationale": "4 callees appear inside `getColumnWidth`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/TextDescriptor.php",
+        "symbol": "getColumnWidth"
+      },
+      "expected": [
+        "getAliases",
+        "getName",
+        "max",
+        "width"
+      ]
+    },
+    {
+      "task_id": "textmatch_getCommand",
+      "query": {
+        "__rationale": "23 callees appear inside `getCommand`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/LazyCommand.php",
+        "symbol": "getCommand"
+      },
+      "expected": [
+        "CommandNotFoundException",
+        "ReflectionClass",
+        "ReflectionMethod",
+        "getAliases",
+        "getApplication",
+        "getDeclaringClass",
+        "getDefinition",
+        "getDescription",
+        "getFileName",
+        "getHelperSet",
+        "getName",
+        "getStartLine",
+        "getType",
+        "isHidden",
+        "is_array",
+        "isset",
+        "setAliases",
+        "setApplication",
+        "setDescription",
+        "setHelperSet",
+        "setHidden",
+        "setName",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_getCommandAliasesText",
+      "query": {
+        "__rationale": "2 callees appear inside `getCommandAliasesText`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/TextDescriptor.php",
+        "symbol": "getCommandAliasesText"
+      },
+      "expected": [
+        "getAliases",
+        "implode"
+      ]
+    },
+    {
+      "task_id": "textmatch_getCommandData",
+      "query": {
+        "__rationale": "11 callees appear inside `getCommandData`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/JsonDescriptor.php",
+        "symbol": "getCommandData"
+      },
+      "expected": [
+        "array_merge",
+        "getAliases",
+        "getDefinition",
+        "getDescription",
+        "getInputDefinitionData",
+        "getName",
+        "getProcessedHelp",
+        "getSynopsis",
+        "getUsages",
+        "isHidden",
+        "mergeApplicationDefinition"
+      ]
+    },
+    {
+      "task_id": "textmatch_getCommandDocument",
+      "query": {
+        "__rationale": "20 callees appear inside `getCommandDocument`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/XmlDescriptor.php",
+        "symbol": "getCommandDocument"
+      },
+      "expected": [
+        "DOMDocument",
+        "appendChild",
+        "appendDocument",
+        "array_merge",
+        "createElement",
+        "createTextNode",
+        "getAliases",
+        "getDefinition",
+        "getDescription",
+        "getElementsByTagName",
+        "getInputDefinitionDocument",
+        "getName",
+        "getProcessedHelp",
+        "getSynopsis",
+        "getUsages",
+        "isHidden",
+        "item",
+        "mergeApplicationDefinition",
+        "setAttribute",
+        "str_replace"
+      ]
+    },
+    {
+      "task_id": "textmatch_getCommands",
+      "query": {
+        "__rationale": "4 callees appear inside `getCommands`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/ApplicationDescription.php",
+        "symbol": "getCommands"
+      },
+      "expected": [
+        "DescriptorCommand1",
+        "DescriptorCommand2",
+        "inspectApplication",
+        "isset"
+      ]
+    },
+    {
+      "task_id": "textmatch_getConsoleMode",
+      "query": {
+        "__rationale": "2 callees appear inside `getConsoleMode`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Terminal.php",
+        "symbol": "getConsoleMode"
+      },
+      "expected": [
+        "preg_match",
+        "readFromProcess"
+      ]
+    },
+    {
+      "task_id": "textmatch_getCurrentPosition",
+      "query": {
+        "__rationale": "7 callees appear inside `getCurrentPosition`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Cursor.php",
+        "symbol": "getCurrentPosition"
+      },
+      "expected": [
+        "fread",
+        "fwrite",
+        "shell_exec",
+        "sprintf",
+        "sscanf",
+        "stream_isatty",
+        "trim"
+      ]
+    },
+    {
+      "task_id": "textmatch_getCurrentTimeInMilliseconds",
+      "query": {
+        "__rationale": "2 callees appear inside `getCurrentTimeInMilliseconds`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProgressIndicator.php",
+        "symbol": "getCurrentTimeInMilliseconds"
+      },
+      "expected": [
+        "microtime",
+        "round"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDefaultAnswer",
+      "query": {
+        "__rationale": "8 callees appear inside `getDefaultAnswer`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/QuestionHelper.php",
+        "symbol": "getDefaultAnswer"
+      },
+      "expected": [
+        "call_user_func",
+        "explode",
+        "getChoices",
+        "getDefault",
+        "getValidator",
+        "isMultiselect",
+        "isTrimmable",
+        "trim"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDefaultCommands",
+      "query": {
+        "__rationale": "4 callees appear inside `getDefaultCommands`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "getDefaultCommands"
+      },
+      "expected": [
+        "CompleteCommand",
+        "DumpCompletionCommand",
+        "HelpCommand",
+        "ListCommand"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDefaultDescription",
+      "query": {
+        "__rationale": "4 callees appear inside `getDefaultDescription`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "getDefaultDescription"
+      },
+      "expected": [
+        "ReflectionClass",
+        "getAttributes",
+        "newInstance",
+        "trigger_deprecation"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDefaultHelperSet",
+      "query": {
+        "__rationale": "5 callees appear inside `getDefaultHelperSet`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "getDefaultHelperSet"
+      },
+      "expected": [
+        "DebugFormatterHelper",
+        "FormatterHelper",
+        "HelperSet",
+        "ProcessHelper",
+        "QuestionHelper"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDefaultInputDefinition",
+      "query": {
+        "__rationale": "3 callees appear inside `getDefaultInputDefinition`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "getDefaultInputDefinition"
+      },
+      "expected": [
+        "InputArgument",
+        "InputDefinition",
+        "InputOption"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDefaultName",
+      "query": {
+        "__rationale": "4 callees appear inside `getDefaultName`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "getDefaultName"
+      },
+      "expected": [
+        "ReflectionClass",
+        "getAttributes",
+        "newInstance",
+        "trigger_deprecation"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDefaultNormalizer",
+      "query": {
+        "__rationale": "3 callees appear inside `getDefaultNormalizer`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Question/ConfirmationQuestion.php",
+        "symbol": "getDefaultNormalizer"
+      },
+      "expected": [
+        "getDefault",
+        "is_bool",
+        "preg_match"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDefaultValidator",
+      "query": {
+        "__rationale": "12 callees appear inside `getDefaultValidator`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Question/ChoiceQuestion.php",
+        "symbol": "getDefaultValidator"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "array_search",
+        "count",
+        "current",
+        "explode",
+        "implode",
+        "isAssoc",
+        "isTrimmable",
+        "isset",
+        "preg_match",
+        "sprintf",
+        "trim"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDefinition",
+      "query": {
+        "__rationale": "5 callees appear inside `getDefinition`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "getDefinition"
+      },
+      "expected": [
+        "getCommand",
+        "getDefaultInputDefinition",
+        "getDefinition",
+        "getNativeDefinition",
+        "setArguments"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDescribeApplicationTestData",
+      "query": {
+        "__rationale": "2 callees appear inside `getDescribeApplicationTestData`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tests/Descriptor/AbstractDescriptorTestCase.php",
+        "symbol": "getDescribeApplicationTestData"
+      },
+      "expected": [
+        "getApplications",
+        "getDescriptionTestData"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDescribeCommandTestData",
+      "query": {
+        "__rationale": "2 callees appear inside `getDescribeCommandTestData`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tests/Descriptor/AbstractDescriptorTestCase.php",
+        "symbol": "getDescribeCommandTestData"
+      },
+      "expected": [
+        "getCommands",
+        "getDescriptionTestData"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDescribeInputArgumentTestData",
+      "query": {
+        "__rationale": "2 callees appear inside `getDescribeInputArgumentTestData`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tests/Descriptor/AbstractDescriptorTestCase.php",
+        "symbol": "getDescribeInputArgumentTestData"
+      },
+      "expected": [
+        "getDescriptionTestData",
+        "getInputArguments"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDescribeInputDefinitionTestData",
+      "query": {
+        "__rationale": "2 callees appear inside `getDescribeInputDefinitionTestData`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tests/Descriptor/AbstractDescriptorTestCase.php",
+        "symbol": "getDescribeInputDefinitionTestData"
+      },
+      "expected": [
+        "getDescriptionTestData",
+        "getInputDefinitions"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDescribeInputOptionTestData",
+      "query": {
+        "__rationale": "2 callees appear inside `getDescribeInputOptionTestData`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tests/Descriptor/AbstractDescriptorTestCase.php",
+        "symbol": "getDescribeInputOptionTestData"
+      },
+      "expected": [
+        "getDescriptionTestData",
+        "getInputOptions"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDescriptionTestData",
+      "query": {
+        "__rationale": "3 callees appear inside `getDescriptionTestData`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tests/Descriptor/AbstractDescriptorTestCase.php",
+        "symbol": "getDescriptionTestData"
+      },
+      "expected": [
+        "file_get_contents",
+        "getFormat",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDisplay",
+      "query": {
+        "__rationale": "6 callees appear inside `getDisplay`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tester/TesterTrait.php",
+        "symbol": "getDisplay"
+      },
+      "expected": [
+        "RuntimeException",
+        "getStream",
+        "isset",
+        "rewind",
+        "str_replace",
+        "stream_get_contents"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDisplayLength",
+      "query": {
+        "__rationale": "4 callees appear inside `getDisplayLength`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Output/ConsoleSectionOutput.php",
+        "symbol": "getDisplayLength"
+      },
+      "expected": [
+        "getFormatter",
+        "removeDecoration",
+        "str_replace",
+        "width"
+      ]
+    },
+    {
+      "task_id": "textmatch_getErrorOutput",
+      "query": {
+        "__rationale": "6 callees appear inside `getErrorOutput`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/OutputStyle.php",
+        "symbol": "getErrorOutput"
+      },
+      "expected": [
+        "LogicException",
+        "getErrorOutput",
+        "getStream",
+        "rewind",
+        "str_replace",
+        "stream_get_contents"
+      ]
+    },
+    {
+      "task_id": "textmatch_getErrorStyle",
+      "query": {
+        "__rationale": "2 callees appear inside `getErrorStyle`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "getErrorStyle"
+      },
+      "expected": [
+        "getErrorOutput",
+        "self"
+      ]
+    },
+    {
+      "task_id": "textmatch_getEstimated",
+      "query": {
+        "__rationale": "2 callees appear inside `getEstimated`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProgressBar.php",
+        "symbol": "getEstimated"
+      },
+      "expected": [
+        "round",
+        "time"
+      ]
+    },
+    {
+      "task_id": "textmatch_getExitCode",
+      "query": {
+        "__rationale": "2 callees appear inside `getExitCode`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Event/ConsoleErrorEvent.php",
+        "symbol": "getExitCode"
+      },
+      "expected": [
+        "getCode",
+        "is_int"
+      ]
+    },
+    {
+      "task_id": "textmatch_getFirstArgument",
+      "query": {
+        "__rationale": "6 callees appear inside `getFirstArgument`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/ArgvInput.php",
+        "symbol": "getFirstArgument"
+      },
+      "expected": [
+        "hasShortcut",
+        "is_string",
+        "isset",
+        "shortcutToName",
+        "str_contains",
+        "substr"
+      ]
+    },
+    {
+      "task_id": "textmatch_getFormatter",
+      "query": {
+        "__rationale": "2 callees appear inside `getFormatter`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Output/NullOutput.php",
+        "symbol": "getFormatter"
+      },
+      "expected": [
+        "NullOutputFormatter",
+        "getFormatter"
+      ]
+    },
+    {
+      "task_id": "textmatch_getFunction",
+      "query": {
+        "__rationale": "3 callees appear inside `getFunction`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Attribute/Ask.php",
+        "symbol": "getFunction"
+      },
+      "expected": [
+        "ReflectionFunction",
+        "bindTo",
+        "getClosure"
+      ]
+    },
+    {
+      "task_id": "textmatch_getHandledSignals",
+      "query": {
+        "__rationale": "6 callees appear inside `getHandledSignals`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "DataCollector/CommandDataCollector.php",
+        "symbol": "getHandledSignals"
+      },
+      "expected": [
+        "array_combine",
+        "array_keys",
+        "array_map",
+        "array_values",
+        "getSignalName",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_getHeight",
+      "query": {
+        "__rationale": "3 callees appear inside `getHeight`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Terminal.php",
+        "symbol": "getHeight"
+      },
+      "expected": [
+        "getenv",
+        "initDimensions",
+        "trim"
+      ]
+    },
+    {
+      "task_id": "textmatch_getHelp",
+      "query": {
+        "__rationale": "3 callees appear inside `getHelp`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "getHelp"
+      },
+      "expected": [
+        "getCommand",
+        "getHelp",
+        "getLongVersion"
+      ]
+    },
+    {
+      "task_id": "textmatch_getHelper",
+      "query": {
+        "__rationale": "5 callees appear inside `getHelper`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "getHelper"
+      },
+      "expected": [
+        "LogicException",
+        "get",
+        "getCommand",
+        "getHelper",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_getHelperSet",
+      "query": {
+        "__rationale": "2 callees appear inside `getHelperSet`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "getHelperSet"
+      },
+      "expected": [
+        "getDefaultHelperSet",
+        "getHelperSet"
+      ]
+    },
+    {
+      "task_id": "textmatch_getHiddenResponse",
+      "query": {
+        "__rationale": "18 callees appear inside `getHiddenResponse`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/QuestionHelper.php",
+        "symbol": "getHiddenResponse"
+      },
+      "expected": [
+        "RuntimeException",
+        "TerminalInputHelper",
+        "copy",
+        "doReadInput",
+        "finish",
+        "getErrorOutput",
+        "hasSttyAvailable",
+        "isInteractiveInput",
+        "isset",
+        "rtrim",
+        "shell_exec",
+        "str_starts_with",
+        "strlen",
+        "sys_get_temp_dir",
+        "trim",
+        "unlink",
+        "warning",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_getInputArgumentData",
+      "query": {
+        "__rationale": "6 callees appear inside `getInputArgumentData`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/JsonDescriptor.php",
+        "symbol": "getInputArgumentData"
+      },
+      "expected": [
+        "getDefault",
+        "getDescription",
+        "getName",
+        "isArray",
+        "isRequired",
+        "preg_replace"
+      ]
+    },
+    {
+      "task_id": "textmatch_getInputArgumentDocument",
+      "query": {
+        "__rationale": "13 callees appear inside `getInputArgumentDocument`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/XmlDescriptor.php",
+        "symbol": "getInputArgumentDocument"
+      },
+      "expected": [
+        "DOMDocument",
+        "appendChild",
+        "createElement",
+        "createTextNode",
+        "getDefault",
+        "getDescription",
+        "getName",
+        "isArray",
+        "isRequired",
+        "is_array",
+        "is_bool",
+        "setAttribute",
+        "var_export"
+      ]
+    },
+    {
+      "task_id": "textmatch_getInputDefinitionData",
+      "query": {
+        "__rationale": "5 callees appear inside `getInputDefinitionData`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/JsonDescriptor.php",
+        "symbol": "getInputDefinitionData"
+      },
+      "expected": [
+        "getArguments",
+        "getInputArgumentData",
+        "getInputOptionData",
+        "getOptions",
+        "isNegatable"
+      ]
+    },
+    {
+      "task_id": "textmatch_getInputDefinitionDocument",
+      "query": {
+        "__rationale": "8 callees appear inside `getInputDefinitionDocument`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/XmlDescriptor.php",
+        "symbol": "getInputDefinitionDocument"
+      },
+      "expected": [
+        "DOMDocument",
+        "appendChild",
+        "appendDocument",
+        "createElement",
+        "getArguments",
+        "getInputArgumentDocument",
+        "getInputOptionDocument",
+        "getOptions"
+      ]
+    },
+    {
+      "task_id": "textmatch_getInputDefinitions",
+      "query": {
+        "__rationale": "3 callees appear inside `getInputDefinitions`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tests/Descriptor/ObjectsProvider.php",
+        "symbol": "getInputDefinitions"
+      },
+      "expected": [
+        "InputArgument",
+        "InputDefinition",
+        "InputOption"
+      ]
+    },
+    {
+      "task_id": "textmatch_getInputOptionData",
+      "query": {
+        "__rationale": "9 callees appear inside `getInputOptionData`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/JsonDescriptor.php",
+        "symbol": "getInputOptionData"
+      },
+      "expected": [
+        "acceptValue",
+        "getDefault",
+        "getDescription",
+        "getName",
+        "getShortcut",
+        "isArray",
+        "isValueRequired",
+        "preg_replace",
+        "str_replace"
+      ]
+    },
+    {
+      "task_id": "textmatch_getInputOptionDocument",
+      "query": {
+        "__rationale": "19 callees appear inside `getInputOptionDocument`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/XmlDescriptor.php",
+        "symbol": "getInputOptionDocument"
+      },
+      "expected": [
+        "DOMDocument",
+        "acceptValue",
+        "appendChild",
+        "createElement",
+        "createTextNode",
+        "getDefault",
+        "getDescription",
+        "getName",
+        "getShortcut",
+        "isArray",
+        "isNegatable",
+        "isValueRequired",
+        "is_array",
+        "is_bool",
+        "setAttribute",
+        "str_replace",
+        "strpos",
+        "substr",
+        "var_export"
+      ]
+    },
+    {
+      "task_id": "textmatch_getInputString",
+      "query": {
+        "__rationale": "4 callees appear inside `getInputString`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "EventListener/ErrorListener.php",
+        "symbol": "getInputString"
+      },
+      "expected": [
+        "getCommand",
+        "getInput",
+        "getName",
+        "str_replace"
+      ]
+    },
+    {
+      "task_id": "textmatch_getInterruptedBySignal",
+      "query": {
+        "__rationale": "3 callees appear inside `getInterruptedBySignal`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "DataCollector/CommandDataCollector.php",
+        "symbol": "getInterruptedBySignal"
+      },
+      "expected": [
+        "getSignalName",
+        "isset",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_getIterator",
+      "query": {
+        "__rationale": "2 callees appear inside `getIterator`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/HelperSet.php",
+        "symbol": "getIterator"
+      },
+      "expected": [
+        "ArrayIterator",
+        "getChildren"
+      ]
+    },
+    {
+      "task_id": "textmatch_getLogs",
+      "query": {
+        "__rationale": "5 callees appear inside `getLogs`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tests/Fixtures/DummyOutput.php",
+        "symbol": "getLogs"
+      },
+      "expected": [
+        "explode",
+        "fetch",
+        "preg_match",
+        "sprintf",
+        "trim"
+      ]
+    },
+    {
+      "task_id": "textmatch_getLongVersion",
+      "query": {
+        "__rationale": "3 callees appear inside `getLongVersion`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "getLongVersion"
+      },
+      "expected": [
+        "getName",
+        "getVersion",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_getMethodInteractions",
+      "query": {
+        "__rationale": "2 callees appear inside `getMethodInteractions`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Attribute/MapInput.php",
+        "symbol": "getMethodInteractions"
+      },
+      "expected": [
+        "Interaction",
+        "getMethodInteractions"
+      ]
+    },
+    {
+      "task_id": "textmatch_getNamespaces",
+      "query": {
+        "__rationale": "11 callees appear inside `getNamespaces`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "getNamespaces"
+      },
+      "expected": [
+        "all",
+        "array_filter",
+        "array_merge",
+        "array_unique",
+        "array_values",
+        "extractAllNamespaces",
+        "getAliases",
+        "getName",
+        "inspectApplication",
+        "isHidden",
+        "isset"
+      ]
+    },
+    {
+      "task_id": "textmatch_getNativeDefinition",
+      "query": {
+        "__rationale": "7 callees appear inside `getNativeDefinition`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "getNativeDefinition"
+      },
+      "expected": [
+        "LogicException",
+        "configure",
+        "getArguments",
+        "getCommand",
+        "getNativeDefinition",
+        "getOptions",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_getNonDefaultOptions",
+      "query": {
+        "__rationale": "3 callees appear inside `getNonDefaultOptions`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/ReStructuredTextDescriptor.php",
+        "symbol": "getNonDefaultOptions"
+      },
+      "expected": [
+        "getName",
+        "getOptions",
+        "in_array"
+      ]
+    },
+    {
+      "task_id": "textmatch_getNumberOfColumns",
+      "query": {
+        "__rationale": "2 callees appear inside `getNumberOfColumns`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "getNumberOfColumns"
+      },
+      "expected": [
+        "count",
+        "getColspan"
+      ]
+    },
+    {
+      "task_id": "textmatch_getOption",
+      "query": {
+        "__rationale": "8 callees appear inside `getOption`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/Input.php",
+        "symbol": "getOption"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "array_key_exists",
+        "getDefault",
+        "getOption",
+        "hasNegation",
+        "hasOption",
+        "negationToName",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_getOptionDefaults",
+      "query": {
+        "__rationale": "2 callees appear inside `getOptionDefaults`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/InputDefinition.php",
+        "symbol": "getOptionDefaults"
+      },
+      "expected": [
+        "getDefault",
+        "getName"
+      ]
+    },
+    {
+      "task_id": "textmatch_getOptionForShortcut",
+      "query": {
+        "__rationale": "2 callees appear inside `getOptionForShortcut`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/InputDefinition.php",
+        "symbol": "getOptionForShortcut"
+      },
+      "expected": [
+        "getOption",
+        "shortcutToName"
+      ]
+    },
+    {
+      "task_id": "textmatch_getOptionFromToken",
+      "query": {
+        "__rationale": "5 callees appear inside `getOptionFromToken`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Completion/CompletionInput.php",
+        "symbol": "getOptionFromToken"
+      },
+      "expected": [
+        "getOption",
+        "getOptionForShortcut",
+        "hasOption",
+        "hasShortcut",
+        "ltrim"
+      ]
+    },
+    {
+      "task_id": "textmatch_getOptions",
+      "query": {
+        "__rationale": "3 callees appear inside `getOptions`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Attribute/MapInput.php",
+        "symbol": "getOptions"
+      },
+      "expected": [
+        "array_merge",
+        "getOptionDefaults",
+        "getOptions"
+      ]
+    },
+    {
+      "task_id": "textmatch_getParameterOption",
+      "query": {
+        "__rationale": "7 callees appear inside `getParameterOption`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/ArgvInput.php",
+        "symbol": "getParameterOption"
+      },
+      "expected": [
+        "array_shift",
+        "count",
+        "in_array",
+        "is_int",
+        "str_starts_with",
+        "strlen",
+        "substr"
+      ]
+    },
+    {
+      "task_id": "textmatch_getParameters",
+      "query": {
+        "__rationale": "12 callees appear inside `getParameters`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/InvokableCommand.php",
+        "symbol": "getParameters"
+      },
+      "expected": [
+        "Cursor",
+        "LogicException",
+        "RuntimeException",
+        "SymfonyStyle",
+        "getApplication",
+        "getName",
+        "getParameters",
+        "getType",
+        "resolveValue",
+        "sprintf",
+        "trigger_deprecation",
+        "tryFrom"
+      ]
+    },
+    {
+      "task_id": "textmatch_getProcessedHelp",
+      "query": {
+        "__rationale": "6 callees appear inside `getProcessedHelp`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "getProcessedHelp"
+      },
+      "expected": [
+        "getCommand",
+        "getDescription",
+        "getHelp",
+        "getProcessedHelp",
+        "isSingleCommand",
+        "str_replace"
+      ]
+    },
+    {
+      "task_id": "textmatch_getPropertyInteractions",
+      "query": {
+        "__rationale": "3 callees appear inside `getPropertyInteractions`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Attribute/MapInput.php",
+        "symbol": "getPropertyInteractions"
+      },
+      "expected": [
+        "Interaction",
+        "getInteractiveAttribute",
+        "getPropertyInteractions"
+      ]
+    },
+    {
+      "task_id": "textmatch_getRemaining",
+      "query": {
+        "__rationale": "2 callees appear inside `getRemaining`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProgressBar.php",
+        "symbol": "getRemaining"
+      },
+      "expected": [
+        "round",
+        "time"
+      ]
+    },
+    {
+      "task_id": "textmatch_getRowColumns",
+      "query": {
+        "__rationale": "3 callees appear inside `getRowColumns`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "getRowColumns"
+      },
+      "expected": [
+        "array_diff",
+        "getColspan",
+        "range"
+      ]
+    },
+    {
+      "task_id": "textmatch_getSignalName",
+      "query": {
+        "__rationale": "7 callees appear inside `getSignalName`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "SignalRegistry/SignalMap.php",
+        "symbol": "getSignalName"
+      },
+      "expected": [
+        "ReflectionExtension",
+        "array_filter",
+        "array_flip",
+        "extension_loaded",
+        "getConstants",
+        "isset",
+        "str_starts_with"
+      ]
+    },
+    {
+      "task_id": "textmatch_getSignalable",
+      "query": {
+        "__rationale": "3 callees appear inside `getSignalable`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "DataCollector/CommandDataCollector.php",
+        "symbol": "getSignalable"
+      },
+      "expected": [
+        "array_map",
+        "getSignalName",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_getSourceName",
+      "query": {
+        "__rationale": "2 callees appear inside `getSourceName`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Attribute/Reflection/ReflectionMember.php",
+        "symbol": "getSourceName"
+      },
+      "expected": [
+        "getDeclaringClass",
+        "getDeclaringFunction"
+      ]
+    },
+    {
+      "task_id": "textmatch_getSourceThis",
+      "query": {
+        "__rationale": "2 callees appear inside `getSourceThis`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Attribute/Reflection/ReflectionMember.php",
+        "symbol": "getSourceThis"
+      },
+      "expected": [
+        "getClosureThis",
+        "getDeclaringFunction"
+      ]
+    },
+    {
+      "task_id": "textmatch_getStyle",
+      "query": {
+        "__rationale": "5 callees appear inside `getStyle`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Formatter/NullOutputFormatter.php",
+        "symbol": "getStyle"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "NullOutputFormatterStyle",
+        "hasStyle",
+        "sprintf",
+        "strtolower"
+      ]
+    },
+    {
+      "task_id": "textmatch_getStyleDefinition",
+      "query": {
+        "__rationale": "3 callees appear inside `getStyleDefinition`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "getStyleDefinition"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "initStyles",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_getSupportedShells",
+      "query": {
+        "__rationale": "7 callees appear inside `getSupportedShells`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/DumpCompletionCommand.php",
+        "symbol": "getSupportedShells"
+      },
+      "expected": [
+        "DirectoryIterator",
+        "getBasename",
+        "getExtension",
+        "isFile",
+        "isset",
+        "sort",
+        "str_starts_with"
+      ]
+    },
+    {
+      "task_id": "textmatch_getSynopsis",
+      "query": {
+        "__rationale": "17 callees appear inside `getSynopsis`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "getSynopsis"
+      },
+      "expected": [
+        "acceptValue",
+        "count",
+        "getArguments",
+        "getCommand",
+        "getName",
+        "getOptions",
+        "getShortcut",
+        "getSynopsis",
+        "implode",
+        "isArray",
+        "isNegatable",
+        "isRequired",
+        "isValueOptional",
+        "isset",
+        "sprintf",
+        "strtoupper",
+        "trim"
+      ]
+    },
+    {
+      "task_id": "textmatch_getTagOptions",
+      "query": {
+        "__rationale": "4 callees appear inside `getTagOptions`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/TableCellStyle.php",
+        "symbol": "getTagOptions"
+      },
+      "expected": [
+        "array_filter",
+        "getOptions",
+        "in_array",
+        "isset"
+      ]
+    },
+    {
+      "task_id": "textmatch_getUri",
+      "query": {
+        "__rationale": "2 callees appear inside `getUri`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Debug/CliRequest.php",
+        "symbol": "getUri"
+      },
+      "expected": [
+        "get",
+        "has"
+      ]
+    },
+    {
+      "task_id": "textmatch_getUsages",
+      "query": {
+        "__rationale": "2 callees appear inside `getUsages`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/LazyCommand.php",
+        "symbol": "getUsages"
+      },
+      "expected": [
+        "getCommand",
+        "getUsages"
+      ]
+    },
+    {
+      "task_id": "textmatch_getVisibleContent",
+      "query": {
+        "__rationale": "3 callees appear inside `getVisibleContent`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Output/ConsoleSectionOutput.php",
+        "symbol": "getVisibleContent"
+      },
+      "expected": [
+        "array_slice",
+        "getContent",
+        "implode"
+      ]
+    },
+    {
+      "task_id": "textmatch_getWidth",
+      "query": {
+        "__rationale": "3 callees appear inside `getWidth`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Terminal.php",
+        "symbol": "getWidth"
+      },
+      "expected": [
+        "getenv",
+        "initDimensions",
+        "trim"
+      ]
+    },
+    {
+      "task_id": "textmatch_handle",
+      "query": {
+        "__rationale": "2 callees appear inside `handle`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "SignalRegistry/SignalRegistry.php",
+        "symbol": "handle"
+      },
+      "expected": [
+        "$signalHandler",
+        "count"
+      ]
+    },
+    {
+      "task_id": "textmatch_handleSignal",
+      "query": {
+        "__rationale": "8 callees appear inside `handleSignal`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "handleSignal"
+      },
+      "expected": [
+        "getDuration",
+        "getMemory",
+        "getName",
+        "handleSignal",
+        "isset",
+        "max",
+        "start",
+        "stop"
+      ]
+    },
+    {
+      "task_id": "textmatch_handleUnion",
+      "query": {
+        "__rationale": "9 callees appear inside `handleUnion`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Attribute/Option.php",
+        "symbol": "handleUnion"
+      },
+      "expected": [
+        "LogicException",
+        "array_filter",
+        "array_map",
+        "getName",
+        "getTypes",
+        "implode",
+        "in_array",
+        "sort",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_has",
+      "query": {
+        "__rationale": "5 callees appear inside `has`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "has"
+      },
+      "expected": [
+        "addCommand",
+        "get",
+        "has",
+        "init",
+        "isset"
+      ]
+    },
+    {
+      "task_id": "textmatch_hasArgument",
+      "query": {
+        "__rationale": "4 callees appear inside `hasArgument`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/Input.php",
+        "symbol": "hasArgument"
+      },
+      "expected": [
+        "array_values",
+        "hasArgument",
+        "is_int",
+        "isset"
+      ]
+    },
+    {
+      "task_id": "textmatch_hasChildren",
+      "query": {
+        "__rationale": "2 callees appear inside `hasChildren`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/TreeHelper.php",
+        "symbol": "hasChildren"
+      },
+      "expected": [
+        "current",
+        "getChildren"
+      ]
+    },
+    {
+      "task_id": "textmatch_hasColorSupport",
+      "query": {
+        "__rationale": "6 callees appear inside `hasColorSupport`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Output/StreamOutput.php",
+        "symbol": "hasColorSupport"
+      },
+      "expected": [
+        "getenv",
+        "in_array",
+        "preg_match",
+        "sapi_windows_vt100_support",
+        "stream_isatty",
+        "strtoupper"
+      ]
+    },
+    {
+      "task_id": "textmatch_hasDefaultValue",
+      "query": {
+        "__rationale": "2 callees appear inside `hasDefaultValue`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Attribute/Reflection/ReflectionMember.php",
+        "symbol": "hasDefaultValue"
+      },
+      "expected": [
+        "hasDefaultValue",
+        "isDefaultValueAvailable"
+      ]
+    },
+    {
+      "task_id": "textmatch_hasOption",
+      "query": {
+        "__rationale": "3 callees appear inside `hasOption`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/Input.php",
+        "symbol": "hasOption"
+      },
+      "expected": [
+        "hasNegation",
+        "hasOption",
+        "isset"
+      ]
+    },
+    {
+      "task_id": "textmatch_hasParameterOption",
+      "query": {
+        "__rationale": "3 callees appear inside `hasParameterOption`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/ArgvInput.php",
+        "symbol": "hasParameterOption"
+      },
+      "expected": [
+        "in_array",
+        "is_int",
+        "str_starts_with"
+      ]
+    },
+    {
+      "task_id": "textmatch_hasSttyAvailable",
+      "query": {
+        "__rationale": "2 callees appear inside `hasSttyAvailable`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Terminal.php",
+        "symbol": "hasSttyAvailable"
+      },
+      "expected": [
+        "function_exists",
+        "shell_exec"
+      ]
+    },
+    {
+      "task_id": "textmatch_hasStyle",
+      "query": {
+        "__rationale": "2 callees appear inside `hasStyle`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Formatter/OutputFormatter.php",
+        "symbol": "hasStyle"
+      },
+      "expected": [
+        "isset",
+        "strtolower"
+      ]
+    },
+    {
+      "task_id": "textmatch_horizontalTable",
+      "query": {
+        "__rationale": "6 callees appear inside `horizontalTable`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "horizontalTable"
+      },
+      "expected": [
+        "createTable",
+        "newLine",
+        "render",
+        "setHeaders",
+        "setHorizontal",
+        "setRows"
+      ]
+    },
+    {
+      "task_id": "textmatch_ignoreValidationErrors",
+      "query": {
+        "__rationale": "2 callees appear inside `ignoreValidationErrors`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/LazyCommand.php",
+        "symbol": "ignoreValidationErrors"
+      },
+      "expected": [
+        "getCommand",
+        "ignoreValidationErrors"
+      ]
+    },
+    {
+      "task_id": "textmatch_init",
+      "query": {
+        "__rationale": "7 callees appear inside `init`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "init"
+      },
+      "expected": [
+        "$adder",
+        "ReflectionMethod",
+        "add",
+        "addCommand",
+        "getDeclaringClass",
+        "getDefaultCommands",
+        "getName"
+      ]
+    },
+    {
+      "task_id": "textmatch_initDimensions",
+      "query": {
+        "__rationale": "9 callees appear inside `initDimensions`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Terminal.php",
+        "symbol": "initDimensions"
+      },
+      "expected": [
+        "fopen",
+        "getConsoleMode",
+        "getenv",
+        "hasSttyAvailable",
+        "initDimensionsUsingStty",
+        "isset",
+        "preg_match",
+        "sapi_windows_vt100_support",
+        "trim"
+      ]
+    },
+    {
+      "task_id": "textmatch_initDimensionsUsingStty",
+      "query": {
+        "__rationale": "2 callees appear inside `initDimensionsUsingStty`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Terminal.php",
+        "symbol": "initDimensionsUsingStty"
+      },
+      "expected": [
+        "getSttyColumns",
+        "preg_match"
+      ]
+    },
+    {
+      "task_id": "textmatch_initOutput",
+      "query": {
+        "__rationale": "14 callees appear inside `initOutput`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tester/TesterTrait.php",
+        "symbol": "initOutput"
+      },
+      "expected": [
+        "ConsoleOutput",
+        "ReflectionObject",
+        "StreamOutput",
+        "fopen",
+        "getFormatter",
+        "getParentClass",
+        "getProperty",
+        "getVerbosity",
+        "isDecorated",
+        "isset",
+        "setDecorated",
+        "setFormatter",
+        "setValue",
+        "setVerbosity"
+      ]
+    },
+    {
+      "task_id": "textmatch_initPlaceholderFormatters",
+      "query": {
+        "__rationale": "24 callees appear inside `initPlaceholderFormatters`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProgressBar.php",
+        "symbol": "initPlaceholderFormatters"
+      },
+      "expected": [
+        "LogicException",
+        "count",
+        "floor",
+        "formatMemory",
+        "formatTime",
+        "getBarCharacter",
+        "getBarOffset",
+        "getBarWidth",
+        "getEmptyBarCharacter",
+        "getEstimated",
+        "getFormatter",
+        "getMaxSteps",
+        "getProgress",
+        "getProgressCharacter",
+        "getProgressPercent",
+        "getRemaining",
+        "getStartTime",
+        "getStepWidth",
+        "length",
+        "memory_get_usage",
+        "removeDecoration",
+        "str_pad",
+        "str_repeat",
+        "time"
+      ]
+    },
+    {
+      "task_id": "textmatch_initStyles",
+      "query": {
+        "__rationale": "8 callees appear inside `initStyles`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "initStyles"
+      },
+      "expected": [
+        "TableStyle",
+        "setCellHeaderFormat",
+        "setCellRowContentFormat",
+        "setCrossingChars",
+        "setDefaultCrossingChar",
+        "setDisplayOutsideBorder",
+        "setHorizontalBorderChars",
+        "setVerticalBorderChars"
+      ]
+    },
+    {
+      "task_id": "textmatch_initialize",
+      "query": {
+        "__rationale": "6 callees appear inside `initialize`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/CompleteCommand.php",
+        "symbol": "initialize"
+      },
+      "expected": [
+        "filter_var",
+        "getName",
+        "getenv",
+        "initialize",
+        "start",
+        "stop"
+      ]
+    },
+    {
+      "task_id": "textmatch_inspectApplication",
+      "query": {
+        "__rationale": "5 callees appear inside `inspectApplication`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/ApplicationDescription.php",
+        "symbol": "inspectApplication"
+      },
+      "expected": [
+        "all",
+        "findNamespace",
+        "getName",
+        "isHidden",
+        "sortCommands"
+      ]
+    },
+    {
+      "task_id": "textmatch_interact",
+      "query": {
+        "__rationale": "17 callees appear inside `interact`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/InvokableCommand.php",
+        "symbol": "interact"
+      },
+      "expected": [
+        "$parameterResolver",
+        "ReflectionMethod",
+        "collectInteractions",
+        "getClosureThis",
+        "getDeclaringClass",
+        "getFunction",
+        "getName",
+        "getParameters",
+        "interact",
+        "invoke",
+        "is_object",
+        "resolveValue",
+        "setValue",
+        "start",
+        "stop",
+        "tryFrom",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_interpolate",
+      "query": {
+        "__rationale": "6 callees appear inside `interpolate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Logger/ConsoleLogger.php",
+        "symbol": "interpolate"
+      },
+      "expected": [
+        "format",
+        "gettype",
+        "is_object",
+        "is_scalar",
+        "str_contains",
+        "strtr"
+      ]
+    },
+    {
+      "task_id": "textmatch_isAssoc",
+      "query": {
+        "__rationale": "3 callees appear inside `isAssoc`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Question/Question.php",
+        "symbol": "isAssoc"
+      },
+      "expected": [
+        "array_filter",
+        "array_keys",
+        "count"
+      ]
+    },
+    {
+      "task_id": "textmatch_isCursorFree",
+      "query": {
+        "__rationale": "2 callees appear inside `isCursorFree`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Completion/CompletionInput.php",
+        "symbol": "isCursorFree"
+      },
+      "expected": [
+        "LogicException",
+        "count"
+      ]
+    },
+    {
+      "task_id": "textmatch_isEnabled",
+      "query": {
+        "__rationale": "2 callees appear inside `isEnabled`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/LazyCommand.php",
+        "symbol": "isEnabled"
+      },
+      "expected": [
+        "getCommand",
+        "isEnabled"
+      ]
+    },
+    {
+      "task_id": "textmatch_isInteractiveInput",
+      "query": {
+        "__rationale": "4 callees appear inside `isInteractiveInput`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/QuestionHelper.php",
+        "symbol": "isInteractiveInput"
+      },
+      "expected": [
+        "fopen",
+        "isset",
+        "stream_get_meta_data",
+        "stream_isatty"
+      ]
+    },
+    {
+      "task_id": "textmatch_isNullable",
+      "query": {
+        "__rationale": "2 callees appear inside `isNullable`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Attribute/Reflection/ReflectionMember.php",
+        "symbol": "isNullable"
+      },
+      "expected": [
+        "allowsNull",
+        "getType"
+      ]
+    },
+    {
+      "task_id": "textmatch_isRunningOS400",
+      "query": {
+        "__rationale": "5 callees appear inside `isRunningOS400`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Output/ConsoleOutput.php",
+        "symbol": "isRunningOS400"
+      },
+      "expected": [
+        "function_exists",
+        "getenv",
+        "implode",
+        "php_uname",
+        "stripos"
+      ]
+    },
+    {
+      "task_id": "textmatch_isSilent",
+      "query": {
+        "__rationale": "3 callees appear inside `isSilent`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/OutputStyle.php",
+        "symbol": "isSilent"
+      },
+      "expected": [
+        "getVerbosity",
+        "isSilent",
+        "method_exists"
+      ]
+    },
+    {
+      "task_id": "textmatch_iterate",
+      "query": {
+        "__rationale": "5 callees appear inside `iterate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProgressBar.php",
+        "symbol": "iterate"
+      },
+      "expected": [
+        "advance",
+        "count",
+        "finish",
+        "is_countable",
+        "start"
+      ]
+    },
+    {
+      "task_id": "textmatch_length",
+      "query": {
+        "__rationale": "6 callees appear inside `length`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Helper.php",
+        "symbol": "length"
+      },
+      "expected": [
+        "UnicodeString",
+        "length",
+        "mb_detect_encoding",
+        "mb_strlen",
+        "preg_match",
+        "strlen"
+      ]
+    },
+    {
+      "task_id": "textmatch_listing",
+      "query": {
+        "__rationale": "5 callees appear inside `listing`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "listing"
+      },
+      "expected": [
+        "array_map",
+        "autoPrependText",
+        "newLine",
+        "sprintf",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_lock",
+      "query": {
+        "__rationale": "13 callees appear inside `lock`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/LockableTrait.php",
+        "symbol": "lock"
+      },
+      "expected": [
+        "FlockStore",
+        "LockFactory",
+        "LogicException",
+        "ReflectionClass",
+        "SemaphoreStore",
+        "acquire",
+        "class_exists",
+        "createLock",
+        "getAttributes",
+        "getName",
+        "isSupported",
+        "newInstance",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_log",
+      "query": {
+        "__rationale": "12 callees appear inside `log`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "CI/GithubActionReporter.php",
+        "symbol": "log"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "basename",
+        "file_put_contents",
+        "getErrorOutput",
+        "getVerbosity",
+        "implode",
+        "interpolate",
+        "isset",
+        "sprintf",
+        "strtr",
+        "sys_get_temp_dir",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_mergeApplicationDefinition",
+      "query": {
+        "__rationale": "10 callees appear inside `mergeApplicationDefinition`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "mergeApplicationDefinition"
+      },
+      "expected": [
+        "InputDefinition",
+        "addArguments",
+        "addOptions",
+        "getArguments",
+        "getCommand",
+        "getDefinition",
+        "getOptions",
+        "mergeApplicationDefinition",
+        "setArguments",
+        "setOptions"
+      ]
+    },
+    {
+      "task_id": "textmatch_mostRecentlyEnteredValue",
+      "query": {
+        "__rationale": "4 callees appear inside `mostRecentlyEnteredValue`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/QuestionHelper.php",
+        "symbol": "mostRecentlyEnteredValue"
+      },
+      "expected": [
+        "str_contains",
+        "strrpos",
+        "substr",
+        "trim"
+      ]
+    },
+    {
+      "task_id": "textmatch_moveDown",
+      "query": {
+        "__rationale": "2 callees appear inside `moveDown`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Cursor.php",
+        "symbol": "moveDown"
+      },
+      "expected": [
+        "sprintf",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_moveLeft",
+      "query": {
+        "__rationale": "2 callees appear inside `moveLeft`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Cursor.php",
+        "symbol": "moveLeft"
+      },
+      "expected": [
+        "sprintf",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_moveRight",
+      "query": {
+        "__rationale": "2 callees appear inside `moveRight`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Cursor.php",
+        "symbol": "moveRight"
+      },
+      "expected": [
+        "sprintf",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_moveToColumn",
+      "query": {
+        "__rationale": "2 callees appear inside `moveToColumn`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Cursor.php",
+        "symbol": "moveToColumn"
+      },
+      "expected": [
+        "sprintf",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_moveToPosition",
+      "query": {
+        "__rationale": "2 callees appear inside `moveToPosition`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Cursor.php",
+        "symbol": "moveToPosition"
+      },
+      "expected": [
+        "sprintf",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_moveUp",
+      "query": {
+        "__rationale": "2 callees appear inside `moveUp`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Cursor.php",
+        "symbol": "moveUp"
+      },
+      "expected": [
+        "sprintf",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_mustRun",
+      "query": {
+        "__rationale": "3 callees appear inside `mustRun`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProcessHelper.php",
+        "symbol": "mustRun"
+      },
+      "expected": [
+        "ProcessFailedException",
+        "isSuccessful",
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_mustSuggestArgumentValuesFor",
+      "query": {
+        "__rationale": "2 callees appear inside `mustSuggestArgumentValuesFor`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Completion/CompletionInput.php",
+        "symbol": "mustSuggestArgumentValuesFor"
+      },
+      "expected": [
+        "getCompletionName",
+        "getCompletionType"
+      ]
+    },
+    {
+      "task_id": "textmatch_mustSuggestOptionValuesFor",
+      "query": {
+        "__rationale": "2 callees appear inside `mustSuggestOptionValuesFor`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Completion/CompletionInput.php",
+        "symbol": "mustSuggestOptionValuesFor"
+      },
+      "expected": [
+        "getCompletionName",
+        "getCompletionType"
+      ]
+    },
+    {
+      "task_id": "textmatch_negationToName",
+      "query": {
+        "__rationale": "3 callees appear inside `negationToName`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/InputDefinition.php",
+        "symbol": "negationToName"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "isset",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_newLine",
+      "query": {
+        "__rationale": "3 callees appear inside `newLine`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/OutputStyle.php",
+        "symbol": "newLine"
+      },
+      "expected": [
+        "newLine",
+        "str_repeat",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_normalizeOutput",
+      "query": {
+        "__rationale": "4 callees appear inside `normalizeOutput`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tests/Descriptor/AbstractDescriptorTestCase.php",
+        "symbol": "normalizeOutput"
+      },
+      "expected": [
+        "basename",
+        "realpath",
+        "str_replace",
+        "trim"
+      ]
+    },
+    {
+      "task_id": "textmatch_onConsoleError",
+      "query": {
+        "__rationale": "4 callees appear inside `onConsoleError`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "EventListener/ErrorListener.php",
+        "symbol": "onConsoleError"
+      },
+      "expected": [
+        "critical",
+        "getError",
+        "getInputString",
+        "getMessage"
+      ]
+    },
+    {
+      "task_id": "textmatch_onConsoleTerminate",
+      "query": {
+        "__rationale": "3 callees appear inside `onConsoleTerminate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "EventListener/ErrorListener.php",
+        "symbol": "onConsoleTerminate"
+      },
+      "expected": [
+        "debug",
+        "getExitCode",
+        "getInputString"
+      ]
+    },
+    {
+      "task_id": "textmatch_openErrorStream",
+      "query": {
+        "__rationale": "3 callees appear inside `openErrorStream`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Output/ConsoleOutput.php",
+        "symbol": "openErrorStream"
+      },
+      "expected": [
+        "defined",
+        "fopen",
+        "hasStderrSupport"
+      ]
+    },
+    {
+      "task_id": "textmatch_openOutputStream",
+      "query": {
+        "__rationale": "3 callees appear inside `openOutputStream`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Output/ConsoleOutput.php",
+        "symbol": "openOutputStream"
+      },
+      "expected": [
+        "defined",
+        "fopen",
+        "hasStdoutSupport"
+      ]
+    },
+    {
+      "task_id": "textmatch_overwrite",
+      "query": {
+        "__rationale": "24 callees appear inside `overwrite`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProgressBar.php",
+        "symbol": "overwrite"
+      },
+      "expected": [
+        "addContent",
+        "clear",
+        "clearLine",
+        "count",
+        "doWrite",
+        "end",
+        "explode",
+        "floor",
+        "getFormatter",
+        "getVisibleContent",
+        "getWidth",
+        "isDecorated",
+        "is_iterable",
+        "microtime",
+        "min",
+        "moveToColumn",
+        "moveUp",
+        "overwrite",
+        "popStreamContentUntilCurrentSection",
+        "removeDecoration",
+        "substr_count",
+        "width",
+        "write",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_parse",
+      "query": {
+        "__rationale": "7 callees appear inside `parse`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/ArgvInput.php",
+        "symbol": "parse"
+      },
+      "expected": [
+        "addArgument",
+        "addLongOption",
+        "addShortOption",
+        "array_shift",
+        "parseToken",
+        "str_starts_with",
+        "substr"
+      ]
+    },
+    {
+      "task_id": "textmatch_parseArgument",
+      "query": {
+        "__rationale": "11 callees appear inside `parseArgument`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/ArgvInput.php",
+        "symbol": "parseArgument"
+      },
+      "expected": [
+        "RuntimeException",
+        "array_key_first",
+        "array_keys",
+        "count",
+        "getArgument",
+        "getArguments",
+        "getName",
+        "hasArgument",
+        "implode",
+        "isArray",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_parseColor",
+      "query": {
+        "__rationale": "8 callees appear inside `parseColor`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Color.php",
+        "symbol": "parseColor"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "array_keys",
+        "array_merge",
+        "convertFromHexToAnsiColorCode",
+        "getColorMode",
+        "implode",
+        "isset",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_parseLongOption",
+      "query": {
+        "__rationale": "4 callees appear inside `parseLongOption`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/ArgvInput.php",
+        "symbol": "parseLongOption"
+      },
+      "expected": [
+        "addLongOption",
+        "array_unshift",
+        "strpos",
+        "substr"
+      ]
+    },
+    {
+      "task_id": "textmatch_parseShortOption",
+      "query": {
+        "__rationale": "7 callees appear inside `parseShortOption`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/ArgvInput.php",
+        "symbol": "parseShortOption"
+      },
+      "expected": [
+        "acceptValue",
+        "addShortOption",
+        "getOptionForShortcut",
+        "hasShortcut",
+        "parseShortOptionSet",
+        "strlen",
+        "substr"
+      ]
+    },
+    {
+      "task_id": "textmatch_parseShortOptionSet",
+      "query": {
+        "__rationale": "11 callees appear inside `parseShortOptionSet`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/ArgvInput.php",
+        "symbol": "parseShortOptionSet"
+      },
+      "expected": [
+        "RuntimeException",
+        "acceptValue",
+        "addLongOption",
+        "getName",
+        "getOptionForShortcut",
+        "hasShortcut",
+        "mb_detect_encoding",
+        "mb_substr",
+        "sprintf",
+        "strlen",
+        "substr"
+      ]
+    },
+    {
+      "task_id": "textmatch_parseToken",
+      "query": {
+        "__rationale": "5 callees appear inside `parseToken`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Completion/CompletionInput.php",
+        "symbol": "parseToken"
+      },
+      "expected": [
+        "parseArgument",
+        "parseLongOption",
+        "parseShortOption",
+        "parseToken",
+        "str_starts_with"
+      ]
+    },
+    {
+      "task_id": "textmatch_pop",
+      "query": {
+        "__rationale": "5 callees appear inside `pop`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Formatter/OutputFormatterStyleStack.php",
+        "symbol": "pop"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "apply",
+        "array_pop",
+        "array_reverse",
+        "array_slice"
+      ]
+    },
+    {
+      "task_id": "textmatch_popPreviousHandlers",
+      "query": {
+        "__rationale": "3 callees appear inside `popPreviousHandlers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "SignalRegistry/SignalRegistry.php",
+        "symbol": "popPreviousHandlers"
+      },
+      "expected": [
+        "array_pop",
+        "isset",
+        "pcntl_signal"
+      ]
+    },
+    {
+      "task_id": "textmatch_popStreamContentUntilCurrentSection",
+      "query": {
+        "__rationale": "7 callees appear inside `popStreamContentUntilCurrentSection`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Output/ConsoleSectionOutput.php",
+        "symbol": "popStreamContentUntilCurrentSection"
+      },
+      "expected": [
+        "array_reverse",
+        "doWrite",
+        "getVisibleContent",
+        "implode",
+        "min",
+        "sprintf",
+        "str_ends_with"
+      ]
+    },
+    {
+      "task_id": "textmatch_progress",
+      "query": {
+        "__rationale": "4 callees appear inside `progress`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/DebugFormatterHelper.php",
+        "symbol": "progress"
+      },
+      "expected": [
+        "getBorder",
+        "isset",
+        "sprintf",
+        "str_replace"
+      ]
+    },
+    {
+      "task_id": "textmatch_progressAdvance",
+      "query": {
+        "__rationale": "2 callees appear inside `progressAdvance`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "progressAdvance"
+      },
+      "expected": [
+        "advance",
+        "getProgressBar"
+      ]
+    },
+    {
+      "task_id": "textmatch_progressFinish",
+      "query": {
+        "__rationale": "3 callees appear inside `progressFinish`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "progressFinish"
+      },
+      "expected": [
+        "finish",
+        "getProgressBar",
+        "newLine"
+      ]
+    },
+    {
+      "task_id": "textmatch_progressIterate",
+      "query": {
+        "__rationale": "3 callees appear inside `progressIterate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "progressIterate"
+      },
+      "expected": [
+        "createProgressBar",
+        "iterate",
+        "newLine"
+      ]
+    },
+    {
+      "task_id": "textmatch_progressStart",
+      "query": {
+        "__rationale": "2 callees appear inside `progressStart`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "progressStart"
+      },
+      "expected": [
+        "createProgressBar",
+        "start"
+      ]
+    },
+    {
+      "task_id": "textmatch_pushCurrentHandlers",
+      "query": {
+        "__rationale": "2 callees appear inside `pushCurrentHandlers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "SignalRegistry/SignalRegistry.php",
+        "symbol": "pushCurrentHandlers"
+      },
+      "expected": [
+        "isset",
+        "pcntl_signal"
+      ]
+    },
+    {
+      "task_id": "textmatch_readFromProcess",
+      "query": {
+        "__rationale": "7 callees appear inside `readFromProcess`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Terminal.php",
+        "symbol": "readFromProcess"
+      },
+      "expected": [
+        "fclose",
+        "function_exists",
+        "proc_close",
+        "proc_open",
+        "sapi_windows_cp_get",
+        "sapi_windows_cp_set",
+        "stream_get_contents"
+      ]
+    },
+    {
+      "task_id": "textmatch_readInput",
+      "query": {
+        "__rationale": "13 callees appear inside `readInput`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/QuestionHelper.php",
+        "symbol": "readInput"
+      },
+      "expected": [
+        "MissingInputException",
+        "cloneInputStream",
+        "doReadInput",
+        "fseek",
+        "ftell",
+        "getTimeout",
+        "isInteractiveInput",
+        "isMultiline",
+        "resetIOCodepage",
+        "setIOCodepage",
+        "sprintf",
+        "stream_get_meta_data",
+        "stream_select"
+      ]
+    },
+    {
+      "task_id": "textmatch_register",
+      "query": {
+        "__rationale": "6 callees appear inside `register`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "register"
+      },
+      "expected": [
+        "Command",
+        "addCommand",
+        "is_callable",
+        "isset",
+        "pcntl_signal",
+        "pcntl_signal_get_handler"
+      ]
+    },
+    {
+      "task_id": "textmatch_removeAliasesAndHiddenCommands",
+      "query": {
+        "__rationale": "3 callees appear inside `removeAliasesAndHiddenCommands`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/ReStructuredTextDescriptor.php",
+        "symbol": "removeAliasesAndHiddenCommands"
+      },
+      "expected": [
+        "getAliases",
+        "in_array",
+        "isHidden"
+      ]
+    },
+    {
+      "task_id": "textmatch_removeDecoration",
+      "query": {
+        "__rationale": "4 callees appear inside `removeDecoration`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Helper.php",
+        "symbol": "removeDecoration"
+      },
+      "expected": [
+        "format",
+        "isDecorated",
+        "preg_replace",
+        "setDecorated"
+      ]
+    },
+    {
+      "task_id": "textmatch_renderCell",
+      "query": {
+        "__rationale": "27 callees appear inside `renderCell`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "renderCell"
+      },
+      "expected": [
+        "getBorderChars",
+        "getBorderFormat",
+        "getCellFormat",
+        "getCellRowContentFormat",
+        "getColspan",
+        "getColumnSeparatorWidth",
+        "getColumnStyle",
+        "getFormatter",
+        "getPadByAlign",
+        "getPadType",
+        "getPaddingChar",
+        "getStyle",
+        "getTagOptions",
+        "http_build_query",
+        "is_string",
+        "length",
+        "preg_match",
+        "range",
+        "removeDecoration",
+        "sprintf",
+        "str_contains",
+        "str_pad",
+        "str_repeat",
+        "str_replace",
+        "strlen",
+        "substr_count",
+        "width"
+      ]
+    },
+    {
+      "task_id": "textmatch_renderColumnSeparator",
+      "query": {
+        "__rationale": "3 callees appear inside `renderColumnSeparator`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "renderColumnSeparator"
+      },
+      "expected": [
+        "getBorderChars",
+        "getBorderFormat",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_renderRow",
+      "query": {
+        "__rationale": "5 callees appear inside `renderRow`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "renderRow"
+      },
+      "expected": [
+        "count",
+        "getRowColumns",
+        "renderCell",
+        "renderColumnSeparator",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_renderRowSeparator",
+      "query": {
+        "__rationale": "15 callees appear inside `renderRowSeparator`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "renderRowSeparator"
+      },
+      "expected": [
+        "getBorderChars",
+        "getBorderFormat",
+        "getCrossingChar",
+        "getCrossingChars",
+        "getFormatter",
+        "intdiv",
+        "mb_detect_encoding",
+        "mb_substr",
+        "removeDecoration",
+        "sprintf",
+        "str_repeat",
+        "substr",
+        "substr_replace",
+        "width",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_renderThrowable",
+      "query": {
+        "__rationale": "6 callees appear inside `renderThrowable`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "renderThrowable"
+      },
+      "expected": [
+        "doRenderThrowable",
+        "escape",
+        "getName",
+        "getSynopsis",
+        "sprintf",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_resetIOCodepage",
+      "query": {
+        "__rationale": "3 callees appear inside `resetIOCodepage`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/QuestionHelper.php",
+        "symbol": "resetIOCodepage"
+      },
+      "expected": [
+        "sapi_windows_cp_conv",
+        "sapi_windows_cp_get",
+        "sapi_windows_cp_set"
+      ]
+    },
+    {
+      "task_id": "textmatch_resolveStyle",
+      "query": {
+        "__rationale": "2 callees appear inside `resolveStyle`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "resolveStyle"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_resolveValue",
+      "query": {
+        "__rationale": "11 callees appear inside `resolveValue`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Attribute/Argument.php",
+        "symbol": "resolveValue"
+      },
+      "expected": [
+        "fromEnumValue",
+        "getArgument",
+        "getOption",
+        "in_array",
+        "isRequired",
+        "is_int",
+        "is_string",
+        "is_subclass_of",
+        "newInstanceWithoutConstructor",
+        "resolveValue",
+        "tryFrom"
+      ]
+    },
+    {
+      "task_id": "textmatch_scheduleAlarm",
+      "query": {
+        "__rationale": "3 callees appear inside `scheduleAlarm`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "scheduleAlarm"
+      },
+      "expected": [
+        "getSignalRegistry",
+        "pcntl_alarm",
+        "scheduleAlarm"
+      ]
+    },
+    {
+      "task_id": "textmatch_section",
+      "query": {
+        "__rationale": "13 callees appear inside `section`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Output/ConsoleOutput.php",
+        "symbol": "section"
+      },
+      "expected": [
+        "ConsoleSectionOutput",
+        "autoPrependBlock",
+        "escapeTrailingBackslash",
+        "getFormatter",
+        "getStream",
+        "getVerbosity",
+        "isDecorated",
+        "newLine",
+        "removeDecoration",
+        "sprintf",
+        "str_repeat",
+        "width",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_set",
+      "query": {
+        "__rationale": "5 callees appear inside `set`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Color.php",
+        "symbol": "set"
+      },
+      "expected": [
+        "count",
+        "getName",
+        "implode",
+        "setHelperSet",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_setAliases",
+      "query": {
+        "__rationale": "2 callees appear inside `setAliases`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "setAliases"
+      },
+      "expected": [
+        "is_array",
+        "validateName"
+      ]
+    },
+    {
+      "task_id": "textmatch_setApplication",
+      "query": {
+        "__rationale": "3 callees appear inside `setApplication`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "setApplication"
+      },
+      "expected": [
+        "getHelperSet",
+        "setApplication",
+        "setHelperSet"
+      ]
+    },
+    {
+      "task_id": "textmatch_setArgument",
+      "query": {
+        "__rationale": "3 callees appear inside `setArgument`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/Input.php",
+        "symbol": "setArgument"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "hasArgument",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_setAutocompleterCallback",
+      "query": {
+        "__rationale": "2 callees appear inside `setAutocompleterCallback`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Question/Question.php",
+        "symbol": "setAutocompleterCallback"
+      },
+      "expected": [
+        "$callback",
+        "LogicException"
+      ]
+    },
+    {
+      "task_id": "textmatch_setAutocompleterValues",
+      "query": {
+        "__rationale": "7 callees appear inside `setAutocompleterValues`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Question/Question.php",
+        "symbol": "setAutocompleterValues"
+      },
+      "expected": [
+        "array_keys",
+        "array_merge",
+        "array_values",
+        "isAssoc",
+        "is_array",
+        "iterator_to_array",
+        "setAutocompleterCallback"
+      ]
+    },
+    {
+      "task_id": "textmatch_setCode",
+      "query": {
+        "__rationale": "12 callees appear inside `setCode`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "setCode"
+      },
+      "expected": [
+        "$code",
+        "InvokableCommand",
+        "bind",
+        "getClosureScopeClass",
+        "getCode",
+        "getCommand",
+        "getFileName",
+        "getName",
+        "getStartLine",
+        "setCode",
+        "start",
+        "stop"
+      ]
+    },
+    {
+      "task_id": "textmatch_setColumnMaxWidth",
+      "query": {
+        "__rationale": "4 callees appear inside `setColumnMaxWidth`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "setColumnMaxWidth"
+      },
+      "expected": [
+        "LogicException",
+        "getFormatter",
+        "get_debug_type",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_setDefault",
+      "query": {
+        "__rationale": "6 callees appear inside `setDefault`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/InputArgument.php",
+        "symbol": "setDefault"
+      },
+      "expected": [
+        "LogicException",
+        "acceptValue",
+        "isArray",
+        "isNegatable",
+        "isRequired",
+        "is_array"
+      ]
+    },
+    {
+      "task_id": "textmatch_setDefaultCommand",
+      "query": {
+        "__rationale": "3 callees appear inside `setDefaultCommand`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "setDefaultCommand"
+      },
+      "expected": [
+        "explode",
+        "find",
+        "ltrim"
+      ]
+    },
+    {
+      "task_id": "textmatch_setDefinition",
+      "query": {
+        "__rationale": "4 callees appear inside `setDefinition`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "setDefinition"
+      },
+      "expected": [
+        "getCommand",
+        "setArguments",
+        "setDefinition",
+        "setOptions"
+      ]
+    },
+    {
+      "task_id": "textmatch_setErrorMessage",
+      "query": {
+        "__rationale": "2 callees appear inside `setErrorMessage`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Question/ChoiceQuestion.php",
+        "symbol": "setErrorMessage"
+      },
+      "expected": [
+        "getDefaultValidator",
+        "setValidator"
+      ]
+    },
+    {
+      "task_id": "textmatch_setExitCode",
+      "query": {
+        "__rationale": "3 callees appear inside `setExitCode`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Event/ConsoleAlarmEvent.php",
+        "symbol": "setExitCode"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "ReflectionProperty",
+        "setValue"
+      ]
+    },
+    {
+      "task_id": "textmatch_setHeaders",
+      "query": {
+        "__rationale": "2 callees appear inside `setHeaders`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Table.php",
+        "symbol": "setHeaders"
+      },
+      "expected": [
+        "array_values",
+        "is_array"
+      ]
+    },
+    {
+      "task_id": "textmatch_setHelp",
+      "query": {
+        "__rationale": "2 callees appear inside `setHelp`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/LazyCommand.php",
+        "symbol": "setHelp"
+      },
+      "expected": [
+        "getCommand",
+        "setHelp"
+      ]
+    },
+    {
+      "task_id": "textmatch_setIOCodepage",
+      "query": {
+        "__rationale": "3 callees appear inside `setIOCodepage`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/QuestionHelper.php",
+        "symbol": "setIOCodepage"
+      },
+      "expected": [
+        "function_exists",
+        "sapi_windows_cp_get",
+        "sapi_windows_cp_set"
+      ]
+    },
+    {
+      "task_id": "textmatch_setMaxHeight",
+      "query": {
+        "__rationale": "4 callees appear inside `setMaxHeight`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Output/ConsoleSectionOutput.php",
+        "symbol": "setMaxHeight"
+      },
+      "expected": [
+        "doWrite",
+        "getVisibleContent",
+        "min",
+        "popStreamContentUntilCurrentSection"
+      ]
+    },
+    {
+      "task_id": "textmatch_setMaxSteps",
+      "query": {
+        "__rationale": "2 callees appear inside `setMaxSteps`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProgressBar.php",
+        "symbol": "setMaxSteps"
+      },
+      "expected": [
+        "max",
+        "width"
+      ]
+    },
+    {
+      "task_id": "textmatch_setMultiselect",
+      "query": {
+        "__rationale": "2 callees appear inside `setMultiselect`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Question/ChoiceQuestion.php",
+        "symbol": "setMultiselect"
+      },
+      "expected": [
+        "getDefaultValidator",
+        "setValidator"
+      ]
+    },
+    {
+      "task_id": "textmatch_setOption",
+      "query": {
+        "__rationale": "6 callees appear inside `setOption`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Formatter/OutputFormatterStyle.php",
+        "symbol": "setOption"
+      },
+      "expected": [
+        "Color",
+        "InvalidArgumentException",
+        "hasNegation",
+        "hasOption",
+        "negationToName",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_setOptions",
+      "query": {
+        "__rationale": "2 callees appear inside `setOptions`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Formatter/OutputFormatterStyle.php",
+        "symbol": "setOptions"
+      },
+      "expected": [
+        "Color",
+        "addOptions"
+      ]
+    },
+    {
+      "task_id": "textmatch_setPadType",
+      "query": {
+        "__rationale": "2 callees appear inside `setPadType`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/TableStyle.php",
+        "symbol": "setPadType"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "in_array"
+      ]
+    },
+    {
+      "task_id": "textmatch_setProcessTitle",
+      "query": {
+        "__rationale": "2 callees appear inside `setProcessTitle`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/LazyCommand.php",
+        "symbol": "setProcessTitle"
+      },
+      "expected": [
+        "getCommand",
+        "setProcessTitle"
+      ]
+    },
+    {
+      "task_id": "textmatch_setProgress",
+      "query": {
+        "__rationale": "2 callees appear inside `setProgress`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProgressBar.php",
+        "symbol": "setProgress"
+      },
+      "expected": [
+        "display",
+        "microtime"
+      ]
+    },
+    {
+      "task_id": "textmatch_setStyle",
+      "query": {
+        "__rationale": "2 callees appear inside `setStyle`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Formatter/OutputFormatter.php",
+        "symbol": "setStyle"
+      },
+      "expected": [
+        "resolveStyle",
+        "strtolower"
+      ]
+    },
+    {
+      "task_id": "textmatch_setValue",
+      "query": {
+        "__rationale": "8 callees appear inside `setValue`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Attribute/MapInput.php",
+        "symbol": "setValue"
+      },
+      "expected": [
+        "LogicException",
+        "getProperty",
+        "getValue",
+        "in_array",
+        "isInitialized",
+        "setArgument",
+        "setOption",
+        "setValue"
+      ]
+    },
+    {
+      "task_id": "textmatch_setVisibleNamespaces",
+      "query": {
+        "__rationale": "4 callees appear inside `setVisibleNamespaces`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/ReStructuredTextDescriptor.php",
+        "symbol": "setVisibleNamespaces"
+      },
+      "expected": [
+        "array_key_exists",
+        "getCommands",
+        "getNamespaces",
+        "isHidden"
+      ]
+    },
+    {
+      "task_id": "textmatch_shortcutToName",
+      "query": {
+        "__rationale": "3 callees appear inside `shortcutToName`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/InputDefinition.php",
+        "symbol": "shortcutToName"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "isset",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_sortCommands",
+      "query": {
+        "__rationale": "3 callees appear inside `sortCommands`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/ApplicationDescription.php",
+        "symbol": "sortCommands"
+      },
+      "expected": [
+        "extractNamespace",
+        "in_array",
+        "ksort"
+      ]
+    },
+    {
+      "task_id": "textmatch_splitStringByWidth",
+      "query": {
+        "__rationale": "10 callees appear inside `splitStringByWidth`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Application.php",
+        "symbol": "splitStringByWidth"
+      },
+      "expected": [
+        "count",
+        "mb_convert_encoding",
+        "mb_convert_variables",
+        "mb_detect_encoding",
+        "preg_match",
+        "preg_split",
+        "str_pad",
+        "str_split",
+        "strlen",
+        "width"
+      ]
+    },
+    {
+      "task_id": "textmatch_start",
+      "query": {
+        "__rationale": "9 callees appear inside `start`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/DebugFormatterHelper.php",
+        "symbol": "start"
+      },
+      "expected": [
+        "LogicException",
+        "count",
+        "display",
+        "getBorder",
+        "getCurrentTimeInMilliseconds",
+        "setMaxSteps",
+        "setProgress",
+        "sprintf",
+        "time"
+      ]
+    },
+    {
+      "task_id": "textmatch_stop",
+      "query": {
+        "__rationale": "3 callees appear inside `stop`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/DebugFormatterHelper.php",
+        "symbol": "stop"
+      },
+      "expected": [
+        "getBorder",
+        "isset",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_substr",
+      "query": {
+        "__rationale": "6 callees appear inside `substr`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Helper.php",
+        "symbol": "substr"
+      },
+      "expected": [
+        "UnicodeString",
+        "mb_detect_encoding",
+        "mb_substr",
+        "preg_match",
+        "slice",
+        "substr"
+      ]
+    },
+    {
+      "task_id": "textmatch_table",
+      "query": {
+        "__rationale": "5 callees appear inside `table`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "table"
+      },
+      "expected": [
+        "createTable",
+        "newLine",
+        "render",
+        "setHeaders",
+        "setRows"
+      ]
+    },
+    {
+      "task_id": "textmatch_tailDebugLog",
+      "query": {
+        "__rationale": "6 callees appear inside `tailDebugLog`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/DumpCompletionCommand.php",
+        "symbol": "tailDebugLog"
+      },
+      "expected": [
+        "Process",
+        "file_exists",
+        "run",
+        "sys_get_temp_dir",
+        "touch",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_testDescribeApplication",
+      "query": {
+        "__rationale": "3 callees appear inside `testDescribeApplication`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tests/Descriptor/AbstractDescriptorTestCase.php",
+        "symbol": "testDescribeApplication"
+      },
+      "expected": [
+        "assertDescription",
+        "find",
+        "setHelp"
+      ]
+    },
+    {
+      "task_id": "textmatch_testOptionsOutput",
+      "query": {
+        "__rationale": "11 callees appear inside `testOptionsOutput`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tests/Completion/Output/CompletionOutputTestCase.php",
+        "symbol": "testOptionsOutput"
+      },
+      "expected": [
+        "CompletionSuggestions",
+        "InputOption",
+        "StreamOutput",
+        "assertEquals",
+        "fopen",
+        "fseek",
+        "getCompletionOutput",
+        "getExpectedOptionsOutput",
+        "stream_get_contents",
+        "suggestOptions",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_testValuesOutput",
+      "query": {
+        "__rationale": "11 callees appear inside `testValuesOutput`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Tests/Completion/Output/CompletionOutputTestCase.php",
+        "symbol": "testValuesOutput"
+      },
+      "expected": [
+        "CompletionSuggestions",
+        "StreamOutput",
+        "Suggestion",
+        "assertEquals",
+        "fopen",
+        "fseek",
+        "getCompletionOutput",
+        "getExpectedValuesOutput",
+        "stream_get_contents",
+        "suggestValues",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_text",
+      "query": {
+        "__rationale": "5 callees appear inside `text`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "text"
+      },
+      "expected": [
+        "array_values",
+        "autoPrependText",
+        "is_array",
+        "sprintf",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_title",
+      "query": {
+        "__rationale": "9 callees appear inside `title`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "title"
+      },
+      "expected": [
+        "autoPrependBlock",
+        "escapeTrailingBackslash",
+        "getFormatter",
+        "newLine",
+        "removeDecoration",
+        "sprintf",
+        "str_repeat",
+        "width",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_toInputArgument",
+      "query": {
+        "__rationale": "2 callees appear inside `toInputArgument`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Attribute/Argument.php",
+        "symbol": "toInputArgument"
+      },
+      "expected": [
+        "InputArgument",
+        "is_callable"
+      ]
+    },
+    {
+      "task_id": "textmatch_toInputOption",
+      "query": {
+        "__rationale": "2 callees appear inside `toInputOption`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Attribute/Option.php",
+        "symbol": "toInputOption"
+      },
+      "expected": [
+        "InputOption",
+        "is_callable"
+      ]
+    },
+    {
+      "task_id": "textmatch_tokenize",
+      "query": {
+        "__rationale": "7 callees appear inside `tokenize`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/StringInput.php",
+        "symbol": "tokenize"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "preg_match",
+        "sprintf",
+        "str_replace",
+        "stripcslashes",
+        "strlen",
+        "substr"
+      ]
+    },
+    {
+      "task_id": "textmatch_tree",
+      "query": {
+        "__rationale": "2 callees appear inside `tree`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Style/SymfonyStyle.php",
+        "symbol": "tree"
+      },
+      "expected": [
+        "createTree",
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_truncate",
+      "query": {
+        "__rationale": "2 callees appear inside `truncate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/FormatterHelper.php",
+        "symbol": "truncate"
+      },
+      "expected": [
+        "substr",
+        "width"
+      ]
+    },
+    {
+      "task_id": "textmatch_unset",
+      "query": {
+        "__rationale": "3 callees appear inside `unset`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Color.php",
+        "symbol": "unset"
+      },
+      "expected": [
+        "count",
+        "implode",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_unsetOption",
+      "query": {
+        "__rationale": "2 callees appear inside `unsetOption`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Formatter/OutputFormatterStyle.php",
+        "symbol": "unsetOption"
+      },
+      "expected": [
+        "Color",
+        "array_search"
+      ]
+    },
+    {
+      "task_id": "textmatch_validate",
+      "query": {
+        "__rationale": "10 callees appear inside `validate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Input/Input.php",
+        "symbol": "validate"
+      },
+      "expected": [
+        "RuntimeException",
+        "array_filter",
+        "array_key_exists",
+        "array_keys",
+        "count",
+        "getArgument",
+        "getArguments",
+        "implode",
+        "isRequired",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_validateAttempts",
+      "query": {
+        "__rationale": "4 callees appear inside `validateAttempts`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/QuestionHelper.php",
+        "symbol": "validateAttempts"
+      },
+      "expected": [
+        "$interviewer",
+        "getMaxAttempts",
+        "getValidator",
+        "writeError"
+      ]
+    },
+    {
+      "task_id": "textmatch_validateName",
+      "query": {
+        "__rationale": "3 callees appear inside `validateName`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Command/Command.php",
+        "symbol": "validateName"
+      },
+      "expected": [
+        "InvalidArgumentException",
+        "preg_match",
+        "sprintf"
+      ]
+    },
+    {
+      "task_id": "textmatch_waitForInput",
+      "query": {
+        "__rationale": "2 callees appear inside `waitForInput`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/TerminalInputHelper.php",
+        "symbol": "waitForInput"
+      },
+      "expected": [
+        "checkForKillSignal",
+        "stream_select"
+      ]
+    },
+    {
+      "task_id": "textmatch_warning",
+      "query": {
+        "__rationale": "2 callees appear inside `warning`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "CI/GithubActionReporter.php",
+        "symbol": "warning"
+      },
+      "expected": [
+        "block",
+        "log"
+      ]
+    },
+    {
+      "task_id": "textmatch_width",
+      "query": {
+        "__rationale": "7 callees appear inside `width`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/Helper.php",
+        "symbol": "width"
+      },
+      "expected": [
+        "UnicodeString",
+        "mb_detect_encoding",
+        "mb_strwidth",
+        "preg_match",
+        "preg_replace",
+        "strlen",
+        "width"
+      ]
+    },
+    {
+      "task_id": "textmatch_wrap",
+      "query": {
+        "__rationale": "5 callees appear inside `wrap`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/OutputWrapper.php",
+        "symbol": "wrap"
+      },
+      "expected": [
+        "implode",
+        "preg_replace",
+        "rtrim",
+        "sprintf",
+        "str_replace"
+      ]
+    },
+    {
+      "task_id": "textmatch_wrapCallback",
+      "query": {
+        "__rationale": "8 callees appear inside `wrapCallback`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/ProcessHelper.php",
+        "symbol": "wrapCallback"
+      },
+      "expected": [
+        "$callback",
+        "escapeString",
+        "get",
+        "getErrorOutput",
+        "getHelperSet",
+        "progress",
+        "spl_object_hash",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_write",
+      "query": {
+        "__rationale": "15 callees appear inside `write`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Completion/Output/BashCompletionOutput.php",
+        "symbol": "write"
+      },
+      "expected": [
+        "doWrite",
+        "format",
+        "getDescription",
+        "getName",
+        "getOptionSuggestions",
+        "getValue",
+        "getValueSuggestions",
+        "getVerbosity",
+        "implode",
+        "isNegatable",
+        "is_iterable",
+        "strip_tags",
+        "write",
+        "writeBuffer",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_writeData",
+      "query": {
+        "__rationale": "2 callees appear inside `writeData`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/JsonDescriptor.php",
+        "symbol": "writeData"
+      },
+      "expected": [
+        "json_encode",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_writeDocument",
+      "query": {
+        "__rationale": "2 callees appear inside `writeDocument`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/XmlDescriptor.php",
+        "symbol": "writeDocument"
+      },
+      "expected": [
+        "saveXML",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_writeError",
+      "query": {
+        "__rationale": "9 callees appear inside `writeError`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/QuestionHelper.php",
+        "symbol": "writeError"
+      },
+      "expected": [
+        "error",
+        "formatBlock",
+        "get",
+        "getHelperSet",
+        "getMessage",
+        "has",
+        "newLine",
+        "writeError",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_writePrompt",
+      "query": {
+        "__rationale": "17 callees appear inside `writePrompt`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Helper/QuestionHelper.php",
+        "symbol": "writePrompt"
+      },
+      "expected": [
+        "array_merge",
+        "escape",
+        "escapeTrailingBackslash",
+        "explode",
+        "formatChoiceQuestionChoices",
+        "getChoices",
+        "getDefault",
+        "getEofShortcut",
+        "getPrompt",
+        "getQuestion",
+        "implode",
+        "isMultiline",
+        "isMultiselect",
+        "sprintf",
+        "trim",
+        "write",
+        "writeln"
+      ]
+    },
+    {
+      "task_id": "textmatch_writeText",
+      "query": {
+        "__rationale": "3 callees appear inside `writeText`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Descriptor/TextDescriptor.php",
+        "symbol": "writeText"
+      },
+      "expected": [
+        "isset",
+        "strip_tags",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_writeln",
+      "query": {
+        "__rationale": "4 callees appear inside `writeln`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "Output/Output.php",
+        "symbol": "writeln"
+      },
+      "expected": [
+        "is_iterable",
+        "write",
+        "writeBuffer",
+        "writeln"
+      ]
+    }
+  ]
+}

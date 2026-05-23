@@ -13,8 +13,8 @@
 use crate::m2_ground_truth::{M2GroundTruth, M2Task, Split};
 use crate::retriever::Retriever;
 use crate::retrievers::{
-    Bm25Retriever, CgcRetriever, CmRetriever, CrgRetriever, GaRetriever, RandomRetriever,
-    RipgrepRetriever,
+    Bm25Retriever, CgcRetriever, CmRetriever, CrgRetriever, GaRetriever, GnRetriever,
+    RandomRetriever, RipgrepRetriever,
 };
 use crate::score::{impact_score, ImpactScore};
 use crate::token_cost::{self, TokenCost};
@@ -116,6 +116,7 @@ fn build_retriever(name: &str, cache_root: &Path) -> Option<Box<dyn Retriever>> 
         "codegraphcontext" | "cgc" => Box::new(CgcRetriever::new()),
         "codebase-memory" | "cm" => Box::new(CmRetriever::new()),
         "code-review-graph" | "crg" => Box::new(CrgRetriever::new()),
+        "gitnexus" | "gn" => Box::new(GnRetriever::new()),
         _ => return None,
     };
     Some(r)

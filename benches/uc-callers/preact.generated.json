@@ -4,361 +4,28 @@
   "fixture": "preact",
   "tasks": [
     {
-      "task_id": "textmatch_setProperty",
+      "task_id": "textmatch_createSuspension",
       "query": {
-        "__rationale": "5 sites reference `setProperty` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "3 sites reference `createSuspension` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "setProperty"
+        "symbol": "createSuspension"
       },
       "expected": [
-        "diffElementNodes",
-        "setStyle"
+        "init"
       ]
     },
     {
-      "task_id": "textmatch_Link",
+      "task_id": "textmatch_requestAnimationFrame",
       "query": {
-        "__rationale": "27 sites reference `Link` across 3 enclosing function(s); raw-AST text match",
+        "__rationale": "4 sites reference `requestAnimationFrame` across 4 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "Link"
+        "symbol": "requestAnimationFrame"
       },
       "expected": [
-        "Bye",
-        "Hello",
-        "render"
-      ]
-    },
-    {
-      "task_id": "textmatch_update",
-      "query": {
-        "__rationale": "6 sites reference `update` across 3 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "update"
-      },
-      "expected": [
-        "swap",
-        "toggleCounts",
-        "toggleKeys"
-      ]
-    },
-    {
-      "task_id": "textmatch_forEach",
-      "query": {
-        "__rationale": "12 sites reference `forEach` across 10 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "forEach"
-      },
-      "expected": [
-        "Context",
-        "Switch",
-        "checkPropTypes",
-        "detachedClone",
-        "finish",
-        "getDomChildren",
-        "handleDomVNode",
-        "initDebug",
-        "markAsForce",
-        "navigate"
-      ]
-    },
-    {
-      "task_id": "textmatch_CustomSuspense",
-      "query": {
-        "__rationale": "3 sites reference `CustomSuspense` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "CustomSuspense"
-      },
-      "expected": [
-        "render"
-      ]
-    },
-    {
-      "task_id": "textmatch_encodeEntities",
-      "query": {
-        "__rationale": "3 sites reference `encodeEntities` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "encodeEntities"
-      },
-      "expected": [
-        "jsxAttr",
-        "jsxEscape"
-      ]
-    },
-    {
-      "task_id": "textmatch_keys",
-      "query": {
-        "__rationale": "3 sites reference `keys` across 3 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "keys"
-      },
-      "expected": [
-        "checkPropTypes",
-        "constructor",
-        "initDebug"
-      ]
-    },
-    {
-      "task_id": "textmatch_Consumer",
-      "query": {
-        "__rationale": "2 sites reference `Consumer` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "Consumer"
-      },
-      "expected": [
-        "render"
-      ]
-    },
-    {
-      "task_id": "textmatch_toChildArray",
-      "query": {
-        "__rationale": "7 sites reference `toChildArray` across 5 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "toChildArray"
-      },
-      "expected": [
-        "count",
-        "handleDomVNode",
-        "mapFn",
-        "only",
-        "toChildArray"
-      ]
-    },
-    {
-      "task_id": "textmatch_apply",
-      "query": {
-        "__rationale": "5 sites reference `apply` across 4 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "apply"
-      },
-      "expected": [
-        "cloneElement",
-        "diff",
-        "getDomChildren",
-        "logCall"
-      ]
-    },
-    {
-      "task_id": "textmatch_getDomSibling",
-      "query": {
-        "__rationale": "6 sites reference `getDomSibling` across 5 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "getDomSibling"
-      },
-      "expected": [
-        "constructNewChildrenArray",
-        "diffElementNodes",
-        "getDomSibling",
-        "insert",
-        "renderComponent"
-      ]
-    },
-    {
-      "task_id": "textmatch_AddNewComponent",
-      "query": {
-        "__rationale": "2 sites reference `AddNewComponent` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "AddNewComponent"
-      },
-      "expected": [
-        "render"
-      ]
-    },
-    {
-      "task_id": "textmatch_setTimeout",
-      "query": {
-        "__rationale": "11 sites reference `setTimeout` across 9 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "setTimeout"
-      },
-      "expected": [
-        "Profile",
-        "PythagorasDemo",
+        "Spiral",
         "afterNextFrame",
-        "componentDidUpdate",
-        "createSuspension",
-        "done",
-        "incrementAsync",
-        "initDebug",
-        "pause"
-      ]
-    },
-    {
-      "task_id": "textmatch_json",
-      "query": {
-        "__rationale": "3 sites reference `json` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "json"
-      },
-      "expected": [
-        "main"
-      ]
-    },
-    {
-      "task_id": "textmatch_match",
-      "query": {
-        "__rationale": "3 sites reference `match` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "match"
-      },
-      "expected": [
-        "get"
-      ]
-    },
-    {
-      "task_id": "textmatch_Router",
-      "query": {
-        "__rationale": "2 sites reference `Router` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "Router"
-      },
-      "expected": [
-        "SuspenseRouterBug",
-        "render"
-      ]
-    },
-    {
-      "task_id": "textmatch_setPendingId",
-      "query": {
-        "__rationale": "3 sites reference `setPendingId` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "setPendingId"
-      },
-      "expected": [
-        "Child"
-      ]
-    },
-    {
-      "task_id": "textmatch_removeAttribute",
-      "query": {
-        "__rationale": "2 sites reference `removeAttribute` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "removeAttribute"
-      },
-      "expected": [
-        "diffElementNodes",
-        "setProperty"
-      ]
-    },
-    {
-      "task_id": "textmatch_sin",
-      "query": {
-        "__rationale": "2 sites reference `sin` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "sin"
-      },
-      "expected": [
-        "render"
-      ]
-    },
-    {
-      "task_id": "textmatch_removeEventListener",
-      "query": {
-        "__rationale": "2 sites reference `removeEventListener` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "removeEventListener"
-      },
-      "expected": [
-        "setProperty",
-        "useLocation"
-      ]
-    },
-    {
-      "task_id": "textmatch_useCallback",
-      "query": {
-        "__rationale": "5 sites reference `useCallback` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "useCallback"
-      },
-      "expected": [
-        "Child"
-      ]
-    },
-    {
-      "task_id": "textmatch_Array",
-      "query": {
-        "__rationale": "2 sites reference `Array` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "Array"
-      },
-      "expected": [
-        "constructNewChildrenArray"
-      ]
-    },
-    {
-      "task_id": "textmatch_Foo",
-      "query": {
-        "__rationale": "6 sites reference `Foo` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "Foo"
-      },
-      "expected": [
-        "render"
-      ]
-    },
-    {
-      "task_id": "textmatch_Promise",
-      "query": {
-        "__rationale": "5 sites reference `Promise` across 3 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "Promise"
-      },
-      "expected": [
-        "Profile",
-        "createSuspension",
-        "pause"
-      ]
-    },
-    {
-      "task_id": "textmatch_push",
-      "query": {
-        "__rationale": "33 sites reference `push` across 20 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "push"
-      },
-      "expected": [
-        "act",
-        "createItems",
-        "diff",
-        "diffChildren",
-        "enqueueRender",
-        "get",
-        "getDomChildren",
-        "getHookState",
-        "getOwnerStack",
-        "getPrimes",
-        "initDebug",
-        "insertBefore",
-        "listen",
-        "main",
-        "proxy",
-        "set",
-        "setupComponentStack",
-        "toChildArray",
-        "useEffect",
-        "useLayoutEffect"
-      ]
-    },
-    {
-      "task_id": "textmatch_Route",
-      "query": {
-        "__rationale": "3 sites reference `Route` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "Route"
-      },
-      "expected": [
-        "App",
-        "SuspenseRouterBug"
-      ]
-    },
-    {
-      "task_id": "textmatch_serializeVNode",
-      "query": {
-        "__rationale": "12 sites reference `serializeVNode` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "serializeVNode"
-      },
-      "expected": [
-        "initDebug"
+        "componentDidMount",
+        "mutateAndLayoutAsync"
       ]
     },
     {
@@ -374,110 +41,41 @@
       ]
     },
     {
-      "task_id": "textmatch_createHandle",
+      "task_id": "textmatch_concat",
       "query": {
-        "__rationale": "2 sites reference `createHandle` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "8 sites reference `concat` across 5 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "createHandle"
+        "symbol": "concat"
       },
       "expected": [
+        "Reorder",
+        "TodoList",
+        "add",
+        "promptDependency",
         "useImperativeHandle"
       ]
     },
     {
-      "task_id": "textmatch_increment",
+      "task_id": "textmatch_setPendingId",
       "query": {
-        "__rationale": "2 sites reference `increment` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "3 sites reference `setPendingId` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "increment"
+        "symbol": "setPendingId"
       },
       "expected": [
-        "increment",
-        "incrementAsync"
+        "Child"
       ]
     },
     {
-      "task_id": "textmatch_appendChild",
+      "task_id": "textmatch_setProperty",
       "query": {
-        "__rationale": "8 sites reference `appendChild` across 4 enclosing function(s); raw-AST text match",
+        "__rationale": "5 sites reference `setProperty` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "appendChild"
+        "symbol": "setProperty"
       },
       "expected": [
-        "createRow",
-        "insertInto",
-        "removeOriginal",
-        "setup"
-      ]
-    },
-    {
-      "task_id": "textmatch_useState",
-      "query": {
-        "__rationale": "9 sites reference `useState` across 8 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "useState"
-      },
-      "expected": [
-        "Child",
-        "Contenteditable",
-        "MobXDemo",
-        "Parent",
-        "PatchedTextField",
-        "Router",
-        "useErrorBoundary",
-        "useSyncExternalStore"
-      ]
-    },
-    {
-      "task_id": "textmatch_Provider",
-      "query": {
-        "__rationale": "5 sites reference `Provider` across 5 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "Provider"
-      },
-      "expected": [
-        "App",
-        "Redux",
-        "ReduxToolkit",
-        "Router",
-        "render"
-      ]
-    },
-    {
-      "task_id": "textmatch_defineProperty",
-      "query": {
-        "__rationale": "6 sites reference `defineProperty` across 4 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "defineProperty"
-      },
-      "expected": [
-        "get",
-        "handleDomVNode",
-        "logger",
-        "set"
-      ]
-    },
-    {
-      "task_id": "textmatch_componentWillUnmount",
-      "query": {
-        "__rationale": "2 sites reference `componentWillUnmount` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "componentWillUnmount"
-      },
-      "expected": [
-        "Portal",
-        "unmount"
-      ]
-    },
-    {
-      "task_id": "textmatch_readFileSync",
-      "query": {
-        "__rationale": "2 sites reference `readFileSync` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "readFileSync"
-      },
-      "expected": [
-        "upload"
+        "diffElementNodes",
+        "setStyle"
       ]
     },
     {
@@ -492,232 +90,244 @@
       ]
     },
     {
-      "task_id": "textmatch_warn",
+      "task_id": "textmatch_updateParentDomPointers",
       "query": {
-        "__rationale": "13 sites reference `warn` across 5 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `updateParentDomPointers` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "warn"
+        "symbol": "updateParentDomPointers"
       },
       "expected": [
-        "get",
-        "getDerivedStateFromError",
-        "getOwnerStack",
-        "initDebug",
-        "set"
+        "renderComponent",
+        "updateParentDomPointers"
       ]
     },
     {
-      "task_id": "textmatch_replace",
+      "task_id": "textmatch_Main",
       "query": {
-        "__rationale": "8 sites reference `replace` across 5 enclosing function(s); raw-AST text match",
+        "__rationale": "7 sites reference `Main` across 3 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "replace"
+        "symbol": "Main"
       },
       "expected": [
-        "handleDomVNode",
-        "jsxAttr",
-        "serialize",
-        "setProperty",
-        "upload"
-      ]
-    },
-    {
-      "task_id": "textmatch_Set",
-      "query": {
-        "__rationale": "2 sites reference `Set` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "Set"
-      },
-      "expected": [
-        "Context"
-      ]
-    },
-    {
-      "task_id": "textmatch_enqueueRender",
-      "query": {
-        "__rationale": "3 sites reference `enqueueRender` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "enqueueRender"
-      },
-      "expected": [
-        "Context"
-      ]
-    },
-    {
-      "task_id": "textmatch_getHookState",
-      "query": {
-        "__rationale": "7 sites reference `getHookState` across 7 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "getHookState"
-      },
-      "expected": [
-        "useContext",
-        "useEffect",
-        "useErrorBoundary",
-        "useId",
-        "useLayoutEffect",
-        "useMemo",
-        "useReducer"
-      ]
-    },
-    {
-      "task_id": "textmatch_every",
-      "query": {
-        "__rationale": "2 sites reference `every` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "every"
-      },
-      "expected": [
-        "updateHookState"
-      ]
-    },
-    {
-      "task_id": "textmatch_Redux",
-      "query": {
-        "__rationale": "2 sites reference `Redux` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "Redux"
-      },
-      "expected": [
+        "createTableApp",
+        "hydrate",
         "render"
       ]
     },
     {
-      "task_id": "textmatch_now",
+      "task_id": "textmatch_basename",
       "query": {
-        "__rationale": "2 sites reference `now` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `basename` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "now"
+        "symbol": "basename"
       },
       "expected": [
-        "componentDidMount"
+        "getBenchmarkBaseName",
+        "parseBenchmarkURL"
       ]
     },
     {
-      "task_id": "textmatch_assign",
+      "task_id": "textmatch_count",
       "query": {
-        "__rationale": "13 sites reference `assign` across 7 enclosing function(s); raw-AST text match",
+        "__rationale": "3 sites reference `count` across 3 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "assign"
+        "symbol": "count"
       },
       "expected": [
-        "Forwarded",
-        "cloneElement",
-        "cloneNode",
-        "detachedClone",
-        "diff",
-        "renderComponent",
-        "update"
+        "get",
+        "logCall",
+        "set"
       ]
     },
     {
-      "task_id": "textmatch_ref",
+      "task_id": "textmatch_commitRoot",
       "query": {
-        "__rationale": "4 sites reference `ref` across 3 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `commitRoot` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "ref"
+        "symbol": "commitRoot"
       },
       "expected": [
-        "applyRef",
-        "shouldUpdate",
-        "useImperativeHandle"
+        "render",
+        "renderComponent"
       ]
     },
     {
-      "task_id": "textmatch_exit",
+      "task_id": "textmatch_depGroupDimension",
       "query": {
-        "__rationale": "6 sites reference `exit` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `depGroupDimension` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "exit"
+        "symbol": "depGroupDimension"
       },
       "expected": [
-        "create",
-        "main"
+        "displayTable"
       ]
     },
     {
-      "task_id": "textmatch_getOwnerStack",
+      "task_id": "textmatch_removeDefaultValues",
       "query": {
-        "__rationale": "20 sites reference `getOwnerStack` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `removeDefaultValues` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "getOwnerStack"
+        "symbol": "removeDefaultValues"
       },
       "expected": [
-        "captureOwnerStack",
+        "getCurrentFormValues",
+        "mount"
+      ]
+    },
+    {
+      "task_id": "textmatch_insertBefore",
+      "query": {
+        "__rationale": "2 sites reference `insertBefore` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "insertBefore"
+      },
+      "expected": [
+        "insert",
+        "insertBefore"
+      ]
+    },
+    {
+      "task_id": "textmatch_match",
+      "query": {
+        "__rationale": "4 sites reference `match` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "match"
+      },
+      "expected": [
+        "get"
+      ]
+    },
+    {
+      "task_id": "textmatch_listen",
+      "query": {
+        "__rationale": "2 sites reference `listen` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "listen"
+      },
+      "expected": [
+        "Router",
+        "runBenchServer"
+      ]
+    },
+    {
+      "task_id": "textmatch_setup",
+      "query": {
+        "__rationale": "3 sites reference `setup` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setup"
+      },
+      "expected": [
+        "logger",
+        "pin",
+        "prepareDependencies"
+      ]
+    },
+    {
+      "task_id": "textmatch_isTableElement",
+      "query": {
+        "__rationale": "3 sites reference `isTableElement` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isTableElement"
+      },
+      "expected": [
         "initDebug"
       ]
     },
     {
-      "task_id": "textmatch_error",
+      "task_id": "textmatch_sub",
       "query": {
-        "__rationale": "19 sites reference `error` across 4 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `sub` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "error"
+        "symbol": "sub"
       },
       "expected": [
-        "checkPropTypes",
-        "create",
+        "diff",
+        "useContext"
+      ]
+    },
+    {
+      "task_id": "textmatch_vnode",
+      "query": {
+        "__rationale": "3 sites reference `vnode` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "vnode"
+      },
+      "expected": [
+        "createVNode",
+        "renderComponent"
+      ]
+    },
+    {
+      "task_id": "textmatch_flatMap",
+      "query": {
+        "__rationale": "3 sites reference `flatMap` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "flatMap"
+      },
+      "expected": [
+        "computeStats",
+        "promptBenchmarkFile",
+        "promptDependency"
+      ]
+    },
+    {
+      "task_id": "textmatch_all",
+      "query": {
+        "__rationale": "3 sites reference `all` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "all"
+      },
+      "expected": [
+        "getDepConfig",
+        "prepareDependencies",
+        "setup"
+      ]
+    },
+    {
+      "task_id": "textmatch_filter",
+      "query": {
+        "__rationale": "20 sites reference `filter` across 12 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "filter"
+      },
+      "expected": [
+        "Link",
+        "Router",
+        "TodoList",
+        "analyze",
+        "getAppConfig",
+        "getDepConfig",
+        "handleDeclaration",
         "initDebug",
-        "main"
+        "mount",
+        "prepareDependencies",
+        "updateHookState",
+        "validate"
       ]
     },
     {
-      "task_id": "textmatch_finish",
+      "task_id": "textmatch_Button",
       "query": {
-        "__rationale": "2 sites reference `finish` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `Button` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "finish"
+        "symbol": "Button"
       },
       "expected": [
-        "act"
+        "StyledComp"
       ]
     },
     {
-      "task_id": "textmatch_addEventListener",
+      "task_id": "textmatch_prompts",
       "query": {
-        "__rationale": "8 sites reference `addEventListener` across 4 enclosing function(s); raw-AST text match",
+        "__rationale": "4 sites reference `prompts` across 4 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "addEventListener"
+        "symbol": "prompts"
       },
       "expected": [
-        "componentDidMount",
-        "setProperty",
-        "setup",
-        "useLocation"
-      ]
-    },
-    {
-      "task_id": "textmatch_setItems",
-      "query": {
-        "__rationale": "3 sites reference `setItems` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "setItems"
-      },
-      "expected": [
-        "Child"
-      ]
-    },
-    {
-      "task_id": "textmatch_floor",
-      "query": {
-        "__rationale": "2 sites reference `floor` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "floor"
-      },
-      "expected": [
-        "Reorder"
-      ]
-    },
-    {
-      "task_id": "textmatch__value",
-      "query": {
-        "__rationale": "2 sites reference `_value` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "_value"
-      },
-      "expected": [
-        "invokeEffect",
-        "useErrorBoundary"
+        "analyzeAction",
+        "promptBenchmarkFile",
+        "promptDependency",
+        "promptImpl"
       ]
     },
     {
@@ -733,214 +343,318 @@
       ]
     },
     {
-      "task_id": "textmatch_includes",
+      "task_id": "textmatch_parseDepVersion",
       "query": {
-        "__rationale": "4 sites reference `includes` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "4 sites reference `parseDepVersion` across 4 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "includes"
+        "symbol": "parseDepVersion"
       },
       "expected": [
-        "create",
-        "transform"
+        "parseBenchmarkCLIArgs",
+        "parseBenchmarkURL",
+        "transformIndexHtml",
+        "validate"
       ]
     },
     {
-      "task_id": "textmatch_domain",
+      "task_id": "textmatch_useRef",
       "query": {
-        "__rationale": "2 sites reference `domain` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `useRef` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "domain"
+        "symbol": "useRef"
       },
       "expected": [
-        "PythagorasDemo"
+        "Main",
+        "MobXDemo"
       ]
     },
     {
-      "task_id": "textmatch_Pythagoras",
+      "task_id": "textmatch_colorizeSign",
       "query": {
-        "__rationale": "4 sites reference `Pythagoras` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `colorizeSign` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "Pythagoras"
+        "symbol": "colorizeSign"
       },
       "expected": [
-        "Pythagoras",
-        "render"
+        "formatDifference"
       ]
     },
     {
-      "task_id": "textmatch_toLowerCase",
+      "task_id": "textmatch_next",
       "query": {
-        "__rationale": "4 sites reference `toLowerCase` across 3 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `next` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "toLowerCase"
+        "symbol": "next"
       },
       "expected": [
+        "PythagorasDemo",
+        "componentDidMount"
+      ]
+    },
+    {
+      "task_id": "textmatch_Array",
+      "query": {
+        "__rationale": "7 sites reference `Array` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Array"
+      },
+      "expected": [
+        "constructNewChildrenArray",
+        "newItems"
+      ]
+    },
+    {
+      "task_id": "textmatch_oldRoot",
+      "query": {
+        "__rationale": "3 sites reference `oldRoot` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "oldRoot"
+      },
+      "expected": [
+        "initDebug",
+        "setupComponentStack"
+      ]
+    },
+    {
+      "task_id": "textmatch_flat",
+      "query": {
+        "__rationale": "4 sites reference `flat` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "flat"
+      },
+      "expected": [
+        "action",
+        "getDepConfig",
+        "runBenchmarks"
+      ]
+    },
+    {
+      "task_id": "textmatch_serialize",
+      "query": {
+        "__rationale": "2 sites reference `serialize` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "serialize"
+      },
+      "expected": [
+        "logCall"
+      ]
+    },
+    {
+      "task_id": "textmatch_useState",
+      "query": {
+        "__rationale": "11 sites reference `useState` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "useState"
+      },
+      "expected": [
+        "App",
+        "Child",
+        "Contenteditable",
+        "Main",
+        "MobXDemo",
+        "Parent",
+        "PatchedTextField",
+        "Router",
+        "useErrorBoundary",
+        "useSyncExternalStore"
+      ]
+    },
+    {
+      "task_id": "textmatch_argsChanged",
+      "query": {
+        "__rationale": "3 sites reference `argsChanged` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "argsChanged"
+      },
+      "expected": [
+        "useEffect",
+        "useLayoutEffect",
+        "useMemo"
+      ]
+    },
+    {
+      "task_id": "textmatch_makeBenchmarkLabel",
+      "query": {
+        "__rationale": "2 sites reference `makeBenchmarkLabel` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "makeBenchmarkLabel"
+      },
+      "expected": [
+        "analyze",
+        "displayTable"
+      ]
+    },
+    {
+      "task_id": "textmatch_getClosestDomNodeParentName",
+      "query": {
+        "__rationale": "2 sites reference `getClosestDomNodeParentName` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getClosestDomNodeParentName"
+      },
+      "expected": [
+        "getClosestDomNodeParentName",
+        "initDebug"
+      ]
+    },
+    {
+      "task_id": "textmatch_getOwnerStack",
+      "query": {
+        "__rationale": "19 sites reference `getOwnerStack` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getOwnerStack"
+      },
+      "expected": [
+        "initDebug"
+      ]
+    },
+    {
+      "task_id": "textmatch_stringify",
+      "query": {
+        "__rationale": "5 sites reference `stringify` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "stringify"
+      },
+      "expected": [
+        "displayResults",
+        "generateTachConfig",
+        "serializeVNode",
+        "transformIndexHtml"
+      ]
+    },
+    {
+      "task_id": "textmatch_runTach",
+      "query": {
+        "__rationale": "2 sites reference `runTach` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "runTach"
+      },
+      "expected": [
+        "action",
+        "runBenchmarks"
+      ]
+    },
+    {
+      "task_id": "textmatch_runBenchServer",
+      "query": {
+        "__rationale": "3 sites reference `runBenchServer` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "runBenchServer"
+      },
+      "expected": [
+        "runBenchmarks",
+        "runBenchmarksInteractively"
+      ]
+    },
+    {
+      "task_id": "textmatch_defineProperty",
+      "query": {
+        "__rationale": "4 sites reference `defineProperty` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "defineProperty"
+      },
+      "expected": [
+        "get",
         "handleDomVNode",
-        "jsxAttr",
-        "setProperty"
+        "logger"
       ]
     },
     {
-      "task_id": "textmatch_concat",
+      "task_id": "textmatch_clear",
       "query": {
-        "__rationale": "5 sites reference `concat` across 3 enclosing function(s); raw-AST text match",
+        "__rationale": "3 sites reference `clear` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "concat"
+        "symbol": "clear"
       },
       "expected": [
-        "Reorder",
-        "TodoList",
-        "useImperativeHandle"
+        "clear"
       ]
     },
     {
-      "task_id": "textmatch_createSuspension",
+      "task_id": "textmatch_depFilePath",
       "query": {
-        "__rationale": "3 sites reference `createSuspension` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "5 sites reference `depFilePath` across 3 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "createSuspension"
+        "symbol": "depFilePath"
       },
       "expected": [
-        "init"
+        "depDir",
+        "depUrl",
+        "getDepConfig"
       ]
     },
     {
-      "task_id": "textmatch_tmp",
+      "task_id": "textmatch_keys",
       "query": {
-        "__rationale": "2 sites reference `tmp` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "15 sites reference `keys` across 13 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "tmp"
+        "symbol": "keys"
       },
       "expected": [
-        "diff"
+        "checkPropTypes",
+        "constructor",
+        "getImportMapForDep",
+        "handler",
+        "initDebug",
+        "mount",
+        "promptBenchmarkFile",
+        "promptDependency",
+        "promptImpl",
+        "rerenderBenchmarks",
+        "rerenderImplementations",
+        "transformIndexHtml",
+        "validate"
       ]
     },
     {
-      "task_id": "textmatch_Button",
+      "task_id": "textmatch_substring",
       "query": {
-        "__rationale": "2 sites reference `Button` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `substring` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "Button"
+        "symbol": "substring"
       },
       "expected": [
-        "StyledComp"
+        "parseBrowserArg"
       ]
     },
     {
-      "task_id": "textmatch_useContext",
+      "task_id": "textmatch_append",
       "query": {
-        "__rationale": "3 sites reference `useContext` across 3 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `append` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "useContext"
+        "symbol": "append"
+      },
+      "expected": [
+        "getBenchmarkURL",
+        "removeDefaultValues"
+      ]
+    },
+    {
+      "task_id": "textmatch_reject",
+      "query": {
+        "__rationale": "2 sites reference `reject` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "reject"
+      },
+      "expected": [
+        "waitForExit"
+      ]
+    },
+    {
+      "task_id": "textmatch_every",
+      "query": {
+        "__rationale": "2 sites reference `every` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "every"
       },
       "expected": [
         "Link",
-        "Switch",
-        "useRouter"
-      ]
-    },
-    {
-      "task_id": "textmatch_getDisplayName",
-      "query": {
-        "__rationale": "10 sites reference `getDisplayName` across 3 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "getDisplayName"
-      },
-      "expected": [
-        "getOwnerStack",
-        "initDebug",
-        "serializeVNode"
-      ]
-    },
-    {
-      "task_id": "textmatch_applyRef",
-      "query": {
-        "__rationale": "3 sites reference `applyRef` across 3 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "applyRef"
-      },
-      "expected": [
-        "commitRoot",
-        "diffChildren",
-        "unmount"
-      ]
-    },
-    {
-      "task_id": "textmatch_markAsForce",
-      "query": {
-        "__rationale": "2 sites reference `markAsForce` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "markAsForce"
-      },
-      "expected": [
-        "diff"
-      ]
-    },
-    {
-      "task_id": "textmatch_some",
-      "query": {
-        "__rationale": "17 sites reference `some` across 7 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "some"
-      },
-      "expected": [
-        "argsChanged",
-        "commitRoot",
-        "diff",
-        "flushAfterPaintEffects",
-        "toChildArray",
-        "updateHookState",
-        "updateParentDomPointers"
-      ]
-    },
-    {
-      "task_id": "textmatch_log",
-      "query": {
-        "__rationale": "17 sites reference `log` across 7 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "log"
-      },
-      "expected": [
-        "Spiral",
-        "componentDidMount",
-        "componentWillUnmount",
-        "count",
-        "create",
-        "pause",
-        "upload"
-      ]
-    },
-    {
-      "task_id": "textmatch_Error",
-      "query": {
-        "__rationale": "18 sites reference `Error` across 4 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "Error"
-      },
-      "expected": [
-        "getSortedUsers",
-        "initDebug",
-        "render",
-        "upload"
-      ]
-    },
-    {
-      "task_id": "textmatch_useLayoutEffect",
-      "query": {
-        "__rationale": "3 sites reference `useLayoutEffect` across 3 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "useLayoutEffect"
-      },
-      "expected": [
-        "Router",
-        "useImperativeHandle",
-        "useSyncExternalStore"
+        "updateHookState"
       ]
     },
     {
       "task_id": "textmatch_call",
       "query": {
-        "__rationale": "16 sites reference `call` across 13 enclosing function(s); raw-AST text match",
+        "__rationale": "17 sites reference `call` across 13 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
         "symbol": "call"
       },
@@ -961,81 +675,767 @@
       ]
     },
     {
-      "task_id": "textmatch_oldCatchError",
+      "task_id": "textmatch_setState",
       "query": {
-        "__rationale": "2 sites reference `oldCatchError` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "39 sites reference `setState` across 26 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "oldCatchError"
+        "symbol": "setState"
       },
       "expected": [
-        "initDebug"
+        "App",
+        "Main",
+        "PythagorasDemo",
+        "Reorder",
+        "Spiral",
+        "ThemeProvider",
+        "TodoList",
+        "_catchError",
+        "add",
+        "clear",
+        "componentDidUpdate",
+        "constructor",
+        "delete",
+        "onClick",
+        "onRerun",
+        "onSuspensionComplete",
+        "render",
+        "run",
+        "runLots",
+        "select",
+        "setBig",
+        "setMouse",
+        "swapRows",
+        "update",
+        "updateChildren",
+        "useReducer"
       ]
     },
     {
-      "task_id": "textmatch_isArray",
+      "task_id": "textmatch_removeEventListener",
       "query": {
-        "__rationale": "10 sites reference `isArray` across 10 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `removeEventListener` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "isArray"
+        "symbol": "removeEventListener"
       },
       "expected": [
-        "asArray",
-        "cloneNode",
-        "constructNewChildrenArray",
-        "diff",
-        "diffElementNodes",
-        "handleDomVNode",
-        "initDebug",
-        "jsxEscape",
-        "normalize",
-        "toChildArray"
+        "setProperty",
+        "useLocation"
       ]
     },
     {
-      "task_id": "textmatch_dispatch",
+      "task_id": "textmatch_renderHook",
       "query": {
-        "__rationale": "6 sites reference `dispatch` across 5 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `renderHook` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "dispatch"
+        "symbol": "renderHook"
       },
       "expected": [
-        "Redux",
-        "decrement",
+        "diff"
+      ]
+    },
+    {
+      "task_id": "textmatch_useStore",
+      "query": {
+        "__rationale": "4 sites reference `useStore` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "useStore"
+      },
+      "expected": [
+        "Counter",
+        "Text",
+        "ZustandComponent"
+      ]
+    },
+    {
+      "task_id": "textmatch_ensureArray",
+      "query": {
+        "__rationale": "2 sites reference `ensureArray` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ensureArray"
+      },
+      "expected": [
+        "parseBenchmarkCLIArgs"
+      ]
+    },
+    {
+      "task_id": "textmatch_toFixed",
+      "query": {
+        "__rationale": "4 sites reference `toFixed` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "toFixed"
+      },
+      "expected": [
+        "Child",
+        "megabytes",
+        "milli",
+        "percent"
+      ]
+    },
+    {
+      "task_id": "textmatch_increment",
+      "query": {
+        "__rationale": "2 sites reference `increment` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "increment"
+      },
+      "expected": [
         "increment",
-        "incrementAsync",
+        "incrementAsync"
+      ]
+    },
+    {
+      "task_id": "textmatch_addToGrouping",
+      "query": {
+        "__rationale": "2 sites reference `addToGrouping` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "addToGrouping"
+      },
+      "expected": [
+        "analyze",
+        "getStatsFromLogs"
+      ]
+    },
+    {
+      "task_id": "textmatch_exports",
+      "query": {
+        "__rationale": "2 sites reference `exports` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "exports"
+      },
+      "expected": [
+        "getImportMapForDep"
+      ]
+    },
+    {
+      "task_id": "textmatch_pop",
+      "query": {
+        "__rationale": "3 sites reference `pop` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "pop"
+      },
+      "expected": [
+        "onSuspensionComplete",
+        "setupComponentStack"
+      ]
+    },
+    {
+      "task_id": "textmatch_freshState",
+      "query": {
+        "__rationale": "2 sites reference `freshState` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "freshState"
+      },
+      "expected": [
+        "mount"
+      ]
+    },
+    {
+      "task_id": "textmatch_select",
+      "query": {
+        "__rationale": "3 sites reference `select` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "select"
+      },
+      "expected": [
+        "select"
+      ]
+    },
+    {
+      "task_id": "textmatch_splice",
+      "query": {
+        "__rationale": "5 sites reference `splice` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "splice"
+      },
+      "expected": [
+        "Child",
+        "delete",
+        "listen",
+        "removeChild"
+      ]
+    },
+    {
+      "task_id": "textmatch_oldDiffed",
+      "query": {
+        "__rationale": "3 sites reference `oldDiffed` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "oldDiffed"
+      },
+      "expected": [
+        "initDebug",
+        "setupComponentStack"
+      ]
+    },
+    {
+      "task_id": "textmatch_Row",
+      "query": {
+        "__rationale": "3 sites reference `Row` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Row"
+      },
+      "expected": [
+        "App",
+        "Main"
+      ]
+    },
+    {
+      "task_id": "textmatch_postMessage",
+      "query": {
+        "__rationale": "2 sites reference `postMessage` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "postMessage"
+      },
+      "expected": [
+        "handleMessage",
+        "majorTask"
+      ]
+    },
+    {
+      "task_id": "textmatch_getHookState",
+      "query": {
+        "__rationale": "7 sites reference `getHookState` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getHookState"
+      },
+      "expected": [
+        "useContext",
+        "useEffect",
+        "useErrorBoundary",
+        "useId",
+        "useLayoutEffect",
+        "useMemo",
+        "useReducer"
+      ]
+    },
+    {
+      "task_id": "textmatch_red",
+      "query": {
+        "__rationale": "3 sites reference `red` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "red"
+      },
+      "expected": [
+        "colorizeSign",
+        "formatDifference"
+      ]
+    },
+    {
+      "task_id": "textmatch_newItems",
+      "query": {
+        "__rationale": "2 sites reference `newItems` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "newItems"
+      },
+      "expected": [
+        "mount"
+      ]
+    },
+    {
+      "task_id": "textmatch_split",
+      "query": {
+        "__rationale": "8 sites reference `split` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "split"
+      },
+      "expected": [
+        "Link",
+        "Router",
+        "generateTachConfig",
+        "handler",
+        "parseBenchmarkCLIArgs",
+        "promptImpl"
+      ]
+    },
+    {
+      "task_id": "textmatch_setBig",
+      "query": {
+        "__rationale": "2 sites reference `setBig` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setBig"
+      },
+      "expected": [
+        "componentDidMount"
+      ]
+    },
+    {
+      "task_id": "textmatch_preactRender",
+      "query": {
+        "__rationale": "6 sites reference `preactRender` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "preactRender"
+      },
+      "expected": [
+        "createTableApp",
+        "render",
+        "unmountComponentAtNode"
+      ]
+    },
+    {
+      "task_id": "textmatch_min",
+      "query": {
+        "__rationale": "2 sites reference `min` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "min"
+      },
+      "expected": [
+        "computeStats",
+        "getSparkline"
+      ]
+    },
+    {
+      "task_id": "textmatch_App",
+      "query": {
+        "__rationale": "11 sites reference `App` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "App"
+      },
+      "expected": [
+        "mount"
+      ]
+    },
+    {
+      "task_id": "textmatch_oldRender",
+      "query": {
+        "__rationale": "2 sites reference `oldRender` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "oldRender"
+      },
+      "expected": [
+        "initDebug",
+        "setupComponentStack"
+      ]
+    },
+    {
+      "task_id": "textmatch_Pythagoras",
+      "query": {
+        "__rationale": "4 sites reference `Pythagoras` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Pythagoras"
+      },
+      "expected": [
+        "Pythagoras",
         "render"
       ]
     },
     {
-      "task_id": "textmatch_count",
+      "task_id": "textmatch_random",
       "query": {
-        "__rationale": "3 sites reference `count` across 3 enclosing function(s); raw-AST text match",
+        "__rationale": "11 sites reference `random` across 5 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "count"
+        "symbol": "random"
       },
       "expected": [
+        "Child",
+        "Reorder",
+        "_random",
+        "constructor",
+        "random"
+      ]
+    },
+    {
+      "task_id": "textmatch_cmp",
+      "query": {
+        "__rationale": "2 sites reference `cmp` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "cmp"
+      },
+      "expected": [
+        "getSortedUsers"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDomSibling",
+      "query": {
+        "__rationale": "6 sites reference `getDomSibling` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getDomSibling"
+      },
+      "expected": [
+        "constructNewChildrenArray",
+        "diffElementNodes",
+        "getDomSibling",
+        "insert",
+        "renderComponent"
+      ]
+    },
+    {
+      "task_id": "textmatch_removeNode",
+      "query": {
+        "__rationale": "3 sites reference `removeNode` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "removeNode"
+      },
+      "expected": [
+        "diff",
+        "diffElementNodes",
+        "unmount"
+      ]
+    },
+    {
+      "task_id": "textmatch_round",
+      "query": {
+        "__rationale": "3 sites reference `round` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "round"
+      },
+      "expected": [
+        "Reorder",
+        "_random",
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_useMemo",
+      "query": {
+        "__rationale": "8 sites reference `useMemo` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "useMemo"
+      },
+      "expected": [
+        "Link",
+        "Main",
+        "Route",
+        "Router",
+        "useCallback",
+        "useRef"
+      ]
+    },
+    {
+      "task_id": "textmatch_range",
+      "query": {
+        "__rationale": "3 sites reference `range` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "range"
+      },
+      "expected": [
+        "PythagorasDemo",
+        "getHistogram"
+      ]
+    },
+    {
+      "task_id": "textmatch_clearTimeout",
+      "query": {
+        "__rationale": "2 sites reference `clearTimeout` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "clearTimeout"
+      },
+      "expected": [
+        "componentWillUnmount",
+        "done"
+      ]
+    },
+    {
+      "task_id": "textmatch_setTimeout",
+      "query": {
+        "__rationale": "12 sites reference `setTimeout` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setTimeout"
+      },
+      "expected": [
+        "Profile",
+        "PythagorasDemo",
+        "afterNextFrame",
+        "componentDidUpdate",
+        "createSuspension",
+        "done",
+        "incrementAsync",
+        "initDebug",
+        "pause",
+        "sleep"
+      ]
+    },
+    {
+      "task_id": "textmatch_createElement",
+      "query": {
+        "__rationale": "23 sites reference `createElement` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "createElement"
+      },
+      "expected": [
+        "Lazy",
+        "Memoed",
+        "Portal",
+        "createPortal",
+        "createRow",
+        "mount",
+        "render",
+        "rerenderBenchmarks",
+        "rerenderImplementations",
+        "setup"
+      ]
+    },
+    {
+      "task_id": "textmatch_readdir",
+      "query": {
+        "__rationale": "8 sites reference `readdir` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "readdir"
+      },
+      "expected": [
+        "analyze",
+        "analyzeAction",
+        "findDependencyDirs",
+        "getAppConfig",
+        "getDepConfig"
+      ]
+    },
+    {
+      "task_id": "textmatch_useCallback",
+      "query": {
+        "__rationale": "9 sites reference `useCallback` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "useCallback"
+      },
+      "expected": [
+        "App",
+        "Child",
+        "Link",
+        "Main",
+        "Router",
+        "Row"
+      ]
+    },
+    {
+      "task_id": "textmatch_getAll",
+      "query": {
+        "__rationale": "3 sites reference `getAll` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getAll"
+      },
+      "expected": [
+        "mount",
+        "parseBenchmarkURL",
+        "transformIndexHtml"
+      ]
+    },
+    {
+      "task_id": "textmatch_formatConfidenceInterval",
+      "query": {
+        "__rationale": "7 sites reference `formatConfidenceInterval` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "formatConfidenceInterval"
+      },
+      "expected": [
+        "createMeanValueDimension",
+        "formatDifference"
+      ]
+    },
+    {
+      "task_id": "textmatch_Writable",
+      "query": {
+        "__rationale": "2 sites reference `Writable` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Writable"
+      },
+      "expected": [
+        "execProcess"
+      ]
+    },
+    {
+      "task_id": "textmatch_Component",
+      "query": {
+        "__rationale": "8 sites reference `Component` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Component"
+      },
+      "expected": [
+        "mount"
+      ]
+    },
+    {
+      "task_id": "textmatch_getPreactLocalTarballPath",
+      "query": {
+        "__rationale": "3 sites reference `getPreactLocalTarballPath` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getPreactLocalTarballPath"
+      },
+      "expected": [
+        "pin",
+        "setup"
+      ]
+    },
+    {
+      "task_id": "textmatch_toString",
+      "query": {
+        "__rationale": "6 sites reference `toString` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "toString"
+      },
+      "expected": [
+        "generateTachConfig",
         "get",
-        "logCall",
-        "set"
+        "saveFormValues",
+        "write"
       ]
     },
     {
-      "task_id": "textmatch_rerender",
+      "task_id": "textmatch_Redux",
       "query": {
-        "__rationale": "2 sites reference `rerender` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `Redux` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "rerender"
+        "symbol": "Redux"
       },
       "expected": [
-        "finish"
+        "render"
       ]
     },
     {
-      "task_id": "textmatch_ThemeProvider",
+      "task_id": "textmatch_repeat",
       "query": {
-        "__rationale": "2 sites reference `ThemeProvider` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `repeat` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "ThemeProvider"
+        "symbol": "repeat"
+      },
+      "expected": [
+        "logBenchCommand"
+      ]
+    },
+    {
+      "task_id": "textmatch_html",
+      "query": {
+        "__rationale": "6 sites reference `html` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "html"
+      },
+      "expected": [
+        "Child",
+        "Config",
+        "List",
+        "Parent"
+      ]
+    },
+    {
+      "task_id": "textmatch_parseBenchmarkCLIArgs",
+      "query": {
+        "__rationale": "2 sites reference `parseBenchmarkCLIArgs` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "parseBenchmarkCLIArgs"
+      },
+      "expected": [
+        "benchAction"
+      ]
+    },
+    {
+      "task_id": "textmatch_tmp",
+      "query": {
+        "__rationale": "2 sites reference `tmp` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "tmp"
+      },
+      "expected": [
+        "diff"
+      ]
+    },
+    {
+      "task_id": "textmatch_lshift",
+      "query": {
+        "__rationale": "2 sites reference `lshift` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "lshift"
+      },
+      "expected": [
+        "getSparkline"
+      ]
+    },
+    {
+      "task_id": "textmatch_baseTraceLogDir",
+      "query": {
+        "__rationale": "9 sites reference `baseTraceLogDir` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "baseTraceLogDir"
+      },
+      "expected": [
+        "analyze",
+        "analyzeAction",
+        "generateTachConfig"
+      ]
+    },
+    {
+      "task_id": "textmatch_teardown",
+      "query": {
+        "__rationale": "2 sites reference `teardown` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "teardown"
+      },
+      "expected": [
+        "finish",
+        "prepareDependencies"
+      ]
+    },
+    {
+      "task_id": "textmatch_getAppConfig",
+      "query": {
+        "__rationale": "3 sites reference `getAppConfig` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getAppConfig"
+      },
+      "expected": [
+        "promptBenchmarkFile",
+        "promptImpl",
+        "transformIndexHtml"
+      ]
+    },
+    {
+      "task_id": "textmatch_includes",
+      "query": {
+        "__rationale": "14 sites reference `includes` across 11 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "includes"
+      },
+      "expected": [
+        "analyze",
+        "analyzeAction",
+        "create",
+        "getStatsFromLogs",
+        "handler",
+        "mount",
+        "removeDefaultValues",
+        "rerenderBenchmarks",
+        "rerenderImplementations",
+        "testElementTextContains",
+        "transform"
+      ]
+    },
+    {
+      "task_id": "textmatch_logShortcut",
+      "query": {
+        "__rationale": "2 sites reference `logShortcut` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "logShortcut"
+      },
+      "expected": [
+        "runBenchmarksInteractively"
+      ]
+    },
+    {
+      "task_id": "textmatch_isThenable",
+      "query": {
+        "__rationale": "2 sites reference `isThenable` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isThenable"
+      },
+      "expected": [
+        "act"
+      ]
+    },
+    {
+      "task_id": "textmatch_Router",
+      "query": {
+        "__rationale": "3 sites reference `Router` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Router"
+      },
+      "expected": [
+        "SuspenseRouterBug",
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_sin",
+      "query": {
+        "__rationale": "2 sites reference `sin` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "sin"
       },
       "expected": [
         "render"
@@ -1053,166 +1453,678 @@
       ]
     },
     {
-      "task_id": "textmatch_getClosestDomNodeParentName",
+      "task_id": "textmatch_setInterval",
       "query": {
-        "__rationale": "2 sites reference `getClosestDomNodeParentName` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `setInterval` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "getClosestDomNodeParentName"
+        "symbol": "setInterval"
       },
       "expected": [
-        "getClosestDomNodeParentName",
-        "initDebug"
+        "componentDidMount",
+        "logger"
       ]
     },
     {
-      "task_id": "textmatch_Lazy",
+      "task_id": "textmatch_getAttribute",
       "query": {
-        "__rationale": "2 sites reference `Lazy` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "3 sites reference `getAttribute` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "Lazy"
+        "symbol": "getAttribute"
+      },
+      "expected": [
+        "TodoList"
+      ]
+    },
+    {
+      "task_id": "textmatch_mark",
+      "query": {
+        "__rationale": "4 sites reference `mark` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "mark"
+      },
+      "expected": [
+        "markRunEnd",
+        "markRunStart",
+        "measureMemory"
+      ]
+    },
+    {
+      "task_id": "textmatch_isFile",
+      "query": {
+        "__rationale": "2 sites reference `isFile` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isFile"
+      },
+      "expected": [
+        "analyze",
+        "getAppConfig"
+      ]
+    },
+    {
+      "task_id": "textmatch_onClick",
+      "query": {
+        "__rationale": "4 sites reference `onClick` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "onClick"
+      },
+      "expected": [
+        "Link",
+        "Row",
+        "onClick"
+      ]
+    },
+    {
+      "task_id": "textmatch_CustomSuspense",
+      "query": {
+        "__rationale": "3 sites reference `CustomSuspense` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "CustomSuspense"
       },
       "expected": [
         "render"
       ]
     },
     {
-      "task_id": "textmatch_debug",
+      "task_id": "textmatch_has",
       "query": {
-        "__rationale": "3 sites reference `debug` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "3 sites reference `has` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "debug"
+        "symbol": "has"
       },
       "expected": [
-        "main"
+        "getStatsFromLogs",
+        "initDebug"
       ]
     },
     {
-      "task_id": "textmatch_removeNode",
+      "task_id": "textmatch_shift",
       "query": {
-        "__rationale": "3 sites reference `removeNode` across 3 enclosing function(s); raw-AST text match",
+        "__rationale": "3 sites reference `shift` across 3 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "removeNode"
+        "symbol": "shift"
       },
       "expected": [
-        "diff",
-        "diffElementNodes",
-        "unmount"
-      ]
-    },
-    {
-      "task_id": "textmatch_hasOwnProperty",
-      "query": {
-        "__rationale": "2 sites reference `hasOwnProperty` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "hasOwnProperty"
-      },
-      "expected": [
-        "serializeVNode",
-        "update"
-      ]
-    },
-    {
-      "task_id": "textmatch_then",
-      "query": {
-        "__rationale": "15 sites reference `then` across 3 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "then"
-      },
-      "expected": [
-        "Lazy",
-        "act",
-        "deferFlush"
-      ]
-    },
-    {
-      "task_id": "textmatch_scaleLinear",
-      "query": {
-        "__rationale": "2 sites reference `scaleLinear` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "scaleLinear"
-      },
-      "expected": [
-        "PythagorasDemo"
-      ]
-    },
-    {
-      "task_id": "textmatch_getOwnPropertyDescriptor",
-      "query": {
-        "__rationale": "2 sites reference `getOwnPropertyDescriptor` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "getOwnPropertyDescriptor"
-      },
-      "expected": [
-        "logger"
-      ]
-    },
-    {
-      "task_id": "textmatch_fetch",
-      "query": {
-        "__rationale": "3 sites reference `fetch` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "fetch"
-      },
-      "expected": [
-        "main"
-      ]
-    },
-    {
-      "task_id": "textmatch_getCurrentVNode",
-      "query": {
-        "__rationale": "3 sites reference `getCurrentVNode` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "getCurrentVNode"
-      },
-      "expected": [
-        "captureOwnerStack"
-      ]
-    },
-    {
-      "task_id": "textmatch_isThenable",
-      "query": {
-        "__rationale": "2 sites reference `isThenable` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "isThenable"
-      },
-      "expected": [
-        "act"
-      ]
-    },
-    {
-      "task_id": "textmatch_sort",
-      "query": {
-        "__rationale": "4 sites reference `sort` across 3 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "sort"
-      },
-      "expected": [
-        "Reorder",
-        "getSortedUsers",
+        "flush",
+        "flushAfterPaintEffects",
         "process"
       ]
     },
     {
-      "task_id": "textmatch_splice",
+      "task_id": "textmatch_AddNewComponent",
       "query": {
-        "__rationale": "2 sites reference `splice` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `AddNewComponent` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "splice"
+        "symbol": "AddNewComponent"
       },
       "expected": [
-        "Child",
-        "listen"
+        "render"
       ]
     },
     {
-      "task_id": "textmatch_cmp",
+      "task_id": "textmatch_Error",
       "query": {
-        "__rationale": "2 sites reference `cmp` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "36 sites reference `Error` across 17 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "cmp"
+        "symbol": "Error"
       },
       "expected": [
-        "getSortedUsers"
+        "getBySelector",
+        "getImportMapForDep",
+        "getSortedUsers",
+        "getStatsFromLogs",
+        "initDebug",
+        "pin",
+        "prepareDependencies",
+        "render",
+        "runBenchmarks",
+        "runTach",
+        "setup",
+        "testElement",
+        "testElementText",
+        "testElementTextContains",
+        "toURLPath",
+        "upload",
+        "waitForExit"
+      ]
+    },
+    {
+      "task_id": "textmatch_setItems",
+      "query": {
+        "__rationale": "3 sites reference `setItems` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setItems"
+      },
+      "expected": [
+        "Child"
+      ]
+    },
+    {
+      "task_id": "textmatch_isArray",
+      "query": {
+        "__rationale": "21 sites reference `isArray` across 15 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isArray"
+      },
+      "expected": [
+        "addToGrouping",
+        "asArray",
+        "benchAction",
+        "cloneNode",
+        "constructNewChildrenArray",
+        "diff",
+        "diffElementNodes",
+        "ensureArray",
+        "handleDomVNode",
+        "initDebug",
+        "jsxEscape",
+        "logBenchCommand",
+        "normalize",
+        "parseBenchmarkCLIArgs",
+        "toChildArray"
+      ]
+    },
+    {
+      "task_id": "textmatch_toLowerCase",
+      "query": {
+        "__rationale": "4 sites reference `toLowerCase` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "toLowerCase"
+      },
+      "expected": [
+        "handleDomVNode",
+        "jsxAttr",
+        "setProperty"
+      ]
+    },
+    {
+      "task_id": "textmatch_lastIndexOf",
+      "query": {
+        "__rationale": "3 sites reference `lastIndexOf` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "lastIndexOf"
+      },
+      "expected": [
+        "getDepConfig",
+        "parseDepVersion"
+      ]
+    },
+    {
+      "task_id": "textmatch_preactHydrate",
+      "query": {
+        "__rationale": "4 sites reference `preactHydrate` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "preactHydrate"
+      },
+      "expected": [
+        "hydrate"
+      ]
+    },
+    {
+      "task_id": "textmatch_shallowDiffers",
+      "query": {
+        "__rationale": "3 sites reference `shallowDiffers` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "shallowDiffers"
+      },
+      "expected": [
+        "shouldUpdate"
+      ]
+    },
+    {
+      "task_id": "textmatch_Promise",
+      "query": {
+        "__rationale": "11 sites reference `Promise` across 9 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Promise"
+      },
+      "expected": [
+        "Profile",
+        "afterFrameAsync",
+        "createSuspension",
+        "majorTask",
+        "mutateAndLayoutAsync",
+        "nextTick",
+        "pause",
+        "sleep",
+        "waitForExit"
+      ]
+    },
+    {
+      "task_id": "textmatch_execFileSync",
+      "query": {
+        "__rationale": "2 sites reference `execFileSync` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "execFileSync"
+      },
+      "expected": [
+        "main",
+        "reinstallDependencies"
+      ]
+    },
+    {
+      "task_id": "textmatch_remove",
+      "query": {
+        "__rationale": "3 sites reference `remove` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "remove"
+      },
+      "expected": [
+        "deleteUser",
+        "removeNode"
+      ]
+    },
+    {
+      "task_id": "textmatch_createVNode",
+      "query": {
+        "__rationale": "6 sites reference `createVNode` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "createVNode"
+      },
+      "expected": [
+        "cloneElement",
+        "constructNewChildrenArray",
+        "createElement",
+        "jsxTemplate"
+      ]
+    },
+    {
+      "task_id": "textmatch_relative",
+      "query": {
+        "__rationale": "2 sites reference `relative` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "relative"
+      },
+      "expected": [
+        "generateTachConfig"
+      ]
+    },
+    {
+      "task_id": "textmatch_detachedClone",
+      "query": {
+        "__rationale": "2 sites reference `detachedClone` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "detachedClone"
+      },
+      "expected": [
+        "detachedClone"
+      ]
+    },
+    {
+      "task_id": "textmatch___test__drainQueue",
+      "query": {
+        "__rationale": "2 sites reference `__test__drainQueue` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "__test__drainQueue"
+      },
+      "expected": [
+        "setupRerender",
+        "teardown"
+      ]
+    },
+    {
+      "task_id": "textmatch_dim",
+      "query": {
+        "__rationale": "3 sites reference `dim` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "dim"
+      },
+      "expected": [
+        "logShortcut"
+      ]
+    },
+    {
+      "task_id": "textmatch_isValidElement",
+      "query": {
+        "__rationale": "2 sites reference `isValidElement` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isValidElement"
+      },
+      "expected": [
+        "cloneElement",
+        "isFragment"
+      ]
+    },
+    {
+      "task_id": "textmatch_makeDepVersion",
+      "query": {
+        "__rationale": "8 sites reference `makeDepVersion` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "makeDepVersion"
+      },
+      "expected": [
+        "createVersionLabelFactory",
+        "depGroupDimension",
+        "getBenchmarkURL",
+        "mount",
+        "parseBenchmarkURL",
+        "prepareDependencies",
+        "promptDependency"
+      ]
+    },
+    {
+      "task_id": "textmatch_hydrate",
+      "query": {
+        "__rationale": "7 sites reference `hydrate` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "hydrate"
+      },
+      "expected": [
+        "hydrate",
+        "hydrateRoot"
+      ]
+    },
+    {
+      "task_id": "textmatch_Suspense",
+      "query": {
+        "__rationale": "8 sites reference `Suspense` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Suspense"
+      },
+      "expected": [
+        "SuspenseRouterBug",
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_unmount",
+      "query": {
+        "__rationale": "3 sites reference `unmount` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "unmount"
+      },
+      "expected": [
+        "constructNewChildrenArray",
+        "unmount"
+      ]
+    },
+    {
+      "task_id": "textmatch_isDirectory",
+      "query": {
+        "__rationale": "5 sites reference `isDirectory` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "isDirectory"
+      },
+      "expected": [
+        "analyze",
+        "findDependencyDirs",
+        "getAppConfig",
+        "getDepConfig"
+      ]
+    },
+    {
+      "task_id": "textmatch_compatRender",
+      "query": {
+        "__rationale": "2 sites reference `compatRender` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "compatRender"
+      },
+      "expected": [
+        "mount"
+      ]
+    },
+    {
+      "task_id": "textmatch_option",
+      "query": {
+        "__rationale": "15 sites reference `option` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "option"
+      },
+      "expected": [
+        "setupBenchmarkCLIArgs"
+      ]
+    },
+    {
+      "task_id": "textmatch_apply",
+      "query": {
+        "__rationale": "3 sites reference `apply` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "apply"
+      },
+      "expected": [
+        "cloneElement",
+        "getDomChildren",
+        "logCall"
+      ]
+    },
+    {
+      "task_id": "textmatch_getHref",
+      "query": {
+        "__rationale": "2 sites reference `getHref` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getHref"
+      },
+      "expected": [
+        "Link"
+      ]
+    },
+    {
+      "task_id": "textmatch_green",
+      "query": {
+        "__rationale": "3 sites reference `green` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "green"
+      },
+      "expected": [
+        "colorizeSign",
+        "formatDifference",
+        "logShortcut"
+      ]
+    },
+    {
+      "task_id": "textmatch_Provider",
+      "query": {
+        "__rationale": "7 sites reference `Provider` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Provider"
+      },
+      "expected": [
+        "App",
+        "Redux",
+        "ReduxToolkit",
+        "Route",
+        "Router",
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_bindCLIShortcuts",
+      "query": {
+        "__rationale": "2 sites reference `bindCLIShortcuts` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "bindCLIShortcuts"
+      },
+      "expected": [
+        "runBenchServer",
+        "runBenchmarksInteractively"
+      ]
+    },
+    {
+      "task_id": "textmatch_delete",
+      "query": {
+        "__rationale": "7 sites reference `delete` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "delete"
+      },
+      "expected": [
+        "Context",
+        "delete",
+        "getStatsFromLogs",
+        "removeDefaultValues"
+      ]
+    },
+    {
+      "task_id": "textmatch_createHandle",
+      "query": {
+        "__rationale": "2 sites reference `createHandle` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "createHandle"
+      },
+      "expected": [
+        "useImperativeHandle"
+      ]
+    },
+    {
+      "task_id": "textmatch_removeAttribute",
+      "query": {
+        "__rationale": "2 sites reference `removeAttribute` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "removeAttribute"
+      },
+      "expected": [
+        "diffElementNodes",
+        "setProperty"
+      ]
+    },
+    {
+      "task_id": "textmatch_bind",
+      "query": {
+        "__rationale": "29 sites reference `bind` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "bind"
+      },
+      "expected": [
+        "constructor",
+        "createFactory",
+        "hydrate",
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDepConfig",
+      "query": {
+        "__rationale": "6 sites reference `getDepConfig` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getDepConfig"
+      },
+      "expected": [
+        "handler",
+        "pinLocalDependencies",
+        "prepareDependencies",
+        "promptDependency",
+        "transformIndexHtml"
+      ]
+    },
+    {
+      "task_id": "textmatch_assign",
+      "query": {
+        "__rationale": "15 sites reference `assign` across 9 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "assign"
+      },
+      "expected": [
+        "Forwarded",
+        "cloneElement",
+        "cloneNode",
+        "detachedClone",
+        "diff",
+        "mutation",
+        "renderComponent",
+        "update",
+        "updateData"
+      ]
+    },
+    {
+      "task_id": "textmatch_appFilePath",
+      "query": {
+        "__rationale": "6 sites reference `appFilePath` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "appFilePath"
+      },
+      "expected": [
+        "appUrl",
+        "generateTachConfig",
+        "getAppConfig"
+      ]
+    },
+    {
+      "task_id": "textmatch_set",
+      "query": {
+        "__rationale": "17 sites reference `set` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "set"
+      },
+      "expected": [
+        "MobXDemo",
+        "PatchedTextField",
+        "addToGrouping",
+        "addToMapArray",
+        "getBenchmarkURL",
+        "getCurrentFormValues",
+        "getStatsFromLogs",
+        "handleMessage",
+        "initDebug",
+        "setInMapArray"
+      ]
+    },
+    {
+      "task_id": "textmatch_warn",
+      "query": {
+        "__rationale": "15 sites reference `warn` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "warn"
+      },
+      "expected": [
+        "get",
+        "getDerivedStateFromError",
+        "getOwnerStack",
+        "getStatsFromLogs",
+        "initDebug",
+        "set"
+      ]
+    },
+    {
+      "task_id": "textmatch_find",
+      "query": {
+        "__rationale": "10 sites reference `find` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "find"
+      },
+      "expected": [
+        "buildBenchmarkResults",
+        "deleteUser",
+        "getDurationThread",
+        "getStatsFromLogs",
+        "mount",
+        "transformIndexHtml",
+        "user"
+      ]
+    },
+    {
+      "task_id": "textmatch_WeakMap",
+      "query": {
+        "__rationale": "3 sites reference `WeakMap` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "WeakMap"
+      },
+      "expected": [
+        "initDebug"
+      ]
+    },
+    {
+      "task_id": "textmatch_addEventListener",
+      "query": {
+        "__rationale": "13 sites reference `addEventListener` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "addEventListener"
+      },
+      "expected": [
+        "componentDidMount",
+        "majorTask",
+        "mount",
+        "setProperty",
+        "setup",
+        "useLocation"
+      ]
+    },
+    {
+      "task_id": "textmatch_unmountComponentAtNode",
+      "query": {
+        "__rationale": "2 sites reference `unmountComponentAtNode` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "unmountComponentAtNode"
+      },
+      "expected": [
+        "createRoot"
       ]
     },
     {
@@ -1229,62 +2141,16 @@
       ]
     },
     {
-      "task_id": "textmatch_find",
+      "task_id": "textmatch_parse",
       "query": {
-        "__rationale": "2 sites reference `find` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "6 sites reference `parse` across 3 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "find"
+        "symbol": "parse"
       },
       "expected": [
-        "deleteUser",
-        "user"
-      ]
-    },
-    {
-      "task_id": "textmatch_updateParentDomPointers",
-      "query": {
-        "__rationale": "2 sites reference `updateParentDomPointers` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "updateParentDomPointers"
-      },
-      "expected": [
-        "renderComponent",
-        "updateParentDomPointers"
-      ]
-    },
-    {
-      "task_id": "textmatch_diffChildren",
-      "query": {
-        "__rationale": "2 sites reference `diffChildren` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "diffChildren"
-      },
-      "expected": [
-        "diff",
-        "diffElementNodes"
-      ]
-    },
-    {
-      "task_id": "textmatch_navigate",
-      "query": {
-        "__rationale": "2 sites reference `navigate` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "navigate"
-      },
-      "expected": [
-        "onClick"
-      ]
-    },
-    {
-      "task_id": "textmatch_clearTimeout",
-      "query": {
-        "__rationale": "2 sites reference `clearTimeout` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "clearTimeout"
-      },
-      "expected": [
-        "componentWillUnmount",
-        "done"
+        "getImportMapForDep",
+        "getPreactRepoRoot",
+        "getStatsFromLogs"
       ]
     },
     {
@@ -1299,28 +2165,432 @@
       ]
     },
     {
-      "task_id": "textmatch_insert",
+      "task_id": "textmatch_useContext",
       "query": {
-        "__rationale": "2 sites reference `insert` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "3 sites reference `useContext` across 3 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "insert"
+        "symbol": "useContext"
       },
       "expected": [
-        "diffChildren",
-        "insert"
+        "Link",
+        "Switch",
+        "useRouter"
       ]
     },
     {
-      "task_id": "textmatch_requestAnimationFrame",
+      "task_id": "textmatch_indexOf",
       "query": {
-        "__rationale": "3 sites reference `requestAnimationFrame` across 3 enclosing function(s); raw-AST text match",
+        "__rationale": "11 sites reference `indexOf` across 8 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "requestAnimationFrame"
+        "symbol": "indexOf"
       },
       "expected": [
-        "Spiral",
-        "afterNextFrame",
-        "componentDidMount"
+        "diff",
+        "get",
+        "handleDeclaration",
+        "handleDomVNode",
+        "initDebug",
+        "parseBrowserArg",
+        "removeChild",
+        "set"
+      ]
+    },
+    {
+      "task_id": "textmatch_configDir",
+      "query": {
+        "__rationale": "2 sites reference `configDir` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "configDir"
+      },
+      "expected": [
+        "generateTachConfig"
+      ]
+    },
+    {
+      "task_id": "textmatch_Move",
+      "query": {
+        "__rationale": "2 sites reference `Move` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Move"
+      },
+      "expected": [
+        "createElement"
+      ]
+    },
+    {
+      "task_id": "textmatch_diff",
+      "query": {
+        "__rationale": "3 sites reference `diff` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "diff"
+      },
+      "expected": [
+        "diffChildren",
+        "render",
+        "renderComponent"
+      ]
+    },
+    {
+      "task_id": "textmatch_addToMapArray",
+      "query": {
+        "__rationale": "4 sites reference `addToMapArray` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "addToMapArray"
+      },
+      "expected": [
+        "getStatsFromLogs"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDomChildren",
+      "query": {
+        "__rationale": "3 sites reference `getDomChildren` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getDomChildren"
+      },
+      "expected": [
+        "getDomChildren",
+        "initDebug"
+      ]
+    },
+    {
+      "task_id": "textmatch_scheduleUpdate",
+      "query": {
+        "__rationale": "3 sites reference `scheduleUpdate` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "scheduleUpdate"
+      },
+      "expected": [
+        "mount"
+      ]
+    },
+    {
+      "task_id": "textmatch_setStyle",
+      "query": {
+        "__rationale": "2 sites reference `setStyle` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setStyle"
+      },
+      "expected": [
+        "setProperty"
+      ]
+    },
+    {
+      "task_id": "textmatch_createTableApp",
+      "query": {
+        "__rationale": "2 sites reference `createTableApp` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "createTableApp"
+      },
+      "expected": [
+        "hydrate",
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_negate",
+      "query": {
+        "__rationale": "2 sites reference `negate` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "negate"
+      },
+      "expected": [
+        "formatDifference"
+      ]
+    },
+    {
+      "task_id": "textmatch_mutation",
+      "query": {
+        "__rationale": "5 sites reference `mutation` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "mutation"
+      },
+      "expected": [
+        "mutateAndLayoutAsync"
+      ]
+    },
+    {
+      "task_id": "textmatch_GenerateComponents",
+      "query": {
+        "__rationale": "2 sites reference `GenerateComponents` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "GenerateComponents"
+      },
+      "expected": [
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_max",
+      "query": {
+        "__rationale": "2 sites reference `max` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "max"
+      },
+      "expected": [
+        "computeStats",
+        "getSparkline"
+      ]
+    },
+    {
+      "task_id": "textmatch_add",
+      "query": {
+        "__rationale": "4 sites reference `add` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "add"
+      },
+      "expected": [
+        "Context",
+        "add"
+      ]
+    },
+    {
+      "task_id": "textmatch_useEffect",
+      "query": {
+        "__rationale": "2 sites reference `useEffect` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "useEffect"
+      },
+      "expected": [
+        "useLocation",
+        "useSyncExternalStore"
+      ]
+    },
+    {
+      "task_id": "textmatch_Set",
+      "query": {
+        "__rationale": "6 sites reference `Set` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Set"
+      },
+      "expected": [
+        "Context",
+        "displayTable"
+      ]
+    },
+    {
+      "task_id": "textmatch_rerenderBenchmarks",
+      "query": {
+        "__rationale": "2 sites reference `rerenderBenchmarks` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "rerenderBenchmarks"
+      },
+      "expected": [
+        "mount",
+        "rerender"
+      ]
+    },
+    {
+      "task_id": "textmatch_execProcess",
+      "query": {
+        "__rationale": "5 sites reference `execProcess` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "execProcess"
+      },
+      "expected": [
+        "pin",
+        "setup"
+      ]
+    },
+    {
+      "task_id": "textmatch_setValue",
+      "query": {
+        "__rationale": "2 sites reference `setValue` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setValue"
+      },
+      "expected": [
+        "Contenteditable"
+      ]
+    },
+    {
+      "task_id": "textmatch_Cursor",
+      "query": {
+        "__rationale": "2 sites reference `Cursor` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Cursor"
+      },
+      "expected": [
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_exit",
+      "query": {
+        "__rationale": "6 sites reference `exit` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "exit"
+      },
+      "expected": [
+        "create",
+        "main"
+      ]
+    },
+    {
+      "task_id": "textmatch_entries",
+      "query": {
+        "__rationale": "4 sites reference `entries` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "entries"
+      },
+      "expected": [
+        "addToGrouping",
+        "analyze",
+        "promptBenchmarkFile",
+        "promptDependency"
+      ]
+    },
+    {
+      "task_id": "textmatch_once",
+      "query": {
+        "__rationale": "2 sites reference `once` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "once"
+      },
+      "expected": [
+        "waitForExit"
+      ]
+    },
+    {
+      "task_id": "textmatch_displayResults",
+      "query": {
+        "__rationale": "2 sites reference `displayResults` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "displayResults"
+      },
+      "expected": [
+        "action",
+        "runBenchmarks"
+      ]
+    },
+    {
+      "task_id": "textmatch_Lazy",
+      "query": {
+        "__rationale": "2 sites reference `Lazy` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Lazy"
+      },
+      "expected": [
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_bold",
+      "query": {
+        "__rationale": "9 sites reference `bold` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "bold"
+      },
+      "expected": [
+        "colorizeSign",
+        "formatDifference",
+        "getTableTitle",
+        "horizontalTerminalTable",
+        "logShortcut"
+      ]
+    },
+    {
+      "task_id": "textmatch_startsWith",
+      "query": {
+        "__rationale": "11 sites reference `startsWith` across 8 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "startsWith"
+      },
+      "expected": [
+        "getStatsFromLogs",
+        "handler",
+        "isMemo",
+        "jsxAttr",
+        "load",
+        "shouldIgnore",
+        "toURLPath",
+        "validate"
+      ]
+    },
+    {
+      "task_id": "textmatch_scaleLinear",
+      "query": {
+        "__rationale": "3 sites reference `scaleLinear` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "scaleLinear"
+      },
+      "expected": [
+        "PythagorasDemo",
+        "getHistogram"
+      ]
+    },
+    {
+      "task_id": "textmatch_appendChild",
+      "query": {
+        "__rationale": "16 sites reference `appendChild` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "appendChild"
+      },
+      "expected": [
+        "createRow",
+        "insertInto",
+        "mount",
+        "removeOriginal",
+        "rerenderBenchmarks",
+        "rerenderImplementations",
+        "setup"
+      ]
+    },
+    {
+      "task_id": "textmatch_toURLPath",
+      "query": {
+        "__rationale": "6 sites reference `toURLPath` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "toURLPath"
+      },
+      "expected": [
+        "appUrl",
+        "depUrl",
+        "getBenchmarkURL",
+        "getImportMapForDep",
+        "transformIndexHtml"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDisplayName",
+      "query": {
+        "__rationale": "10 sites reference `getDisplayName` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getDisplayName"
+      },
+      "expected": [
+        "getOwnerStack",
+        "initDebug",
+        "serializeVNode"
+      ]
+    },
+    {
+      "task_id": "textmatch_slice",
+      "query": {
+        "__rationale": "23 sites reference `slice` across 8 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "slice"
+      },
+      "expected": [
+        "Child",
+        "Reorder",
+        "encodeEntities",
+        "getDepConfig",
+        "getSortedUsers",
+        "parseDepVersion",
+        "setProperty",
+        "swap"
+      ]
+    },
+    {
+      "task_id": "textmatch_Consumer",
+      "query": {
+        "__rationale": "2 sites reference `Consumer` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Consumer"
+      },
+      "expected": [
+        "render"
       ]
     },
     {
@@ -1339,245 +2609,119 @@
       ]
     },
     {
-      "task_id": "textmatch_shallowDiffers",
+      "task_id": "textmatch_update",
       "query": {
-        "__rationale": "3 sites reference `shallowDiffers` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "9 sites reference `update` across 5 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "shallowDiffers"
+        "symbol": "update"
       },
       "expected": [
-        "shouldUpdate"
+        "Router",
+        "swap",
+        "toggleCounts",
+        "toggleKeys",
+        "update"
       ]
     },
     {
-      "task_id": "textmatch_Cursor",
+      "task_id": "textmatch_repoRoot",
       "query": {
-        "__rationale": "2 sites reference `Cursor` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "13 sites reference `repoRoot` across 11 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "Cursor"
+        "symbol": "repoRoot"
       },
       "expected": [
-        "render"
+        "appFilePath",
+        "baseTraceLogDir",
+        "configDir",
+        "depFilePath",
+        "generateTachConfig",
+        "handler",
+        "reinstallDependencies",
+        "resultsPath",
+        "runBenchServer",
+        "toURLPath",
+        "transformIndexHtml"
       ]
     },
     {
-      "task_id": "textmatch_test",
+      "task_id": "textmatch_forceUpdate",
       "query": {
-        "__rationale": "11 sites reference `test` across 7 enclosing function(s); raw-AST text match",
+        "__rationale": "12 sites reference `forceUpdate` across 10 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "test"
+        "symbol": "forceUpdate"
       },
       "expected": [
-        "diffElementNodes",
-        "encodeEntities",
-        "handleDomVNode",
-        "initDebug",
-        "main",
-        "onChangeInputType",
-        "upload"
+        "add",
+        "clear",
+        "delete",
+        "onSuspensionComplete",
+        "run",
+        "runLots",
+        "select",
+        "swapRows",
+        "update",
+        "useSyncExternalStore"
       ]
     },
     {
-      "task_id": "textmatch_TextField",
+      "task_id": "textmatch_enqueueRender",
       "query": {
-        "__rationale": "3 sites reference `TextField` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "3 sites reference `enqueueRender` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "TextField"
+        "symbol": "enqueueRender"
       },
       "expected": [
-        "PatchedTextField",
-        "TextFields"
+        "Context"
       ]
     },
     {
-      "task_id": "textmatch_oldDiffed",
+      "task_id": "textmatch_printUrls",
       "query": {
-        "__rationale": "3 sites reference `oldDiffed` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `printUrls` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "oldDiffed"
+        "symbol": "printUrls"
       },
       "expected": [
-        "initDebug",
-        "setupComponentStack"
+        "runBenchServer",
+        "runBenchmarksInteractively"
       ]
     },
     {
-      "task_id": "textmatch_map",
+      "task_id": "textmatch_mkdir",
       "query": {
-        "__rationale": "14 sites reference `map` across 8 enclosing function(s); raw-AST text match",
+        "__rationale": "4 sites reference `mkdir` across 3 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "map"
+        "symbol": "mkdir"
       },
       "expected": [
-        "Child",
-        "List",
-        "cloneNode",
-        "detachedClone",
-        "mapFn",
-        "normalize",
-        "removeOriginal",
-        "render"
+        "generateTachConfig",
+        "runBenchmarks",
+        "runTach"
       ]
     },
     {
-      "task_id": "textmatch_createRoot",
+      "task_id": "textmatch_encodeEntities",
       "query": {
-        "__rationale": "3 sites reference `createRoot` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `encodeEntities` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "createRoot"
+        "symbol": "encodeEntities"
       },
       "expected": [
-        "hydrateRoot"
+        "jsxAttr",
+        "jsxEscape"
       ]
     },
     {
-      "task_id": "textmatch_remove",
+      "task_id": "textmatch_findDependencyDirs",
       "query": {
-        "__rationale": "2 sites reference `remove` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `findDependencyDirs` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "remove"
+        "symbol": "findDependencyDirs"
       },
       "expected": [
-        "deleteUser",
-        "removeNode"
-      ]
-    },
-    {
-      "task_id": "textmatch_create",
-      "query": {
-        "__rationale": "4 sites reference `create` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "create"
-      },
-      "expected": [
-        "initDebug",
-        "upload"
-      ]
-    },
-    {
-      "task_id": "textmatch_setBig",
-      "query": {
-        "__rationale": "2 sites reference `setBig` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "setBig"
-      },
-      "expected": [
-        "componentDidMount"
-      ]
-    },
-    {
-      "task_id": "textmatch_shift",
-      "query": {
-        "__rationale": "3 sites reference `shift` across 3 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "shift"
-      },
-      "expected": [
-        "flush",
-        "flushAfterPaintEffects",
-        "process"
-      ]
-    },
-    {
-      "task_id": "textmatch_useMemo",
-      "query": {
-        "__rationale": "7 sites reference `useMemo` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "useMemo"
-      },
-      "expected": [
-        "useCallback",
-        "useRef"
-      ]
-    },
-    {
-      "task_id": "textmatch_sub",
-      "query": {
-        "__rationale": "2 sites reference `sub` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "sub"
-      },
-      "expected": [
-        "diff",
-        "useContext"
-      ]
-    },
-    {
-      "task_id": "textmatch_random",
-      "query": {
-        "__rationale": "10 sites reference `random` across 4 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "random"
-      },
-      "expected": [
-        "Child",
-        "Reorder",
-        "constructor",
-        "random"
-      ]
-    },
-    {
-      "task_id": "textmatch_resolve",
-      "query": {
-        "__rationale": "6 sites reference `resolve` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "resolve"
-      },
-      "expected": [
-        "act",
-        "deferFlush"
-      ]
-    },
-    {
-      "task_id": "textmatch___test__drainQueue",
-      "query": {
-        "__rationale": "2 sites reference `__test__drainQueue` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "__test__drainQueue"
-      },
-      "expected": [
-        "setupRerender",
-        "teardown"
-      ]
-    },
-    {
-      "task_id": "textmatch_indexOf",
-      "query": {
-        "__rationale": "9 sites reference `indexOf` across 6 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "indexOf"
-      },
-      "expected": [
-        "diff",
-        "get",
-        "handleDomVNode",
-        "initDebug",
-        "isMemo",
-        "set"
-      ]
-    },
-    {
-      "task_id": "textmatch_getDomChildren",
-      "query": {
-        "__rationale": "3 sites reference `getDomChildren` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "getDomChildren"
-      },
-      "expected": [
-        "getDomChildren",
-        "initDebug"
-      ]
-    },
-    {
-      "task_id": "textmatch_round",
-      "query": {
-        "__rationale": "2 sites reference `round` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "round"
-      },
-      "expected": [
-        "Reorder",
-        "render"
+        "findDependencyDirs",
+        "getDepConfig"
       ]
     },
     {
@@ -1593,136 +2737,17 @@
       ]
     },
     {
-      "task_id": "textmatch_serialize",
+      "task_id": "textmatch_format",
       "query": {
-        "__rationale": "2 sites reference `serialize` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "7 sites reference `format` across 4 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "serialize"
+        "symbol": "format"
       },
       "expected": [
-        "logCall"
-      ]
-    },
-    {
-      "task_id": "textmatch_isTableElement",
-      "query": {
-        "__rationale": "3 sites reference `isTableElement` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "isTableElement"
-      },
-      "expected": [
-        "initDebug"
-      ]
-    },
-    {
-      "task_id": "textmatch_callback",
-      "query": {
-        "__rationale": "6 sites reference `callback` across 5 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "callback"
-      },
-      "expected": [
-        "flushSync",
-        "hydrate",
-        "render",
-        "unstable_batchedUpdates",
-        "unstable_runWithPriority"
-      ]
-    },
-    {
-      "task_id": "textmatch_forceUpdate",
-      "query": {
-        "__rationale": "4 sites reference `forceUpdate` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "forceUpdate"
-      },
-      "expected": [
-        "onSuspensionComplete",
-        "useSyncExternalStore"
-      ]
-    },
-    {
-      "task_id": "textmatch_preactRender",
-      "query": {
-        "__rationale": "2 sites reference `preactRender` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "preactRender"
-      },
-      "expected": [
-        "render",
-        "unmountComponentAtNode"
-      ]
-    },
-    {
-      "task_id": "textmatch_setValue",
-      "query": {
-        "__rationale": "2 sites reference `setValue` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "setValue"
-      },
-      "expected": [
-        "Contenteditable"
-      ]
-    },
-    {
-      "task_id": "textmatch_setState",
-      "query": {
-        "__rationale": "28 sites reference `setState` across 15 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "setState"
-      },
-      "expected": [
-        "PythagorasDemo",
-        "Reorder",
-        "Spiral",
-        "ThemeProvider",
-        "TodoList",
-        "_catchError",
-        "componentDidUpdate",
-        "onClick",
-        "onRerun",
-        "onSuspensionComplete",
-        "render",
-        "setBig",
-        "setMouse",
-        "updateChildren",
-        "useReducer"
-      ]
-    },
-    {
-      "task_id": "textmatch_next",
-      "query": {
-        "__rationale": "2 sites reference `next` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "next"
-      },
-      "expected": [
-        "PythagorasDemo",
-        "componentDidMount"
-      ]
-    },
-    {
-      "task_id": "textmatch_isValidElement",
-      "query": {
-        "__rationale": "2 sites reference `isValidElement` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "isValidElement"
-      },
-      "expected": [
-        "cloneElement",
-        "isFragment"
-      ]
-    },
-    {
-      "task_id": "textmatch_filter",
-      "query": {
-        "__rationale": "7 sites reference `filter` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "filter"
-      },
-      "expected": [
-        "TodoList",
-        "initDebug"
+        "colorizeSign",
+        "formatConfidenceInterval",
+        "getTableTitle",
+        "horizontalTerminalTable"
       ]
     },
     {
@@ -1737,15 +2762,508 @@
       ]
     },
     {
-      "task_id": "textmatch_useEffect",
+      "task_id": "textmatch_Map",
       "query": {
-        "__rationale": "2 sites reference `useEffect` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "8 sites reference `Map` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "useEffect"
+        "symbol": "Map"
       },
       "expected": [
-        "useLocation",
-        "useSyncExternalStore"
+        "analyze",
+        "getStatsFromLogs"
+      ]
+    },
+    {
+      "task_id": "textmatch_callback",
+      "query": {
+        "__rationale": "5 sites reference `callback` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "callback"
+      },
+      "expected": [
+        "flushSync",
+        "hydrate",
+        "render",
+        "unstable_runWithPriority"
+      ]
+    },
+    {
+      "task_id": "textmatch_URLSearchParams",
+      "query": {
+        "__rationale": "2 sites reference `URLSearchParams` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "URLSearchParams"
+      },
+      "expected": [
+        "getCurrentFormValues",
+        "readSavedFormValues"
+      ]
+    },
+    {
+      "task_id": "textmatch_rerenderImplementations",
+      "query": {
+        "__rationale": "2 sites reference `rerenderImplementations` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "rerenderImplementations"
+      },
+      "expected": [
+        "rerender",
+        "rerenderBenchmarks"
+      ]
+    },
+    {
+      "task_id": "textmatch_toChildArray",
+      "query": {
+        "__rationale": "7 sites reference `toChildArray` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "toChildArray"
+      },
+      "expected": [
+        "count",
+        "handleDomVNode",
+        "mapFn",
+        "only",
+        "toChildArray"
+      ]
+    },
+    {
+      "task_id": "textmatch_buildData",
+      "query": {
+        "__rationale": "3 sites reference `buildData` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "buildData"
+      },
+      "expected": [
+        "add",
+        "run",
+        "runLots"
+      ]
+    },
+    {
+      "task_id": "textmatch_import",
+      "query": {
+        "__rationale": "17 sites reference `import` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "import"
+      },
+      "expected": [
+        "Dimension",
+        "VariationResult",
+        "displayResults",
+        "pinLocalDependencies",
+        "prepareDependencies"
+      ]
+    },
+    {
+      "task_id": "textmatch_test",
+      "query": {
+        "__rationale": "13 sites reference `test` across 8 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "test"
+      },
+      "expected": [
+        "encodeEntities",
+        "handleDomVNode",
+        "initDebug",
+        "jsxAttr",
+        "main",
+        "onChangeInputType",
+        "setStyle",
+        "upload"
+      ]
+    },
+    {
+      "task_id": "textmatch_Foo",
+      "query": {
+        "__rationale": "6 sites reference `Foo` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Foo"
+      },
+      "expected": [
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_getElementById",
+      "query": {
+        "__rationale": "6 sites reference `getElementById` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getElementById"
+      },
+      "expected": [
+        "setup"
+      ]
+    },
+    {
+      "task_id": "textmatch_ThemeProvider",
+      "query": {
+        "__rationale": "2 sites reference `ThemeProvider` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ThemeProvider"
+      },
+      "expected": [
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_replace",
+      "query": {
+        "__rationale": "19 sites reference `replace` across 13 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "replace"
+      },
+      "expected": [
+        "buildBenchmarkResults",
+        "generateTachConfig",
+        "getBenchmarkBaseName",
+        "handleDomVNode",
+        "jsxAttr",
+        "makeBenchmarkLabel",
+        "parseBenchmarkURL",
+        "parseBrowserArg",
+        "serialize",
+        "setProperty",
+        "toURLPath",
+        "transformIndexHtml",
+        "upload"
+      ]
+    },
+    {
+      "task_id": "textmatch_applyRef",
+      "query": {
+        "__rationale": "3 sites reference `applyRef` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "applyRef"
+      },
+      "expected": [
+        "commitRoot",
+        "diffChildren",
+        "unmount"
+      ]
+    },
+    {
+      "task_id": "textmatch_oldCatchError",
+      "query": {
+        "__rationale": "2 sites reference `oldCatchError` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "oldCatchError"
+      },
+      "expected": [
+        "initDebug"
+      ]
+    },
+    {
+      "task_id": "textmatch_error",
+      "query": {
+        "__rationale": "24 sites reference `error` across 6 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "error"
+      },
+      "expected": [
+        "analyze",
+        "checkPropTypes",
+        "create",
+        "execProcess",
+        "initDebug",
+        "main"
+      ]
+    },
+    {
+      "task_id": "textmatch_join",
+      "query": {
+        "__rationale": "66 sites reference `join` across 23 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "join"
+      },
+      "expected": [
+        "Link",
+        "Route",
+        "appUrl",
+        "createMeanValueDimension",
+        "createVersionLabelFactory",
+        "depGroupDimension",
+        "depUrl",
+        "execProcess",
+        "findDependencyDirs",
+        "getImportMapForDep",
+        "getPreactRepoRoot",
+        "getPrimes",
+        "getSparkline",
+        "getTableTitle",
+        "initDebug",
+        "logBenchCommand",
+        "main",
+        "parseBenchmarkURL",
+        "pkgRoot",
+        "promptDependency",
+        "repoRoot",
+        "resolvePkg",
+        "validate"
+      ]
+    },
+    {
+      "task_id": "textmatch_componentWillUnmount",
+      "query": {
+        "__rationale": "2 sites reference `componentWillUnmount` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "componentWillUnmount"
+      },
+      "expected": [
+        "Portal",
+        "unmount"
+      ]
+    },
+    {
+      "task_id": "textmatch_info",
+      "query": {
+        "__rationale": "5 sites reference `info` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "info"
+      },
+      "expected": [
+        "logShortcut",
+        "main"
+      ]
+    },
+    {
+      "task_id": "textmatch_endsWith",
+      "query": {
+        "__rationale": "2 sites reference `endsWith` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "endsWith"
+      },
+      "expected": [
+        "getAppConfig",
+        "parseBrowserArg"
+      ]
+    },
+    {
+      "task_id": "textmatch_Link",
+      "query": {
+        "__rationale": "28 sites reference `Link` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Link"
+      },
+      "expected": [
+        "Bye",
+        "Hello",
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_depDir",
+      "query": {
+        "__rationale": "3 sites reference `depDir` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "depDir"
+      },
+      "expected": [
+        "getImportMapForDep"
+      ]
+    },
+    {
+      "task_id": "textmatch_fill",
+      "query": {
+        "__rationale": "6 sites reference `fill` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "fill"
+      },
+      "expected": [
+        "newItems"
+      ]
+    },
+    {
+      "task_id": "textmatch_measure",
+      "query": {
+        "__rationale": "2 sites reference `measure` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "measure"
+      },
+      "expected": [
+        "markRunEnd",
+        "measureMemory"
+      ]
+    },
+    {
+      "task_id": "textmatch_logDifferences",
+      "query": {
+        "__rationale": "2 sites reference `logDifferences` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "logDifferences"
+      },
+      "expected": [
+        "analyze"
+      ]
+    },
+    {
+      "task_id": "textmatch_fetch",
+      "query": {
+        "__rationale": "3 sites reference `fetch` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "fetch"
+      },
+      "expected": [
+        "main"
+      ]
+    },
+    {
+      "task_id": "textmatch_oldBeforeDiff",
+      "query": {
+        "__rationale": "2 sites reference `oldBeforeDiff` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "oldBeforeDiff"
+      },
+      "expected": [
+        "initDebug"
+      ]
+    },
+    {
+      "task_id": "textmatch_json",
+      "query": {
+        "__rationale": "3 sites reference `json` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "json"
+      },
+      "expected": [
+        "main"
+      ]
+    },
+    {
+      "task_id": "textmatch_hasOwnProperty",
+      "query": {
+        "__rationale": "3 sites reference `hasOwnProperty` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "hasOwnProperty"
+      },
+      "expected": [
+        "serializeVNode",
+        "update"
+      ]
+    },
+    {
+      "task_id": "textmatch_run",
+      "query": {
+        "__rationale": "3 sites reference `run` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "run"
+      },
+      "expected": [
+        "run"
+      ]
+    },
+    {
+      "task_id": "textmatch_resolve",
+      "query": {
+        "__rationale": "14 sites reference `resolve` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "resolve"
+      },
+      "expected": [
+        "act",
+        "afterFrameAsync",
+        "deferFlush",
+        "onResolved",
+        "setup",
+        "transformIndexHtml",
+        "waitForExit"
+      ]
+    },
+    {
+      "task_id": "textmatch_readFile",
+      "query": {
+        "__rationale": "4 sites reference `readFile` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "readFile"
+      },
+      "expected": [
+        "getImportMapForDep",
+        "getPreactRepoRoot",
+        "getStatsFromLogs",
+        "setup"
+      ]
+    },
+    {
+      "task_id": "textmatch_shouldIgnore",
+      "query": {
+        "__rationale": "5 sites reference `shouldIgnore` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "shouldIgnore"
+      },
+      "expected": [
+        "findDependencyDirs",
+        "getAppConfig",
+        "getDepConfig"
+      ]
+    },
+    {
+      "task_id": "textmatch_rerender",
+      "query": {
+        "__rationale": "11 sites reference `rerender` across 10 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "rerender"
+      },
+      "expected": [
+        "add",
+        "clear",
+        "delete",
+        "finish",
+        "mutation",
+        "run",
+        "runLots",
+        "select",
+        "swapRows",
+        "update"
+      ]
+    },
+    {
+      "task_id": "textmatch_sort",
+      "query": {
+        "__rationale": "5 sites reference `sort` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "sort"
+      },
+      "expected": [
+        "Reorder",
+        "getSortedUsers",
+        "getSparkline",
+        "process"
+      ]
+    },
+    {
+      "task_id": "textmatch_getOwnPropertyDescriptor",
+      "query": {
+        "__rationale": "2 sites reference `getOwnPropertyDescriptor` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "getOwnPropertyDescriptor"
+      },
+      "expected": [
+        "logger"
+      ]
+    },
+    {
+      "task_id": "textmatch_dispatch",
+      "query": {
+        "__rationale": "6 sites reference `dispatch` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "dispatch"
+      },
+      "expected": [
+        "Redux",
+        "decrement",
+        "increment",
+        "incrementAsync",
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_debug",
+      "query": {
+        "__rationale": "3 sites reference `debug` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "debug"
+      },
+      "expected": [
+        "main"
       ]
     },
     {
@@ -1760,251 +3278,55 @@
       ]
     },
     {
-      "task_id": "textmatch_Suspense",
+      "task_id": "textmatch_createRoot",
       "query": {
-        "__rationale": "8 sites reference `Suspense` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "11 sites reference `createRoot` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "Suspense"
+        "symbol": "createRoot"
       },
       "expected": [
-        "SuspenseRouterBug",
-        "render"
+        "hydrateRoot",
+        "mount"
       ]
     },
     {
-      "task_id": "textmatch_render",
+      "task_id": "textmatch_swapRows",
       "query": {
-        "__rationale": "11 sites reference `render` across 5 enclosing function(s); raw-AST text match",
+        "__rationale": "3 sites reference `swapRows` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "render"
+        "symbol": "swapRows"
       },
       "expected": [
-        "Portal",
-        "createRoot",
+        "swapRows"
+      ]
+    },
+    {
+      "task_id": "textmatch_get",
+      "query": {
+        "__rationale": "15 sites reference `get` across 7 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "get"
+      },
+      "expected": [
+        "addToGrouping",
+        "addToMapArray",
+        "analyze",
+        "getStatsFromLogs",
+        "parseBenchmarkURL",
+        "setInMapArray",
+        "transformIndexHtml"
+      ]
+    },
+    {
+      "task_id": "textmatch_diffChildren",
+      "query": {
+        "__rationale": "2 sites reference `diffChildren` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "diffChildren"
+      },
+      "expected": [
         "diff",
-        "hydrate",
-        "update"
-      ]
-    },
-    {
-      "task_id": "textmatch_insertBefore",
-      "query": {
-        "__rationale": "2 sites reference `insertBefore` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "insertBefore"
-      },
-      "expected": [
-        "insert",
-        "insertBefore"
-      ]
-    },
-    {
-      "task_id": "textmatch_commitRoot",
-      "query": {
-        "__rationale": "2 sites reference `commitRoot` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "commitRoot"
-      },
-      "expected": [
-        "render",
-        "renderComponent"
-      ]
-    },
-    {
-      "task_id": "textmatch_createElement",
-      "query": {
-        "__rationale": "14 sites reference `createElement` across 7 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "createElement"
-      },
-      "expected": [
-        "Lazy",
-        "Memoed",
-        "Portal",
-        "createPortal",
-        "createRow",
-        "render",
-        "setup"
-      ]
-    },
-    {
-      "task_id": "textmatch_WeakMap",
-      "query": {
-        "__rationale": "4 sites reference `WeakMap` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "WeakMap"
-      },
-      "expected": [
-        "initDebug"
-      ]
-    },
-    {
-      "task_id": "textmatch_useStore",
-      "query": {
-        "__rationale": "4 sites reference `useStore` across 3 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "useStore"
-      },
-      "expected": [
-        "Counter",
-        "Text",
-        "ZustandComponent"
-      ]
-    },
-    {
-      "task_id": "textmatch_html",
-      "query": {
-        "__rationale": "6 sites reference `html` across 4 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "html"
-      },
-      "expected": [
-        "Child",
-        "Config",
-        "List",
-        "Parent"
-      ]
-    },
-    {
-      "task_id": "textmatch_GenerateComponents",
-      "query": {
-        "__rationale": "2 sites reference `GenerateComponents` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "GenerateComponents"
-      },
-      "expected": [
-        "render"
-      ]
-    },
-    {
-      "task_id": "textmatch_preventDefault",
-      "query": {
-        "__rationale": "4 sites reference `preventDefault` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "preventDefault"
-      },
-      "expected": [
-        "componentDidMount",
-        "onClick"
-      ]
-    },
-    {
-      "task_id": "textmatch_renderHook",
-      "query": {
-        "__rationale": "2 sites reference `renderHook` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "renderHook"
-      },
-      "expected": [
-        "diff"
-      ]
-    },
-    {
-      "task_id": "textmatch_detachedClone",
-      "query": {
-        "__rationale": "2 sites reference `detachedClone` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "detachedClone"
-      },
-      "expected": [
-        "detachedClone"
-      ]
-    },
-    {
-      "task_id": "textmatch_range",
-      "query": {
-        "__rationale": "2 sites reference `range` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "range"
-      },
-      "expected": [
-        "PythagorasDemo"
-      ]
-    },
-    {
-      "task_id": "textmatch_vnode",
-      "query": {
-        "__rationale": "3 sites reference `vnode` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "vnode"
-      },
-      "expected": [
-        "createVNode",
-        "renderComponent"
-      ]
-    },
-    {
-      "task_id": "textmatch_bind",
-      "query": {
-        "__rationale": "9 sites reference `bind` across 3 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "bind"
-      },
-      "expected": [
-        "constructor",
-        "createFactory",
-        "mapFn"
-      ]
-    },
-    {
-      "task_id": "textmatch_has",
-      "query": {
-        "__rationale": "2 sites reference `has` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "has"
-      },
-      "expected": [
-        "initDebug"
-      ]
-    },
-    {
-      "task_id": "textmatch_info",
-      "query": {
-        "__rationale": "4 sites reference `info` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "info"
-      },
-      "expected": [
-        "main"
-      ]
-    },
-    {
-      "task_id": "textmatch_slice",
-      "query": {
-        "__rationale": "16 sites reference `slice` across 6 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "slice"
-      },
-      "expected": [
-        "Child",
-        "Reorder",
-        "encodeEntities",
-        "getSortedUsers",
-        "setProperty",
-        "swap"
-      ]
-    },
-    {
-      "task_id": "textmatch_DevtoolsWarning",
-      "query": {
-        "__rationale": "2 sites reference `DevtoolsWarning` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "DevtoolsWarning"
-      },
-      "expected": [
-        "render"
-      ]
-    },
-    {
-      "task_id": "textmatch_setInterval",
-      "query": {
-        "__rationale": "2 sites reference `setInterval` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "setInterval"
-      },
-      "expected": [
-        "componentDidMount",
-        "logger"
+        "diffElementNodes"
       ]
     },
     {
@@ -2020,139 +3342,476 @@
       ]
     },
     {
-      "task_id": "textmatch_argsChanged",
+      "task_id": "textmatch_forEach",
       "query": {
-        "__rationale": "3 sites reference `argsChanged` across 3 enclosing function(s); raw-AST text match",
+        "__rationale": "26 sites reference `forEach` across 15 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "argsChanged"
+        "symbol": "forEach"
       },
       "expected": [
-        "useEffect",
-        "useLayoutEffect",
-        "useMemo"
-      ]
-    },
-    {
-      "task_id": "textmatch_setStyle",
-      "query": {
-        "__rationale": "2 sites reference `setStyle` across 1 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "setStyle"
-      },
-      "expected": [
-        "setProperty"
-      ]
-    },
-    {
-      "task_id": "textmatch_set",
-      "query": {
-        "__rationale": "8 sites reference `set` across 4 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "set"
-      },
-      "expected": [
-        "MobXDemo",
-        "PatchedTextField",
+        "Context",
+        "Switch",
+        "checkPropTypes",
+        "detachedClone",
+        "finish",
+        "flushAfterPaintEffects",
+        "getDomChildren",
+        "getSparkline",
+        "handleDeclaration",
+        "handleDomVNode",
         "initDebug",
-        "setupComponentStack"
+        "logBenchCommand",
+        "navigate",
+        "runBenchmarksInteractively",
+        "updateHookState"
       ]
     },
     {
-      "task_id": "textmatch_unmount",
+      "task_id": "textmatch_existsSync",
       "query": {
-        "__rationale": "3 sites reference `unmount` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "10 sites reference `existsSync` across 8 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "unmount"
+        "symbol": "existsSync"
       },
       "expected": [
-        "constructNewChildrenArray",
-        "unmount"
+        "analyze",
+        "analyzeAction",
+        "findDependencyDirs",
+        "getDepConfig",
+        "getPreactLocalTarballPath",
+        "getPreactRepoRoot",
+        "runBenchmarks",
+        "setup"
       ]
     },
     {
-      "task_id": "textmatch_unmountComponentAtNode",
+      "task_id": "textmatch_Route",
       "query": {
-        "__rationale": "2 sites reference `unmountComponentAtNode` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "5 sites reference `Route` across 3 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "unmountComponentAtNode"
+        "symbol": "Route"
       },
       "expected": [
-        "createRoot"
+        "App",
+        "SuspenseRouterBug",
+        "render"
       ]
     },
     {
-      "task_id": "textmatch_oldBeforeDiff",
+      "task_id": "textmatch_navigate",
       "query": {
-        "__rationale": "2 sites reference `oldBeforeDiff` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `navigate` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "oldBeforeDiff"
+        "symbol": "navigate"
+      },
+      "expected": [
+        "Link",
+        "onClick"
+      ]
+    },
+    {
+      "task_id": "textmatch_gray",
+      "query": {
+        "__rationale": "2 sites reference `gray` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "gray"
+      },
+      "expected": [
+        "displayTable",
+        "formatConfidenceInterval"
+      ]
+    },
+    {
+      "task_id": "textmatch_DevtoolsWarning",
+      "query": {
+        "__rationale": "2 sites reference `DevtoolsWarning` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "DevtoolsWarning"
+      },
+      "expected": [
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_URL",
+      "query": {
+        "__rationale": "9 sites reference `URL` across 5 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "URL"
+      },
+      "expected": [
+        "generateTachConfig",
+        "getBenchmarkURL",
+        "parseBenchmarkURL",
+        "toURLPath",
+        "transformIndexHtml"
+      ]
+    },
+    {
+      "task_id": "textmatch__value",
+      "query": {
+        "__rationale": "2 sites reference `_value` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_value"
+      },
+      "expected": [
+        "invokeEffect",
+        "useErrorBoundary"
+      ]
+    },
+    {
+      "task_id": "textmatch_resultsPath",
+      "query": {
+        "__rationale": "2 sites reference `resultsPath` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "resultsPath"
+      },
+      "expected": [
+        "runBenchmarks",
+        "runTach"
+      ]
+    },
+    {
+      "task_id": "textmatch_insert",
+      "query": {
+        "__rationale": "2 sites reference `insert` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "insert"
+      },
+      "expected": [
+        "diffChildren",
+        "insert"
+      ]
+    },
+    {
+      "task_id": "textmatch_dirname",
+      "query": {
+        "__rationale": "3 sites reference `dirname` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "dirname"
+      },
+      "expected": [
+        "generateTachConfig",
+        "runTach"
+      ]
+    },
+    {
+      "task_id": "textmatch_some",
+      "query": {
+        "__rationale": "7 sites reference `some` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "some"
+      },
+      "expected": [
+        "argsChanged",
+        "commitRoot",
+        "diff",
+        "toChildArray"
+      ]
+    },
+    {
+      "task_id": "textmatch_toDepImportMapId",
+      "query": {
+        "__rationale": "3 sites reference `toDepImportMapId` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "toDepImportMapId"
+      },
+      "expected": [
+        "getImportMapForDep",
+        "handler"
+      ]
+    },
+    {
+      "task_id": "textmatch_useLayoutEffect",
+      "query": {
+        "__rationale": "3 sites reference `useLayoutEffect` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "useLayoutEffect"
+      },
+      "expected": [
+        "Router",
+        "useImperativeHandle",
+        "useSyncExternalStore"
+      ]
+    },
+    {
+      "task_id": "textmatch_onDelete",
+      "query": {
+        "__rationale": "3 sites reference `onDelete` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "onDelete"
+      },
+      "expected": [
+        "Row",
+        "onDelete"
+      ]
+    },
+    {
+      "task_id": "textmatch_pkgRoot",
+      "query": {
+        "__rationale": "8 sites reference `pkgRoot` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "pkgRoot"
+      },
+      "expected": [
+        "getPreactRepoRoot",
+        "pin",
+        "setup"
+      ]
+    },
+    {
+      "task_id": "textmatch_querySelector",
+      "query": {
+        "__rationale": "3 sites reference `querySelector` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "querySelector"
+      },
+      "expected": [
+        "getBySelector",
+        "testElement",
+        "testElementText"
+      ]
+    },
+    {
+      "task_id": "textmatch__random",
+      "query": {
+        "__rationale": "3 sites reference `_random` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "_random"
+      },
+      "expected": [
+        "buildData"
+      ]
+    },
+    {
+      "task_id": "textmatch_runLots",
+      "query": {
+        "__rationale": "3 sites reference `runLots` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "runLots"
+      },
+      "expected": [
+        "runLots"
+      ]
+    },
+    {
+      "task_id": "textmatch_setInMapArray",
+      "query": {
+        "__rationale": "4 sites reference `setInMapArray` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "setInMapArray"
+      },
+      "expected": [
+        "getStatsFromLogs"
+      ]
+    },
+    {
+      "task_id": "textmatch_ref",
+      "query": {
+        "__rationale": "4 sites reference `ref` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "ref"
+      },
+      "expected": [
+        "applyRef",
+        "shouldUpdate",
+        "useImperativeHandle"
+      ]
+    },
+    {
+      "task_id": "textmatch_pipe",
+      "query": {
+        "__rationale": "2 sites reference `pipe` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "pipe"
+      },
+      "expected": [
+        "execProcess"
+      ]
+    },
+    {
+      "task_id": "textmatch_serializeVNode",
+      "query": {
+        "__rationale": "12 sites reference `serializeVNode` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "serializeVNode"
       },
       "expected": [
         "initDebug"
       ]
     },
     {
-      "task_id": "textmatch_diff",
+      "task_id": "textmatch_prepareDependencies",
       "query": {
-        "__rationale": "3 sites reference `diff` across 3 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `prepareDependencies` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "diff"
+        "symbol": "prepareDependencies"
       },
       "expected": [
-        "diffChildren",
-        "render",
-        "renderComponent"
+        "action",
+        "runBenchmarks"
       ]
     },
     {
-      "task_id": "textmatch_createVNode",
+      "task_id": "textmatch_create",
       "query": {
-        "__rationale": "6 sites reference `createVNode` across 4 enclosing function(s); raw-AST text match",
+        "__rationale": "4 sites reference `create` across 2 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "createVNode"
-      },
-      "expected": [
-        "cloneElement",
-        "constructNewChildrenArray",
-        "createElement",
-        "jsxTemplate"
-      ]
-    },
-    {
-      "task_id": "textmatch_oldRoot",
-      "query": {
-        "__rationale": "3 sites reference `oldRoot` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "oldRoot"
+        "symbol": "create"
       },
       "expected": [
         "initDebug",
-        "setupComponentStack"
+        "upload"
       ]
     },
     {
-      "task_id": "textmatch_hydrate",
+      "task_id": "textmatch_readFileSync",
       "query": {
-        "__rationale": "2 sites reference `hydrate` across 1 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `readFileSync` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "hydrate"
+        "symbol": "readFileSync"
       },
       "expected": [
-        "hydrateRoot"
+        "upload"
       ]
     },
     {
-      "task_id": "textmatch_join",
+      "task_id": "textmatch_finish",
       "query": {
-        "__rationale": "45 sites reference `join` across 4 enclosing function(s); raw-AST text match",
+        "__rationale": "2 sites reference `finish` across 1 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "join"
+        "symbol": "finish"
       },
       "expected": [
-        "getPrimes",
-        "initDebug",
-        "main",
-        "resolvePkg"
+        "act"
+      ]
+    },
+    {
+      "task_id": "textmatch_TextField",
+      "query": {
+        "__rationale": "3 sites reference `TextField` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "TextField"
+      },
+      "expected": [
+        "PatchedTextField",
+        "TextFields"
+      ]
+    },
+    {
+      "task_id": "textmatch_preventDefault",
+      "query": {
+        "__rationale": "5 sites reference `preventDefault` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "preventDefault"
+      },
+      "expected": [
+        "Link",
+        "componentDidMount",
+        "onClick"
+      ]
+    },
+    {
+      "task_id": "textmatch_Store",
+      "query": {
+        "__rationale": "6 sites reference `Store` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "Store"
+      },
+      "expected": [
+        "hydrate",
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_floor",
+      "query": {
+        "__rationale": "5 sites reference `floor` across 3 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "floor"
+      },
+      "expected": [
+        "Reorder",
+        "getSparkline",
+        "lshift"
+      ]
+    },
+    {
+      "task_id": "textmatch_now",
+      "query": {
+        "__rationale": "2 sites reference `now` across 1 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "now"
+      },
+      "expected": [
+        "componentDidMount"
+      ]
+    },
+    {
+      "task_id": "textmatch_then",
+      "query": {
+        "__rationale": "16 sites reference `then` across 4 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "then"
+      },
+      "expected": [
+        "Lazy",
+        "act",
+        "deferFlush",
+        "markRunEnd"
+      ]
+    },
+    {
+      "task_id": "textmatch_domain",
+      "query": {
+        "__rationale": "5 sites reference `domain` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "domain"
+      },
+      "expected": [
+        "PythagorasDemo",
+        "getHistogram"
+      ]
+    },
+    {
+      "task_id": "textmatch_log",
+      "query": {
+        "__rationale": "45 sites reference `log` across 19 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "log"
+      },
+      "expected": [
+        "Spiral",
+        "action",
+        "analyzeAction",
+        "componentDidMount",
+        "componentWillUnmount",
+        "count",
+        "create",
+        "createVersionLabelFactory",
+        "displayResults",
+        "displayTable",
+        "execProcess",
+        "handleDeclaration",
+        "logBenchCommand",
+        "logDifferences",
+        "pause",
+        "pin",
+        "runBenchmarks",
+        "setup",
+        "upload"
+      ]
+    },
+    {
+      "task_id": "textmatch_useRouter",
+      "query": {
+        "__rationale": "2 sites reference `useRouter` across 2 enclosing function(s); raw-AST text match",
+        "__rule": "H1-text",
+        "symbol": "useRouter"
+      },
+      "expected": [
+        "Link",
+        "Route"
       ]
     },
     {
@@ -2169,27 +3828,22 @@
       ]
     },
     {
-      "task_id": "textmatch_oldRender",
+      "task_id": "textmatch_render",
       "query": {
-        "__rationale": "2 sites reference `oldRender` across 2 enclosing function(s); raw-AST text match",
+        "__rationale": "34 sites reference `render` across 9 enclosing function(s); raw-AST text match",
         "__rule": "H1-text",
-        "symbol": "oldRender"
+        "symbol": "render"
       },
       "expected": [
-        "initDebug",
-        "setupComponentStack"
-      ]
-    },
-    {
-      "task_id": "textmatch_pop",
-      "query": {
-        "__rationale": "3 sites reference `pop` across 2 enclosing function(s); raw-AST text match",
-        "__rule": "H1-text",
-        "symbol": "pop"
-      },
-      "expected": [
-        "onSuspensionComplete",
-        "setupComponentStack"
+        "Portal",
+        "Route",
+        "createRoot",
+        "diff",
+        "hydrate",
+        "mount",
+        "render",
+        "unmount",
+        "update"
       ]
     }
   ]

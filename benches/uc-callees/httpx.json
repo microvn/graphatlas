@@ -1,0 +1,2354 @@
+{
+  "schema_version": 1,
+  "uc": "callees",
+  "fixture": "httpx",
+  "tasks": [
+    {
+      "task_id": "textmatch_BaseClient",
+      "query": {
+        "__rationale": "2 callees appear inside `BaseClient`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "BaseClient"
+      },
+      "expected": [
+        "property",
+        "setter"
+      ]
+    },
+    {
+      "task_id": "textmatch_HTTPError",
+      "query": {
+        "__rationale": "2 callees appear inside `HTTPError`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_exceptions.py",
+        "symbol": "HTTPError"
+      },
+      "expected": [
+        "property",
+        "setter"
+      ]
+    },
+    {
+      "task_id": "textmatch_Headers",
+      "query": {
+        "__rationale": "2 callees appear inside `Headers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "Headers"
+      },
+      "expected": [
+        "property",
+        "setter"
+      ]
+    },
+    {
+      "task_id": "textmatch_PERCENT",
+      "query": {
+        "__rationale": "2 callees appear inside `PERCENT`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urlparse.py",
+        "symbol": "PERCENT"
+      },
+      "expected": [
+        "encode",
+        "join"
+      ]
+    },
+    {
+      "task_id": "textmatch_Response",
+      "query": {
+        "__rationale": "2 callees appear inside `Response`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "Response"
+      },
+      "expected": [
+        "property",
+        "setter"
+      ]
+    },
+    {
+      "task_id": "textmatch__build_auth",
+      "query": {
+        "__rationale": "5 callees appear inside `_build_auth`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_build_auth"
+      },
+      "expected": [
+        "BasicAuth",
+        "FunctionAuth",
+        "TypeError",
+        "callable",
+        "isinstance"
+      ]
+    },
+    {
+      "task_id": "textmatch__build_auth_header",
+      "query": {
+        "__rationale": "12 callees appear inside `_build_auth_header`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_auth.py",
+        "symbol": "_build_auth_header"
+      },
+      "expected": [
+        "_get_client_nonce",
+        "_get_header_value",
+        "_resolve_qop",
+        "b64encode",
+        "decode",
+        "digest",
+        "encode",
+        "endswith",
+        "join",
+        "lower",
+        "to_bytes",
+        "upper"
+      ]
+    },
+    {
+      "task_id": "textmatch__build_redirect_request",
+      "query": {
+        "__rationale": "6 callees appear inside `_build_redirect_request`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_build_redirect_request"
+      },
+      "expected": [
+        "Cookies",
+        "Request",
+        "_redirect_headers",
+        "_redirect_method",
+        "_redirect_stream",
+        "_redirect_url"
+      ]
+    },
+    {
+      "task_id": "textmatch__build_request_auth",
+      "query": {
+        "__rationale": "4 callees appear inside `_build_request_auth`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_build_request_auth"
+      },
+      "expected": [
+        "Auth",
+        "BasicAuth",
+        "_build_auth",
+        "isinstance"
+      ]
+    },
+    {
+      "task_id": "textmatch__enforce_trailing_slash",
+      "query": {
+        "__rationale": "2 callees appear inside `_enforce_trailing_slash`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_enforce_trailing_slash"
+      },
+      "expected": [
+        "copy_with",
+        "endswith"
+      ]
+    },
+    {
+      "task_id": "textmatch__format_form_param",
+      "query": {
+        "__rationale": "2 callees appear inside `_format_form_param`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_multipart.py",
+        "symbol": "_format_form_param"
+      },
+      "expected": [
+        "encode",
+        "sub"
+      ]
+    },
+    {
+      "task_id": "textmatch__get_client_nonce",
+      "query": {
+        "__rationale": "6 callees appear inside `_get_client_nonce`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_auth.py",
+        "symbol": "_get_client_nonce"
+      },
+      "expected": [
+        "ctime",
+        "encode",
+        "hexdigest",
+        "sha1",
+        "str",
+        "urandom"
+      ]
+    },
+    {
+      "task_id": "textmatch__get_content_decoder",
+      "query": {
+        "__rationale": "9 callees appear inside `_get_content_decoder`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "_get_content_decoder"
+      },
+      "expected": [
+        "IdentityDecoder",
+        "MultiDecoder",
+        "append",
+        "decoder_cls",
+        "get_list",
+        "hasattr",
+        "len",
+        "lower",
+        "strip"
+      ]
+    },
+    {
+      "task_id": "textmatch__get_header_value",
+      "query": {
+        "__rationale": "4 callees appear inside `_get_header_value`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_auth.py",
+        "symbol": "_get_header_value"
+      },
+      "expected": [
+        "enumerate",
+        "format",
+        "items",
+        "to_str"
+      ]
+    },
+    {
+      "task_id": "textmatch__get_proxy_map",
+      "query": {
+        "__rationale": "4 callees appear inside `_get_proxy_map`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_get_proxy_map"
+      },
+      "expected": [
+        "Proxy",
+        "get_environment_proxies",
+        "isinstance",
+        "items"
+      ]
+    },
+    {
+      "task_id": "textmatch__init_proxy_transport",
+      "query": {
+        "__rationale": "2 callees appear inside `_init_proxy_transport`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_init_proxy_transport"
+      },
+      "expected": [
+        "AsyncHTTPTransport",
+        "HTTPTransport"
+      ]
+    },
+    {
+      "task_id": "textmatch__init_transport",
+      "query": {
+        "__rationale": "2 callees appear inside `_init_transport`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_init_transport"
+      },
+      "expected": [
+        "AsyncHTTPTransport",
+        "HTTPTransport"
+      ]
+    },
+    {
+      "task_id": "textmatch__iter_fields",
+      "query": {
+        "__rationale": "4 callees appear inside `_iter_fields`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_multipart.py",
+        "symbol": "_iter_fields"
+      },
+      "expected": [
+        "DataField",
+        "FileField",
+        "isinstance",
+        "items"
+      ]
+    },
+    {
+      "task_id": "textmatch__merge_cookies",
+      "query": {
+        "__rationale": "2 callees appear inside `_merge_cookies`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_merge_cookies"
+      },
+      "expected": [
+        "Cookies",
+        "update"
+      ]
+    },
+    {
+      "task_id": "textmatch__merge_headers",
+      "query": {
+        "__rationale": "2 callees appear inside `_merge_headers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_merge_headers"
+      },
+      "expected": [
+        "Headers",
+        "update"
+      ]
+    },
+    {
+      "task_id": "textmatch__merge_queryparams",
+      "query": {
+        "__rationale": "2 callees appear inside `_merge_queryparams`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_merge_queryparams"
+      },
+      "expected": [
+        "QueryParams",
+        "merge"
+      ]
+    },
+    {
+      "task_id": "textmatch__merge_url",
+      "query": {
+        "__rationale": "3 callees appear inside `_merge_url`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_merge_url"
+      },
+      "expected": [
+        "URL",
+        "copy_with",
+        "lstrip"
+      ]
+    },
+    {
+      "task_id": "textmatch__normalize_header_key",
+      "query": {
+        "__rationale": "2 callees appear inside `_normalize_header_key`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "_normalize_header_key"
+      },
+      "expected": [
+        "encode",
+        "isinstance"
+      ]
+    },
+    {
+      "task_id": "textmatch__normalize_header_value",
+      "query": {
+        "__rationale": "4 callees appear inside `_normalize_header_value`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "_normalize_header_value"
+      },
+      "expected": [
+        "TypeError",
+        "encode",
+        "isinstance",
+        "type"
+      ]
+    },
+    {
+      "task_id": "textmatch__obfuscate_sensitive_headers",
+      "query": {
+        "__rationale": "3 callees appear inside `_obfuscate_sensitive_headers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "_obfuscate_sensitive_headers"
+      },
+      "expected": [
+        "lower",
+        "to_bytes_or_str",
+        "to_str"
+      ]
+    },
+    {
+      "task_id": "textmatch__parse_challenge",
+      "query": {
+        "__rationale": "10 callees appear inside `_parse_challenge`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_auth.py",
+        "symbol": "_parse_challenge"
+      },
+      "expected": [
+        "ProtocolError",
+        "_DigestAuthChallenge",
+        "encode",
+        "get",
+        "lower",
+        "parse_http_list",
+        "partition",
+        "split",
+        "strip",
+        "unquote"
+      ]
+    },
+    {
+      "task_id": "textmatch__parse_content_type_charset",
+      "query": {
+        "__rationale": "2 callees appear inside `_parse_content_type_charset`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "_parse_content_type_charset"
+      },
+      "expected": [
+        "Message",
+        "get_content_charset"
+      ]
+    },
+    {
+      "task_id": "textmatch__parse_header_links",
+      "query": {
+        "__rationale": "3 callees appear inside `_parse_header_links`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "_parse_header_links"
+      },
+      "expected": [
+        "append",
+        "split",
+        "strip"
+      ]
+    },
+    {
+      "task_id": "textmatch__prepare",
+      "query": {
+        "__rationale": "5 callees appear inside `_prepare`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "_prepare"
+      },
+      "expected": [
+        "Headers",
+        "append",
+        "items",
+        "lower",
+        "setdefault"
+      ]
+    },
+    {
+      "task_id": "textmatch__redirect_headers",
+      "query": {
+        "__rationale": "5 callees appear inside `_redirect_headers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_redirect_headers"
+      },
+      "expected": [
+        "Headers",
+        "_is_https_redirect",
+        "_same_origin",
+        "decode",
+        "pop"
+      ]
+    },
+    {
+      "task_id": "textmatch__redirect_url",
+      "query": {
+        "__rationale": "4 callees appear inside `_redirect_url`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_redirect_url"
+      },
+      "expected": [
+        "RemoteProtocolError",
+        "URL",
+        "copy_with",
+        "join"
+      ]
+    },
+    {
+      "task_id": "textmatch__resolve_qop",
+      "query": {
+        "__rationale": "3 callees appear inside `_resolve_qop`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_auth.py",
+        "symbol": "_resolve_qop"
+      },
+      "expected": [
+        "NotImplementedError",
+        "ProtocolError",
+        "split"
+      ]
+    },
+    {
+      "task_id": "textmatch__send_handling_auth",
+      "query": {
+        "__rationale": "12 callees appear inside `_send_handling_auth`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_send_handling_auth"
+      },
+      "expected": [
+        "_send_handling_redirects",
+        "aclose",
+        "append",
+        "aread",
+        "asend",
+        "async_auth_flow",
+        "close",
+        "list",
+        "next",
+        "read",
+        "send",
+        "sync_auth_flow"
+      ]
+    },
+    {
+      "task_id": "textmatch__send_handling_redirects",
+      "query": {
+        "__rationale": "10 callees appear inside `_send_handling_redirects`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_send_handling_redirects"
+      },
+      "expected": [
+        "TooManyRedirects",
+        "_build_redirect_request",
+        "_send_single_request",
+        "aclose",
+        "aread",
+        "close",
+        "hook",
+        "len",
+        "list",
+        "read"
+      ]
+    },
+    {
+      "task_id": "textmatch__send_single_request",
+      "query": {
+        "__rationale": "11 callees appear inside `_send_single_request`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_send_single_request"
+      },
+      "expected": [
+        "BoundAsyncStream",
+        "BoundSyncStream",
+        "RuntimeError",
+        "_transport_for_url",
+        "extract_cookies",
+        "handle_async_request",
+        "handle_request",
+        "info",
+        "isinstance",
+        "perf_counter",
+        "request_context"
+      ]
+    },
+    {
+      "task_id": "textmatch__set_timeout",
+      "query": {
+        "__rationale": "4 callees appear inside `_set_timeout`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_set_timeout"
+      },
+      "expected": [
+        "Timeout",
+        "as_dict",
+        "dict",
+        "isinstance"
+      ]
+    },
+    {
+      "task_id": "textmatch__skip_leading_empty_chunks",
+      "query": {
+        "__rationale": "2 callees appear inside `_skip_leading_empty_chunks`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_transports/wsgi.py",
+        "symbol": "_skip_leading_empty_chunks"
+      },
+      "expected": [
+        "chain",
+        "iter"
+      ]
+    },
+    {
+      "task_id": "textmatch__transport_for_url",
+      "query": {
+        "__rationale": "2 callees appear inside `_transport_for_url`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "_transport_for_url"
+      },
+      "expected": [
+        "items",
+        "matches"
+      ]
+    },
+    {
+      "task_id": "textmatch_aclose",
+      "query": {
+        "__rationale": "8 callees appear inside `aclose`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "aclose"
+      },
+      "expected": [
+        "RuntimeError",
+        "aclose",
+        "hasattr",
+        "isinstance",
+        "perf_counter",
+        "request_context",
+        "timedelta",
+        "values"
+      ]
+    },
+    {
+      "task_id": "textmatch_add",
+      "query": {
+        "__rationale": "5 callees appear inside `add`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urls.py",
+        "symbol": "add"
+      },
+      "expected": [
+        "QueryParams",
+        "dict",
+        "get_list",
+        "primitive_value_to_str",
+        "str"
+      ]
+    },
+    {
+      "task_id": "textmatch_add_unredirected_header",
+      "query": {
+        "__rationale": "2 callees appear inside `add_unredirected_header`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "add_unredirected_header"
+      },
+      "expected": [
+        "add_unredirected_header",
+        "super"
+      ]
+    },
+    {
+      "task_id": "textmatch_aiter_bytes",
+      "query": {
+        "__rationale": "10 callees appear inside `aiter_bytes`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "aiter_bytes"
+      },
+      "expected": [
+        "ByteChunker",
+        "_get_content_decoder",
+        "aiter_raw",
+        "decode",
+        "flush",
+        "hasattr",
+        "len",
+        "max",
+        "range",
+        "request_context"
+      ]
+    },
+    {
+      "task_id": "textmatch_aiter_lines",
+      "query": {
+        "__rationale": "5 callees appear inside `aiter_lines`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "aiter_lines"
+      },
+      "expected": [
+        "LineDecoder",
+        "aiter_text",
+        "decode",
+        "flush",
+        "request_context"
+      ]
+    },
+    {
+      "task_id": "textmatch_aiter_raw",
+      "query": {
+        "__rationale": "10 callees appear inside `aiter_raw`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "aiter_raw"
+      },
+      "expected": [
+        "ByteChunker",
+        "RuntimeError",
+        "StreamClosed",
+        "StreamConsumed",
+        "aclose",
+        "decode",
+        "flush",
+        "isinstance",
+        "len",
+        "request_context"
+      ]
+    },
+    {
+      "task_id": "textmatch_aiter_text",
+      "query": {
+        "__rationale": "6 callees appear inside `aiter_text`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "aiter_text"
+      },
+      "expected": [
+        "TextChunker",
+        "TextDecoder",
+        "aiter_bytes",
+        "decode",
+        "flush",
+        "request_context"
+      ]
+    },
+    {
+      "task_id": "textmatch_aread",
+      "query": {
+        "__rationale": "5 callees appear inside `aread`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "aread"
+      },
+      "expected": [
+        "ByteStream",
+        "aiter_bytes",
+        "hasattr",
+        "isinstance",
+        "join"
+      ]
+    },
+    {
+      "task_id": "textmatch_async_auth_flow",
+      "query": {
+        "__rationale": "4 callees appear inside `async_auth_flow`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_auth.py",
+        "symbol": "async_auth_flow"
+      },
+      "expected": [
+        "aread",
+        "auth_flow",
+        "next",
+        "send"
+      ]
+    },
+    {
+      "task_id": "textmatch_auth_flow",
+      "query": {
+        "__rationale": "9 callees appear inside `auth_flow`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_auth.py",
+        "symbol": "auth_flow"
+      },
+      "expected": [
+        "Cookies",
+        "_build_auth_header",
+        "_func",
+        "_parse_challenge",
+        "authenticators",
+        "get_list",
+        "lower",
+        "set_cookie_header",
+        "startswith"
+      ]
+    },
+    {
+      "task_id": "textmatch_base_url",
+      "query": {
+        "__rationale": "2 callees appear inside `base_url`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "base_url"
+      },
+      "expected": [
+        "URL",
+        "_enforce_trailing_slash"
+      ]
+    },
+    {
+      "task_id": "textmatch_build_request",
+      "query": {
+        "__rationale": "9 callees appear inside `build_request`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "build_request"
+      },
+      "expected": [
+        "Request",
+        "Timeout",
+        "_merge_cookies",
+        "_merge_headers",
+        "_merge_queryparams",
+        "_merge_url",
+        "as_dict",
+        "dict",
+        "isinstance"
+      ]
+    },
+    {
+      "task_id": "textmatch_charset_encoding",
+      "query": {
+        "__rationale": "2 callees appear inside `charset_encoding`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "charset_encoding"
+      },
+      "expected": [
+        "_parse_content_type_charset",
+        "get"
+      ]
+    },
+    {
+      "task_id": "textmatch_clear",
+      "query": {
+        "__rationale": "2 callees appear inside `clear`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "clear"
+      },
+      "expected": [
+        "append",
+        "clear"
+      ]
+    },
+    {
+      "task_id": "textmatch_close",
+      "query": {
+        "__rationale": "9 callees appear inside `close`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "close"
+      },
+      "expected": [
+        "RuntimeError",
+        "_close",
+        "close",
+        "hasattr",
+        "isinstance",
+        "perf_counter",
+        "request_context",
+        "timedelta",
+        "values"
+      ]
+    },
+    {
+      "task_id": "textmatch_content",
+      "query": {
+        "__rationale": "3 callees appear inside `content`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "content"
+      },
+      "expected": [
+        "RequestNotRead",
+        "ResponseNotRead",
+        "hasattr"
+      ]
+    },
+    {
+      "task_id": "textmatch_cookies",
+      "query": {
+        "__rationale": "3 callees appear inside `cookies`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "cookies"
+      },
+      "expected": [
+        "Cookies",
+        "extract_cookies",
+        "hasattr"
+      ]
+    },
+    {
+      "task_id": "textmatch_copy_add_param",
+      "query": {
+        "__rationale": "2 callees appear inside `copy_add_param`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urls.py",
+        "symbol": "copy_add_param"
+      },
+      "expected": [
+        "add",
+        "copy_with"
+      ]
+    },
+    {
+      "task_id": "textmatch_copy_merge_params",
+      "query": {
+        "__rationale": "2 callees appear inside `copy_merge_params`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urls.py",
+        "symbol": "copy_merge_params"
+      },
+      "expected": [
+        "copy_with",
+        "merge"
+      ]
+    },
+    {
+      "task_id": "textmatch_copy_remove_param",
+      "query": {
+        "__rationale": "2 callees appear inside `copy_remove_param`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urls.py",
+        "symbol": "copy_remove_param"
+      },
+      "expected": [
+        "copy_with",
+        "remove"
+      ]
+    },
+    {
+      "task_id": "textmatch_copy_set_param",
+      "query": {
+        "__rationale": "2 callees appear inside `copy_set_param`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urls.py",
+        "symbol": "copy_set_param"
+      },
+      "expected": [
+        "copy_with",
+        "set"
+      ]
+    },
+    {
+      "task_id": "textmatch_copy_with",
+      "query": {
+        "__rationale": "3 callees appear inside `copy_with`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urlparse.py",
+        "symbol": "copy_with"
+      },
+      "expected": [
+        "URL",
+        "update",
+        "urlparse"
+      ]
+    },
+    {
+      "task_id": "textmatch_create_event",
+      "query": {
+        "__rationale": "2 callees appear inside `create_event`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_transports/asgi.py",
+        "symbol": "create_event"
+      },
+      "expected": [
+        "Event",
+        "is_running_trio"
+      ]
+    },
+    {
+      "task_id": "textmatch_create_ssl_context",
+      "query": {
+        "__rationale": "8 callees appear inside `create_ssl_context`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_config.py",
+        "symbol": "create_ssl_context"
+      },
+      "expected": [
+        "SSLContext",
+        "create_default_context",
+        "get",
+        "isdir",
+        "isinstance",
+        "load_cert_chain",
+        "warn",
+        "where"
+      ]
+    },
+    {
+      "task_id": "textmatch_decode",
+      "query": {
+        "__rationale": "21 callees appear inside `decode`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_decoders.py",
+        "symbol": "decode"
+      },
+      "expected": [
+        "BytesIO",
+        "DecodingError",
+        "NotImplementedError",
+        "ZstdDecompressor",
+        "_decompress",
+        "append",
+        "decode",
+        "decompress",
+        "decompressobj",
+        "endswith",
+        "getvalue",
+        "join",
+        "len",
+        "pop",
+        "range",
+        "seek",
+        "splitlines",
+        "str",
+        "tell",
+        "truncate",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_delete",
+      "query": {
+        "__rationale": "2 callees appear inside `delete`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_api.py",
+        "symbol": "delete"
+      },
+      "expected": [
+        "clear",
+        "request"
+      ]
+    },
+    {
+      "task_id": "textmatch_digest",
+      "query": {
+        "__rationale": "3 callees appear inside `digest`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_auth.py",
+        "symbol": "digest"
+      },
+      "expected": [
+        "encode",
+        "hash_func",
+        "hexdigest"
+      ]
+    },
+    {
+      "task_id": "textmatch_download_response",
+      "query": {
+        "__rationale": "13 callees appear inside `download_response`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_main.py",
+        "symbol": "download_response"
+      },
+      "expected": [
+        "BarColumn",
+        "Console",
+        "DownloadColumn",
+        "Progress",
+        "TransferSpeedColumn",
+        "add_task",
+        "escape",
+        "get",
+        "int",
+        "iter_bytes",
+        "print",
+        "update",
+        "write"
+      ]
+    },
+    {
+      "task_id": "textmatch_elapsed",
+      "query": {
+        "__rationale": "2 callees appear inside `elapsed`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "elapsed"
+      },
+      "expected": [
+        "RuntimeError",
+        "hasattr"
+      ]
+    },
+    {
+      "task_id": "textmatch_encode_content",
+      "query": {
+        "__rationale": "10 callees appear inside `encode_content`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_content.py",
+        "symbol": "encode_content"
+      },
+      "expected": [
+        "AsyncIteratorByteStream",
+        "ByteStream",
+        "IteratorByteStream",
+        "TypeError",
+        "encode",
+        "isinstance",
+        "len",
+        "peek_filelike_length",
+        "str",
+        "type"
+      ]
+    },
+    {
+      "task_id": "textmatch_encode_host",
+      "query": {
+        "__rationale": "9 callees appear inside `encode_host`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urlparse.py",
+        "symbol": "encode_host"
+      },
+      "expected": [
+        "IPv4Address",
+        "IPv6Address",
+        "InvalidURL",
+        "decode",
+        "encode",
+        "isascii",
+        "lower",
+        "match",
+        "quote"
+      ]
+    },
+    {
+      "task_id": "textmatch_encode_html",
+      "query": {
+        "__rationale": "4 callees appear inside `encode_html`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_content.py",
+        "symbol": "encode_html"
+      },
+      "expected": [
+        "ByteStream",
+        "encode",
+        "len",
+        "str"
+      ]
+    },
+    {
+      "task_id": "textmatch_encode_json",
+      "query": {
+        "__rationale": "5 callees appear inside `encode_json`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_content.py",
+        "symbol": "encode_json"
+      },
+      "expected": [
+        "ByteStream",
+        "encode",
+        "json_dumps",
+        "len",
+        "str"
+      ]
+    },
+    {
+      "task_id": "textmatch_encode_multipart_data",
+      "query": {
+        "__rationale": "2 callees appear inside `encode_multipart_data`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_content.py",
+        "symbol": "encode_multipart_data"
+      },
+      "expected": [
+        "MultipartStream",
+        "get_headers"
+      ]
+    },
+    {
+      "task_id": "textmatch_encode_request",
+      "query": {
+        "__rationale": "7 callees appear inside `encode_request`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_content.py",
+        "symbol": "encode_request"
+      },
+      "expected": [
+        "ByteStream",
+        "encode_content",
+        "encode_json",
+        "encode_multipart_data",
+        "encode_urlencoded_data",
+        "isinstance",
+        "warn"
+      ]
+    },
+    {
+      "task_id": "textmatch_encode_response",
+      "query": {
+        "__rationale": "5 callees appear inside `encode_response`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_content.py",
+        "symbol": "encode_response"
+      },
+      "expected": [
+        "ByteStream",
+        "encode_content",
+        "encode_html",
+        "encode_json",
+        "encode_text"
+      ]
+    },
+    {
+      "task_id": "textmatch_encode_text",
+      "query": {
+        "__rationale": "4 callees appear inside `encode_text`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_content.py",
+        "symbol": "encode_text"
+      },
+      "expected": [
+        "ByteStream",
+        "encode",
+        "len",
+        "str"
+      ]
+    },
+    {
+      "task_id": "textmatch_encode_urlencoded_data",
+      "query": {
+        "__rationale": "10 callees appear inside `encode_urlencoded_data`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_content.py",
+        "symbol": "encode_urlencoded_data"
+      },
+      "expected": [
+        "ByteStream",
+        "append",
+        "encode",
+        "extend",
+        "isinstance",
+        "items",
+        "len",
+        "primitive_value_to_str",
+        "str",
+        "urlencode"
+      ]
+    },
+    {
+      "task_id": "textmatch_encoding",
+      "query": {
+        "__rationale": "6 callees appear inside `encoding`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "encoding"
+      },
+      "expected": [
+        "ValueError",
+        "_is_known_encoding",
+        "decode",
+        "default_encoding",
+        "hasattr",
+        "isinstance"
+      ]
+    },
+    {
+      "task_id": "textmatch_event_hooks",
+      "query": {
+        "__rationale": "2 callees appear inside `event_hooks`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "event_hooks"
+      },
+      "expected": [
+        "get",
+        "list"
+      ]
+    },
+    {
+      "task_id": "textmatch_extract_cookies",
+      "query": {
+        "__rationale": "3 callees appear inside `extract_cookies`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "extract_cookies"
+      },
+      "expected": [
+        "_CookieCompatRequest",
+        "_CookieCompatResponse",
+        "extract_cookies"
+      ]
+    },
+    {
+      "task_id": "textmatch_flush",
+      "query": {
+        "__rationale": "12 callees appear inside `flush`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_decoders.py",
+        "symbol": "flush"
+      },
+      "expected": [
+        "DecodingError",
+        "NotImplementedError",
+        "bytes",
+        "decode",
+        "finish",
+        "flush",
+        "getvalue",
+        "hasattr",
+        "join",
+        "seek",
+        "str",
+        "truncate"
+      ]
+    },
+    {
+      "task_id": "textmatch_format_certificate",
+      "query": {
+        "__rationale": "5 callees appear inside `format_certificate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_main.py",
+        "symbol": "format_certificate"
+      },
+      "expected": [
+        "append",
+        "isinstance",
+        "items",
+        "join",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_format_request_headers",
+      "query": {
+        "__rationale": "3 callees appear inside `format_request_headers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_main.py",
+        "symbol": "format_request_headers"
+      },
+      "expected": [
+        "decode",
+        "join",
+        "lower"
+      ]
+    },
+    {
+      "task_id": "textmatch_format_response_headers",
+      "query": {
+        "__rationale": "3 callees appear inside `format_response_headers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_main.py",
+        "symbol": "format_response_headers"
+      },
+      "expected": [
+        "decode",
+        "get_reason_phrase",
+        "join"
+      ]
+    },
+    {
+      "task_id": "textmatch_get",
+      "query": {
+        "__rationale": "3 callees appear inside `get`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_api.py",
+        "symbol": "get"
+      },
+      "expected": [
+        "CookieConflict",
+        "request",
+        "str"
+      ]
+    },
+    {
+      "task_id": "textmatch_get_content_length",
+      "query": {
+        "__rationale": "2 callees appear inside `get_content_length`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_multipart.py",
+        "symbol": "get_content_length"
+      },
+      "expected": [
+        "get_length",
+        "len"
+      ]
+    },
+    {
+      "task_id": "textmatch_get_environment_proxies",
+      "query": {
+        "__rationale": "7 callees appear inside `get_environment_proxies`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_utils.py",
+        "symbol": "get_environment_proxies"
+      },
+      "expected": [
+        "get",
+        "getproxies",
+        "is_ipv4_hostname",
+        "is_ipv6_hostname",
+        "lower",
+        "split",
+        "strip"
+      ]
+    },
+    {
+      "task_id": "textmatch_get_headers",
+      "query": {
+        "__rationale": "2 callees appear inside `get_headers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_multipart.py",
+        "symbol": "get_headers"
+      },
+      "expected": [
+        "get_content_length",
+        "str"
+      ]
+    },
+    {
+      "task_id": "textmatch_get_length",
+      "query": {
+        "__rationale": "6 callees appear inside `get_length`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_multipart.py",
+        "symbol": "get_length"
+      },
+      "expected": [
+        "isinstance",
+        "len",
+        "peek_filelike_length",
+        "render_data",
+        "render_headers",
+        "to_bytes"
+      ]
+    },
+    {
+      "task_id": "textmatch_get_lexer_for_response",
+      "query": {
+        "__rationale": "5 callees appear inside `get_lexer_for_response`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_main.py",
+        "symbol": "get_lexer_for_response"
+      },
+      "expected": [
+        "cast",
+        "get",
+        "get_lexer_for_mimetype",
+        "partition",
+        "strip"
+      ]
+    },
+    {
+      "task_id": "textmatch_get_list",
+      "query": {
+        "__rationale": "9 callees appear inside `get_list`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "get_list"
+      },
+      "expected": [
+        "decode",
+        "encode",
+        "extend",
+        "get",
+        "list",
+        "lower",
+        "split",
+        "str",
+        "strip"
+      ]
+    },
+    {
+      "task_id": "textmatch_get_multipart_boundary_from_content_type",
+      "query": {
+        "__rationale": "5 callees appear inside `get_multipart_boundary_from_content_type`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_multipart.py",
+        "symbol": "get_multipart_boundary_from_content_type"
+      },
+      "expected": [
+        "len",
+        "lower",
+        "split",
+        "startswith",
+        "strip"
+      ]
+    },
+    {
+      "task_id": "textmatch_handle_async_request",
+      "query": {
+        "__rationale": "17 callees appear inside `handle_async_request`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_transports/asgi.py",
+        "symbol": "handle_async_request"
+      },
+      "expected": [
+        "ASGIResponseStream",
+        "AsyncResponseStream",
+        "NotImplementedError",
+        "Request",
+        "Response",
+        "URL",
+        "app",
+        "aread",
+        "create_event",
+        "handle_async_request",
+        "handler",
+        "is_set",
+        "isinstance",
+        "lower",
+        "map_httpcore_exceptions",
+        "set",
+        "split"
+      ]
+    },
+    {
+      "task_id": "textmatch_handle_help",
+      "query": {
+        "__rationale": "2 callees appear inside `handle_help`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_main.py",
+        "symbol": "handle_help"
+      },
+      "expected": [
+        "exit",
+        "print_help"
+      ]
+    },
+    {
+      "task_id": "textmatch_handle_request",
+      "query": {
+        "__rationale": "21 callees appear inside `handle_request`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_transports/base.py",
+        "symbol": "handle_request"
+      },
+      "expected": [
+        "BytesIO",
+        "NotImplementedError",
+        "Request",
+        "Response",
+        "ResponseStream",
+        "TypeError",
+        "URL",
+        "WSGIByteStream",
+        "app",
+        "decode",
+        "encode",
+        "handle_request",
+        "handler",
+        "int",
+        "isinstance",
+        "map_httpcore_exceptions",
+        "read",
+        "replace",
+        "split",
+        "str",
+        "upper"
+      ]
+    },
+    {
+      "task_id": "textmatch_headers",
+      "query": {
+        "__rationale": "3 callees appear inside `headers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "headers"
+      },
+      "expected": [
+        "Headers",
+        "encode",
+        "update"
+      ]
+    },
+    {
+      "task_id": "textmatch_host",
+      "query": {
+        "__rationale": "2 callees appear inside `host`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urls.py",
+        "symbol": "host"
+      },
+      "expected": [
+        "decode",
+        "startswith"
+      ]
+    },
+    {
+      "task_id": "textmatch_info",
+      "query": {
+        "__rationale": "2 callees appear inside `info`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "info"
+      },
+      "expected": [
+        "Message",
+        "multi_items"
+      ]
+    },
+    {
+      "task_id": "textmatch_is_ipv4_hostname",
+      "query": {
+        "__rationale": "2 callees appear inside `is_ipv4_hostname`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_utils.py",
+        "symbol": "is_ipv4_hostname"
+      },
+      "expected": [
+        "IPv4Address",
+        "split"
+      ]
+    },
+    {
+      "task_id": "textmatch_is_ipv6_hostname",
+      "query": {
+        "__rationale": "2 callees appear inside `is_ipv6_hostname`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_utils.py",
+        "symbol": "is_ipv6_hostname"
+      },
+      "expected": [
+        "IPv6Address",
+        "split"
+      ]
+    },
+    {
+      "task_id": "textmatch_items",
+      "query": {
+        "__rationale": "2 callees appear inside `items`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "items"
+      },
+      "expected": [
+        "decode",
+        "items"
+      ]
+    },
+    {
+      "task_id": "textmatch_iter_bytes",
+      "query": {
+        "__rationale": "10 callees appear inside `iter_bytes`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "iter_bytes"
+      },
+      "expected": [
+        "ByteChunker",
+        "_get_content_decoder",
+        "decode",
+        "flush",
+        "hasattr",
+        "iter_raw",
+        "len",
+        "max",
+        "range",
+        "request_context"
+      ]
+    },
+    {
+      "task_id": "textmatch_iter_lines",
+      "query": {
+        "__rationale": "5 callees appear inside `iter_lines`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "iter_lines"
+      },
+      "expected": [
+        "LineDecoder",
+        "decode",
+        "flush",
+        "iter_text",
+        "request_context"
+      ]
+    },
+    {
+      "task_id": "textmatch_iter_raw",
+      "query": {
+        "__rationale": "10 callees appear inside `iter_raw`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "iter_raw"
+      },
+      "expected": [
+        "ByteChunker",
+        "RuntimeError",
+        "StreamClosed",
+        "StreamConsumed",
+        "close",
+        "decode",
+        "flush",
+        "isinstance",
+        "len",
+        "request_context"
+      ]
+    },
+    {
+      "task_id": "textmatch_iter_text",
+      "query": {
+        "__rationale": "6 callees appear inside `iter_text`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "iter_text"
+      },
+      "expected": [
+        "TextChunker",
+        "TextDecoder",
+        "decode",
+        "flush",
+        "iter_bytes",
+        "request_context"
+      ]
+    },
+    {
+      "task_id": "textmatch_join",
+      "query": {
+        "__rationale": "3 callees appear inside `join`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urls.py",
+        "symbol": "join"
+      },
+      "expected": [
+        "URL",
+        "str",
+        "urljoin"
+      ]
+    },
+    {
+      "task_id": "textmatch_keys",
+      "query": {
+        "__rationale": "2 callees appear inside `keys`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "keys"
+      },
+      "expected": [
+        "decode",
+        "keys"
+      ]
+    },
+    {
+      "task_id": "textmatch_links",
+      "query": {
+        "__rationale": "2 callees appear inside `links`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "links"
+      },
+      "expected": [
+        "_parse_header_links",
+        "get"
+      ]
+    },
+    {
+      "task_id": "textmatch_main",
+      "query": {
+        "__rationale": "12 callees appear inside `main`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/__init__.py",
+        "symbol": "main"
+      },
+      "expected": [
+        "Client",
+        "Console",
+        "dict",
+        "download_response",
+        "exit",
+        "list",
+        "partial",
+        "print",
+        "print_response",
+        "read",
+        "stream",
+        "type"
+      ]
+    },
+    {
+      "task_id": "textmatch_map_httpcore_exceptions",
+      "query": {
+        "__rationale": "7 callees appear inside `map_httpcore_exceptions`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_transports/default.py",
+        "symbol": "map_httpcore_exceptions"
+      },
+      "expected": [
+        "_load_httpcore_exceptions",
+        "isinstance",
+        "issubclass",
+        "items",
+        "len",
+        "mapped_exc",
+        "str"
+      ]
+    },
+    {
+      "task_id": "textmatch_multi_items",
+      "query": {
+        "__rationale": "3 callees appear inside `multi_items`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "multi_items"
+      },
+      "expected": [
+        "decode",
+        "extend",
+        "items"
+      ]
+    },
+    {
+      "task_id": "textmatch_netloc",
+      "query": {
+        "__rationale": "2 callees appear inside `netloc`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urlparse.py",
+        "symbol": "netloc"
+      },
+      "expected": [
+        "encode",
+        "join"
+      ]
+    },
+    {
+      "task_id": "textmatch_normalize_path",
+      "query": {
+        "__rationale": "4 callees appear inside `normalize_path`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urlparse.py",
+        "symbol": "normalize_path"
+      },
+      "expected": [
+        "append",
+        "join",
+        "pop",
+        "split"
+      ]
+    },
+    {
+      "task_id": "textmatch_normalize_port",
+      "query": {
+        "__rationale": "3 callees appear inside `normalize_port`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urlparse.py",
+        "symbol": "normalize_port"
+      },
+      "expected": [
+        "InvalidURL",
+        "get",
+        "int"
+      ]
+    },
+    {
+      "task_id": "textmatch_password",
+      "query": {
+        "__rationale": "2 callees appear inside `password`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urls.py",
+        "symbol": "password"
+      },
+      "expected": [
+        "partition",
+        "unquote"
+      ]
+    },
+    {
+      "task_id": "textmatch_peek_filelike_length",
+      "query": {
+        "__rationale": "4 callees appear inside `peek_filelike_length`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_utils.py",
+        "symbol": "peek_filelike_length"
+      },
+      "expected": [
+        "fileno",
+        "fstat",
+        "seek",
+        "tell"
+      ]
+    },
+    {
+      "task_id": "textmatch_percent_encoded",
+      "query": {
+        "__rationale": "3 callees appear inside `percent_encoded`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urlparse.py",
+        "symbol": "percent_encoded"
+      },
+      "expected": [
+        "PERCENT",
+        "join",
+        "rstrip"
+      ]
+    },
+    {
+      "task_id": "textmatch_print_help",
+      "query": {
+        "__rationale": "5 callees appear inside `print_help`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_main.py",
+        "symbol": "print_help"
+      },
+      "expected": [
+        "Console",
+        "add_column",
+        "add_row",
+        "grid",
+        "print"
+      ]
+    },
+    {
+      "task_id": "textmatch_print_request_headers",
+      "query": {
+        "__rationale": "4 callees appear inside `print_request_headers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_main.py",
+        "symbol": "print_request_headers"
+      },
+      "expected": [
+        "Console",
+        "Syntax",
+        "format_request_headers",
+        "print"
+      ]
+    },
+    {
+      "task_id": "textmatch_print_response",
+      "query": {
+        "__rationale": "8 callees appear inside `print_response`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_main.py",
+        "symbol": "print_response"
+      },
+      "expected": [
+        "Console",
+        "Syntax",
+        "dumps",
+        "get_lexer_for_response",
+        "json",
+        "len",
+        "lower",
+        "print"
+      ]
+    },
+    {
+      "task_id": "textmatch_print_response_headers",
+      "query": {
+        "__rationale": "4 callees appear inside `print_response_headers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_main.py",
+        "symbol": "print_response_headers"
+      },
+      "expected": [
+        "Console",
+        "Syntax",
+        "format_response_headers",
+        "print"
+      ]
+    },
+    {
+      "task_id": "textmatch_quote",
+      "query": {
+        "__rationale": "8 callees appear inside `quote`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urlparse.py",
+        "symbol": "quote"
+      },
+      "expected": [
+        "append",
+        "end",
+        "finditer",
+        "group",
+        "join",
+        "len",
+        "percent_encoded",
+        "start"
+      ]
+    },
+    {
+      "task_id": "textmatch_raise_for_status",
+      "query": {
+        "__rationale": "4 callees appear inside `raise_for_status`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "raise_for_status"
+      },
+      "expected": [
+        "HTTPStatusError",
+        "RuntimeError",
+        "format",
+        "get"
+      ]
+    },
+    {
+      "task_id": "textmatch_raw",
+      "query": {
+        "__rationale": "3 callees appear inside `raw`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urls.py",
+        "symbol": "raw"
+      },
+      "expected": [
+        "RawURL",
+        "namedtuple",
+        "warn"
+      ]
+    },
+    {
+      "task_id": "textmatch_read",
+      "query": {
+        "__rationale": "5 callees appear inside `read`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "read"
+      },
+      "expected": [
+        "ByteStream",
+        "hasattr",
+        "isinstance",
+        "iter_bytes",
+        "join"
+      ]
+    },
+    {
+      "task_id": "textmatch_reason_phrase",
+      "query": {
+        "__rationale": "2 callees appear inside `reason_phrase`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "reason_phrase"
+      },
+      "expected": [
+        "decode",
+        "get_reason_phrase"
+      ]
+    },
+    {
+      "task_id": "textmatch_remove",
+      "query": {
+        "__rationale": "4 callees appear inside `remove`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urls.py",
+        "symbol": "remove"
+      },
+      "expected": [
+        "QueryParams",
+        "dict",
+        "pop",
+        "str"
+      ]
+    },
+    {
+      "task_id": "textmatch_render",
+      "query": {
+        "__rationale": "2 callees appear inside `render`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_multipart.py",
+        "symbol": "render"
+      },
+      "expected": [
+        "render_data",
+        "render_headers"
+      ]
+    },
+    {
+      "task_id": "textmatch_render_data",
+      "query": {
+        "__rationale": "5 callees appear inside `render_data`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_multipart.py",
+        "symbol": "render_data"
+      },
+      "expected": [
+        "hasattr",
+        "isinstance",
+        "read",
+        "seek",
+        "to_bytes"
+      ]
+    },
+    {
+      "task_id": "textmatch_render_headers",
+      "query": {
+        "__rationale": "7 callees appear inside `render_headers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_multipart.py",
+        "symbol": "render_headers"
+      },
+      "expected": [
+        "_format_form_param",
+        "append",
+        "encode",
+        "extend",
+        "hasattr",
+        "items",
+        "join"
+      ]
+    },
+    {
+      "task_id": "textmatch_request",
+      "query": {
+        "__rationale": "6 callees appear inside `request`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_api.py",
+        "symbol": "request"
+      },
+      "expected": [
+        "Client",
+        "RuntimeError",
+        "build_request",
+        "request",
+        "send",
+        "warn"
+      ]
+    },
+    {
+      "task_id": "textmatch_send",
+      "query": {
+        "__rationale": "13 callees appear inside `send`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_client.py",
+        "symbol": "send"
+      },
+      "expected": [
+        "RuntimeError",
+        "_build_request_auth",
+        "_send_handling_auth",
+        "_set_timeout",
+        "aclose",
+        "append",
+        "aread",
+        "close",
+        "get",
+        "is_set",
+        "isinstance",
+        "read",
+        "set"
+      ]
+    },
+    {
+      "task_id": "textmatch_set",
+      "query": {
+        "__rationale": "8 callees appear inside `set`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "set"
+      },
+      "expected": [
+        "Cookie",
+        "QueryParams",
+        "bool",
+        "dict",
+        "primitive_value_to_str",
+        "set_cookie",
+        "startswith",
+        "str"
+      ]
+    },
+    {
+      "task_id": "textmatch_set_cookie_header",
+      "query": {
+        "__rationale": "2 callees appear inside `set_cookie_header`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "set_cookie_header"
+      },
+      "expected": [
+        "_CookieCompatRequest",
+        "add_cookie_header"
+      ]
+    },
+    {
+      "task_id": "textmatch_stream",
+      "query": {
+        "__rationale": "6 callees appear inside `stream`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_api.py",
+        "symbol": "stream"
+      },
+      "expected": [
+        "Client",
+        "aclose",
+        "build_request",
+        "close",
+        "send",
+        "stream"
+      ]
+    },
+    {
+      "task_id": "textmatch_sync_auth_flow",
+      "query": {
+        "__rationale": "4 callees appear inside `sync_auth_flow`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_auth.py",
+        "symbol": "sync_auth_flow"
+      },
+      "expected": [
+        "auth_flow",
+        "next",
+        "read",
+        "send"
+      ]
+    },
+    {
+      "task_id": "textmatch_text",
+      "query": {
+        "__rationale": "5 callees appear inside `text`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "text"
+      },
+      "expected": [
+        "TextDecoder",
+        "decode",
+        "flush",
+        "hasattr",
+        "join"
+      ]
+    },
+    {
+      "task_id": "textmatch_to_bytes",
+      "query": {
+        "__rationale": "2 callees appear inside `to_bytes`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_utils.py",
+        "symbol": "to_bytes"
+      },
+      "expected": [
+        "encode",
+        "isinstance"
+      ]
+    },
+    {
+      "task_id": "textmatch_to_bytes_or_str",
+      "query": {
+        "__rationale": "2 callees appear inside `to_bytes_or_str`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_utils.py",
+        "symbol": "to_bytes_or_str"
+      },
+      "expected": [
+        "encode",
+        "isinstance"
+      ]
+    },
+    {
+      "task_id": "textmatch_to_str",
+      "query": {
+        "__rationale": "2 callees appear inside `to_str`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_utils.py",
+        "symbol": "to_str"
+      },
+      "expected": [
+        "decode",
+        "isinstance"
+      ]
+    },
+    {
+      "task_id": "textmatch_trace",
+      "query": {
+        "__rationale": "10 callees appear inside `trace`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_main.py",
+        "symbol": "trace"
+      },
+      "expected": [
+        "Console",
+        "cipher",
+        "format_certificate",
+        "get_extra_info",
+        "getpeercert",
+        "print",
+        "print_request_headers",
+        "print_response_headers",
+        "selected_alpn_protocol",
+        "version"
+      ]
+    },
+    {
+      "task_id": "textmatch_update",
+      "query": {
+        "__rationale": "7 callees appear inside `update`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "update"
+      },
+      "expected": [
+        "Cookies",
+        "Headers",
+        "RuntimeError",
+        "extend",
+        "keys",
+        "pop",
+        "set_cookie"
+      ]
+    },
+    {
+      "task_id": "textmatch_urlparse",
+      "query": {
+        "__rationale": "25 callees appear inside `urlparse`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urlparse.py",
+        "symbol": "urlparse"
+      },
+      "expected": [
+        "InvalidURL",
+        "ParseResult",
+        "any",
+        "encode_host",
+        "endswith",
+        "find",
+        "fullmatch",
+        "get",
+        "groupdict",
+        "isascii",
+        "isinstance",
+        "isprintable",
+        "items",
+        "len",
+        "lower",
+        "match",
+        "next",
+        "normalize_path",
+        "normalize_port",
+        "partition",
+        "pop",
+        "quote",
+        "startswith",
+        "str",
+        "validate_path"
+      ]
+    },
+    {
+      "task_id": "textmatch_username",
+      "query": {
+        "__rationale": "2 callees appear inside `username`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urls.py",
+        "symbol": "username"
+      },
+      "expected": [
+        "partition",
+        "unquote"
+      ]
+    },
+    {
+      "task_id": "textmatch_validate_json",
+      "query": {
+        "__rationale": "2 callees appear inside `validate_json`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_main.py",
+        "symbol": "validate_json"
+      },
+      "expected": [
+        "BadParameter",
+        "loads"
+      ]
+    },
+    {
+      "task_id": "textmatch_validate_path",
+      "query": {
+        "__rationale": "2 callees appear inside `validate_path`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_urlparse.py",
+        "symbol": "validate_path"
+      },
+      "expected": [
+        "InvalidURL",
+        "startswith"
+      ]
+    },
+    {
+      "task_id": "textmatch_values",
+      "query": {
+        "__rationale": "3 callees appear inside `values`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "httpx/_models.py",
+        "symbol": "values"
+      },
+      "expected": [
+        "decode",
+        "items",
+        "values"
+      ]
+    }
+  ]
+}

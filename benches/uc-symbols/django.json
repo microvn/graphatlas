@@ -1,0 +1,2407 @@
+{
+  "schema_version": 1,
+  "uc": "symbols",
+  "fixture": "django",
+  "tasks": [
+    {
+      "task_id": "exact_A01",
+      "query": {
+        "__rationale": "exact-match MRR target for `A01`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "A01"
+      },
+      "expected": [
+        "A01"
+      ]
+    },
+    {
+      "task_id": "exact_A02",
+      "query": {
+        "__rationale": "exact-match MRR target for `A02`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "A02"
+      },
+      "expected": [
+        "A02"
+      ]
+    },
+    {
+      "task_id": "exact_ACos",
+      "query": {
+        "__rationale": "exact-match MRR target for `ACos`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ACos"
+      },
+      "expected": [
+        "ACos"
+      ]
+    },
+    {
+      "task_id": "exact_ACosTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `ACosTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ACosTests"
+      },
+      "expected": [
+        "ACosTests"
+      ]
+    },
+    {
+      "task_id": "exact_ASCIIUsernameValidator",
+      "query": {
+        "__rationale": "exact-match MRR target for `ASCIIUsernameValidator`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ASCIIUsernameValidator"
+      },
+      "expected": [
+        "ASCIIUsernameValidator"
+      ]
+    },
+    {
+      "task_id": "exact_ASGIHandler",
+      "query": {
+        "__rationale": "exact-match MRR target for `ASGIHandler`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ASGIHandler"
+      },
+      "expected": [
+        "ASGIHandler"
+      ]
+    },
+    {
+      "task_id": "exact_ASGIRequest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ASGIRequest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ASGIRequest"
+      },
+      "expected": [
+        "ASGIRequest"
+      ]
+    },
+    {
+      "task_id": "exact_ASGIStaticFilesHandler",
+      "query": {
+        "__rationale": "exact-match MRR target for `ASGIStaticFilesHandler`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ASGIStaticFilesHandler"
+      },
+      "expected": [
+        "ASGIStaticFilesHandler"
+      ]
+    },
+    {
+      "task_id": "exact_ASGITest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ASGITest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ASGITest"
+      },
+      "expected": [
+        "ASGITest"
+      ]
+    },
+    {
+      "task_id": "exact_ASin",
+      "query": {
+        "__rationale": "exact-match MRR target for `ASin`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ASin"
+      },
+      "expected": [
+        "ASin"
+      ]
+    },
+    {
+      "task_id": "exact_ASinTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `ASinTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ASinTests"
+      },
+      "expected": [
+        "ASinTests"
+      ]
+    },
+    {
+      "task_id": "exact_ATan",
+      "query": {
+        "__rationale": "exact-match MRR target for `ATan`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ATan"
+      },
+      "expected": [
+        "ATan"
+      ]
+    },
+    {
+      "task_id": "exact_ATan2",
+      "query": {
+        "__rationale": "exact-match MRR target for `ATan2`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ATan2"
+      },
+      "expected": [
+        "ATan2"
+      ]
+    },
+    {
+      "task_id": "exact_ATan2Tests",
+      "query": {
+        "__rationale": "exact-match MRR target for `ATan2Tests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ATan2Tests"
+      },
+      "expected": [
+        "ATan2Tests"
+      ]
+    },
+    {
+      "task_id": "exact_ATanTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `ATanTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ATanTests"
+      },
+      "expected": [
+        "ATanTests"
+      ]
+    },
+    {
+      "task_id": "exact_AView",
+      "query": {
+        "__rationale": "exact-match MRR target for `AView`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AView"
+      },
+      "expected": [
+        "AView"
+      ]
+    },
+    {
+      "task_id": "exact_AWSS3Storage",
+      "query": {
+        "__rationale": "exact-match MRR target for `AWSS3Storage`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AWSS3Storage"
+      },
+      "expected": [
+        "AWSS3Storage"
+      ]
+    },
+    {
+      "task_id": "exact_AboutTemplateAttributeView",
+      "query": {
+        "__rationale": "exact-match MRR target for `AboutTemplateAttributeView`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AboutTemplateAttributeView"
+      },
+      "expected": [
+        "AboutTemplateAttributeView"
+      ]
+    },
+    {
+      "task_id": "exact_AboutTemplateView",
+      "query": {
+        "__rationale": "exact-match MRR target for `AboutTemplateView`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AboutTemplateView"
+      },
+      "expected": [
+        "AboutTemplateView"
+      ]
+    },
+    {
+      "task_id": "exact_Abs",
+      "query": {
+        "__rationale": "exact-match MRR target for `Abs`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Abs"
+      },
+      "expected": [
+        "Abs"
+      ]
+    },
+    {
+      "task_id": "exact_AbsTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbsTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbsTests"
+      },
+      "expected": [
+        "AbsTests"
+      ]
+    },
+    {
+      "task_id": "exact_Absolute",
+      "query": {
+        "__rationale": "exact-match MRR target for `Absolute`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Absolute"
+      },
+      "expected": [
+        "Absolute"
+      ]
+    },
+    {
+      "task_id": "exact_AbsoluteUrlOverrideTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbsoluteUrlOverrideTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbsoluteUrlOverrideTests"
+      },
+      "expected": [
+        "AbsoluteUrlOverrideTests"
+      ]
+    },
+    {
+      "task_id": "exact_Abstract",
+      "query": {
+        "__rationale": "exact-match MRR target for `Abstract`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Abstract"
+      },
+      "expected": [
+        "Abstract"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractArticle",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractArticle`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractArticle"
+      },
+      "expected": [
+        "AbstractArticle"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractBase",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractBase`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractBase"
+      },
+      "expected": [
+        "AbstractBase"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractBase1",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractBase1`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractBase1"
+      },
+      "expected": [
+        "AbstractBase1"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractBase2",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractBase2`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractBase2"
+      },
+      "expected": [
+        "AbstractBase2"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractBase3",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractBase3`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractBase3"
+      },
+      "expected": [
+        "AbstractBase3"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractBaseModel",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractBaseModel`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractBaseModel"
+      },
+      "expected": [
+        "AbstractBaseModel"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractBaseSession",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractBaseSession`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractBaseSession"
+      },
+      "expected": [
+        "AbstractBaseSession"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractBaseUser",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractBaseUser`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractBaseUser"
+      },
+      "expected": [
+        "AbstractBaseUser"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractBaseUserTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractBaseUserTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractBaseUserTests"
+      },
+      "expected": [
+        "AbstractBaseUserTests"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractComparison",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractComparison`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractComparison"
+      },
+      "expected": [
+        "AbstractComparison"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractDescendant",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractDescendant`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractDescendant"
+      },
+      "expected": [
+        "AbstractDescendant"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractEvent",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractEvent`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractEvent"
+      },
+      "expected": [
+        "AbstractEvent"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractForeignKeyModel",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractForeignKeyModel`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractForeignKeyModel"
+      },
+      "expected": [
+        "AbstractForeignKeyModel"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractInheritanceTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractInheritanceTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractInheritanceTests"
+      },
+      "expected": [
+        "AbstractInheritanceTests"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractManyToManyModel",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractManyToManyModel`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractManyToManyModel"
+      },
+      "expected": [
+        "AbstractManyToManyModel"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractModelTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractModelTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractModelTests"
+      },
+      "expected": [
+        "AbstractModelTests"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractModelWithDbComments",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractModelWithDbComments`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractModelWithDbComments"
+      },
+      "expected": [
+        "AbstractModelWithDbComments"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractMyDocument",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractMyDocument`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractMyDocument"
+      },
+      "expected": [
+        "AbstractMyDocument"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractParent",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractParent`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractParent"
+      },
+      "expected": [
+        "AbstractParent"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractPerson",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractPerson`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractPerson"
+      },
+      "expected": [
+        "AbstractPerson"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractPersonWithHeight",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractPersonWithHeight`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractPersonWithHeight"
+      },
+      "expected": [
+        "AbstractPersonWithHeight"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractReferent",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractReferent`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractReferent"
+      },
+      "expected": [
+        "AbstractReferent"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractSubFooBar",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractSubFooBar`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractSubFooBar"
+      },
+      "expected": [
+        "AbstractSubFooBar"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractUser",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractUser`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractUser"
+      },
+      "expected": [
+        "AbstractUser"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractUserTestCase",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractUserTestCase`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractUserTestCase"
+      },
+      "expected": [
+        "AbstractUserTestCase"
+      ]
+    },
+    {
+      "task_id": "exact_AcceptHeaderTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AcceptHeaderTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AcceptHeaderTests"
+      },
+      "expected": [
+        "AcceptHeaderTests"
+      ]
+    },
+    {
+      "task_id": "exact_AccessMixin",
+      "query": {
+        "__rationale": "exact-match MRR target for `AccessMixin`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AccessMixin"
+      },
+      "expected": [
+        "AccessMixin"
+      ]
+    },
+    {
+      "task_id": "exact_AccessMixinTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AccessMixinTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AccessMixinTests"
+      },
+      "expected": [
+        "AccessMixinTests"
+      ]
+    },
+    {
+      "task_id": "exact_AccessorClashTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AccessorClashTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AccessorClashTests"
+      },
+      "expected": [
+        "AccessorClashTests"
+      ]
+    },
+    {
+      "task_id": "exact_Account",
+      "query": {
+        "__rationale": "exact-match MRR target for `Account`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Account"
+      },
+      "expected": [
+        "Account"
+      ]
+    },
+    {
+      "task_id": "exact_Action",
+      "query": {
+        "__rationale": "exact-match MRR target for `Action`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Action"
+      },
+      "expected": [
+        "Action"
+      ]
+    },
+    {
+      "task_id": "exact_ActionAdmin",
+      "query": {
+        "__rationale": "exact-match MRR target for `ActionAdmin`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ActionAdmin"
+      },
+      "expected": [
+        "ActionAdmin"
+      ]
+    },
+    {
+      "task_id": "exact_ActionForm",
+      "query": {
+        "__rationale": "exact-match MRR target for `ActionForm`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ActionForm"
+      },
+      "expected": [
+        "ActionForm"
+      ]
+    },
+    {
+      "task_id": "exact_ActionSelenium",
+      "query": {
+        "__rationale": "exact-match MRR target for `ActionSelenium`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ActionSelenium"
+      },
+      "expected": [
+        "ActionSelenium"
+      ]
+    },
+    {
+      "task_id": "exact_ActionsCheckTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `ActionsCheckTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ActionsCheckTests"
+      },
+      "expected": [
+        "ActionsCheckTests"
+      ]
+    },
+    {
+      "task_id": "exact_ActiveTranslationField",
+      "query": {
+        "__rationale": "exact-match MRR target for `ActiveTranslationField`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ActiveTranslationField"
+      },
+      "expected": [
+        "ActiveTranslationField"
+      ]
+    },
+    {
+      "task_id": "exact_ActiveTranslationFieldWithQ",
+      "query": {
+        "__rationale": "exact-match MRR target for `ActiveTranslationFieldWithQ`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ActiveTranslationFieldWithQ"
+      },
+      "expected": [
+        "ActiveTranslationFieldWithQ"
+      ]
+    },
+    {
+      "task_id": "exact_Actor",
+      "query": {
+        "__rationale": "exact-match MRR target for `Actor`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Actor"
+      },
+      "expected": [
+        "Actor"
+      ]
+    },
+    {
+      "task_id": "exact_ActorAdmin6",
+      "query": {
+        "__rationale": "exact-match MRR target for `ActorAdmin6`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ActorAdmin6"
+      },
+      "expected": [
+        "ActorAdmin6"
+      ]
+    },
+    {
+      "task_id": "exact_ActorAdmin9",
+      "query": {
+        "__rationale": "exact-match MRR target for `ActorAdmin9`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ActorAdmin9"
+      },
+      "expected": [
+        "ActorAdmin9"
+      ]
+    },
+    {
+      "task_id": "exact_AdHocLazyObject",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdHocLazyObject`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdHocLazyObject"
+      },
+      "expected": [
+        "AdHocLazyObject"
+      ]
+    },
+    {
+      "task_id": "exact_Add",
+      "query": {
+        "__rationale": "exact-match MRR target for `Add`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Add"
+      },
+      "expected": [
+        "Add"
+      ]
+    },
+    {
+      "task_id": "exact_AddAutoFieldModel",
+      "query": {
+        "__rationale": "exact-match MRR target for `AddAutoFieldModel`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AddAutoFieldModel"
+      },
+      "expected": [
+        "AddAutoFieldModel"
+      ]
+    },
+    {
+      "task_id": "exact_AddCleanupInSetUp",
+      "query": {
+        "__rationale": "exact-match MRR target for `AddCleanupInSetUp`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AddCleanupInSetUp"
+      },
+      "expected": [
+        "AddCleanupInSetUp"
+      ]
+    },
+    {
+      "task_id": "exact_AddConstraint",
+      "query": {
+        "__rationale": "exact-match MRR target for `AddConstraint`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AddConstraint"
+      },
+      "expected": [
+        "AddConstraint"
+      ]
+    },
+    {
+      "task_id": "exact_AddConstraintNotValid",
+      "query": {
+        "__rationale": "exact-match MRR target for `AddConstraintNotValid`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AddConstraintNotValid"
+      },
+      "expected": [
+        "AddConstraintNotValid"
+      ]
+    },
+    {
+      "task_id": "exact_AddConstraintNotValidTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AddConstraintNotValidTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AddConstraintNotValidTests"
+      },
+      "expected": [
+        "AddConstraintNotValidTests"
+      ]
+    },
+    {
+      "task_id": "exact_AddField",
+      "query": {
+        "__rationale": "exact-match MRR target for `AddField`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AddField"
+      },
+      "expected": [
+        "AddField"
+      ]
+    },
+    {
+      "task_id": "exact_AddIndex",
+      "query": {
+        "__rationale": "exact-match MRR target for `AddIndex`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AddIndex"
+      },
+      "expected": [
+        "AddIndex"
+      ]
+    },
+    {
+      "task_id": "exact_AddIndexConcurrently",
+      "query": {
+        "__rationale": "exact-match MRR target for `AddIndexConcurrently`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AddIndexConcurrently"
+      },
+      "expected": [
+        "AddIndexConcurrently"
+      ]
+    },
+    {
+      "task_id": "exact_AddIndexConcurrentlyTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AddIndexConcurrentlyTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AddIndexConcurrentlyTests"
+      },
+      "expected": [
+        "AddIndexConcurrentlyTests"
+      ]
+    },
+    {
+      "task_id": "exact_AddSafe",
+      "query": {
+        "__rationale": "exact-match MRR target for `AddSafe`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AddSafe"
+      },
+      "expected": [
+        "AddSafe"
+      ]
+    },
+    {
+      "task_id": "exact_AddTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AddTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AddTests"
+      },
+      "expected": [
+        "AddTests"
+      ]
+    },
+    {
+      "task_id": "exact_Address",
+      "query": {
+        "__rationale": "exact-match MRR target for `Address`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Address"
+      },
+      "expected": [
+        "Address"
+      ]
+    },
+    {
+      "task_id": "exact_AddslashesTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AddslashesTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AddslashesTests"
+      },
+      "expected": [
+        "AddslashesTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdjacentToLookup",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdjacentToLookup`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdjacentToLookup"
+      },
+      "expected": [
+        "AdjacentToLookup"
+      ]
+    },
+    {
+      "task_id": "exact_Admin",
+      "query": {
+        "__rationale": "exact-match MRR target for `Admin`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Admin"
+      },
+      "expected": [
+        "Admin"
+      ]
+    },
+    {
+      "task_id": "exact_Admin2",
+      "query": {
+        "__rationale": "exact-match MRR target for `Admin2`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Admin2"
+      },
+      "expected": [
+        "Admin2"
+      ]
+    },
+    {
+      "task_id": "exact_AdminA",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminA`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminA"
+      },
+      "expected": [
+        "AdminA"
+      ]
+    },
+    {
+      "task_id": "exact_AdminActionsPermissionTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminActionsPermissionTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminActionsPermissionTests"
+      },
+      "expected": [
+        "AdminActionsPermissionTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminActionsTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminActionsTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminActionsTest"
+      },
+      "expected": [
+        "AdminActionsTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminActionsTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminActionsTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminActionsTests"
+      },
+      "expected": [
+        "AdminActionsTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminAuthenticationForm",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminAuthenticationForm`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminAuthenticationForm"
+      },
+      "expected": [
+        "AdminAuthenticationForm"
+      ]
+    },
+    {
+      "task_id": "exact_AdminAuthenticationFormTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminAuthenticationFormTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminAuthenticationFormTests"
+      },
+      "expected": [
+        "AdminAuthenticationFormTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminAutoDiscoverTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminAutoDiscoverTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminAutoDiscoverTests"
+      },
+      "expected": [
+        "AdminAutoDiscoverTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminB",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminB`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminB"
+      },
+      "expected": [
+        "AdminB"
+      ]
+    },
+    {
+      "task_id": "exact_AdminBandForm",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminBandForm`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminBandForm"
+      },
+      "expected": [
+        "AdminBandForm"
+      ]
+    },
+    {
+      "task_id": "exact_AdminBase",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminBase`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminBase"
+      },
+      "expected": [
+        "AdminBase"
+      ]
+    },
+    {
+      "task_id": "exact_AdminBigIntegerFieldWidget",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminBigIntegerFieldWidget`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminBigIntegerFieldWidget"
+      },
+      "expected": [
+        "AdminBigIntegerFieldWidget"
+      ]
+    },
+    {
+      "task_id": "exact_AdminBreadcrumbsTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminBreadcrumbsTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminBreadcrumbsTests"
+      },
+      "expected": [
+        "AdminBreadcrumbsTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminConcertForm",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminConcertForm`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminConcertForm"
+      },
+      "expected": [
+        "AdminConcertForm"
+      ]
+    },
+    {
+      "task_id": "exact_AdminConfig",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminConfig`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminConfig"
+      },
+      "expected": [
+        "AdminConfig"
+      ]
+    },
+    {
+      "task_id": "exact_AdminCustomQuerysetTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminCustomQuerysetTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminCustomQuerysetTest"
+      },
+      "expected": [
+        "AdminCustomQuerysetTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminCustomSaveRelatedTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminCustomSaveRelatedTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminCustomSaveRelatedTests"
+      },
+      "expected": [
+        "AdminCustomSaveRelatedTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminCustomTemplateTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminCustomTemplateTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminCustomTemplateTests"
+      },
+      "expected": [
+        "AdminCustomTemplateTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminCustomUrlsTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminCustomUrlsTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminCustomUrlsTest"
+      },
+      "expected": [
+        "AdminCustomUrlsTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminDateWidget",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminDateWidget`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminDateWidget"
+      },
+      "expected": [
+        "AdminDateWidget"
+      ]
+    },
+    {
+      "task_id": "exact_AdminDateWidgetTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminDateWidgetTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminDateWidgetTest"
+      },
+      "expected": [
+        "AdminDateWidgetTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminDocViewDefaultEngineOnly",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminDocViewDefaultEngineOnly`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminDocViewDefaultEngineOnly"
+      },
+      "expected": [
+        "AdminDocViewDefaultEngineOnly"
+      ]
+    },
+    {
+      "task_id": "exact_AdminDocViewFunctionsTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminDocViewFunctionsTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminDocViewFunctionsTests"
+      },
+      "expected": [
+        "AdminDocViewFunctionsTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminDocViewTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminDocViewTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminDocViewTests"
+      },
+      "expected": [
+        "AdminDocViewTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminDocViewWithMultipleEngines",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminDocViewWithMultipleEngines`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminDocViewWithMultipleEngines"
+      },
+      "expected": [
+        "AdminDocViewWithMultipleEngines"
+      ]
+    },
+    {
+      "task_id": "exact_AdminDocsConfig",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminDocsConfig`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminDocsConfig"
+      },
+      "expected": [
+        "AdminDocsConfig"
+      ]
+    },
+    {
+      "task_id": "exact_AdminDocsSimpleTestCase",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminDocsSimpleTestCase`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminDocsSimpleTestCase"
+      },
+      "expected": [
+        "AdminDocsSimpleTestCase"
+      ]
+    },
+    {
+      "task_id": "exact_AdminDocsTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminDocsTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminDocsTest"
+      },
+      "expected": [
+        "AdminDocsTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminDocsTestCase",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminDocsTestCase`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminDocsTestCase"
+      },
+      "expected": [
+        "AdminDocsTestCase"
+      ]
+    },
+    {
+      "task_id": "exact_AdminEmailHandler",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminEmailHandler`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminEmailHandler"
+      },
+      "expected": [
+        "AdminEmailHandler"
+      ]
+    },
+    {
+      "task_id": "exact_AdminEmailHandlerTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminEmailHandlerTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminEmailHandlerTest"
+      },
+      "expected": [
+        "AdminEmailHandlerTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminEmailInputWidget",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminEmailInputWidget`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminEmailInputWidget"
+      },
+      "expected": [
+        "AdminEmailInputWidget"
+      ]
+    },
+    {
+      "task_id": "exact_AdminErrorList",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminErrorList`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminErrorList"
+      },
+      "expected": [
+        "AdminErrorList"
+      ]
+    },
+    {
+      "task_id": "exact_AdminField",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminField`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminField"
+      },
+      "expected": [
+        "AdminField"
+      ]
+    },
+    {
+      "task_id": "exact_AdminFieldExtractionMixin",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminFieldExtractionMixin`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminFieldExtractionMixin"
+      },
+      "expected": [
+        "AdminFieldExtractionMixin"
+      ]
+    },
+    {
+      "task_id": "exact_AdminFileWidget",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminFileWidget`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminFileWidget"
+      },
+      "expected": [
+        "AdminFileWidget"
+      ]
+    },
+    {
+      "task_id": "exact_AdminFileWidgetTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminFileWidgetTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminFileWidgetTests"
+      },
+      "expected": [
+        "AdminFileWidgetTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminForeignKeyRawIdWidget",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminForeignKeyRawIdWidget`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminForeignKeyRawIdWidget"
+      },
+      "expected": [
+        "AdminForeignKeyRawIdWidget"
+      ]
+    },
+    {
+      "task_id": "exact_AdminForeignKeyWidgetChangeList",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminForeignKeyWidgetChangeList`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminForeignKeyWidgetChangeList"
+      },
+      "expected": [
+        "AdminForeignKeyWidgetChangeList"
+      ]
+    },
+    {
+      "task_id": "exact_AdminForm",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminForm`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminForm"
+      },
+      "expected": [
+        "AdminForm"
+      ]
+    },
+    {
+      "task_id": "exact_AdminFormTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminFormTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminFormTests"
+      },
+      "expected": [
+        "AdminFormTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminFormfieldForDBFieldTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminFormfieldForDBFieldTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminFormfieldForDBFieldTests"
+      },
+      "expected": [
+        "AdminFormfieldForDBFieldTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminFormfieldForDBFieldWithRequestTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminFormfieldForDBFieldWithRequestTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminFormfieldForDBFieldWithRequestTests"
+      },
+      "expected": [
+        "AdminFormfieldForDBFieldWithRequestTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminHistoryViewTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminHistoryViewTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminHistoryViewTests"
+      },
+      "expected": [
+        "AdminHistoryViewTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminInheritedInlinesTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminInheritedInlinesTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminInheritedInlinesTest"
+      },
+      "expected": [
+        "AdminInheritedInlinesTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminInlineFileUploadTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminInlineFileUploadTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminInlineFileUploadTest"
+      },
+      "expected": [
+        "AdminInlineFileUploadTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminInlineTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminInlineTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminInlineTests"
+      },
+      "expected": [
+        "AdminInlineTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminIntegerFieldWidget",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminIntegerFieldWidget`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminIntegerFieldWidget"
+      },
+      "expected": [
+        "AdminIntegerFieldWidget"
+      ]
+    },
+    {
+      "task_id": "exact_AdminJavaScriptTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminJavaScriptTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminJavaScriptTest"
+      },
+      "expected": [
+        "AdminJavaScriptTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminKeepChangeListFiltersTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminKeepChangeListFiltersTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminKeepChangeListFiltersTests"
+      },
+      "expected": [
+        "AdminKeepChangeListFiltersTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminLogNode",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminLogNode`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminLogNode"
+      },
+      "expected": [
+        "AdminLogNode"
+      ]
+    },
+    {
+      "task_id": "exact_AdminOrderedAdminMethod",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminOrderedAdminMethod`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminOrderedAdminMethod"
+      },
+      "expected": [
+        "AdminOrderedAdminMethod"
+      ]
+    },
+    {
+      "task_id": "exact_AdminOrderedAdminMethodAdmin",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminOrderedAdminMethodAdmin`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminOrderedAdminMethodAdmin"
+      },
+      "expected": [
+        "AdminOrderedAdminMethodAdmin"
+      ]
+    },
+    {
+      "task_id": "exact_AdminOrderedCallable",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminOrderedCallable`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminOrderedCallable"
+      },
+      "expected": [
+        "AdminOrderedCallable"
+      ]
+    },
+    {
+      "task_id": "exact_AdminOrderedCallableAdmin",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminOrderedCallableAdmin`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminOrderedCallableAdmin"
+      },
+      "expected": [
+        "AdminOrderedCallableAdmin"
+      ]
+    },
+    {
+      "task_id": "exact_AdminOrderedField",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminOrderedField`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminOrderedField"
+      },
+      "expected": [
+        "AdminOrderedField"
+      ]
+    },
+    {
+      "task_id": "exact_AdminOrderedFieldAdmin",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminOrderedFieldAdmin`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminOrderedFieldAdmin"
+      },
+      "expected": [
+        "AdminOrderedFieldAdmin"
+      ]
+    },
+    {
+      "task_id": "exact_AdminOrderedModelMethod",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminOrderedModelMethod`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminOrderedModelMethod"
+      },
+      "expected": [
+        "AdminOrderedModelMethod"
+      ]
+    },
+    {
+      "task_id": "exact_AdminOrderedModelMethodAdmin",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminOrderedModelMethodAdmin`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminOrderedModelMethodAdmin"
+      },
+      "expected": [
+        "AdminOrderedModelMethodAdmin"
+      ]
+    },
+    {
+      "task_id": "exact_AdminPasswordChangeForm",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminPasswordChangeForm`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminPasswordChangeForm"
+      },
+      "expected": [
+        "AdminPasswordChangeForm"
+      ]
+    },
+    {
+      "task_id": "exact_AdminPasswordChangeFormTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminPasswordChangeFormTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminPasswordChangeFormTest"
+      },
+      "expected": [
+        "AdminPasswordChangeFormTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminRadioSelect",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminRadioSelect`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminRadioSelect"
+      },
+      "expected": [
+        "AdminRadioSelect"
+      ]
+    },
+    {
+      "task_id": "exact_AdminRawIdWidgetSeleniumTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminRawIdWidgetSeleniumTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminRawIdWidgetSeleniumTests"
+      },
+      "expected": [
+        "AdminRawIdWidgetSeleniumTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminReadonlyField",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminReadonlyField`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminReadonlyField"
+      },
+      "expected": [
+        "AdminReadonlyField"
+      ]
+    },
+    {
+      "task_id": "exact_AdminScriptTestCase",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminScriptTestCase`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminScriptTestCase"
+      },
+      "expected": [
+        "AdminScriptTestCase"
+      ]
+    },
+    {
+      "task_id": "exact_AdminSearchTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminSearchTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminSearchTest"
+      },
+      "expected": [
+        "AdminSearchTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminSeleniumTestCase",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminSeleniumTestCase`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminSeleniumTestCase"
+      },
+      "expected": [
+        "AdminSeleniumTestCase"
+      ]
+    },
+    {
+      "task_id": "exact_AdminSidebarTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminSidebarTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminSidebarTests"
+      },
+      "expected": [
+        "AdminSidebarTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminSite",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminSite`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminSite"
+      },
+      "expected": [
+        "AdminSite"
+      ]
+    },
+    {
+      "task_id": "exact_AdminSiteFinalCatchAllPatternTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminSiteFinalCatchAllPatternTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminSiteFinalCatchAllPatternTests"
+      },
+      "expected": [
+        "AdminSiteFinalCatchAllPatternTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminSiteTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminSiteTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminSiteTests"
+      },
+      "expected": [
+        "AdminSiteTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminSiteWithSidebar",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminSiteWithSidebar`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminSiteWithSidebar"
+      },
+      "expected": [
+        "AdminSiteWithSidebar"
+      ]
+    },
+    {
+      "task_id": "exact_AdminSiteWithoutSidebar",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminSiteWithoutSidebar`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminSiteWithoutSidebar"
+      },
+      "expected": [
+        "AdminSiteWithoutSidebar"
+      ]
+    },
+    {
+      "task_id": "exact_AdminSplitDateTime",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminSplitDateTime`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminSplitDateTime"
+      },
+      "expected": [
+        "AdminSplitDateTime"
+      ]
+    },
+    {
+      "task_id": "exact_AdminSplitDateTimeWidgetTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminSplitDateTimeWidgetTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminSplitDateTimeWidgetTest"
+      },
+      "expected": [
+        "AdminSplitDateTimeWidgetTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminTemplateTagsTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminTemplateTagsTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminTemplateTagsTest"
+      },
+      "expected": [
+        "AdminTemplateTagsTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminTests"
+      },
+      "expected": [
+        "AdminTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminTextInputWidget",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminTextInputWidget`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminTextInputWidget"
+      },
+      "expected": [
+        "AdminTextInputWidget"
+      ]
+    },
+    {
+      "task_id": "exact_AdminTextareaWidget",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminTextareaWidget`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminTextareaWidget"
+      },
+      "expected": [
+        "AdminTextareaWidget"
+      ]
+    },
+    {
+      "task_id": "exact_AdminTimeWidget",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminTimeWidget`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminTimeWidget"
+      },
+      "expected": [
+        "AdminTimeWidget"
+      ]
+    },
+    {
+      "task_id": "exact_AdminTimeWidgetTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminTimeWidgetTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminTimeWidgetTest"
+      },
+      "expected": [
+        "AdminTimeWidgetTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminURLFieldWidget",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminURLFieldWidget`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminURLFieldWidget"
+      },
+      "expected": [
+        "AdminURLFieldWidget"
+      ]
+    },
+    {
+      "task_id": "exact_AdminURLWidgetTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminURLWidgetTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminURLWidgetTest"
+      },
+      "expected": [
+        "AdminURLWidgetTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminUUIDInputWidget",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminUUIDInputWidget`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminUUIDInputWidget"
+      },
+      "expected": [
+        "AdminUUIDInputWidget"
+      ]
+    },
+    {
+      "task_id": "exact_AdminUUIDWidgetTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminUUIDWidgetTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminUUIDWidgetTests"
+      },
+      "expected": [
+        "AdminUUIDWidgetTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminUserCreationForm",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminUserCreationForm`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminUserCreationForm"
+      },
+      "expected": [
+        "AdminUserCreationForm"
+      ]
+    },
+    {
+      "task_id": "exact_AdminUserCreationFormTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminUserCreationFormTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminUserCreationFormTest"
+      },
+      "expected": [
+        "AdminUserCreationFormTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminUserMessageTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminUserMessageTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminUserMessageTest"
+      },
+      "expected": [
+        "AdminUserMessageTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminViewBasicTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminViewBasicTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminViewBasicTest"
+      },
+      "expected": [
+        "AdminViewBasicTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminViewBasicTestCase",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminViewBasicTestCase`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminViewBasicTestCase"
+      },
+      "expected": [
+        "AdminViewBasicTestCase"
+      ]
+    },
+    {
+      "task_id": "exact_AdminViewDeletedObjectsTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminViewDeletedObjectsTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminViewDeletedObjectsTest"
+      },
+      "expected": [
+        "AdminViewDeletedObjectsTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminViewFormUrlTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminViewFormUrlTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminViewFormUrlTest"
+      },
+      "expected": [
+        "AdminViewFormUrlTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminViewListEditable",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminViewListEditable`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminViewListEditable"
+      },
+      "expected": [
+        "AdminViewListEditable"
+      ]
+    },
+    {
+      "task_id": "exact_AdminViewLogoutTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminViewLogoutTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminViewLogoutTests"
+      },
+      "expected": [
+        "AdminViewLogoutTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminViewOnSiteTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminViewOnSiteTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminViewOnSiteTests"
+      },
+      "expected": [
+        "AdminViewOnSiteTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminViewPermissionsTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminViewPermissionsTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminViewPermissionsTest"
+      },
+      "expected": [
+        "AdminViewPermissionsTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminViewProxyModelPermissionsTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminViewProxyModelPermissionsTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminViewProxyModelPermissionsTests"
+      },
+      "expected": [
+        "AdminViewProxyModelPermissionsTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdminViewStringPrimaryKeyTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminViewStringPrimaryKeyTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminViewStringPrimaryKeyTest"
+      },
+      "expected": [
+        "AdminViewStringPrimaryKeyTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminViewUnicodeTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminViewUnicodeTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminViewUnicodeTest"
+      },
+      "expected": [
+        "AdminViewUnicodeTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminViewsNoUrlTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminViewsNoUrlTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminViewsNoUrlTest"
+      },
+      "expected": [
+        "AdminViewsNoUrlTest"
+      ]
+    },
+    {
+      "task_id": "exact_AdminWidgetSeleniumTestCase",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdminWidgetSeleniumTestCase`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdminWidgetSeleniumTestCase"
+      },
+      "expected": [
+        "AdminWidgetSeleniumTestCase"
+      ]
+    },
+    {
+      "task_id": "exact_AdvancedTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdvancedTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdvancedTests"
+      },
+      "expected": [
+        "AdvancedTests"
+      ]
+    },
+    {
+      "task_id": "exact_AdvancedUserStat",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdvancedUserStat`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdvancedUserStat"
+      },
+      "expected": [
+        "AdvancedUserStat"
+      ]
+    },
+    {
+      "task_id": "exact_Advertisement",
+      "query": {
+        "__rationale": "exact-match MRR target for `Advertisement`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Advertisement"
+      },
+      "expected": [
+        "Advertisement"
+      ]
+    },
+    {
+      "task_id": "exact_Advisor",
+      "query": {
+        "__rationale": "exact-match MRR target for `Advisor`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Advisor"
+      },
+      "expected": [
+        "Advisor"
+      ]
+    },
+    {
+      "task_id": "exact_AdvisorAdmin",
+      "query": {
+        "__rationale": "exact-match MRR target for `AdvisorAdmin`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AdvisorAdmin"
+      },
+      "expected": [
+        "AdvisorAdmin"
+      ]
+    },
+    {
+      "task_id": "exact_Aggregate",
+      "query": {
+        "__rationale": "exact-match MRR target for `Aggregate`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Aggregate"
+      },
+      "expected": [
+        "Aggregate"
+      ]
+    },
+    {
+      "task_id": "exact_AggregateAnnotationPruningTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AggregateAnnotationPruningTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AggregateAnnotationPruningTests"
+      },
+      "expected": [
+        "AggregateAnnotationPruningTests"
+      ]
+    },
+    {
+      "task_id": "exact_AggregateFilter",
+      "query": {
+        "__rationale": "exact-match MRR target for `AggregateFilter`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AggregateFilter"
+      },
+      "expected": [
+        "AggregateFilter"
+      ]
+    },
+    {
+      "task_id": "exact_AggregateOrderBy",
+      "query": {
+        "__rationale": "exact-match MRR target for `AggregateOrderBy`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AggregateOrderBy"
+      },
+      "expected": [
+        "AggregateOrderBy"
+      ]
+    },
+    {
+      "task_id": "exact_AggregateQuery",
+      "query": {
+        "__rationale": "exact-match MRR target for `AggregateQuery`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AggregateQuery"
+      },
+      "expected": [
+        "AggregateQuery"
+      ]
+    },
+    {
+      "task_id": "exact_AggregateTestCase",
+      "query": {
+        "__rationale": "exact-match MRR target for `AggregateTestCase`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AggregateTestCase"
+      },
+      "expected": [
+        "AggregateTestCase"
+      ]
+    },
+    {
+      "task_id": "exact_AggregateTestModel",
+      "query": {
+        "__rationale": "exact-match MRR target for `AggregateTestModel`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AggregateTestModel"
+      },
+      "expected": [
+        "AggregateTestModel"
+      ]
+    },
+    {
+      "task_id": "exact_AggregationTests",
+      "query": {
+        "__rationale": "exact-match MRR target for `AggregationTests`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AggregationTests"
+      },
+      "expected": [
+        "AggregationTests"
+      ]
+    },
+    {
+      "task_id": "exact_AgnosticRouter",
+      "query": {
+        "__rationale": "exact-match MRR target for `AgnosticRouter`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AgnosticRouter"
+      },
+      "expected": [
+        "AgnosticRouter"
+      ]
+    },
+    {
+      "task_id": "exact_Alarm",
+      "query": {
+        "__rationale": "exact-match MRR target for `Alarm`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Alarm"
+      },
+      "expected": [
+        "Alarm"
+      ]
+    },
+    {
+      "task_id": "exact_Album",
+      "query": {
+        "__rationale": "exact-match MRR target for `Album`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Album"
+      },
+      "expected": [
+        "Album"
+      ]
+    },
+    {
+      "task_id": "exact_AlbumAdmin",
+      "query": {
+        "__rationale": "exact-match MRR target for `AlbumAdmin`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AlbumAdmin"
+      },
+      "expected": [
+        "AlbumAdmin"
+      ]
+    },
+    {
+      "task_id": "exact_AlbumForm",
+      "query": {
+        "__rationale": "exact-match MRR target for `AlbumForm`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AlbumForm"
+      },
+      "expected": [
+        "AlbumForm"
+      ]
+    }
+  ]
+}
