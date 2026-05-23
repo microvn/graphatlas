@@ -70,7 +70,14 @@ fn callee_extractors_post_d4_migration_state() {
         (Lang::Python, &["decorator"]),
         (Lang::Go, &[]),
         (Lang::Rust, &["macro_invocation"]),
-        (Lang::TypeScript, &["new_expression"]),
+        (
+            Lang::TypeScript,
+            &[
+                "new_expression",
+                "jsx_self_closing_element",
+                "jsx_opening_element",
+            ],
+        ),
         (
             Lang::JavaScript,
             &[
@@ -99,9 +106,12 @@ fn ref_emitters_post_d3_migration_state() {
     // tests/extract_references_type_position.rs). JS pure (.js) intentionally
     // skipped — no `type_identifier` node kind in tree-sitter-javascript.
     let expected_kinds: &[(Lang, &[&str])] = &[
-        (Lang::Python, &[]),
+        (Lang::Python, &["call"]),
         (Lang::Go, &["keyed_element", "type_identifier"]),
-        (Lang::Rust, &["call_expression", "type_identifier"]),
+        (
+            Lang::Rust,
+            &["call_expression", "type_identifier", "scoped_identifier"],
+        ),
         (
             Lang::TypeScript,
             &["shorthand_property_identifier", "type_identifier"],

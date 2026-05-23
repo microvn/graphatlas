@@ -29,6 +29,10 @@ const EXTENDS: &[&str] = &["impl_item"];
 const REF_EMITTERS: &[(&str, RefEmitter)] = &[
     ("call_expression", emit_call_arg_fn_pointer),
     ("type_identifier", emit_type_position),
+    // Cross-lang sweep (2026-05-22) — mirror LANG-2 (PHP `Class::method()`).
+    // `Foo::bar()` calls in Rust: emit REFERENCES edge to `Foo` so
+    // `ga_callers Foo` surfaces invocation sites of associated fns.
+    ("scoped_identifier", emit_scoped_call_type_ref),
 ];
 
 // S-005a D4 — `macro_invocation` callee extractor, migrated from calls.rs.
@@ -467,4 +471,92 @@ fn is_rust_primitive(name: &str) -> bool {
             | "Rc"
             | "Arc"
     )
+}
+
+/// Cross-lang sweep (2026-05-22) — mirror LANG-2 PHP `Class::method()`.
+/// Emit a REFERENCES edge to the type/module scope receiver of a Rust
+/// `Foo::bar(args)` call. The CALL edge still carries `bar` (method name);
+/// this emitter adds the missing `Foo` reference so `ga_callers Foo`
+/// surfaces every file that invokes any of `Foo`'s associated fns.
+///
+/// Fires only when this `scoped_identifier` is the `function` field of a
+/// `call_expression` parent. Otherwise (type positions, use-paths) the
+/// existing `emit_type_position` / import extractors handle it.
+///
+/// Skips Rust path keywords (`self`, `super`, `crate`, `Self`) and Rust
+/// primitive types (Box, Vec, Option, Result, etc. — same allowlist as
+/// `is_rust_primitive`).
+fn emit_scoped_call_type_ref(
+    node: &Node<'_>,
+    source: &[u8],
+    enclosing: &Option<String>,
+    out: &mut Vec<ParsedReference>,
+) {
+    // Only emit when this scoped_identifier is the function field of a
+    // call_expression. Avoids polluting refs from type positions and
+    // use-paths (already handled by other extractors).
+    let Some(parent) = node.parent() else {
+        return;
+    };
+    if parent.kind() != "call_expression" {
+        return;
+    }
+    let is_function_field = parent
+        .child_by_field_name("function")
+        .map(|f| f.id() == node.id())
+        .unwrap_or(false);
+    if !is_function_field {
+        return;
+    }
+
+    // Extract the receiver (trailing segment of `path` field). For
+    // `Foo::bar()` → path=`Foo`. For `std::process::Command::new()` →
+    // path=`std::process::Command`, trailing segment = `Command`.
+    let Some(path_node) = node.child_by_field_name("path") else {
+        return;
+    };
+    let receiver_text = match path_node.kind() {
+        "identifier" | "type_identifier" => match path_node.utf8_text(source) {
+            Ok(t) => t,
+            Err(_) => return,
+        },
+        "scoped_identifier" => {
+            // Trailing segment is the `name` field.
+            let Some(name_node) = path_node.child_by_field_name("name") else {
+                return;
+            };
+            match name_node.utf8_text(source) {
+                Ok(t) => t,
+                Err(_) => return,
+            }
+        }
+        _ => return,
+    };
+
+    if matches!(receiver_text, "self" | "super" | "crate" | "Self") {
+        return;
+    }
+    // Skip primitives and stdlib generic wrappers — `Vec::new()`,
+    // `Option::Some()`, etc. would otherwise inflate the universe.
+    if is_rust_primitive(receiver_text) {
+        return;
+    }
+    // Skip lowercase paths (e.g. module names `std`, `foo`). Type receivers
+    // are conventionally Pascal-case in Rust. Without this filter, every
+    // `std::process::exit(...)` would also emit "process" / "std" refs.
+    if !receiver_text
+        .chars()
+        .next()
+        .map(|c| c.is_ascii_uppercase())
+        .unwrap_or(false)
+    {
+        return;
+    }
+
+    out.push(ParsedReference {
+        enclosing_symbol: enclosing.clone(),
+        target_name: receiver_text.to_string(),
+        ref_site_line: (node.start_position().row as u32) + 1,
+        ref_kind: RefKind::TypePosition,
+    });
 }

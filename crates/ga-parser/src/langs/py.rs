@@ -1,7 +1,8 @@
 //! Python `LanguageSpec`. Grammar: `tree-sitter-python` 0.23 (pinned in
 //! Cargo.lock per AS-010). Predicates ported from rust-poc/src/main.rs:244+.
 
-use crate::{CalleeExtractor, LangFamily, LanguageSpec};
+use crate::references::{ParsedReference, RefKind};
+use crate::{CalleeExtractor, LangFamily, LanguageSpec, RefEmitter};
 use ga_core::Lang;
 use tree_sitter::{Language, Node};
 
@@ -16,6 +17,12 @@ const EXTENDS: &[&str] = &["class_definition"];
 
 // S-005a D4 — `decorator` callee extractor, migrated from calls.rs.
 const CALLEE_EXTRACTORS: &[(&str, CalleeExtractor)] = &[("decorator", extract_decorator_callee)];
+
+// Cross-lang sweep (2026-05-23) — mirror LANG-2 (PHP `Class::method()`).
+// `Foo.bar()` calls where receiver is PascalCase (class convention) emit a
+// REFERENCES edge to `Foo` so `ga_callers Foo` surfaces invocation sites of
+// any classmethod/staticmethod.
+const REF_EMITTERS: &[(&str, RefEmitter)] = &[("call", emit_scoped_call_class_ref)];
 
 impl LanguageSpec for PythonLang {
     fn lang(&self) -> Lang {
@@ -72,6 +79,10 @@ impl LanguageSpec for PythonLang {
 
     fn callee_extractors(&self) -> &'static [(&'static str, CalleeExtractor)] {
         CALLEE_EXTRACTORS
+    }
+
+    fn ref_emitters(&self) -> &'static [(&'static str, RefEmitter)] {
+        REF_EMITTERS
     }
 
     fn extract_imported_names(&self, node: &Node<'_>, source: &[u8]) -> Vec<String> {
@@ -310,4 +321,93 @@ fn extract_decorator_args(node: &Node<'_>, source: &[u8]) -> String {
         }
     }
     String::new()
+}
+
+/// Cross-lang sweep (2026-05-23) — mirror LANG-2 PHP `Class::method()`.
+/// Python lacks a dedicated scope-call syntax, so we heuristically treat
+/// `Foo.bar(args)` as a class-scope call when `Foo` is PascalCase and not a
+/// well-known builtin.
+///
+/// Fires on `call` nodes where `function` is an `attribute` whose `object` is
+/// a bare `identifier` (or nested `attribute` — trailing segment taken).
+/// Skips Python convention identifiers (`self`, `cls`, `super`) and the
+/// stdlib types listed in `is_python_builtin`.
+fn emit_scoped_call_class_ref(
+    node: &Node<'_>,
+    source: &[u8],
+    enclosing: &Option<String>,
+    out: &mut Vec<ParsedReference>,
+) {
+    let Some(func) = node.child_by_field_name("function") else {
+        return;
+    };
+    if func.kind() != "attribute" {
+        return;
+    }
+    let Some(object) = func.child_by_field_name("object") else {
+        return;
+    };
+    // Receiver text: bare identifier → its text; nested attribute (a.b.c) →
+    // trailing segment (we treat `pkg.Module.method()` as a `Module` ref).
+    let receiver_text = match object.kind() {
+        "identifier" => match object.utf8_text(source) {
+            Ok(t) => t,
+            Err(_) => return,
+        },
+        "attribute" => {
+            let Some(attr) = object.child_by_field_name("attribute") else {
+                return;
+            };
+            match attr.utf8_text(source) {
+                Ok(t) => t,
+                Err(_) => return,
+            }
+        }
+        _ => return,
+    };
+    if matches!(receiver_text, "self" | "cls" | "super") {
+        return;
+    }
+    if !receiver_text
+        .chars()
+        .next()
+        .map(|c| c.is_ascii_uppercase())
+        .unwrap_or(false)
+    {
+        return;
+    }
+    if is_python_builtin(receiver_text) {
+        return;
+    }
+    out.push(ParsedReference {
+        enclosing_symbol: enclosing.clone(),
+        target_name: receiver_text.to_string(),
+        ref_site_line: (object.start_position().row as u32) + 1,
+        ref_kind: RefKind::TypePosition,
+    });
+}
+
+/// Python stdlib / builtin types and common exceptions that show up as
+/// receivers in `Type.method()` patterns. Emitting refs to these would
+/// blow up the universe (every `int.from_bytes()`, `str.join()`, etc.).
+fn is_python_builtin(name: &str) -> bool {
+    matches!(
+        name,
+        "True"
+            | "False"
+            | "None"
+            | "Exception"
+            | "BaseException"
+            | "ValueError"
+            | "TypeError"
+            | "KeyError"
+            | "IndexError"
+            | "RuntimeError"
+            | "StopIteration"
+            | "NotImplementedError"
+            | "AttributeError"
+            | "OSError"
+            | "IOError"
+            | "FileNotFoundError"
+    )
 }

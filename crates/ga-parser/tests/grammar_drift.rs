@@ -32,12 +32,18 @@ def f():\n    g()\n\
 class C(Base):\n    def m(self): self.f()\n"
         }
         Lang::TypeScript => {
+            // LANG-1 (2026-05-22): TSX grammar is now the loaded parser (TS
+            // is a strict subset). Fixture exercises both TS forms and JSX
+            // elements so jsx_self_closing_element + jsx_opening_element
+            // node kinds in the CALL list are observed.
             "\
 import { x } from 'm';\n\
 interface I { run(): void; }\n\
 function f(): void {}\n\
 class C extends B { run(): void { new X(); f(); } }\n\
-const h = (n: number) => n + 1;\n"
+const h = (n: number) => n + 1;\n\
+const jsx = <Foo bar=\"baz\" />;\n\
+const jsx2 = <Foo>hello</Foo>;\n"
         }
         Lang::JavaScript => {
             "\

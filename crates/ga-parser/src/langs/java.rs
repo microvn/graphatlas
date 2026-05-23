@@ -42,7 +42,13 @@ const CALLEE_EXTRACTORS: &[(&str, CalleeExtractor)] = &[
 // S-001c (AS-004) — annotated field → REFERENCES edge to field type.
 // Wired on `field_declaration` (not on the annotation node) so multiple
 // annotations on the same field emit ONE ref, not N.
-const REF_EMITTERS: &[(&str, RefEmitter)] = &[("field_declaration", extract_annotated_field_ref)];
+// Cross-lang sweep (2026-05-23) — mirror LANG-2 (PHP `Class::method()`).
+// `Class.method()` static calls emit a REFERENCES edge to `Class` so
+// `ga_callers Class` surfaces invocation sites of any static method.
+const REF_EMITTERS: &[(&str, RefEmitter)] = &[
+    ("field_declaration", extract_annotated_field_ref),
+    ("method_invocation", extract_scoped_call_class_ref),
+];
 
 impl LanguageSpec for JavaLang {
     fn lang(&self) -> Lang {
@@ -380,4 +386,90 @@ fn collect_type_identifiers(node: &Node<'_>, source: &[u8], out: &mut Vec<String
             }
         }
     }
+}
+
+/// Cross-lang sweep (2026-05-23) — mirror LANG-2 PHP `Class::method()`.
+/// Emit a REFERENCES edge to the static receiver of a Java
+/// `Class.method(args)` invocation. The existing CALL edge still carries
+/// the method name; this emitter adds the missing `Class` reference so
+/// `ga_callers Class` surfaces invocation sites.
+///
+/// Fires only when `method_invocation.object` is a bare `identifier` whose
+/// first char is uppercase (Java class convention). Skips `this` / `super`
+/// keywords and stdlib types listed in `is_java_stdlib_class`.
+fn extract_scoped_call_class_ref(
+    node: &Node<'_>,
+    source: &[u8],
+    enclosing: &Option<String>,
+    out: &mut Vec<ParsedReference>,
+) {
+    let Some(object) = node.child_by_field_name("object") else {
+        return;
+    };
+    // Only bare-identifier receivers — `obj.method()` chains, `field.method()`,
+    // `getX().method()` are NOT static dispatch. Trailing-segment on a
+    // qualified `pkg.Class` could be supported but tree-sitter-java parses
+    // `pkg.Class.method()` as nested `method_invocation` whose innermost
+    // `object` is identifier — outer call's object is a `method_invocation`,
+    // so this filter skips outer calls cleanly.
+    let receiver_text = match object.kind() {
+        "identifier" => match object.utf8_text(source) {
+            Ok(t) => t,
+            Err(_) => return,
+        },
+        _ => return,
+    };
+    if matches!(receiver_text, "this" | "super") {
+        return;
+    }
+    if !receiver_text
+        .chars()
+        .next()
+        .map(|c| c.is_ascii_uppercase())
+        .unwrap_or(false)
+    {
+        return;
+    }
+    if is_java_stdlib_class(receiver_text) {
+        return;
+    }
+    out.push(ParsedReference {
+        enclosing_symbol: enclosing.clone(),
+        target_name: receiver_text.to_string(),
+        ref_site_line: (object.start_position().row as u32) + 1,
+        ref_kind: RefKind::TypePosition,
+    });
+}
+
+/// java.lang / java.util types that appear as static-call receivers heavily
+/// enough to dominate the graph if emitted (`Math.max`, `System.out`,
+/// `Collections.emptyList`, etc.). Conservative allowlist — skips wrappers
+/// and the most common util classes.
+fn is_java_stdlib_class(name: &str) -> bool {
+    matches!(
+        name,
+        "Integer"
+            | "Long"
+            | "Float"
+            | "Double"
+            | "Boolean"
+            | "Character"
+            | "Byte"
+            | "Short"
+            | "String"
+            | "Object"
+            | "Math"
+            | "System"
+            | "Thread"
+            | "Collections"
+            | "Arrays"
+            | "List"
+            | "Map"
+            | "Set"
+            | "HashMap"
+            | "HashSet"
+            | "ArrayList"
+            | "Optional"
+            | "Objects"
+    )
 }
