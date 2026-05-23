@@ -6,14 +6,14 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| **FAIL** | ga | 0.250 | 0.900 | 20 |
+| **FAIL** | ga | 0.250 | 0.900 | 49 |
 
 ### Secondary metrics
 
 **ga**:
 - `poly_target_count` = 2.000
 - `recall_polymorphic` = 0.250
-- `recall_unique` = 0.468
+- `recall_unique` = 0.497
 - `spec_target_polymorphic` = 0.700
 - `unique_target_count` = 10.000
 

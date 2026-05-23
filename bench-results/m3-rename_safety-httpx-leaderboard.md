@@ -1,4 +1,4 @@
-# M3 Gate — `rename_safety` on `preact`
+# M3 Gate — `rename_safety` on `httpx`
 
 **Rule:** Hrn-static
 
@@ -6,15 +6,15 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| **FAIL** | ga | 0.500 | 0.900 | 24 |
+| PASS | ga | 1.000 | 0.900 | 15 |
 
 ### Secondary metrics
 
 **ga**:
-- `poly_target_count` = 10.000
-- `recall_polymorphic` = 0.500
-- `recall_unique` = 0.556
+- `poly_target_count` = 9.000
+- `recall_polymorphic` = 1.000
+- `recall_unique` = 1.000
 - `spec_target_polymorphic` = 0.700
-- `unique_target_count` = 9.000
+- `unique_target_count` = 5.000
 
-**SPEC GATE: 0 pass, 1 fail (target: all pass)**
+**SPEC GATE: 1 pass, 0 fail (target: all pass)**

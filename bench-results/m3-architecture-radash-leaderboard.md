@@ -1,4 +1,4 @@
-# M3 Gate — `architecture` on `axum`
+# M3 Gate — `architecture` on `radash`
 
 **Rule:** Ha-import-edge
 
@@ -6,17 +6,17 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| **FAIL** | ga | 0.000 | 0.600 | 21 |
+| **FAIL** | ga | 0.000 | 0.600 | 9 |
 
 ### Secondary metrics
 
 **ga**:
 - `actual_edge_count` = 0.000
-- `edge_f1` = 0.000
+- `edge_f1` = 1.000
 - `edge_precision` = 1.000
-- `edge_recall` = 0.000
-- `expected_edge_count` = 50.000
-- `false_negatives` = 50.000
+- `edge_recall` = 1.000
+- `expected_edge_count` = 0.000
+- `false_negatives` = 0.000
 - `false_positives` = 0.000
 - `shared_edge_count` = 0.000
 - `spearman_defined` = 0.000

@@ -1,4 +1,4 @@
-# M3 Gate — `dead_code` on `axum`
+# M3 Gate — `dead_code` on `radash`
 
 **Rule:** Hd-ast
 
@@ -6,19 +6,19 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| PASS | ga | 1.000 | 0.850 | 41 |
+| PASS | ga | 1.000 | 0.850 | 20 |
 
 ### Secondary metrics
 
 **ga**:
-- `actual_dead_count` = 238.000
-- `expected_dead_aligned` = 619.000
-- `expected_dead_raw` = 619.000
-- `f1` = 0.555
-- `false_negatives` = 381.000
+- `actual_dead_count` = 264.000
+- `expected_dead_aligned` = 289.000
+- `expected_dead_raw` = 289.000
+- `f1` = 0.955
+- `false_negatives` = 25.000
 - `false_positives` = 0.000
-- `ga_universe_size` = 1899.000
-- `recall` = 0.384
-- `true_positives` = 238.000
+- `ga_universe_size` = 473.000
+- `recall` = 0.913
+- `true_positives` = 264.000
 
 **SPEC GATE: 1 pass, 0 fail (target: all pass)**
