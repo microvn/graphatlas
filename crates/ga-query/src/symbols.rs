@@ -152,7 +152,7 @@ fn collect_fuzzy(conn: &lbug::Connection<'_>, pattern: &str) -> Result<Vec<Symbo
             // component (0.0 - 0.5). Capped at 1.0. Substring matches reach
             // 1.0 only when distance is also low; non-matches max at 0.5.
             let lev_component = 0.5 - (d as f32 / max_d) * 0.5;
-            e.score = (bonus + lev_component).min(1.0).max(0.0);
+            e.score = (bonus + lev_component).clamp(0.0, 1.0);
             e
         })
         .collect())
