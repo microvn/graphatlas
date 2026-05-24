@@ -1,4 +1,4 @@
-# M3 Gate — `architecture` on `preact`
+# M3 Gate — `architecture` on `kotlinx-coroutines`
 
 **Rule:** Ha-import-edge
 
@@ -6,7 +6,7 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| **FAIL** | ga | 0.000 | 0.600 | 13 |
+| **FAIL** | ga | 0.000 | 0.600 | 36 |
 | DEFERRED | codebase-memory | 0.000 | 0.600 | 0 |
 | DEFERRED | code-review-graph | 0.000 | 0.600 | 0 |
 | DEFERRED | gitnexus | 0.000 | 0.600 | 0 |
@@ -14,14 +14,14 @@
 ### Secondary metrics
 
 **ga**:
-- `actual_edge_count` = 9.000
-- `edge_f1` = 0.000
-- `edge_f2` = 0.000
-- `edge_precision` = 0.000
+- `actual_edge_count` = 0.000
+- `edge_f1` = 1.000
+- `edge_f2` = 1.000
+- `edge_precision` = 1.000
 - `edge_recall` = 1.000
 - `expected_edge_count` = 0.000
 - `false_negatives` = 0.000
-- `false_positives` = 9.000
+- `false_positives` = 0.000
 - `shared_edge_count` = 0.000
 - `spearman_defined` = 0.000
 - `true_positives` = 0.000

@@ -1,4 +1,4 @@
-# M3 Gate — `hubs` on `tokio`
+# M3 Gate — `hubs` on `php-symfony-console`
 
 **Rule:** Hh-gitmine
 
@@ -6,7 +6,7 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| **FAIL** | ga | 0.430 | 0.700 | 107 |
+| **FAIL** | ga | 0.450 | 0.700 | 45 |
 | DEFERRED | codebase-memory | 0.000 | 0.700 | 0 |
 | DEFERRED | code-review-graph | 0.000 | 0.700 | 0 |
 | DEFERRED | gitnexus | 0.000 | 0.700 | 0 |
@@ -14,8 +14,8 @@
 ### Secondary metrics
 
 **ga**:
-- `common_files` = 10.000
-- `engine_size` = 44.000
+- `common_files` = 16.000
+- `engine_size` = 33.000
 - `gt_size` = 50.000
 - `total_hubs_with_edges` = 50.000
 

@@ -1,4 +1,4 @@
-# M3 Gate — `risk` on `preact`
+# M3 Gate — `risk` on `kotlinx-coroutines`
 
 **Rule:** Hr-text
 
@@ -6,7 +6,7 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| **FAIL** | ga | 0.714 | 0.800 | 144371 |
+| PASS | ga | 1.000 | 0.800 | 152882 |
 | DEFERRED | codebase-memory | 0.000 | 0.800 | 0 |
 | DEFERRED | code-review-graph | 0.000 | 0.800 | 0 |
 | DEFERRED | gitnexus | 0.000 | 0.800 | 0 |
@@ -15,31 +15,31 @@
 
 **ga**:
 - `expected_risky_count` = 10.000
-- `f1_at_0.30_cutoff` = 0.714
-- `f2_at_0.30_cutoff` = 0.862
+- `f1_at_0.30_cutoff` = 0.741
+- `f2_at_0.30_cutoff` = 0.877
 - `false_negatives_at_cutoff` = 0.000
-- `false_positives_at_cutoff` = 8.000
-- `max_f1_threshold` = 0.300
-- `max_f2` = 0.862
-- `max_f2_threshold` = 0.300
+- `false_positives_at_cutoff` = 7.000
+- `max_f1_threshold` = 0.400
+- `max_f2` = 1.000
+- `max_f2_threshold` = 0.400
 - `pr_at_0.20_f1` = 0.667
 - `pr_at_0.20_f2` = 0.833
 - `pr_at_0.20_precision` = 0.500
 - `pr_at_0.20_recall` = 1.000
-- `pr_at_0.30_f1` = 0.714
-- `pr_at_0.30_f2` = 0.862
-- `pr_at_0.30_precision` = 0.556
+- `pr_at_0.30_f1` = 0.741
+- `pr_at_0.30_f2` = 0.877
+- `pr_at_0.30_precision` = 0.588
 - `pr_at_0.30_recall` = 1.000
-- `pr_at_0.40_f1` = 0.462
-- `pr_at_0.40_f2` = 0.349
+- `pr_at_0.40_f1` = 1.000
+- `pr_at_0.40_f2` = 1.000
 - `pr_at_0.40_precision` = 1.000
-- `pr_at_0.40_recall` = 0.300
-- `pr_at_0.50_f1` = 0.182
-- `pr_at_0.50_f2` = 0.122
+- `pr_at_0.40_recall` = 1.000
+- `pr_at_0.50_f1` = 0.000
+- `pr_at_0.50_f2` = 0.000
 - `pr_at_0.50_precision` = 1.000
-- `pr_at_0.50_recall` = 0.100
-- `precision_at_0.30_cutoff` = 0.556
-- `predicted_risky_count` = 18.000
+- `pr_at_0.50_recall` = 0.000
+- `precision_at_0.30_cutoff` = 0.588
+- `predicted_risky_count` = 17.000
 - `recall_at_0.30_cutoff` = 1.000
 - `scored_files` = 20.000
 - `true_positives_at_cutoff` = 10.000
@@ -53,4 +53,4 @@
 **gitnexus**:
 - `note_competitor_adapter_pending` = 0.000
 
-**SPEC GATE: 3 pass, 1 fail (target: all pass)**
+**SPEC GATE: 4 pass, 0 fail (target: all pass)**

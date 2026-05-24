@@ -73,6 +73,13 @@ pub struct RetrieverEntry {
     // Supplementary (not in composite):
     pub mean_blast_radius_coverage: f64,
     pub mean_adjusted_precision: f64,
+    /// F2 on file set — secondary diagnostic, recall-priority lens.
+    /// Composite + 0.80 gate unchanged; F2 emitted alongside for cross-tool
+    /// reading where graph retriever value-add = high recall + tolerable noise.
+    #[serde(default)]
+    pub mean_f2_files: f64,
+    #[serde(default)]
+    pub mean_f2_tests: f64,
     // Token-cost dims (efficiency, decoupled from composite gate).
     //
     // CONDITIONAL means: averaged ONLY over tasks where the retriever
@@ -254,6 +261,8 @@ fn aggregate_entry(retriever: &str, tasks: Vec<TaskScore>) -> RetrieverEntry {
             pass_rate: 0.0,
             mean_blast_radius_coverage: 0.0,
             mean_adjusted_precision: 0.0,
+            mean_f2_files: 0.0,
+            mean_f2_tests: 0.0,
             mean_tokens_to_50_when_reached: 0.0,
             mean_tokens_to_100_when_reached: 0.0,
             pct_reached_50: 0.0,
@@ -268,6 +277,8 @@ fn aggregate_entry(retriever: &str, tasks: Vec<TaskScore>) -> RetrieverEntry {
     let sum_p: f64 = tasks.iter().map(|t| t.score.precision).sum();
     let sum_brc: f64 = tasks.iter().map(|t| t.score.blast_radius_coverage).sum();
     let sum_ap: f64 = tasks.iter().map(|t| t.score.adjusted_precision).sum();
+    let sum_f2f: f64 = tasks.iter().map(|t| t.score.f2_files).sum();
+    let sum_f2t: f64 = tasks.iter().map(|t| t.score.f2_tests).sum();
     // Conditional means: only tasks where threshold was actually reached.
     // Otherwise a retriever that returns fewer files looks "cheaper" simply
     // because its failure-budget is smaller, which is backwards.
@@ -306,6 +317,8 @@ fn aggregate_entry(retriever: &str, tasks: Vec<TaskScore>) -> RetrieverEntry {
         pass_rate: passed / n,
         mean_blast_radius_coverage: sum_brc / n,
         mean_adjusted_precision: sum_ap / n,
+        mean_f2_files: sum_f2f / n,
+        mean_f2_tests: sum_f2t / n,
         mean_tokens_to_50_when_reached: if n_t50_ok > 0 {
             sum_t50_ok / n_t50_ok as f64
         } else {

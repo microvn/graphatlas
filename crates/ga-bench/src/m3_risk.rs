@@ -174,6 +174,15 @@ pub fn score_risk(opts: &ScoreOpts) -> Result<Vec<M3LeaderboardRow>, BenchError>
         } else {
             2.0 * precision_at_cutoff * recall_at_cutoff / (precision_at_cutoff + recall_at_cutoff)
         };
+        // F2 at cutoff (recall priority — missing a risky file > flagging
+        // a safe one for human review). Secondary metric; primary stays
+        // max-F1 across PR curve.
+        let f2_at_cutoff = if 4.0 * precision_at_cutoff + recall_at_cutoff == 0.0 {
+            0.0
+        } else {
+            5.0 * precision_at_cutoff * recall_at_cutoff
+                / (4.0 * precision_at_cutoff + recall_at_cutoff)
+        };
 
         let mut secondary = BTreeMap::new();
         secondary.insert(
@@ -183,6 +192,7 @@ pub fn score_risk(opts: &ScoreOpts) -> Result<Vec<M3LeaderboardRow>, BenchError>
         secondary.insert("predicted_risky_count".to_string(), predicted.len() as f64);
         secondary.insert("scored_files".to_string(), to_score.len() as f64);
         secondary.insert(format!("f1_at_{:.2}_cutoff", RISKY_CUTOFF), f1_at_cutoff);
+        secondary.insert(format!("f2_at_{:.2}_cutoff", RISKY_CUTOFF), f2_at_cutoff);
         secondary.insert(
             format!("precision_at_{:.2}_cutoff", RISKY_CUTOFF),
             precision_at_cutoff,
@@ -206,6 +216,8 @@ pub fn score_risk(opts: &ScoreOpts) -> Result<Vec<M3LeaderboardRow>, BenchError>
         // eval metric (≈ AUC-PR proxy, robust to threshold choice).
         let mut max_f1 = 0.0_f64;
         let mut max_f1_thr = 0.0_f32;
+        let mut max_f2 = 0.0_f64;
+        let mut max_f2_thr = 0.0_f32;
         // PR curve diagnostic — sweep thresholds so users see ga's
         // operating range. e.g. "pr_at_0.20_recall=0.80" + "pr_at_0.40_precision=1.00"
         // tells you "lower the cutoff to 0.20 to get higher recall while
@@ -236,15 +248,27 @@ pub fn score_risk(opts: &ScoreOpts) -> Result<Vec<M3LeaderboardRow>, BenchError>
             } else {
                 2.0 * p_t * r_t / (p_t + r_t)
             };
+            let f2_t = if 4.0 * p_t + r_t == 0.0 {
+                0.0
+            } else {
+                5.0 * p_t * r_t / (4.0 * p_t + r_t)
+            };
             secondary.insert(format!("pr_at_{:.2}_precision", thr), p_t);
             secondary.insert(format!("pr_at_{:.2}_recall", thr), r_t);
             secondary.insert(format!("pr_at_{:.2}_f1", thr), f1_t);
+            secondary.insert(format!("pr_at_{:.2}_f2", thr), f2_t);
             if f1_t > max_f1 {
                 max_f1 = f1_t;
                 max_f1_thr = thr;
             }
+            if f2_t > max_f2 {
+                max_f2 = f2_t;
+                max_f2_thr = thr;
+            }
         }
         secondary.insert("max_f1_threshold".to_string(), max_f1_thr as f64);
+        secondary.insert("max_f2".to_string(), max_f2);
+        secondary.insert("max_f2_threshold".to_string(), max_f2_thr as f64);
 
         let spec_status = if max_f1 >= RISK_F1_TARGET {
             SpecStatus::Pass

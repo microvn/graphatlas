@@ -1,4 +1,4 @@
-# M3 Gate — `rename_safety` on `preact`
+# M3 Gate — `rename_safety` on `kotlinx-coroutines`
 
 **Rule:** Hrn-static
 
@@ -6,7 +6,7 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| **FAIL** | ga | 0.500 | 0.900 | 23 |
+| PASS | ga | 1.000 | 0.900 | 0 |
 | DEFERRED | codebase-memory | 0.000 | 0.900 | 0 |
 | DEFERRED | code-review-graph | 0.000 | 0.900 | 0 |
 | DEFERRED | gitnexus | 0.000 | 0.900 | 0 |
@@ -14,11 +14,11 @@
 ### Secondary metrics
 
 **ga**:
-- `poly_target_count` = 10.000
-- `recall_polymorphic` = 0.500
-- `recall_unique` = 0.556
+- `poly_target_count` = 0.000
+- `recall_polymorphic` = 1.000
+- `recall_unique` = 1.000
 - `spec_target_polymorphic` = 0.700
-- `unique_target_count` = 9.000
+- `unique_target_count` = 0.000
 
 **codebase-memory**:
 - `note_competitor_adapter_pending` = 0.000
@@ -29,4 +29,4 @@
 **gitnexus**:
 - `note_competitor_adapter_pending` = 0.000
 
-**SPEC GATE: 3 pass, 1 fail (target: all pass)**
+**SPEC GATE: 4 pass, 0 fail (target: all pass)**

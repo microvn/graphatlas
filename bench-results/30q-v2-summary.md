@@ -6,22 +6,24 @@
 
 ## Cross-fixture average (per tool)
 
-| Tool | Avg F1 | Avg Recall | Avg Precision | Avg Pass % | Coverage |
-|------|------:|----------:|-------------:|----------:|----------|
-| ga | 0.429 | 0.454 | 0.462 | 81.7% | 18/18 |
-| ripgrep | 0.000 | 0.000 | 0.000 | 0.0% | 0/18 |
-| codegraphcontext | 0.000 | 0.000 | 0.000 | 0.0% | 0/18 |
-| codebase-memory | 0.112 | 0.236 | 0.104 | 8.3% | 18/18 |
-| code-review-graph | 0.000 | 0.000 | 0.000 | 0.0% | 18/18 |
-| gitnexus | 0.193 | 0.184 | 0.288 | 21.7% | 18/18 |
+| Tool | Avg F1 | Avg F2 | Avg Recall | Avg Precision | Avg Pass % | Coverage | Avg payload tok | Tok / F1·100 |
+|------|------:|------:|----------:|-------------:|----------:|----------|----------------:|-------------:|
+| ga | 0.429 | 0.433 | 0.454 | 0.462 | 81.7% | 18/18 | 320 | 7.4 |
+| ripgrep | 0.000 | — | 0.000 | 0.000 | 0.0% | 0/18 | — | — |
+| codegraphcontext | 0.000 | — | 0.000 | 0.000 | 0.0% | 0/18 | — | — |
+| codebase-memory | 0.112 | 0.142 | 0.236 | 0.104 | 8.3% | 18/18 | 48 | 4.3 |
+| code-review-graph | 0.000 | 0.000 | 0.000 | 0.000 | 0.0% | 18/18 | 0 | — |
+| gitnexus | 0.195 | 0.184 | 0.185 | 0.292 | 22.0% | 18/18 | 8 | 0.4 |
+
+> **Tok / F1·100** = mean payload tokens divided by F1×100. Lower = more correctness per token. Caveat: file-set F1 ignores within-response detail; see `benches/cross-tool-mcp/` for real-MCP audit.
 
 ## CALLERS per fixture
 
 | Fixture | ga | ripgrep | codegraphcontext | codebase-memory | code-review-graph | gitnexus |
 |---|---|---|---|---|---|---|
 | preact | 0.74 | — | — | 0.18 | 0.00 | 0.20 |
-| gin | 0.68 | — | — | 0.21 | 0.00 | 0.37 |
-| tokio | 0.56 | — | — | 0.06 | 0.00 | 0.24 |
+| gin | 0.68 | — | — | 0.21 | 0.00 | 0.38 |
+| tokio | 0.56 | — | — | 0.06 | 0.00 | 0.25 |
 | django | 0.59 | — | — | 0.21 | 0.00 | 0.34 |
 | php-symfony-console | 0.64 | — | — | 0.12 | 0.00 | 0.32 |
 | kotlinx-coroutines | 0.63 | — | — | 0.17 | 0.00 | 0.32 |
@@ -32,7 +34,7 @@
 |---|---|---|---|---|---|---|
 | preact | 0.50 | — | — | 0.18 | 0.00 | 0.22 |
 | gin | 0.51 | — | — | 0.21 | 0.00 | 0.33 |
-| tokio | 0.67 | — | — | 0.13 | 0.00 | 0.19 |
+| tokio | 0.67 | — | — | 0.13 | 0.00 | 0.21 |
 | django | 0.75 | — | — | 0.18 | 0.00 | 0.23 |
 | php-symfony-console | 0.66 | — | — | 0.16 | 0.00 | 0.40 |
 | kotlinx-coroutines | 0.79 | — | — | 0.18 | 0.00 | 0.33 |
@@ -47,6 +49,41 @@
 | django | 0.00 | — | — | 0.00 | 0.00 | 0.00 |
 | php-symfony-console | 0.00 | — | — | 0.00 | 0.00 | 0.00 |
 | kotlinx-coroutines | 0.00 | — | — | 0.00 | 0.00 | 0.00 |
+
+## Payload tokens per fixture (mean per task)
+
+### CALLERS
+
+| Fixture | ga | ripgrep | codegraphcontext | codebase-memory | code-review-graph | gitnexus |
+|---|---|---|---|---|---|---|
+| preact | 278 | — | — | 12 | 0 | 3 |
+| gin | 364 | — | — | 26 | 0 | 9 |
+| tokio | 355 | — | — | 7 | 0 | 5 |
+| django | 780 | — | — | 71 | 0 | 13 |
+| php-symfony-console | 368 | — | — | 180 | 0 | 20 |
+| kotlinx-coroutines | 682 | — | — | 69 | 0 | 9 |
+
+### CALLEES
+
+| Fixture | ga | ripgrep | codegraphcontext | codebase-memory | code-review-graph | gitnexus |
+|---|---|---|---|---|---|---|
+| preact | 518 | — | — | 20 | 0 | 4 |
+| gin | 320 | — | — | 31 | 0 | 6 |
+| tokio | 655 | — | — | 8 | 0 | 3 |
+| django | 368 | — | — | 82 | 0 | 6 |
+| php-symfony-console | 377 | — | — | 247 | 0 | 8 |
+| kotlinx-coroutines | 405 | — | — | 104 | 0 | 9 |
+
+### SYMBOLS
+
+| Fixture | ga | ripgrep | codegraphcontext | codebase-memory | code-review-graph | gitnexus |
+|---|---|---|---|---|---|---|
+| preact | 50 | — | — | 0 | 0 | 4 |
+| gin | 41 | — | — | 0 | 0 | 12 |
+| tokio | 46 | — | — | 0 | 0 | 8 |
+| django | 48 | — | — | 0 | 0 | 1 |
+| php-symfony-console | 43 | — | — | 0 | 0 | 10 |
+| kotlinx-coroutines | 56 | — | — | 0 | 0 | 5 |
 
 ## Coverage gaps (tool × fixture × uc with F1=0)
 

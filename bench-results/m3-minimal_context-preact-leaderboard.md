@@ -6,23 +6,31 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| PASS | ga | 0.736 | 0.700 | 21 |
+| PASS | ga | 0.736 | 0.700 | 19 |
+| DEFERRED | codebase-memory | 0.000 | 0.700 | 0 |
+| DEFERRED | code-review-graph | 0.000 | 0.700 | 0 |
 | DEFERRED | gitnexus | 0.000 | 0.700 | 0 |
 
 ### Secondary metrics
 
 **ga**:
-- `file_precision` = 0.583
+- `file_precision` = 0.597
 - `pin_enabled` = 1.000
 - `pin_failed_count` = 0.000
-- `recall_per_1k_tokens` = 9.712
+- `recall_per_1k_tokens` = 10.054
 - `seed_symbol_not_found_at_hinted_file_count` = 2.000
 - `seed_symbol_not_found_count` = 0.000
 - `task_count` = 12.000
 - `test_recall` = 0.083
 - `truncation_correctness_rate` = 1.000
 
+**codebase-memory**:
+- `note_competitor_adapter_pending` = 0.000
+
+**code-review-graph**:
+- `note_competitor_adapter_pending` = 0.000
+
 **gitnexus**:
 - `note_competitor_adapter_pending` = 0.000
 
-**SPEC GATE: 2 pass, 0 fail (target: all pass)**
+**SPEC GATE: 4 pass, 0 fail (target: all pass)**

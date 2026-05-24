@@ -105,6 +105,14 @@ pub fn score_architecture(opts: &ScoreOpts) -> Result<Vec<M3LeaderboardRow>, Ben
         } else {
             2.0 * precision * recall / (precision + recall)
         };
+        // F2 — recall priority on edge-set. Missing a real architectural edge
+        // (false negative) is worse than over-reporting one (false positive)
+        // when the bench reader is checking module structure soundness.
+        let f2 = if 4.0 * precision + recall == 0.0 {
+            0.0
+        } else {
+            5.0 * precision * recall / (4.0 * precision + recall)
+        };
 
         // OpenAI/Codex review fix: implement Spearman rank correlation
         // per AS-019 primary metric (F1 fallback was the cycle B
@@ -140,6 +148,7 @@ pub fn score_architecture(opts: &ScoreOpts) -> Result<Vec<M3LeaderboardRow>, Ben
 
         let mut secondary = BTreeMap::new();
         secondary.insert("edge_f1".to_string(), f1);
+        secondary.insert("edge_f2".to_string(), f2);
         secondary.insert("edge_precision".to_string(), precision);
         secondary.insert("edge_recall".to_string(), recall);
         secondary.insert(
