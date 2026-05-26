@@ -1,5 +1,9 @@
 # GraphAtlas
 
+<p align="center">
+  <img src="assets/cover.png" alt="GraphAtlas — graph-based code context for AI coding agents" width="100%">
+</p>
+
 Graph-based code-context engine for AI coding agents. Rust workspace, MCP-native, dual-licensed MIT/Apache.
 
 [![CI](https://github.com/microvn/graphatlas/actions/workflows/ci.yml/badge.svg)](https://github.com/microvn/graphatlas/actions)
