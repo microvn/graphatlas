@@ -22,6 +22,25 @@ use ga_core::Lang;
 use serde_json::Value;
 use std::path::Path;
 
+/// What the retriever would actually surface to the LLM agent.
+///
+/// `paths` is used for set-based F1 (legacy [`Retriever::query`] semantics).
+/// `serialized` is the MCP-shape payload the agent would receive — the input
+/// for [`crate::token_cost::bytes_to_tokens`] applied at the response level
+/// (distinct from the M2 file-read cost that walks the prefix).
+///
+/// Default [`Retriever::query_response`] impl serializes `paths` as a JSON
+/// array, which is the honest representation for path-list retrievers like
+/// `bm25` / `ripgrep`. Retrievers whose real MCP payload is richer (GA's
+/// `CallersResponse` with confidence/site_line, Semble's chunk + content)
+/// override to surface the full payload — this makes "semantic noise costs
+/// tokens" measurable instead of invisible.
+#[derive(Debug, Clone, Default)]
+pub struct RetrievedResponse {
+    pub paths: Vec<String>,
+    pub serialized: String,
+}
+
 pub trait Retriever: Send {
     /// Short identifier written into leaderboard `retriever` column (e.g.
     /// `"ga"`, `"ripgrep"`, `"codegraphcontext"`).
@@ -57,6 +76,19 @@ pub trait Retriever: Send {
     /// `"importers"`, `"symbols"`, `"file_summary"`). `query` is the raw
     /// ground-truth task query object (shape depends on UC).
     fn query(&mut self, uc: &str, query: &Value) -> Result<Vec<String>, BenchError>;
+
+    /// Same task as [`Self::query`] but returns both the path set (for F1)
+    /// and the serialized MCP-shape payload (for response-token-cost).
+    ///
+    /// Default impl wraps `query` and serializes paths as a JSON array — the
+    /// honest baseline for retrievers that only return path lists. Override
+    /// when the real MCP response carries more (GA: full `CallersResponse`;
+    /// Semble: chunks with `content`).
+    fn query_response(&mut self, uc: &str, query: &Value) -> Result<RetrievedResponse, BenchError> {
+        let paths = self.query(uc, query)?;
+        let serialized = serde_json::to_string(&paths).unwrap_or_else(|_| String::new());
+        Ok(RetrievedResponse { paths, serialized })
+    }
 
     /// Release resources. Called even on error paths.
     fn teardown(&mut self) {}
