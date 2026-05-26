@@ -76,6 +76,16 @@ pub fn dispatch_tool_call_with_ctx(
     name: &str,
     args: &Value,
 ) -> Result<ToolsCallResult> {
+    // v1.5 PR6.1 (multi-mcp) H-4 — at every tool entry (except ga_reindex
+    // which owns its own rebuild flow), best-effort reopen the lbug
+    // handle if a peer writer bumped the on-disk graph_generation. Bounds
+    // long-reader inode pinning to one generation skew across tool calls.
+    // Skip silently if another tool call is in flight (refcount > 1) or
+    // mid-rebuild (cell empty) — staleness gate at handlers.rs catches
+    // anything serious.
+    if name != "ga_reindex" {
+        let _ = ctx.refresh_if_stale();
+    }
     match name {
         "ga_callers" => callers::call(ctx, args),
         "ga_callees" => callees::call(ctx, args),

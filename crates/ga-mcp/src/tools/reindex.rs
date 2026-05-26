@@ -23,6 +23,7 @@
 use crate::context::McpContext;
 use crate::types::{ContentBlock, ToolDescriptor, ToolsCallResult};
 use ga_core::{Error, Result};
+use ga_index::OpenOutcome;
 use serde_json::{json, Value};
 
 pub(super) fn descriptor() -> ToolDescriptor {
@@ -126,9 +127,26 @@ pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     let mut files_indexed: u64 = 0;
     let new_store = ctx.rebuild_via(|store| {
         let repo_root_inner = std::path::PathBuf::from(&store.metadata().repo_root);
-        let mut fresh = store
+        let fresh = store
             .reindex_in_place(&repo_root_inner)
             .map_err(|e| Error::Other(anyhow::anyhow!("reindex_in_place: {e}")))?;
+        // v1.5 PR6.1 (multi-mcp) S-001 AS-002 — when a peer process holds
+        // the writer flock, `reindex_in_place` re-attaches read-only via
+        // `open_read_only`, landing in `OpenOutcome::AttachedReadOnly`.
+        // We MUST NOT call `build_index` on this Store (lbug would
+        // refuse the COPY/CREATE DDL with "Cannot execute write
+        // operations in a read-only database"). Install the read-only
+        // store back in the cell so the outer handler can surface
+        // AlreadyReindexing AND so subsequent ga_reindex calls (after
+        // peer releases) can recover.
+        //
+        // NB: check outcome, NOT `is_read_only()` — post-seal writers
+        // also have read_only=true but their outcome is FreshBuild /
+        // Resumed / RebuildCrashRecovery, not AttachedReadOnly.
+        if matches!(fresh.outcome(), OpenOutcome::AttachedReadOnly { .. }) {
+            return Ok(fresh);
+        }
+        let mut fresh = fresh;
         let stats = ga_query::indexer::build_index(&fresh, &repo_root_inner)
             .map_err(|e| Error::Other(anyhow::anyhow!("build_index: {e}")))?;
         files_indexed = stats.files as u64;
@@ -138,6 +156,21 @@ pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
         Ok(fresh)
     })?;
     let took_ms = started.elapsed().as_millis() as u64;
+
+    // v1.5 PR6.1 (multi-mcp) S-001 AS-002 — surface peer contention as
+    // AlreadyReindexing (-32014). The read-only Store is already
+    // installed back in the cell so subsequent reindex attempts can
+    // recover once the peer releases. Match on outcome (not
+    // is_read_only) to avoid false-positive on the post-seal writer
+    // happy path where read_only=true but outcome is FreshBuild/Resumed.
+    if matches!(new_store.outcome(), OpenOutcome::AttachedReadOnly { .. }) {
+        return Err(Error::AlreadyReindexing {
+            hint: "peer process is currently reindexing this repo; \
+                   retry after it completes (~10s for typical repos)"
+                .to_string(),
+        });
+    }
+
     let gen_after = new_store.metadata().graph_generation;
     let new_root_hash = new_store.metadata().indexed_root_hash.clone();
 

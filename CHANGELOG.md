@@ -7,6 +7,64 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-05-26
+
+Multi-MCP reindex correctness — fix concurrent reindex bug + recovery
+escape hatch. See `docs/specs/graphatlas-v1.5/graphatlas-v1.5-reindex-multi-mcp.md`.
+
+### Added
+- `graphatlas reset <repo>` CLI for stuck/corrupt cache recovery. Default
+  refuses if the per-repo flock is held by a live process; `--force`
+  bypasses the probe (only after operator confirms holder is dead).
+  Bench fixture paths refused in both modes.
+- `McpContext::refresh_if_stale` invoked at every MCP tool dispatch
+  entry (except `ga_reindex`) so long-running readers reopen the lbug
+  handle when peer writers bump generation. Bounds inode pinning.
+- `Store::open_with_root_and_schema_with_lock` variant that consumes
+  a caller-provided exclusive flock — eliminates the drop-then-reacquire
+  race window in `reindex_in_place`.
+- Multi-process integration tests in `crates/ga-index/tests/` driven by
+  new helper binaries `ga_index_lock_holder` and `ga_index_lbug_opener`.
+- Spike examples documenting POSIX inode persistence + cross-process
+  lbug coexistence on macOS APFS.
+
+### Changed
+- `reindex_in_place` now acquires the exclusive flock BEFORE
+  `nuke_cache_files` (was after), preventing cache corruption when
+  the acquire fails. Peer-held case returns `Ok(read_only_store)` so
+  the MCP store cell stays populated.
+- `Store::open_read_only` no longer holds a long-lived shared flock —
+  cross-process steady state has zero application-level flock held.
+  Boot-race against an in-progress initial build now polls with
+  exponential backoff (100ms..2s, 30s budget) before returning Err.
+- `seal_for_serving` releases the exclusive flock entirely instead of
+  downgrading to shared. Post-seal writer holds no flock so peers can
+  freely transition to writer for their own reindex.
+- `LockFile::downgrade_to_shared` marked `#[deprecated]` (retained as
+  potential Windows / NFS fallback API).
+- MCP `ga_reindex` handler returns `-32014 ALREADY_REINDEXING` when a
+  peer is reindexing; client retries after the peer commits.
+
+### Fixed
+- **agentfolk-e1c32d stuck-cache bug (2026-05-25):** suspended writer
+  + read-only MCP peer + watcher-triggered reindex left
+  `~/.graphatlas/<repo>/lock.pid` orphaned with `graph.db` unlinked
+  forever. Root cause: pre-PR6.1 `reindex_in_place` nuked the cache
+  before re-acquiring the exclusive lock; the long-lived shared flock
+  from the reader blocked any exclusive upgrade. Investigation report:
+  `docs/investigate/ga-multi-terminal-reindex-stuck-lock-2026-05-26.md`.
+- **Concurrent reindex traps loser forever (2026-05-26):** two MCP
+  processes firing `ga_reindex` simultaneously caused the loser's
+  `build_index` to run on a read-only Store (lbug refused with "Cannot
+  execute write operations in a read-only database"), leaving the
+  process unable to reindex. Handler now checks `OpenOutcome::AttachedReadOnly`
+  and short-circuits to `ALREADY_REINDEXING` without invoking `build_index`,
+  preserving the cell for recovery.
+
+### CI
+- New `reset-no-kill` job greps `src/cmd_reset.rs` to enforce the
+  no-kill constraint declared in the multi-mcp spec.
+
 ## [0.1.0] - 2026-05-21
 
 Initial public release. Pre-1.0 alpha — API may change between minor

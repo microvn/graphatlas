@@ -82,7 +82,11 @@ impl std::fmt::Display for LockError {
     }
 }
 
-fn humanize_duration(secs: u64) -> String {
+/// Human-readable duration formatter for lock-holder diagnostics
+/// (`graphatlas reset` + `tracing::warn!` on peer-detected refusals).
+/// Public per v1.5 PR6.1 (multi-mcp) S-003 — exposed so `cmd_reset.rs`
+/// renders identical strings to the lock-acquire failure messages.
+pub fn humanize_duration(secs: u64) -> String {
     match secs {
         0..=1 => "just now".to_string(),
         2..=59 => format!("{secs} seconds"),
@@ -214,9 +218,22 @@ impl LockFile {
     }
 
     /// Downgrade an exclusive lock to shared so other readers can attach.
-    /// Called by the writer after `commit_in_place` succeeds, so subsequent
-    /// query-only instances can serve traffic against the now-committed cache.
-    /// `flock(2)` and `LockFileEx` both treat a re-lock as a conversion.
+    ///
+    /// **Deprecated v1.5 PR6.1 (multi-mcp).** Long-lived shared flock at
+    /// post-seal steady state was the load-bearing cause of Bug #3 in
+    /// `docs/investigate/ga-multi-terminal-reindex-stuck-lock-2026-05-26.md`
+    /// — once any peer holds shared, no process can upgrade to exclusive
+    /// for reindex. PR6.1's `seal_for_serving` now uses [`Self::release`]
+    /// to drop the flock entirely; readers do not acquire flock at all.
+    /// Retained as `#[deprecated]` (not deleted) because it remains the
+    /// natural fallback API if a per-tool-call short shared flock is
+    /// required on Windows / NFS — see `reindex-multi-mcp.md` Risk register.
+    #[deprecated(
+        since = "0.1.0",
+        note = "PR6.1 forbids long-lived shared flock. Use LockFile::release \
+                instead, and only re-acquire shared briefly per-tool-call \
+                if Windows/NFS verification requires it."
+    )]
     pub fn downgrade_to_shared(&mut self) -> Result<()> {
         if self.mode == LockMode::Shared {
             return Ok(());
@@ -297,7 +314,11 @@ fn write_sidecar_in_place(file: &File, bytes: &[u8]) -> std::io::Result<()> {
     f.flush()
 }
 
-fn read_lock(path: &Path) -> std::result::Result<LockInfo, LockError> {
+/// Parse a `lock.pid` sidecar JSON best-effort. Public per v1.5 PR6.1
+/// (multi-mcp) S-003 — `graphatlas reset` reads the sidecar to render a
+/// plain-text "Holder PID was X on H per sidecar (last seen T ago)"
+/// diagnostic before wiping the cache.
+pub fn read_lock(path: &Path) -> std::result::Result<LockInfo, LockError> {
     let bytes = std::fs::read(path).map_err(|e| LockError::Io(e.to_string()))?;
     serde_json::from_slice::<LockInfo>(&bytes).map_err(|e| LockError::Io(e.to_string()))
 }

@@ -127,6 +127,34 @@ EXAMPLES:
         json_progress: bool,
     },
 
+    /// Wipe a stuck/corrupt per-repo cache and rebuild it from scratch.
+    #[command(long_about = "\
+Recovery for stuck or corrupt cache (v1.5 PR6.1 multi-mcp).
+
+By default, refuses if a live process holds the per-repo exclusive flock
+on the cache — wiping a live writer's mmap'd graph.db can corrupt the
+rebuild. Use --force ONLY after confirming the holder PID is dead or
+has been manually killed (`graphatlas reset` itself NEVER kills any
+process).
+
+Bench fixture paths are always refused, in both default and --force
+modes — reset would corrupt M1/M2/M3 gates.
+
+EXAMPLES:
+  graphatlas reset                # Reset the current directory.
+  graphatlas reset /path/repo     # Reset a specific path.
+  graphatlas reset --force        # Bypass lock probe (only after manual kill).
+")]
+    Reset {
+        /// Repo root whose cache should be reset. Defaults to current directory.
+        #[arg(value_name = "PATH")]
+        repo: Option<PathBuf>,
+        /// Skip the lock-probe safety check. Use only after confirming the
+        /// holder process is dead. Does NOT kill any process.
+        #[arg(long)]
+        force: bool,
+    },
+
     /// Diagnose install + cache health (S-002).
     #[command(long_about = "\
 Run five health checks and print ✓ / ✗ per line with a remediation hint:
@@ -378,6 +406,7 @@ fn main() -> Result<()> {
             repo,
             json_progress,
         }) => graphatlas::cmd_reindex::cmd_reindex(repo, json_progress),
+        Some(Command::Reset { repo, force }) => graphatlas::cmd_reset::cmd_reset(repo, force),
         Some(Command::Ui {
             port,
             frontend_port,
