@@ -12,20 +12,24 @@ fn sample() -> Leaderboard {
             LeaderEntry {
                 retriever: "ga".to_string(),
                 f1: 0.92,
+                f2: 0.94,
                 recall: 0.95,
                 precision: 0.90,
                 mrr: 0.0,
                 p95_latency_ms: 12,
                 pass_rate: 1.0,
+                payload_tokens_mean: 120.0,
             },
             LeaderEntry {
                 retriever: "ripgrep".to_string(),
                 f1: 0.45,
+                f2: 0.62,
                 recall: 0.80,
                 precision: 0.30,
                 mrr: 0.0,
                 p95_latency_ms: 5,
                 pass_rate: 0.8,
+                payload_tokens_mean: 800.0,
             },
         ],
     }
@@ -40,7 +44,9 @@ fn leaderboard_shape_matches_spec() {
 
     assert!(md.contains("# Leaderboard: UC `callers`"));
     assert!(md.contains("**Hardware:** M1 Mac 16GB"));
-    assert!(md.contains("| Retriever | F1 | Recall | Precision | MRR | p95 latency | pass rate |"));
+    assert!(md.contains(
+        "| Retriever | F1 | F2 | Recall | Precision | MRR | p95 latency | pass rate | payload tokens |"
+    ));
     assert!(md.contains("| ga |"));
     assert!(md.contains("| ripgrep |"));
 }

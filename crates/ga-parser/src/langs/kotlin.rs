@@ -41,8 +41,13 @@ const EXTENDS: &[&str] = &["class_declaration", "object_declaration"];
 // property type. Wired on `property_declaration` (not on the annotation
 // node) so multiple annotations on the same property emit ONE ref, not N.
 // Mirrors Java field_declaration emit-once semantics.
-const REF_EMITTERS: &[(&str, RefEmitter)] =
-    &[("property_declaration", extract_annotated_property_ref)];
+// Cross-lang sweep (2026-05-23) — mirror LANG-2 (PHP `Class::method()`).
+// `Type.method()` companion-object calls emit a REFERENCES edge to `Type`
+// so `ga_callers Type` surfaces invocation sites of any companion method.
+const REF_EMITTERS: &[(&str, RefEmitter)] = &[
+    ("property_declaration", extract_annotated_property_ref),
+    ("call_expression", extract_scoped_call_class_ref),
+];
 
 impl LanguageSpec for KotlinLang {
     fn lang(&self) -> Lang {
@@ -531,4 +536,134 @@ fn property_type_node<'t>(node: &Node<'t>) -> Option<Node<'t>> {
         }
     }
     None
+}
+
+/// Cross-lang sweep (2026-05-23) — mirror LANG-2 PHP `Class::method()`.
+/// Emit a REFERENCES edge to the receiver of a Kotlin `Type.method(args)`
+/// companion-object call.
+///
+/// Tree-sitter-kotlin-ng `call_expression` shape for `MyClass.staticFn(42)`:
+///   call_expression
+///     navigation_expression
+///       identifier "MyClass"
+///       .
+///       identifier "staticFn"
+///     value_arguments(...)
+///
+/// For nested paths (`pkg.Util.fn()`) the navigation_expression nests; we
+/// take the LAST identifier of the inner receiver portion (i.e. the identifier
+/// immediately before the trailing method name).
+///
+/// Skips `this` / `super` / `it` keywords and stdlib types listed in
+/// `is_kotlin_stdlib_type`.
+fn extract_scoped_call_class_ref(
+    node: &Node<'_>,
+    source: &[u8],
+    enclosing: &Option<String>,
+    out: &mut Vec<ParsedReference>,
+) {
+    let mut cursor = node.walk();
+    let first_child = node.children(&mut cursor).next();
+    let Some(nav) = first_child else { return };
+    if nav.kind() != "navigation_expression" {
+        return;
+    }
+    // Collect immediate identifier children of the outer navigation_expression
+    // and the nested navigation_expression (one level deep) so qualified paths
+    // like `pkg.Util.fn()` still surface `Util` as receiver.
+    let receiver = navigation_receiver_identifier(&nav, source);
+    let Some(receiver_text) = receiver else {
+        return;
+    };
+    if matches!(receiver_text.as_str(), "this" | "super" | "it") {
+        return;
+    }
+    if !receiver_text
+        .chars()
+        .next()
+        .map(|c| c.is_ascii_uppercase())
+        .unwrap_or(false)
+    {
+        return;
+    }
+    if is_kotlin_stdlib_type(&receiver_text) {
+        return;
+    }
+    out.push(ParsedReference {
+        enclosing_symbol: enclosing.clone(),
+        target_name: receiver_text,
+        ref_site_line: (nav.start_position().row as u32) + 1,
+        ref_kind: RefKind::TypePosition,
+    });
+}
+
+/// Given a navigation_expression node, return the receiver identifier (the
+/// segment immediately before the trailing method-name identifier). Walks one
+/// level into a nested navigation_expression to support qualified paths.
+fn navigation_receiver_identifier(nav: &Node<'_>, source: &[u8]) -> Option<String> {
+    // Collect immediate identifier children.
+    let mut idents: Vec<Node> = Vec::new();
+    let mut nested: Option<Node> = None;
+    let mut cursor = nav.walk();
+    for child in nav.children(&mut cursor) {
+        match child.kind() {
+            "identifier" => idents.push(child),
+            "navigation_expression" => nested = Some(child),
+            _ => {}
+        }
+    }
+    // Simple case `MyClass.fn`: two identifiers → first is receiver.
+    if idents.len() >= 2 {
+        return idents[idents.len() - 2]
+            .utf8_text(source)
+            .ok()
+            .map(str::to_string);
+    }
+    // Nested case `pkg.Util.fn`: the inner nav holds the qualified receiver;
+    // the outer nav contributes only the trailing method identifier. Take the
+    // last immediate identifier of the inner nav as the receiver.
+    if let Some(inner) = nested {
+        let mut inner_cursor = inner.walk();
+        let mut last: Option<String> = None;
+        for c in inner.children(&mut inner_cursor) {
+            if c.kind() == "identifier" {
+                if let Ok(t) = c.utf8_text(source) {
+                    last = Some(t.to_string());
+                }
+            }
+        }
+        return last;
+    }
+    None
+}
+
+/// Kotlin stdlib types whose static-call receivers would dominate the graph.
+fn is_kotlin_stdlib_type(name: &str) -> bool {
+    matches!(
+        name,
+        "String"
+            | "Int"
+            | "Long"
+            | "Double"
+            | "Float"
+            | "Boolean"
+            | "Char"
+            | "Byte"
+            | "Short"
+            | "Any"
+            | "Unit"
+            | "Nothing"
+            | "List"
+            | "Map"
+            | "Set"
+            | "MutableList"
+            | "MutableMap"
+            | "MutableSet"
+            | "Array"
+            | "Math"
+            | "System"
+            | "Throwable"
+            | "Exception"
+            | "RuntimeException"
+    )
 }

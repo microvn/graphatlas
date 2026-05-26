@@ -2,11 +2,11 @@
 # graphatlas install.sh — AS-004 one-liner installer.
 #
 # Usage (normal):
-#   curl -fsSL https://graphatlas.dev/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/microvn/graphatlas/main/install.sh | sh
 #
 # Env overrides (primarily for tests + alternative release channels):
 #   GRAPHATLAS_RELEASE_BASE   base URL for release assets
-#                             (default: https://github.com/graphatlas-dev/graphatlas/releases/latest/download)
+#                             (default: https://github.com/microvn/graphatlas/releases/latest/download)
 #   GRAPHATLAS_VERSION        override detected version tag (default: latest)
 #   GRAPHATLAS_BIN_DIR        install target (default: ~/.local/bin)
 #   GRAPHATLAS_SKIP_SHA256    "1" to skip sha256 check — STRONGLY NOT RECOMMENDED
@@ -20,7 +20,7 @@
 
 set -euo pipefail
 
-RELEASE_BASE="${GRAPHATLAS_RELEASE_BASE:-https://github.com/graphatlas-dev/graphatlas/releases/latest/download}"
+RELEASE_BASE="${GRAPHATLAS_RELEASE_BASE:-https://github.com/microvn/graphatlas/releases/latest/download}"
 BIN_DIR="${GRAPHATLAS_BIN_DIR:-$HOME/.local/bin}"
 SKIP_SHA="${GRAPHATLAS_SKIP_SHA256:-0}"
 
@@ -40,20 +40,21 @@ case "$os" in
         esac
         ;;
     Linux)
-        # Musl detection: common signal is that `ldd --version` mentions 'musl'
-        # and dynamic-link check on /bin/sh comes back with ld-musl-*.
-        libc=gnu
+        # v0.1.0 ships glibc-linked binaries only. Detect musl + warn so
+        # the user gets a clear error instead of a runtime "not found".
+        # Musl support is tracked for a future release (needs musl-g++ in
+        # the build matrix; `musl-tools` alone doesn't cover lbug's C++).
         if ldd --version 2>&1 | grep -qi musl; then
-            libc=musl
+            err "musl libc detected — v0.1.0 ships glibc binaries only. Build from source: cargo install --git https://github.com/microvn/graphatlas"
         fi
         case "$arch" in
-            x86_64)  target="linux-x86_64-$libc" ;;
+            x86_64)  target="linux-x86_64-gnu" ;;
             aarch64) target="linux-aarch64" ;;
             *) err "unsupported Linux arch: $arch" ;;
         esac
         ;;
     MINGW*|MSYS*|CYGWIN*)
-        target="windows-x86_64"
+        err "Windows: download graphatlas-windows-x86_64.zip from the GitHub release page and extract manually — install.sh handles tarballs only."
         ;;
     *) err "unsupported OS: $os" ;;
 esac
@@ -110,14 +111,40 @@ fi
 mkdir -p "$BIN_DIR"
 tar -xzf "$tar_path" -C "$tmp"
 
-# Tarball layout: graphatlas binary at the root.
-src_bin="$tmp/graphatlas"
-[ -f "$src_bin" ] || err "tarball missing graphatlas binary at root"
+# Tarball layout:
+#   graphatlas-<target>/
+#     ├── graphatlas         (CLI / MCP entry)
+#     ├── ga-server          (backend that `graphatlas ui` spawns)
+#     ├── ui-bundle/         (Bun-built React frontend)
+#     ├── LICENSE-MIT, LICENSE-APACHE, README.md
+extract_dir="$tmp/graphatlas-${target}"
+src_bin="$extract_dir/graphatlas"
+src_server="$extract_dir/ga-server"
+src_ui="$extract_dir/ui-bundle"
+[ -f "$src_bin" ] || err "tarball missing graphatlas binary at $src_bin"
 
 cp "$src_bin" "$BIN_DIR/graphatlas"
 chmod 0755 "$BIN_DIR/graphatlas"
-
 info "installed: $BIN_DIR/graphatlas"
+
+# ga-server lives next to graphatlas — resolve_ga_server_bin checks the
+# binary's own directory first, then PATH.
+if [ -f "$src_server" ]; then
+    cp "$src_server" "$BIN_DIR/ga-server"
+    chmod 0755 "$BIN_DIR/ga-server"
+    info "installed: $BIN_DIR/ga-server"
+fi
+
+# UI bundle — `graphatlas ui` looks for ~/.graphatlas/ui-bundle/ as one of
+# its fallback paths (see crates ga-server resolve_frontend_bundle).
+# Without this step, `graphatlas ui` errors with "frontend bundle not found".
+if [ -d "$src_ui" ]; then
+    ui_target="${GRAPHATLAS_UI_DIR:-$HOME/.graphatlas/ui-bundle}"
+    mkdir -p "$(dirname "$ui_target")"
+    rm -rf "$ui_target"
+    cp -R "$src_ui" "$ui_target"
+    info "installed UI bundle: $ui_target"
+fi
 
 # --- PATH hint ------------------------------------------------------------
 

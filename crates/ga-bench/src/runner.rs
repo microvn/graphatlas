@@ -5,8 +5,10 @@
 
 use crate::leaderboard::{write_leaderboard, LeaderEntry, Leaderboard};
 use crate::retriever::Retriever;
-use crate::retrievers::{CgcRetriever, CmRetriever, CrgRetriever, GaRetriever, RipgrepRetriever};
-use crate::score::{f1, mrr, precision, recall};
+use crate::retrievers::{
+    CgcRetriever, CmRetriever, CrgRetriever, GaRetriever, GnRetriever, RipgrepRetriever,
+};
+use crate::score::{f1, f2, mrr, precision, recall};
 use crate::{BenchError, M1GroundTruth};
 use std::path::{Path, PathBuf};
 use std::time::Instant;
@@ -19,6 +21,7 @@ pub const RETRIEVER_NAMES: &[&str] = &[
     "codegraphcontext",
     "codebase-memory",
     "code-review-graph",
+    "gitnexus",
 ];
 
 /// Resolve a list of retriever names (as from `--retrievers ga,cgc,…`) into
@@ -43,6 +46,7 @@ pub fn build_retrievers(
             "codegraphcontext" | "cgc" => Box::new(CgcRetriever::new()),
             "codebase-memory" | "cm" => Box::new(CmRetriever::new()),
             "code-review-graph" | "crg" => Box::new(CrgRetriever::new()),
+            "gitnexus" | "gn" => Box::new(GnRetriever::new()),
             other => {
                 return Err(BenchError::Other(anyhow::anyhow!(
                     "unknown retriever `{other}` — supported: {}",
@@ -142,11 +146,13 @@ pub fn run_uc_with(
                 entries.push(LeaderEntry {
                     retriever: r.name().to_string(),
                     f1: 0.0,
+                    f2: 0.0,
                     recall: 0.0,
                     precision: 0.0,
                     mrr: 0.0,
                     p95_latency_ms: 0,
                     pass_rate: 0.0,
+                    payload_tokens_mean: 0.0,
                 });
             }
         }
@@ -177,16 +183,22 @@ fn run_one_retriever(
 
     let is_ranked = uc == "symbols"; // AS-007 — MRR-scored
     let mut f1s = Vec::with_capacity(gt.tasks.len());
+    let mut f2s = Vec::with_capacity(gt.tasks.len());
     let mut precisions = Vec::with_capacity(gt.tasks.len());
     let mut recalls = Vec::with_capacity(gt.tasks.len());
     let mut mrrs = Vec::with_capacity(gt.tasks.len());
     let mut latencies_ms = Vec::with_capacity(gt.tasks.len());
+    let mut payload_tokens = Vec::with_capacity(gt.tasks.len());
     let mut passed = 0usize;
 
     for task in &gt.tasks {
         let start = Instant::now();
-        let actual = retriever.query(uc, &task.query)?;
+        let resp = retriever.query_response(uc, &task.query)?;
         latencies_ms.push(start.elapsed().as_millis() as u64);
+        // Response-payload token cost. `chars / 4` matches the existing
+        // `estimate_tokens` rule-of-thumb in `ga-query/src/snippet.rs`.
+        payload_tokens.push((resp.serialized.chars().count() / 4) as u64);
+        let actual = resp.paths;
 
         if is_ranked {
             let target = task.expected.first().cloned().unwrap_or_default();
@@ -201,6 +213,7 @@ fn run_one_retriever(
             let act: Vec<&str> = actual.iter().map(|s| s.as_str()).collect();
             let f = f1(&exp, &act);
             f1s.push(f);
+            f2s.push(f2(&exp, &act));
             precisions.push(precision(&exp, &act));
             recalls.push(recall(&exp, &act));
             if f >= 0.5 {
@@ -212,6 +225,7 @@ fn run_one_retriever(
     Ok(LeaderEntry {
         retriever: retriever.name().to_string(),
         f1: if is_ranked { 0.0 } else { mean(&f1s) },
+        f2: if is_ranked { 0.0 } else { mean(&f2s) },
         recall: if is_ranked { 0.0 } else { mean(&recalls) },
         precision: if is_ranked { 0.0 } else { mean(&precisions) },
         mrr: if is_ranked { mean(&mrrs) } else { 0.0 },
@@ -221,6 +235,7 @@ fn run_one_retriever(
         } else {
             passed as f64 / gt.tasks.len() as f64
         },
+        payload_tokens_mean: mean(&payload_tokens.iter().map(|t| *t as f64).collect::<Vec<_>>()),
     })
 }
 

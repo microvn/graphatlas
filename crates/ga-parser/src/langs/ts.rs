@@ -21,10 +21,36 @@ const REF_EMITTERS: &[(&str, RefEmitter)] = &[
 ];
 
 // S-005a D4 — `new_expression` callee extractor migrated from calls.rs.
-const CALLEE_EXTRACTORS: &[(&str, CalleeExtractor)] = &[(
-    "new_expression",
-    crate::langs::shared::extract_new_expression_callee,
-)];
+// LANG-1 (2026-05-22) — JSX element extractors so React function components
+// referenced via `<Foo />` / `<Foo>...</Foo>` produce CALL edges.
+const CALLEE_EXTRACTORS: &[(&str, CalleeExtractor)] = &[
+    (
+        "new_expression",
+        crate::langs::shared::extract_new_expression_callee,
+    ),
+    ("jsx_self_closing_element", extract_jsx_callee),
+    ("jsx_opening_element", extract_jsx_callee),
+];
+
+/// LANG-1 (2026-05-22) — extract component identifier from a JSX element.
+/// Tree-sitter-tsx structure:
+///   jsx_self_closing_element / jsx_opening_element
+///   └── name: identifier | nested_identifier | member_expression
+///
+/// Filters intrinsic HTML tags (lowercase first letter) so `<div>` doesn't
+/// create a fictional call to a `div` symbol. React convention: components
+/// MUST start with uppercase.
+fn extract_jsx_callee(node: &Node<'_>, source: &[u8]) -> Option<String> {
+    let name_node = node.child_by_field_name("name")?;
+    let text = name_node.utf8_text(source).ok()?;
+    // Member expressions like `Foo.Bar` → take trailing segment.
+    let trailing = text.rsplit('.').next().unwrap_or(text);
+    let first_char = trailing.chars().next()?;
+    if !first_char.is_ascii_uppercase() {
+        return None; // intrinsic HTML tag, not a component
+    }
+    Some(trailing.to_string())
+}
 
 const SYMBOLS: &[&str] = &[
     "function_declaration",
@@ -34,9 +60,19 @@ const SYMBOLS: &[&str] = &[
     "interface_declaration",
 ];
 const IMPORTS: &[&str] = &["import_statement"];
-// We load `LANGUAGE_TYPESCRIPT`, not `LANGUAGE_TSX`. Pure TypeScript has no
-// JSX node kinds. `.tsx` support lands in v1.1 when we also pin tree-sitter-tsx.
-const CALLS: &[&str] = &["call_expression", "new_expression"];
+// LANG-1 (2026-05-22): swapped LANGUAGE_TYPESCRIPT → LANGUAGE_TSX in
+// tree_sitter_lang() so `.tsx` files surface JSX element nodes. The TSX
+// grammar is a superset that still parses plain `.ts` correctly. JSX usage
+// (`<Foo />`, `<Foo>...</Foo>`) is registered as a CALL via
+// `jsx_self_closing_element` + `jsx_opening_element` so React function
+// components get caller edges. Intrinsic HTML lowercase tags (`<div>`,
+// `<span>`) are filtered in `extract_jsx_callee` to avoid fictional calls.
+const CALLS: &[&str] = &[
+    "call_expression",
+    "new_expression",
+    "jsx_self_closing_element",
+    "jsx_opening_element",
+];
 const EXTENDS: &[&str] = &["class_declaration", "class"];
 
 impl LanguageSpec for TypeScriptLang {
@@ -45,7 +81,9 @@ impl LanguageSpec for TypeScriptLang {
     }
 
     fn tree_sitter_lang(&self) -> Language {
-        tree_sitter_typescript::LANGUAGE_TYPESCRIPT.into()
+        // LANG-1 (2026-05-22): use TSX grammar (superset of TS) so `.tsx`
+        // files produce JSX nodes. Plain `.ts` still parses correctly.
+        tree_sitter_typescript::LANGUAGE_TSX.into()
     }
 
     fn symbol_node_kinds(&self) -> &'static [&'static str] {

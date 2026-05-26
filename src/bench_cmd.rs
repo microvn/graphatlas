@@ -72,9 +72,10 @@ pub fn cmd_bench(
     );
     for e in &lb.entries {
         println!(
-            "  {:<14} F1={:.3} R={:.3} P={:.3} MRR={:.3} p95={}ms pass={:.0}%",
+            "  {:<14} F1={:.3} F2={:.3} R={:.3} P={:.3} MRR={:.3} p95={}ms pass={:.0}%",
             e.retriever,
             e.f1,
+            e.f2,
             e.recall,
             e.precision,
             e.mrr,

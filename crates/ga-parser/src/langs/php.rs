@@ -63,8 +63,13 @@ const CALLEE_EXTRACTORS: &[(&str, CalleeExtractor)] = &[
     ("object_creation_expression", extract_object_creation_callee),
 ];
 
-const REF_EMITTERS: &[(&str, RefEmitter)] =
-    &[("property_declaration", extract_annotated_property_ref)];
+const REF_EMITTERS: &[(&str, RefEmitter)] = &[
+    ("property_declaration", extract_annotated_property_ref),
+    // LANG-2 (2026-05-22) — `Class::method()` emits a REFERENCES edge to the
+    // class scope so `ga_callers Class` surfaces invocation sites. The
+    // existing CALL edge still carries only `method`.
+    ("scoped_call_expression", extract_scoped_call_class_ref),
+];
 
 impl LanguageSpec for PhpLang {
     fn lang(&self) -> Lang {
@@ -377,6 +382,43 @@ fn collect_qualified_or_name(node: &Node<'_>, source: &[u8], out: &mut Vec<Strin
 // -----------------------------------------------------------------------------
 // AS-004 — DI annotation ref emitter
 // -----------------------------------------------------------------------------
+
+/// LANG-2 (2026-05-22) — emit a REFERENCES edge to the class receiver of a
+/// `Class::method()` static call. Keeps the existing CALL edge (method name
+/// only) and adds the missing class-scope ref so `ga_callers Class` surfaces
+/// every file that invokes any of `Class`'s static methods. The corresponding
+/// gap in Rust (`Foo::bar()`), Python (`Foo.bar()` on a class), Java/C# /
+/// Kotlin static dispatch is analogous; tracked separately per audit doc.
+///
+/// Skips the language keywords `self`, `parent`, `static` — they are scope
+/// keywords, not user types.
+fn extract_scoped_call_class_ref(
+    node: &Node<'_>,
+    source: &[u8],
+    enclosing: &Option<String>,
+    out: &mut Vec<ParsedReference>,
+) {
+    if is_inside_string_body(node) {
+        return;
+    }
+    let Some(scope_node) = node.child_by_field_name("scope") else {
+        return;
+    };
+    // Strip backslash-prefixed namespace (e.g. `\App\Cache::warm()`) → trailing
+    // segment. For plain `Cache::warm()`, returns "Cache".
+    let Some(target_name) = trailing_segment(&scope_node, source) else {
+        return;
+    };
+    if matches!(target_name.as_str(), "self" | "parent" | "static") {
+        return;
+    }
+    out.push(ParsedReference {
+        enclosing_symbol: enclosing.clone(),
+        target_name,
+        ref_site_line: (scope_node.start_position().row as u32) + 1,
+        ref_kind: RefKind::TypePosition,
+    });
+}
 
 /// One ParsedReference per DI-annotated property. Wired on
 /// `property_declaration` (not on `attribute`) so multi-attribute properties

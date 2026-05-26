@@ -81,7 +81,13 @@ fn notfound_symbol_meta_symbol_found_false() {
 }
 
 #[test]
-fn multi_def_no_filter_yields_confidence_point_six() {
+fn multi_def_no_filter_returns_ambiguous() {
+    // Updated 2026-05-22 (CORE-2): previously this test asserted callees
+    // fan out at confidence 0.6 when a multi-def symbol was queried without
+    // a file hint. CORE-2 replaced that fan-out with an ambiguity-first
+    // response — caller must retry with `file:` hint or qualified name.
+    // The setup is preserved; the assertion now validates the corrected
+    // behavior. See docs/investigate/ga-vs-codegraph-head-to-head-2026-05-21.md.
     let tmp = TempDir::new().unwrap();
     let (cache, repo) = setup(&tmp);
     write(
@@ -96,14 +102,20 @@ fn multi_def_no_filter_yields_confidence_point_six() {
     build_index(&store, &repo).unwrap();
 
     let resp = callees(&store, "shared", None).unwrap();
-    assert_eq!(resp.callees.len(), 2);
-    for c in &resp.callees {
-        assert!(
-            (c.confidence - 0.6).abs() < 1e-6,
-            "expected 0.6, got {}",
-            c.confidence
-        );
-    }
+    let dis = resp
+        .disambiguation
+        .as_ref()
+        .expect("multi-def + no hint → ambiguous disambiguation");
+    assert!(
+        dis.candidates.len() >= 2,
+        "expected ≥2 candidates: {:?}",
+        dis.candidates
+    );
+    assert!(
+        resp.callees.is_empty(),
+        "callees must be empty when ambiguous: {:?}",
+        resp.callees
+    );
 }
 
 #[test]

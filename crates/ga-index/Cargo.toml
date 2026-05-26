@@ -26,5 +26,27 @@ tracing = { workspace = true }
 [dev-dependencies]
 tempfile = "3"
 
+# v1.5 PR6.1 (multi-mcp) M-3 — helper binary for multi-process lock
+# scenarios in `tests/multi_process_lock.rs`. Spawned via
+# `std::process::Command` from integration tests; reads sync line
+# `READY\n` from its stdout before running assertions.
+[[bin]]
+name = "ga_index_lock_holder"
+path = "tests/bin/lock_holder.rs"
+test = false
+doc = false
+bench = false
+
+# v1.5 PR6.1 (multi-mcp) cross-process lbug coexistence spike — verifies
+# that two `graphatlas mcp` processes on the same repo can open lbug
+# concurrently in their natural modes. See
+# `crates/ga-index/examples/spike_lbug_cross_process.rs`.
+[[bin]]
+name = "ga_index_lbug_opener"
+path = "tests/bin/lbug_opener.rs"
+test = false
+doc = false
+bench = false
+
 [lints]
 workspace = true

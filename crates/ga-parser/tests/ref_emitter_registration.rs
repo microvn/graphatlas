@@ -54,14 +54,15 @@ fn javascript_registers_shorthand_ref_emitter() {
 }
 
 #[test]
-fn python_does_not_register_lang_specific_ref_emitter() {
-    // Python has no lang-specific ref emitter (pair/list dict patterns are
-    // handled by engine's structural emitters, not per-lang). This test
-    // pins the contract: D3 only migrates Phase A additions, nothing else.
+fn python_registers_call_ref_emitter() {
+    // Cross-lang sweep (2026-05-23) — Python now registers a `call` ref
+    // emitter for PascalCase-receiver class-scope calls (`Foo.bar()`),
+    // mirroring LANG-2 PHP `Class::method()`. Pre-sweep this was empty.
     let pool = ParserPool::new();
     let spec = pool.spec_for(Lang::Python).unwrap();
+    let kinds: Vec<&str> = spec.ref_emitters().iter().map(|(k, _)| *k).collect();
     assert!(
-        spec.ref_emitters().is_empty(),
-        "Python should rely on engine's structural pair/array emitters"
+        kinds.contains(&"call"),
+        "Python must register `call` ref emitter for class-scope receivers; got {kinds:?}"
     );
 }

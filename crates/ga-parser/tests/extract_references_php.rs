@@ -12,6 +12,62 @@ fn refs_of(src: &[u8]) -> Vec<ga_parser::references::ParsedReference> {
     extract_references(Lang::Php, src).expect("extract_references Ok")
 }
 
+// LANG-2 regression suite (2026-05-22) — `Class::method()` must emit a
+// REFERENCES edge to the class scope so `ga_callers Class` surfaces files
+// that invoke any of the class's static methods. Without this, the indexer
+// drops the class scope and only stores the unqualified method name in the
+// CALL edge — querying the class returns empty.
+//
+// Background: docs/investigate/ga-vs-codegraph-head-to-head-2026-05-21.md LANG-2.
+
+#[test]
+fn scoped_call_emits_class_scope_reference() {
+    // Regression: LANG-2 — `RsSession::sign(...)` should emit a REFERENCES
+    // edge to `RsSession` (class scope) in addition to the existing CALL
+    // edge to `sign` (method).
+    let src = b"\
+<?php
+class Caller {
+    public function go(): void {
+        RsSession::sign(['k' => 'v'], 'secret');
+    }
+}
+";
+    let refs = refs_of(src);
+    let r = refs
+        .iter()
+        .find(|r| r.target_name == "RsSession")
+        .unwrap_or_else(|| panic!("RsSession class scope ref not emitted: {refs:?}"));
+    // Line 4 = `RsSession::sign(...)` call.
+    assert_eq!(r.ref_site_line, 4, "ref line: {r:?}");
+}
+
+#[test]
+fn self_parent_static_scoped_call_not_emitted_as_class_ref() {
+    // `self::`, `parent::`, `static::` are language keywords, not user types.
+    // They must NOT produce REFERENCES edges to literal "self"/"parent"/"static"
+    // — those names would collide with global symbols.
+    let src = b"\
+<?php
+class Foo {
+    public function inner(): void {
+        self::bar();
+        parent::baz();
+        static::qux();
+    }
+}
+";
+    let refs = refs_of(src);
+    let bad: Vec<_> = refs
+        .iter()
+        .filter(|r| matches!(r.target_name.as_str(), "self" | "parent" | "static"))
+        .collect();
+    assert!(
+        bad.is_empty(),
+        "should not emit self/parent/static refs: {bad:?}"
+    );
+}
+
 #[test]
 fn required_attribute_on_property_emits_annotated_field_type_ref() {
     let src = b"\

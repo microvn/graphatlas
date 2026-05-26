@@ -6,7 +6,7 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| **FAIL** | ga | 0.000 | 0.600 | 19 |
+| **FAIL** | ga | 0.000 | 0.600 | 21 |
 
 ### Secondary metrics
 
@@ -15,8 +15,8 @@
 - `edge_f1` = 0.000
 - `edge_precision` = 1.000
 - `edge_recall` = 0.000
-- `expected_edge_count` = 3.000
-- `false_negatives` = 3.000
+- `expected_edge_count` = 50.000
+- `false_negatives` = 50.000
 - `false_positives` = 0.000
 - `shared_edge_count` = 0.000
 - `spearman_defined` = 0.000

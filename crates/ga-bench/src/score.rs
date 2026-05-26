@@ -31,16 +31,39 @@ pub fn recall<T: Eq + Hash>(expected: &[T], actual: &[T]) -> f64 {
 /// - expected empty, actual non-empty → 0.0 (precision drops to 0).
 /// - actual empty, expected non-empty → 0.0 (recall 0).
 pub fn f1<T: Eq + Hash>(expected: &[T], actual: &[T]) -> f64 {
+    f_beta(expected, actual, 1.0)
+}
+
+/// F-beta harmonic mean. `β > 1` weights recall over precision; `β < 1`
+/// weights precision over recall. Same edge-case conventions as `f1`:
+/// - both empty → 1.0
+/// - expected empty, actual non-empty → 0.0
+/// - actual empty, expected non-empty → 0.0
+pub fn f_beta<T: Eq + Hash>(expected: &[T], actual: &[T], beta: f64) -> f64 {
     if expected.is_empty() && actual.is_empty() {
         return 1.0;
     }
     let p = precision(expected, actual);
     let r = recall(expected, actual);
-    if p + r == 0.0 {
+    let b2 = beta * beta;
+    let denom = b2 * p + r;
+    if denom == 0.0 {
         0.0
     } else {
-        2.0 * p * r / (p + r)
+        (1.0 + b2) * p * r / denom
     }
+}
+
+/// F2 score — recall weighted 2× precision. For UCs where missing a true
+/// positive (false negative) is costlier than including extra noise
+/// (false positive). Cross-tool graph-retriever value-add lens: agent
+/// would rather see N+1 files (1 noise) than miss the 1 file needed.
+///
+/// Hard floor convention (applied at reporting layer, not here): tools
+/// with precision < 0.5 are considered noise-dominated regardless of
+/// F2 number — caller should DQ them at the leaderboard render step.
+pub fn f2<T: Eq + Hash>(expected: &[T], actual: &[T]) -> f64 {
+    f_beta(expected, actual, 2.0)
 }
 
 /// Reciprocal rank of `target` inside a ranked list. 0.0 if absent.
@@ -83,6 +106,16 @@ pub struct ImpactScore {
     // Supplementary — do not affect composite formula:
     pub blast_radius_coverage: f64,
     pub adjusted_precision: f64,
+    /// F2 score on `(expected_files, actual_files)` — recall-priority lens.
+    /// Reported as secondary diagnostic; the gate threshold stays on
+    /// `composite ≥ 0.80`. Defaults to 0 for legacy entries deserialized
+    /// before the field existed.
+    #[serde(default)]
+    pub f2_files: f64,
+    /// F2 score on `(expected_tests, actual_tests)` — recall-priority on the
+    /// test dimension. Secondary diagnostic; not in composite formula.
+    #[serde(default)]
+    pub f2_tests: f64,
 }
 
 pub fn impact_score(
@@ -113,6 +146,9 @@ pub fn impact_score(
     let adj_gt_vec: Vec<String> = adj_gt.into_iter().collect();
     let adjusted_precision = precision(&adj_gt_vec, actual_files);
 
+    let f2_files = f2(expected_files, actual_files);
+    let f2_tests = f2(expected_tests, actual_tests);
+
     ImpactScore {
         test_recall,
         completeness,
@@ -121,6 +157,8 @@ pub fn impact_score(
         composite,
         blast_radius_coverage,
         adjusted_precision,
+        f2_files,
+        f2_tests,
     }
 }
 
@@ -160,6 +198,98 @@ mod tests {
     fn s(xs: &[&str]) -> Vec<String> {
         xs.iter().map(|x| x.to_string()).collect()
     }
+
+    // ──── F2 / F-beta primitives ────
+
+    #[test]
+    fn f2_balanced_perfect_equals_one() {
+        assert!((f2(&s(&["a", "b"]), &s(&["a", "b"])) - 1.0).abs() < 1e-9);
+    }
+
+    #[test]
+    fn f2_both_empty_is_perfect() {
+        let empty: Vec<String> = Vec::new();
+        assert_eq!(f2(&empty, &empty), 1.0);
+    }
+
+    #[test]
+    fn f2_recall_priority_vs_f1() {
+        // Tool A: precision=1.0, recall=0.5 (missed half)
+        // Tool B: precision=0.5, recall=1.0 (found all + noise)
+        // Both have same F1 but F2 rewards B (recall priority).
+        let exp = s(&["a", "b", "c", "d"]);
+        let a_actual = s(&["a", "b"]); // missed c, d
+        let b_actual = s(&["a", "b", "c", "d", "x", "y", "z", "w"]); // all + 4 noise
+        let a_f1 = f1(&exp, &a_actual);
+        let b_f1 = f1(&exp, &b_actual);
+        let a_f2 = f2(&exp, &a_actual);
+        let b_f2 = f2(&exp, &b_actual);
+        // F1 symmetric: both around 0.66
+        assert!(
+            (a_f1 - b_f1).abs() < 0.05,
+            "F1 should be similar: {a_f1} vs {b_f1}"
+        );
+        // F2: B (high recall) > A (high precision)
+        assert!(b_f2 > a_f2, "F2 should reward recall: B={b_f2} A={a_f2}");
+    }
+
+    #[test]
+    fn f2_punishes_zero_recall_harder_than_f1() {
+        // P=1.0 R=0.1 → recall priority hurts F2 more.
+        let exp = s(&["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]);
+        let actual = s(&["a"]); // 1/10 recall, 1/1 precision
+        let v_f1 = f1(&exp, &actual);
+        let v_f2 = f2(&exp, &actual);
+        assert!(
+            v_f2 < v_f1,
+            "F2 ({v_f2}) should be lower than F1 ({v_f1}) at low recall"
+        );
+    }
+
+    #[test]
+    fn f2_rewards_thorough_with_modest_noise() {
+        // P=0.5, R=1.0 — full recall, half noise.
+        // F1 = 0.667, F2 = 0.833 (recall priority)
+        let exp = s(&["a", "b", "c"]);
+        let actual = s(&["a", "b", "c", "x", "y", "z"]); // all + 3 noise
+        let v_f1 = f1(&exp, &actual);
+        let v_f2 = f2(&exp, &actual);
+        assert!((v_f1 - 0.6667).abs() < 0.01, "F1 ≈ 0.667: {v_f1}");
+        assert!((v_f2 - 0.8333).abs() < 0.01, "F2 ≈ 0.833: {v_f2}");
+    }
+
+    #[test]
+    fn f_beta_extreme_recall_priority() {
+        // β=4 — recall priority extreme. P=0.5, R=1.0 → F4 ≈ 0.94
+        let exp = s(&["a", "b"]);
+        let actual = s(&["a", "b", "x", "y"]);
+        let v = f_beta(&exp, &actual, 4.0);
+        assert!(v > 0.9, "F4 with full recall should be >0.9: {v}");
+    }
+
+    #[test]
+    fn f_beta_zero_when_one_side_empty() {
+        let exp: Vec<String> = s(&["a"]);
+        let actual: Vec<String> = Vec::new();
+        assert_eq!(f_beta(&exp, &actual, 2.0), 0.0);
+        let exp2: Vec<String> = Vec::new();
+        let actual2: Vec<String> = s(&["a"]);
+        assert_eq!(f_beta(&exp2, &actual2, 2.0), 0.0);
+    }
+
+    #[test]
+    fn f1_via_f_beta_equals_legacy_formula() {
+        // Sanity: legacy f1 == f_beta(β=1).
+        let exp = s(&["a", "b", "c"]);
+        let actual = s(&["a", "b", "d"]); // P=2/3, R=2/3, F1=2/3
+        let legacy = 2.0 * 0.6667 * 0.6667 / (0.6667 + 0.6667);
+        let via_beta = f_beta(&exp, &actual, 1.0);
+        let via_f1 = f1(&exp, &actual);
+        assert!((via_beta - legacy).abs() < 0.001);
+        assert!((via_f1 - legacy).abs() < 0.001);
+    }
+
+    // ──── impact_score (composite) — pre-existing ────
 
     #[test]
     fn impact_score_perfect_hit_is_one() {

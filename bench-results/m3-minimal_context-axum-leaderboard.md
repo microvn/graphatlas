@@ -6,15 +6,15 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| PASS | ga | 0.750 | 0.700 | 13 |
+| PASS | ga | 0.750 | 0.700 | 21 |
 
 ### Secondary metrics
 
 **ga**:
-- `file_precision` = 0.383
+- `file_precision` = 0.450
 - `pin_enabled` = 1.000
 - `pin_failed_count` = 0.000
-- `recall_per_1k_tokens` = 2.081
+- `recall_per_1k_tokens` = 3.517
 - `seed_symbol_not_found_at_hinted_file_count` = 1.000
 - `seed_symbol_not_found_count` = 0.000
 - `task_count` = 4.000

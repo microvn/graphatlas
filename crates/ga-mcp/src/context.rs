@@ -158,6 +158,41 @@ impl McpContext {
         }
     }
 
+    /// v1.5 PR6.1 (multi-mcp) H-4 — try to reopen the Store's lbug handle
+    /// if a peer writer bumped the on-disk `graph_generation` since this
+    /// process last opened. Best-effort: takes the write lock briefly;
+    /// if the Arc refcount is > 1 (concurrent tool call in flight) OR
+    /// the cell is empty (mid-rebuild), skip silently and return Ok(false).
+    ///
+    /// Called from `dispatch_tool_call_with_ctx` at handler entry so
+    /// long-running readers bound their inode pinning to a single
+    /// generation skew across tool calls (per spec S-002 AS-007
+    /// invariant). Inexpensive in the common case — `reopen_if_stale`
+    /// reads only `metadata.json` (~200B) and short-circuits when
+    /// generation matches.
+    pub fn refresh_if_stale(&self) -> Result<bool> {
+        let mut guard = self.store_cell.write().expect("store_cell rwlock poisoned");
+        let Some(arc_store) = guard.take() else {
+            return Ok(false);
+        };
+        let mut store = match Arc::try_unwrap(arc_store) {
+            Ok(s) => s,
+            Err(still_shared) => {
+                *guard = Some(still_shared);
+                return Ok(false);
+            }
+        };
+        let reopened = store.reopen_if_stale().unwrap_or_else(|e| {
+            tracing::warn!(
+                target: "ga_mcp::context",
+                "reopen_if_stale failed (continuing with stale view): {e}"
+            );
+            false
+        });
+        *guard = Some(Arc::new(store));
+        Ok(reopened)
+    }
+
     /// PR6.1d AS-006 — record a successful reindex so the next call
     /// within `REINDEX_COOLDOWN_MS` short-circuits.
     pub fn record_reindex_success(&self, cache_dir: &std::path::Path) {

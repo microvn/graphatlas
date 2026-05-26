@@ -59,9 +59,11 @@ fn render_fixture(repo: &RepoGroup, report: &M2Report) -> String {
         .map(|e| e.mean_blast_radius_coverage)
         .collect();
     let adjs: Vec<f64> = entries.iter().map(|e| e.mean_adjusted_precision).collect();
+    let f2_files: Vec<f64> = entries.iter().map(|e| e.mean_f2_files).collect();
+    let f2_tests: Vec<f64> = entries.iter().map(|e| e.mean_f2_tests).collect();
 
-    md.push_str("| Retriever | Composite | Test Recall | Completeness | Depth_F1 | Precision | p95 ms | Pass Rate | BlastRadius | AdjPrec |\n");
-    md.push_str("|-----------|-----------|-------------|--------------|----------|-----------|--------|-----------|-------------|----------|\n");
+    md.push_str("| Retriever | Composite | Test Recall | Completeness | Depth_F1 | Precision | F2 files | F2 tests | p95 ms | Pass Rate | BlastRadius | AdjPrec |\n");
+    md.push_str("|-----------|-----------|-------------|--------------|----------|-----------|----------|----------|--------|-----------|-------------|----------|\n");
 
     let mut sorted: Vec<&RetrieverEntry> = entries.clone();
     sorted.sort_by(|a, b| {
@@ -72,13 +74,15 @@ fn render_fixture(repo: &RepoGroup, report: &M2Report) -> String {
 
     for e in sorted {
         md.push_str(&format!(
-            "| {:<9} | {:.3}{:<3} | {:.3}{:<3}   | {:.3}{:<3}    | {:.3}{:<3} | {:.3}{:<3}   | {:<6} | {:>6.1}%  | {:.3}{:<3}     | {:.3}{:<3} |\n",
+            "| {:<9} | {:.3}{:<3} | {:.3}{:<3}   | {:.3}{:<3}    | {:.3}{:<3} | {:.3}{:<3}   | {:.3}{:<3}    | {:.3}{:<3}    | {:<6} | {:>6.1}%  | {:.3}{:<3}     | {:.3}{:<3} |\n",
             e.retriever,
             e.mean_composite, star_rank(&composites, e.mean_composite),
             e.mean_test_recall, star_rank(&test_recalls, e.mean_test_recall),
             e.mean_completeness, star_rank(&completes, e.mean_completeness),
             e.mean_depth_f1, star_rank(&depths, e.mean_depth_f1),
             e.mean_precision, star_rank(&precisions, e.mean_precision),
+            e.mean_f2_files, star_rank(&f2_files, e.mean_f2_files),
+            e.mean_f2_tests, star_rank(&f2_tests, e.mean_f2_tests),
             e.p95_latency_ms,
             e.pass_rate * 100.0,
             e.mean_blast_radius_coverage, star_rank(&brcs, e.mean_blast_radius_coverage),
@@ -135,9 +139,11 @@ fn render_aggregate(report: &M2Report) -> String {
         .iter()
         .map(|e| e.mean_adjusted_precision)
         .collect();
+    let f2_files: Vec<f64> = report.aggregate.iter().map(|e| e.mean_f2_files).collect();
+    let f2_tests: Vec<f64> = report.aggregate.iter().map(|e| e.mean_f2_tests).collect();
 
-    md.push_str("| Retriever | Composite | Test Recall | Completeness | Precision | p95 ms | Pass Rate | Gate | BlastRadius | AdjPrec |\n");
-    md.push_str("|-----------|-----------|-------------|--------------|-----------|--------|-----------|------|-------------|----------|\n");
+    md.push_str("| Retriever | Composite | Test Recall | Completeness | Precision | F2 files | F2 tests | p95 ms | Pass Rate | Gate | BlastRadius | AdjPrec |\n");
+    md.push_str("|-----------|-----------|-------------|--------------|-----------|----------|----------|--------|-----------|------|-------------|----------|\n");
 
     let mut sorted: Vec<&RetrieverEntry> = report.aggregate.iter().collect();
     sorted.sort_by(|a, b| {
@@ -153,12 +159,14 @@ fn render_aggregate(report: &M2Report) -> String {
             "—"
         };
         md.push_str(&format!(
-            "| {:<9} | {:.3}{:<3} | {:.3}{:<3}   | {:.3}{:<3}    | {:.3}{:<3}   | {:<6} | {:>6.1}%  | {} | {:.3}{:<3}     | {:.3}{:<3} |\n",
+            "| {:<9} | {:.3}{:<3} | {:.3}{:<3}   | {:.3}{:<3}    | {:.3}{:<3}   | {:.3}{:<3}    | {:.3}{:<3}    | {:<6} | {:>6.1}%  | {} | {:.3}{:<3}     | {:.3}{:<3} |\n",
             e.retriever,
             e.mean_composite, star_rank(&composites, e.mean_composite),
             e.mean_test_recall, star_rank(&test_recalls, e.mean_test_recall),
             e.mean_completeness, star_rank(&completes, e.mean_completeness),
             e.mean_precision, star_rank(&precisions, e.mean_precision),
+            e.mean_f2_files, star_rank(&f2_files, e.mean_f2_files),
+            e.mean_f2_tests, star_rank(&f2_tests, e.mean_f2_tests),
             e.p95_latency_ms,
             e.pass_rate * 100.0,
             gate,

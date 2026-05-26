@@ -158,6 +158,61 @@ pub fn is_test_path(path: &str) -> bool {
     false
 }
 
+/// CORE-2 (2026-05-22) — list distinct defs (one per file) of a symbol so
+/// the caller can disambiguate. Mirrors [`count_defs`]'s filter (skips synthetic
+/// external Symbol nodes) plus returns `file/line/kind` per def.
+pub(crate) fn list_defs(
+    conn: &lbug::Connection<'_>,
+    name: &str,
+) -> Result<Vec<crate::DefCandidate>> {
+    let rs = conn
+        .query(&format!(
+            "MATCH (s:Symbol) WHERE s.name = '{}' AND s.kind <> 'external' \
+             RETURN s.file, s.line, s.kind ORDER BY s.file, s.line",
+            name
+        ))
+        .map_err(|e| Error::Other(anyhow::anyhow!("list_defs query: {e}")))?;
+    let mut out: Vec<crate::DefCandidate> = Vec::new();
+    let mut seen_files: std::collections::HashSet<String> = std::collections::HashSet::new();
+    for row in rs {
+        let cols: Vec<lbug::Value> = row.into_iter().collect();
+        if cols.len() < 3 {
+            continue;
+        }
+        let file = match &cols[0] {
+            lbug::Value::String(s) => s.clone(),
+            _ => continue,
+        };
+        // One candidate per file (Tools-C5 collision rule: keep first).
+        if !seen_files.insert(file.clone()) {
+            continue;
+        }
+        let line = match &cols[1] {
+            lbug::Value::Int64(n) => *n as u32,
+            _ => 0,
+        };
+        let kind = match &cols[2] {
+            lbug::Value::String(s) => s.clone(),
+            _ => String::from("other"),
+        };
+        out.push(crate::DefCandidate {
+            qualified_name: format!("{}::{}", file, name),
+            file,
+            line,
+            kind,
+        });
+    }
+    Ok(out)
+}
+
+/// CORE-2 — opt-out of ambiguity-first behaviour via env var. Set
+/// `GA_AMBIGUITY_LEGACY=1` to restore pre-2026-05-22 fan-out at confidence 0.6.
+pub(crate) fn ambiguity_legacy_enabled() -> bool {
+    std::env::var("GA_AMBIGUITY_LEGACY")
+        .map(|v| v == "1" || v.eq_ignore_ascii_case("true"))
+        .unwrap_or(false)
+}
+
 pub(crate) fn count_defs(conn: &lbug::Connection<'_>, name: &str) -> Result<i64> {
     // Exclude synthetic external Symbol nodes from the polymorphic-confidence
     // calculation — they aren't real source defs, so they must not inflate

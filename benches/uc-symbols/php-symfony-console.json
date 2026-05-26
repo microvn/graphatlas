@@ -1,0 +1,2407 @@
+{
+  "schema_version": 1,
+  "uc": "symbols",
+  "fixture": "php-symfony-console",
+  "tasks": [
+    {
+      "task_id": "exact_AbstractDescriptorTestCase",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractDescriptorTestCase`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractDescriptorTestCase"
+      },
+      "expected": [
+        "AbstractDescriptorTestCase"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractLoopCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractLoopCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractLoopCommand"
+      },
+      "expected": [
+        "AbstractLoopCommand"
+      ]
+    },
+    {
+      "task_id": "exact_AbstractQuestionHelperTestCase",
+      "query": {
+        "__rationale": "exact-match MRR target for `AbstractQuestionHelperTestCase`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AbstractQuestionHelperTestCase"
+      },
+      "expected": [
+        "AbstractQuestionHelperTestCase"
+      ]
+    },
+    {
+      "task_id": "exact_AddConsoleCommandPass",
+      "query": {
+        "__rationale": "exact-match MRR target for `AddConsoleCommandPass`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AddConsoleCommandPass"
+      },
+      "expected": [
+        "AddConsoleCommandPass"
+      ]
+    },
+    {
+      "task_id": "exact_AddConsoleCommandPassTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AddConsoleCommandPassTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AddConsoleCommandPassTest"
+      },
+      "expected": [
+        "AddConsoleCommandPassTest"
+      ]
+    },
+    {
+      "task_id": "exact_AlarmEventSubscriber",
+      "query": {
+        "__rationale": "exact-match MRR target for `AlarmEventSubscriber`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AlarmEventSubscriber"
+      },
+      "expected": [
+        "AlarmEventSubscriber"
+      ]
+    },
+    {
+      "task_id": "exact_AlarmableCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `AlarmableCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AlarmableCommand"
+      },
+      "expected": [
+        "AlarmableCommand"
+      ]
+    },
+    {
+      "task_id": "exact_AlternativeCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `AlternativeCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AlternativeCommand"
+      },
+      "expected": [
+        "AlternativeCommand"
+      ]
+    },
+    {
+      "task_id": "exact_AnsiColorMode",
+      "query": {
+        "__rationale": "exact-match MRR target for `AnsiColorMode`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AnsiColorMode"
+      },
+      "expected": [
+        "AnsiColorMode"
+      ]
+    },
+    {
+      "task_id": "exact_AnsiColorModeTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `AnsiColorModeTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AnsiColorModeTest"
+      },
+      "expected": [
+        "AnsiColorModeTest"
+      ]
+    },
+    {
+      "task_id": "exact_Application",
+      "query": {
+        "__rationale": "exact-match MRR target for `Application`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Application"
+      },
+      "expected": [
+        "Application"
+      ]
+    },
+    {
+      "task_id": "exact_ApplicationDescription",
+      "query": {
+        "__rationale": "exact-match MRR target for `ApplicationDescription`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ApplicationDescription"
+      },
+      "expected": [
+        "ApplicationDescription"
+      ]
+    },
+    {
+      "task_id": "exact_ApplicationDescriptionTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ApplicationDescriptionTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ApplicationDescriptionTest"
+      },
+      "expected": [
+        "ApplicationDescriptionTest"
+      ]
+    },
+    {
+      "task_id": "exact_ApplicationTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ApplicationTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ApplicationTest"
+      },
+      "expected": [
+        "ApplicationTest"
+      ]
+    },
+    {
+      "task_id": "exact_ApplicationTester",
+      "query": {
+        "__rationale": "exact-match MRR target for `ApplicationTester`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ApplicationTester"
+      },
+      "expected": [
+        "ApplicationTester"
+      ]
+    },
+    {
+      "task_id": "exact_ApplicationTesterTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ApplicationTesterTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ApplicationTesterTest"
+      },
+      "expected": [
+        "ApplicationTesterTest"
+      ]
+    },
+    {
+      "task_id": "exact_Arg2",
+      "query": {
+        "__rationale": "exact-match MRR target for `Arg2`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Arg2"
+      },
+      "expected": [
+        "Arg2"
+      ]
+    },
+    {
+      "task_id": "exact_Argument",
+      "query": {
+        "__rationale": "exact-match MRR target for `Argument`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Argument"
+      },
+      "expected": [
+        "Argument"
+      ]
+    },
+    {
+      "task_id": "exact_ArgvInput",
+      "query": {
+        "__rationale": "exact-match MRR target for `ArgvInput`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ArgvInput"
+      },
+      "expected": [
+        "ArgvInput"
+      ]
+    },
+    {
+      "task_id": "exact_ArgvInputTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ArgvInputTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ArgvInputTest"
+      },
+      "expected": [
+        "ArgvInputTest"
+      ]
+    },
+    {
+      "task_id": "exact_ArrayInput",
+      "query": {
+        "__rationale": "exact-match MRR target for `ArrayInput`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ArrayInput"
+      },
+      "expected": [
+        "ArrayInput"
+      ]
+    },
+    {
+      "task_id": "exact_ArrayInputTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ArrayInputTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ArrayInputTest"
+      },
+      "expected": [
+        "ArrayInputTest"
+      ]
+    },
+    {
+      "task_id": "exact_AsCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `AsCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AsCommand"
+      },
+      "expected": [
+        "AsCommand"
+      ]
+    },
+    {
+      "task_id": "exact_Ask",
+      "query": {
+        "__rationale": "exact-match MRR target for `Ask`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Ask"
+      },
+      "expected": [
+        "Ask"
+      ]
+    },
+    {
+      "task_id": "exact_AutocompleteValues",
+      "query": {
+        "__rationale": "exact-match MRR target for `AutocompleteValues`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AutocompleteValues"
+      },
+      "expected": [
+        "AutocompleteValues"
+      ]
+    },
+    {
+      "task_id": "exact_BarBucCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `BarBucCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "BarBucCommand"
+      },
+      "expected": [
+        "BarBucCommand"
+      ]
+    },
+    {
+      "task_id": "exact_BarHiddenCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `BarHiddenCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "BarHiddenCommand"
+      },
+      "expected": [
+        "BarHiddenCommand"
+      ]
+    },
+    {
+      "task_id": "exact_BaseSignableCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `BaseSignableCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "BaseSignableCommand"
+      },
+      "expected": [
+        "BaseSignableCommand"
+      ]
+    },
+    {
+      "task_id": "exact_BashCompletionOutput",
+      "query": {
+        "__rationale": "exact-match MRR target for `BashCompletionOutput`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "BashCompletionOutput"
+      },
+      "expected": [
+        "BashCompletionOutput"
+      ]
+    },
+    {
+      "task_id": "exact_BashCompletionOutputTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `BashCompletionOutputTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "BashCompletionOutputTest"
+      },
+      "expected": [
+        "BashCompletionOutputTest"
+      ]
+    },
+    {
+      "task_id": "exact_BufferedOutput",
+      "query": {
+        "__rationale": "exact-match MRR target for `BufferedOutput`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "BufferedOutput"
+      },
+      "expected": [
+        "BufferedOutput"
+      ]
+    },
+    {
+      "task_id": "exact_ChoiceQuestion",
+      "query": {
+        "__rationale": "exact-match MRR target for `ChoiceQuestion`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ChoiceQuestion"
+      },
+      "expected": [
+        "ChoiceQuestion"
+      ]
+    },
+    {
+      "task_id": "exact_ChoiceQuestionTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ChoiceQuestionTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ChoiceQuestionTest"
+      },
+      "expected": [
+        "ChoiceQuestionTest"
+      ]
+    },
+    {
+      "task_id": "exact_CliRequest",
+      "query": {
+        "__rationale": "exact-match MRR target for `CliRequest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CliRequest"
+      },
+      "expected": [
+        "CliRequest"
+      ]
+    },
+    {
+      "task_id": "exact_Color",
+      "query": {
+        "__rationale": "exact-match MRR target for `Color`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Color"
+      },
+      "expected": [
+        "Color"
+      ]
+    },
+    {
+      "task_id": "exact_ColorTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ColorTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ColorTest"
+      },
+      "expected": [
+        "ColorTest"
+      ]
+    },
+    {
+      "task_id": "exact_Command",
+      "query": {
+        "__rationale": "exact-match MRR target for `Command`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Command"
+      },
+      "expected": [
+        "Command"
+      ]
+    },
+    {
+      "task_id": "exact_CommandCompletionTester",
+      "query": {
+        "__rationale": "exact-match MRR target for `CommandCompletionTester`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CommandCompletionTester"
+      },
+      "expected": [
+        "CommandCompletionTester"
+      ]
+    },
+    {
+      "task_id": "exact_CommandDataCollector",
+      "query": {
+        "__rationale": "exact-match MRR target for `CommandDataCollector`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CommandDataCollector"
+      },
+      "expected": [
+        "CommandDataCollector"
+      ]
+    },
+    {
+      "task_id": "exact_CommandIsSuccessful",
+      "query": {
+        "__rationale": "exact-match MRR target for `CommandIsSuccessful`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CommandIsSuccessful"
+      },
+      "expected": [
+        "CommandIsSuccessful"
+      ]
+    },
+    {
+      "task_id": "exact_CommandIsSuccessfulTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `CommandIsSuccessfulTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CommandIsSuccessfulTest"
+      },
+      "expected": [
+        "CommandIsSuccessfulTest"
+      ]
+    },
+    {
+      "task_id": "exact_CommandLoaderInterface",
+      "query": {
+        "__rationale": "exact-match MRR target for `CommandLoaderInterface`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CommandLoaderInterface"
+      },
+      "expected": [
+        "CommandLoaderInterface"
+      ]
+    },
+    {
+      "task_id": "exact_CommandNotFoundException",
+      "query": {
+        "__rationale": "exact-match MRR target for `CommandNotFoundException`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CommandNotFoundException"
+      },
+      "expected": [
+        "CommandNotFoundException"
+      ]
+    },
+    {
+      "task_id": "exact_CommandTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `CommandTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CommandTest"
+      },
+      "expected": [
+        "CommandTest"
+      ]
+    },
+    {
+      "task_id": "exact_CommandTester",
+      "query": {
+        "__rationale": "exact-match MRR target for `CommandTester`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CommandTester"
+      },
+      "expected": [
+        "CommandTester"
+      ]
+    },
+    {
+      "task_id": "exact_CommandTesterTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `CommandTesterTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CommandTesterTest"
+      },
+      "expected": [
+        "CommandTesterTest"
+      ]
+    },
+    {
+      "task_id": "exact_CompleteCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `CompleteCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CompleteCommand"
+      },
+      "expected": [
+        "CompleteCommand"
+      ]
+    },
+    {
+      "task_id": "exact_CompleteCommandTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `CompleteCommandTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CompleteCommandTest"
+      },
+      "expected": [
+        "CompleteCommandTest"
+      ]
+    },
+    {
+      "task_id": "exact_CompleteCommandTest_HelloCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `CompleteCommandTest_HelloCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CompleteCommandTest_HelloCommand"
+      },
+      "expected": [
+        "CompleteCommandTest_HelloCommand"
+      ]
+    },
+    {
+      "task_id": "exact_CompletionInput",
+      "query": {
+        "__rationale": "exact-match MRR target for `CompletionInput`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CompletionInput"
+      },
+      "expected": [
+        "CompletionInput"
+      ]
+    },
+    {
+      "task_id": "exact_CompletionInputTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `CompletionInputTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CompletionInputTest"
+      },
+      "expected": [
+        "CompletionInputTest"
+      ]
+    },
+    {
+      "task_id": "exact_CompletionOutputInterface",
+      "query": {
+        "__rationale": "exact-match MRR target for `CompletionOutputInterface`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CompletionOutputInterface"
+      },
+      "expected": [
+        "CompletionOutputInterface"
+      ]
+    },
+    {
+      "task_id": "exact_CompletionOutputTestCase",
+      "query": {
+        "__rationale": "exact-match MRR target for `CompletionOutputTestCase`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CompletionOutputTestCase"
+      },
+      "expected": [
+        "CompletionOutputTestCase"
+      ]
+    },
+    {
+      "task_id": "exact_CompletionSuggestions",
+      "query": {
+        "__rationale": "exact-match MRR target for `CompletionSuggestions`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CompletionSuggestions"
+      },
+      "expected": [
+        "CompletionSuggestions"
+      ]
+    },
+    {
+      "task_id": "exact_ConfirmationQuestion",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConfirmationQuestion`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConfirmationQuestion"
+      },
+      "expected": [
+        "ConfirmationQuestion"
+      ]
+    },
+    {
+      "task_id": "exact_ConfirmationQuestionTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConfirmationQuestionTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConfirmationQuestionTest"
+      },
+      "expected": [
+        "ConfirmationQuestionTest"
+      ]
+    },
+    {
+      "task_id": "exact_ConsoleAlarmEvent",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsoleAlarmEvent`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsoleAlarmEvent"
+      },
+      "expected": [
+        "ConsoleAlarmEvent"
+      ]
+    },
+    {
+      "task_id": "exact_ConsoleCommandEvent",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsoleCommandEvent`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsoleCommandEvent"
+      },
+      "expected": [
+        "ConsoleCommandEvent"
+      ]
+    },
+    {
+      "task_id": "exact_ConsoleErrorEvent",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsoleErrorEvent`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsoleErrorEvent"
+      },
+      "expected": [
+        "ConsoleErrorEvent"
+      ]
+    },
+    {
+      "task_id": "exact_ConsoleEvent",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsoleEvent`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsoleEvent"
+      },
+      "expected": [
+        "ConsoleEvent"
+      ]
+    },
+    {
+      "task_id": "exact_ConsoleEvents",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsoleEvents`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsoleEvents"
+      },
+      "expected": [
+        "ConsoleEvents"
+      ]
+    },
+    {
+      "task_id": "exact_ConsoleEventsTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsoleEventsTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsoleEventsTest"
+      },
+      "expected": [
+        "ConsoleEventsTest"
+      ]
+    },
+    {
+      "task_id": "exact_ConsoleLogger",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsoleLogger`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsoleLogger"
+      },
+      "expected": [
+        "ConsoleLogger"
+      ]
+    },
+    {
+      "task_id": "exact_ConsoleLoggerTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsoleLoggerTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsoleLoggerTest"
+      },
+      "expected": [
+        "ConsoleLoggerTest"
+      ]
+    },
+    {
+      "task_id": "exact_ConsoleOutput",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsoleOutput`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsoleOutput"
+      },
+      "expected": [
+        "ConsoleOutput"
+      ]
+    },
+    {
+      "task_id": "exact_ConsoleOutputInterface",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsoleOutputInterface`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsoleOutputInterface"
+      },
+      "expected": [
+        "ConsoleOutputInterface"
+      ]
+    },
+    {
+      "task_id": "exact_ConsoleOutputTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsoleOutputTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsoleOutputTest"
+      },
+      "expected": [
+        "ConsoleOutputTest"
+      ]
+    },
+    {
+      "task_id": "exact_ConsoleSectionOutput",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsoleSectionOutput`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsoleSectionOutput"
+      },
+      "expected": [
+        "ConsoleSectionOutput"
+      ]
+    },
+    {
+      "task_id": "exact_ConsoleSectionOutputTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsoleSectionOutputTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsoleSectionOutputTest"
+      },
+      "expected": [
+        "ConsoleSectionOutputTest"
+      ]
+    },
+    {
+      "task_id": "exact_ConsoleSignalEvent",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsoleSignalEvent`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsoleSignalEvent"
+      },
+      "expected": [
+        "ConsoleSignalEvent"
+      ]
+    },
+    {
+      "task_id": "exact_ConsoleTerminateEvent",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsoleTerminateEvent`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsoleTerminateEvent"
+      },
+      "expected": [
+        "ConsoleTerminateEvent"
+      ]
+    },
+    {
+      "task_id": "exact_ContainerCommandLoader",
+      "query": {
+        "__rationale": "exact-match MRR target for `ContainerCommandLoader`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ContainerCommandLoader"
+      },
+      "expected": [
+        "ContainerCommandLoader"
+      ]
+    },
+    {
+      "task_id": "exact_ContainerCommandLoaderTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ContainerCommandLoaderTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ContainerCommandLoaderTest"
+      },
+      "expected": [
+        "ContainerCommandLoaderTest"
+      ]
+    },
+    {
+      "task_id": "exact_Cursor",
+      "query": {
+        "__rationale": "exact-match MRR target for `Cursor`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Cursor"
+      },
+      "expected": [
+        "Cursor"
+      ]
+    },
+    {
+      "task_id": "exact_CursorTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `CursorTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CursorTest"
+      },
+      "expected": [
+        "CursorTest"
+      ]
+    },
+    {
+      "task_id": "exact_CustomApplication",
+      "query": {
+        "__rationale": "exact-match MRR target for `CustomApplication`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CustomApplication"
+      },
+      "expected": [
+        "CustomApplication"
+      ]
+    },
+    {
+      "task_id": "exact_CustomDefaultCommandApplication",
+      "query": {
+        "__rationale": "exact-match MRR target for `CustomDefaultCommandApplication`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CustomDefaultCommandApplication"
+      },
+      "expected": [
+        "CustomDefaultCommandApplication"
+      ]
+    },
+    {
+      "task_id": "exact_DebugFormatterHelper",
+      "query": {
+        "__rationale": "exact-match MRR target for `DebugFormatterHelper`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DebugFormatterHelper"
+      },
+      "expected": [
+        "DebugFormatterHelper"
+      ]
+    },
+    {
+      "task_id": "exact_DescribedCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `DescribedCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DescribedCommand"
+      },
+      "expected": [
+        "DescribedCommand"
+      ]
+    },
+    {
+      "task_id": "exact_DescriptionWithPercentageSignsCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `DescriptionWithPercentageSignsCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DescriptionWithPercentageSignsCommand"
+      },
+      "expected": [
+        "DescriptionWithPercentageSignsCommand"
+      ]
+    },
+    {
+      "task_id": "exact_Descriptor",
+      "query": {
+        "__rationale": "exact-match MRR target for `Descriptor`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Descriptor"
+      },
+      "expected": [
+        "Descriptor"
+      ]
+    },
+    {
+      "task_id": "exact_DescriptorApplication1",
+      "query": {
+        "__rationale": "exact-match MRR target for `DescriptorApplication1`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DescriptorApplication1"
+      },
+      "expected": [
+        "DescriptorApplication1"
+      ]
+    },
+    {
+      "task_id": "exact_DescriptorApplication2",
+      "query": {
+        "__rationale": "exact-match MRR target for `DescriptorApplication2`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DescriptorApplication2"
+      },
+      "expected": [
+        "DescriptorApplication2"
+      ]
+    },
+    {
+      "task_id": "exact_DescriptorApplicationMbString",
+      "query": {
+        "__rationale": "exact-match MRR target for `DescriptorApplicationMbString`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DescriptorApplicationMbString"
+      },
+      "expected": [
+        "DescriptorApplicationMbString"
+      ]
+    },
+    {
+      "task_id": "exact_DescriptorCommand1",
+      "query": {
+        "__rationale": "exact-match MRR target for `DescriptorCommand1`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DescriptorCommand1"
+      },
+      "expected": [
+        "DescriptorCommand1"
+      ]
+    },
+    {
+      "task_id": "exact_DescriptorCommand2",
+      "query": {
+        "__rationale": "exact-match MRR target for `DescriptorCommand2`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DescriptorCommand2"
+      },
+      "expected": [
+        "DescriptorCommand2"
+      ]
+    },
+    {
+      "task_id": "exact_DescriptorCommand3",
+      "query": {
+        "__rationale": "exact-match MRR target for `DescriptorCommand3`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DescriptorCommand3"
+      },
+      "expected": [
+        "DescriptorCommand3"
+      ]
+    },
+    {
+      "task_id": "exact_DescriptorCommand4",
+      "query": {
+        "__rationale": "exact-match MRR target for `DescriptorCommand4`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DescriptorCommand4"
+      },
+      "expected": [
+        "DescriptorCommand4"
+      ]
+    },
+    {
+      "task_id": "exact_DescriptorCommandMbString",
+      "query": {
+        "__rationale": "exact-match MRR target for `DescriptorCommandMbString`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DescriptorCommandMbString"
+      },
+      "expected": [
+        "DescriptorCommandMbString"
+      ]
+    },
+    {
+      "task_id": "exact_DescriptorHelper",
+      "query": {
+        "__rationale": "exact-match MRR target for `DescriptorHelper`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DescriptorHelper"
+      },
+      "expected": [
+        "DescriptorHelper"
+      ]
+    },
+    {
+      "task_id": "exact_DescriptorHelperTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `DescriptorHelperTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DescriptorHelperTest"
+      },
+      "expected": [
+        "DescriptorHelperTest"
+      ]
+    },
+    {
+      "task_id": "exact_DescriptorInterface",
+      "query": {
+        "__rationale": "exact-match MRR target for `DescriptorInterface`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DescriptorInterface"
+      },
+      "expected": [
+        "DescriptorInterface"
+      ]
+    },
+    {
+      "task_id": "exact_DisabledCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `DisabledCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DisabledCommand"
+      },
+      "expected": [
+        "DisabledCommand"
+      ]
+    },
+    {
+      "task_id": "exact_DtoWithHiddenQuestionArg",
+      "query": {
+        "__rationale": "exact-match MRR target for `DtoWithHiddenQuestionArg`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DtoWithHiddenQuestionArg"
+      },
+      "expected": [
+        "DtoWithHiddenQuestionArg"
+      ]
+    },
+    {
+      "task_id": "exact_DummyDto",
+      "query": {
+        "__rationale": "exact-match MRR target for `DummyDto`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DummyDto"
+      },
+      "expected": [
+        "DummyDto"
+      ]
+    },
+    {
+      "task_id": "exact_DummyDto2",
+      "query": {
+        "__rationale": "exact-match MRR target for `DummyDto2`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DummyDto2"
+      },
+      "expected": [
+        "DummyDto2"
+      ]
+    },
+    {
+      "task_id": "exact_DummyOutput",
+      "query": {
+        "__rationale": "exact-match MRR target for `DummyOutput`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DummyOutput"
+      },
+      "expected": [
+        "DummyOutput"
+      ]
+    },
+    {
+      "task_id": "exact_DummyTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `DummyTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DummyTest"
+      },
+      "expected": [
+        "DummyTest"
+      ]
+    },
+    {
+      "task_id": "exact_DumpCompletionCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `DumpCompletionCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DumpCompletionCommand"
+      },
+      "expected": [
+        "DumpCompletionCommand"
+      ]
+    },
+    {
+      "task_id": "exact_DumpCompletionCommandTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `DumpCompletionCommandTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DumpCompletionCommandTest"
+      },
+      "expected": [
+        "DumpCompletionCommandTest"
+      ]
+    },
+    {
+      "task_id": "exact_Dumper",
+      "query": {
+        "__rationale": "exact-match MRR target for `Dumper`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Dumper"
+      },
+      "expected": [
+        "Dumper"
+      ]
+    },
+    {
+      "task_id": "exact_DumperNativeFallbackTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `DumperNativeFallbackTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DumperNativeFallbackTest"
+      },
+      "expected": [
+        "DumperNativeFallbackTest"
+      ]
+    },
+    {
+      "task_id": "exact_DumperTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `DumperTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DumperTest"
+      },
+      "expected": [
+        "DumperTest"
+      ]
+    },
+    {
+      "task_id": "exact_ErrorListener",
+      "query": {
+        "__rationale": "exact-match MRR target for `ErrorListener`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ErrorListener"
+      },
+      "expected": [
+        "ErrorListener"
+      ]
+    },
+    {
+      "task_id": "exact_ErrorListenerTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ErrorListenerTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ErrorListenerTest"
+      },
+      "expected": [
+        "ErrorListenerTest"
+      ]
+    },
+    {
+      "task_id": "exact_EscapedDefaultsFromPhpCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `EscapedDefaultsFromPhpCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "EscapedDefaultsFromPhpCommand"
+      },
+      "expected": [
+        "EscapedDefaultsFromPhpCommand"
+      ]
+    },
+    {
+      "task_id": "exact_EventTraceSubscriber",
+      "query": {
+        "__rationale": "exact-match MRR target for `EventTraceSubscriber`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "EventTraceSubscriber"
+      },
+      "expected": [
+        "EventTraceSubscriber"
+      ]
+    },
+    {
+      "task_id": "exact_ExceptionInterface",
+      "query": {
+        "__rationale": "exact-match MRR target for `ExceptionInterface`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ExceptionInterface"
+      },
+      "expected": [
+        "ExceptionInterface"
+      ]
+    },
+    {
+      "task_id": "exact_FactoryCommandLoader",
+      "query": {
+        "__rationale": "exact-match MRR target for `FactoryCommandLoader`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FactoryCommandLoader"
+      },
+      "expected": [
+        "FactoryCommandLoader"
+      ]
+    },
+    {
+      "task_id": "exact_FactoryCommandLoaderTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `FactoryCommandLoaderTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FactoryCommandLoaderTest"
+      },
+      "expected": [
+        "FactoryCommandLoaderTest"
+      ]
+    },
+    {
+      "task_id": "exact_FailingCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `FailingCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FailingCommand"
+      },
+      "expected": [
+        "FailingCommand"
+      ]
+    },
+    {
+      "task_id": "exact_FishCompletionOutput",
+      "query": {
+        "__rationale": "exact-match MRR target for `FishCompletionOutput`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FishCompletionOutput"
+      },
+      "expected": [
+        "FishCompletionOutput"
+      ]
+    },
+    {
+      "task_id": "exact_FishCompletionOutputTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `FishCompletionOutputTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FishCompletionOutputTest"
+      },
+      "expected": [
+        "FishCompletionOutputTest"
+      ]
+    },
+    {
+      "task_id": "exact_Foo1Command",
+      "query": {
+        "__rationale": "exact-match MRR target for `Foo1Command`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Foo1Command"
+      },
+      "expected": [
+        "Foo1Command"
+      ]
+    },
+    {
+      "task_id": "exact_Foo2Command",
+      "query": {
+        "__rationale": "exact-match MRR target for `Foo2Command`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Foo2Command"
+      },
+      "expected": [
+        "Foo2Command"
+      ]
+    },
+    {
+      "task_id": "exact_Foo3Command",
+      "query": {
+        "__rationale": "exact-match MRR target for `Foo3Command`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Foo3Command"
+      },
+      "expected": [
+        "Foo3Command"
+      ]
+    },
+    {
+      "task_id": "exact_Foo4Command",
+      "query": {
+        "__rationale": "exact-match MRR target for `Foo4Command`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Foo4Command"
+      },
+      "expected": [
+        "Foo4Command"
+      ]
+    },
+    {
+      "task_id": "exact_Foo5Command",
+      "query": {
+        "__rationale": "exact-match MRR target for `Foo5Command`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Foo5Command"
+      },
+      "expected": [
+        "Foo5Command"
+      ]
+    },
+    {
+      "task_id": "exact_Foo6Command",
+      "query": {
+        "__rationale": "exact-match MRR target for `Foo6Command`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Foo6Command"
+      },
+      "expected": [
+        "Foo6Command"
+      ]
+    },
+    {
+      "task_id": "exact_FooCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `FooCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FooCommand"
+      },
+      "expected": [
+        "FooCommand"
+      ]
+    },
+    {
+      "task_id": "exact_FooHiddenCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `FooHiddenCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FooHiddenCommand"
+      },
+      "expected": [
+        "FooHiddenCommand"
+      ]
+    },
+    {
+      "task_id": "exact_FooLock2Command",
+      "query": {
+        "__rationale": "exact-match MRR target for `FooLock2Command`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FooLock2Command"
+      },
+      "expected": [
+        "FooLock2Command"
+      ]
+    },
+    {
+      "task_id": "exact_FooLock3Command",
+      "query": {
+        "__rationale": "exact-match MRR target for `FooLock3Command`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FooLock3Command"
+      },
+      "expected": [
+        "FooLock3Command"
+      ]
+    },
+    {
+      "task_id": "exact_FooLock4InvokableCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `FooLock4InvokableCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FooLock4InvokableCommand"
+      },
+      "expected": [
+        "FooLock4InvokableCommand"
+      ]
+    },
+    {
+      "task_id": "exact_FooLockCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `FooLockCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FooLockCommand"
+      },
+      "expected": [
+        "FooLockCommand"
+      ]
+    },
+    {
+      "task_id": "exact_FooOptCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `FooOptCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FooOptCommand"
+      },
+      "expected": [
+        "FooOptCommand"
+      ]
+    },
+    {
+      "task_id": "exact_FooSameCaseLowercaseCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `FooSameCaseLowercaseCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FooSameCaseLowercaseCommand"
+      },
+      "expected": [
+        "FooSameCaseLowercaseCommand"
+      ]
+    },
+    {
+      "task_id": "exact_FooSameCaseUppercaseCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `FooSameCaseUppercaseCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FooSameCaseUppercaseCommand"
+      },
+      "expected": [
+        "FooSameCaseUppercaseCommand"
+      ]
+    },
+    {
+      "task_id": "exact_FooSubnamespaced1Command",
+      "query": {
+        "__rationale": "exact-match MRR target for `FooSubnamespaced1Command`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FooSubnamespaced1Command"
+      },
+      "expected": [
+        "FooSubnamespaced1Command"
+      ]
+    },
+    {
+      "task_id": "exact_FooSubnamespaced2Command",
+      "query": {
+        "__rationale": "exact-match MRR target for `FooSubnamespaced2Command`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FooSubnamespaced2Command"
+      },
+      "expected": [
+        "FooSubnamespaced2Command"
+      ]
+    },
+    {
+      "task_id": "exact_FooWithoutAliasCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `FooWithoutAliasCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FooWithoutAliasCommand"
+      },
+      "expected": [
+        "FooWithoutAliasCommand"
+      ]
+    },
+    {
+      "task_id": "exact_FoobarCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `FoobarCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FoobarCommand"
+      },
+      "expected": [
+        "FoobarCommand"
+      ]
+    },
+    {
+      "task_id": "exact_FormatterHelper",
+      "query": {
+        "__rationale": "exact-match MRR target for `FormatterHelper`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FormatterHelper"
+      },
+      "expected": [
+        "FormatterHelper"
+      ]
+    },
+    {
+      "task_id": "exact_FormatterHelperTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `FormatterHelperTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FormatterHelperTest"
+      },
+      "expected": [
+        "FormatterHelperTest"
+      ]
+    },
+    {
+      "task_id": "exact_GithubActionReporter",
+      "query": {
+        "__rationale": "exact-match MRR target for `GithubActionReporter`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "GithubActionReporter"
+      },
+      "expected": [
+        "GithubActionReporter"
+      ]
+    },
+    {
+      "task_id": "exact_GithubActionReporterTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `GithubActionReporterTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "GithubActionReporterTest"
+      },
+      "expected": [
+        "GithubActionReporterTest"
+      ]
+    },
+    {
+      "task_id": "exact_HelpCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `HelpCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "HelpCommand"
+      },
+      "expected": [
+        "HelpCommand"
+      ]
+    },
+    {
+      "task_id": "exact_HelpCommandTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `HelpCommandTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "HelpCommandTest"
+      },
+      "expected": [
+        "HelpCommandTest"
+      ]
+    },
+    {
+      "task_id": "exact_Helper",
+      "query": {
+        "__rationale": "exact-match MRR target for `Helper`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Helper"
+      },
+      "expected": [
+        "Helper"
+      ]
+    },
+    {
+      "task_id": "exact_HelperInterface",
+      "query": {
+        "__rationale": "exact-match MRR target for `HelperInterface`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "HelperInterface"
+      },
+      "expected": [
+        "HelperInterface"
+      ]
+    },
+    {
+      "task_id": "exact_HelperSet",
+      "query": {
+        "__rationale": "exact-match MRR target for `HelperSet`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "HelperSet"
+      },
+      "expected": [
+        "HelperSet"
+      ]
+    },
+    {
+      "task_id": "exact_HelperSetTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `HelperSetTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "HelperSetTest"
+      },
+      "expected": [
+        "HelperSetTest"
+      ]
+    },
+    {
+      "task_id": "exact_HelperTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `HelperTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "HelperTest"
+      },
+      "expected": [
+        "HelperTest"
+      ]
+    },
+    {
+      "task_id": "exact_Input",
+      "query": {
+        "__rationale": "exact-match MRR target for `Input`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Input"
+      },
+      "expected": [
+        "Input"
+      ]
+    },
+    {
+      "task_id": "exact_InputArgument",
+      "query": {
+        "__rationale": "exact-match MRR target for `InputArgument`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InputArgument"
+      },
+      "expected": [
+        "InputArgument"
+      ]
+    },
+    {
+      "task_id": "exact_InputArgumentTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `InputArgumentTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InputArgumentTest"
+      },
+      "expected": [
+        "InputArgumentTest"
+      ]
+    },
+    {
+      "task_id": "exact_InputAwareHelper",
+      "query": {
+        "__rationale": "exact-match MRR target for `InputAwareHelper`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InputAwareHelper"
+      },
+      "expected": [
+        "InputAwareHelper"
+      ]
+    },
+    {
+      "task_id": "exact_InputAwareInterface",
+      "query": {
+        "__rationale": "exact-match MRR target for `InputAwareInterface`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InputAwareInterface"
+      },
+      "expected": [
+        "InputAwareInterface"
+      ]
+    },
+    {
+      "task_id": "exact_InputDefinition",
+      "query": {
+        "__rationale": "exact-match MRR target for `InputDefinition`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InputDefinition"
+      },
+      "expected": [
+        "InputDefinition"
+      ]
+    },
+    {
+      "task_id": "exact_InputDefinitionTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `InputDefinitionTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InputDefinitionTest"
+      },
+      "expected": [
+        "InputDefinitionTest"
+      ]
+    },
+    {
+      "task_id": "exact_InputInterface",
+      "query": {
+        "__rationale": "exact-match MRR target for `InputInterface`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InputInterface"
+      },
+      "expected": [
+        "InputInterface"
+      ]
+    },
+    {
+      "task_id": "exact_InputOption",
+      "query": {
+        "__rationale": "exact-match MRR target for `InputOption`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InputOption"
+      },
+      "expected": [
+        "InputOption"
+      ]
+    },
+    {
+      "task_id": "exact_InputOptionTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `InputOptionTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InputOptionTest"
+      },
+      "expected": [
+        "InputOptionTest"
+      ]
+    },
+    {
+      "task_id": "exact_InputTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `InputTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InputTest"
+      },
+      "expected": [
+        "InputTest"
+      ]
+    },
+    {
+      "task_id": "exact_Interact",
+      "query": {
+        "__rationale": "exact-match MRR target for `Interact`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Interact"
+      },
+      "expected": [
+        "Interact"
+      ]
+    },
+    {
+      "task_id": "exact_Interaction",
+      "query": {
+        "__rationale": "exact-match MRR target for `Interaction`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Interaction"
+      },
+      "expected": [
+        "Interaction"
+      ]
+    },
+    {
+      "task_id": "exact_InteractiveAttributeInterface",
+      "query": {
+        "__rationale": "exact-match MRR target for `InteractiveAttributeInterface`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InteractiveAttributeInterface"
+      },
+      "expected": [
+        "InteractiveAttributeInterface"
+      ]
+    },
+    {
+      "task_id": "exact_InvalidArgumentException",
+      "query": {
+        "__rationale": "exact-match MRR target for `InvalidArgumentException`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InvalidArgumentException"
+      },
+      "expected": [
+        "InvalidArgumentException"
+      ]
+    },
+    {
+      "task_id": "exact_InvalidOptionException",
+      "query": {
+        "__rationale": "exact-match MRR target for `InvalidOptionException`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InvalidOptionException"
+      },
+      "expected": [
+        "InvalidOptionException"
+      ]
+    },
+    {
+      "task_id": "exact_InvokableCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `InvokableCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InvokableCommand"
+      },
+      "expected": [
+        "InvokableCommand"
+      ]
+    },
+    {
+      "task_id": "exact_InvokableCommandTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `InvokableCommandTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InvokableCommandTest"
+      },
+      "expected": [
+        "InvokableCommandTest"
+      ]
+    },
+    {
+      "task_id": "exact_InvokableExtendingCommandTestCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `InvokableExtendingCommandTestCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InvokableExtendingCommandTestCommand"
+      },
+      "expected": [
+        "InvokableExtendingCommandTestCommand"
+      ]
+    },
+    {
+      "task_id": "exact_InvokableSignalableCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `InvokableSignalableCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InvokableSignalableCommand"
+      },
+      "expected": [
+        "InvokableSignalableCommand"
+      ]
+    },
+    {
+      "task_id": "exact_InvokableTestCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `InvokableTestCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InvokableTestCommand"
+      },
+      "expected": [
+        "InvokableTestCommand"
+      ]
+    },
+    {
+      "task_id": "exact_InvokableWithAskCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `InvokableWithAskCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InvokableWithAskCommand"
+      },
+      "expected": [
+        "InvokableWithAskCommand"
+      ]
+    },
+    {
+      "task_id": "exact_InvokableWithInputTestCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `InvokableWithInputTestCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InvokableWithInputTestCommand"
+      },
+      "expected": [
+        "InvokableWithInputTestCommand"
+      ]
+    },
+    {
+      "task_id": "exact_InvokableWithInteractiveAttributesTestCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `InvokableWithInteractiveAttributesTestCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InvokableWithInteractiveAttributesTestCommand"
+      },
+      "expected": [
+        "InvokableWithInteractiveAttributesTestCommand"
+      ]
+    },
+    {
+      "task_id": "exact_InvokableWithInteractiveHiddenQuestionAttributeTestCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `InvokableWithInteractiveHiddenQuestionAttributeTestCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InvokableWithInteractiveHiddenQuestionAttributeTestCommand"
+      },
+      "expected": [
+        "InvokableWithInteractiveHiddenQuestionAttributeTestCommand"
+      ]
+    },
+    {
+      "task_id": "exact_JsonDescriptor",
+      "query": {
+        "__rationale": "exact-match MRR target for `JsonDescriptor`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "JsonDescriptor"
+      },
+      "expected": [
+        "JsonDescriptor"
+      ]
+    },
+    {
+      "task_id": "exact_JsonDescriptorTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `JsonDescriptorTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "JsonDescriptorTest"
+      },
+      "expected": [
+        "JsonDescriptorTest"
+      ]
+    },
+    {
+      "task_id": "exact_LazyCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `LazyCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "LazyCommand"
+      },
+      "expected": [
+        "LazyCommand"
+      ]
+    },
+    {
+      "task_id": "exact_LazyTestCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `LazyTestCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "LazyTestCommand"
+      },
+      "expected": [
+        "LazyTestCommand"
+      ]
+    },
+    {
+      "task_id": "exact_ListCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `ListCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ListCommand"
+      },
+      "expected": [
+        "ListCommand"
+      ]
+    },
+    {
+      "task_id": "exact_ListCommandTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `ListCommandTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ListCommandTest"
+      },
+      "expected": [
+        "ListCommandTest"
+      ]
+    },
+    {
+      "task_id": "exact_LockableTrait",
+      "query": {
+        "__rationale": "exact-match MRR target for `LockableTrait`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "LockableTrait"
+      },
+      "expected": [
+        "LockableTrait"
+      ]
+    },
+    {
+      "task_id": "exact_LockableTraitTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `LockableTraitTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "LockableTraitTest"
+      },
+      "expected": [
+        "LockableTraitTest"
+      ]
+    },
+    {
+      "task_id": "exact_LogicException",
+      "query": {
+        "__rationale": "exact-match MRR target for `LogicException`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "LogicException"
+      },
+      "expected": [
+        "LogicException"
+      ]
+    },
+    {
+      "task_id": "exact_LoopExampleCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `LoopExampleCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "LoopExampleCommand"
+      },
+      "expected": [
+        "LoopExampleCommand"
+      ]
+    },
+    {
+      "task_id": "exact_ManyAliasesCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `ManyAliasesCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ManyAliasesCommand"
+      },
+      "expected": [
+        "ManyAliasesCommand"
+      ]
+    },
+    {
+      "task_id": "exact_MapInput",
+      "query": {
+        "__rationale": "exact-match MRR target for `MapInput`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "MapInput"
+      },
+      "expected": [
+        "MapInput"
+      ]
+    },
+    {
+      "task_id": "exact_MarkdownDescriptor",
+      "query": {
+        "__rationale": "exact-match MRR target for `MarkdownDescriptor`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "MarkdownDescriptor"
+      },
+      "expected": [
+        "MarkdownDescriptor"
+      ]
+    },
+    {
+      "task_id": "exact_MarkdownDescriptorTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `MarkdownDescriptorTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "MarkdownDescriptorTest"
+      },
+      "expected": [
+        "MarkdownDescriptorTest"
+      ]
+    },
+    {
+      "task_id": "exact_MissingInputException",
+      "query": {
+        "__rationale": "exact-match MRR target for `MissingInputException`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "MissingInputException"
+      },
+      "expected": [
+        "MissingInputException"
+      ]
+    },
+    {
+      "task_id": "exact_MockableAppliationWithTerminalWidth",
+      "query": {
+        "__rationale": "exact-match MRR target for `MockableAppliationWithTerminalWidth`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "MockableAppliationWithTerminalWidth"
+      },
+      "expected": [
+        "MockableAppliationWithTerminalWidth"
+      ]
+    },
+    {
+      "task_id": "exact_MyAnnotatedCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `MyAnnotatedCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "MyAnnotatedCommand"
+      },
+      "expected": [
+        "MyAnnotatedCommand"
+      ]
+    },
+    {
+      "task_id": "exact_MyCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `MyCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "MyCommand"
+      },
+      "expected": [
+        "MyCommand"
+      ]
+    },
+    {
+      "task_id": "exact_NamedCommand",
+      "query": {
+        "__rationale": "exact-match MRR target for `NamedCommand`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "NamedCommand"
+      },
+      "expected": [
+        "NamedCommand"
+      ]
+    },
+    {
+      "task_id": "exact_NamespaceNotFoundException",
+      "query": {
+        "__rationale": "exact-match MRR target for `NamespaceNotFoundException`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "NamespaceNotFoundException"
+      },
+      "expected": [
+        "NamespaceNotFoundException"
+      ]
+    },
+    {
+      "task_id": "exact_NonStringInput",
+      "query": {
+        "__rationale": "exact-match MRR target for `NonStringInput`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "NonStringInput"
+      },
+      "expected": [
+        "NonStringInput"
+      ]
+    },
+    {
+      "task_id": "exact_NullOutput",
+      "query": {
+        "__rationale": "exact-match MRR target for `NullOutput`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "NullOutput"
+      },
+      "expected": [
+        "NullOutput"
+      ]
+    },
+    {
+      "task_id": "exact_NullOutputFormatter",
+      "query": {
+        "__rationale": "exact-match MRR target for `NullOutputFormatter`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "NullOutputFormatter"
+      },
+      "expected": [
+        "NullOutputFormatter"
+      ]
+    },
+    {
+      "task_id": "exact_NullOutputFormatterStyle",
+      "query": {
+        "__rationale": "exact-match MRR target for `NullOutputFormatterStyle`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "NullOutputFormatterStyle"
+      },
+      "expected": [
+        "NullOutputFormatterStyle"
+      ]
+    },
+    {
+      "task_id": "exact_NullOutputFormatterStyleTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `NullOutputFormatterStyleTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "NullOutputFormatterStyleTest"
+      },
+      "expected": [
+        "NullOutputFormatterStyleTest"
+      ]
+    },
+    {
+      "task_id": "exact_NullOutputFormatterTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `NullOutputFormatterTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "NullOutputFormatterTest"
+      },
+      "expected": [
+        "NullOutputFormatterTest"
+      ]
+    },
+    {
+      "task_id": "exact_NullOutputTest",
+      "query": {
+        "__rationale": "exact-match MRR target for `NullOutputTest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "NullOutputTest"
+      },
+      "expected": [
+        "NullOutputTest"
+      ]
+    },
+    {
+      "task_id": "exact_ObjectsProvider",
+      "query": {
+        "__rationale": "exact-match MRR target for `ObjectsProvider`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ObjectsProvider"
+      },
+      "expected": [
+        "ObjectsProvider"
+      ]
+    },
+    {
+      "task_id": "exact_Option",
+      "query": {
+        "__rationale": "exact-match MRR target for `Option`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Option"
+      },
+      "expected": [
+        "Option"
+      ]
+    },
+    {
+      "task_id": "exact_Output",
+      "query": {
+        "__rationale": "exact-match MRR target for `Output`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Output"
+      },
+      "expected": [
+        "Output"
+      ]
+    },
+    {
+      "task_id": "exact_OutputFormatter",
+      "query": {
+        "__rationale": "exact-match MRR target for `OutputFormatter`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "OutputFormatter"
+      },
+      "expected": [
+        "OutputFormatter"
+      ]
+    },
+    {
+      "task_id": "exact_OutputFormatterInterface",
+      "query": {
+        "__rationale": "exact-match MRR target for `OutputFormatterInterface`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "OutputFormatterInterface"
+      },
+      "expected": [
+        "OutputFormatterInterface"
+      ]
+    }
+  ]
+}

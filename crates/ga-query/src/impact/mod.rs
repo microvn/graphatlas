@@ -66,6 +66,35 @@ pub fn impact(store: &Store, req: &ImpactRequest) -> Result<ImpactResponse> {
         .map(str::trim)
         .filter(|s| !s.is_empty())
     {
+        // CORE-2 (2026-05-22) — ambiguity-first multi-def resolution. When
+        // the seed is an UNqualified, multi-def symbol with no `file:` hint,
+        // skip traversal and return a structured `disambiguation` payload.
+        // Qualified seeds (`Class::method`, `Class.method`) are already
+        // disambiguated by `resolve_seed`. Opt-out: `GA_AMBIGUITY_LEGACY=1`.
+        let is_qualified = symbol.contains("::") || symbol.contains('.');
+        if !is_qualified
+            && req.file.is_none()
+            && !crate::common::ambiguity_legacy_enabled()
+            && crate::common::is_safe_ident(symbol)
+        {
+            let conn = store
+                .connection()
+                .map_err(|e| Error::Other(anyhow::anyhow!("connection: {e}")))?;
+            let def_count = crate::common::count_defs(&conn, symbol)?;
+            if def_count > 1 {
+                let candidates = crate::common::list_defs(&conn, symbol)?;
+                resp.disambiguation = Some(crate::Disambiguation {
+                    reason: "ambiguous".into(),
+                    hint: format!(
+                        "Symbol '{}' has {} definitions. Re-issue with `file:` hint or a `<file>::<symbol>` qualified target.",
+                        symbol, def_count
+                    ),
+                    candidates,
+                });
+                return Ok(resp);
+            }
+        }
+
         // infra:S-004 — expand qualified seeds (User.set_password,
         // Router::new) into unqualified name + file_hint so downstream
         // Cypher (which matches on `Symbol.name` only) keeps working.

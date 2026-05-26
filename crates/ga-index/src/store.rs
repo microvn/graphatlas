@@ -45,9 +45,13 @@ pub struct Store {
     // Database alive concurrently in the same process — even briefly.
     db: Option<lbug::Database>,
     metadata: Metadata,
-    // Held for the lifetime of the Store so cross-process peers see contention.
-    // Exclusive = this process is the writer. Shared = read-only attached reader.
-    _lock: LockFile,
+    // v1.5 PR6.1 (multi-mcp): `Option<LockFile>` so post-seal writers and
+    // read-only attachers can release the flock entirely. A held flock at
+    // steady state would block any peer's `try_acquire_exclusive` for
+    // reindex — the bug agentfolk-e1c32d-2026-05-25 root cause #3.
+    // Exclusive flock is held ONLY during build window; reader holds None;
+    // post-seal writer holds None.
+    _lock: Option<LockFile>,
     outcome: OpenOutcome,
     layout: CacheLayout,
     committed: bool,
@@ -99,7 +103,39 @@ impl Store {
                 return Self::open_read_only(cache_root, repo_root, binary_schema);
             }
         };
+        Self::open_with_lock(cache_root, repo_root, binary_schema, lock, layout)
+    }
 
+    /// v1.5 PR6.1 (multi-mcp) — variant that consumes a caller-provided
+    /// exclusive `LockFile` instead of acquiring its own. Used by
+    /// `reindex_in_place` to thread the acquired lock through the nuke +
+    /// open cycle WITHOUT a release-then-reacquire gap (challenge C-1 race
+    /// window). The caller is responsible for having acquired exclusive
+    /// before calling this.
+    pub(crate) fn open_with_root_and_schema_with_lock(
+        cache_root: &Path,
+        repo_root: &Path,
+        binary_schema: u32,
+        lock: LockFile,
+    ) -> Result<Self> {
+        crate::cache::validate_cache_dir_override(cache_root)?;
+        crate::cache::ensure_cache_root(cache_root)?;
+        let layout = CacheLayout::for_repo(cache_root, repo_root);
+        layout.ensure_dir()?;
+        Self::open_with_lock(cache_root, repo_root, binary_schema, lock, layout)
+    }
+
+    /// Internal helper: completes Store open given an already-acquired
+    /// exclusive `LockFile` and a validated `CacheLayout`. Body lifted
+    /// out of `open_with_root_and_schema` so the lock-threading variant
+    /// can reuse it without duplicating the metadata/DDL/lbug-open work.
+    fn open_with_lock(
+        _cache_root: &Path,
+        repo_root: &Path,
+        binary_schema: u32,
+        lock: LockFile,
+        layout: CacheLayout,
+    ) -> Result<Self> {
         let decision = Metadata::cold_load(&layout, binary_schema)?;
         let outcome = match &decision {
             SchemaDecision::NoCache => OpenOutcome::FreshBuild,
@@ -189,7 +225,7 @@ impl Store {
         Ok(Self {
             db: Some(db),
             metadata,
-            _lock: lock,
+            _lock: Some(lock),
             outcome,
             layout,
             committed: false,
@@ -198,28 +234,28 @@ impl Store {
     }
 
     /// Read-only attach: another process holds the exclusive writer lock for
-    /// this repo. We acquire a shared lock and open lbug in read-only mode so
-    /// query traffic still works. No DDL, no nuke, no metadata mutation.
+    /// this repo. v1.5 PR6.1 (multi-mcp) — does NOT acquire any flock (no
+    /// shared, no exclusive). lbug RO open is sufficient; the spike
+    /// `spike_no_reader_flock_real_fixture.rs` PASSed at 29 MB. Releasing
+    /// the long-lived shared lock is the load-bearing fix for Bug #3 of
+    /// agentfolk-e1c32d.
     ///
-    /// Fails if (a) we cannot get even a shared lock (transient — writer is
-    /// mid-flock-conversion) or (b) on-disk metadata says `Building`/missing
-    /// (no committed cache to read from). The caller should treat (b) as
-    /// "indexing in progress, retry shortly" rather than a hard error.
-    fn open_read_only(cache_root: &Path, repo_root: &Path, binary_schema: u32) -> Result<Self> {
+    /// Boot-race handling: when metadata says `Building` (peer writer is
+    /// still mid-initial-build), enter exponential backoff (100ms..2s,
+    /// 30s budget) re-reading metadata until peer commits → attach as
+    /// reader. If the budget expires → return the existing
+    /// "no committed cache" error.
+    pub(crate) fn open_read_only(
+        cache_root: &Path,
+        repo_root: &Path,
+        binary_schema: u32,
+    ) -> Result<Self> {
         let layout = CacheLayout::for_repo(cache_root, repo_root);
         layout.ensure_dir()?;
 
-        let lock = LockFile::try_acquire_shared(&layout, "reader").map_err(|e| {
-            Error::Other(anyhow::anyhow!(
-                "another graphatlas instance is indexing this repo and read-only \
-                 attach failed: {e}"
-            ))
-        })?;
-
-        // Only attach if the cache is committed. A `Building` state means the
-        // writer's lbug DB may be mid-write — opening it for read could see
-        // partial state. Refuse with a retryable error.
-        let decision = Metadata::cold_load(&layout, binary_schema)?;
+        // S-002 AS-006 — boot-race exponential backoff on Building/NoCache.
+        // We do NOT poll on Mismatch (mismatched schema is a hard fault).
+        let decision = wait_for_complete_decision(&layout, binary_schema)?;
         let metadata = match decision {
             SchemaDecision::Match(m) => *m,
             SchemaDecision::NoCache | SchemaDecision::CrashedBuilding { .. } => {
@@ -249,10 +285,16 @@ impl Store {
         let db = lbug::Database::new(&db_path, lbug::SystemConfig::default().read_only(true))
             .map_err(|e| Error::Database(format!("open graph.db read-only failed: {e}")))?;
 
+        tracing::info!(
+            target: "ga_index::store",
+            cache = %layout.dir().display(),
+            "attached read-only (no flock)"
+        );
+
         Ok(Self {
             db: Some(db),
             metadata,
-            _lock: lock,
+            _lock: None,
             outcome: OpenOutcome::AttachedReadOnly { writer_generation },
             layout,
             committed: true, // already committed by the writer; we never mutate
@@ -352,11 +394,21 @@ impl Store {
         self.db = Some(ro);
         self.read_only = true;
 
-        // Step 3: downgrade kernel flock to shared so peer MCP processes can
-        // attach as readers. Propagate the error per AS-003.
-        self._lock
-            .downgrade_to_shared()
-            .map_err(|e| Error::Database(format!("seal: flock downgrade failed: {e}")))?;
+        // Step 3 — v1.5 PR6.1 (multi-mcp) S-002 AS-005: release the exclusive
+        // flock entirely (no downgrade-to-shared). Post-seal the writer holds
+        // NO flock at steady state — peer processes can subsequently acquire
+        // exclusive for reindex without waiting on shared holders. This is
+        // the load-bearing change for Bug #3 of agentfolk-e1c32d.
+        if let Some(lock) = self._lock.take() {
+            lock.release()
+                .map_err(|e| Error::Database(format!("seal: flock release failed: {e}")))?;
+        }
+        tracing::info!(
+            target: "ga_index::store",
+            cache = %self.layout.dir().display(),
+            event = "seal_release",
+            "writer released exclusive flock; serving read-only"
+        );
         Ok(())
     }
 
@@ -414,21 +466,27 @@ impl Store {
     /// `LockFile::try_acquire_exclusive` + `REBUILDING.tombstone` on top of
     /// this primitive.
     pub fn reindex_in_place(self, repo_root: &Path) -> Result<Self> {
-        // Capture layout BEFORE dropping self — needed for nuke_cache_files.
+        // v1.5 PR6.1 (multi-mcp) S-001 — NO outcome-based callee guard.
+        // An earlier PR6.1 attempt refused based on
+        // `matches!(outcome, AttachedReadOnly)`, but that proved
+        // over-strict: once the peer writer releases its flock, an
+        // attached reader CAN safely re-acquire and proceed. Permanent
+        // refusal trapped the loser of a concurrent-reindex race in
+        // read-only mode forever.
+        //
+        // `try_acquire_exclusive` below is the real gatekeeper — when it
+        // fails, the AS-002 LockError::Held branch returns
+        // `Ok(read_only_store)` so the caller's Store cell stays
+        // populated; when it succeeds (peer is gone or never was),
+        // this process promotes itself to writer.
+        //
+        // Cache integrity is still preserved: nuke happens AFTER a
+        // successful exclusive acquire, never on the LockError::Held
+        // fallback path.
+
+        // Capture layout + schema_version BEFORE dropping self.
         let layout = self.layout.clone();
         let schema_version = self.metadata.schema_version;
-
-        // Step 1: drop the old Store. Explicit drop makes the ordering
-        // obvious to readers; `self` would drop at function end anyway.
-        drop(self);
-
-        // Step 2: wipe cache files. layout.dir() and lock.pid remain on
-        // disk (lock.pid will be re-acquired by step 3); graph.db and
-        // metadata.json are removed.
-        nuke_cache_files(&layout);
-
-        // Step 3: reopen the cache. cache_root is the parent of the
-        // per-repo dir (`layout.dir()`).
         let cache_root = layout
             .dir()
             .parent()
@@ -439,7 +497,58 @@ impl Store {
                 ))
             })?
             .to_path_buf();
-        Store::open_with_root_and_schema(&cache_root, repo_root, schema_version)
+
+        // Step 1: drop the old Store. Releases prior handle/flock.
+        drop(self);
+
+        // Step 2 — v1.5 PR6.1 S-001 AS-001/AS-002: acquire exclusive BEFORE
+        // nuke. Failure → cache untouched, re-attach as reader so the
+        // caller's Store cell stays populated (challenge C-2 contradiction
+        // fix; mirrors investigation Bug #1 "nuke trước khi xác nhận lại
+        // lock được").
+        let lock = match LockFile::try_acquire_exclusive(&layout, "reindex") {
+            Ok(l) => l,
+            Err(crate::lock::LockError::Held {
+                pid,
+                hostname,
+                started_at_unix,
+            }) => {
+                tracing::warn!(
+                    target: "ga_index::lock",
+                    holder_pid = pid,
+                    holder_hostname = %hostname,
+                    holder_started_at_unix = started_at_unix,
+                    cache = %layout.dir().display(),
+                    "reindex refused: peer holds exclusive"
+                );
+                // Re-attach as reader so caller (rebuild_via) doesn't end
+                // up with an empty Store cell. If re-attach also fails,
+                // that's a hard fault — propagate.
+                return Store::open_read_only(&cache_root, repo_root, schema_version).map_err(
+                    |e| {
+                        Error::Other(anyhow::anyhow!(
+                            "reindex refused: peer PID {pid} on {hostname} holds exclusive, \
+                             and read-only re-attach also failed: {e}"
+                        ))
+                    },
+                );
+            }
+            Err(e) => {
+                return Err(Error::Other(anyhow::anyhow!(
+                    "reindex_in_place: lock acquire failed: {e}"
+                )));
+            }
+        };
+
+        // Step 3: wipe cache files. graph.db + metadata.json are removed;
+        // lock.pid stays (we hold the kernel flock on it via `lock`).
+        nuke_cache_files(&layout);
+
+        // Step 4 — v1.5 PR6.1 S-001 AS-001 / challenge C-1 fix: thread the
+        // already-acquired exclusive lock through the open path. NO
+        // release-then-reacquire window where a peer could sneak in and
+        // start a parallel FreshBuild.
+        Store::open_with_root_and_schema_with_lock(&cache_root, repo_root, schema_version, lock)
     }
 
     /// v1.5 PR4 Staleness Phase B (sub-spec staleness S-002) — reopen the
@@ -498,6 +607,61 @@ impl Drop for Store {
         // open, cold_load will detect it and trigger crash-recovery rebuild
         // (AS-025). No extra cleanup needed — the LockFile Drop removes lock.pid.
         let _ = self.committed;
+    }
+}
+
+/// v1.5 PR6.1 (multi-mcp) S-002 AS-006 — exponential backoff helper for
+/// `open_read_only`. When a writer is mid-initial-build and a peer process
+/// attaches read-only, polls `Metadata::cold_load` until decision becomes
+/// `Match(Complete)` or the budget expires. Backoff: 100ms doubling to 2s
+/// cap, total 30s budget. Returns the final `SchemaDecision` so caller
+/// applies its own error mapping (Mismatch is NOT polled — it's a hard
+/// fault that retry won't fix).
+/// Test override for the read-only retry budget. Production code never
+/// touches this; tests call [`set_readonly_retry_budget_ms_for_tests`]
+/// to shorten the 30s default so the timeout path can be exercised
+/// quickly. `u64::MAX` sentinel means "use production default (30s)".
+static READONLY_RETRY_BUDGET_OVERRIDE_MS: std::sync::atomic::AtomicU64 =
+    std::sync::atomic::AtomicU64::new(u64::MAX);
+
+/// Test-only knob: shorten the [`open_read_only`] retry budget. Default
+/// 30s is too long for integration tests of the boot-race timeout path.
+/// Setting `0` returns immediately on a Building/NoCache decision.
+pub fn set_readonly_retry_budget_ms_for_tests(ms: u64) {
+    READONLY_RETRY_BUDGET_OVERRIDE_MS.store(ms, std::sync::atomic::Ordering::Relaxed);
+}
+
+fn wait_for_complete_decision(layout: &CacheLayout, binary_schema: u32) -> Result<SchemaDecision> {
+    let override_ms = READONLY_RETRY_BUDGET_OVERRIDE_MS.load(std::sync::atomic::Ordering::Relaxed);
+    let budget_ms: u64 = if override_ms == u64::MAX {
+        30_000
+    } else {
+        override_ms
+    };
+    let budget = std::time::Duration::from_millis(budget_ms);
+    let cap = std::time::Duration::from_secs(2);
+    let mut sleep = std::time::Duration::from_millis(100);
+    let started = std::time::Instant::now();
+    let mut attempt: u32 = 0;
+    loop {
+        attempt += 1;
+        let decision = Metadata::cold_load(layout, binary_schema)?;
+        match &decision {
+            SchemaDecision::Match(_) | SchemaDecision::Mismatch { .. } => return Ok(decision),
+            SchemaDecision::NoCache | SchemaDecision::CrashedBuilding { .. } => {
+                if started.elapsed() >= budget {
+                    return Ok(decision);
+                }
+                tracing::debug!(
+                    target: "ga_index::store",
+                    attempt,
+                    sleep_ms = sleep.as_millis() as u64,
+                    "awaiting writer commit during initial build"
+                );
+                std::thread::sleep(sleep);
+                sleep = std::cmp::min(sleep * 2, cap);
+            }
+        }
     }
 }
 

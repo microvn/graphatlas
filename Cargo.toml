@@ -11,11 +11,11 @@ members = [
 ]
 
 [workspace.package]
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.85"
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/microvn/GraphAtlas"
+repository = "https://github.com/microvn/graphatlas"
 
 # Workspace-level clippy allow-list — style lints from clippy 1.95+ that are
 # pre-existing, style-only, and not worth touching during OSS launch. Real

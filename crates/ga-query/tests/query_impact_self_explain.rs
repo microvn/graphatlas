@@ -177,6 +177,11 @@ fn impacted_file_explanation_is_non_empty_plain_english() {
 fn impacted_file_path_membership_unchanged_by_self_explain_fields() {
     // Bench-safety guard: adding fields must not change which files are
     // surfaced. Same input → same set of paths as before this change.
+    //
+    // Updated 2026-05-22 (CORE-2): use a `file:` hint so the ambiguity-first
+    // gate doesn't fire on the multi-def `shared`. Both a.py and b.py still
+    // surface — a.py as the seed file, b.py as the homonym (relation
+    // `shares_function_name`).
     let tmp = TempDir::new().unwrap();
     let cache = tmp.path().join(".graphatlas");
     let repo = tmp.path().join("repo");
@@ -190,6 +195,7 @@ fn impacted_file_path_membership_unchanged_by_self_explain_fields() {
         &store,
         &ImpactRequest {
             symbol: Some("shared".into()),
+            file: Some("a.py".into()),
             ..Default::default()
         },
     )

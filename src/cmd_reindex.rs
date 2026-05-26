@@ -33,20 +33,14 @@ fn emit_phase(json_progress: bool, phase: &str, percent: f32) {
 pub fn do_reindex(repo_root: &Path, json_progress: bool) -> Result<()> {
     let started = std::time::Instant::now();
     emit_phase(json_progress, "opening", 5.0);
-    // `Store::open` acquires the per-repo exclusive flock before any
-    // mutation (see crates/ga-index/src/store.rs:91-101). If another
-    // writer (typically `graphatlas mcp` server) holds the lock,
-    // open() falls back to a read-only handle. We detect that here
-    // and refuse rather than calling reindex_in_place on a read-only
-    // store, which would corrupt-or-error halfway through.
+    // v1.5 PR6.1 (multi-mcp) H-1: read-only guard removed here — the
+    // callee `reindex_in_place` now refuses immediately on read-only
+    // Stores (single source of truth at callee). If the cache is held
+    // by a peer writer, `reindex_in_place` will re-attach as reader and
+    // return the read-only Store; we detect that via outcome below and
+    // surface a clear error to CLI users.
     let store = Store::open(repo_root)
         .with_context(|| format!("open cache for {}", repo_root.display()))?;
-    if store.is_read_only() {
-        return Err(anyhow::anyhow!(
-            "cache is locked by another writer (likely `graphatlas mcp`); \
-             reindex skipped. Try again after the writer releases the lock."
-        ));
-    }
     emit_phase(json_progress, "indexing", 20.0);
     let mut fresh = store
         .reindex_in_place(repo_root)

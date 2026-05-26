@@ -1,0 +1,236 @@
+name: Release
+
+# Triggers:
+#   * push tag `v*`          — full release: build, package, attach assets,
+#                              publish GitHub Release with CHANGELOG section.
+#   * workflow_dispatch      — build matrix only (no Release created). Use to
+#                              smoke-test the pipeline before tagging.
+#
+# Artifacts per target (6 targets):
+#   graphatlas-<target>.tar.gz       — binary + ui-bundle/ + LICENSE-* + README
+#   graphatlas-<target>.tar.gz.sha256
+#
+# Matrix targets (native where possible — lbug 0.16.1 needs cmake + GCC 12+
+# (uses C++20 <format> and AVX-512 FP16 intrinsics in bundled simsimd), so
+# Ubuntu 24.04 is the minimum. Cross-compile is painful so we stick to
+# native runners):
+#   darwin-arm64        macos-14         (Apple Silicon)
+#   darwin-x86_64       macos-13         (Intel)
+#   linux-x86_64-gnu    ubuntu-24.04
+#   linux-aarch64       ubuntu-24.04-arm (GitHub-hosted arm64)
+#   windows-x86_64      windows-2022
+# musl deferred: musl-tools provides musl-gcc but not musl-g++; lbug = C++,
+# so musl needs a custom toolchain (cross / Docker). Revisit post-v0.1.0.
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Build matrix but do not create a GitHub Release"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write  # required to create the Release + upload assets
+
+jobs:
+  # ----------------------------------------------------------------------
+  # 1. Build the UI bundle once on Linux. Bun output is platform-agnostic
+  #    (browser JS), so every target downloads the same dist/ui artifact.
+  # ----------------------------------------------------------------------
+  build-ui:
+    name: build ui bundle
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: bun install
+        working-directory: ui
+        run: bun install --frozen-lockfile
+      - name: bun run build
+        working-directory: ui
+        run: bun run build
+      - name: stage bundle
+        run: |
+          test -d dist/ui || { echo "::error::dist/ui missing — check ui/package.json build script"; exit 1; }
+          mv dist/ui ui-bundle
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ui-bundle
+          path: ui-bundle/
+          retention-days: 7
+
+  # ----------------------------------------------------------------------
+  # 2. Build the binary per target, pack tarball with the shared UI bundle.
+  # ----------------------------------------------------------------------
+  build-bin:
+    name: build ${{ matrix.target }}
+    needs: build-ui
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: darwin-arm64
+            rust_target: aarch64-apple-darwin
+            os: macos-14
+            bin: graphatlas
+            archive_ext: tar.gz
+          # macos-13 (Intel runner) is being phased out by GitHub — jobs
+          # routinely queue for hours. Cross-compile x86_64 from the
+          # Apple Silicon runner instead: Apple ships a universal toolchain,
+          # cc-rs + cmake-rs honor CMAKE_OSX_ARCHITECTURES via the
+          # rust-target triple.
+          - target: darwin-x86_64
+            rust_target: x86_64-apple-darwin
+            os: macos-14
+            bin: graphatlas
+            archive_ext: tar.gz
+          # ubuntu-24.04 ships GCC 13 — required by lbug 0.16.1's bundled
+          # simsimd (AVX-512 FP16 intrinsics, `__m512h`) and the C++20
+          # `<format>` header. GCC 11 on 22.04 fails both.
+          - target: linux-x86_64-gnu
+            rust_target: x86_64-unknown-linux-gnu
+            os: ubuntu-24.04
+            bin: graphatlas
+            archive_ext: tar.gz
+          - target: linux-aarch64
+            rust_target: aarch64-unknown-linux-gnu
+            os: ubuntu-24.04-arm
+            bin: graphatlas
+            archive_ext: tar.gz
+          - target: windows-x86_64
+            rust_target: x86_64-pc-windows-msvc
+            os: windows-2022
+            bin: graphatlas.exe
+            archive_ext: zip
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # cmake — required by lbug 0.16.1 (LBUG_BUILD_FROM_SOURCE).
+      - name: install cmake (linux)
+        if: startsWith(matrix.os, 'ubuntu')
+        run: sudo apt-get update && sudo apt-get install -y cmake
+      - name: install cmake (macos)
+        if: startsWith(matrix.os, 'macos')
+        run: brew install cmake
+      - name: install cmake (windows)
+        if: startsWith(matrix.os, 'windows')
+        run: choco install cmake -y --no-progress
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.rust_target }}
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: ${{ matrix.target }}
+
+      - name: cargo build --release
+        env:
+          LBUG_BUILD_FROM_SOURCE: "1"
+        # `graphatlas ui` shells out to ga-server (axum backend) — both
+        # binaries must ship in the tarball. `-p` scoping is required
+        # because `--bin ga-server` would only search the root crate.
+        run: cargo build --release -p graphatlas -p ga-server --target ${{ matrix.rust_target }}
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: ui-bundle
+          path: ui-bundle
+
+      # Stage release-payload dir, then pack platform-appropriate archive.
+      - name: stage payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          STAGE="graphatlas-${{ matrix.target }}"
+          mkdir -p "$STAGE"
+          # Both binaries — graphatlas is the CLI / MCP entry, ga-server is
+          # the backend `graphatlas ui` spawns. .exe suffix on Windows.
+          ext=""
+          [[ "${{ matrix.archive_ext }}" == "zip" ]] && ext=".exe"
+          cp "target/${{ matrix.rust_target }}/release/graphatlas${ext}" "$STAGE/"
+          cp "target/${{ matrix.rust_target }}/release/ga-server${ext}" "$STAGE/"
+          cp -r ui-bundle "$STAGE/ui-bundle"
+          cp LICENSE-MIT LICENSE-APACHE README.md "$STAGE/"
+          ls -la "$STAGE"
+          echo "STAGE=$STAGE" >> "$GITHUB_ENV"
+
+      - name: pack tarball (unix)
+        if: matrix.archive_ext == 'tar.gz'
+        shell: bash
+        run: |
+          set -euo pipefail
+          ARCHIVE="${STAGE}.tar.gz"
+          tar -czf "$ARCHIVE" "$STAGE"
+          shasum -a 256 "$ARCHIVE" | awk '{print $1}' > "${ARCHIVE}.sha256"
+          echo "ARCHIVE=$ARCHIVE" >> "$GITHUB_ENV"
+
+      - name: pack zip (windows)
+        if: matrix.archive_ext == 'zip'
+        shell: pwsh
+        run: |
+          $archive = "$env:STAGE.zip"
+          Compress-Archive -Path $env:STAGE -DestinationPath $archive
+          $hash = (Get-FileHash -Algorithm SHA256 $archive).Hash.ToLower()
+          Set-Content -Path "$archive.sha256" -Value $hash -NoNewline
+          "ARCHIVE=$archive" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-${{ matrix.target }}
+          path: |
+            ${{ env.ARCHIVE }}
+            ${{ env.ARCHIVE }}.sha256
+          retention-days: 7
+
+  # ----------------------------------------------------------------------
+  # 3. On tag push only: create the GitHub Release and attach assets.
+  # ----------------------------------------------------------------------
+  publish:
+    name: publish release
+    needs: build-bin
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          pattern: release-*
+          merge-multiple: true
+      - name: list assets
+        run: ls -la dist/
+      - name: extract CHANGELOG section
+        id: notes
+        shell: bash
+        run: |
+          set -euo pipefail
+          VERSION="${GITHUB_REF_NAME#v}"
+          # awk: print lines between `## [VERSION]` and the next `## [` header
+          awk -v v="$VERSION" '
+            $0 ~ "^## \\[" v "\\]" { in_section = 1; next }
+            in_section && /^## \[/    { exit }
+            in_section                { print }
+          ' CHANGELOG.md > release-notes.md
+          echo "--- release-notes.md ---"
+          cat release-notes.md
+      - name: create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          body_path: release-notes.md
+          draft: false
+          prerelease: ${{ contains(github.ref_name, '-') }}
+          files: |
+            dist/*.tar.gz
+            dist/*.tar.gz.sha256
+            dist/*.zip
+            dist/*.zip.sha256

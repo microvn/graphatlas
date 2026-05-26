@@ -102,27 +102,57 @@ fn collect_exact(conn: &lbug::Connection<'_>, pattern: &str) -> Result<Vec<Symbo
 fn collect_fuzzy(conn: &lbug::Connection<'_>, pattern: &str) -> Result<Vec<SymbolEntry>> {
     // Full scan is fine at M1 scale (≤50k symbols per AS-008) — same bound
     // suggest_similar uses.
+    //
+    // P2.2 (2026-05-22) — pure Levenshtein over-penalized longer substring
+    // matches (e.g. "overflow" → "overflowBehavior" had d=8 because the 8
+    // trailing chars cost; but "error" had d=5-7 to "overflow", so "error"
+    // ranked HIGHER than the actual substring match). Fix: blend
+    // Levenshtein with substring/prefix bonuses so name.contains(pattern)
+    // always outranks non-containing equidistant noise. Case-insensitive
+    // comparison so `Overflow` matches lowercase pattern `overflow`.
     let cypher =
         "MATCH (s:Symbol) WHERE s.kind <> 'external' RETURN s.name, s.kind, s.file, s.line";
     let rs = conn
         .query(cypher)
         .map_err(|e| Error::Other(anyhow::anyhow!("symbols fuzzy query: {e}")))?;
 
-    let mut scored: Vec<(u32, SymbolEntry)> = Vec::new();
+    let needle = pattern.to_lowercase();
+    let mut scored: Vec<(f32, u32, SymbolEntry)> = Vec::new();
     for row in rs {
         if let Some(entry) = row_to_entry(row, 0.0) {
             let d = levenshtein(pattern, &entry.name);
-            scored.push((d, entry));
+            let name_lc = entry.name.to_lowercase();
+            // Substring bonus: 0.5 for prefix match (very specific signal),
+            // 0.3 for any substring match. Stacks under 1.0 cap with
+            // Levenshtein component below. Empty pattern → no bonus
+            // (caller validation upstream guarantees non-empty).
+            let substring_bonus = if name_lc.starts_with(&needle) {
+                0.5
+            } else if name_lc.contains(&needle) {
+                0.3
+            } else {
+                0.0
+            };
+            scored.push((substring_bonus, d, entry));
         }
     }
-    // Stable sort by Levenshtein distance (asc), then name — deterministic ties.
-    scored.sort_by(|a, b| a.0.cmp(&b.0).then_with(|| a.1.name.cmp(&b.1.name)));
-    let max_d = scored.last().map(|(d, _)| *d).unwrap_or(1).max(1) as f32;
+    // Sort: substring bonus desc (containing first), then Levenshtein asc,
+    // then name asc for deterministic ties.
+    scored.sort_by(|a, b| {
+        b.0.partial_cmp(&a.0)
+            .unwrap_or(std::cmp::Ordering::Equal)
+            .then_with(|| a.1.cmp(&b.1))
+            .then_with(|| a.2.name.cmp(&b.2.name))
+    });
+    let max_d = scored.last().map(|(_, d, _)| *d).unwrap_or(1).max(1) as f32;
     Ok(scored
         .into_iter()
-        .map(|(d, mut e)| {
-            // Normalize score so closer = higher. 1.0 for exact, drops with d.
-            e.score = 1.0 - (d as f32 / max_d) * 0.5;
+        .map(|(bonus, d, mut e)| {
+            // Combined score: substring bonus (0/0.3/0.5) + Levenshtein
+            // component (0.0 - 0.5). Capped at 1.0. Substring matches reach
+            // 1.0 only when distance is also low; non-matches max at 0.5.
+            let lev_component = 0.5 - (d as f32 / max_d) * 0.5;
+            e.score = (bonus + lev_component).clamp(0.0, 1.0);
             e
         })
         .collect())

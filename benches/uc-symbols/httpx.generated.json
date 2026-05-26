@@ -1,0 +1,2407 @@
+{
+  "schema_version": 1,
+  "uc": "symbols",
+  "fixture": "httpx",
+  "tasks": [
+    {
+      "task_id": "exact_ASGIResponseStream",
+      "query": {
+        "__rationale": "exact-match MRR target for `ASGIResponseStream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ASGIResponseStream"
+      },
+      "expected": [
+        "ASGIResponseStream"
+      ]
+    },
+    {
+      "task_id": "exact_ASGITransport",
+      "query": {
+        "__rationale": "exact-match MRR target for `ASGITransport`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ASGITransport"
+      },
+      "expected": [
+        "ASGITransport"
+      ]
+    },
+    {
+      "task_id": "exact_App",
+      "query": {
+        "__rationale": "exact-match MRR target for `App`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "App"
+      },
+      "expected": [
+        "App"
+      ]
+    },
+    {
+      "task_id": "exact_AsyncBaseTransport",
+      "query": {
+        "__rationale": "exact-match MRR target for `AsyncBaseTransport`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AsyncBaseTransport"
+      },
+      "expected": [
+        "AsyncBaseTransport"
+      ]
+    },
+    {
+      "task_id": "exact_AsyncByteStream",
+      "query": {
+        "__rationale": "exact-match MRR target for `AsyncByteStream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AsyncByteStream"
+      },
+      "expected": [
+        "AsyncByteStream"
+      ]
+    },
+    {
+      "task_id": "exact_AsyncBytesIO",
+      "query": {
+        "__rationale": "exact-match MRR target for `AsyncBytesIO`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AsyncBytesIO"
+      },
+      "expected": [
+        "AsyncBytesIO"
+      ]
+    },
+    {
+      "task_id": "exact_AsyncClient",
+      "query": {
+        "__rationale": "exact-match MRR target for `AsyncClient`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AsyncClient"
+      },
+      "expected": [
+        "AsyncClient"
+      ]
+    },
+    {
+      "task_id": "exact_AsyncHTTPTransport",
+      "query": {
+        "__rationale": "exact-match MRR target for `AsyncHTTPTransport`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AsyncHTTPTransport"
+      },
+      "expected": [
+        "AsyncHTTPTransport"
+      ]
+    },
+    {
+      "task_id": "exact_AsyncIteratorByteStream",
+      "query": {
+        "__rationale": "exact-match MRR target for `AsyncIteratorByteStream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AsyncIteratorByteStream"
+      },
+      "expected": [
+        "AsyncIteratorByteStream"
+      ]
+    },
+    {
+      "task_id": "exact_AsyncResponseStream",
+      "query": {
+        "__rationale": "exact-match MRR target for `AsyncResponseStream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "AsyncResponseStream"
+      },
+      "expected": [
+        "AsyncResponseStream"
+      ]
+    },
+    {
+      "task_id": "exact_Auth",
+      "query": {
+        "__rationale": "exact-match MRR target for `Auth`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Auth"
+      },
+      "expected": [
+        "Auth"
+      ]
+    },
+    {
+      "task_id": "exact_BaseClient",
+      "query": {
+        "__rationale": "exact-match MRR target for `BaseClient`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "BaseClient"
+      },
+      "expected": [
+        "BaseClient"
+      ]
+    },
+    {
+      "task_id": "exact_BaseTransport",
+      "query": {
+        "__rationale": "exact-match MRR target for `BaseTransport`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "BaseTransport"
+      },
+      "expected": [
+        "BaseTransport"
+      ]
+    },
+    {
+      "task_id": "exact_BasicAuth",
+      "query": {
+        "__rationale": "exact-match MRR target for `BasicAuth`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "BasicAuth"
+      },
+      "expected": [
+        "BasicAuth"
+      ]
+    },
+    {
+      "task_id": "exact_BoundAsyncStream",
+      "query": {
+        "__rationale": "exact-match MRR target for `BoundAsyncStream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "BoundAsyncStream"
+      },
+      "expected": [
+        "BoundAsyncStream"
+      ]
+    },
+    {
+      "task_id": "exact_BoundSyncStream",
+      "query": {
+        "__rationale": "exact-match MRR target for `BoundSyncStream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "BoundSyncStream"
+      },
+      "expected": [
+        "BoundSyncStream"
+      ]
+    },
+    {
+      "task_id": "exact_BrotliDecoder",
+      "query": {
+        "__rationale": "exact-match MRR target for `BrotliDecoder`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "BrotliDecoder"
+      },
+      "expected": [
+        "BrotliDecoder"
+      ]
+    },
+    {
+      "task_id": "exact_ByteChunker",
+      "query": {
+        "__rationale": "exact-match MRR target for `ByteChunker`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ByteChunker"
+      },
+      "expected": [
+        "ByteChunker"
+      ]
+    },
+    {
+      "task_id": "exact_ByteStream",
+      "query": {
+        "__rationale": "exact-match MRR target for `ByteStream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ByteStream"
+      },
+      "expected": [
+        "ByteStream"
+      ]
+    },
+    {
+      "task_id": "exact_CancelledStream",
+      "query": {
+        "__rationale": "exact-match MRR target for `CancelledStream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CancelledStream"
+      },
+      "expected": [
+        "CancelledStream"
+      ]
+    },
+    {
+      "task_id": "exact_Client",
+      "query": {
+        "__rationale": "exact-match MRR target for `Client`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Client"
+      },
+      "expected": [
+        "Client"
+      ]
+    },
+    {
+      "task_id": "exact_ClientState",
+      "query": {
+        "__rationale": "exact-match MRR target for `ClientState`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ClientState"
+      },
+      "expected": [
+        "ClientState"
+      ]
+    },
+    {
+      "task_id": "exact_CloseError",
+      "query": {
+        "__rationale": "exact-match MRR target for `CloseError`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CloseError"
+      },
+      "expected": [
+        "CloseError"
+      ]
+    },
+    {
+      "task_id": "exact_ConnectError",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConnectError`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConnectError"
+      },
+      "expected": [
+        "ConnectError"
+      ]
+    },
+    {
+      "task_id": "exact_ConnectTimeout",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConnectTimeout`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConnectTimeout"
+      },
+      "expected": [
+        "ConnectTimeout"
+      ]
+    },
+    {
+      "task_id": "exact_ConsumeBodyTransport",
+      "query": {
+        "__rationale": "exact-match MRR target for `ConsumeBodyTransport`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ConsumeBodyTransport"
+      },
+      "expected": [
+        "ConsumeBodyTransport"
+      ]
+    },
+    {
+      "task_id": "exact_Content",
+      "query": {
+        "__rationale": "exact-match MRR target for `Content`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Content"
+      },
+      "expected": [
+        "Content"
+      ]
+    },
+    {
+      "task_id": "exact_ContentDecoder",
+      "query": {
+        "__rationale": "exact-match MRR target for `ContentDecoder`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ContentDecoder"
+      },
+      "expected": [
+        "ContentDecoder"
+      ]
+    },
+    {
+      "task_id": "exact_CookieConflict",
+      "query": {
+        "__rationale": "exact-match MRR target for `CookieConflict`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "CookieConflict"
+      },
+      "expected": [
+        "CookieConflict"
+      ]
+    },
+    {
+      "task_id": "exact_Cookies",
+      "query": {
+        "__rationale": "exact-match MRR target for `Cookies`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Cookies"
+      },
+      "expected": [
+        "Cookies"
+      ]
+    },
+    {
+      "task_id": "exact_Data",
+      "query": {
+        "__rationale": "exact-match MRR target for `Data`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Data"
+      },
+      "expected": [
+        "Data"
+      ]
+    },
+    {
+      "task_id": "exact_DataField",
+      "query": {
+        "__rationale": "exact-match MRR target for `DataField`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DataField"
+      },
+      "expected": [
+        "DataField"
+      ]
+    },
+    {
+      "task_id": "exact_DecodingError",
+      "query": {
+        "__rationale": "exact-match MRR target for `DecodingError`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DecodingError"
+      },
+      "expected": [
+        "DecodingError"
+      ]
+    },
+    {
+      "task_id": "exact_DeflateDecoder",
+      "query": {
+        "__rationale": "exact-match MRR target for `DeflateDecoder`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DeflateDecoder"
+      },
+      "expected": [
+        "DeflateDecoder"
+      ]
+    },
+    {
+      "task_id": "exact_DigestApp",
+      "query": {
+        "__rationale": "exact-match MRR target for `DigestApp`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DigestApp"
+      },
+      "expected": [
+        "DigestApp"
+      ]
+    },
+    {
+      "task_id": "exact_DigestAuth",
+      "query": {
+        "__rationale": "exact-match MRR target for `DigestAuth`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "DigestAuth"
+      },
+      "expected": [
+        "DigestAuth"
+      ]
+    },
+    {
+      "task_id": "exact_ExternalURLClass",
+      "query": {
+        "__rationale": "exact-match MRR target for `ExternalURLClass`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ExternalURLClass"
+      },
+      "expected": [
+        "ExternalURLClass"
+      ]
+    },
+    {
+      "task_id": "exact_FileField",
+      "query": {
+        "__rationale": "exact-match MRR target for `FileField`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FileField"
+      },
+      "expected": [
+        "FileField"
+      ]
+    },
+    {
+      "task_id": "exact_FunctionAuth",
+      "query": {
+        "__rationale": "exact-match MRR target for `FunctionAuth`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "FunctionAuth"
+      },
+      "expected": [
+        "FunctionAuth"
+      ]
+    },
+    {
+      "task_id": "exact_GZipDecoder",
+      "query": {
+        "__rationale": "exact-match MRR target for `GZipDecoder`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "GZipDecoder"
+      },
+      "expected": [
+        "GZipDecoder"
+      ]
+    },
+    {
+      "task_id": "exact_HTTPError",
+      "query": {
+        "__rationale": "exact-match MRR target for `HTTPError`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "HTTPError"
+      },
+      "expected": [
+        "HTTPError"
+      ]
+    },
+    {
+      "task_id": "exact_HTTPStatusError",
+      "query": {
+        "__rationale": "exact-match MRR target for `HTTPStatusError`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "HTTPStatusError"
+      },
+      "expected": [
+        "HTTPStatusError"
+      ]
+    },
+    {
+      "task_id": "exact_HTTPTransport",
+      "query": {
+        "__rationale": "exact-match MRR target for `HTTPTransport`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "HTTPTransport"
+      },
+      "expected": [
+        "HTTPTransport"
+      ]
+    },
+    {
+      "task_id": "exact_Headers",
+      "query": {
+        "__rationale": "exact-match MRR target for `Headers`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Headers"
+      },
+      "expected": [
+        "Headers"
+      ]
+    },
+    {
+      "task_id": "exact_IdentityDecoder",
+      "query": {
+        "__rationale": "exact-match MRR target for `IdentityDecoder`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "IdentityDecoder"
+      },
+      "expected": [
+        "IdentityDecoder"
+      ]
+    },
+    {
+      "task_id": "exact_InvalidURL",
+      "query": {
+        "__rationale": "exact-match MRR target for `InvalidURL`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "InvalidURL"
+      },
+      "expected": [
+        "InvalidURL"
+      ]
+    },
+    {
+      "task_id": "exact_IteratorByteStream",
+      "query": {
+        "__rationale": "exact-match MRR target for `IteratorByteStream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "IteratorByteStream"
+      },
+      "expected": [
+        "IteratorByteStream"
+      ]
+    },
+    {
+      "task_id": "exact_IteratorIO",
+      "query": {
+        "__rationale": "exact-match MRR target for `IteratorIO`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "IteratorIO"
+      },
+      "expected": [
+        "IteratorIO"
+      ]
+    },
+    {
+      "task_id": "exact_Limits",
+      "query": {
+        "__rationale": "exact-match MRR target for `Limits`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Limits"
+      },
+      "expected": [
+        "Limits"
+      ]
+    },
+    {
+      "task_id": "exact_LineDecoder",
+      "query": {
+        "__rationale": "exact-match MRR target for `LineDecoder`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "LineDecoder"
+      },
+      "expected": [
+        "LineDecoder"
+      ]
+    },
+    {
+      "task_id": "exact_LocalProtocolError",
+      "query": {
+        "__rationale": "exact-match MRR target for `LocalProtocolError`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "LocalProtocolError"
+      },
+      "expected": [
+        "LocalProtocolError"
+      ]
+    },
+    {
+      "task_id": "exact_MockTransport",
+      "query": {
+        "__rationale": "exact-match MRR target for `MockTransport`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "MockTransport"
+      },
+      "expected": [
+        "MockTransport"
+      ]
+    },
+    {
+      "task_id": "exact_MultiDecoder",
+      "query": {
+        "__rationale": "exact-match MRR target for `MultiDecoder`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "MultiDecoder"
+      },
+      "expected": [
+        "MultiDecoder"
+      ]
+    },
+    {
+      "task_id": "exact_MultipartStream",
+      "query": {
+        "__rationale": "exact-match MRR target for `MultipartStream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "MultipartStream"
+      },
+      "expected": [
+        "MultipartStream"
+      ]
+    },
+    {
+      "task_id": "exact_NetRCAuth",
+      "query": {
+        "__rationale": "exact-match MRR target for `NetRCAuth`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "NetRCAuth"
+      },
+      "expected": [
+        "NetRCAuth"
+      ]
+    },
+    {
+      "task_id": "exact_NetworkError",
+      "query": {
+        "__rationale": "exact-match MRR target for `NetworkError`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "NetworkError"
+      },
+      "expected": [
+        "NetworkError"
+      ]
+    },
+    {
+      "task_id": "exact_PERCENT",
+      "query": {
+        "__rationale": "exact-match MRR target for `PERCENT`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "PERCENT"
+      },
+      "expected": [
+        "PERCENT"
+      ]
+    },
+    {
+      "task_id": "exact_ParseResult",
+      "query": {
+        "__rationale": "exact-match MRR target for `ParseResult`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ParseResult"
+      },
+      "expected": [
+        "ParseResult"
+      ]
+    },
+    {
+      "task_id": "exact_PoolTimeout",
+      "query": {
+        "__rationale": "exact-match MRR target for `PoolTimeout`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "PoolTimeout"
+      },
+      "expected": [
+        "PoolTimeout"
+      ]
+    },
+    {
+      "task_id": "exact_ProtocolError",
+      "query": {
+        "__rationale": "exact-match MRR target for `ProtocolError`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ProtocolError"
+      },
+      "expected": [
+        "ProtocolError"
+      ]
+    },
+    {
+      "task_id": "exact_Proxy",
+      "query": {
+        "__rationale": "exact-match MRR target for `Proxy`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Proxy"
+      },
+      "expected": [
+        "Proxy"
+      ]
+    },
+    {
+      "task_id": "exact_ProxyError",
+      "query": {
+        "__rationale": "exact-match MRR target for `ProxyError`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ProxyError"
+      },
+      "expected": [
+        "ProxyError"
+      ]
+    },
+    {
+      "task_id": "exact_QueryParams",
+      "query": {
+        "__rationale": "exact-match MRR target for `QueryParams`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "QueryParams"
+      },
+      "expected": [
+        "QueryParams"
+      ]
+    },
+    {
+      "task_id": "exact_ReadError",
+      "query": {
+        "__rationale": "exact-match MRR target for `ReadError`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ReadError"
+      },
+      "expected": [
+        "ReadError"
+      ]
+    },
+    {
+      "task_id": "exact_ReadTimeout",
+      "query": {
+        "__rationale": "exact-match MRR target for `ReadTimeout`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ReadTimeout"
+      },
+      "expected": [
+        "ReadTimeout"
+      ]
+    },
+    {
+      "task_id": "exact_RemoteProtocolError",
+      "query": {
+        "__rationale": "exact-match MRR target for `RemoteProtocolError`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "RemoteProtocolError"
+      },
+      "expected": [
+        "RemoteProtocolError"
+      ]
+    },
+    {
+      "task_id": "exact_RepeatAuth",
+      "query": {
+        "__rationale": "exact-match MRR target for `RepeatAuth`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "RepeatAuth"
+      },
+      "expected": [
+        "RepeatAuth"
+      ]
+    },
+    {
+      "task_id": "exact_Request",
+      "query": {
+        "__rationale": "exact-match MRR target for `Request`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Request"
+      },
+      "expected": [
+        "Request"
+      ]
+    },
+    {
+      "task_id": "exact_RequestError",
+      "query": {
+        "__rationale": "exact-match MRR target for `RequestError`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "RequestError"
+      },
+      "expected": [
+        "RequestError"
+      ]
+    },
+    {
+      "task_id": "exact_RequestNotRead",
+      "query": {
+        "__rationale": "exact-match MRR target for `RequestNotRead`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "RequestNotRead"
+      },
+      "expected": [
+        "RequestNotRead"
+      ]
+    },
+    {
+      "task_id": "exact_Response",
+      "query": {
+        "__rationale": "exact-match MRR target for `Response`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Response"
+      },
+      "expected": [
+        "Response"
+      ]
+    },
+    {
+      "task_id": "exact_ResponseBodyAuth",
+      "query": {
+        "__rationale": "exact-match MRR target for `ResponseBodyAuth`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ResponseBodyAuth"
+      },
+      "expected": [
+        "ResponseBodyAuth"
+      ]
+    },
+    {
+      "task_id": "exact_ResponseNotRead",
+      "query": {
+        "__rationale": "exact-match MRR target for `ResponseNotRead`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ResponseNotRead"
+      },
+      "expected": [
+        "ResponseNotRead"
+      ]
+    },
+    {
+      "task_id": "exact_ResponseStream",
+      "query": {
+        "__rationale": "exact-match MRR target for `ResponseStream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ResponseStream"
+      },
+      "expected": [
+        "ResponseStream"
+      ]
+    },
+    {
+      "task_id": "exact_StreamClosed",
+      "query": {
+        "__rationale": "exact-match MRR target for `StreamClosed`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "StreamClosed"
+      },
+      "expected": [
+        "StreamClosed"
+      ]
+    },
+    {
+      "task_id": "exact_StreamConsumed",
+      "query": {
+        "__rationale": "exact-match MRR target for `StreamConsumed`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "StreamConsumed"
+      },
+      "expected": [
+        "StreamConsumed"
+      ]
+    },
+    {
+      "task_id": "exact_StreamError",
+      "query": {
+        "__rationale": "exact-match MRR target for `StreamError`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "StreamError"
+      },
+      "expected": [
+        "StreamError"
+      ]
+    },
+    {
+      "task_id": "exact_StreamingBody",
+      "query": {
+        "__rationale": "exact-match MRR target for `StreamingBody`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "StreamingBody"
+      },
+      "expected": [
+        "StreamingBody"
+      ]
+    },
+    {
+      "task_id": "exact_SyncByteStream",
+      "query": {
+        "__rationale": "exact-match MRR target for `SyncByteStream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "SyncByteStream"
+      },
+      "expected": [
+        "SyncByteStream"
+      ]
+    },
+    {
+      "task_id": "exact_SyncOrAsyncAuth",
+      "query": {
+        "__rationale": "exact-match MRR target for `SyncOrAsyncAuth`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "SyncOrAsyncAuth"
+      },
+      "expected": [
+        "SyncOrAsyncAuth"
+      ]
+    },
+    {
+      "task_id": "exact_TestHeaderParamHTML5Formatting",
+      "query": {
+        "__rationale": "exact-match MRR target for `TestHeaderParamHTML5Formatting`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "TestHeaderParamHTML5Formatting"
+      },
+      "expected": [
+        "TestHeaderParamHTML5Formatting"
+      ]
+    },
+    {
+      "task_id": "exact_TestServer",
+      "query": {
+        "__rationale": "exact-match MRR target for `TestServer`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "TestServer"
+      },
+      "expected": [
+        "TestServer"
+      ]
+    },
+    {
+      "task_id": "exact_TextChunker",
+      "query": {
+        "__rationale": "exact-match MRR target for `TextChunker`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "TextChunker"
+      },
+      "expected": [
+        "TextChunker"
+      ]
+    },
+    {
+      "task_id": "exact_TextDecoder",
+      "query": {
+        "__rationale": "exact-match MRR target for `TextDecoder`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "TextDecoder"
+      },
+      "expected": [
+        "TextDecoder"
+      ]
+    },
+    {
+      "task_id": "exact_Timeout",
+      "query": {
+        "__rationale": "exact-match MRR target for `Timeout`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Timeout"
+      },
+      "expected": [
+        "Timeout"
+      ]
+    },
+    {
+      "task_id": "exact_TimeoutException",
+      "query": {
+        "__rationale": "exact-match MRR target for `TimeoutException`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "TimeoutException"
+      },
+      "expected": [
+        "TimeoutException"
+      ]
+    },
+    {
+      "task_id": "exact_TooManyRedirects",
+      "query": {
+        "__rationale": "exact-match MRR target for `TooManyRedirects`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "TooManyRedirects"
+      },
+      "expected": [
+        "TooManyRedirects"
+      ]
+    },
+    {
+      "task_id": "exact_Transport",
+      "query": {
+        "__rationale": "exact-match MRR target for `Transport`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "Transport"
+      },
+      "expected": [
+        "Transport"
+      ]
+    },
+    {
+      "task_id": "exact_TransportError",
+      "query": {
+        "__rationale": "exact-match MRR target for `TransportError`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "TransportError"
+      },
+      "expected": [
+        "TransportError"
+      ]
+    },
+    {
+      "task_id": "exact_URL",
+      "query": {
+        "__rationale": "exact-match MRR target for `URL`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "URL"
+      },
+      "expected": [
+        "URL"
+      ]
+    },
+    {
+      "task_id": "exact_URLPattern",
+      "query": {
+        "__rationale": "exact-match MRR target for `URLPattern`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "URLPattern"
+      },
+      "expected": [
+        "URLPattern"
+      ]
+    },
+    {
+      "task_id": "exact_UnattachedStream",
+      "query": {
+        "__rationale": "exact-match MRR target for `UnattachedStream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "UnattachedStream"
+      },
+      "expected": [
+        "UnattachedStream"
+      ]
+    },
+    {
+      "task_id": "exact_UnsetType",
+      "query": {
+        "__rationale": "exact-match MRR target for `UnsetType`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "UnsetType"
+      },
+      "expected": [
+        "UnsetType"
+      ]
+    },
+    {
+      "task_id": "exact_UnsupportedProtocol",
+      "query": {
+        "__rationale": "exact-match MRR target for `UnsupportedProtocol`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "UnsupportedProtocol"
+      },
+      "expected": [
+        "UnsupportedProtocol"
+      ]
+    },
+    {
+      "task_id": "exact_UseClientDefault",
+      "query": {
+        "__rationale": "exact-match MRR target for `UseClientDefault`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "UseClientDefault"
+      },
+      "expected": [
+        "UseClientDefault"
+      ]
+    },
+    {
+      "task_id": "exact_WSGIByteStream",
+      "query": {
+        "__rationale": "exact-match MRR target for `WSGIByteStream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "WSGIByteStream"
+      },
+      "expected": [
+        "WSGIByteStream"
+      ]
+    },
+    {
+      "task_id": "exact_WSGITransport",
+      "query": {
+        "__rationale": "exact-match MRR target for `WSGITransport`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "WSGITransport"
+      },
+      "expected": [
+        "WSGITransport"
+      ]
+    },
+    {
+      "task_id": "exact_WriteError",
+      "query": {
+        "__rationale": "exact-match MRR target for `WriteError`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "WriteError"
+      },
+      "expected": [
+        "WriteError"
+      ]
+    },
+    {
+      "task_id": "exact_WriteTimeout",
+      "query": {
+        "__rationale": "exact-match MRR target for `WriteTimeout`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "WriteTimeout"
+      },
+      "expected": [
+        "WriteTimeout"
+      ]
+    },
+    {
+      "task_id": "exact_ZStandardDecoder",
+      "query": {
+        "__rationale": "exact-match MRR target for `ZStandardDecoder`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "ZStandardDecoder"
+      },
+      "expected": [
+        "ZStandardDecoder"
+      ]
+    },
+    {
+      "task_id": "exact__CookieCompatRequest",
+      "query": {
+        "__rationale": "exact-match MRR target for `_CookieCompatRequest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_CookieCompatRequest"
+      },
+      "expected": [
+        "_CookieCompatRequest"
+      ]
+    },
+    {
+      "task_id": "exact__CookieCompatResponse",
+      "query": {
+        "__rationale": "exact-match MRR target for `_CookieCompatResponse`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_CookieCompatResponse"
+      },
+      "expected": [
+        "_CookieCompatResponse"
+      ]
+    },
+    {
+      "task_id": "exact__DigestAuthChallenge",
+      "query": {
+        "__rationale": "exact-match MRR target for `_DigestAuthChallenge`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_DigestAuthChallenge"
+      },
+      "expected": [
+        "_DigestAuthChallenge"
+      ]
+    },
+    {
+      "task_id": "exact__build_auth",
+      "query": {
+        "__rationale": "exact-match MRR target for `_build_auth`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_build_auth"
+      },
+      "expected": [
+        "_build_auth"
+      ]
+    },
+    {
+      "task_id": "exact__build_auth_header",
+      "query": {
+        "__rationale": "exact-match MRR target for `_build_auth_header`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_build_auth_header"
+      },
+      "expected": [
+        "_build_auth_header"
+      ]
+    },
+    {
+      "task_id": "exact__build_redirect_request",
+      "query": {
+        "__rationale": "exact-match MRR target for `_build_redirect_request`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_build_redirect_request"
+      },
+      "expected": [
+        "_build_redirect_request"
+      ]
+    },
+    {
+      "task_id": "exact__build_request_auth",
+      "query": {
+        "__rationale": "exact-match MRR target for `_build_request_auth`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_build_request_auth"
+      },
+      "expected": [
+        "_build_request_auth"
+      ]
+    },
+    {
+      "task_id": "exact__enforce_trailing_slash",
+      "query": {
+        "__rationale": "exact-match MRR target for `_enforce_trailing_slash`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_enforce_trailing_slash"
+      },
+      "expected": [
+        "_enforce_trailing_slash"
+      ]
+    },
+    {
+      "task_id": "exact__format_form_param",
+      "query": {
+        "__rationale": "exact-match MRR target for `_format_form_param`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_format_form_param"
+      },
+      "expected": [
+        "_format_form_param"
+      ]
+    },
+    {
+      "task_id": "exact__get_client_nonce",
+      "query": {
+        "__rationale": "exact-match MRR target for `_get_client_nonce`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_get_client_nonce"
+      },
+      "expected": [
+        "_get_client_nonce"
+      ]
+    },
+    {
+      "task_id": "exact__get_content_decoder",
+      "query": {
+        "__rationale": "exact-match MRR target for `_get_content_decoder`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_get_content_decoder"
+      },
+      "expected": [
+        "_get_content_decoder"
+      ]
+    },
+    {
+      "task_id": "exact__get_header_value",
+      "query": {
+        "__rationale": "exact-match MRR target for `_get_header_value`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_get_header_value"
+      },
+      "expected": [
+        "_get_header_value"
+      ]
+    },
+    {
+      "task_id": "exact__get_proxy_map",
+      "query": {
+        "__rationale": "exact-match MRR target for `_get_proxy_map`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_get_proxy_map"
+      },
+      "expected": [
+        "_get_proxy_map"
+      ]
+    },
+    {
+      "task_id": "exact__guess_content_type",
+      "query": {
+        "__rationale": "exact-match MRR target for `_guess_content_type`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_guess_content_type"
+      },
+      "expected": [
+        "_guess_content_type"
+      ]
+    },
+    {
+      "task_id": "exact__init_proxy_transport",
+      "query": {
+        "__rationale": "exact-match MRR target for `_init_proxy_transport`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_init_proxy_transport"
+      },
+      "expected": [
+        "_init_proxy_transport"
+      ]
+    },
+    {
+      "task_id": "exact__init_transport",
+      "query": {
+        "__rationale": "exact-match MRR target for `_init_transport`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_init_transport"
+      },
+      "expected": [
+        "_init_transport"
+      ]
+    },
+    {
+      "task_id": "exact__is_https_redirect",
+      "query": {
+        "__rationale": "exact-match MRR target for `_is_https_redirect`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_is_https_redirect"
+      },
+      "expected": [
+        "_is_https_redirect"
+      ]
+    },
+    {
+      "task_id": "exact__is_known_encoding",
+      "query": {
+        "__rationale": "exact-match MRR target for `_is_known_encoding`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_is_known_encoding"
+      },
+      "expected": [
+        "_is_known_encoding"
+      ]
+    },
+    {
+      "task_id": "exact__iter_fields",
+      "query": {
+        "__rationale": "exact-match MRR target for `_iter_fields`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_iter_fields"
+      },
+      "expected": [
+        "_iter_fields"
+      ]
+    },
+    {
+      "task_id": "exact__load_httpcore_exceptions",
+      "query": {
+        "__rationale": "exact-match MRR target for `_load_httpcore_exceptions`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_load_httpcore_exceptions"
+      },
+      "expected": [
+        "_load_httpcore_exceptions"
+      ]
+    },
+    {
+      "task_id": "exact__merge_cookies",
+      "query": {
+        "__rationale": "exact-match MRR target for `_merge_cookies`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_merge_cookies"
+      },
+      "expected": [
+        "_merge_cookies"
+      ]
+    },
+    {
+      "task_id": "exact__merge_headers",
+      "query": {
+        "__rationale": "exact-match MRR target for `_merge_headers`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_merge_headers"
+      },
+      "expected": [
+        "_merge_headers"
+      ]
+    },
+    {
+      "task_id": "exact__merge_queryparams",
+      "query": {
+        "__rationale": "exact-match MRR target for `_merge_queryparams`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_merge_queryparams"
+      },
+      "expected": [
+        "_merge_queryparams"
+      ]
+    },
+    {
+      "task_id": "exact__merge_url",
+      "query": {
+        "__rationale": "exact-match MRR target for `_merge_url`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_merge_url"
+      },
+      "expected": [
+        "_merge_url"
+      ]
+    },
+    {
+      "task_id": "exact__normalize_header_key",
+      "query": {
+        "__rationale": "exact-match MRR target for `_normalize_header_key`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_normalize_header_key"
+      },
+      "expected": [
+        "_normalize_header_key"
+      ]
+    },
+    {
+      "task_id": "exact__normalize_header_value",
+      "query": {
+        "__rationale": "exact-match MRR target for `_normalize_header_value`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_normalize_header_value"
+      },
+      "expected": [
+        "_normalize_header_value"
+      ]
+    },
+    {
+      "task_id": "exact__obfuscate_sensitive_headers",
+      "query": {
+        "__rationale": "exact-match MRR target for `_obfuscate_sensitive_headers`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_obfuscate_sensitive_headers"
+      },
+      "expected": [
+        "_obfuscate_sensitive_headers"
+      ]
+    },
+    {
+      "task_id": "exact__parse_challenge",
+      "query": {
+        "__rationale": "exact-match MRR target for `_parse_challenge`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_parse_challenge"
+      },
+      "expected": [
+        "_parse_challenge"
+      ]
+    },
+    {
+      "task_id": "exact__parse_content_type_charset",
+      "query": {
+        "__rationale": "exact-match MRR target for `_parse_content_type_charset`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_parse_content_type_charset"
+      },
+      "expected": [
+        "_parse_content_type_charset"
+      ]
+    },
+    {
+      "task_id": "exact__parse_header_links",
+      "query": {
+        "__rationale": "exact-match MRR target for `_parse_header_links`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_parse_header_links"
+      },
+      "expected": [
+        "_parse_header_links"
+      ]
+    },
+    {
+      "task_id": "exact__port_or_default",
+      "query": {
+        "__rationale": "exact-match MRR target for `_port_or_default`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_port_or_default"
+      },
+      "expected": [
+        "_port_or_default"
+      ]
+    },
+    {
+      "task_id": "exact__prepare",
+      "query": {
+        "__rationale": "exact-match MRR target for `_prepare`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_prepare"
+      },
+      "expected": [
+        "_prepare"
+      ]
+    },
+    {
+      "task_id": "exact__redirect_headers",
+      "query": {
+        "__rationale": "exact-match MRR target for `_redirect_headers`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_redirect_headers"
+      },
+      "expected": [
+        "_redirect_headers"
+      ]
+    },
+    {
+      "task_id": "exact__redirect_method",
+      "query": {
+        "__rationale": "exact-match MRR target for `_redirect_method`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_redirect_method"
+      },
+      "expected": [
+        "_redirect_method"
+      ]
+    },
+    {
+      "task_id": "exact__redirect_stream",
+      "query": {
+        "__rationale": "exact-match MRR target for `_redirect_stream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_redirect_stream"
+      },
+      "expected": [
+        "_redirect_stream"
+      ]
+    },
+    {
+      "task_id": "exact__redirect_url",
+      "query": {
+        "__rationale": "exact-match MRR target for `_redirect_url`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_redirect_url"
+      },
+      "expected": [
+        "_redirect_url"
+      ]
+    },
+    {
+      "task_id": "exact__resolve_qop",
+      "query": {
+        "__rationale": "exact-match MRR target for `_resolve_qop`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_resolve_qop"
+      },
+      "expected": [
+        "_resolve_qop"
+      ]
+    },
+    {
+      "task_id": "exact__same_origin",
+      "query": {
+        "__rationale": "exact-match MRR target for `_same_origin`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_same_origin"
+      },
+      "expected": [
+        "_same_origin"
+      ]
+    },
+    {
+      "task_id": "exact__send_handling_auth",
+      "query": {
+        "__rationale": "exact-match MRR target for `_send_handling_auth`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_send_handling_auth"
+      },
+      "expected": [
+        "_send_handling_auth"
+      ]
+    },
+    {
+      "task_id": "exact__send_handling_redirects",
+      "query": {
+        "__rationale": "exact-match MRR target for `_send_handling_redirects`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_send_handling_redirects"
+      },
+      "expected": [
+        "_send_handling_redirects"
+      ]
+    },
+    {
+      "task_id": "exact__send_single_request",
+      "query": {
+        "__rationale": "exact-match MRR target for `_send_single_request`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_send_single_request"
+      },
+      "expected": [
+        "_send_single_request"
+      ]
+    },
+    {
+      "task_id": "exact__set_timeout",
+      "query": {
+        "__rationale": "exact-match MRR target for `_set_timeout`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_set_timeout"
+      },
+      "expected": [
+        "_set_timeout"
+      ]
+    },
+    {
+      "task_id": "exact__skip_leading_empty_chunks",
+      "query": {
+        "__rationale": "exact-match MRR target for `_skip_leading_empty_chunks`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_skip_leading_empty_chunks"
+      },
+      "expected": [
+        "_skip_leading_empty_chunks"
+      ]
+    },
+    {
+      "task_id": "exact__transport_for_url",
+      "query": {
+        "__rationale": "exact-match MRR target for `_transport_for_url`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "_transport_for_url"
+      },
+      "expected": [
+        "_transport_for_url"
+      ]
+    },
+    {
+      "task_id": "exact_add",
+      "query": {
+        "__rationale": "exact-match MRR target for `add`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "add"
+      },
+      "expected": [
+        "add"
+      ]
+    },
+    {
+      "task_id": "exact_add_unredirected_header",
+      "query": {
+        "__rationale": "exact-match MRR target for `add_unredirected_header`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "add_unredirected_header"
+      },
+      "expected": [
+        "add_unredirected_header"
+      ]
+    },
+    {
+      "task_id": "exact_aiter_bytes",
+      "query": {
+        "__rationale": "exact-match MRR target for `aiter_bytes`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "aiter_bytes"
+      },
+      "expected": [
+        "aiter_bytes"
+      ]
+    },
+    {
+      "task_id": "exact_aiter_lines",
+      "query": {
+        "__rationale": "exact-match MRR target for `aiter_lines`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "aiter_lines"
+      },
+      "expected": [
+        "aiter_lines"
+      ]
+    },
+    {
+      "task_id": "exact_aiter_raw",
+      "query": {
+        "__rationale": "exact-match MRR target for `aiter_raw`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "aiter_raw"
+      },
+      "expected": [
+        "aiter_raw"
+      ]
+    },
+    {
+      "task_id": "exact_aiter_text",
+      "query": {
+        "__rationale": "exact-match MRR target for `aiter_text`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "aiter_text"
+      },
+      "expected": [
+        "aiter_text"
+      ]
+    },
+    {
+      "task_id": "exact_app",
+      "query": {
+        "__rationale": "exact-match MRR target for `app`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "app"
+      },
+      "expected": [
+        "app"
+      ]
+    },
+    {
+      "task_id": "exact_application",
+      "query": {
+        "__rationale": "exact-match MRR target for `application`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "application"
+      },
+      "expected": [
+        "application"
+      ]
+    },
+    {
+      "task_id": "exact_application_factory",
+      "query": {
+        "__rationale": "exact-match MRR target for `application_factory`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "application_factory"
+      },
+      "expected": [
+        "application_factory"
+      ]
+    },
+    {
+      "task_id": "exact_aread",
+      "query": {
+        "__rationale": "exact-match MRR target for `aread`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "aread"
+      },
+      "expected": [
+        "aread"
+      ]
+    },
+    {
+      "task_id": "exact_as_dict",
+      "query": {
+        "__rationale": "exact-match MRR target for `as_dict`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "as_dict"
+      },
+      "expected": [
+        "as_dict"
+      ]
+    },
+    {
+      "task_id": "exact_async_auth_flow",
+      "query": {
+        "__rationale": "exact-match MRR target for `async_auth_flow`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "async_auth_flow"
+      },
+      "expected": [
+        "async_auth_flow"
+      ]
+    },
+    {
+      "task_id": "exact_async_streaming_body",
+      "query": {
+        "__rationale": "exact-match MRR target for `async_streaming_body`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "async_streaming_body"
+      },
+      "expected": [
+        "async_streaming_body"
+      ]
+    },
+    {
+      "task_id": "exact_auth",
+      "query": {
+        "__rationale": "exact-match MRR target for `auth`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "auth"
+      },
+      "expected": [
+        "auth"
+      ]
+    },
+    {
+      "task_id": "exact_auth_flow",
+      "query": {
+        "__rationale": "exact-match MRR target for `auth_flow`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "auth_flow"
+      },
+      "expected": [
+        "auth_flow"
+      ]
+    },
+    {
+      "task_id": "exact_authority",
+      "query": {
+        "__rationale": "exact-match MRR target for `authority`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "authority"
+      },
+      "expected": [
+        "authority"
+      ]
+    },
+    {
+      "task_id": "exact_autodetect",
+      "query": {
+        "__rationale": "exact-match MRR target for `autodetect`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "autodetect"
+      },
+      "expected": [
+        "autodetect"
+      ]
+    },
+    {
+      "task_id": "exact_base_url",
+      "query": {
+        "__rationale": "exact-match MRR target for `base_url`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "base_url"
+      },
+      "expected": [
+        "base_url"
+      ]
+    },
+    {
+      "task_id": "exact_build_request",
+      "query": {
+        "__rationale": "exact-match MRR target for `build_request`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "build_request"
+      },
+      "expected": [
+        "build_request"
+      ]
+    },
+    {
+      "task_id": "exact_cert_authority",
+      "query": {
+        "__rationale": "exact-match MRR target for `cert_authority`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "cert_authority"
+      },
+      "expected": [
+        "cert_authority"
+      ]
+    },
+    {
+      "task_id": "exact_cert_encrypted_private_key_file",
+      "query": {
+        "__rationale": "exact-match MRR target for `cert_encrypted_private_key_file`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "cert_encrypted_private_key_file"
+      },
+      "expected": [
+        "cert_encrypted_private_key_file"
+      ]
+    },
+    {
+      "task_id": "exact_cert_pem_file",
+      "query": {
+        "__rationale": "exact-match MRR target for `cert_pem_file`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "cert_pem_file"
+      },
+      "expected": [
+        "cert_pem_file"
+      ]
+    },
+    {
+      "task_id": "exact_cert_private_key_file",
+      "query": {
+        "__rationale": "exact-match MRR target for `cert_private_key_file`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "cert_private_key_file"
+      },
+      "expected": [
+        "cert_private_key_file"
+      ]
+    },
+    {
+      "task_id": "exact_challenge_send",
+      "query": {
+        "__rationale": "exact-match MRR target for `challenge_send`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "challenge_send"
+      },
+      "expected": [
+        "challenge_send"
+      ]
+    },
+    {
+      "task_id": "exact_charset_encoding",
+      "query": {
+        "__rationale": "exact-match MRR target for `charset_encoding`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "charset_encoding"
+      },
+      "expected": [
+        "charset_encoding"
+      ]
+    },
+    {
+      "task_id": "exact_clean_environ",
+      "query": {
+        "__rationale": "exact-match MRR target for `clean_environ`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "clean_environ"
+      },
+      "expected": [
+        "clean_environ"
+      ]
+    },
+    {
+      "task_id": "exact_clear",
+      "query": {
+        "__rationale": "exact-match MRR target for `clear`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "clear"
+      },
+      "expected": [
+        "clear"
+      ]
+    },
+    {
+      "task_id": "exact_codes",
+      "query": {
+        "__rationale": "exact-match MRR target for `codes`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "codes"
+      },
+      "expected": [
+        "codes"
+      ]
+    },
+    {
+      "task_id": "exact_compress",
+      "query": {
+        "__rationale": "exact-match MRR target for `compress`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "compress"
+      },
+      "expected": [
+        "compress"
+      ]
+    },
+    {
+      "task_id": "exact_content",
+      "query": {
+        "__rationale": "exact-match MRR target for `content`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "content"
+      },
+      "expected": [
+        "content"
+      ]
+    },
+    {
+      "task_id": "exact_cookie_sessions",
+      "query": {
+        "__rationale": "exact-match MRR target for `cookie_sessions`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "cookie_sessions"
+      },
+      "expected": [
+        "cookie_sessions"
+      ]
+    },
+    {
+      "task_id": "exact_cookies",
+      "query": {
+        "__rationale": "exact-match MRR target for `cookies`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "cookies"
+      },
+      "expected": [
+        "cookies"
+      ]
+    },
+    {
+      "task_id": "exact_copy",
+      "query": {
+        "__rationale": "exact-match MRR target for `copy`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "copy"
+      },
+      "expected": [
+        "copy"
+      ]
+    },
+    {
+      "task_id": "exact_copy_add_param",
+      "query": {
+        "__rationale": "exact-match MRR target for `copy_add_param`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "copy_add_param"
+      },
+      "expected": [
+        "copy_add_param"
+      ]
+    },
+    {
+      "task_id": "exact_copy_merge_params",
+      "query": {
+        "__rationale": "exact-match MRR target for `copy_merge_params`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "copy_merge_params"
+      },
+      "expected": [
+        "copy_merge_params"
+      ]
+    },
+    {
+      "task_id": "exact_copy_remove_param",
+      "query": {
+        "__rationale": "exact-match MRR target for `copy_remove_param`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "copy_remove_param"
+      },
+      "expected": [
+        "copy_remove_param"
+      ]
+    },
+    {
+      "task_id": "exact_copy_set_param",
+      "query": {
+        "__rationale": "exact-match MRR target for `copy_set_param`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "copy_set_param"
+      },
+      "expected": [
+        "copy_set_param"
+      ]
+    },
+    {
+      "task_id": "exact_copy_with",
+      "query": {
+        "__rationale": "exact-match MRR target for `copy_with`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "copy_with"
+      },
+      "expected": [
+        "copy_with"
+      ]
+    },
+    {
+      "task_id": "exact_cp1252_but_no_content_type",
+      "query": {
+        "__rationale": "exact-match MRR target for `cp1252_but_no_content_type`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "cp1252_but_no_content_type"
+      },
+      "expected": [
+        "cp1252_but_no_content_type"
+      ]
+    },
+    {
+      "task_id": "exact_create_event",
+      "query": {
+        "__rationale": "exact-match MRR target for `create_event`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "create_event"
+      },
+      "expected": [
+        "create_event"
+      ]
+    },
+    {
+      "task_id": "exact_create_ssl_context",
+      "query": {
+        "__rationale": "exact-match MRR target for `create_ssl_context`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "create_ssl_context"
+      },
+      "expected": [
+        "create_ssl_context"
+      ]
+    },
+    {
+      "task_id": "exact_data",
+      "query": {
+        "__rationale": "exact-match MRR target for `data`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "data"
+      },
+      "expected": [
+        "data"
+      ]
+    },
+    {
+      "task_id": "exact_decode",
+      "query": {
+        "__rationale": "exact-match MRR target for `decode`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "decode"
+      },
+      "expected": [
+        "decode"
+      ]
+    },
+    {
+      "task_id": "exact_delete",
+      "query": {
+        "__rationale": "exact-match MRR target for `delete`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "delete"
+      },
+      "expected": [
+        "delete"
+      ]
+    },
+    {
+      "task_id": "exact_digest",
+      "query": {
+        "__rationale": "exact-match MRR target for `digest`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "digest"
+      },
+      "expected": [
+        "digest"
+      ]
+    },
+    {
+      "task_id": "exact_download_response",
+      "query": {
+        "__rationale": "exact-match MRR target for `download_response`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "download_response"
+      },
+      "expected": [
+        "download_response"
+      ]
+    },
+    {
+      "task_id": "exact_echo_binary",
+      "query": {
+        "__rationale": "exact-match MRR target for `echo_binary`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "echo_binary"
+      },
+      "expected": [
+        "echo_binary"
+      ]
+    },
+    {
+      "task_id": "exact_echo_body",
+      "query": {
+        "__rationale": "exact-match MRR target for `echo_body`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "echo_body"
+      },
+      "expected": [
+        "echo_body"
+      ]
+    },
+    {
+      "task_id": "exact_echo_body_with_response_stream",
+      "query": {
+        "__rationale": "exact-match MRR target for `echo_body_with_response_stream`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "echo_body_with_response_stream"
+      },
+      "expected": [
+        "echo_body_with_response_stream"
+      ]
+    },
+    {
+      "task_id": "exact_echo_headers",
+      "query": {
+        "__rationale": "exact-match MRR target for `echo_headers`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "echo_headers"
+      },
+      "expected": [
+        "echo_headers"
+      ]
+    },
+    {
+      "task_id": "exact_echo_path",
+      "query": {
+        "__rationale": "exact-match MRR target for `echo_path`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "echo_path"
+      },
+      "expected": [
+        "echo_path"
+      ]
+    },
+    {
+      "task_id": "exact_echo_raw_headers",
+      "query": {
+        "__rationale": "exact-match MRR target for `echo_raw_headers`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "echo_raw_headers"
+      },
+      "expected": [
+        "echo_raw_headers"
+      ]
+    },
+    {
+      "task_id": "exact_echo_raw_path",
+      "query": {
+        "__rationale": "exact-match MRR target for `echo_raw_path`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "echo_raw_path"
+      },
+      "expected": [
+        "echo_raw_path"
+      ]
+    },
+    {
+      "task_id": "exact_echo_repeated_headers_items",
+      "query": {
+        "__rationale": "exact-match MRR target for `echo_repeated_headers_items`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "echo_repeated_headers_items"
+      },
+      "expected": [
+        "echo_repeated_headers_items"
+      ]
+    },
+    {
+      "task_id": "exact_echo_repeated_headers_multi_items",
+      "query": {
+        "__rationale": "exact-match MRR target for `echo_repeated_headers_multi_items`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "echo_repeated_headers_multi_items"
+      },
+      "expected": [
+        "echo_repeated_headers_multi_items"
+      ]
+    },
+    {
+      "task_id": "exact_echo_request_content",
+      "query": {
+        "__rationale": "exact-match MRR target for `echo_request_content`",
+        "__rule": "H3-symbols-exact",
+        "match": "exact",
+        "pattern": "echo_request_content"
+      },
+      "expected": [
+        "echo_request_content"
+      ]
+    }
+  ]
+}

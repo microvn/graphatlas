@@ -15,8 +15,17 @@
 
 use super::types::{ImpactReason, ImpactedFile};
 use crate::common;
-use ga_core::{Error, Result};
+use ga_core::{Error, Lang, Result};
 use ga_index::Store;
+
+/// CORE-3 (2026-05-22) — extract file extension and resolve to a Lang for
+/// cross-language gating. Returns None for unknown extensions or paths
+/// without extension; treat None as "any lang" so we don't downgrade
+/// legitimate cross-extension paths (rare but possible in fixture data).
+fn lang_of(path: &str) -> Option<Lang> {
+    let ext = path.rsplit('.').next()?;
+    Lang::from_ext(ext)
+}
 
 /// Decorate each `ImpactedFile` with confidence + relation_to_seed +
 /// explanation. `file_hint` is the user-supplied narrowing hint (Tools-C11)
@@ -74,6 +83,33 @@ fn classify(
     reason: ImpactReason,
     path: &str,
 ) -> (&'static str, f32, String) {
+    // CORE-3 (2026-05-22) — cross-language gate for direct-call relations.
+    // When `file_hint` is set we know the seed's file (and therefore its
+    // language). If `path`'s extension resolves to a different Lang AND the
+    // proposed relation is a direct call edge, the indexer's name-only join
+    // produced a false cross-lang match (e.g. TS `Date.now()` matching PHP
+    // `TestClock::now()`). Downgrade to `shares_function_name` + conf 0.5.
+    let cross_lang_collision = match (file_hint, depth, reason) {
+        (Some(hint), 1, ImpactReason::Caller) | (Some(hint), 1, ImpactReason::Callee) => {
+            match (lang_of(hint), lang_of(path)) {
+                (Some(seed_lang), Some(file_lang)) => seed_lang != file_lang,
+                _ => false,
+            }
+        }
+        _ => false,
+    };
+    if cross_lang_collision {
+        return (
+            "shares_function_name",
+            0.5,
+            format!(
+                "Different language than the seed file — likely a name collision \
+                 (indexer matches CALLS edges by method name across languages). \
+                 Verify before treating as a real dependency."
+            ),
+        );
+    }
+
     match (depth, reason) {
         (0, ImpactReason::Seed) => {
             // Tools-C11: file_hint match → 1.0; polymorphic non-hint def → 0.6.

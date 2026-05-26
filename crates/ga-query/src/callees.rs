@@ -1,7 +1,9 @@
 //! Tools S-002 — outgoing callees of a symbol.
 
-use crate::common::{count_defs, is_safe_ident, suggest_similar, symbol_exists};
-use crate::{CallKind, CalleeEntry, CalleesMeta, CalleesResponse};
+use crate::common::{
+    ambiguity_legacy_enabled, count_defs, is_safe_ident, list_defs, suggest_similar, symbol_exists,
+};
+use crate::{CallKind, CalleeEntry, CalleesMeta, CalleesResponse, Disambiguation};
 use ga_core::{Error, Result};
 use ga_index::Store;
 
@@ -26,6 +28,28 @@ pub fn callees(store: &Store, symbol: &str, file: Option<&str>) -> Result<Callee
         .map_err(|e| Error::Other(anyhow::anyhow!("connection: {e}")))?;
 
     let def_count = count_defs(&conn, symbol)?;
+
+    // CORE-2 (2026-05-22) — ambiguity-first multi-def resolution. See
+    // `callers` in `lib.rs` for the rationale; gate identical here for the
+    // outgoing edge side. Bypass via `GA_AMBIGUITY_LEGACY=1`.
+    if def_count > 1 && file.is_none() && !ambiguity_legacy_enabled() {
+        let candidates = list_defs(&conn, symbol)?;
+        return Ok(CalleesResponse {
+            callees: Vec::new(),
+            meta: CalleesMeta {
+                symbol_found: true,
+                suggestion: Vec::new(),
+            },
+            disambiguation: Some(Disambiguation {
+                reason: "ambiguous".into(),
+                hint: format!(
+                    "Symbol '{}' has {} definitions. Re-issue with `file:` hint or a `<file>::<symbol>` qualified target.",
+                    symbol, def_count
+                ),
+                candidates,
+            }),
+        });
+    }
 
     let cypher = format!(
         "MATCH (caller:Symbol)-[r:CALLS]->(callee:Symbol) \
@@ -173,5 +197,6 @@ pub fn callees(store: &Store, symbol: &str, file: Option<&str>) -> Result<Callee
             symbol_found,
             suggestion,
         },
+        disambiguation: None,
     })
 }

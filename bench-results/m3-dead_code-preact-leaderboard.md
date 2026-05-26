@@ -6,19 +6,32 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| **FAIL** | ga | 0.714 | 0.850 | 66 |
+| **FAIL** | ga | 0.721 | 0.850 | 33 |
+| DEFERRED | codebase-memory | 0.000 | 0.850 | 0 |
+| DEFERRED | code-review-graph | 0.000 | 0.850 | 0 |
+| DEFERRED | gitnexus | 0.000 | 0.850 | 0 |
 
 ### Secondary metrics
 
 **ga**:
-- `actual_dead_count` = 231.000
-- `expected_dead_aligned` = 548.000
-- `expected_dead_raw` = 548.000
-- `f1` = 0.424
-- `false_negatives` = 383.000
-- `false_positives` = 66.000
-- `ga_universe_size` = 1666.000
-- `recall` = 0.301
-- `true_positives` = 165.000
+- `actual_dead_count` = 233.000
+- `expected_dead_aligned` = 557.000
+- `expected_dead_raw` = 557.000
+- `f1` = 0.425
+- `f2` = 0.341
+- `false_negatives` = 389.000
+- `false_positives` = 65.000
+- `ga_universe_size` = 1701.000
+- `recall` = 0.302
+- `true_positives` = 168.000
 
-**SPEC GATE: 0 pass, 1 fail (target: all pass)**
+**codebase-memory**:
+- `note_competitor_adapter_pending` = 0.000
+
+**code-review-graph**:
+- `note_competitor_adapter_pending` = 0.000
+
+**gitnexus**:
+- `note_competitor_adapter_pending` = 0.000
+
+**SPEC GATE: 3 pass, 1 fail (target: all pass)**

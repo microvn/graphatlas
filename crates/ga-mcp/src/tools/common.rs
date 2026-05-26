@@ -62,3 +62,14 @@ pub(super) fn store_ctx_required_error(tool: &str) -> Error {
         "{tool} requires a Store context; caller must use dispatch_tool_call_with_ctx"
     ))
 }
+
+/// P1.3 (2026-05-22) — caller opt-in to keep polymorphic conf 0.6 entries.
+/// Default is `false` → wrapper drops `confidence < 1.0` entries to avoid
+/// flooding the LLM with same-name-from-other-file noise that the `file:`
+/// hint was meant to disambiguate. Restore the legacy fan-out with
+/// `include_uncertain: true`.
+pub(super) fn wants_include_uncertain(args: &Value) -> bool {
+    args.get("include_uncertain")
+        .and_then(|v| v.as_bool())
+        .unwrap_or(false)
+}

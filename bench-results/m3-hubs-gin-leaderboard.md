@@ -6,7 +6,10 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| **FAIL** | ga | -0.046 | 0.700 | 28 |
+| **FAIL** | ga | -0.046 | 0.700 | 32 |
+| DEFERRED | codebase-memory | 0.000 | 0.700 | 0 |
+| DEFERRED | code-review-graph | 0.000 | 0.700 | 0 |
+| DEFERRED | gitnexus | 0.000 | 0.700 | 0 |
 
 ### Secondary metrics
 
@@ -16,4 +19,13 @@
 - `gt_size` = 50.000
 - `total_hubs_with_edges` = 50.000
 
-**SPEC GATE: 0 pass, 1 fail (target: all pass)**
+**codebase-memory**:
+- `note_competitor_adapter_pending` = 0.000
+
+**code-review-graph**:
+- `note_competitor_adapter_pending` = 0.000
+
+**gitnexus**:
+- `note_competitor_adapter_pending` = 0.000
+
+**SPEC GATE: 3 pass, 1 fail (target: all pass)**

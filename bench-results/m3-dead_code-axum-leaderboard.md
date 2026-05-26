@@ -6,7 +6,7 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| PASS | ga | 1.000 | 0.850 | 45 |
+| PASS | ga | 1.000 | 0.850 | 41 |
 
 ### Secondary metrics
 

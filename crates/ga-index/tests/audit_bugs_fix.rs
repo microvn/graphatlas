@@ -141,12 +141,17 @@ fn as_003_commit_in_place_propagates_seal_errors() {
 
 #[test]
 fn as_004_lock_pid_sidecar_holds_real_generation_uuid() {
-    // Given: Fresh build commits successfully. The lock.pid sidecar on
-    // disk was originally seeded with `"probe"` (store.rs:77 hardcode);
-    // the audit-bug fix is that the sidecar is rewritten with the real
-    // generation UUID minted by Metadata::begin_indexing_with_schema.
+    // Given: Fresh build sidecar is rewritten from "probe" placeholder to
+    // the real UUID by `Metadata::begin_indexing_with_schema` —
+    // verifiable while the writer still holds the exclusive flock
+    // (i.e. BEFORE `commit_in_place` → `seal_for_serving` → release).
+    //
+    // v1.5 PR6.1 (multi-mcp) S-002 AS-005: post-seal the writer releases
+    // the flock entirely (no downgrade-to-shared) and removes the sidecar.
+    // So this test now asserts the pre-seal sidecar content + post-seal
+    // sidecar absence.
     let tmp = TempDir::new().unwrap();
-    let mut store = fresh_store_for_repo(&tmp, "/work/as-004");
+    let store = fresh_store_for_repo(&tmp, "/work/as-004");
 
     let expected_uuid = store.metadata().index_generation.clone();
     assert_ne!(
@@ -154,24 +159,27 @@ fn as_004_lock_pid_sidecar_holds_real_generation_uuid() {
         "metadata.index_generation must be a real UUID, not the 'probe' sentinel"
     );
 
-    // Trigger commit so the sidecar update path runs.
-    store.commit_in_place().expect("commit_in_place");
-
-    // When: read lock.pid from disk.
+    // Pre-seal: sidecar carries the real UUID.
     let lock_pid_path = store.layout().lock_pid();
-    let bytes = std::fs::read(&lock_pid_path).expect("read lock.pid");
+    let bytes = std::fs::read(&lock_pid_path).expect("read lock.pid pre-seal");
     let info: LockInfo = serde_json::from_slice(&bytes).expect("parse lock.pid JSON");
-
-    // Then: the sidecar's index_generation field equals the metadata UUID,
-    // NOT the literal "probe".
     assert_eq!(
         info.index_generation, expected_uuid,
-        "lock.pid sidecar must reflect real UUID after begin_indexing_with_schema runs \
-         (audit bug #4 fix)"
+        "lock.pid sidecar must reflect real UUID while writer still holds exclusive \
+         (audit bug #4 fix, pre-PR6.1 invariant retained pre-seal)"
     );
     assert_ne!(
         info.index_generation, "probe",
         "lock.pid sidecar must NOT keep 'probe' sticky"
+    );
+
+    // Post-seal: the sidecar is gone — PR6.1 S-002 AS-005.
+    let mut store = store;
+    store.commit_in_place().expect("commit_in_place");
+    assert!(
+        !lock_pid_path.exists(),
+        "lock.pid sidecar must be removed after seal_for_serving releases \
+         the exclusive flock (v1.5 PR6.1 S-002 AS-005)"
     );
 }
 

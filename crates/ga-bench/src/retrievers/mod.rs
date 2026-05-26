@@ -6,6 +6,7 @@ pub mod cgc;
 pub mod cm;
 pub mod crg;
 pub mod ga;
+pub mod gn;
 pub mod random;
 pub mod ripgrep;
 
@@ -14,5 +15,6 @@ pub use cgc::CgcRetriever;
 pub use cm::CmRetriever;
 pub use crg::CrgRetriever;
 pub use ga::GaRetriever;
+pub use gn::GnRetriever;
 pub use random::RandomRetriever;
 pub use ripgrep::RipgrepRetriever;

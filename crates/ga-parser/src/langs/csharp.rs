@@ -31,9 +31,13 @@ const CALLEE_EXTRACTORS: &[(&str, CalleeExtractor)] =
 // (`[Inject] public IRepo Repo { get; set; }`) both surface.
 //
 // Mirrors Java field_declaration emit-once semantics.
+// Cross-lang sweep (2026-05-23) — mirror LANG-2 (PHP `Class::method()`).
+// `Class.Method()` static calls emit a REFERENCES edge to `Class` so
+// `ga_callers Class` surfaces invocation sites of any static method.
 const REF_EMITTERS: &[(&str, RefEmitter)] = &[
     ("field_declaration", extract_attributed_field_ref),
     ("property_declaration", extract_attributed_property_ref),
+    ("invocation_expression", extract_scoped_call_class_ref),
 ];
 
 // AS-016 checklist — AST node kinds tree-sitter-c-sharp 0.23 emits per
@@ -473,4 +477,87 @@ fn first_type_name_in(node: &Node<'_>, source: &[u8]) -> Option<String> {
         }
     }
     None
+}
+
+/// Cross-lang sweep (2026-05-23) — mirror LANG-2 PHP `Class::method()`.
+/// Emit a REFERENCES edge to the static receiver of a C#
+/// `Class.Method(args)` invocation. Fires when `invocation_expression`'s
+/// function is a `member_access_expression` whose `expression` is a bare
+/// `identifier` with uppercase first char.
+///
+/// Skips `this`/`base` keywords and BCL types listed in
+/// `is_csharp_stdlib_class`.
+fn extract_scoped_call_class_ref(
+    node: &Node<'_>,
+    source: &[u8],
+    enclosing: &Option<String>,
+    out: &mut Vec<ParsedReference>,
+) {
+    let Some(func) = node.child_by_field_name("function") else {
+        return;
+    };
+    if func.kind() != "member_access_expression" {
+        return;
+    }
+    let Some(expr) = func.child_by_field_name("expression") else {
+        return;
+    };
+    let receiver_text = match expr.kind() {
+        "identifier" => match expr.utf8_text(source) {
+            Ok(t) => t,
+            Err(_) => return,
+        },
+        _ => return,
+    };
+    if matches!(receiver_text, "this" | "base") {
+        return;
+    }
+    if !receiver_text
+        .chars()
+        .next()
+        .map(|c| c.is_ascii_uppercase())
+        .unwrap_or(false)
+    {
+        return;
+    }
+    if is_csharp_stdlib_class(receiver_text) {
+        return;
+    }
+    out.push(ParsedReference {
+        enclosing_symbol: enclosing.clone(),
+        target_name: receiver_text.to_string(),
+        ref_site_line: (expr.start_position().row as u32) + 1,
+        ref_kind: RefKind::TypePosition,
+    });
+}
+
+/// C# BCL types that appear as static-call receivers heavily enough to
+/// dominate the graph if emitted.
+fn is_csharp_stdlib_class(name: &str) -> bool {
+    matches!(
+        name,
+        "Console"
+            | "String"
+            | "Int32"
+            | "Int64"
+            | "Double"
+            | "Single"
+            | "Boolean"
+            | "Math"
+            | "Convert"
+            | "Environment"
+            | "File"
+            | "Path"
+            | "Directory"
+            | "Object"
+            | "List"
+            | "Dictionary"
+            | "Array"
+            | "Enumerable"
+            | "Task"
+            | "Linq"
+            | "Debug"
+            | "Trace"
+            | "Activator"
+    )
 }

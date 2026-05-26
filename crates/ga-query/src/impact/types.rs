@@ -273,4 +273,8 @@ pub struct ImpactResponse {
     pub risk: Risk,
     pub break_points: Vec<BreakPoint>,
     pub meta: ImpactMeta,
+    /// CORE-2 (2026-05-22) — populated only when seed symbol has >1 def AND
+    /// no `file:` hint was passed. All other vec fields are empty in that case.
+    #[serde(skip_serializing_if = "Option::is_none", default)]
+    pub disambiguation: Option<crate::Disambiguation>,
 }

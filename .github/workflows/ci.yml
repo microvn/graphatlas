@@ -112,6 +112,24 @@ jobs:
       - uses: actions/checkout@v6
       - run: bash scripts/check-anti-tautology.sh
 
+  reset-no-kill:
+    # v1.5 PR6.1 (multi-mcp) S-003 constraint — `graphatlas reset` MUST
+    # NOT signal or kill any process. The `--force` flag bypasses the
+    # lock probe but still relies on the operator having already cleared
+    # the holder. See `docs/specs/graphatlas-v1.5/graphatlas-v1.5-reindex-multi-mcp.md`
+    # Constraints + Out-of-Scope sections.
+    name: reset CLI no-kill constraint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Forbid kill/signal in cmd_reset.rs
+        run: |
+          if grep -rE 'nix::sys::signal::kill|libc::kill|std::process::kill' src/cmd_reset.rs; then
+            echo "::error::cmd_reset.rs introduced a kill/signal call — PR6.1 constraint violation"
+            exit 1
+          fi
+          echo "OK — no kill/signal calls in src/cmd_reset.rs"
+
   supply-chain:
     # AS-030 Data line: "cargo audit + cargo deny for tree-sitter grammar CVE
     # monitoring". Non-blocking-to-development for now (report-only) — can

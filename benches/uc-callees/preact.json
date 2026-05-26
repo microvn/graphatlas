@@ -1,0 +1,3358 @@
+{
+  "schema_version": 1,
+  "uc": "callees",
+  "fixture": "preact",
+  "tasks": [
+    {
+      "task_id": "textmatch_App",
+      "query": {
+        "__rationale": "11 callees appear inside `App`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/filter-list/preact/index.jsx",
+        "symbol": "App"
+      },
+      "expected": [
+        "HashRouter",
+        "Item",
+        "Provider",
+        "Route",
+        "Row",
+        "Test",
+        "TodoItem",
+        "map",
+        "setState",
+        "useCallback",
+        "useState"
+      ]
+    },
+    {
+      "task_id": "textmatch_Child",
+      "query": {
+        "__rationale": "10 callees appear inside `Child`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/stateOrderBug.jsx",
+        "symbol": "Child"
+      },
+      "expected": [
+        "html",
+        "map",
+        "random",
+        "setItems",
+        "setPendingId",
+        "slice",
+        "splice",
+        "toFixed",
+        "useCallback",
+        "useState"
+      ]
+    },
+    {
+      "task_id": "textmatch_Component",
+      "query": {
+        "__rationale": "3 callees appear inside `Component`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/preact.jsx",
+        "symbol": "Component"
+      },
+      "expected": [
+        "asArray",
+        "call",
+        "normalize"
+      ]
+    },
+    {
+      "task_id": "textmatch_Contenteditable",
+      "query": {
+        "__rationale": "2 callees appear inside `Contenteditable`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/contenteditable.jsx",
+        "symbol": "Contenteditable"
+      },
+      "expected": [
+        "setValue",
+        "useState"
+      ]
+    },
+    {
+      "task_id": "textmatch_Context",
+      "query": {
+        "__rationale": "6 callees appear inside `Context`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/create-context.js",
+        "symbol": "Context"
+      },
+      "expected": [
+        "Set",
+        "add",
+        "call",
+        "delete",
+        "enqueueRender",
+        "forEach"
+      ]
+    },
+    {
+      "task_id": "textmatch_Counter",
+      "query": {
+        "__rationale": "2 callees appear inside `Counter`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/redux-toolkit.jsx",
+        "symbol": "Counter"
+      },
+      "expected": [
+        "useSelector",
+        "useStore"
+      ]
+    },
+    {
+      "task_id": "textmatch_CustomSuspense",
+      "query": {
+        "__rationale": "2 callees appear inside `CustomSuspense`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/suspense.jsx",
+        "symbol": "CustomSuspense"
+      },
+      "expected": [
+        "isDone",
+        "start"
+      ]
+    },
+    {
+      "task_id": "textmatch_Lazy",
+      "query": {
+        "__rationale": "3 callees appear inside `Lazy`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/src/suspense.js",
+        "symbol": "Lazy"
+      },
+      "expected": [
+        "createElement",
+        "loader",
+        "then"
+      ]
+    },
+    {
+      "task_id": "textmatch_Link",
+      "query": {
+        "__rationale": "13 callees appear inside `Link`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/people/router.tsx",
+        "symbol": "Link"
+      },
+      "expected": [
+        "every",
+        "filter",
+        "getHref",
+        "join",
+        "navigate",
+        "onClick",
+        "preventDefault",
+        "push",
+        "split",
+        "useCallback",
+        "useContext",
+        "useMemo",
+        "useRouter"
+      ]
+    },
+    {
+      "task_id": "textmatch_List",
+      "query": {
+        "__rationale": "2 callees appear inside `List`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/list.jsx",
+        "symbol": "List"
+      },
+      "expected": [
+        "html",
+        "map"
+      ]
+    },
+    {
+      "task_id": "textmatch_Main",
+      "query": {
+        "__rationale": "7 callees appear inside `Main`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/table-app/preact/index.jsx",
+        "symbol": "Main"
+      },
+      "expected": [
+        "Row",
+        "map",
+        "setState",
+        "useCallback",
+        "useMemo",
+        "useRef",
+        "useState"
+      ]
+    },
+    {
+      "task_id": "textmatch_MobXDemo",
+      "query": {
+        "__rationale": "6 callees appear inside `MobXDemo`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/mobx.jsx",
+        "symbol": "MobXDemo"
+      },
+      "expected": [
+        "Forward",
+        "HookView",
+        "TodoView",
+        "set",
+        "useRef",
+        "useState"
+      ]
+    },
+    {
+      "task_id": "textmatch_Parent",
+      "query": {
+        "__rationale": "2 callees appear inside `Parent`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/stateOrderBug.jsx",
+        "symbol": "Parent"
+      },
+      "expected": [
+        "html",
+        "useState"
+      ]
+    },
+    {
+      "task_id": "textmatch_PatchedTextField",
+      "query": {
+        "__rationale": "3 callees appear inside `PatchedTextField`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/textFields.jsx",
+        "symbol": "PatchedTextField"
+      },
+      "expected": [
+        "TextField",
+        "set",
+        "useState"
+      ]
+    },
+    {
+      "task_id": "textmatch_Portal",
+      "query": {
+        "__rationale": "3 callees appear inside `Portal`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/src/portals.js",
+        "symbol": "Portal"
+      },
+      "expected": [
+        "componentWillUnmount",
+        "createElement",
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_Profile",
+      "query": {
+        "__rationale": "3 callees appear inside `Profile`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/people/profile.tsx",
+        "symbol": "Profile"
+      },
+      "expected": [
+        "Promise",
+        "deleteUser",
+        "setTimeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_Pythagoras",
+      "query": {
+        "__rationale": "3 callees appear inside `Pythagoras`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/pythagoras/pythagoras.jsx",
+        "symbol": "Pythagoras"
+      },
+      "expected": [
+        "Pythagoras",
+        "interpolateViridis",
+        "memoizedCalc"
+      ]
+    },
+    {
+      "task_id": "textmatch_PythagorasDemo",
+      "query": {
+        "__rationale": "9 callees appear inside `PythagorasDemo`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/pythagoras/index.jsx",
+        "symbol": "PythagorasDemo"
+      },
+      "expected": [
+        "d3mouse",
+        "domain",
+        "next",
+        "range",
+        "scaleFactor",
+        "scaleLean",
+        "scaleLinear",
+        "setState",
+        "setTimeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_Redux",
+      "query": {
+        "__rationale": "3 callees appear inside `Redux`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/redux.jsx",
+        "symbol": "Redux"
+      },
+      "expected": [
+        "ConnectedChild",
+        "Provider",
+        "dispatch"
+      ]
+    },
+    {
+      "task_id": "textmatch_ReduxToolkit",
+      "query": {
+        "__rationale": "2 callees appear inside `ReduxToolkit`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/redux-toolkit.jsx",
+        "symbol": "ReduxToolkit"
+      },
+      "expected": [
+        "Counter",
+        "Provider"
+      ]
+    },
+    {
+      "task_id": "textmatch_Reorder",
+      "query": {
+        "__rationale": "9 callees appear inside `Reorder`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/reorder.jsx",
+        "symbol": "Reorder"
+      },
+      "expected": [
+        "concat",
+        "createItems",
+        "floor",
+        "random",
+        "reverse",
+        "round",
+        "setState",
+        "slice",
+        "sort"
+      ]
+    },
+    {
+      "task_id": "textmatch_Route",
+      "query": {
+        "__rationale": "5 callees appear inside `Route`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/people/router.tsx",
+        "symbol": "Route"
+      },
+      "expected": [
+        "Provider",
+        "join",
+        "render",
+        "useMemo",
+        "useRouter"
+      ]
+    },
+    {
+      "task_id": "textmatch_Router",
+      "query": {
+        "__rationale": "13 callees appear inside `Router`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/people/router.tsx",
+        "symbol": "Router"
+      },
+      "expected": [
+        "Provider",
+        "filter",
+        "listen",
+        "pushState",
+        "setLocation",
+        "setPath",
+        "split",
+        "update",
+        "useCallback",
+        "useLayoutEffect",
+        "useLocation",
+        "useMemo",
+        "useState"
+      ]
+    },
+    {
+      "task_id": "textmatch_Row",
+      "query": {
+        "__rationale": "3 callees appear inside `Row`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/table-app/preact/index.jsx",
+        "symbol": "Row"
+      },
+      "expected": [
+        "onClick",
+        "onDelete",
+        "useCallback"
+      ]
+    },
+    {
+      "task_id": "textmatch_Spiral",
+      "query": {
+        "__rationale": "3 callees appear inside `Spiral`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/spiral.jsx",
+        "symbol": "Spiral"
+      },
+      "expected": [
+        "log",
+        "requestAnimationFrame",
+        "setState"
+      ]
+    },
+    {
+      "task_id": "textmatch_StyledComp",
+      "query": {
+        "__rationale": "2 callees appear inside `StyledComp`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/styled-components.jsx",
+        "symbol": "StyledComp"
+      },
+      "expected": [
+        "Button",
+        "Container"
+      ]
+    },
+    {
+      "task_id": "textmatch_SuspenseRouterBug",
+      "query": {
+        "__rationale": "7 callees appear inside `SuspenseRouterBug`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/suspense-router/index.jsx",
+        "symbol": "SuspenseRouterBug"
+      },
+      "expected": [
+        "Bye",
+        "Hello",
+        "Loading",
+        "Route",
+        "Router",
+        "Suspense",
+        "Switch"
+      ]
+    },
+    {
+      "task_id": "textmatch_Switch",
+      "query": {
+        "__rationale": "2 callees appear inside `Switch`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/suspense-router/simple-router.jsx",
+        "symbol": "Switch"
+      },
+      "expected": [
+        "forEach",
+        "useContext"
+      ]
+    },
+    {
+      "task_id": "textmatch_TextFields",
+      "query": {
+        "__rationale": "2 callees appear inside `TextFields`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/textFields.jsx",
+        "symbol": "TextFields"
+      },
+      "expected": [
+        "PatchedTextField",
+        "TextField"
+      ]
+    },
+    {
+      "task_id": "textmatch_TodoList",
+      "query": {
+        "__rationale": "4 callees appear inside `TodoList`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/todo.jsx",
+        "symbol": "TodoList"
+      },
+      "expected": [
+        "concat",
+        "filter",
+        "getAttribute",
+        "setState"
+      ]
+    },
+    {
+      "task_id": "textmatch_ZustandComponent",
+      "query": {
+        "__rationale": "3 callees appear inside `ZustandComponent`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/zustand.jsx",
+        "symbol": "ZustandComponent"
+      },
+      "expected": [
+        "Counter",
+        "Text",
+        "useStore"
+      ]
+    },
+    {
+      "task_id": "textmatch__catchError",
+      "query": {
+        "__rationale": "3 callees appear inside `_catchError`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/diff/catch-error.js",
+        "symbol": "_catchError"
+      },
+      "expected": [
+        "componentDidCatch",
+        "getDerivedStateFromError",
+        "setState"
+      ]
+    },
+    {
+      "task_id": "textmatch__random",
+      "query": {
+        "__rationale": "2 callees appear inside `_random`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/table-app/_shared/store.js",
+        "symbol": "_random"
+      },
+      "expected": [
+        "random",
+        "round"
+      ]
+    },
+    {
+      "task_id": "textmatch_act",
+      "query": {
+        "__rationale": "6 callees appear inside `act`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "test-utils/src/index.js",
+        "symbol": "act"
+      },
+      "expected": [
+        "finish",
+        "isThenable",
+        "push",
+        "resolve",
+        "setupRerender",
+        "then"
+      ]
+    },
+    {
+      "task_id": "textmatch_action",
+      "query": {
+        "__rationale": "7 callees appear inside `action`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/index.js",
+        "symbol": "action"
+      },
+      "expected": [
+        "displayResults",
+        "flat",
+        "invalidateAll",
+        "log",
+        "pinLocalDependencies",
+        "prepareDependencies",
+        "runTach"
+      ]
+    },
+    {
+      "task_id": "textmatch_add",
+      "query": {
+        "__rationale": "6 callees appear inside `add`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/table-app/_shared/store.js",
+        "symbol": "add"
+      },
+      "expected": [
+        "add",
+        "buildData",
+        "concat",
+        "forceUpdate",
+        "rerender",
+        "setState"
+      ]
+    },
+    {
+      "task_id": "textmatch_addToGrouping",
+      "query": {
+        "__rationale": "5 callees appear inside `addToGrouping`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/analyze.js",
+        "symbol": "addToGrouping"
+      },
+      "expected": [
+        "entries",
+        "get",
+        "isArray",
+        "push",
+        "set"
+      ]
+    },
+    {
+      "task_id": "textmatch_addToMapArray",
+      "query": {
+        "__rationale": "3 callees appear inside `addToMapArray`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/analyze.js",
+        "symbol": "addToMapArray"
+      },
+      "expected": [
+        "get",
+        "push",
+        "set"
+      ]
+    },
+    {
+      "task_id": "textmatch_afterFrameAsync",
+      "query": {
+        "__rationale": "3 callees appear inside `afterFrameAsync`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/utils.js",
+        "symbol": "afterFrameAsync"
+      },
+      "expected": [
+        "Promise",
+        "afterFrame",
+        "resolve"
+      ]
+    },
+    {
+      "task_id": "textmatch_afterNextFrame",
+      "query": {
+        "__rationale": "2 callees appear inside `afterNextFrame`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "hooks/src/index.js",
+        "symbol": "afterNextFrame"
+      },
+      "expected": [
+        "requestAnimationFrame",
+        "setTimeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_analyze",
+      "query": {
+        "__rationale": "16 callees appear inside `analyze`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/analyze.js",
+        "symbol": "analyze"
+      },
+      "expected": [
+        "Map",
+        "addToGrouping",
+        "baseTraceLogDir",
+        "entries",
+        "error",
+        "existsSync",
+        "filter",
+        "get",
+        "getStatsFromLogs",
+        "includes",
+        "isDirectory",
+        "isFile",
+        "logDifferences",
+        "makeBenchmarkLabel",
+        "map",
+        "readdir"
+      ]
+    },
+    {
+      "task_id": "textmatch_analyzeAction",
+      "query": {
+        "__rationale": "9 callees appear inside `analyzeAction`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/bin/preact-bench.js",
+        "symbol": "analyzeAction"
+      },
+      "expected": [
+        "analyze",
+        "baseTraceLogDir",
+        "existsSync",
+        "includes",
+        "log",
+        "map",
+        "prompts",
+        "push",
+        "readdir"
+      ]
+    },
+    {
+      "task_id": "textmatch_appUrl",
+      "query": {
+        "__rationale": "4 callees appear inside `appUrl`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/utils.js",
+        "symbol": "appUrl"
+      },
+      "expected": [
+        "appFilePath",
+        "join",
+        "map",
+        "toURLPath"
+      ]
+    },
+    {
+      "task_id": "textmatch_applyRef",
+      "query": {
+        "__rationale": "3 callees appear inside `applyRef`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/diff/index.js",
+        "symbol": "applyRef"
+      },
+      "expected": [
+        "_catchError",
+        "_unmount",
+        "ref"
+      ]
+    },
+    {
+      "task_id": "textmatch_argsChanged",
+      "query": {
+        "__rationale": "2 callees appear inside `argsChanged`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "hooks/src/index.js",
+        "symbol": "argsChanged"
+      },
+      "expected": [
+        "ObjectIs",
+        "some"
+      ]
+    },
+    {
+      "task_id": "textmatch_benchAction",
+      "query": {
+        "__rationale": "7 callees appear inside `benchAction`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/bin/preact-bench.js",
+        "symbol": "benchAction"
+      },
+      "expected": [
+        "isArray",
+        "logBenchCommand",
+        "parseBenchmarkCLIArgs",
+        "promptBenchmarkFile",
+        "promptDependency",
+        "promptImpl",
+        "runBenchmarks"
+      ]
+    },
+    {
+      "task_id": "textmatch_buildBenchmarkResults",
+      "query": {
+        "__rationale": "5 callees appear inside `buildBenchmarkResults`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/results.js",
+        "symbol": "buildBenchmarkResults"
+      },
+      "expected": [
+        "computeStats",
+        "find",
+        "parseBenchmarkURL",
+        "push",
+        "replace"
+      ]
+    },
+    {
+      "task_id": "textmatch_buildData",
+      "query": {
+        "__rationale": "2 callees appear inside `buildData`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/table-app/_shared/store.js",
+        "symbol": "buildData"
+      },
+      "expected": [
+        "_random",
+        "push"
+      ]
+    },
+    {
+      "task_id": "textmatch_checkPropTypes",
+      "query": {
+        "__rationale": "4 callees appear inside `checkPropTypes`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "debug/src/check-props.js",
+        "symbol": "checkPropTypes"
+      },
+      "expected": [
+        "error",
+        "forEach",
+        "getStack",
+        "keys"
+      ]
+    },
+    {
+      "task_id": "textmatch_clear",
+      "query": {
+        "__rationale": "4 callees appear inside `clear`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/table-app/preact/index.jsx",
+        "symbol": "clear"
+      },
+      "expected": [
+        "clear",
+        "forceUpdate",
+        "rerender",
+        "setState"
+      ]
+    },
+    {
+      "task_id": "textmatch_cloneElement",
+      "query": {
+        "__rationale": "5 callees appear inside `cloneElement`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/src/index.js",
+        "symbol": "cloneElement"
+      },
+      "expected": [
+        "apply",
+        "assign",
+        "call",
+        "createVNode",
+        "isValidElement"
+      ]
+    },
+    {
+      "task_id": "textmatch_cloneNode",
+      "query": {
+        "__rationale": "3 callees appear inside `cloneNode`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/diff/index.js",
+        "symbol": "cloneNode"
+      },
+      "expected": [
+        "assign",
+        "isArray",
+        "map"
+      ]
+    },
+    {
+      "task_id": "textmatch_colorizeSign",
+      "query": {
+        "__rationale": "4 callees appear inside `colorizeSign`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/results.js",
+        "symbol": "colorizeSign"
+      },
+      "expected": [
+        "bold",
+        "format",
+        "green",
+        "red"
+      ]
+    },
+    {
+      "task_id": "textmatch_commitRoot",
+      "query": {
+        "__rationale": "5 callees appear inside `commitRoot`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/diff/index.js",
+        "symbol": "commitRoot"
+      },
+      "expected": [
+        "_catchError",
+        "_commit",
+        "applyRef",
+        "call",
+        "some"
+      ]
+    },
+    {
+      "task_id": "textmatch_componentDidMount",
+      "query": {
+        "__rationale": "13 callees appear inside `componentDidMount`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/fragments.jsx",
+        "symbol": "componentDidMount"
+      },
+      "expected": [
+        "addEventListener",
+        "catch",
+        "d3select",
+        "loadUsers",
+        "log",
+        "next",
+        "now",
+        "preventDefault",
+        "requestAnimationFrame",
+        "setBig",
+        "setInterval",
+        "setMouse",
+        "updateChildren"
+      ]
+    },
+    {
+      "task_id": "textmatch_componentDidUpdate",
+      "query": {
+        "__rationale": "2 callees appear inside `componentDidUpdate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/reduxUpdate.jsx",
+        "symbol": "componentDidUpdate"
+      },
+      "expected": [
+        "setState",
+        "setTimeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_componentWillUnmount",
+      "query": {
+        "__rationale": "2 callees appear inside `componentWillUnmount`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/pythagoras/index.jsx",
+        "symbol": "componentWillUnmount"
+      },
+      "expected": [
+        "clearTimeout",
+        "log"
+      ]
+    },
+    {
+      "task_id": "textmatch_computeStats",
+      "query": {
+        "__rationale": "6 callees appear inside `computeStats`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/stats.js",
+        "symbol": "computeStats"
+      },
+      "expected": [
+        "computeDifference",
+        "flatMap",
+        "getSparkline",
+        "map",
+        "max",
+        "min"
+      ]
+    },
+    {
+      "task_id": "textmatch_constructNewChildrenArray",
+      "query": {
+        "__rationale": "6 callees appear inside `constructNewChildrenArray`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/diff/children.js",
+        "symbol": "constructNewChildrenArray"
+      },
+      "expected": [
+        "Array",
+        "createVNode",
+        "findMatchingIndex",
+        "getDomSibling",
+        "isArray",
+        "unmount"
+      ]
+    },
+    {
+      "task_id": "textmatch_constructor",
+      "query": {
+        "__rationale": "7 callees appear inside `constructor`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/many-updates/preact-class/index.jsx",
+        "symbol": "constructor"
+      },
+      "expected": [
+        "bind",
+        "init",
+        "keys",
+        "proxy",
+        "random",
+        "setState",
+        "super"
+      ]
+    },
+    {
+      "task_id": "textmatch_count",
+      "query": {
+        "__rationale": "2 callees appear inside `count`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/src/Children.js",
+        "symbol": "count"
+      },
+      "expected": [
+        "log",
+        "toChildArray"
+      ]
+    },
+    {
+      "task_id": "textmatch_create",
+      "query": {
+        "__rationale": "6 callees appear inside `create`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "scripts/release/create-gh-release.js",
+        "symbol": "create"
+      },
+      "expected": [
+        "createRelease",
+        "error",
+        "exit",
+        "includes",
+        "iterator",
+        "log"
+      ]
+    },
+    {
+      "task_id": "textmatch_createElement",
+      "query": {
+        "__rationale": "5 callees appear inside `createElement`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/create-element.js",
+        "symbol": "createElement"
+      },
+      "expected": [
+        "04457",
+        "HEAD",
+        "Move",
+        "call",
+        "createVNode"
+      ]
+    },
+    {
+      "task_id": "textmatch_createEventProxy",
+      "query": {
+        "__rationale": "2 callees appear inside `createEventProxy`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/diff/props.js",
+        "symbol": "createEventProxy"
+      },
+      "expected": [
+        "event",
+        "eventHandler"
+      ]
+    },
+    {
+      "task_id": "textmatch_createMeanValueDimension",
+      "query": {
+        "__rationale": "2 callees appear inside `createMeanValueDimension`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/results.js",
+        "symbol": "createMeanValueDimension"
+      },
+      "expected": [
+        "formatConfidenceInterval",
+        "join"
+      ]
+    },
+    {
+      "task_id": "textmatch_createRoot",
+      "query": {
+        "__rationale": "2 callees appear inside `createRoot`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/client.js",
+        "symbol": "createRoot"
+      },
+      "expected": [
+        "render",
+        "unmountComponentAtNode"
+      ]
+    },
+    {
+      "task_id": "textmatch_createRow",
+      "query": {
+        "__rationale": "2 callees appear inside `createRow`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/logger.jsx",
+        "symbol": "createRow"
+      },
+      "expected": [
+        "appendChild",
+        "createElement"
+      ]
+    },
+    {
+      "task_id": "textmatch_createSuspension",
+      "query": {
+        "__rationale": "4 callees appear inside `createSuspension`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/suspense.jsx",
+        "symbol": "createSuspension"
+      },
+      "expected": [
+        "Promise",
+        "rej",
+        "res",
+        "setTimeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_createTableApp",
+      "query": {
+        "__rationale": "2 callees appear inside `createTableApp`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/table-app/preact/index.jsx",
+        "symbol": "createTableApp"
+      },
+      "expected": [
+        "Main",
+        "preactRender"
+      ]
+    },
+    {
+      "task_id": "textmatch_createVersionLabelFactory",
+      "query": {
+        "__rationale": "4 callees appear inside `createVersionLabelFactory`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/tach.js",
+        "symbol": "createVersionLabelFactory"
+      },
+      "expected": [
+        "join",
+        "log",
+        "makeDepVersion",
+        "map"
+      ]
+    },
+    {
+      "task_id": "textmatch_decrement",
+      "query": {
+        "__rationale": "2 callees appear inside `decrement`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/redux-toolkit.jsx",
+        "symbol": "decrement"
+      },
+      "expected": [
+        "decrement",
+        "dispatch"
+      ]
+    },
+    {
+      "task_id": "textmatch_deferFlush",
+      "query": {
+        "__rationale": "3 callees appear inside `deferFlush`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/logger.jsx",
+        "symbol": "deferFlush"
+      },
+      "expected": [
+        "flush",
+        "resolve",
+        "then"
+      ]
+    },
+    {
+      "task_id": "textmatch_delete",
+      "query": {
+        "__rationale": "6 callees appear inside `delete`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/table-app/_shared/store.js",
+        "symbol": "delete"
+      },
+      "expected": [
+        "delete",
+        "findIndex",
+        "forceUpdate",
+        "rerender",
+        "setState",
+        "splice"
+      ]
+    },
+    {
+      "task_id": "textmatch_deleteUser",
+      "query": {
+        "__rationale": "2 callees appear inside `deleteUser`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/people/store.ts",
+        "symbol": "deleteUser"
+      },
+      "expected": [
+        "find",
+        "remove"
+      ]
+    },
+    {
+      "task_id": "textmatch_depGroupDimension",
+      "query": {
+        "__rationale": "3 callees appear inside `depGroupDimension`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/results.js",
+        "symbol": "depGroupDimension"
+      },
+      "expected": [
+        "join",
+        "makeDepVersion",
+        "map"
+      ]
+    },
+    {
+      "task_id": "textmatch_depUrl",
+      "query": {
+        "__rationale": "4 callees appear inside `depUrl`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/utils.js",
+        "symbol": "depUrl"
+      },
+      "expected": [
+        "depFilePath",
+        "join",
+        "map",
+        "toURLPath"
+      ]
+    },
+    {
+      "task_id": "textmatch_detachedClone",
+      "query": {
+        "__rationale": "5 callees appear inside `detachedClone`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/src/suspense.js",
+        "symbol": "detachedClone"
+      },
+      "expected": [
+        "_cleanup",
+        "assign",
+        "detachedClone",
+        "forEach",
+        "map"
+      ]
+    },
+    {
+      "task_id": "textmatch_diff",
+      "query": {
+        "__rationale": "24 callees appear inside `diff`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/diff/index.js",
+        "symbol": "diff"
+      },
+      "expected": [
+        "BaseComponent",
+        "_catchError",
+        "assign",
+        "cloneNode",
+        "componentDidUpdate",
+        "componentWillMount",
+        "componentWillReceiveProps",
+        "componentWillUpdate",
+        "diffChildren",
+        "diffElementNodes",
+        "getChildContext",
+        "getDerivedStateFromProps",
+        "getSnapshotBeforeUpdate",
+        "indexOf",
+        "isArray",
+        "newType",
+        "push",
+        "removeNode",
+        "render",
+        "renderHook",
+        "shouldComponentUpdate",
+        "some",
+        "sub",
+        "tmp"
+      ]
+    },
+    {
+      "task_id": "textmatch_diffChildren",
+      "query": {
+        "__rationale": "5 callees appear inside `diffChildren`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/diff/children.js",
+        "symbol": "diffChildren"
+      },
+      "expected": [
+        "applyRef",
+        "constructNewChildrenArray",
+        "diff",
+        "insert",
+        "push"
+      ]
+    },
+    {
+      "task_id": "textmatch_diffElementNodes",
+      "query": {
+        "__rationale": "10 callees appear inside `diffElementNodes`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/diff/index.js",
+        "symbol": "diffElementNodes"
+      },
+      "expected": [
+        "_hydrationMismatch",
+        "call",
+        "createElementNS",
+        "createTextNode",
+        "diffChildren",
+        "getDomSibling",
+        "isArray",
+        "removeAttribute",
+        "removeNode",
+        "setProperty"
+      ]
+    },
+    {
+      "task_id": "textmatch_displayResults",
+      "query": {
+        "__rationale": "6 callees appear inside `displayResults`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/results.js",
+        "symbol": "displayResults"
+      },
+      "expected": [
+        "buildBenchmarkResults",
+        "displayTable",
+        "import",
+        "log",
+        "stringify",
+        "writeFileSync"
+      ]
+    },
+    {
+      "task_id": "textmatch_displayTable",
+      "query": {
+        "__rationale": "11 callees appear inside `displayTable`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/results.js",
+        "symbol": "displayTable"
+      },
+      "expected": [
+        "Set",
+        "createMeanValueDimension",
+        "depGroupDimension",
+        "formatDifference",
+        "getTableTitle",
+        "gray",
+        "horizontalTerminalTable",
+        "log",
+        "makeBenchmarkLabel",
+        "map",
+        "push"
+      ]
+    },
+    {
+      "task_id": "textmatch_done",
+      "query": {
+        "__rationale": "3 callees appear inside `done`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "hooks/src/index.js",
+        "symbol": "done"
+      },
+      "expected": [
+        "cancelAnimationFrame",
+        "clearTimeout",
+        "setTimeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_encodeEntities",
+      "query": {
+        "__rationale": "3 callees appear inside `encodeEntities`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "jsx-runtime/src/utils.js",
+        "symbol": "encodeEntities"
+      },
+      "expected": [
+        "charCodeAt",
+        "slice",
+        "test"
+      ]
+    },
+    {
+      "task_id": "textmatch_execProcess",
+      "query": {
+        "__rationale": "7 callees appear inside `execProcess`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/dependencies/utils.js",
+        "symbol": "execProcess"
+      },
+      "expected": [
+        "Writable",
+        "error",
+        "execFile",
+        "join",
+        "log",
+        "pipe",
+        "waitForExit"
+      ]
+    },
+    {
+      "task_id": "textmatch_findDependencyDirs",
+      "query": {
+        "__rationale": "7 callees appear inside `findDependencyDirs`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/config.js",
+        "symbol": "findDependencyDirs"
+      },
+      "expected": [
+        "existsSync",
+        "findDependencyDirs",
+        "isDirectory",
+        "join",
+        "push",
+        "readdir",
+        "shouldIgnore"
+      ]
+    },
+    {
+      "task_id": "textmatch_finish",
+      "query": {
+        "__rationale": "3 callees appear inside `finish`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "test-utils/src/index.js",
+        "symbol": "finish"
+      },
+      "expected": [
+        "forEach",
+        "rerender",
+        "teardown"
+      ]
+    },
+    {
+      "task_id": "textmatch_flushAfterPaintEffects",
+      "query": {
+        "__rationale": "3 callees appear inside `flushAfterPaintEffects`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "hooks/src/index.js",
+        "symbol": "flushAfterPaintEffects"
+      },
+      "expected": [
+        "_catchError",
+        "forEach",
+        "shift"
+      ]
+    },
+    {
+      "task_id": "textmatch_formatConfidenceInterval",
+      "query": {
+        "__rationale": "2 callees appear inside `formatConfidenceInterval`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/results.js",
+        "symbol": "formatConfidenceInterval"
+      },
+      "expected": [
+        "format",
+        "gray"
+      ]
+    },
+    {
+      "task_id": "textmatch_formatDifference",
+      "query": {
+        "__rationale": "7 callees appear inside `formatDifference`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/results.js",
+        "symbol": "formatDifference"
+      },
+      "expected": [
+        "blue",
+        "bold",
+        "colorizeSign",
+        "formatConfidenceInterval",
+        "green",
+        "negate",
+        "red"
+      ]
+    },
+    {
+      "task_id": "textmatch_generateTachConfig",
+      "query": {
+        "__rationale": "20 callees appear inside `generateTachConfig`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/tach.js",
+        "symbol": "generateTachConfig"
+      },
+      "expected": [
+        "URL",
+        "appFilePath",
+        "baseTraceLogDir",
+        "configDir",
+        "createVersionLabelFactory",
+        "deleteAsync",
+        "dirname",
+        "getBenchmarkBaseName",
+        "getBenchmarkURL",
+        "getLabel",
+        "getMeasurements",
+        "mkdir",
+        "push",
+        "relative",
+        "replace",
+        "repoRoot",
+        "split",
+        "stringify",
+        "toString",
+        "writeFile"
+      ]
+    },
+    {
+      "task_id": "textmatch_get",
+      "query": {
+        "__rationale": "8 callees appear inside `get`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "debug/src/debug.js",
+        "symbol": "get"
+      },
+      "expected": [
+        "call",
+        "count",
+        "defineProperty",
+        "indexOf",
+        "match",
+        "push",
+        "toString",
+        "warn"
+      ]
+    },
+    {
+      "task_id": "textmatch_getAppConfig",
+      "query": {
+        "__rationale": "8 callees appear inside `getAppConfig`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/config.js",
+        "symbol": "getAppConfig"
+      },
+      "expected": [
+        "appFilePath",
+        "endsWith",
+        "filter",
+        "isDirectory",
+        "isFile",
+        "map",
+        "readdir",
+        "shouldIgnore"
+      ]
+    },
+    {
+      "task_id": "textmatch_getBenchmarkBaseName",
+      "query": {
+        "__rationale": "2 callees appear inside `getBenchmarkBaseName`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/utils.js",
+        "symbol": "getBenchmarkBaseName"
+      },
+      "expected": [
+        "basename",
+        "replace"
+      ]
+    },
+    {
+      "task_id": "textmatch_getBenchmarkURL",
+      "query": {
+        "__rationale": "5 callees appear inside `getBenchmarkURL`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/utils.js",
+        "symbol": "getBenchmarkURL"
+      },
+      "expected": [
+        "URL",
+        "append",
+        "makeDepVersion",
+        "set",
+        "toURLPath"
+      ]
+    },
+    {
+      "task_id": "textmatch_getBySelector",
+      "query": {
+        "__rationale": "2 callees appear inside `getBySelector`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/utils.js",
+        "symbol": "getBySelector"
+      },
+      "expected": [
+        "Error",
+        "querySelector"
+      ]
+    },
+    {
+      "task_id": "textmatch_getCurrentFormValues",
+      "query": {
+        "__rationale": "4 callees appear inside `getCurrentFormValues`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/index.js",
+        "symbol": "getCurrentFormValues"
+      },
+      "expected": [
+        "FormData",
+        "URLSearchParams",
+        "removeDefaultValues",
+        "set"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDepConfig",
+      "query": {
+        "__rationale": "12 callees appear inside `getDepConfig`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/config.js",
+        "symbol": "getDepConfig"
+      },
+      "expected": [
+        "all",
+        "depFilePath",
+        "existsSync",
+        "filter",
+        "findDependencyDirs",
+        "flat",
+        "isDirectory",
+        "lastIndexOf",
+        "map",
+        "readdir",
+        "shouldIgnore",
+        "slice"
+      ]
+    },
+    {
+      "task_id": "textmatch_getDomChildren",
+      "query": {
+        "__rationale": "4 callees appear inside `getDomChildren`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "debug/src/debug.js",
+        "symbol": "getDomChildren"
+      },
+      "expected": [
+        "apply",
+        "forEach",
+        "getDomChildren",
+        "push"
+      ]
+    },
+    {
+      "task_id": "textmatch_getHistogram",
+      "query": {
+        "__rationale": "8 callees appear inside `getHistogram`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/stats.js",
+        "symbol": "getHistogram"
+      },
+      "expected": [
+        "bin",
+        "domain",
+        "map",
+        "range",
+        "scaleLinear",
+        "thresholds",
+        "ticks",
+        "value"
+      ]
+    },
+    {
+      "task_id": "textmatch_getHookState",
+      "query": {
+        "__rationale": "2 callees appear inside `getHookState`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "hooks/src/index.js",
+        "symbol": "getHookState"
+      },
+      "expected": [
+        "_hook",
+        "push"
+      ]
+    },
+    {
+      "task_id": "textmatch_getImportMapForDep",
+      "query": {
+        "__rationale": "9 callees appear inside `getImportMapForDep`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/plugins/dependencyPlugin.js",
+        "symbol": "getImportMapForDep"
+      },
+      "expected": [
+        "Error",
+        "depDir",
+        "exports",
+        "join",
+        "keys",
+        "parse",
+        "readFile",
+        "toDepImportMapId",
+        "toURLPath"
+      ]
+    },
+    {
+      "task_id": "textmatch_getOwnerStack",
+      "query": {
+        "__rationale": "4 callees appear inside `getOwnerStack`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "debug/src/component-stack.js",
+        "symbol": "getOwnerStack"
+      },
+      "expected": [
+        "getDisplayName",
+        "push",
+        "reduce",
+        "warn"
+      ]
+    },
+    {
+      "task_id": "textmatch_getPreactRepoRoot",
+      "query": {
+        "__rationale": "5 callees appear inside `getPreactRepoRoot`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/dependencies/preact/local/scripts.js",
+        "symbol": "getPreactRepoRoot"
+      },
+      "expected": [
+        "existsSync",
+        "join",
+        "parse",
+        "pkgRoot",
+        "readFile"
+      ]
+    },
+    {
+      "task_id": "textmatch_getPrimes",
+      "query": {
+        "__rationale": "2 callees appear inside `getPrimes`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/profiler.jsx",
+        "symbol": "getPrimes"
+      },
+      "expected": [
+        "join",
+        "push"
+      ]
+    },
+    {
+      "task_id": "textmatch_getSortedUsers",
+      "query": {
+        "__rationale": "4 callees appear inside `getSortedUsers`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/people/store.ts",
+        "symbol": "getSortedUsers"
+      },
+      "expected": [
+        "Error",
+        "cmp",
+        "slice",
+        "sort"
+      ]
+    },
+    {
+      "task_id": "textmatch_getSparkline",
+      "query": {
+        "__rationale": "9 callees appear inside `getSparkline`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/stats.js",
+        "symbol": "getSparkline"
+      },
+      "expected": [
+        "floor",
+        "forEach",
+        "getHistogram",
+        "join",
+        "lshift",
+        "max",
+        "min",
+        "push",
+        "sort"
+      ]
+    },
+    {
+      "task_id": "textmatch_getStatsFromLogs",
+      "query": {
+        "__rationale": "19 callees appear inside `getStatsFromLogs`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/analyze.js",
+        "symbol": "getStatsFromLogs"
+      },
+      "expected": [
+        "Error",
+        "Map",
+        "addToGrouping",
+        "addToMapArray",
+        "delete",
+        "find",
+        "get",
+        "getThreadId",
+        "has",
+        "includes",
+        "parse",
+        "push",
+        "readFile",
+        "set",
+        "setInMapArray",
+        "startsWith",
+        "summaryStats",
+        "trackEventsIn",
+        "warn"
+      ]
+    },
+    {
+      "task_id": "textmatch_getTableTitle",
+      "query": {
+        "__rationale": "4 callees appear inside `getTableTitle`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/results.js",
+        "symbol": "getTableTitle"
+      },
+      "expected": [
+        "bold",
+        "format",
+        "join",
+        "map"
+      ]
+    },
+    {
+      "task_id": "textmatch_handleDeclaration",
+      "query": {
+        "__rationale": "5 callees appear inside `handleDeclaration`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "config/codemod-strip-tdz.js",
+        "symbol": "handleDeclaration"
+      },
+      "expected": [
+        "filter",
+        "forEach",
+        "indexOf",
+        "log",
+        "removeNodeInitialization"
+      ]
+    },
+    {
+      "task_id": "textmatch_handleDomVNode",
+      "query": {
+        "__rationale": "9 callees appear inside `handleDomVNode`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/src/render.js",
+        "symbol": "handleDomVNode"
+      },
+      "expected": [
+        "defineProperty",
+        "forEach",
+        "indexOf",
+        "isArray",
+        "onChangeInputType",
+        "replace",
+        "test",
+        "toChildArray",
+        "toLowerCase"
+      ]
+    },
+    {
+      "task_id": "textmatch_handleMessage",
+      "query": {
+        "__rationale": "2 callees appear inside `handleMessage`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/utils.js",
+        "symbol": "handleMessage"
+      },
+      "expected": [
+        "postMessage",
+        "set"
+      ]
+    },
+    {
+      "task_id": "textmatch_handler",
+      "query": {
+        "__rationale": "7 callees appear inside `handler`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/plugins/dependencyPlugin.js",
+        "symbol": "handler"
+      },
+      "expected": [
+        "getDepConfig",
+        "includes",
+        "keys",
+        "repoRoot",
+        "split",
+        "startsWith",
+        "toDepImportMapId"
+      ]
+    },
+    {
+      "task_id": "textmatch_horizontalTerminalTable",
+      "query": {
+        "__rationale": "5 callees appear inside `horizontalTerminalTable`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/results.js",
+        "symbol": "horizontalTerminalTable"
+      },
+      "expected": [
+        "bold",
+        "format",
+        "getBorderCharacters",
+        "map",
+        "table"
+      ]
+    },
+    {
+      "task_id": "textmatch_hydrate",
+      "query": {
+        "__rationale": "8 callees appear inside `hydrate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/table-app/preact/index.jsx",
+        "symbol": "hydrate"
+      },
+      "expected": [
+        "Main",
+        "Store",
+        "bind",
+        "callback",
+        "createTableApp",
+        "hydrate",
+        "preactHydrate",
+        "render"
+      ]
+    },
+    {
+      "task_id": "textmatch_hydrateRoot",
+      "query": {
+        "__rationale": "2 callees appear inside `hydrateRoot`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/client.mjs",
+        "symbol": "hydrateRoot"
+      },
+      "expected": [
+        "createRoot",
+        "hydrate"
+      ]
+    },
+    {
+      "task_id": "textmatch_increment",
+      "query": {
+        "__rationale": "2 callees appear inside `increment`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/redux-toolkit.jsx",
+        "symbol": "increment"
+      },
+      "expected": [
+        "dispatch",
+        "increment"
+      ]
+    },
+    {
+      "task_id": "textmatch_incrementAsync",
+      "query": {
+        "__rationale": "3 callees appear inside `incrementAsync`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/redux-toolkit.jsx",
+        "symbol": "incrementAsync"
+      },
+      "expected": [
+        "dispatch",
+        "increment",
+        "setTimeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_insert",
+      "query": {
+        "__rationale": "4 callees appear inside `insert`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/diff/children.js",
+        "symbol": "insert"
+      },
+      "expected": [
+        "contains",
+        "getDomSibling",
+        "insert",
+        "insertBefore"
+      ]
+    },
+    {
+      "task_id": "textmatch_insertBefore",
+      "query": {
+        "__rationale": "2 callees appear inside `insertBefore`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/src/portals.js",
+        "symbol": "insertBefore"
+      },
+      "expected": [
+        "insertBefore",
+        "push"
+      ]
+    },
+    {
+      "task_id": "textmatch_jsxAttr",
+      "query": {
+        "__rationale": "6 callees appear inside `jsxAttr`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "jsx-runtime/src/index.js",
+        "symbol": "jsxAttr"
+      },
+      "expected": [
+        "attr",
+        "encodeEntities",
+        "replace",
+        "startsWith",
+        "test",
+        "toLowerCase"
+      ]
+    },
+    {
+      "task_id": "textmatch_jsxEscape",
+      "query": {
+        "__rationale": "3 callees appear inside `jsxEscape`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "jsx-runtime/src/index.js",
+        "symbol": "jsxEscape"
+      },
+      "expected": [
+        "encodeEntities",
+        "isArray",
+        "jsxEscape"
+      ]
+    },
+    {
+      "task_id": "textmatch_listen",
+      "query": {
+        "__rationale": "2 callees appear inside `listen`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/suspense-router/simple-router.jsx",
+        "symbol": "listen"
+      },
+      "expected": [
+        "push",
+        "splice"
+      ]
+    },
+    {
+      "task_id": "textmatch_logBenchCommand",
+      "query": {
+        "__rationale": "6 callees appear inside `logBenchCommand`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/bin/preact-bench.js",
+        "symbol": "logBenchCommand"
+      },
+      "expected": [
+        "forEach",
+        "isArray",
+        "join",
+        "log",
+        "push",
+        "repeat"
+      ]
+    },
+    {
+      "task_id": "textmatch_logCall",
+      "query": {
+        "__rationale": "3 callees appear inside `logCall`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/logger.jsx",
+        "symbol": "logCall"
+      },
+      "expected": [
+        "apply",
+        "count",
+        "serialize"
+      ]
+    },
+    {
+      "task_id": "textmatch_logDifferences",
+      "query": {
+        "__rationale": "4 callees appear inside `logDifferences`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/analyze.js",
+        "symbol": "logDifferences"
+      },
+      "expected": [
+        "automaticResultTable",
+        "computeDifferences",
+        "log",
+        "verticalTermResultTable"
+      ]
+    },
+    {
+      "task_id": "textmatch_logShortcut",
+      "query": {
+        "__rationale": "4 callees appear inside `logShortcut`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/index.js",
+        "symbol": "logShortcut"
+      },
+      "expected": [
+        "bold",
+        "dim",
+        "green",
+        "info"
+      ]
+    },
+    {
+      "task_id": "textmatch_logger",
+      "query": {
+        "__rationale": "6 callees appear inside `logger`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/logger.jsx",
+        "symbol": "logger"
+      },
+      "expected": [
+        "ConsoleBuffer",
+        "defineProperty",
+        "getOwnPropertyDescriptor",
+        "logCall",
+        "setInterval",
+        "setup"
+      ]
+    },
+    {
+      "task_id": "textmatch_lshift",
+      "query": {
+        "__rationale": "2 callees appear inside `lshift`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/stats.js",
+        "symbol": "lshift"
+      },
+      "expected": [
+        "floor",
+        "pow"
+      ]
+    },
+    {
+      "task_id": "textmatch_main",
+      "query": {
+        "__rationale": "13 callees appear inside `main`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "scripts/release/publish.mjs",
+        "symbol": "main"
+      },
+      "expected": [
+        "createWriteStream",
+        "debug",
+        "error",
+        "execFileSync",
+        "exit",
+        "fetch",
+        "info",
+        "join",
+        "json",
+        "push",
+        "stream",
+        "test",
+        "text"
+      ]
+    },
+    {
+      "task_id": "textmatch_majorTask",
+      "query": {
+        "__rationale": "3 callees appear inside `majorTask`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/utils.js",
+        "symbol": "majorTask"
+      },
+      "expected": [
+        "Promise",
+        "addEventListener",
+        "postMessage"
+      ]
+    },
+    {
+      "task_id": "textmatch_mapFn",
+      "query": {
+        "__rationale": "2 callees appear inside `mapFn`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/src/Children.js",
+        "symbol": "mapFn"
+      },
+      "expected": [
+        "map",
+        "toChildArray"
+      ]
+    },
+    {
+      "task_id": "textmatch_markRunEnd",
+      "query": {
+        "__rationale": "3 callees appear inside `markRunEnd`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/utils.js",
+        "symbol": "markRunEnd"
+      },
+      "expected": [
+        "mark",
+        "measure",
+        "then"
+      ]
+    },
+    {
+      "task_id": "textmatch_measureMemory",
+      "query": {
+        "__rationale": "3 callees appear inside `measureMemory`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/utils.js",
+        "symbol": "measureMemory"
+      },
+      "expected": [
+        "majorTask",
+        "mark",
+        "measure"
+      ]
+    },
+    {
+      "task_id": "textmatch_mount",
+      "query": {
+        "__rationale": "20 callees appear inside `mount`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/filter-list/preact/index.jsx",
+        "symbol": "mount"
+      },
+      "expected": [
+        "App",
+        "Component",
+        "addEventListener",
+        "appendChild",
+        "compatRender",
+        "createElement",
+        "createRoot",
+        "filter",
+        "find",
+        "freshState",
+        "getAll",
+        "includes",
+        "keys",
+        "makeDepVersion",
+        "map",
+        "newItems",
+        "removeDefaultValues",
+        "render",
+        "rerenderBenchmarks",
+        "scheduleUpdate"
+      ]
+    },
+    {
+      "task_id": "textmatch_mutateAndLayoutAsync",
+      "query": {
+        "__rationale": "3 callees appear inside `mutateAndLayoutAsync`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/utils.js",
+        "symbol": "mutateAndLayoutAsync"
+      },
+      "expected": [
+        "Promise",
+        "mutation",
+        "requestAnimationFrame"
+      ]
+    },
+    {
+      "task_id": "textmatch_mutation",
+      "query": {
+        "__rationale": "2 callees appear inside `mutation`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/todo/preact/index.jsx",
+        "symbol": "mutation"
+      },
+      "expected": [
+        "assign",
+        "rerender"
+      ]
+    },
+    {
+      "task_id": "textmatch_navigate",
+      "query": {
+        "__rationale": "2 callees appear inside `navigate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/suspense-router/simple-router.jsx",
+        "symbol": "navigate"
+      },
+      "expected": [
+        "forEach",
+        "listener"
+      ]
+    },
+    {
+      "task_id": "textmatch_newItems",
+      "query": {
+        "__rationale": "3 callees appear inside `newItems`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/filter-list/preact/index.jsx",
+        "symbol": "newItems"
+      },
+      "expected": [
+        "Array",
+        "fill",
+        "map"
+      ]
+    },
+    {
+      "task_id": "textmatch_normalize",
+      "query": {
+        "__rationale": "2 callees appear inside `normalize`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/preact.jsx",
+        "symbol": "normalize"
+      },
+      "expected": [
+        "isArray",
+        "map"
+      ]
+    },
+    {
+      "task_id": "textmatch_onClick",
+      "query": {
+        "__rationale": "5 callees appear inside `onClick`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/table-app/preact-class/index.jsx",
+        "symbol": "onClick"
+      },
+      "expected": [
+        "navigate",
+        "onClick",
+        "preventDefault",
+        "setState",
+        "stopPropagation"
+      ]
+    },
+    {
+      "task_id": "textmatch_onRerun",
+      "query": {
+        "__rationale": "2 callees appear inside `onRerun`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/suspense.jsx",
+        "symbol": "onRerun"
+      },
+      "expected": [
+        "init",
+        "setState"
+      ]
+    },
+    {
+      "task_id": "textmatch_onResolved",
+      "query": {
+        "__rationale": "2 callees appear inside `onResolved`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/src/suspense.js",
+        "symbol": "onResolved"
+      },
+      "expected": [
+        "onSuspensionComplete",
+        "resolve"
+      ]
+    },
+    {
+      "task_id": "textmatch_onSuspensionComplete",
+      "query": {
+        "__rationale": "4 callees appear inside `onSuspensionComplete`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/src/suspense.js",
+        "symbol": "onSuspensionComplete"
+      },
+      "expected": [
+        "forceUpdate",
+        "pop",
+        "removeOriginal",
+        "setState"
+      ]
+    },
+    {
+      "task_id": "textmatch_parseBenchmarkCLIArgs",
+      "query": {
+        "__rationale": "6 callees appear inside `parseBenchmarkCLIArgs`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/bin/preact-bench.js",
+        "symbol": "parseBenchmarkCLIArgs"
+      },
+      "expected": [
+        "ensureArray",
+        "isArray",
+        "map",
+        "parseBrowserArg",
+        "parseDepVersion",
+        "split"
+      ]
+    },
+    {
+      "task_id": "textmatch_parseBenchmarkURL",
+      "query": {
+        "__rationale": "9 callees appear inside `parseBenchmarkURL`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/utils.js",
+        "symbol": "parseBenchmarkURL"
+      },
+      "expected": [
+        "URL",
+        "basename",
+        "get",
+        "getAll",
+        "join",
+        "makeDepVersion",
+        "map",
+        "parseDepVersion",
+        "replace"
+      ]
+    },
+    {
+      "task_id": "textmatch_parseBrowserArg",
+      "query": {
+        "__rationale": "4 callees appear inside `parseBrowserArg`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/bin/preact-bench.js",
+        "symbol": "parseBrowserArg"
+      },
+      "expected": [
+        "endsWith",
+        "indexOf",
+        "replace",
+        "substring"
+      ]
+    },
+    {
+      "task_id": "textmatch_parseDepVersion",
+      "query": {
+        "__rationale": "2 callees appear inside `parseDepVersion`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/index.js",
+        "symbol": "parseDepVersion"
+      },
+      "expected": [
+        "lastIndexOf",
+        "slice"
+      ]
+    },
+    {
+      "task_id": "textmatch_pause",
+      "query": {
+        "__rationale": "3 callees appear inside `pause`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/nested-suspense/component-container.jsx",
+        "symbol": "pause"
+      },
+      "expected": [
+        "Promise",
+        "log",
+        "setTimeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_pin",
+      "query": {
+        "__rationale": "6 callees appear inside `pin`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/dependencies/preact/local/scripts.js",
+        "symbol": "pin"
+      },
+      "expected": [
+        "Error",
+        "execProcess",
+        "getPreactLocalTarballPath",
+        "log",
+        "pkgRoot",
+        "setup"
+      ]
+    },
+    {
+      "task_id": "textmatch_pinLocalDependencies",
+      "query": {
+        "__rationale": "3 callees appear inside `pinLocalDependencies`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/prepare.js",
+        "symbol": "pinLocalDependencies"
+      },
+      "expected": [
+        "getDepConfig",
+        "import",
+        "pin"
+      ]
+    },
+    {
+      "task_id": "textmatch_prepareDependencies",
+      "query": {
+        "__rationale": "13 callees appear inside `prepareDependencies`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/prepare.js",
+        "symbol": "prepareDependencies"
+      },
+      "expected": [
+        "AggregateError",
+        "Error",
+        "all",
+        "allSettled",
+        "filter",
+        "getDepConfig",
+        "import",
+        "makeDepVersion",
+        "map",
+        "push",
+        "reinstallDependencies",
+        "setup",
+        "teardown"
+      ]
+    },
+    {
+      "task_id": "textmatch_process",
+      "query": {
+        "__rationale": "3 callees appear inside `process`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/component.js",
+        "symbol": "process"
+      },
+      "expected": [
+        "renderComponent",
+        "shift",
+        "sort"
+      ]
+    },
+    {
+      "task_id": "textmatch_promptBenchmarkFile",
+      "query": {
+        "__rationale": "6 callees appear inside `promptBenchmarkFile`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/bin/preact-bench.js",
+        "symbol": "promptBenchmarkFile"
+      },
+      "expected": [
+        "entries",
+        "flatMap",
+        "getAppConfig",
+        "keys",
+        "map",
+        "prompts"
+      ]
+    },
+    {
+      "task_id": "textmatch_promptDependency",
+      "query": {
+        "__rationale": "11 callees appear inside `promptDependency`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/bin/preact-bench.js",
+        "symbol": "promptDependency"
+      },
+      "expected": [
+        "Separator",
+        "concat",
+        "entries",
+        "flatMap",
+        "getDepConfig",
+        "join",
+        "keys",
+        "makeDepVersion",
+        "map",
+        "prompts",
+        "push"
+      ]
+    },
+    {
+      "task_id": "textmatch_promptImpl",
+      "query": {
+        "__rationale": "5 callees appear inside `promptImpl`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/bin/preact-bench.js",
+        "symbol": "promptImpl"
+      },
+      "expected": [
+        "getAppConfig",
+        "keys",
+        "map",
+        "prompts",
+        "split"
+      ]
+    },
+    {
+      "task_id": "textmatch_proxy",
+      "query": {
+        "__rationale": "2 callees appear inside `proxy`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/logger.jsx",
+        "symbol": "proxy"
+      },
+      "expected": [
+        "deferFlush",
+        "push"
+      ]
+    },
+    {
+      "task_id": "textmatch_readSavedFormValues",
+      "query": {
+        "__rationale": "2 callees appear inside `readSavedFormValues`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/index.js",
+        "symbol": "readSavedFormValues"
+      },
+      "expected": [
+        "URLSearchParams",
+        "getItem"
+      ]
+    },
+    {
+      "task_id": "textmatch_reinstallDependencies",
+      "query": {
+        "__rationale": "2 callees appear inside `reinstallDependencies`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/prepare.js",
+        "symbol": "reinstallDependencies"
+      },
+      "expected": [
+        "execFileSync",
+        "repoRoot"
+      ]
+    },
+    {
+      "task_id": "textmatch_removeChild",
+      "query": {
+        "__rationale": "3 callees appear inside `removeChild`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/src/portals.js",
+        "symbol": "removeChild"
+      },
+      "expected": [
+        "indexOf",
+        "removeChild",
+        "splice"
+      ]
+    },
+    {
+      "task_id": "textmatch_removeDefaultValues",
+      "query": {
+        "__rationale": "4 callees appear inside `removeDefaultValues`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/index.js",
+        "symbol": "removeDefaultValues"
+      },
+      "expected": [
+        "append",
+        "delete",
+        "includes",
+        "push"
+      ]
+    },
+    {
+      "task_id": "textmatch_removeOriginal",
+      "query": {
+        "__rationale": "3 callees appear inside `removeOriginal`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/src/suspense.js",
+        "symbol": "removeOriginal"
+      },
+      "expected": [
+        "appendChild",
+        "map",
+        "removeOriginal"
+      ]
+    },
+    {
+      "task_id": "textmatch_renderComponent",
+      "query": {
+        "__rationale": "6 callees appear inside `renderComponent`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/component.js",
+        "symbol": "renderComponent"
+      },
+      "expected": [
+        "assign",
+        "commitRoot",
+        "diff",
+        "getDomSibling",
+        "updateParentDomPointers",
+        "vnode"
+      ]
+    },
+    {
+      "task_id": "textmatch_rerender",
+      "query": {
+        "__rationale": "2 callees appear inside `rerender`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/index.js",
+        "symbol": "rerender"
+      },
+      "expected": [
+        "rerenderBenchmarks",
+        "rerenderImplementations"
+      ]
+    },
+    {
+      "task_id": "textmatch_rerenderBenchmarks",
+      "query": {
+        "__rationale": "5 callees appear inside `rerenderBenchmarks`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/index.js",
+        "symbol": "rerenderBenchmarks"
+      },
+      "expected": [
+        "appendChild",
+        "createElement",
+        "includes",
+        "keys",
+        "rerenderImplementations"
+      ]
+    },
+    {
+      "task_id": "textmatch_rerenderImplementations",
+      "query": {
+        "__rationale": "4 callees appear inside `rerenderImplementations`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/index.js",
+        "symbol": "rerenderImplementations"
+      },
+      "expected": [
+        "appendChild",
+        "createElement",
+        "includes",
+        "keys"
+      ]
+    },
+    {
+      "task_id": "textmatch_run",
+      "query": {
+        "__rationale": "5 callees appear inside `run`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/table-app/_shared/store.js",
+        "symbol": "run"
+      },
+      "expected": [
+        "buildData",
+        "forceUpdate",
+        "rerender",
+        "run",
+        "setState"
+      ]
+    },
+    {
+      "task_id": "textmatch_runBenchServer",
+      "query": {
+        "__rationale": "7 callees appear inside `runBenchServer`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/index.js",
+        "symbol": "runBenchServer"
+      },
+      "expected": [
+        "bindCLIShortcuts",
+        "createServer",
+        "dependencyPlugin",
+        "listen",
+        "printUrls",
+        "repoRoot",
+        "rootIndexPlugin"
+      ]
+    },
+    {
+      "task_id": "textmatch_runBenchmarks",
+      "query": {
+        "__rationale": "11 callees appear inside `runBenchmarks`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/index.js",
+        "symbol": "runBenchmarks"
+      },
+      "expected": [
+        "Error",
+        "close",
+        "displayResults",
+        "existsSync",
+        "flat",
+        "log",
+        "mkdir",
+        "prepareDependencies",
+        "resultsPath",
+        "runBenchServer",
+        "runTach"
+      ]
+    },
+    {
+      "task_id": "textmatch_runBenchmarksInteractively",
+      "query": {
+        "__rationale": "5 callees appear inside `runBenchmarksInteractively`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/index.js",
+        "symbol": "runBenchmarksInteractively"
+      },
+      "expected": [
+        "bindCLIShortcuts",
+        "forEach",
+        "logShortcut",
+        "printUrls",
+        "runBenchServer"
+      ]
+    },
+    {
+      "task_id": "textmatch_runLots",
+      "query": {
+        "__rationale": "5 callees appear inside `runLots`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/table-app/_shared/store.js",
+        "symbol": "runLots"
+      },
+      "expected": [
+        "buildData",
+        "forceUpdate",
+        "rerender",
+        "runLots",
+        "setState"
+      ]
+    },
+    {
+      "task_id": "textmatch_runTach",
+      "query": {
+        "__rationale": "6 callees appear inside `runTach`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/tach.js",
+        "symbol": "runTach"
+      },
+      "expected": [
+        "Error",
+        "dirname",
+        "generateTachConfig",
+        "main",
+        "mkdir",
+        "resultsPath"
+      ]
+    },
+    {
+      "task_id": "textmatch_saveFormValues",
+      "query": {
+        "__rationale": "3 callees appear inside `saveFormValues`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/index.js",
+        "symbol": "saveFormValues"
+      },
+      "expected": [
+        "getCurrentFormValues",
+        "setItem",
+        "toString"
+      ]
+    },
+    {
+      "task_id": "textmatch_select",
+      "query": {
+        "__rationale": "4 callees appear inside `select`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/table-app/preact/index.jsx",
+        "symbol": "select"
+      },
+      "expected": [
+        "forceUpdate",
+        "rerender",
+        "select",
+        "setState"
+      ]
+    },
+    {
+      "task_id": "textmatch_serialize",
+      "query": {
+        "__rationale": "2 callees appear inside `serialize`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/logger.jsx",
+        "symbol": "serialize"
+      },
+      "expected": [
+        "call",
+        "replace"
+      ]
+    },
+    {
+      "task_id": "textmatch_serializeVNode",
+      "query": {
+        "__rationale": "5 callees appear inside `serializeVNode`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "debug/src/debug.js",
+        "symbol": "serializeVNode"
+      },
+      "expected": [
+        "Object",
+        "call",
+        "getDisplayName",
+        "hasOwnProperty",
+        "stringify"
+      ]
+    },
+    {
+      "task_id": "textmatch_set",
+      "query": {
+        "__rationale": "5 callees appear inside `set`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "debug/src/debug.js",
+        "symbol": "set"
+      },
+      "expected": [
+        "call",
+        "count",
+        "indexOf",
+        "push",
+        "warn"
+      ]
+    },
+    {
+      "task_id": "textmatch_setInMapArray",
+      "query": {
+        "__rationale": "2 callees appear inside `setInMapArray`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/analyze.js",
+        "symbol": "setInMapArray"
+      },
+      "expected": [
+        "get",
+        "set"
+      ]
+    },
+    {
+      "task_id": "textmatch_setProperty",
+      "query": {
+        "__rationale": "8 callees appear inside `setProperty`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/diff/props.js",
+        "symbol": "setProperty"
+      },
+      "expected": [
+        "addEventListener",
+        "removeAttribute",
+        "removeEventListener",
+        "replace",
+        "setAttribute",
+        "setStyle",
+        "slice",
+        "toLowerCase"
+      ]
+    },
+    {
+      "task_id": "textmatch_setStyle",
+      "query": {
+        "__rationale": "2 callees appear inside `setStyle`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/diff/props.js",
+        "symbol": "setStyle"
+      },
+      "expected": [
+        "setProperty",
+        "test"
+      ]
+    },
+    {
+      "task_id": "textmatch_setup",
+      "query": {
+        "__rationale": "17 callees appear inside `setup`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/dependencies/preact/local/scripts.js",
+        "symbol": "setup"
+      },
+      "expected": [
+        "Error",
+        "addEventListener",
+        "all",
+        "appendChild",
+        "createElement",
+        "execProcess",
+        "existsSync",
+        "getElementById",
+        "getPreactLocalTarballPath",
+        "getPreactRepoRoot",
+        "localSetup",
+        "log",
+        "onLoad",
+        "pkgRoot",
+        "readFile",
+        "resolve",
+        "trim"
+      ]
+    },
+    {
+      "task_id": "textmatch_setupComponentStack",
+      "query": {
+        "__rationale": "8 callees appear inside `setupComponentStack`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "debug/src/component-stack.js",
+        "symbol": "setupComponentStack"
+      },
+      "expected": [
+        "isPossibleOwner",
+        "oldDiff",
+        "oldDiffed",
+        "oldRender",
+        "oldRoot",
+        "oldVNode",
+        "pop",
+        "push"
+      ]
+    },
+    {
+      "task_id": "textmatch_shouldUpdate",
+      "query": {
+        "__rationale": "3 callees appear inside `shouldUpdate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/src/memo.js",
+        "symbol": "shouldUpdate"
+      },
+      "expected": [
+        "comparer",
+        "ref",
+        "shallowDiffers"
+      ]
+    },
+    {
+      "task_id": "textmatch_sleep",
+      "query": {
+        "__rationale": "2 callees appear inside `sleep`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/utils.js",
+        "symbol": "sleep"
+      },
+      "expected": [
+        "Promise",
+        "setTimeout"
+      ]
+    },
+    {
+      "task_id": "textmatch_swap",
+      "query": {
+        "__rationale": "2 callees appear inside `swap`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/list.jsx",
+        "symbol": "swap"
+      },
+      "expected": [
+        "slice",
+        "update"
+      ]
+    },
+    {
+      "task_id": "textmatch_swapRows",
+      "query": {
+        "__rationale": "4 callees appear inside `swapRows`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/table-app/preact/index.jsx",
+        "symbol": "swapRows"
+      },
+      "expected": [
+        "forceUpdate",
+        "rerender",
+        "setState",
+        "swapRows"
+      ]
+    },
+    {
+      "task_id": "textmatch_testElement",
+      "query": {
+        "__rationale": "2 callees appear inside `testElement`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/utils.js",
+        "symbol": "testElement"
+      },
+      "expected": [
+        "Error",
+        "querySelector"
+      ]
+    },
+    {
+      "task_id": "textmatch_testElementText",
+      "query": {
+        "__rationale": "2 callees appear inside `testElementText`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/utils.js",
+        "symbol": "testElementText"
+      },
+      "expected": [
+        "Error",
+        "querySelector"
+      ]
+    },
+    {
+      "task_id": "textmatch_testElementTextContains",
+      "query": {
+        "__rationale": "3 callees appear inside `testElementTextContains`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/utils.js",
+        "symbol": "testElementTextContains"
+      },
+      "expected": [
+        "Error",
+        "getBySelector",
+        "includes"
+      ]
+    },
+    {
+      "task_id": "textmatch_toChildArray",
+      "query": {
+        "__rationale": "4 callees appear inside `toChildArray`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "src/diff/children.js",
+        "symbol": "toChildArray"
+      },
+      "expected": [
+        "isArray",
+        "push",
+        "some",
+        "toChildArray"
+      ]
+    },
+    {
+      "task_id": "textmatch_toURLPath",
+      "query": {
+        "__rationale": "6 callees appear inside `toURLPath`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/utils.js",
+        "symbol": "toURLPath"
+      },
+      "expected": [
+        "Error",
+        "URL",
+        "isAbsolute",
+        "replace",
+        "repoRoot",
+        "startsWith"
+      ]
+    },
+    {
+      "task_id": "textmatch_transform",
+      "query": {
+        "__rationale": "2 callees appear inside `transform`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "vitest.config.mjs",
+        "symbol": "transform"
+      },
+      "expected": [
+        "includes",
+        "transformAsync"
+      ]
+    },
+    {
+      "task_id": "textmatch_transformIndexHtml",
+      "query": {
+        "__rationale": "16 callees appear inside `transformIndexHtml`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/src/plugins/dependencyPlugin.js",
+        "symbol": "transformIndexHtml"
+      },
+      "expected": [
+        "URL",
+        "exec",
+        "find",
+        "get",
+        "getAll",
+        "getAppConfig",
+        "getDepConfig",
+        "getImportMapForDep",
+        "keys",
+        "map",
+        "parseDepVersion",
+        "replace",
+        "repoRoot",
+        "resolve",
+        "stringify",
+        "toURLPath"
+      ]
+    },
+    {
+      "task_id": "textmatch_unmount",
+      "query": {
+        "__rationale": "6 callees appear inside `unmount`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/todo/preact/index.jsx",
+        "symbol": "unmount"
+      },
+      "expected": [
+        "_catchError",
+        "applyRef",
+        "componentWillUnmount",
+        "removeNode",
+        "render",
+        "unmount"
+      ]
+    },
+    {
+      "task_id": "textmatch_update",
+      "query": {
+        "__rationale": "10 callees appear inside `update`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/apps/table-app/_shared/store.js",
+        "symbol": "update"
+      },
+      "expected": [
+        "List",
+        "assign",
+        "createRow",
+        "forceUpdate",
+        "hasOwnProperty",
+        "render",
+        "rerender",
+        "setState",
+        "update",
+        "updateData"
+      ]
+    },
+    {
+      "task_id": "textmatch_updateHookState",
+      "query": {
+        "__rationale": "5 callees appear inside `updateHookState`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "hooks/src/index.js",
+        "symbol": "updateHookState"
+      },
+      "expected": [
+        "ObjectIs",
+        "call",
+        "every",
+        "filter",
+        "forEach"
+      ]
+    },
+    {
+      "task_id": "textmatch_upload",
+      "query": {
+        "__rationale": "10 callees appear inside `upload`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "scripts/release/upload-gh-asset.js",
+        "symbol": "upload"
+      },
+      "expected": [
+        "Error",
+        "create",
+        "deleteReleaseAsset",
+        "glob",
+        "log",
+        "readFileSync",
+        "replace",
+        "require",
+        "test",
+        "uploadReleaseAsset"
+      ]
+    },
+    {
+      "task_id": "textmatch_useContext",
+      "query": {
+        "__rationale": "2 callees appear inside `useContext`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "hooks/src/index.js",
+        "symbol": "useContext"
+      },
+      "expected": [
+        "getHookState",
+        "sub"
+      ]
+    },
+    {
+      "task_id": "textmatch_useDebugValue",
+      "query": {
+        "__rationale": "2 callees appear inside `useDebugValue`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "hooks/src/index.js",
+        "symbol": "useDebugValue"
+      },
+      "expected": [
+        "formatter",
+        "useDebugValue"
+      ]
+    },
+    {
+      "task_id": "textmatch_useEffect",
+      "query": {
+        "__rationale": "3 callees appear inside `useEffect`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "hooks/src/index.js",
+        "symbol": "useEffect"
+      },
+      "expected": [
+        "argsChanged",
+        "getHookState",
+        "push"
+      ]
+    },
+    {
+      "task_id": "textmatch_useErrorBoundary",
+      "query": {
+        "__rationale": "3 callees appear inside `useErrorBoundary`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "hooks/src/index.js",
+        "symbol": "useErrorBoundary"
+      },
+      "expected": [
+        "_value",
+        "getHookState",
+        "useState"
+      ]
+    },
+    {
+      "task_id": "textmatch_useImperativeHandle",
+      "query": {
+        "__rationale": "5 callees appear inside `useImperativeHandle`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "hooks/src/index.js",
+        "symbol": "useImperativeHandle"
+      },
+      "expected": [
+        "concat",
+        "createHandle",
+        "ref",
+        "result",
+        "useLayoutEffect"
+      ]
+    },
+    {
+      "task_id": "textmatch_useLayoutEffect",
+      "query": {
+        "__rationale": "3 callees appear inside `useLayoutEffect`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "hooks/src/index.js",
+        "symbol": "useLayoutEffect"
+      },
+      "expected": [
+        "argsChanged",
+        "getHookState",
+        "push"
+      ]
+    },
+    {
+      "task_id": "textmatch_useLocation",
+      "query": {
+        "__rationale": "3 callees appear inside `useLocation`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "demo/people/router.tsx",
+        "symbol": "useLocation"
+      },
+      "expected": [
+        "addEventListener",
+        "removeEventListener",
+        "useEffect"
+      ]
+    },
+    {
+      "task_id": "textmatch_useMemo",
+      "query": {
+        "__rationale": "3 callees appear inside `useMemo`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "hooks/src/index.js",
+        "symbol": "useMemo"
+      },
+      "expected": [
+        "argsChanged",
+        "factory",
+        "getHookState"
+      ]
+    },
+    {
+      "task_id": "textmatch_useReducer",
+      "query": {
+        "__rationale": "8 callees appear inside `useReducer`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "hooks/src/index.js",
+        "symbol": "useReducer"
+      },
+      "expected": [
+        "ObjectIs",
+        "_reducer",
+        "call",
+        "getHookState",
+        "init",
+        "invokeOrReturn",
+        "setState",
+        "updateHookState"
+      ]
+    },
+    {
+      "task_id": "textmatch_useSyncExternalStore",
+      "query": {
+        "__rationale": "7 callees appear inside `useSyncExternalStore`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "compat/src/hooks.js",
+        "symbol": "useSyncExternalStore"
+      },
+      "expected": [
+        "didSnapshotChange",
+        "forceUpdate",
+        "getSnapshot",
+        "subscribe",
+        "useEffect",
+        "useLayoutEffect",
+        "useState"
+      ]
+    },
+    {
+      "task_id": "textmatch_validate",
+      "query": {
+        "__rationale": "6 callees appear inside `validate`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/cli/bin/preact-bench.js",
+        "symbol": "validate"
+      },
+      "expected": [
+        "filter",
+        "join",
+        "keys",
+        "map",
+        "parseDepVersion",
+        "startsWith"
+      ]
+    },
+    {
+      "task_id": "textmatch_waitForExit",
+      "query": {
+        "__rationale": "5 callees appear inside `waitForExit`; raw-AST match",
+        "__rule": "H2-callees-text",
+        "file": "benchmarks/dependencies/utils.js",
+        "symbol": "waitForExit"
+      },
+      "expected": [
+        "Error",
+        "Promise",
+        "once",
+        "reject",
+        "resolve"
+      ]
+    }
+  ]
+}

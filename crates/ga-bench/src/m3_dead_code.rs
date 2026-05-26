@@ -110,10 +110,20 @@ pub fn score_dead_code(opts: &ScoreOpts) -> Result<Vec<M3LeaderboardRow>, BenchE
         } else {
             2.0 * precision * recall / (precision + recall)
         };
+        // F2 — recall priority on dead-code set. Missing a real dead function
+        // (false negative) means leaving cruft; over-flagging (false positive)
+        // means dev does a quick "is this used" check. Asymmetric cost favors
+        // recall, hence F2 as secondary diagnostic.
+        let f2 = if 4.0 * precision + recall == 0.0 {
+            0.0
+        } else {
+            5.0 * precision * recall / (4.0 * precision + recall)
+        };
 
         let mut secondary = BTreeMap::new();
         secondary.insert("recall".to_string(), recall);
         secondary.insert("f1".to_string(), f1);
+        secondary.insert("f2".to_string(), f2);
         secondary.insert(
             "expected_dead_aligned".to_string(),
             aligned_expected.len() as f64,

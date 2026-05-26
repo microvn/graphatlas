@@ -2,7 +2,7 @@
 //! in `setup`, then dispatches each task to the matching `ga_query::*` entry
 //! point. No subprocess — this is the "fast path" and the retriever we own.
 
-use crate::retriever::{ImpactActual, Retriever};
+use crate::retriever::{ImpactActual, RetrievedResponse, Retriever};
 use crate::BenchError;
 use ga_index::Store;
 use ga_query::indexer::build_index;
@@ -49,6 +49,10 @@ impl Retriever for GaRetriever {
     }
 
     fn query(&mut self, uc: &str, query: &Value) -> Result<Vec<String>, BenchError> {
+        Ok(self.query_response(uc, query)?.paths)
+    }
+
+    fn query_response(&mut self, uc: &str, query: &Value) -> Result<RetrievedResponse, BenchError> {
         let store = self.store()?;
         match uc {
             "callers" => {
@@ -56,27 +60,33 @@ impl Retriever for GaRetriever {
                 let file = query.get("file").and_then(|v| v.as_str());
                 let resp = ga_query::callers(store, symbol, file)
                     .map_err(|e| BenchError::Query(e.to_string()))?;
-                Ok(resp.callers.into_iter().map(|c| c.symbol).collect())
+                let serialized = serde_json::to_string(&resp).unwrap_or_default();
+                let paths = resp.callers.into_iter().map(|c| c.symbol).collect();
+                Ok(RetrievedResponse { paths, serialized })
             }
             "callees" => {
                 let symbol = symbol_arg(query, "callees")?;
                 let file = query.get("file").and_then(|v| v.as_str());
                 let resp = ga_query::callees(store, symbol, file)
                     .map_err(|e| BenchError::Query(e.to_string()))?;
+                let serialized = serde_json::to_string(&resp).unwrap_or_default();
                 // Drop externals — bench conventions (AS-005) score callees
                 // against in-repo-only expected sets.
-                Ok(resp
+                let paths = resp
                     .callees
                     .into_iter()
                     .filter(|c| !c.external)
                     .map(|c| c.symbol)
-                    .collect())
+                    .collect();
+                Ok(RetrievedResponse { paths, serialized })
             }
             "importers" => {
                 let file = file_arg(query, "importers")?;
                 let resp = ga_query::importers(store, file)
                     .map_err(|e| BenchError::Query(e.to_string()))?;
-                Ok(resp.importers.into_iter().map(|e| e.path).collect())
+                let serialized = serde_json::to_string(&resp).unwrap_or_default();
+                let paths = resp.importers.into_iter().map(|e| e.path).collect();
+                Ok(RetrievedResponse { paths, serialized })
             }
             "symbols" => {
                 let pattern = query
@@ -92,7 +102,9 @@ impl Retriever for GaRetriever {
                 };
                 let resp = ga_query::symbols(store, pattern, mode)
                     .map_err(|e| BenchError::Query(e.to_string()))?;
-                Ok(resp.symbols.into_iter().map(|s| s.name).collect())
+                let serialized = serde_json::to_string(&resp).unwrap_or_default();
+                let paths = resp.symbols.into_iter().map(|s| s.name).collect();
+                Ok(RetrievedResponse { paths, serialized })
             }
             "file_summary" => {
                 let path = query.get("path").and_then(|v| v.as_str()).ok_or_else(|| {
@@ -103,15 +115,19 @@ impl Retriever for GaRetriever {
                 })?;
                 let resp = ga_query::file_summary(store, path)
                     .map_err(|e| BenchError::Query(e.to_string()))?;
-                Ok(resp.symbols.into_iter().map(|s| s.name).collect())
+                let serialized = serde_json::to_string(&resp).unwrap_or_default();
+                let paths = resp.symbols.into_iter().map(|s| s.name).collect();
+                Ok(RetrievedResponse { paths, serialized })
             }
             "impact" => {
                 let req = impact_request_from_query(query);
                 let resp =
                     ga_query::impact(store, &req).map_err(|e| BenchError::Query(e.to_string()))?;
+                let serialized = serde_json::to_string(&resp).unwrap_or_default();
                 // Legacy set-based F1 scoring — drop multi-dim metadata.
                 // For composite 4-dim scoring the runner uses query_impact().
-                Ok(resp.impacted_files.into_iter().map(|f| f.path).collect())
+                let paths = resp.impacted_files.into_iter().map(|f| f.path).collect();
+                Ok(RetrievedResponse { paths, serialized })
             }
             other => Err(BenchError::UnknownUc(other.to_string())),
         }
