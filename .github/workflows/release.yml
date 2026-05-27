@@ -139,7 +139,7 @@ jobs:
         # because `--bin ga-server` would only search the root crate.
         run: cargo build --release -p graphatlas -p ga-server --target ${{ matrix.rust_target }}
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: ui-bundle
           path: ui-bundle
@@ -200,7 +200,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           path: dist
           pattern: release-*
