@@ -96,10 +96,21 @@ pub fn architecture(store: &Store, req: &ArchitectureRequest) -> Result<Architec
     }
 
     let repo_root = PathBuf::from(store.metadata().repo_root.clone());
-    let raw = discover_modules(&repo_root);
+
+    // Git submodules are vendored third-party code, not this repo's — drop
+    // their module markers and files so they don't pollute the orientation
+    // map (e.g. `benches/fixtures/*` would otherwise dominate it).
+    let excluded = read_submodule_paths(&repo_root);
+    let raw: Vec<RawModule> = discover_modules(&repo_root)
+        .into_iter()
+        .filter(|m| !is_under_any(&m.root, &excluded))
+        .collect();
     let convention_used = describe_conventions(&raw);
 
-    let indexed_files = list_indexed_files(&conn)?;
+    let indexed_files: Vec<String> = list_indexed_files(&conn)?
+        .into_iter()
+        .filter(|f| !is_under_any(f, &excluded))
+        .collect();
     let mut modules = build_modules(&raw, &indexed_files, &repo_root);
     populate_symbol_counts(&conn, &mut modules)?;
 
@@ -219,6 +230,59 @@ fn has_marker(dir: &Path, marker: &str) -> bool {
     dir.join(marker).is_file()
 }
 
+/// Per-module display names, unique across the set. A basename used by exactly
+/// one module stays as-is; a basename shared by ≥2 modules is replaced with the
+/// module's (unique) root path so the two never collapse into one identity.
+/// Roots are unique by construction (discover_modules dedups on root).
+fn assign_unique_names(raw: &[RawModule]) -> Vec<String> {
+    let mut counts: BTreeMap<&str, usize> = BTreeMap::new();
+    for m in raw {
+        *counts.entry(m.name.as_str()).or_insert(0) += 1;
+    }
+    raw.iter()
+        .map(|m| {
+            let collides = counts.get(m.name.as_str()).copied().unwrap_or(0) > 1;
+            if collides && !m.root.is_empty() {
+                m.root.clone()
+            } else {
+                m.name.clone()
+            }
+        })
+        .collect()
+}
+
+/// Repo-relative submodule paths declared in `.gitmodules` (git's `path = …`
+/// lines). These subtrees are vendored code, not this repo's, and must not
+/// appear in the module map. Empty when there is no `.gitmodules`.
+fn read_submodule_paths(repo_root: &Path) -> Vec<String> {
+    let Ok(text) = std::fs::read_to_string(repo_root.join(".gitmodules")) else {
+        return Vec::new();
+    };
+    let mut out = Vec::new();
+    for line in text.lines() {
+        let trimmed = line.trim();
+        let Some(rest) = trimmed.strip_prefix("path") else {
+            continue;
+        };
+        let Some(val) = rest.trim_start().strip_prefix('=') else {
+            continue;
+        };
+        let p = val.trim().trim_end_matches('/').replace('\\', "/");
+        if !p.is_empty() {
+            out.push(p);
+        }
+    }
+    out
+}
+
+/// True when `rel` is one of, or lives under, any of the given repo-relative
+/// prefixes. Used to drop git-submodule subtrees from discovery + file lists.
+fn is_under_any(rel: &str, prefixes: &[String]) -> bool {
+    prefixes
+        .iter()
+        .any(|p| rel == p || rel.starts_with(&format!("{p}/")))
+}
+
 fn describe_conventions(raw: &[RawModule]) -> String {
     if raw.is_empty() {
         return "none".to_string();
@@ -240,12 +304,19 @@ fn build_modules(raw: &[RawModule], indexed_files: &[String], repo_root: &Path) 
     let mut roots_sorted: Vec<&RawModule> = raw.iter().collect();
     roots_sorted.sort_by(|a, b| b.root.len().cmp(&a.root.len()));
 
+    // Two modules can share a basename (e.g. `svc/common` + `lib/common`).
+    // Keying identity on the basename collapses them in `file_to_module` /
+    // `live_names` and conflates their symbol counts and edges. Disambiguate
+    // colliding basenames to their unique root path so each module stays a
+    // distinct node in the map.
+    let names = assign_unique_names(raw);
+
     let mut by_index: BTreeMap<usize, Module> = BTreeMap::new();
-    for (i, m) in raw.iter().enumerate() {
+    for (i, _m) in raw.iter().enumerate() {
         by_index.insert(
             i,
             Module {
-                name: m.name.clone(),
+                name: names[i].clone(),
                 files: Vec::new(),
                 symbol_count: 0,
                 public_api: Vec::new(),
@@ -352,6 +423,31 @@ fn compute_edges(
 
     let mut counts: BTreeMap<(String, String, &'static str), u32> = BTreeMap::new();
 
+    // Map a (from_file, to_file) pair to a live inter-module (from, to), or
+    // None for intra-module / dropped-module / unowned files.
+    let resolve_pair = |from_file: &str, to_file: &str| -> Option<(String, String)> {
+        let from_mod = file_to_module.get(from_file)?;
+        let to_mod = file_to_module.get(to_file)?;
+        if from_mod == to_mod {
+            return None; // intra-module — not in scope
+        }
+        if !live_names.contains(from_mod.as_str()) || !live_names.contains(to_mod.as_str()) {
+            return None;
+        }
+        Some((from_mod.clone(), to_mod.clone()))
+    };
+
+    let read_pair = |cols: Vec<lbug::Value>| -> Option<(String, String)> {
+        match (cols.first(), cols.get(1)) {
+            (Some(lbug::Value::String(a)), Some(lbug::Value::String(b))) => {
+                Some((a.clone(), b.clone()))
+            }
+            _ => None,
+        }
+    };
+
+    // calls / extends — row-counted: each call / reference / extends site adds
+    // weight to the module-pair coupling.
     let edge_specs: &[(&str, &str)] = &[
         (
             "MATCH (caller:Symbol)-[:CALLS]->(callee:Symbol) RETURN caller.file, callee.file",
@@ -362,47 +458,52 @@ fn compute_edges(
             "calls",
         ),
         (
-            "MATCH (src:File)-[:IMPORTS]->(dst:File) RETURN src.path, dst.path",
-            "imports",
-        ),
-        (
             "MATCH (sub:Symbol)-[:EXTENDS]->(base:Symbol) RETURN sub.file, base.file",
             "extends",
         ),
     ];
-
     for (cypher, kind) in edge_specs {
         let rs = conn
             .query(cypher)
             .map_err(|e| Error::Other(anyhow::anyhow!("architecture edges {kind}: {e}")))?;
         for row in rs {
             let cols: Vec<lbug::Value> = row.into_iter().collect();
-            if cols.len() < 2 {
+            let Some((from_file, to_file)) = read_pair(cols) else {
                 continue;
+            };
+            if let Some((from_mod, to_mod)) = resolve_pair(&from_file, &to_file) {
+                *counts.entry((from_mod, to_mod, kind)).or_insert(0) += 1;
             }
-            let from_file = match &cols[0] {
-                lbug::Value::String(s) => s.clone(),
-                _ => continue,
-            };
-            let to_file = match &cols[1] {
-                lbug::Value::String(s) => s.clone(),
-                _ => continue,
-            };
-            let Some(from_mod) = file_to_module.get(&from_file) else {
-                continue;
-            };
-            let Some(to_mod) = file_to_module.get(&to_file) else {
-                continue;
-            };
-            if from_mod == to_mod {
-                continue; // intra-module — not in scope
+        }
+    }
+
+    // imports — counted as DISTINCT file-pairs (file_pair_count semantics).
+    // Union two sources so non-Python langs get an imports dimension:
+    //   (a) File-[:IMPORTS]->File   — Python / TS path-resolved imports.
+    //   (b) File-[:IMPORTS_NAMED]->Symbol (→ Symbol.file) — langs whose path
+    //       resolver is deferred (e.g. Rust) but whose imports the indexer
+    //       resolved via the name-fallback. Without this the imports edge set
+    //       is silently empty for every non-Python/TS repo.
+    // Dedup over (src_file, dst_file) so a pair present in both tables (Python)
+    // counts once — preserving the existing file-pair weight semantics.
+    let mut import_pairs: BTreeSet<(String, String)> = BTreeSet::new();
+    for cypher in [
+        "MATCH (src:File)-[:IMPORTS]->(dst:File) RETURN src.path, dst.path",
+        "MATCH (f:File)-[:IMPORTS_NAMED]->(s:Symbol) RETURN f.path, s.file",
+    ] {
+        let rs = conn
+            .query(cypher)
+            .map_err(|e| Error::Other(anyhow::anyhow!("architecture imports: {e}")))?;
+        for row in rs {
+            let cols: Vec<lbug::Value> = row.into_iter().collect();
+            if let Some(pair) = read_pair(cols) {
+                import_pairs.insert(pair);
             }
-            if !live_names.contains(from_mod.as_str()) || !live_names.contains(to_mod.as_str()) {
-                continue;
-            }
-            *counts
-                .entry((from_mod.clone(), to_mod.clone(), kind))
-                .or_insert(0) += 1;
+        }
+    }
+    for (from_file, to_file) in &import_pairs {
+        if let Some((from_mod, to_mod)) = resolve_pair(from_file, to_file) {
+            *counts.entry((from_mod, to_mod, "imports")).or_insert(0) += 1;
         }
     }
 
@@ -547,5 +648,47 @@ mod unit {
     #[test]
     fn describe_conventions_empty_returns_none() {
         assert_eq!(describe_conventions(&[]), "none");
+    }
+
+    #[test]
+    fn assign_unique_names_disambiguates_basename_collision() {
+        let raw = vec![
+            RawModule {
+                name: "common".into(),
+                root: "svc/common".into(),
+                convention: "python-init-py",
+            },
+            RawModule {
+                name: "common".into(),
+                root: "lib/common".into(),
+                convention: "python-init-py",
+            },
+            RawModule {
+                name: "solo".into(),
+                root: "solo".into(),
+                convention: "cargo",
+            },
+        ];
+        let names = assign_unique_names(&raw);
+        // Colliding basenames fall back to their unique root paths…
+        assert_eq!(names[0], "svc/common");
+        assert_eq!(names[1], "lib/common");
+        // …a non-colliding basename keeps its short name.
+        assert_eq!(names[2], "solo");
+        // All names unique.
+        let set: BTreeSet<&String> = names.iter().collect();
+        assert_eq!(set.len(), names.len());
+    }
+
+    #[test]
+    fn read_submodule_and_is_under_any() {
+        assert!(is_under_any(
+            "benches/fixtures/tokio/src/lib.rs",
+            &["benches/fixtures/tokio".to_string()]
+        ));
+        assert!(is_under_any("vendor/lib", &["vendor/lib".to_string()]));
+        assert!(!is_under_any("app/main.py", &["vendor/lib".to_string()]));
+        // root module ("") is never excluded.
+        assert!(!is_under_any("", &["vendor/lib".to_string()]));
     }
 }

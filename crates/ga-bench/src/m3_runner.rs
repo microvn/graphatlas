@@ -39,6 +39,9 @@ pub const M3_UC_NAMES: &[&str] = &[
 /// Per-tool acceptance status surfaced on each leaderboard row.
 /// `Tautological` flags Spearman/F1 ≥ 0.95 on Ha-import-edge per AS-020.
 /// `Deferred` reserved for `risk` UC rows in Phase 1+2 partial leaderboards.
+/// `Skipped` marks a row the GT rule could not measure (zero expected
+/// edges) — a degenerate `0.0` score that is NOT an engine failure and must
+/// not count toward the hard-fail gate.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
 #[serde(rename_all = "UPPERCASE")]
 pub enum SpecStatus {
@@ -46,6 +49,7 @@ pub enum SpecStatus {
     Fail,
     Tautological,
     Deferred,
+    Skipped,
 }
 
 #[derive(Debug, Clone, Serialize)]
@@ -358,12 +362,14 @@ pub fn render_leaderboard_md(
     out.push_str("|---|---|---|---|---|\n");
     let mut pass = 0usize;
     let mut fail = 0usize;
+    let mut skip = 0usize;
     for r in rows {
         let (marker, count) = match r.spec_status {
             SpecStatus::Pass => ("PASS", &mut pass),
             SpecStatus::Fail => ("**FAIL**", &mut fail),
             SpecStatus::Tautological => ("**TAUTOLOGY-SUSPECT**", &mut pass),
             SpecStatus::Deferred => ("DEFERRED", &mut pass),
+            SpecStatus::Skipped => ("SKIPPED", &mut skip),
         };
         *count += 1;
         out.push_str(&format!(
@@ -389,8 +395,13 @@ pub fn render_leaderboard_md(
         }
     }
 
+    let skip_note = if skip > 0 {
+        format!(", {skip} skipped (insufficient GT)")
+    } else {
+        String::new()
+    };
     out.push_str(&format!(
-        "**SPEC GATE: {pass} pass, {fail} fail (target: all pass)**\n"
+        "**SPEC GATE: {pass} pass, {fail} fail{skip_note} (target: all pass)**\n"
     ));
     out
 }

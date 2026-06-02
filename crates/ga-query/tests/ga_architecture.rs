@@ -333,6 +333,100 @@ fn max_modules_zero_returns_invalid_params() {
     );
 }
 
+// ─────────────────────────────────────────────────────────────────────────
+// Track A — pipeline correctness fixes (audit 2026-06-02)
+// ─────────────────────────────────────────────────────────────────────────
+
+// Item 3 — synthesize File→File import edges from IMPORTS_NAMED so non-Python
+// langs (Rust resolves imports via name-fallback) get an imports dimension.
+#[test]
+fn rust_cross_crate_use_emits_imports_edge() {
+    let (_tmp, cache, repo) = setup();
+    write(
+        &repo.join("crate_b/Cargo.toml"),
+        "[package]\nname = \"crate_b\"\nversion = \"0.1.0\"\n",
+    );
+    write(
+        &repo.join("crate_b/src/lib.rs"),
+        "pub fn unique_helper_xyz() -> i32 { 1 }\n",
+    );
+    write(
+        &repo.join("crate_a/Cargo.toml"),
+        "[package]\nname = \"crate_a\"\nversion = \"0.1.0\"\n",
+    );
+    write(
+        &repo.join("crate_a/src/lib.rs"),
+        "use crate_b::unique_helper_xyz;\npub fn run() -> i32 { unique_helper_xyz() }\n",
+    );
+    let store = Store::open_with_root(&cache, &repo).unwrap();
+    build_index(&store, &repo).unwrap();
+
+    let resp = architecture(&store, &ArchitectureRequest::default()).expect("ok");
+    let import_edge = resp
+        .edges
+        .iter()
+        .find(|e| e.from == "crate_a" && e.to == "crate_b" && e.kind == "imports");
+    assert!(
+        import_edge.is_some(),
+        "Rust cross-crate `use` must emit an imports edge (synthesized from IMPORTS_NAMED); got {:?}",
+        resp.edges
+    );
+}
+
+// Item 1 — modules sharing a basename must stay distinct (root-keyed identity),
+// not silently merge in the file→module map / edge set.
+#[test]
+fn modules_with_same_basename_stay_distinct() {
+    let (_tmp, cache, repo) = setup();
+    write(&repo.join("svc/common/__init__.py"), "");
+    write(&repo.join("svc/common/a.py"), "def a():\n    return 1\n");
+    write(&repo.join("lib/common/__init__.py"), "");
+    write(&repo.join("lib/common/b.py"), "def b():\n    return 2\n");
+    let store = Store::open_with_root(&cache, &repo).unwrap();
+    build_index(&store, &repo).unwrap();
+
+    let resp = architecture(&store, &ArchitectureRequest::default()).expect("ok");
+    let names: std::collections::BTreeSet<&str> =
+        resp.modules.iter().map(|m| m.name.as_str()).collect();
+    assert_eq!(
+        names.len(),
+        resp.modules.len(),
+        "two modules share basename `common` and must get distinct names; got {:?}",
+        resp.modules.iter().map(|m| &m.name).collect::<Vec<_>>()
+    );
+}
+
+// Item 2 — git submodule subtrees are vendored code, not this repo's; they must
+// not pollute the module map.
+#[test]
+fn git_submodule_subtrees_are_excluded() {
+    let (_tmp, cache, repo) = setup();
+    write(&repo.join("app/__init__.py"), "");
+    write(&repo.join("app/main.py"), "def main():\n    return 1\n");
+    write(
+        &repo.join(".gitmodules"),
+        "[submodule \"vendor/lib\"]\n\tpath = vendor/lib\n\turl = https://example.com/lib.git\n",
+    );
+    write(&repo.join("vendor/lib/__init__.py"), "");
+    write(
+        &repo.join("vendor/lib/dep.py"),
+        "def dep():\n    return 2\n",
+    );
+    let store = Store::open_with_root(&cache, &repo).unwrap();
+    build_index(&store, &repo).unwrap();
+
+    let resp = architecture(&store, &ArchitectureRequest::default()).expect("ok");
+    let names: Vec<&str> = resp.modules.iter().map(|m| m.name.as_str()).collect();
+    assert!(
+        names.contains(&"app"),
+        "own module `app` present; got {names:?}"
+    );
+    assert!(
+        !names.iter().any(|n| n.contains("lib")),
+        "submodule `vendor/lib` must be excluded from the module map; got {names:?}"
+    );
+}
+
 #[test]
 fn modules_returned_in_deterministic_order() {
     let (_tmp, cache, repo) = setup();

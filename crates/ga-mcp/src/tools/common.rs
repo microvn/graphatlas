@@ -9,16 +9,18 @@ use std::time::Instant;
 /// `meta` object of `payload` in place. Pass the `Instant` captured at the
 /// entry of the per-tool `call` so timing reflects the full dispatch.
 ///
-/// `cache_hit` is stubbed `true` for v1: the MCP server always queries a
-/// pre-built index (build_index ran during `Store::open_with_root`). When
-/// lazy / partial caching lands post-v1, flip this to the real flag.
+/// `cache_hit` reports whether this *response* was served from a result cache.
+/// There is no response cache today — every tool call re-queries the live index
+/// — so the honest value is `false`. (Earlier this was hardcoded `true`, which
+/// misreported a hit on every call.) When result caching lands, wire the real
+/// per-call flag here.
 pub(super) fn inject_common_meta(payload: &mut Value, ctx: &McpContext, start: Instant) {
     if let Some(meta) = payload.get_mut("meta").and_then(|v| v.as_object_mut()) {
         meta.insert(
             "query_time_ms".into(),
             json!(start.elapsed().as_millis() as u64),
         );
-        meta.insert("cache_hit".into(), json!(true));
+        meta.insert("cache_hit".into(), json!(false));
         meta.insert(
             "graph_version".into(),
             json!(ctx.store().metadata().schema_version),

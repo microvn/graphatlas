@@ -174,6 +174,86 @@ fn impacted_file_explanation_is_non_empty_plain_english() {
 }
 
 #[test]
+fn as_002_guessed_caller_to_ambiguous_seed_is_downgraded_end_to_end() {
+    // AS-002: an ambiguous seed (`tgt` defined in 2 files) reached by a bare
+    // name-guess call (no import) → that caller is reported at confidence 0.6
+    // with the distinct `name_guess` relation. Proves guessed_only is computed
+    // from the real CALLS_HEURISTIC edges.
+    let tmp = TempDir::new().unwrap();
+    let cache = tmp.path().join(".graphatlas");
+    let repo = tmp.path().join("repo");
+    fs::create_dir_all(&repo).unwrap();
+    write(&repo.join("seed.py"), "def tgt():\n    return 1\n");
+    write(&repo.join("other.py"), "def tgt():\n    return 2\n");
+    // Bare call, NO import of tgt → resolves repo-wide by name → tier-3 guess.
+    write(&repo.join("caller.py"), "def c():\n    return tgt()\n");
+    let store = Store::open_with_root(&cache, &repo).unwrap();
+    build_index(&store, &repo).unwrap();
+
+    let resp = impact(
+        &store,
+        &ImpactRequest {
+            symbol: Some("tgt".into()),
+            file: Some("seed.py".into()),
+            ..Default::default()
+        },
+    )
+    .unwrap();
+
+    let caller = resp
+        .impacted_files
+        .iter()
+        .find(|f| f.path == "caller.py")
+        .expect("guessed caller must surface as impacted");
+    assert!(
+        (caller.confidence - 0.6).abs() < 1e-6,
+        "guessed caller of an ambiguous seed → 0.6, got {}",
+        caller.confidence
+    );
+    assert_eq!(
+        caller.relation_to_seed, "name_guess",
+        "must use the distinct name_guess token, not shares_function_name"
+    );
+}
+
+#[test]
+fn as_008_guessed_caller_to_unique_seed_keeps_full_confidence_end_to_end() {
+    // AS-008: same name-guess edge, but the seed name is UNIQUE → only one
+    // possible target → reliable → confidence stays 1.0 (ambiguity gate).
+    let tmp = TempDir::new().unwrap();
+    let cache = tmp.path().join(".graphatlas");
+    let repo = tmp.path().join("repo");
+    fs::create_dir_all(&repo).unwrap();
+    write(&repo.join("seed.py"), "def uniquetgt():\n    return 1\n");
+    write(
+        &repo.join("caller.py"),
+        "def c():\n    return uniquetgt()\n",
+    );
+    let store = Store::open_with_root(&cache, &repo).unwrap();
+    build_index(&store, &repo).unwrap();
+
+    let resp = impact(
+        &store,
+        &ImpactRequest {
+            symbol: Some("uniquetgt".into()),
+            ..Default::default()
+        },
+    )
+    .unwrap();
+
+    let caller = resp
+        .impacted_files
+        .iter()
+        .find(|f| f.path == "caller.py")
+        .expect("caller must surface as impacted");
+    assert!(
+        (caller.confidence - 1.0).abs() < 1e-6,
+        "guess at a uniquely-named seed must stay 1.0, got {}",
+        caller.confidence
+    );
+}
+
+#[test]
 fn impacted_file_path_membership_unchanged_by_self_explain_fields() {
     // Bench-safety guard: adding fields must not change which files are
     // surfaced. Same input → same set of paths as before this change.

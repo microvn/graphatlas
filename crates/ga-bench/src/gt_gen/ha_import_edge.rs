@@ -96,7 +96,8 @@ impl GtRule for HaImportEdge {
                 Err(_) => continue,
             };
             for imp in imports {
-                let target_module = resolve_target_module(&imp.target_path, &roots_sorted);
+                let target_module =
+                    resolve_target_module(entry.lang, &imp.target_path, &roots_sorted);
                 let Some(target) = target_module else {
                     continue;
                 };
@@ -110,6 +111,23 @@ impl GtRule for HaImportEdge {
                     .entry((owner.name.clone(), target))
                     .or_default()
                     .insert(rel.clone());
+            }
+        }
+
+        // C1/C2 — Rust workspaces: manifest-grounded inter-crate dependency
+        // edges from `cargo metadata` (build-system authority, independent of
+        // the engine). On Rust these are the architecture dependencies the
+        // tool's CALLS/EXTENDS edges recover (Rust per-file import resolution is
+        // Python-only). Keyed by member dir basename to match discover_modules.
+        for (from, to) in crate::gt_gen::cargo_deps::workspace_member_deps(fixture_dir) {
+            if from != to
+                && module_names.contains(from.as_str())
+                && module_names.contains(to.as_str())
+            {
+                edges_by_pair
+                    .entry((from, to))
+                    .or_default()
+                    .insert("__cargo_manifest__".to_string());
             }
         }
 
@@ -194,6 +212,21 @@ fn discover_modules(fixture_dir: &Path) -> Vec<Module> {
     // `ga_architecture` which de-duplicates after the fact).
     out.sort_by(|a, b| a.root.cmp(&b.root));
     out.dedup_by(|a, b| a.root == b.root);
+    // Mirror `ga_query::architecture::assign_unique_names` (C1 structural
+    // mirror, not an analysis-type import): a basename shared by ≥2 modules is
+    // disambiguated to its unique root path, so GT module identity matches the
+    // engine's. Without this, same-basename dirs (a Django project's many
+    // `migrations`/`tests`/`models` app dirs) collapse here while the engine
+    // disambiguates them → node names disagree → recall craters.
+    let mut counts: BTreeMap<String, usize> = BTreeMap::new();
+    for m in &out {
+        *counts.entry(m.name.clone()).or_insert(0) += 1;
+    }
+    for m in &mut out {
+        if counts.get(&m.name).copied().unwrap_or(0) > 1 && !m.root.is_empty() {
+            m.name = m.root.clone();
+        }
+    }
     out
 }
 
@@ -246,10 +279,24 @@ fn pick_owning_module<'a>(rel_file: &str, roots_sorted: &[&'a Module]) -> Option
 }
 
 /// Try to resolve an import target to one of the discovered modules.
-/// Best-effort: convert Python `pkg.sub.foo` → candidate path `pkg/sub/foo`
-/// and `pkg/sub`, see if any module's `root` matches a prefix; for Rust /
-/// TS / Go just normalise the slash form.
-fn resolve_target_module(target_path: &str, roots_sorted: &[&Module]) -> Option<String> {
+///
+/// SOUND ONLY for languages whose raw import path is the source directory tree:
+/// Python's dotted module path (`pkg.sub.foo` → `pkg/sub/foo`). For every other
+/// language the raw target is NOT a dir-tree path without build-manifest
+/// authority — Rust `crate::x`, Go `github.com/...`, TS bare specifiers — so
+/// path-prefix matching there would FABRICATE edges with no authority (audit
+/// F3). Those return `None`; multi-language manifest-grounded resolution is a
+/// separate follow-up (Track B part B). Returning None makes such fixtures
+/// honestly carry no import-edge GT (→ SKIPPED) rather than be scored against
+/// invented targets.
+fn resolve_target_module(
+    lang: ga_core::Lang,
+    target_path: &str,
+    roots_sorted: &[&Module],
+) -> Option<String> {
+    if !matches!(lang, ga_core::Lang::Python) {
+        return None;
+    }
     if target_path.is_empty() {
         return None;
     }
@@ -291,4 +338,57 @@ fn candidate_paths(target_path: &str) -> Vec<String> {
         cur = head;
     }
     out
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use ga_core::Lang;
+
+    fn module(name: &str, root: &str) -> Module {
+        Module {
+            name: name.to_string(),
+            root: root.to_string(),
+        }
+    }
+
+    // Part A — the GT must only resolve import targets where the raw import
+    // syntax soundly maps to the directory tree (Python dotted paths). It must
+    // NOT fabricate edges for languages whose import path is not a dir-tree
+    // path without manifest authority (Rust `::`, Go URL, TS bare specifier).
+
+    #[test]
+    fn python_dotted_import_resolves_to_module() {
+        let mods = [module("auth", "svc/auth")];
+        let roots: Vec<&Module> = mods.iter().collect();
+        assert_eq!(
+            resolve_target_module(Lang::Python, "svc.auth.login", &roots),
+            Some("auth".to_string()),
+            "Python dotted import maps to the dir tree — sound, must resolve"
+        );
+    }
+
+    #[test]
+    fn rust_path_import_is_not_fabricated() {
+        // `use crate::sync::mpsc` must NOT path-prefix-match a module; Rust
+        // module paths are not the file dir tree without mod/Cargo resolution.
+        let mods = [module("sync", "crate/sync")];
+        let roots: Vec<&Module> = mods.iter().collect();
+        assert_eq!(
+            resolve_target_module(Lang::Rust, "crate::sync::mpsc", &roots),
+            None,
+            "Rust :: import has no path-tree authority — must not be fabricated"
+        );
+    }
+
+    #[test]
+    fn go_url_import_is_not_fabricated() {
+        let mods = [module("gin", "gin")];
+        let roots: Vec<&Module> = mods.iter().collect();
+        assert_eq!(
+            resolve_target_module(Lang::Go, "github.com/gin-gonic/gin", &roots),
+            None,
+            "Go URL import needs go.mod authority — must not be fabricated"
+        );
+    }
 }

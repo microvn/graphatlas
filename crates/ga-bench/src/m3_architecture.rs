@@ -77,18 +77,27 @@ pub fn score_architecture(opts: &ScoreOpts) -> Result<Vec<M3LeaderboardRow>, Ben
         .map_err(|e| BenchError::Query(format!("architecture: {e}")))?;
         let latency_ms = t0.elapsed().as_millis() as u64;
 
+        // Per-language consistency (C2): match the actual edge-kind set to the
+        // GT's authority so we compare like with like. Rust workspaces (Cargo
+        // manifest GT = module dependency graph) → KIND-AGNOSTIC actual
+        // (deps surface as CALLS/EXTENDS, not imports). Everything else (Python
+        // import-resolved GT) → imports-only actual, as before. A global
+        // kind-agnostic comparison would flood the Python actual set with
+        // calls/extends the import-GT never had and crater precision.
+        let kind_agnostic = opts.fixture_dir.join("Cargo.toml").is_file();
+        let edge_in_scope = |k: &str| kind_agnostic || k == "imports";
         let actual: BTreeSet<(String, String)> = resp
             .edges
             .iter()
-            .filter(|e| e.kind == "imports")
+            .filter(|e| edge_in_scope(&e.kind))
             .map(|e| (e.from.clone(), e.to.clone()))
             .collect();
-        let actual_weights: BTreeMap<(String, String), u32> = resp
-            .edges
-            .iter()
-            .filter(|e| e.kind == "imports")
-            .map(|e| ((e.from.clone(), e.to.clone()), e.weight))
-            .collect();
+        let mut actual_weights: BTreeMap<(String, String), u32> = BTreeMap::new();
+        for e in resp.edges.iter().filter(|e| edge_in_scope(&e.kind)) {
+            *actual_weights
+                .entry((e.from.clone(), e.to.clone()))
+                .or_insert(0) += e.weight;
+        }
 
         let tp = expected_edges.intersection(&actual).count() as f64;
         let fp = actual.difference(&expected_edges).count() as f64;
@@ -128,23 +137,23 @@ pub fn score_architecture(opts: &ScoreOpts) -> Result<Vec<M3LeaderboardRow>, Ben
             &actual_weights,
         );
 
-        // Score is now Spearman (NaN-safe: defaults to 0.0 when
-        // undefined). F1 stays in secondary as conformance check.
-        let primary = spearman.unwrap_or(0.0);
-
-        // AS-020 — TAUTOLOGY-SUSPECT marker. Now applied to spearman:
-        // if BOTH F1 >= 0.95 AND spearman >= 0.95, the bench is too
-        // aligned with the engine and the signal is conformance, not
-        // quality. If F1 high but spearman low → real quality signal
-        // (engine and bench find same edges but rank them differently
-        // = no tautology).
-        let spec_status = if f1 >= 0.95 && primary >= 0.95 {
-            SpecStatus::Tautological
-        } else if primary >= ARCHITECTURE_SPEC_TARGET {
-            SpecStatus::Pass
+        // Primary metric matches the comparison type: Rust dependency-edge GT
+        // is unweighted set membership → F1 on edge-pairs (AS-019). Python
+        // import GT keeps Spearman rank-correlation on weights (unchanged).
+        let primary = if kind_agnostic {
+            f1
         } else {
-            SpecStatus::Fail
+            spearman.unwrap_or(0.0)
         };
+
+        // When the GT rule produced no expected edges (common on non-Python
+        // fixtures whose imports `Ha-import-edge` cannot resolve), there is
+        // nothing to score against — Spearman is undefined and the 0.0
+        // primary is a degenerate artifact, not an engine failure. Such rows
+        // are SKIPPED. Otherwise apply the AS-020 tautology / pass / fail
+        // logic. See `decide_spec_status`.
+        let has_gt = !expected_edges.is_empty();
+        let spec_status = decide_spec_status(f1, primary, has_gt);
 
         let mut secondary = BTreeMap::new();
         secondary.insert("edge_f1".to_string(), f1);
@@ -262,6 +271,31 @@ fn average_ranks(values: &[f64]) -> Vec<f64> {
     ranks
 }
 
+/// Decide the spec status for one `architecture` row.
+///
+/// `has_gt` = the GT rule produced at least one expected edge. When it did
+/// NOT, the gate has nothing to measure against — Spearman is undefined and
+/// the `0.0` primary score is a degenerate artifact, NOT an engine failure.
+/// Such rows are `Skipped` (insufficient ground truth) so they neither count
+/// as a hard fail nor masquerade as a pass.
+///
+/// When GT *does* exist, the original AS-020 logic stands: a near-perfect
+/// match on both F1 and Spearman is TAUTOLOGY-SUSPECT; clearing the target is
+/// PASS; anything else is a real FAIL (including a genuine low-recall miss
+/// where the engine found GT edges but ranked/matched them poorly).
+fn decide_spec_status(f1: f64, primary: f64, has_gt: bool) -> SpecStatus {
+    if !has_gt {
+        return SpecStatus::Skipped;
+    }
+    if f1 >= 0.95 && primary >= 0.95 {
+        SpecStatus::Tautological
+    } else if primary >= ARCHITECTURE_SPEC_TARGET {
+        SpecStatus::Pass
+    } else {
+        SpecStatus::Fail
+    }
+}
+
 fn deferred_row(retriever: &str, opts: &ScoreOpts) -> M3LeaderboardRow {
     let mut row = M3LeaderboardRow {
         retriever: retriever.to_string(),
@@ -276,4 +310,49 @@ fn deferred_row(retriever: &str, opts: &ScoreOpts) -> M3LeaderboardRow {
     row.secondary_metrics
         .insert("note_competitor_adapter_pending".to_string(), 0.0);
     row
+}
+
+#[cfg(test)]
+mod unit {
+    use super::*;
+
+    // Regression: M3 architecture FAIL 0.000 on empty-GT fixtures —
+    // m3_architecture.rs decide_spec_status reported Fail when the GT rule
+    // produced zero expected edges (non-Python fixtures). Spearman is
+    // undefined there; the degenerate 0.0 is not an engine failure.
+    #[test]
+    fn empty_gt_is_skipped_not_failed() {
+        // preact/kotlinx shape: no GT edges → primary defaults to 0.0, and
+        // F1 is spuriously 1.0 (precision=recall=1 on the empty set).
+        assert_eq!(
+            decide_spec_status(1.0, 0.0, false),
+            SpecStatus::Skipped,
+            "empty GT must SKIP (insufficient ground truth), never FAIL"
+        );
+    }
+
+    #[test]
+    fn real_miss_with_gt_still_fails() {
+        // tokio shape: GT has edges (has_gt = true) but the engine matched
+        // none → genuine low-recall miss. Must stay FAIL, not be hidden.
+        assert_eq!(
+            decide_spec_status(0.0, 0.0, true),
+            SpecStatus::Fail,
+            "a real miss against existing GT must remain FAIL"
+        );
+    }
+
+    #[test]
+    fn clears_target_with_gt_passes() {
+        // django shape: F1 perfect, Spearman 0.917 ≥ 0.6 target.
+        assert_eq!(decide_spec_status(1.0, 0.917, true), SpecStatus::Pass);
+    }
+
+    #[test]
+    fn near_perfect_both_is_tautology_suspect() {
+        assert_eq!(
+            decide_spec_status(0.97, 0.97, true),
+            SpecStatus::Tautological
+        );
+    }
 }

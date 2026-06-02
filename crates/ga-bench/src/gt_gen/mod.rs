@@ -32,6 +32,7 @@
 //! CI enforcement: `scripts/check-anti-tautology.sh` greps for forbidden
 //! imports on every PR (build-time lint hardening deferred to Phase 3).
 
+pub mod cargo_deps;
 pub mod h1_polymorphism;
 pub mod h1_text;
 pub mod h2_callees_text;

@@ -348,6 +348,52 @@ pub fn build_index(store: &Store, repo_root: &Path) -> AResult<IndexStats> {
         }
     }
 
+    // Scope-proximal name resolution (universal): a bare-name call/reference
+    // resolves to a definition CLOSEST to the call site in the directory tree
+    // (same file → same module → same crate) before reaching across crate
+    // boundaries. `symbol_name_candidates` keeps every non-external def per
+    // name (in symbol_rows order, so the first preserves the legacy first-match
+    // when no candidate is closer). `resolve_proximal` picks the candidate with
+    // the most shared leading path segments with the caller file; ties keep the
+    // first (legacy). This cuts the dominant over-link source measured on Rust
+    // workspaces — the repo-wide fallback resolving a crate's own call to a
+    // same-named symbol in an unrelated test/bench crate — and lifts precision
+    // for ga_architecture / ga_callers / ga_impact without losing real
+    // cross-crate edges (a genuine cross-crate callee has no local candidate,
+    // so it still resolves outward).
+    let mut symbol_name_candidates: HashMap<String, Vec<(String, String)>> = HashMap::new();
+    for s in &symbol_rows {
+        if s.kind != "external" {
+            symbol_name_candidates
+                .entry(s.name.clone())
+                .or_default()
+                .push((s.file.clone(), s.id.clone()));
+        }
+    }
+    // Cargo crate-dependency scope (Rust workspaces only; empty elsewhere).
+    // A name-fallback candidate in a crate the caller's crate does not depend
+    // on is excluded — the caller could never call it (e.g. a library crate
+    // resolving into an `examples`/`benches`/`tests` crate that reuses a name).
+    let crate_scope = crate::crate_scope::CrateScope::load(repo_root);
+    let resolve_proximal = |name: &str, caller_file: &str| -> Option<String> {
+        let cands = symbol_name_candidates.get(name)?;
+        let mut best: Option<(usize, &String)> = None;
+        for (file, id) in cands {
+            if !crate_scope.allows(caller_file, file) {
+                continue; // candidate crate is not in the caller crate's dependency closure
+            }
+            let shared = file
+                .split('/')
+                .zip(caller_file.split('/'))
+                .take_while(|(x, y)| x == y)
+                .count();
+            if best.map_or(true, |(b, _)| shared > b) {
+                best = Some((shared, id));
+            }
+        }
+        best.map(|(_, id)| id.clone())
+    };
+
     // Hoisted: file_paths used for both import resolution (below) and the
     // downstream IMPORTS edge emission (further below, was line 264).
     let file_paths: HashSet<String> = file_rows.iter().map(|f| f.path.clone()).collect();
@@ -407,8 +453,8 @@ pub fn build_index(store: &Store, repo_root: &Path) -> AResult<IndexStats> {
                 Some(id) => (id.clone(), false), // tier 1 — same-file
                 None => match import_hit {
                     Some(id) => (id, false), // tier 2 — import-resolved
-                    None => match symbol_by_name.get(&pc.callee_name) {
-                        Some(id) => (id.clone(), true), // tier 3 — heuristic
+                    None => match resolve_proximal(&pc.callee_name, &pc.file) {
+                        Some(id) => (id, true), // tier 3 — scope-proximal name match
                         None => (
                             external_ids
                                 .entry(pc.callee_name.clone())
@@ -515,8 +561,8 @@ pub fn build_index(store: &Store, repo_root: &Path) -> AResult<IndexStats> {
                 let target_id =
                     match symbol_by_file_name.get(&(pr.file.clone(), pr.target_name.clone())) {
                         Some(id) => id.clone(),
-                        None => match symbol_by_name.get(&pr.target_name) {
-                            Some(id) => id.clone(),
+                        None => match resolve_proximal(&pr.target_name, &pr.file) {
+                            Some(id) => id,
                             None => continue,
                         },
                     };
@@ -531,8 +577,8 @@ pub fn build_index(store: &Store, repo_root: &Path) -> AResult<IndexStats> {
         // Target: same-file first, else repo-wide.
         let target_id = match symbol_by_file_name.get(&(pr.file.clone(), pr.target_name.clone())) {
             Some(id) => id.clone(),
-            None => match symbol_by_name.get(&pr.target_name) {
-                Some(id) => id.clone(),
+            None => match resolve_proximal(&pr.target_name, &pr.file) {
+                Some(id) => id,
                 None => continue, // external / unknown — drop
             },
         };

@@ -6,33 +6,21 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| PASS | ga | 0.917 | 0.600 | 309 |
-| DEFERRED | codebase-memory | 0.000 | 0.600 | 0 |
-| DEFERRED | code-review-graph | 0.000 | 0.600 | 0 |
-| DEFERRED | gitnexus | 0.000 | 0.600 | 0 |
+| PASS | ga | 0.916 | 0.600 | 1222 |
 
 ### Secondary metrics
 
 **ga**:
-- `actual_edge_count` = 2112.000
+- `actual_edge_count` = 2440.000
 - `edge_f1` = 1.000
 - `edge_f2` = 1.000
 - `edge_precision` = 1.000
 - `edge_recall` = 1.000
-- `expected_edge_count` = 2112.000
+- `expected_edge_count` = 2440.000
 - `false_negatives` = 0.000
 - `false_positives` = 0.000
-- `shared_edge_count` = 2112.000
+- `shared_edge_count` = 2440.000
 - `spearman_defined` = 1.000
-- `true_positives` = 2112.000
+- `true_positives` = 2440.000
 
-**codebase-memory**:
-- `note_competitor_adapter_pending` = 0.000
-
-**code-review-graph**:
-- `note_competitor_adapter_pending` = 0.000
-
-**gitnexus**:
-- `note_competitor_adapter_pending` = 0.000
-
-**SPEC GATE: 4 pass, 0 fail (target: all pass)**
+**SPEC GATE: 1 pass, 0 fail (target: all pass)**

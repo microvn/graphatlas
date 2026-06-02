@@ -9,6 +9,7 @@ pub mod callees;
 pub mod common;
 /// ga-ui Spec A S-003 follow-up — post-reindex tally helpers.
 pub mod counts;
+pub mod crate_scope;
 pub mod dead_code;
 pub mod entry_points;
 pub mod file_summary;
