@@ -6,20 +6,21 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| **FAIL** | ga | 0.000 | 0.600 | 21 |
+| **TAUTOLOGY-SUSPECT** | ga | 0.955 | 0.600 | 93 |
 
 ### Secondary metrics
 
 **ga**:
-- `actual_edge_count` = 0.000
-- `edge_f1` = 0.000
-- `edge_precision` = 1.000
-- `edge_recall` = 0.000
-- `expected_edge_count` = 50.000
-- `false_negatives` = 50.000
-- `false_positives` = 0.000
-- `shared_edge_count` = 0.000
+- `actual_edge_count` = 65.000
+- `edge_f1` = 0.955
+- `edge_f2` = 0.946
+- `edge_precision` = 0.969
+- `edge_recall` = 0.940
+- `expected_edge_count` = 67.000
+- `false_negatives` = 4.000
+- `false_positives` = 2.000
+- `shared_edge_count` = 63.000
 - `spearman_defined` = 0.000
-- `true_positives` = 0.000
+- `true_positives` = 63.000
 
-**SPEC GATE: 0 pass, 1 fail (target: all pass)**
+**SPEC GATE: 1 pass, 0 fail (target: all pass)**

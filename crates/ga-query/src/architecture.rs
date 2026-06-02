@@ -184,6 +184,13 @@ struct RawModule {
 
 fn discover_modules(repo_root: &Path) -> Vec<RawModule> {
     let mut out: Vec<RawModule> = Vec::new();
+    // JS/TS monorepo scope: when the root `package.json` declares `workspaces`,
+    // only glob-matching dirs (+ root) are architecture modules. Excludes
+    // `integration/`/example apps that carry a package.json but aren't workspace
+    // packages — they would otherwise flood the module set with leaf consumers.
+    // No `workspaces` field (convention monorepos, single-package repos) → every
+    // package.json dir stays a module, as before.
+    let ws_globs = crate::ts_workspace::workspace_globs(repo_root);
     walk_dirs(repo_root, &mut |abs_dir, rel_dir| {
         if has_marker(abs_dir, "__init__.py") {
             out.push(RawModule {
@@ -199,7 +206,21 @@ fn discover_modules(repo_root: &Path) -> Vec<RawModule> {
                 convention: "cargo",
             });
         }
-        if has_marker(abs_dir, "package.json") {
+        // Go package = directory containing `.go` files (no per-dir manifest;
+        // the module is declared once in go.mod). Inter-package imports are the
+        // architecture edges, resolved by stripping the go.mod module prefix.
+        if has_go_files(abs_dir) {
+            out.push(RawModule {
+                name: dir_basename(rel_dir),
+                root: rel_dir.to_string(),
+                convention: "go-package",
+            });
+        }
+        if has_marker(abs_dir, "package.json")
+            && (ws_globs.is_empty()
+                || rel_dir.is_empty()
+                || crate::ts_workspace::glob_matches(&ws_globs, rel_dir))
+        {
             out.push(RawModule {
                 name: dir_basename(rel_dir),
                 root: rel_dir.to_string(),
@@ -228,6 +249,15 @@ fn dir_basename(rel_dir: &str) -> String {
 
 fn has_marker(dir: &Path, marker: &str) -> bool {
     dir.join(marker).is_file()
+}
+
+/// A Go package is any directory holding at least one `.go` source file.
+fn has_go_files(dir: &Path) -> bool {
+    let Ok(rd) = std::fs::read_dir(dir) else {
+        return false;
+    };
+    rd.flatten()
+        .any(|e| e.path().is_file() && e.path().extension().and_then(|x| x.to_str()) == Some("go"))
 }
 
 /// Per-module display names, unique across the set. A basename used by exactly

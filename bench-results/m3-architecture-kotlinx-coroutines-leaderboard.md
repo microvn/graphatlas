@@ -6,10 +6,7 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| **FAIL** | ga | 0.000 | 0.600 | 36 |
-| DEFERRED | codebase-memory | 0.000 | 0.600 | 0 |
-| DEFERRED | code-review-graph | 0.000 | 0.600 | 0 |
-| DEFERRED | gitnexus | 0.000 | 0.600 | 0 |
+| SKIPPED | ga | 0.000 | 0.600 | 186 |
 
 ### Secondary metrics
 
@@ -26,13 +23,4 @@
 - `spearman_defined` = 0.000
 - `true_positives` = 0.000
 
-**codebase-memory**:
-- `note_competitor_adapter_pending` = 0.000
-
-**code-review-graph**:
-- `note_competitor_adapter_pending` = 0.000
-
-**gitnexus**:
-- `note_competitor_adapter_pending` = 0.000
-
-**SPEC GATE: 3 pass, 1 fail (target: all pass)**
+**SPEC GATE: 0 pass, 0 fail, 1 skipped (insufficient GT) (target: all pass)**

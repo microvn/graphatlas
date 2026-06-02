@@ -72,6 +72,9 @@ impl GtRule for HaImportEdge {
         let mut roots_sorted: Vec<&Module> = modules.iter().collect();
         roots_sorted.sort_by(|a, b| b.root.len().cmp(&a.root.len()));
         let module_names: BTreeSet<&str> = modules.iter().map(|m| m.name.as_str()).collect();
+        // go.mod module prefix (independent of the engine — raw file read) for
+        // Go import resolution. None for non-Go repos.
+        let go_prefix = go_module_prefix(fixture_dir);
 
         let mut edges_by_pair: BTreeMap<(String, String), BTreeSet<String>> = BTreeMap::new();
         let mut files_by_module: BTreeMap<String, BTreeSet<String>> = BTreeMap::new();
@@ -96,8 +99,12 @@ impl GtRule for HaImportEdge {
                 Err(_) => continue,
             };
             for imp in imports {
-                let target_module =
-                    resolve_target_module(entry.lang, &imp.target_path, &roots_sorted);
+                let target_module = resolve_target_module(
+                    entry.lang,
+                    &imp.target_path,
+                    go_prefix.as_deref(),
+                    &roots_sorted,
+                );
                 let Some(target) = target_module else {
                     continue;
                 };
@@ -128,6 +135,25 @@ impl GtRule for HaImportEdge {
                     .entry((from, to))
                     .or_default()
                     .insert("__cargo_manifest__".to_string());
+            }
+        }
+
+        // C1/C2 — JS/TS workspaces: inter-package dependency edges from the
+        // on-disk `package.json` manifests (package-manager authority,
+        // independent of the engine). Monorepos declare intra-workspace deps in
+        // `dependencies` / `peerDependencies` / `devDependencies`; these are the
+        // architecture dependencies the tool's IMPORTS edges recover once bare
+        // workspace specifiers (`@scope/pkg`) resolve. Keyed by package dir
+        // basename (root → `(root)`) to match discover_modules.
+        for (from, to) in crate::gt_gen::package_deps::workspace_member_deps(fixture_dir) {
+            if from != to
+                && module_names.contains(from.as_str())
+                && module_names.contains(to.as_str())
+            {
+                edges_by_pair
+                    .entry((from, to))
+                    .or_default()
+                    .insert("__package_manifest__".to_string());
             }
         }
 
@@ -206,7 +232,13 @@ struct Module {
 /// `ga_query::architecture::discover_modules`.
 fn discover_modules(fixture_dir: &Path) -> Vec<Module> {
     let mut out = Vec::new();
-    walk_dirs(fixture_dir, fixture_dir, &mut out);
+    // JS/TS workspace scope: restrict `package.json` modules to `workspaces`
+    // glob members (+ root), aligning the GT module set with
+    // `package_deps` + `ga_query::architecture` so non-member example apps
+    // (`integration/`) are not nodes. Empty globs → every package.json dir, as
+    // before (Rust/Python unaffected — they have no `workspaces`).
+    let ws_globs = crate::gt_gen::package_deps::workspace_globs(fixture_dir);
+    walk_dirs(fixture_dir, fixture_dir, &ws_globs, &mut out);
     // Dedup on root path (a polyglot dir may have both Cargo.toml +
     // package.json — emit once per root, last-write-wins on name; matches
     // `ga_architecture` which de-duplicates after the fact).
@@ -230,26 +262,43 @@ fn discover_modules(fixture_dir: &Path) -> Vec<Module> {
     out
 }
 
-fn walk_dirs(repo_root: &Path, dir: &Path, out: &mut Vec<Module>) {
+fn walk_dirs(repo_root: &Path, dir: &Path, ws_globs: &[String], out: &mut Vec<Module>) {
     let entries = match std::fs::read_dir(dir) {
         Ok(e) => e,
         Err(_) => return,
     };
+    let rel = dir
+        .strip_prefix(repo_root)
+        .unwrap_or(dir)
+        .to_string_lossy()
+        .into_owned();
+    let mk = |rel: &str| -> Module {
+        let name = if rel.is_empty() {
+            "(root)".to_string()
+        } else {
+            rel.rsplit('/').next().unwrap_or(rel).to_string()
+        };
+        Module {
+            name,
+            root: rel.to_string(),
+        }
+    };
+    let mut pushed = false;
     for marker in ["__init__.py", "Cargo.toml", "package.json"] {
         if dir.join(marker).is_file() {
-            let rel = dir
-                .strip_prefix(repo_root)
-                .unwrap_or(dir)
-                .to_string_lossy()
-                .into_owned();
-            let name = if rel.is_empty() {
-                "(root)".to_string()
-            } else {
-                rel.rsplit('/').next().unwrap_or(&rel).to_string()
-            };
-            out.push(Module { name, root: rel });
+            // node-package modules outside the workspace glob (integration /
+            // example apps) are leaf consumers, not architecture modules.
+            if marker == "package.json" && !crate::gt_gen::package_deps::is_member(ws_globs, &rel) {
+                break;
+            }
+            out.push(mk(&rel));
+            pushed = true;
             break;
         }
+    }
+    // Go package = a directory holding `.go` files (no per-dir manifest).
+    if !pushed && has_go_files(dir) {
+        out.push(mk(&rel));
     }
     for e in entries.flatten() {
         let path = e.path();
@@ -263,7 +312,7 @@ fn walk_dirs(repo_root: &Path, dir: &Path, out: &mut Vec<Module>) {
             ) {
                 continue;
             }
-            walk_dirs(repo_root, &path, out);
+            walk_dirs(repo_root, &path, ws_globs, out);
         }
     }
 }
@@ -280,33 +329,52 @@ fn pick_owning_module<'a>(rel_file: &str, roots_sorted: &[&'a Module]) -> Option
 
 /// Try to resolve an import target to one of the discovered modules.
 ///
-/// SOUND ONLY for languages whose raw import path is the source directory tree:
-/// Python's dotted module path (`pkg.sub.foo` → `pkg/sub/foo`). For every other
-/// language the raw target is NOT a dir-tree path without build-manifest
-/// authority — Rust `crate::x`, Go `github.com/...`, TS bare specifiers — so
-/// path-prefix matching there would FABRICATE edges with no authority (audit
-/// F3). Those return `None`; multi-language manifest-grounded resolution is a
-/// separate follow-up (Track B part B). Returning None makes such fixtures
-/// honestly carry no import-edge GT (→ SKIPPED) rather than be scored against
-/// invented targets.
+/// SOUND ONLY for languages whose raw import maps to the source directory tree
+/// without inventing edges:
+/// - **Python** — dotted module path (`pkg.sub.foo` → `pkg/sub/foo`).
+/// - **Go** — `<go.mod module prefix>/<pkg dir>` → strip the prefix, the rest
+///   IS the package dir (`github.com/x/y/binding` → `binding`); bare prefix →
+///   the root package. `None` for stdlib / third-party (no prefix match).
+///
+/// Rust `crate::x` / TS bare specifiers are NOT dir-tree paths without a
+/// build manifest — those use the dedicated cargo/package authorities elsewhere
+/// and return `None` here (no fabricated edge).
 fn resolve_target_module(
     lang: ga_core::Lang,
     target_path: &str,
+    go_prefix: Option<&str>,
     roots_sorted: &[&Module],
 ) -> Option<String> {
-    if !matches!(lang, ga_core::Lang::Python) {
-        return None;
-    }
     if target_path.is_empty() {
         return None;
     }
-    if target_path.starts_with("./") || target_path.starts_with("../") {
-        return None; // relative — likely same module
-    }
-    // Build slash-form candidate paths (longest-prefix-first).
-    let candidates = candidate_paths(target_path);
+    let candidates: Vec<String> = match lang {
+        ga_core::Lang::Python => {
+            if target_path.starts_with("./") || target_path.starts_with("../") {
+                return None; // relative — likely same module
+            }
+            candidate_paths(target_path)
+        }
+        ga_core::Lang::Go => {
+            let prefix = go_prefix?;
+            let dir = if target_path == prefix {
+                String::new() // bare module path → root package
+            } else {
+                target_path.strip_prefix(&format!("{prefix}/"))?.to_string()
+            };
+            vec![dir]
+        }
+        _ => return None,
+    };
     for cand in &candidates {
         for m in roots_sorted {
+            // Go root-package import (`cand` empty) → the `(root)` module.
+            if cand.is_empty() {
+                if m.root.is_empty() {
+                    return Some(m.name.clone());
+                }
+                continue;
+            }
             if m.root.is_empty() {
                 continue;
             }
@@ -316,6 +384,26 @@ fn resolve_target_module(
         }
     }
     None
+}
+
+/// A Go package is any directory holding at least one `.go` source file.
+fn has_go_files(dir: &Path) -> bool {
+    let Ok(rd) = std::fs::read_dir(dir) else {
+        return false;
+    };
+    rd.flatten()
+        .any(|e| e.path().is_file() && e.path().extension().and_then(|x| x.to_str()) == Some("go"))
+}
+
+/// `module <path>` directive from `go.mod` (raw read — C1 independent of the
+/// engine). None when absent.
+fn go_module_prefix(repo_root: &Path) -> Option<String> {
+    let text = std::fs::read_to_string(repo_root.join("go.mod")).ok()?;
+    text.lines().find_map(|l| {
+        l.trim()
+            .strip_prefix("module ")
+            .map(|m| m.trim().to_string())
+    })
 }
 
 fn candidate_paths(target_path: &str) -> Vec<String> {
@@ -362,7 +450,7 @@ mod tests {
         let mods = [module("auth", "svc/auth")];
         let roots: Vec<&Module> = mods.iter().collect();
         assert_eq!(
-            resolve_target_module(Lang::Python, "svc.auth.login", &roots),
+            resolve_target_module(Lang::Python, "svc.auth.login", None, &roots),
             Some("auth".to_string()),
             "Python dotted import maps to the dir tree — sound, must resolve"
         );
@@ -375,20 +463,44 @@ mod tests {
         let mods = [module("sync", "crate/sync")];
         let roots: Vec<&Module> = mods.iter().collect();
         assert_eq!(
-            resolve_target_module(Lang::Rust, "crate::sync::mpsc", &roots),
+            resolve_target_module(Lang::Rust, "crate::sync::mpsc", None, &roots),
             None,
             "Rust :: import has no path-tree authority — must not be fabricated"
         );
     }
 
     #[test]
-    fn go_url_import_is_not_fabricated() {
+    fn go_import_without_module_prefix_is_not_fabricated() {
+        // No go.mod prefix → a Go URL import cannot be resolved (don't invent).
         let mods = [module("gin", "gin")];
         let roots: Vec<&Module> = mods.iter().collect();
         assert_eq!(
-            resolve_target_module(Lang::Go, "github.com/gin-gonic/gin", &roots),
+            resolve_target_module(Lang::Go, "github.com/gin-gonic/gin/binding", None, &roots),
             None,
-            "Go URL import needs go.mod authority — must not be fabricated"
+            "Go import without go.mod authority must not be fabricated"
+        );
+    }
+
+    #[test]
+    fn go_import_strips_module_prefix_to_package_dir() {
+        // With the go.mod prefix, the path after it IS the package dir.
+        let mods = [module("binding", "binding"), module("(root)", "")];
+        let roots: Vec<&Module> = mods.iter().collect();
+        let prefix = Some("github.com/gin-gonic/gin");
+        assert_eq!(
+            resolve_target_module(Lang::Go, "github.com/gin-gonic/gin/binding", prefix, &roots),
+            Some("binding".to_string()),
+            "Go import strips the module prefix → package dir"
+        );
+        assert_eq!(
+            resolve_target_module(Lang::Go, "github.com/gin-gonic/gin", prefix, &roots),
+            Some("(root)".to_string()),
+            "bare module path → the root package"
+        );
+        assert_eq!(
+            resolve_target_module(Lang::Go, "fmt", prefix, &roots),
+            None,
+            "stdlib import (no prefix match) → None"
         );
     }
 }

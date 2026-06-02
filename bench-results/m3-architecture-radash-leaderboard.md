@@ -6,13 +6,14 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| **FAIL** | ga | 0.000 | 0.600 | 9 |
+| SKIPPED | ga | 1.000 | 0.600 | 45 |
 
 ### Secondary metrics
 
 **ga**:
 - `actual_edge_count` = 0.000
 - `edge_f1` = 1.000
+- `edge_f2` = 1.000
 - `edge_precision` = 1.000
 - `edge_recall` = 1.000
 - `expected_edge_count` = 0.000
@@ -22,4 +23,4 @@
 - `spearman_defined` = 0.000
 - `true_positives` = 0.000
 
-**SPEC GATE: 0 pass, 1 fail (target: all pass)**
+**SPEC GATE: 0 pass, 0 fail, 1 skipped (insufficient GT) (target: all pass)**

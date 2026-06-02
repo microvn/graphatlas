@@ -375,6 +375,10 @@ pub fn build_index(store: &Store, repo_root: &Path) -> AResult<IndexStats> {
     // on is excluded — the caller could never call it (e.g. a library crate
     // resolving into an `examples`/`benches`/`tests` crate that reuses a name).
     let crate_scope = crate::crate_scope::CrateScope::load(repo_root);
+    // TS/JS workspace resolver (tsconfig paths + package.json names). Empty for
+    // non-JS repos. Lets bare specifiers (`@scope/pkg`) resolve to in-repo
+    // files so monorepo cross-package imports become IMPORTS edges.
+    let ts_ws = crate::ts_workspace::TsWorkspace::load(repo_root);
     let resolve_proximal = |name: &str, caller_file: &str| -> Option<String> {
         let cands = symbol_name_candidates.get(name)?;
         let mut best: Option<(usize, &String)> = None;
@@ -394,6 +398,21 @@ pub fn build_index(store: &Store, repo_root: &Path) -> AResult<IndexStats> {
         best.map(|(_, id)| id.clone())
     };
 
+    // Explicit-import authority (Rust): a `use foo_bar::Baz` names the source
+    // crate `foo_bar`. Resolve `Baz` to a definition INSIDE that crate's dir,
+    // instead of a repo-wide / proximity guess that may land in a sibling crate
+    // sharing the name. Returns None for `crate`/`super`/`std`/external segments
+    // (not a workspace crate) — caller then falls back to `resolve_proximal`.
+    let resolve_in_named_crate = |use_path: &str, name: &str| -> Option<String> {
+        let seg = use_path.split("::").next()?;
+        let crate_dir = crate_scope.crate_dir_for_use_segment(seg)?;
+        let cands = symbol_name_candidates.get(name)?;
+        cands
+            .iter()
+            .find(|(file, _)| file == crate_dir || file.starts_with(&format!("{crate_dir}/")))
+            .map(|(_, id)| id.clone())
+    };
+
     // Hoisted: file_paths used for both import resolution (below) and the
     // downstream IMPORTS edge emission (further below, was line 264).
     let file_paths: HashSet<String> = file_rows.iter().map(|f| f.path.clone()).collect();
@@ -401,7 +420,7 @@ pub fn build_index(store: &Store, repo_root: &Path) -> AResult<IndexStats> {
     // Phase B — per-file import map. Extracted to phase_b.rs (M-2 refactor)
     // to bound indexer.rs size as v1.1 adds resolver complexity. See
     // `crate::phase_b::build_import_map` for full description.
-    let import_map = crate::phase_b::build_import_map(&pending_imports, &file_paths);
+    let import_map = crate::phase_b::build_import_map(&pending_imports, &file_paths, &ts_ws);
 
     // Resolve pending calls to (caller_id, callee_id).
     // Priority (Foundation-C16):
@@ -602,7 +621,8 @@ pub fn build_index(store: &Store, repo_root: &Path) -> AResult<IndexStats> {
     }
 
     // Resolve pending imports to CSV rows. Tools-C12 scope.
-    let imports_rows: Vec<ImportRow> = resolve_pending_imports(&pending_imports, &file_paths);
+    let imports_rows: Vec<ImportRow> =
+        resolve_pending_imports(&pending_imports, &file_paths, &ts_ws);
 
     // PR8 / S-006 AS-016 — resolve DECORATES edges. For each pending
     // (decorated_id, decorated_file, decorator_name) tuple, look up
@@ -675,6 +695,7 @@ pub fn build_index(store: &Store, repo_root: &Path) -> AResult<IndexStats> {
             pi.src_lang,
             &pi.src_file,
             &file_paths,
+            &ts_ws,
         );
         // B1 — langs without a path-resolver (Rust today) fall back to
         // repo-wide name lookup via `symbol_by_name`. `use foo::Bar` →
@@ -690,7 +711,17 @@ pub fn build_index(store: &Store, repo_root: &Path) -> AResult<IndexStats> {
                     .get(&(dst.clone(), name.to_string()))
                     .cloned()
             } else if lang_uses_name_fallback {
-                symbol_by_name.get(name).cloned()
+                // Explicit-import authority first: `use foo_bar::Baz` names the
+                // source crate, so resolve `Baz` inside foo_bar's dir directly.
+                // Falls back to crate-scoped proximal resolution (NOT blind
+                // repo-wide first-match) when the `use` segment is not a
+                // workspace crate (`crate`/`super`/`std`/external). Blind
+                // `symbol_by_name` first-match fabricated cross-crate edges
+                // between sibling crates sharing a symbol name (regex-syntax
+                // `Hir` vs regex-automata `Hir`) — over-linking ga_architecture.
+                // See crate_scope.rs.
+                resolve_in_named_crate(&pi.target_path, name)
+                    .or_else(|| resolve_proximal(name, &pi.src_file))
             } else {
                 None
             }
@@ -810,6 +841,16 @@ pub fn build_index(store: &Store, repo_root: &Path) -> AResult<IndexStats> {
             Some(id) => id.clone(),
             None => continue, // base not in repo — drop silently
         };
+        // Crate-scope: a base type / trait must live in the deriving file's
+        // own crate or a crate it depends on. Blind repo-wide `class_by_name`
+        // otherwise links `impl Trait for Foo` across unrelated sibling crates
+        // that share a type name — the same over-link crate_scope already cuts
+        // on CALLS / REFERENCES / IMPORTS_NAMED.
+        if let Some(dst_file) = file_by_id.get(dst_id.as_str()) {
+            if !crate_scope.allows(&pe.file, dst_file) {
+                continue;
+            }
+        }
         if src_id == dst_id {
             continue;
         }

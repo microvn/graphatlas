@@ -46,6 +46,7 @@ pub mod hh_gitmine;
 pub mod hmc_gitmine;
 pub mod hr_text;
 pub mod hrn_static;
+pub mod package_deps;
 
 use crate::m1_ground_truth::{M1GroundTruth, M1Task, EXPECTED_SCHEMA_VERSION};
 use crate::BenchError;

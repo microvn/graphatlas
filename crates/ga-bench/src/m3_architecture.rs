@@ -85,6 +85,21 @@ pub fn score_architecture(opts: &ScoreOpts) -> Result<Vec<M3LeaderboardRow>, Ben
         // kind-agnostic comparison would flood the Python actual set with
         // calls/extends the import-GT never had and crater precision.
         let kind_agnostic = opts.fixture_dir.join("Cargo.toml").is_file();
+        // TS/JS workspaces: GT is a declared dependency graph (tsconfig
+        // references / package.json deps), unweighted set membership like the
+        // Rust cargo GT — so the primary metric is F1, NOT Spearman (which
+        // ranks Python's weighted import counts). Deps still surface as IMPORTS
+        // for TS, so the edge-kind scope stays imports-only.
+        //
+        // A `package.json` alone does NOT make a fixture TS: Python projects
+        // (django) carry one for JS doc/asset tooling while their architecture
+        // GT is Python import-resolution (weighted → Spearman). Exclude repos
+        // with a root Python project marker so they keep Spearman.
+        let is_python_project = ["pyproject.toml", "setup.py", "setup.cfg", "manage.py"]
+            .iter()
+            .any(|m| opts.fixture_dir.join(m).is_file());
+        let manifest_dep_gt = kind_agnostic
+            || (opts.fixture_dir.join("package.json").is_file() && !is_python_project);
         let edge_in_scope = |k: &str| kind_agnostic || k == "imports";
         let actual: BTreeSet<(String, String)> = resp
             .edges
@@ -140,7 +155,7 @@ pub fn score_architecture(opts: &ScoreOpts) -> Result<Vec<M3LeaderboardRow>, Ben
         // Primary metric matches the comparison type: Rust dependency-edge GT
         // is unweighted set membership → F1 on edge-pairs (AS-019). Python
         // import GT keeps Spearman rank-correlation on weights (unchanged).
-        let primary = if kind_agnostic {
+        let primary = if manifest_dep_gt {
             f1
         } else {
             spearman.unwrap_or(0.0)

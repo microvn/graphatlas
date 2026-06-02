@@ -30,6 +30,7 @@ pub mod risk;
 pub mod signals;
 pub mod snippet;
 pub mod symbols;
+pub mod ts_workspace;
 
 pub use callees::callees;
 pub use file_summary::file_summary;

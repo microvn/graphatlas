@@ -13,6 +13,7 @@
 //! = (X.py, "Foo") and resolves via symbol_by_file_name[(X.py, "Foo")].
 
 use crate::import_resolve::{resolve_import_path, PendingImport};
+use crate::ts_workspace::TsWorkspace;
 use std::collections::{HashMap, HashSet};
 
 /// Build the Phase B import map from parser-emitted pending imports.
@@ -26,11 +27,17 @@ use std::collections::{HashMap, HashSet};
 pub(crate) fn build_import_map(
     pending_imports: &[PendingImport],
     file_paths: &HashSet<String>,
+    ts_ws: &TsWorkspace,
 ) -> HashMap<(String, String), (String, String)> {
     let mut import_map: HashMap<(String, String), (String, String)> = HashMap::new();
     for pi in pending_imports {
-        let Some(dst) = resolve_import_path(&pi.target_path, pi.src_lang, &pi.src_file, file_paths)
-        else {
+        let Some(dst) = resolve_import_path(
+            &pi.target_path,
+            pi.src_lang,
+            &pi.src_file,
+            file_paths,
+            ts_ws,
+        ) else {
             continue;
         };
         // Build alias lookup once per import so we can resolve original

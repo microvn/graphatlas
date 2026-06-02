@@ -3,6 +3,7 @@
 //! targets. Per-lang best-effort — the rule is: if the resolved candidate
 //! matches a File in the graph, use it; else drop.
 
+use crate::ts_workspace::TsWorkspace;
 use ga_core::Lang;
 use std::collections::HashSet;
 
@@ -34,12 +35,18 @@ pub struct PendingImport {
 pub fn resolve_pending_imports(
     pending: &[PendingImport],
     file_paths: &HashSet<String>,
+    ts_ws: &TsWorkspace,
 ) -> Vec<ImportRow> {
     let mut rows = Vec::new();
     let mut seen: HashSet<(String, String)> = HashSet::new();
     for pi in pending {
-        let Some(dst) = resolve_import_path(&pi.target_path, pi.src_lang, &pi.src_file, file_paths)
-        else {
+        let Some(dst) = resolve_import_path(
+            &pi.target_path,
+            pi.src_lang,
+            &pi.src_file,
+            file_paths,
+            ts_ws,
+        ) else {
             continue;
         };
         if dst == pi.src_file {
@@ -66,11 +73,18 @@ pub fn resolve_import_path(
     lang: Lang,
     src_file: &str,
     file_paths: &HashSet<String>,
+    ts_ws: &TsWorkspace,
 ) -> Option<String> {
     match lang {
         Lang::Python => resolve_python_import(raw, file_paths),
-        Lang::TypeScript | Lang::JavaScript => resolve_ts_js_import(raw, src_file, file_paths),
-        _ => None, // Go / Rust cluster A — deferred
+        Lang::TypeScript | Lang::JavaScript => {
+            resolve_ts_js_import(raw, src_file, file_paths, ts_ws)
+        }
+        // Go: import path is `<go.mod module prefix>/<pkg dir>`; strip the
+        // prefix → in-repo package dir → a `.go` file there. stdlib /
+        // third-party (no prefix match) → None.
+        Lang::Go => ts_ws.resolve_go(raw, file_paths),
+        _ => None, // Rust cluster A — deferred (name-fallback handles it)
     }
 }
 
@@ -87,9 +101,17 @@ fn resolve_python_import(raw: &str, file_paths: &HashSet<String>) -> Option<Stri
     None
 }
 
-fn resolve_ts_js_import(raw: &str, src_file: &str, file_paths: &HashSet<String>) -> Option<String> {
+fn resolve_ts_js_import(
+    raw: &str,
+    src_file: &str,
+    file_paths: &HashSet<String>,
+    ts_ws: &TsWorkspace,
+) -> Option<String> {
     if !raw.starts_with("./") && !raw.starts_with("../") {
-        return None;
+        // Bare specifier — a workspace package (`@scope/pkg`, `pkg/sub`) or an
+        // external `node_modules` dependency. The workspace resolver maps the
+        // former to its in-repo entry file; the latter returns None (dropped).
+        return ts_ws.resolve(raw, file_paths);
     }
     let src_dir = std::path::Path::new(src_file).parent()?;
     let joined = src_dir.join(raw).to_string_lossy().into_owned();

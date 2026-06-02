@@ -6,13 +6,14 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| **TAUTOLOGY-SUSPECT** | ga | 1.000 | 0.600 | 10 |
+| **TAUTOLOGY-SUSPECT** | ga | 1.000 | 0.600 | 68 |
 
 ### Secondary metrics
 
 **ga**:
 - `actual_edge_count` = 4.000
 - `edge_f1` = 1.000
+- `edge_f2` = 1.000
 - `edge_precision` = 1.000
 - `edge_recall` = 1.000
 - `expected_edge_count` = 4.000

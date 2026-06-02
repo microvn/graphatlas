@@ -58,16 +58,35 @@ pub fn workspace_member_deps(root: &Path) -> Vec<(String, String)> {
         Err(_) => return Vec::new(),
     };
 
+    // The workspace-root package (manifest dir == `root`) is labelled
+    // `(root)` to match `ha_import_edge::discover_modules`, which names the
+    // top-level module `(root)` (empty relative path). Keying it by directory
+    // basename instead would make every root-origin / root-target cargo edge
+    // fail the `module_names.contains(...)` filter at the merge site and drop
+    // real dependencies (e.g. `regex` -> `regex-automata`). Canonicalize so the
+    // compare survives macOS `/var` vs `/private/var`.
+    let root_abs = std::fs::canonicalize(root)
+        .map(|p| p.to_string_lossy().replace('\\', "/"))
+        .unwrap_or_else(|_| root.to_string_lossy().replace('\\', "/"));
+    let module_name = |manifest_path: &str| -> Option<String> {
+        let dir = Path::new(manifest_path).parent()?;
+        let dir_s = dir.to_string_lossy().replace('\\', "/");
+        if dir_s == root_abs {
+            return Some("(root)".to_string());
+        }
+        dir.file_name()?.to_str().map(String::from)
+    };
+
     let mut name_to_base: BTreeMap<String, String> = BTreeMap::new();
     for p in &meta.packages {
-        if let Some(base) = manifest_dir_basename(&p.manifest_path) {
+        if let Some(base) = module_name(&p.manifest_path) {
             name_to_base.insert(p.name.clone(), base);
         }
     }
 
     let mut edges: Vec<(String, String)> = Vec::new();
     for p in &meta.packages {
-        let Some(from) = manifest_dir_basename(&p.manifest_path) else {
+        let Some(from) = module_name(&p.manifest_path) else {
             continue;
         };
         for d in &p.dependencies {
@@ -81,15 +100,6 @@ pub fn workspace_member_deps(root: &Path) -> Vec<(String, String)> {
     edges.sort();
     edges.dedup();
     edges
-}
-
-/// `/abs/path/crates/ga-query/Cargo.toml` → `ga-query`.
-fn manifest_dir_basename(manifest_path: &str) -> Option<String> {
-    Path::new(manifest_path)
-        .parent()?
-        .file_name()?
-        .to_str()
-        .map(String::from)
 }
 
 #[cfg(test)]
@@ -148,5 +158,31 @@ mod tests {
     fn non_workspace_dir_yields_no_edges() {
         let tmp = TempDir::new().unwrap();
         assert!(workspace_member_deps(tmp.path()).is_empty());
+    }
+
+    #[test]
+    fn root_package_is_labelled_root_to_match_discover_modules() {
+        // Workspace whose root manifest is itself a package (regex shape): the
+        // root crate's dep on a member must surface as `(root) -> member`, not
+        // `<dirname> -> member`, so it survives the merge-site filter against
+        // discover_modules (which names the top-level module `(root)`).
+        let tmp = TempDir::new().unwrap();
+        let root = tmp.path();
+        write(
+            &root.join("Cargo.toml"),
+            "[workspace]\nmembers = [\"child\"]\nresolver = \"2\"\n\n[package]\nname = \"top\"\nversion = \"0.1.0\"\nedition = \"2021\"\n\n[dependencies]\nchild = { path = \"child\" }\n",
+        );
+        write(&root.join("src/lib.rs"), "");
+        write(
+            &root.join("child/Cargo.toml"),
+            "[package]\nname = \"child\"\nversion = \"0.1.0\"\nedition = \"2021\"\n",
+        );
+        write(&root.join("child/src/lib.rs"), "");
+
+        let edges = workspace_member_deps(root);
+        assert!(
+            edges.contains(&("(root)".to_string(), "child".to_string())),
+            "root package dep must be labelled (root), got {edges:?}"
+        );
     }
 }

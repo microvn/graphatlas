@@ -26,6 +26,7 @@ use ga_index::Store;
 use ga_parser::imports::extract_imports;
 use ga_parser::walk::walk_repo;
 use ga_query::import_resolve::{resolve_pending_imports, PendingImport};
+use ga_query::ts_workspace::TsWorkspace;
 use serde_json::json;
 use std::collections::{HashMap, HashSet};
 use std::path::Path;
@@ -72,7 +73,10 @@ impl GtRule for H5Text {
         }
 
         // Resolve to (src, dst, is_re_export) tuples — external/stdlib drop.
-        let rows = resolve_pending_imports(&pending, &file_paths);
+        // Same TS/JS workspace resolution the indexer uses, so monorepo
+        // bare-specifier imports resolve consistently here.
+        let ts_ws = TsWorkspace::load(fixture_dir);
+        let rows = resolve_pending_imports(&pending, &file_paths, &ts_ws);
 
         // Build reverse adjacency: dst -> [(src, re_export)]
         let mut direct_importers: HashMap<String, Vec<(String, bool)>> = HashMap::new();
