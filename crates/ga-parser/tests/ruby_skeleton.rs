@@ -61,12 +61,15 @@ fn ruby_node_kind_lists_cover_baseline() {
     assert!(!spec.symbol_node_kinds().is_empty(), "symbol_node_kinds");
     assert!(!spec.call_node_kinds().is_empty(), "call_node_kinds");
     assert!(!spec.extends_node_kinds().is_empty(), "extends_node_kinds");
-    // Ruby has NO static import statement — require/require_relative are
-    // runtime method calls (parsed as `call` nodes). Empty list is correct.
+    // Ruby `require` / `require_relative` are runtime `call` nodes, not a
+    // static import statement — but they ARE surfaced as imports (the spec
+    // inspects `call` nodes and emits the required path) to power
+    // ga_architecture inter-gem edges. So import_node_kinds includes `call`;
+    // extract_import_path filters to the require forms. See langs/ruby.rs.
     assert!(
-        spec.import_node_kinds().is_empty(),
-        "import_node_kinds must be empty for Ruby (no static imports — \
-         require is a runtime call, see langs/ruby.rs IMPORTS)"
+        spec.import_node_kinds().contains(&"call"),
+        "import_node_kinds must include `call` for Ruby (require/require_relative \
+         surfaced as imports — see langs/ruby.rs IMPORTS)"
     );
 }
 

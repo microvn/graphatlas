@@ -63,19 +63,40 @@ pub struct TsWorkspace {
     /// Go module path from `go.mod` (`github.com/gin-gonic/gin`). A Go import
     /// `<prefix>/<pkg-path>` maps to the in-repo dir `<pkg-path>`.
     go_module_prefix: Option<String>,
+    /// PHP PSR-4 autoload map from every `composer.json`: `(namespace_prefix
+    /// with trailing "\\", repo-relative dir)`, longest-prefix-first. A PHP
+    /// `use Ns\Class` resolves by stripping the longest matching prefix and
+    /// joining the remainder under the mapped dir as `<dir>/<remainder>.php`.
+    psr4: Vec<(String, String)>,
+    /// Ruby gem load-path roots: repo-relative `lib` dirs of every gem (a dir
+    /// holding a `.gemspec`). A bare `require "x/y"` resolves to the first
+    /// `<lib_root>/x/y.rb` that exists — Ruby's `$LOAD_PATH` semantics, where
+    /// each gem prepends its `lib`.
+    ruby_lib_roots: Vec<String>,
 }
 
 impl TsWorkspace {
     pub fn is_empty(&self) -> bool {
-        self.pkgs.is_empty() && self.go_module_prefix.is_none()
+        self.pkgs.is_empty()
+            && self.go_module_prefix.is_none()
+            && self.psr4.is_empty()
+            && self.ruby_lib_roots.is_empty()
     }
 
     /// Scan `repo_root` for package.json (`name` → dir, + entry), tsconfig
-    /// `paths` (alias → dir), and `go.mod` (module prefix). Empty when none
-    /// present (non-JS, non-Go repos).
+    /// `paths` (alias → dir), `go.mod` (module prefix), and composer.json
+    /// (PSR-4 namespace → dir). Empty when none present.
     pub fn load(repo_root: &Path) -> Self {
         let mut pkgs: Vec<Pkg> = Vec::new();
-        scan(repo_root, repo_root, &mut pkgs);
+        let mut psr4: Vec<(String, String)> = Vec::new();
+        let mut ruby_lib_roots: Vec<String> = Vec::new();
+        scan(
+            repo_root,
+            repo_root,
+            &mut pkgs,
+            &mut psr4,
+            &mut ruby_lib_roots,
+        );
         // Longest specifier first (prefix matching); within equal specifiers,
         // lowest priority number wins the dedup (tsconfig paths > non-root pkg
         // name > root pkg name) so a name collision resolves to the real dir.
@@ -87,10 +108,75 @@ impl TsWorkspace {
                 .then(a.priority.cmp(&b.priority))
         });
         pkgs.dedup_by(|a, b| a.specifier == b.specifier);
+        // Longest namespace prefix first so `League\Flysystem\Ftp\` wins over
+        // `League\Flysystem\`.
+        psr4.sort_by(|a, b| b.0.len().cmp(&a.0.len()).then(a.0.cmp(&b.0)));
+        psr4.dedup_by(|a, b| a.0 == b.0);
+        ruby_lib_roots.sort();
+        ruby_lib_roots.dedup();
         TsWorkspace {
             pkgs,
             go_module_prefix: go_module_prefix(repo_root),
+            psr4,
+            ruby_lib_roots,
         }
+    }
+
+    /// Resolve a Ruby `require` / `require_relative` path to an in-repo `.rb`
+    /// file. `./` or `../` → relative to the requiring file's dir. A bare path
+    /// → load-path: the first gem `lib` root holding `<root>/<raw>.rb`. `None`
+    /// for stdlib / external gems (no in-repo match).
+    pub fn resolve_ruby(
+        &self,
+        raw: &str,
+        src_file: &str,
+        file_paths: &HashSet<String>,
+    ) -> Option<String> {
+        if raw.starts_with("./") || raw.starts_with("../") {
+            let src_dir = std::path::Path::new(src_file).parent()?;
+            let joined = src_dir.join(raw).to_string_lossy().into_owned();
+            let cleaned = clean_rel(&joined);
+            let candidate = format!("{cleaned}.rb");
+            return file_paths.contains(&candidate).then_some(candidate);
+        }
+        for root in &self.ruby_lib_roots {
+            let candidate = if root.is_empty() {
+                format!("{raw}.rb")
+            } else {
+                format!("{root}/{raw}.rb")
+            };
+            if file_paths.contains(&candidate) {
+                return Some(candidate);
+            }
+        }
+        None
+    }
+
+    /// Resolve a PHP `use Ns\Class` namespace path to an in-repo `.php` file via
+    /// the PSR-4 map. Strips the longest matching namespace prefix, joins the
+    /// remainder (`\` → `/`) under the mapped dir as `<dir>/<remainder>.php`.
+    /// `None` for namespaces outside every PSR-4 root (vendored / stdlib).
+    pub fn resolve_php(&self, raw: &str, file_paths: &HashSet<String>) -> Option<String> {
+        // Tolerate a leading `\` (fully-qualified `use \Ns\Class`).
+        let ns = raw.trim_start_matches('\\');
+        for (prefix, dir) in &self.psr4 {
+            let Some(remainder) = ns.strip_prefix(prefix.as_str()) else {
+                continue;
+            };
+            if remainder.is_empty() {
+                continue; // bare prefix names no class
+            }
+            let rel = remainder.replace('\\', "/");
+            let candidate = if dir.is_empty() {
+                format!("{rel}.php")
+            } else {
+                format!("{dir}/{rel}.php")
+            };
+            if file_paths.contains(&candidate) {
+                return Some(candidate);
+            }
+        }
+        None
     }
 
     /// Resolve a Go import path to an in-repo `.go` file. Strips the go.mod
@@ -183,12 +269,54 @@ pub fn glob_matches(globs: &[String], rel: &str) -> bool {
     false
 }
 
-fn scan(repo_root: &Path, dir: &Path, out: &mut Vec<Pkg>) {
+fn scan(
+    repo_root: &Path,
+    dir: &Path,
+    out: &mut Vec<Pkg>,
+    psr4: &mut Vec<(String, String)>,
+    ruby_lib_roots: &mut Vec<String>,
+) {
     let rel = dir
         .strip_prefix(repo_root)
         .unwrap_or(dir)
         .to_string_lossy()
         .replace('\\', "/");
+
+    // composer.json `autoload.psr-4` (+ dev) — namespace prefix → dir, relative
+    // to this composer.json's dir. The same MSBuild-style declared authority the
+    // GT uses; a PHP `use` resolves through it.
+    if let Ok(bytes) = std::fs::read(dir.join("composer.json")) {
+        if let Ok(v) = serde_json::from_slice::<serde_json::Value>(&bytes) {
+            for key in ["autoload", "autoload-dev"] {
+                let Some(map) = v
+                    .get(key)
+                    .and_then(|a| a.get("psr-4"))
+                    .and_then(|p| p.as_object())
+                else {
+                    continue;
+                };
+                for (ns, target) in map {
+                    // psr-4 value is a string or array of dirs; take the first.
+                    let raw_dir = match target {
+                        serde_json::Value::String(s) => Some(s.clone()),
+                        serde_json::Value::Array(a) => {
+                            a.first().and_then(|x| x.as_str()).map(String::from)
+                        }
+                        _ => None,
+                    };
+                    let Some(raw_dir) = raw_dir else { continue };
+                    let sub = raw_dir.trim_start_matches("./").trim_end_matches('/');
+                    let target_dir = match (rel.is_empty(), sub.is_empty()) {
+                        (true, true) => String::new(),
+                        (true, false) => sub.to_string(),
+                        (false, true) => rel.clone(),
+                        (false, false) => format!("{rel}/{sub}"),
+                    };
+                    psr4.push((ns.clone(), target_dir));
+                }
+            }
+        }
+    }
 
     if let Ok(bytes) = std::fs::read(dir.join("package.json")) {
         if let Ok(p) = serde_json::from_slice::<PkgJson>(&bytes) {
@@ -242,6 +370,7 @@ fn scan(repo_root: &Path, dir: &Path, out: &mut Vec<Pkg>) {
         Ok(e) => e,
         Err(_) => return,
     };
+    let mut has_gemspec = false;
     for e in entries.flatten() {
         let path = e.path();
         if path.is_dir() {
@@ -252,9 +381,34 @@ fn scan(repo_root: &Path, dir: &Path, out: &mut Vec<Pkg>) {
             ) {
                 continue;
             }
-            scan(repo_root, &path, out);
+            scan(repo_root, &path, out, psr4, ruby_lib_roots);
+        } else if path.extension().and_then(|x| x.to_str()) == Some("gemspec") {
+            has_gemspec = true;
         }
     }
+    // A gem's `lib` dir is its load-path root (`require "x/y"` → `lib/x/y.rb`).
+    if has_gemspec && dir.join("lib").is_dir() {
+        ruby_lib_roots.push(if rel.is_empty() {
+            "lib".to_string()
+        } else {
+            format!("{rel}/lib")
+        });
+    }
+}
+
+/// Normalise a `/`-joined relative path: drop `.`, resolve `..`.
+fn clean_rel(p: &str) -> String {
+    let mut out: Vec<&str> = Vec::new();
+    for seg in p.split('/') {
+        match seg {
+            "" | "." => {}
+            ".." => {
+                out.pop();
+            }
+            other => out.push(other),
+        }
+    }
+    out.join("/")
 }
 
 /// Find an indexed entry file for a package dir: declared `main`/etc first,
@@ -344,6 +498,81 @@ fn strip_jsonc(s: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn php_psr4_longest_prefix_resolves_use() {
+        let tmp = TempDir::new().unwrap();
+        let root = tmp.path();
+        w(
+            &root.join("composer.json"),
+            r#"{"autoload":{"psr-4":{"League\\Flysystem\\":"src"}}}"#,
+        );
+        w(
+            &root.join("src/Ftp/composer.json"),
+            r#"{"autoload":{"psr-4":{"League\\Flysystem\\Ftp\\":""}}}"#,
+        );
+        let ws = TsWorkspace::load(root);
+        let files: HashSet<String> = [
+            "src/Config.php".to_string(),
+            "src/Ftp/FtpAdapter.php".to_string(),
+        ]
+        .into();
+        assert_eq!(
+            ws.resolve_php("League\\Flysystem\\Config", &files)
+                .as_deref(),
+            Some("src/Config.php")
+        );
+        assert_eq!(
+            ws.resolve_php("League\\Flysystem\\Ftp\\FtpAdapter", &files)
+                .as_deref(),
+            Some("src/Ftp/FtpAdapter.php"),
+            "longer Ftp prefix wins over core src"
+        );
+        assert_eq!(ws.resolve_php("Psr\\Log\\Logger", &files), None);
+    }
+
+    #[test]
+    fn ruby_loadpath_and_relative_resolve() {
+        let tmp = TempDir::new().unwrap();
+        let root = tmp.path();
+        w(&root.join("activesupport/activesupport.gemspec"), "");
+        w(&root.join("activesupport/lib/active_support.rb"), "");
+        w(&root.join("activerecord/activerecord.gemspec"), "");
+        w(&root.join("activerecord/lib/active_record.rb"), "");
+        w(&root.join("activerecord/lib/active_record/base.rb"), "");
+        let ws = TsWorkspace::load(root);
+        let files: HashSet<String> = [
+            "activesupport/lib/active_support.rb".to_string(),
+            "activerecord/lib/active_record.rb".to_string(),
+            "activerecord/lib/active_record/base.rb".to_string(),
+        ]
+        .into();
+        // load-path require from activerecord resolves into activesupport.
+        assert_eq!(
+            ws.resolve_ruby(
+                "active_support",
+                "activerecord/lib/active_record.rb",
+                &files
+            )
+            .as_deref(),
+            Some("activesupport/lib/active_support.rb")
+        );
+        // relative require resolves against the requiring file's dir.
+        assert_eq!(
+            ws.resolve_ruby(
+                "./active_record/base",
+                "activerecord/lib/active_record.rb",
+                &files
+            )
+            .as_deref(),
+            Some("activerecord/lib/active_record/base.rb")
+        );
+        // external gem → None.
+        assert_eq!(
+            ws.resolve_ruby("nokogiri", "activerecord/lib/active_record.rb", &files),
+            None
+        );
+    }
     use std::fs;
     use tempfile::TempDir;
 

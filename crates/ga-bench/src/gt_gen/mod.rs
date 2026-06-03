@@ -33,6 +33,7 @@
 //! imports on every PR (build-time lint hardening deferred to Phase 3).
 
 pub mod cargo_deps;
+pub mod csproj_deps;
 pub mod h1_polymorphism;
 pub mod h1_text;
 pub mod h2_callees_text;
@@ -47,6 +48,8 @@ pub mod hmc_gitmine;
 pub mod hr_text;
 pub mod hrn_static;
 pub mod package_deps;
+pub mod php_psr4;
+pub mod ruby_loadpath;
 
 use crate::m1_ground_truth::{M1GroundTruth, M1Task, EXPECTED_SCHEMA_VERSION};
 use crate::BenchError;

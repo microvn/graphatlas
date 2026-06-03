@@ -21,7 +21,14 @@ fn version_flag_exits_zero() {
     );
     let stdout = String::from_utf8_lossy(&out.stdout);
     assert!(stdout.contains("graphatlas"), "stdout: {stdout}");
-    assert!(stdout.contains("0.1.0"), "stdout: {stdout}");
+    // Assert against the actual crate version so a `version` bump in Cargo.toml
+    // (e.g. 0.1.0 → 0.1.1) doesn't leave this smoke test asserting a stale
+    // literal — the failure mode that slipped through the v0.1.1 bump.
+    assert!(
+        stdout.contains(env!("CARGO_PKG_VERSION")),
+        "stdout: {stdout} (expected version {})",
+        env!("CARGO_PKG_VERSION")
+    );
 }
 
 #[test]

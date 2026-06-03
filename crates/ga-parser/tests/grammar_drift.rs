@@ -136,10 +136,10 @@ namespace App {\n\
             // Exercises every kind in `langs::ruby::RubyLang::*_node_kinds`:
             // class / module / method / singleton_method / call.
             //
-            // Ruby IMPORTS list is intentionally empty (require/require_relative
-            // are runtime method calls, not structural import nodes — see
-            // langs/ruby.rs IMPORTS). The drift loop iterates `import_node_kinds`
-            // and finds nothing → vacuously satisfied.
+            // Ruby's import node kind IS `call` (require/require_relative are
+            // runtime calls surfaced as imports — see langs/ruby.rs IMPORTS).
+            // The `Base.lookup(id)` / `check(name)` calls below emit `call`, so
+            // the drift loop's import_node_kinds check is satisfied.
             "\
 module App\n\
   class User < Base\n\

@@ -1,4 +1,4 @@
-# M3 Gate — `architecture` on `php-symfony-console`
+# M3 Gate — `architecture` on `Polly`
 
 **Rule:** Ha-import-edge
 
@@ -6,21 +6,21 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| SKIPPED | ga | 0.000 | 0.600 | 99 |
+| PASS | ga | 0.931 | 0.600 | 183 |
 
 ### Secondary metrics
 
 **ga**:
-- `actual_edge_count` = 0.000
-- `edge_f1` = 1.000
-- `edge_f2` = 1.000
+- `actual_edge_count` = 27.000
+- `edge_f1` = 0.931
+- `edge_f2` = 0.894
 - `edge_precision` = 1.000
-- `edge_recall` = 1.000
-- `expected_edge_count` = 0.000
-- `false_negatives` = 0.000
+- `edge_recall` = 0.871
+- `expected_edge_count` = 31.000
+- `false_negatives` = 4.000
 - `false_positives` = 0.000
-- `shared_edge_count` = 0.000
+- `shared_edge_count` = 27.000
 - `spearman_defined` = 0.000
-- `true_positives` = 0.000
+- `true_positives` = 27.000
 
-**SPEC GATE: 0 pass, 0 fail, 1 skipped (insufficient GT) (target: all pass)**
+**SPEC GATE: 1 pass, 0 fail (target: all pass)**

@@ -1,4 +1,4 @@
-# M3 Gate — `architecture` on `php-symfony-console`
+# M3 Gate — `architecture` on `php-monolog`
 
 **Rule:** Ha-import-edge
 
@@ -6,7 +6,7 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| SKIPPED | ga | 0.000 | 0.600 | 99 |
+| SKIPPED | ga | 0.000 | 0.600 | 71 |
 
 ### Secondary metrics
 

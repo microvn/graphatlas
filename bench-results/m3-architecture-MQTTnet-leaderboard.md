@@ -1,4 +1,4 @@
-# M3 Gate — `architecture` on `php-symfony-console`
+# M3 Gate — `architecture` on `MQTTnet`
 
 **Rule:** Ha-import-edge
 
@@ -6,21 +6,21 @@
 
 | Status | Retriever | Score | Spec target | p95 latency (ms) |
 |---|---|---|---|---|
-| SKIPPED | ga | 0.000 | 0.600 | 99 |
+| **TAUTOLOGY-SUSPECT** | ga | 0.979 | 0.600 | 89 |
 
 ### Secondary metrics
 
 **ga**:
-- `actual_edge_count` = 0.000
-- `edge_f1` = 1.000
-- `edge_f2` = 1.000
+- `actual_edge_count` = 23.000
+- `edge_f1` = 0.979
+- `edge_f2` = 0.966
 - `edge_precision` = 1.000
-- `edge_recall` = 1.000
-- `expected_edge_count` = 0.000
-- `false_negatives` = 0.000
+- `edge_recall` = 0.958
+- `expected_edge_count` = 24.000
+- `false_negatives` = 1.000
 - `false_positives` = 0.000
-- `shared_edge_count` = 0.000
+- `shared_edge_count` = 23.000
 - `spearman_defined` = 0.000
-- `true_positives` = 0.000
+- `true_positives` = 23.000
 
-**SPEC GATE: 0 pass, 0 fail, 1 skipped (insufficient GT) (target: all pass)**
+**SPEC GATE: 1 pass, 0 fail (target: all pass)**

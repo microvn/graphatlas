@@ -375,6 +375,11 @@ pub fn build_index(store: &Store, repo_root: &Path) -> AResult<IndexStats> {
     // on is excluded — the caller could never call it (e.g. a library crate
     // resolving into an `examples`/`benches`/`tests` crate that reuses a name).
     let crate_scope = crate::crate_scope::CrateScope::load(repo_root);
+    // C# project-reference scope (.NET solutions only; empty elsewhere). Mirrors
+    // crate_scope: a name-fallback candidate in a project the caller's project
+    // does not directly reference is excluded — C# requires a ProjectReference
+    // to use another project's types, so such a resolution is impossible.
+    let project_scope = crate::project_scope::ProjectScope::load(repo_root);
     // TS/JS workspace resolver (tsconfig paths + package.json names). Empty for
     // non-JS repos. Lets bare specifiers (`@scope/pkg`) resolve to in-repo
     // files so monorepo cross-package imports become IMPORTS edges.
@@ -385,6 +390,9 @@ pub fn build_index(store: &Store, repo_root: &Path) -> AResult<IndexStats> {
         for (file, id) in cands {
             if !crate_scope.allows(caller_file, file) {
                 continue; // candidate crate is not in the caller crate's dependency closure
+            }
+            if !project_scope.allows(caller_file, file) {
+                continue; // candidate C# project is not directly referenced by the caller's project
             }
             let shared = file
                 .split('/')
@@ -849,6 +857,9 @@ pub fn build_index(store: &Store, repo_root: &Path) -> AResult<IndexStats> {
         if let Some(dst_file) = file_by_id.get(dst_id.as_str()) {
             if !crate_scope.allows(&pe.file, dst_file) {
                 continue;
+            }
+            if !project_scope.allows(&pe.file, dst_file) {
+                continue; // C# base type lives in an unreferenced project — impossible
             }
         }
         if src_id == dst_id {

@@ -75,6 +75,19 @@ impl GtRule for HaImportEdge {
         // go.mod module prefix (independent of the engine — raw file read) for
         // Go import resolution. None for non-Go repos.
         let go_prefix = go_module_prefix(fixture_dir);
+        // PHP PSR-4 autoload map (independent raw composer.json parse — C1).
+        // Empty for non-PHP repos. A `use Ns\Class` resolves through this to a
+        // `.php` path → owning module.
+        let psr4 = crate::gt_gen::php_psr4::psr4_map(fixture_dir);
+        // Ruby gem load-path roots + the repo's `.rb` file set (independent
+        // raw scan — C1). A bare `require "x/y"` resolves to the gem `lib` that
+        // actually holds `x/y.rb`; existence selects the providing gem.
+        let ruby_lib_roots = crate::gt_gen::ruby_loadpath::lib_roots(fixture_dir);
+        let rb_files: std::collections::HashSet<String> = report
+            .entries
+            .iter()
+            .map(|e| e.rel_path.to_string_lossy().into_owned())
+            .collect();
 
         let mut edges_by_pair: BTreeMap<(String, String), BTreeSet<String>> = BTreeMap::new();
         let mut files_by_module: BTreeMap<String, BTreeSet<String>> = BTreeMap::new();
@@ -103,6 +116,9 @@ impl GtRule for HaImportEdge {
                     entry.lang,
                     &imp.target_path,
                     go_prefix.as_deref(),
+                    &psr4,
+                    &ruby_lib_roots,
+                    &rb_files,
                     &roots_sorted,
                 );
                 let Some(target) = target_module else {
@@ -154,6 +170,26 @@ impl GtRule for HaImportEdge {
                     .entry((from, to))
                     .or_default()
                     .insert("__package_manifest__".to_string());
+            }
+        }
+
+        // C1/C2 — C# solutions: inter-project dependency edges from the on-disk
+        // `.csproj` ProjectReference entries (MSBuild authority, independent of
+        // the engine). A C# project can only reference another project's types
+        // when a ProjectReference exists, so this declared graph is the sound
+        // analogue of Cargo path-deps. C# `using` is namespace-based (no dir-tree
+        // authority) so per-file resolution (`resolve_target_module`) returns
+        // None for C# — these manifest edges are the only C# GT. Keyed by project
+        // dir basename (root → `(root)`) to match discover_modules.
+        for (from, to) in crate::gt_gen::csproj_deps::solution_project_deps(fixture_dir) {
+            if from != to
+                && module_names.contains(from.as_str())
+                && module_names.contains(to.as_str())
+            {
+                edges_by_pair
+                    .entry((from, to))
+                    .or_default()
+                    .insert("__csproj_manifest__".to_string());
             }
         }
 
@@ -284,7 +320,7 @@ fn walk_dirs(repo_root: &Path, dir: &Path, ws_globs: &[String], out: &mut Vec<Mo
         }
     };
     let mut pushed = false;
-    for marker in ["__init__.py", "Cargo.toml", "package.json"] {
+    for marker in ["__init__.py", "Cargo.toml", "package.json", "composer.json"] {
         if dir.join(marker).is_file() {
             // node-package modules outside the workspace glob (integration /
             // example apps) are leaf consumers, not architecture modules.
@@ -298,6 +334,19 @@ fn walk_dirs(repo_root: &Path, dir: &Path, ws_globs: &[String], out: &mut Vec<Mo
     }
     // Go package = a directory holding `.go` files (no per-dir manifest).
     if !pushed && has_go_files(dir) {
+        out.push(mk(&rel));
+        pushed = true;
+    }
+    // C# project = a directory holding a `.csproj` (MSBuild project manifest).
+    // The inter-project dependency graph comes from ProjectReference (csproj_deps),
+    // independent of the engine.
+    if !pushed && has_csproj(dir) {
+        out.push(mk(&rel));
+        pushed = true;
+    }
+    // Ruby gem = a directory holding a `.gemspec`. Inter-gem `require`s resolve
+    // through gem `lib` load-path roots (ruby_loadpath).
+    if !pushed && has_gemspec(dir) {
         out.push(mk(&rel));
     }
     for e in entries.flatten() {
@@ -339,14 +388,31 @@ fn pick_owning_module<'a>(rel_file: &str, roots_sorted: &[&'a Module]) -> Option
 /// Rust `crate::x` / TS bare specifiers are NOT dir-tree paths without a
 /// build manifest — those use the dedicated cargo/package authorities elsewhere
 /// and return `None` here (no fabricated edge).
+#[allow(clippy::too_many_arguments)]
 fn resolve_target_module(
     lang: ga_core::Lang,
     target_path: &str,
     go_prefix: Option<&str>,
+    psr4: &[(String, String)],
+    ruby_lib_roots: &[String],
+    rb_files: &std::collections::HashSet<String>,
     roots_sorted: &[&Module],
 ) -> Option<String> {
     if target_path.is_empty() {
         return None;
+    }
+    // PHP: `use Ns\Class` → PSR-4 → repo-relative `.php` file → owning module.
+    // PSR-4 (composer.json) is the dir-tree authority for PHP, the analogue of
+    // Python's dotted-path → dir mapping.
+    if lang == ga_core::Lang::Php {
+        let file = crate::gt_gen::php_psr4::resolve(psr4, target_path)?;
+        return pick_owning_module(&file, roots_sorted).map(|m| m.name.clone());
+    }
+    // Ruby: load-path `require "x/y"` → gem `lib` holding `x/y.rb` → owning
+    // module. `require_relative "./x"` → None (intra-gem, dropped as self).
+    if lang == ga_core::Lang::Ruby {
+        let file = crate::gt_gen::ruby_loadpath::resolve(ruby_lib_roots, target_path, rb_files)?;
+        return pick_owning_module(&file, roots_sorted).map(|m| m.name.clone());
     }
     let candidates: Vec<String> = match lang {
         ga_core::Lang::Python => {
@@ -393,6 +459,26 @@ fn has_go_files(dir: &Path) -> bool {
     };
     rd.flatten()
         .any(|e| e.path().is_file() && e.path().extension().and_then(|x| x.to_str()) == Some("go"))
+}
+
+/// A C# project dir is any directory holding at least one `.csproj` file.
+fn has_csproj(dir: &Path) -> bool {
+    let Ok(rd) = std::fs::read_dir(dir) else {
+        return false;
+    };
+    rd.flatten().any(|e| {
+        e.path().is_file() && e.path().extension().and_then(|x| x.to_str()) == Some("csproj")
+    })
+}
+
+/// A Ruby gem dir is any directory holding at least one `.gemspec` file.
+fn has_gemspec(dir: &Path) -> bool {
+    let Ok(rd) = std::fs::read_dir(dir) else {
+        return false;
+    };
+    rd.flatten().any(|e| {
+        e.path().is_file() && e.path().extension().and_then(|x| x.to_str()) == Some("gemspec")
+    })
 }
 
 /// `module <path>` directive from `go.mod` (raw read — C1 independent of the
@@ -450,7 +536,15 @@ mod tests {
         let mods = [module("auth", "svc/auth")];
         let roots: Vec<&Module> = mods.iter().collect();
         assert_eq!(
-            resolve_target_module(Lang::Python, "svc.auth.login", None, &roots),
+            resolve_target_module(
+                Lang::Python,
+                "svc.auth.login",
+                None,
+                &[],
+                &[],
+                &std::collections::HashSet::new(),
+                &roots
+            ),
             Some("auth".to_string()),
             "Python dotted import maps to the dir tree — sound, must resolve"
         );
@@ -463,7 +557,15 @@ mod tests {
         let mods = [module("sync", "crate/sync")];
         let roots: Vec<&Module> = mods.iter().collect();
         assert_eq!(
-            resolve_target_module(Lang::Rust, "crate::sync::mpsc", None, &roots),
+            resolve_target_module(
+                Lang::Rust,
+                "crate::sync::mpsc",
+                None,
+                &[],
+                &[],
+                &std::collections::HashSet::new(),
+                &roots
+            ),
             None,
             "Rust :: import has no path-tree authority — must not be fabricated"
         );
@@ -475,7 +577,15 @@ mod tests {
         let mods = [module("gin", "gin")];
         let roots: Vec<&Module> = mods.iter().collect();
         assert_eq!(
-            resolve_target_module(Lang::Go, "github.com/gin-gonic/gin/binding", None, &roots),
+            resolve_target_module(
+                Lang::Go,
+                "github.com/gin-gonic/gin/binding",
+                None,
+                &[],
+                &[],
+                &std::collections::HashSet::new(),
+                &roots
+            ),
             None,
             "Go import without go.mod authority must not be fabricated"
         );
@@ -488,19 +598,157 @@ mod tests {
         let roots: Vec<&Module> = mods.iter().collect();
         let prefix = Some("github.com/gin-gonic/gin");
         assert_eq!(
-            resolve_target_module(Lang::Go, "github.com/gin-gonic/gin/binding", prefix, &roots),
+            resolve_target_module(
+                Lang::Go,
+                "github.com/gin-gonic/gin/binding",
+                prefix,
+                &[],
+                &[],
+                &std::collections::HashSet::new(),
+                &roots
+            ),
             Some("binding".to_string()),
             "Go import strips the module prefix → package dir"
         );
         assert_eq!(
-            resolve_target_module(Lang::Go, "github.com/gin-gonic/gin", prefix, &roots),
+            resolve_target_module(
+                Lang::Go,
+                "github.com/gin-gonic/gin",
+                prefix,
+                &[],
+                &[],
+                &std::collections::HashSet::new(),
+                &roots
+            ),
             Some("(root)".to_string()),
             "bare module path → the root package"
         );
         assert_eq!(
-            resolve_target_module(Lang::Go, "fmt", prefix, &roots),
+            resolve_target_module(
+                Lang::Go,
+                "fmt",
+                prefix,
+                &[],
+                &[],
+                &std::collections::HashSet::new(),
+                &roots
+            ),
             None,
             "stdlib import (no prefix match) → None"
+        );
+    }
+
+    #[test]
+    fn php_use_resolves_via_psr4_to_owning_module() {
+        // `use League\Flysystem\Config` → PSR-4 (root prefix → src) →
+        // src/Config.php → root module. `use League\Flysystem\Ftp\FtpAdapter`
+        // → longer Ftp prefix → src/Ftp → the Ftp module.
+        let mods = [module("Ftp", "src/Ftp"), module("(root)", "")];
+        let roots: Vec<&Module> = mods.iter().collect();
+        let psr4 = [
+            (
+                "League\\Flysystem\\Ftp\\".to_string(),
+                "src/Ftp".to_string(),
+            ),
+            ("League\\Flysystem\\".to_string(), "src".to_string()),
+        ];
+        assert_eq!(
+            resolve_target_module(
+                Lang::Php,
+                "League\\Flysystem\\Config",
+                None,
+                &psr4,
+                &[],
+                &std::collections::HashSet::new(),
+                &roots
+            ),
+            Some("(root)".to_string()),
+            "core class resolves into the root module"
+        );
+        assert_eq!(
+            resolve_target_module(
+                Lang::Php,
+                "League\\Flysystem\\Ftp\\FtpAdapter",
+                None,
+                &psr4,
+                &[],
+                &std::collections::HashSet::new(),
+                &roots
+            ),
+            Some("Ftp".to_string()),
+            "Ftp class resolves into the Ftp module (longest PSR-4 prefix)"
+        );
+        // External namespace with no PSR-4 root → None (not fabricated).
+        assert_eq!(
+            resolve_target_module(
+                Lang::Php,
+                "Psr\\Log\\LoggerInterface",
+                None,
+                &psr4,
+                &[],
+                &std::collections::HashSet::new(),
+                &roots
+            ),
+            None,
+            "unmapped namespace must not be fabricated"
+        );
+    }
+
+    #[test]
+    fn ruby_loadpath_require_resolves_to_owning_gem() {
+        // `require "active_support"` from activerecord → activesupport's lib →
+        // the activesupport module. require_relative (relative) → None (intra).
+        let mods = [
+            module("activesupport", "activesupport"),
+            module("activerecord", "activerecord"),
+        ];
+        let roots: Vec<&Module> = mods.iter().collect();
+        let lib_roots = [
+            "activerecord/lib".to_string(),
+            "activesupport/lib".to_string(),
+        ];
+        let rb_files: std::collections::HashSet<String> =
+            ["activesupport/lib/active_support.rb".to_string()].into();
+        assert_eq!(
+            resolve_target_module(
+                Lang::Ruby,
+                "active_support",
+                None,
+                &[],
+                &lib_roots,
+                &rb_files,
+                &roots
+            ),
+            Some("activesupport".to_string()),
+            "load-path require resolves into the providing gem"
+        );
+        // require_relative (leading ./) → None: intra-gem, dropped as self.
+        assert_eq!(
+            resolve_target_module(
+                Lang::Ruby,
+                "./active_record/base",
+                None,
+                &[],
+                &lib_roots,
+                &rb_files,
+                &roots
+            ),
+            None,
+            "require_relative is intra-gem — dropped by the GT"
+        );
+        // External gem (no in-repo lib provides it) → None.
+        assert_eq!(
+            resolve_target_module(
+                Lang::Ruby,
+                "nokogiri",
+                None,
+                &[],
+                &lib_roots,
+                &rb_files,
+                &roots
+            ),
+            None,
+            "external gem must not be fabricated"
         );
     }
 }

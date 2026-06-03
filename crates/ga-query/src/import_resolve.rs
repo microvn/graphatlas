@@ -84,6 +84,13 @@ pub fn resolve_import_path(
         // prefix → in-repo package dir → a `.go` file there. stdlib /
         // third-party (no prefix match) → None.
         Lang::Go => ts_ws.resolve_go(raw, file_paths),
+        // PHP: `use Ns\Class` resolves to a `.php` file via the composer.json
+        // PSR-4 autoload map (longest namespace prefix wins). External / vendor
+        // namespaces with no PSR-4 root → None (dropped).
+        Lang::Php => ts_ws.resolve_php(raw, file_paths),
+        // Ruby: `require_relative "./x"` → relative; `require "x/y"` →
+        // load-path through each gem's `lib` root. stdlib / external gems → None.
+        Lang::Ruby => ts_ws.resolve_ruby(raw, src_file, file_paths),
         _ => None, // Rust cluster A — deferred (name-fallback handles it)
     }
 }

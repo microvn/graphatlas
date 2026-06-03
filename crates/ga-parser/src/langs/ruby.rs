@@ -46,12 +46,16 @@ const CALLEE_EXTRACTORS: &[(&str, CalleeExtractor)] = &[("call", extract_ruby_ca
 //   - `method` / `singleton_method` → Method
 const SYMBOLS: &[&str] = &["class", "module", "method", "singleton_method"];
 
-// Ruby has NO static import statement — `require` / `require_relative` are
-// runtime method calls (parsed as `call` / `command` nodes). Static imports
-// are not in scope for v1.1-M4 S-004 (would need a per-call inspection
-// pass at the indexer layer, not the parser layer). Empty list keeps the
-// engine from emitting bogus IMPORTS edges.
-const IMPORTS: &[&str] = &[];
+// Ruby `require` / `require_relative` are runtime method calls (parsed as
+// `call` nodes, NOT a dedicated import statement). We surface them as imports
+// by inspecting `call` nodes whose method identifier is `require` /
+// `require_relative` (see `extract_import_path`). The node kind overlaps with
+// CALLS — a require call is BOTH an import (this list) and a call; the imports
+// pass and calls pass run independently, and the require() method call resolves
+// to an external symbol (harmless). This powers `ga_architecture` inter-gem
+// edges on multi-gem repos (rails); single-gem repos see only intra-gem
+// requires (self-edges, dropped).
+const IMPORTS: &[&str] = &["call"];
 
 // tree-sitter-ruby 0.23 emits `call` for ALL invocation forms — receiver
 // calls (`obj.method(args)`), bare calls (`require 'foo'`), parenless
@@ -146,6 +150,53 @@ impl LanguageSpec for RubyLang {
             }
         }
         bases
+    }
+
+    /// `require "x/y"` / `require_relative "./x"` → the required path.
+    ///
+    /// Only bare-call `require` / `require_relative` (no receiver) count.
+    /// `require_relative` paths are normalised to a leading `./` so the
+    /// resolver can branch on it (relative vs load-path): `require_relative
+    /// "bar/baz"` → `./bar/baz`. `require "x/y"` stays bare (load-path).
+    /// Returns `None` for any other call.
+    fn extract_import_path(&self, node: &Node<'_>, source: &[u8]) -> Option<String> {
+        if node.kind() != "call" || node.child_by_field_name("receiver").is_some() {
+            return None;
+        }
+        let method = node
+            .child_by_field_name("method")
+            .or_else(|| node.child(0))?;
+        if method.kind() != "identifier" {
+            return None;
+        }
+        let relative = match method.utf8_text(source).ok()? {
+            "require" => false,
+            "require_relative" => true,
+            _ => return None,
+        };
+        let args = node
+            .child_by_field_name("arguments")
+            .or_else(|| node.child(1))?;
+        let mut cursor = args.walk();
+        for arg in args.children(&mut cursor) {
+            if arg.kind() != "string" {
+                continue;
+            }
+            let mut sc = arg.walk();
+            for part in arg.children(&mut sc) {
+                if part.kind() == "string_content" {
+                    let raw = part.utf8_text(source).ok()?.trim().to_string();
+                    if raw.is_empty() {
+                        return None;
+                    }
+                    if relative && !raw.starts_with("./") && !raw.starts_with("../") {
+                        return Some(format!("./{raw}"));
+                    }
+                    return Some(raw);
+                }
+            }
+        }
+        None
     }
 
     /// AS-014 — `define_method(:foo) { ... }` / `define_method :foo do ... end`

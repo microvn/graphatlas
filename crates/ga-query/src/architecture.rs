@@ -216,6 +216,17 @@ fn discover_modules(repo_root: &Path) -> Vec<RawModule> {
                 convention: "go-package",
             });
         }
+        // C# project = directory containing a `.csproj` (MSBuild project file).
+        // Inter-project ProjectReference deps are the architecture edges; they
+        // surface as CALLS/REFERENCES/EXTENDS (C# `using` is namespace-based, so
+        // the path-based import resolver does not handle it — name-fallback does).
+        if has_csproj(abs_dir) {
+            out.push(RawModule {
+                name: dir_basename(rel_dir),
+                root: rel_dir.to_string(),
+                convention: "csharp-project",
+            });
+        }
         if has_marker(abs_dir, "package.json")
             && (ws_globs.is_empty()
                 || rel_dir.is_empty()
@@ -225,6 +236,26 @@ fn discover_modules(repo_root: &Path) -> Vec<RawModule> {
                 name: dir_basename(rel_dir),
                 root: rel_dir.to_string(),
                 convention: "node-package",
+            });
+        }
+        // PHP package = directory containing `composer.json`. Inter-package
+        // dependencies surface as IMPORTS once `use Ns\Class` resolves through
+        // the composer PSR-4 autoload map (TsWorkspace::resolve_php).
+        if has_marker(abs_dir, "composer.json") {
+            out.push(RawModule {
+                name: dir_basename(rel_dir),
+                root: rel_dir.to_string(),
+                convention: "php-composer",
+            });
+        }
+        // Ruby gem = directory containing a `.gemspec`. Inter-gem `require`s
+        // surface as IMPORTS once they resolve through the gem `lib` load-path
+        // roots (TsWorkspace::resolve_ruby).
+        if has_gemspec(abs_dir) {
+            out.push(RawModule {
+                name: dir_basename(rel_dir),
+                root: rel_dir.to_string(),
+                convention: "ruby-gem",
             });
         }
     });
@@ -258,6 +289,26 @@ fn has_go_files(dir: &Path) -> bool {
     };
     rd.flatten()
         .any(|e| e.path().is_file() && e.path().extension().and_then(|x| x.to_str()) == Some("go"))
+}
+
+/// A C# project directory holds at least one `.csproj` (MSBuild project file).
+fn has_csproj(dir: &Path) -> bool {
+    let Ok(rd) = std::fs::read_dir(dir) else {
+        return false;
+    };
+    rd.flatten().any(|e| {
+        e.path().is_file() && e.path().extension().and_then(|x| x.to_str()) == Some("csproj")
+    })
+}
+
+/// A Ruby gem directory holds at least one `.gemspec`.
+fn has_gemspec(dir: &Path) -> bool {
+    let Ok(rd) = std::fs::read_dir(dir) else {
+        return false;
+    };
+    rd.flatten().any(|e| {
+        e.path().is_file() && e.path().extension().and_then(|x| x.to_str()) == Some("gemspec")
+    })
 }
 
 /// Per-module display names, unique across the set. A basename used by exactly

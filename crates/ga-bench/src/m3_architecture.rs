@@ -84,22 +84,15 @@ pub fn score_architecture(opts: &ScoreOpts) -> Result<Vec<M3LeaderboardRow>, Ben
         // import-resolved GT) → imports-only actual, as before. A global
         // kind-agnostic comparison would flood the Python actual set with
         // calls/extends the import-GT never had and crater precision.
-        let kind_agnostic = opts.fixture_dir.join("Cargo.toml").is_file();
-        // TS/JS workspaces: GT is a declared dependency graph (tsconfig
-        // references / package.json deps), unweighted set membership like the
-        // Rust cargo GT — so the primary metric is F1, NOT Spearman (which
-        // ranks Python's weighted import counts). Deps still surface as IMPORTS
-        // for TS, so the edge-kind scope stays imports-only.
-        //
-        // A `package.json` alone does NOT make a fixture TS: Python projects
-        // (django) carry one for JS doc/asset tooling while their architecture
-        // GT is Python import-resolution (weighted → Spearman). Exclude repos
-        // with a root Python project marker so they keep Spearman.
-        let is_python_project = ["pyproject.toml", "setup.py", "setup.cfg", "manage.py"]
-            .iter()
-            .any(|m| opts.fixture_dir.join(m).is_file());
-        let manifest_dep_gt = kind_agnostic
-            || (opts.fixture_dir.join("package.json").is_file() && !is_python_project);
+        // C# solutions: the GT is the declared ProjectReference dependency
+        // graph (csproj_deps) — unweighted set membership like Cargo/package.json
+        // deps. C# `using` is namespace-based so the path import resolver does
+        // not recover these edges; they surface as CALLS/REFERENCES/EXTENDS via
+        // the indexer's name-fallback → the actual edge set must be KIND-AGNOSTIC
+        // (imports-only would be empty). Detected by a root `.sln` (MSBuild
+        // solution file), the unambiguous .NET-solution marker.
+        let kind_agnostic = is_kind_agnostic(&opts.fixture_dir);
+        let manifest_dep_gt = uses_manifest_dep_gt(&opts.fixture_dir);
         let edge_in_scope = |k: &str| kind_agnostic || k == "imports";
         let actual: BTreeSet<(String, String)> = resp
             .edges
@@ -204,6 +197,48 @@ pub fn score_architecture(opts: &ScoreOpts) -> Result<Vec<M3LeaderboardRow>, Ben
         });
     }
     Ok(rows)
+}
+
+/// True when `dir` holds a `.sln` file — the unambiguous .NET solution marker.
+fn has_sln(dir: &std::path::Path) -> bool {
+    let Ok(rd) = std::fs::read_dir(dir) else {
+        return false;
+    };
+    rd.flatten()
+        .any(|e| e.path().is_file() && e.path().extension().and_then(|x| x.to_str()) == Some("sln"))
+}
+
+/// Whether the actual edge set is compared KIND-AGNOSTICALLY (CALLS / REFERENCES
+/// / EXTENDS / IMPORTS all count) rather than imports-only.
+///
+/// Rust workspaces (Cargo manifest GT = module dependency graph) and C#
+/// solutions (declared ProjectReference graph) both have authorities the engine
+/// recovers via CALLS/EXTENDS, not path-resolved imports — so imports-only would
+/// be empty. Everything else (Python/PHP/Ruby import-resolved GT) stays
+/// imports-only. C# is detected by a root `.sln` (the unambiguous .NET marker).
+fn is_kind_agnostic(dir: &std::path::Path) -> bool {
+    dir.join("Cargo.toml").is_file() || has_sln(dir)
+}
+
+/// Whether the primary metric is F1 on a declared dependency-edge set (Cargo /
+/// C# / TS-JS workspaces) rather than Spearman on weighted import counts
+/// (Python / PHP / Ruby).
+///
+/// A root `package.json` marks a TS/JS workspace — BUT Python projects (django)
+/// and Ruby monorepos (rails) carry one for JS asset/doc tooling while their
+/// architecture GT is weighted import-resolution. A root Python marker
+/// (`pyproject.toml`/`setup.py`/`setup.cfg`/`manage.py`) or Ruby marker
+/// (`Gemfile`) excludes them from the package.json→TS heuristic — the django
+/// package.json misdetection bug (lesson #5).
+fn uses_manifest_dep_gt(dir: &std::path::Path) -> bool {
+    if is_kind_agnostic(dir) {
+        return true;
+    }
+    let is_python_project = ["pyproject.toml", "setup.py", "setup.cfg", "manage.py"]
+        .iter()
+        .any(|m| dir.join(m).is_file());
+    let is_ruby_project = dir.join("Gemfile").is_file();
+    dir.join("package.json").is_file() && !is_python_project && !is_ruby_project
 }
 
 /// Spearman rank correlation between expected and actual edge weights,
@@ -368,6 +403,79 @@ mod unit {
         assert_eq!(
             decide_spec_status(0.97, 0.97, true),
             SpecStatus::Tautological
+        );
+    }
+
+    use std::fs;
+    use tempfile::TempDir;
+
+    fn touch(dir: &std::path::Path, name: &str) {
+        fs::write(dir.join(name), "").unwrap();
+    }
+
+    #[test]
+    fn csharp_solution_is_kind_agnostic_and_manifest_dep() {
+        // A root `.sln` → C# solution: KIND-AGNOSTIC actual + F1 (manifest) GT.
+        let tmp = TempDir::new().unwrap();
+        touch(tmp.path(), "MQTTnet.sln");
+        assert!(has_sln(tmp.path()));
+        assert!(is_kind_agnostic(tmp.path()), "C# solution → kind-agnostic");
+        assert!(uses_manifest_dep_gt(tmp.path()), "C# solution → F1");
+    }
+
+    #[test]
+    fn cargo_workspace_is_kind_agnostic() {
+        let tmp = TempDir::new().unwrap();
+        touch(tmp.path(), "Cargo.toml");
+        assert!(is_kind_agnostic(tmp.path()));
+        assert!(uses_manifest_dep_gt(tmp.path()));
+    }
+
+    #[test]
+    fn ts_workspace_package_json_is_manifest_dep_not_kind_agnostic() {
+        // Pure JS/TS repo: F1 (declared deps) but imports-only edge scope.
+        let tmp = TempDir::new().unwrap();
+        touch(tmp.path(), "package.json");
+        assert!(
+            !is_kind_agnostic(tmp.path()),
+            "TS is imports-only, not kind-agnostic"
+        );
+        assert!(uses_manifest_dep_gt(tmp.path()), "TS workspace → F1");
+    }
+
+    #[test]
+    fn python_with_package_json_keeps_spearman() {
+        // django shape (lesson #5): package.json present BUT a Python marker →
+        // must stay Spearman (NOT manifest F1).
+        let tmp = TempDir::new().unwrap();
+        touch(tmp.path(), "package.json");
+        touch(tmp.path(), "manage.py");
+        assert!(
+            !uses_manifest_dep_gt(tmp.path()),
+            "Python project with package.json must keep Spearman"
+        );
+    }
+
+    #[test]
+    fn ruby_monorepo_with_package_json_keeps_spearman() {
+        // rails shape: package.json (JS assets) + Gemfile → must stay Spearman.
+        let tmp = TempDir::new().unwrap();
+        touch(tmp.path(), "package.json");
+        touch(tmp.path(), "Gemfile");
+        assert!(
+            !uses_manifest_dep_gt(tmp.path()),
+            "Ruby project with package.json must keep Spearman"
+        );
+    }
+
+    #[test]
+    fn plain_python_or_ruby_is_spearman() {
+        let tmp = TempDir::new().unwrap();
+        touch(tmp.path(), "Gemfile");
+        assert!(!is_kind_agnostic(tmp.path()));
+        assert!(
+            !uses_manifest_dep_gt(tmp.path()),
+            "Ruby (no pkg.json) → Spearman"
         );
     }
 }
