@@ -673,7 +673,7 @@ dependencies = [
 
 [[package]]
 name = "ga-bench"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "ga-core",
@@ -690,7 +690,7 @@ dependencies = [
 
 [[package]]
 name = "ga-core"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "serde",
@@ -700,7 +700,7 @@ dependencies = [
 
 [[package]]
 name = "ga-index"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "fs4",
@@ -718,7 +718,7 @@ dependencies = [
 
 [[package]]
 name = "ga-mcp"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "chrono",
@@ -737,7 +737,7 @@ dependencies = [
 
 [[package]]
 name = "ga-parser"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "blake3",
@@ -763,7 +763,7 @@ dependencies = [
 
 [[package]]
 name = "ga-query"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "blake3",
@@ -779,7 +779,7 @@ dependencies = [
 
 [[package]]
 name = "ga-server"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "axum",
@@ -831,7 +831,7 @@ dependencies = [
 
 [[package]]
 name = "graphatlas"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "clap",

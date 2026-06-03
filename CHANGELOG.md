@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-06-03
+
+Extend `ga_architecture` module-dependency authority to C#, PHP, and Ruby —
+the last three languages with statically extractable build manifests. Java
+and Kotlin remain honest-SKIP (Gradle resolves the dependency graph only at
+build-runtime, so no sound static ground truth exists).
+
+### Added
+- **C#** — `.csproj` `<ProjectReference>` dependency-graph ground truth +
+  `.sln`/`.csproj` module markers. New `ProjectScope` (analogue of
+  `CrateScope`) restricts name-fallback resolution to directly-referenced
+  projects, cutting cross-project over-link.
+- **PHP** — `composer.json` PSR-4 autoload resolution (longest-namespace-prefix
+  wins) for `use Ns\Class` imports + `composer.json` module marker.
+- **Ruby** — `require` / `require_relative` surfaced as imports (parser); gem
+  `lib/` load-path resolution + `.gemspec` module marker.
+
+### Fixed
+- `version_flag` smoke test now asserts the live `CARGO_PKG_VERSION` instead of
+  a hard-coded literal, closing the drift that followed the 0.1.1 bump.
+
 ## [0.1.1] - 2026-05-26
 
 Multi-MCP reindex correctness — fix concurrent reindex bug + recovery
