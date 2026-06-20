@@ -13,7 +13,23 @@ use std::path::{Path, PathBuf};
 
 pub fn cmd_reindex(repo: Option<PathBuf>, json_progress: bool) -> Result<()> {
     let repo_root = match repo {
-        Some(p) => p,
+        Some(p) => {
+            // A positional beginning with '-' is almost certainly a fat-fingered
+            // flag, not a repo path. `reindex` is always a full rebuild and takes
+            // no flags, so `--full` doesn't exist; clap's `--` separator silently
+            // binds it here as the PATH arg. Reject early with a clear message
+            // instead of handing "--full" to the indexer, which reports a
+            // misleading "config corrupt" cache error.
+            if p.to_string_lossy().starts_with('-') {
+                anyhow::bail!(
+                    "`{}` is not a flag — `graphatlas reindex` is always a full \
+                     rebuild and takes no flags. Run `graphatlas reindex` (current \
+                     directory) or `graphatlas reindex <path>`.",
+                    p.display()
+                );
+            }
+            p
+        }
         None => std::env::current_dir().context("resolve cwd")?,
     };
     do_reindex(&repo_root, json_progress)
