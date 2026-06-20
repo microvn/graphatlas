@@ -362,6 +362,13 @@ pub fn spawn_l1_watcher(
     Some(WatcherGuard { _watcher: watcher })
 }
 
+/// Run a single L1-watcher reindex cycle against `repo_root`. Public entry so
+/// the regression test can drive one deterministic reindex; production fires
+/// this from the watcher dispatch thread on coalesced FS events.
+pub fn reindex_once(ctx: &crate::context::McpContext, repo_root: &Path) -> ga_core::Result<()> {
+    dispatch_reindex(ctx, repo_root)
+}
+
 /// Internal dispatch path for L1 watcher → ga_reindex. Mirrors the
 /// `tools::reindex::call` flow but bypasses the rmcp transport since
 /// the watcher dispatches in-process. Errors are logged and dropped;
@@ -379,6 +386,18 @@ fn dispatch_reindex(ctx: &crate::context::McpContext, repo_root: &Path) -> ga_co
         let mut fresh = store
             .reindex_in_place(&inner)
             .map_err(|e| ga_core::Error::Other(anyhow::anyhow!("reindex_in_place: {e}")))?;
+        // Lost the cross-process reindex race: reindex_in_place re-attached
+        // read-only (a peer holds the exclusive lock). Do NOT call build_index
+        // on a read-only store — lbug refuses the write DDL, the closure errors,
+        // and rebuild_via would leave store_cell=None, bricking this server.
+        // Serve read-only; the next reindex recovers once the peer releases.
+        // Mirrors the MCP tool-path guard at tools/reindex.rs (AttachedReadOnly).
+        if matches!(
+            fresh.outcome(),
+            ga_index::OpenOutcome::AttachedReadOnly { .. }
+        ) {
+            return Ok(fresh);
+        }
         ga_query::indexer::build_index(&fresh, &inner)
             .map_err(|e| ga_core::Error::Other(anyhow::anyhow!("build_index: {e}")))?;
         fresh

@@ -56,6 +56,18 @@ pub struct IndexStats {
 /// Build (or rebuild) the graph for `repo_root` into `store`. Idempotent —
 /// safe to call multiple times on the same store.
 pub fn build_index(store: &Store, repo_root: &Path) -> AResult<IndexStats> {
+    // Writer-only invariant. build_index issues write DDL (DETACH DELETE + COPY);
+    // a read-only store means a peer process holds the writer lock. Refuse up
+    // front with a clear message rather than failing deep inside the COPY phase.
+    // (Regression: the L1 watcher fed read-only stores here and bricked its own
+    // store cell on the error — docs/investigate/ga-anchord-watcher-reindex-brick-2026-06-20.md)
+    if store.is_read_only() {
+        return Err(anyhow!(
+            "build_index requires a writable store, but this store is read-only \
+             (a peer process holds the writer lock)"
+        ));
+    }
+
     // Walk the repo for source files.
     let report = walk_repo(repo_root).map_err(|e| anyhow!("walk_repo failed: {e}"))?;
     if report.entries.is_empty() {
