@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-06-20
+
+Reliability fixes for multi-server MCP usage and the `reindex` CLI.
+
+### Fixed
+- **MCP watcher self-brick** — on a repo with multiple concurrent MCP servers,
+  a file edit fires every server's L1 watcher. The race loser re-attaches
+  read-only, but the watcher's rebuild closure lacked the `AttachedReadOnly`
+  guard the tool path has, so it ran `build_index` on a read-only store; the
+  closure errored and `rebuild_via` left the store cell empty, bricking the
+  server (subsequent tool calls hit `ctx.store()` and panicked). The watcher
+  now serves read-only on a lost race, and `build_index` enforces the
+  writer-only invariant at the callee so no caller can reopen this.
+- **`reindex -- --full` misreported as cache corruption** — `reindex` has no
+  flags (it is always a full rebuild), so `--` bound `--full` to the positional
+  repo path, surfacing the misleading `config corrupt at --full: repo_root does
+  not exist`. A flag-shaped positional is now rejected up front with a clear
+  message.
+
 ## [0.1.2] - 2026-06-03
 
 Extend `ga_architecture` module-dependency authority to C#, PHP, and Ruby —
