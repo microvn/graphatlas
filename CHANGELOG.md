@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.4] - 2026-06-21
+
+Completes the v0.1.3 multi-server reliability work: closes the remaining
+store-cell brick paths that hung the MCP client.
+
+### Fixed
+- **Store-cell brick hang** — v0.1.3 guarded only the `AttachedReadOnly`
+  outcome in the watcher path. Any *other* `rebuild_via` closure failure still
+  left the store cell empty, and every read tool then called the panicking
+  `ctx.store()`. Because rmcp 1.6 has no `catch_unwind` around `call_tool`, the
+  panic unwound the request task with no response sent and the client hung
+  forever ("Calling graphatlas… Waiting…"). Now:
+  - `rebuild_via` reopens the on-disk cache read-only on a busy/peer-lock
+    failure (self-heal) and rebuilds from disk when recovering an empty cell,
+    instead of bricking.
+  - The read path (staleness gate, Tier-2 probe, all 14 query tools, common
+    meta) uses `try_store()` and surfaces `ReindexBuildFailed` (-32012) instead
+    of panicking.
+  - `ga_reindex` and the L1 watcher resolve `repo_root`/`cache_dir` from the
+    staleness checker + captured cache root, so they can recover a bricked cell
+    rather than panicking on it.
+  - A `catch_unwind` backstop in `call_tool` converts any residual panic into a
+    JSON-RPC error response, so no tool call can hang the client again.
+
 ## [0.1.3] - 2026-06-20
 
 Reliability fixes for multi-server MCP usage and the `reindex` CLI.
