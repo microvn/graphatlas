@@ -20,7 +20,7 @@ ga-core = { workspace = true }
 ga-index = { workspace = true }
 ga-query = { workspace = true }
 lbug = { workspace = true }
-notify = "6"
+notify = "8"
 anyhow = { workspace = true }
 clap = { workspace = true }
 serde = { workspace = true }
