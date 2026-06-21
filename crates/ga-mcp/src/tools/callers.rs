@@ -56,7 +56,7 @@ pub(super) fn ctxless(args: &Value) -> Result<ToolsCallResult> {
 pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     let start = Instant::now();
     let (symbol, file) = validate_symbol_file_args(args, "ga_callers")?;
-    let mut response = ga_query::callers(ctx.store().as_ref(), symbol, file)?;
+    let mut response = ga_query::callers(ctx.try_store()?.as_ref(), symbol, file)?;
 
     // P1.3 (2026-05-22) — drop conf < 1.0 entries unless caller opts in.
     // Surfaces only the exact-match callers narrowed by the `file:` hint;

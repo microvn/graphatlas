@@ -75,7 +75,7 @@ pub(super) fn ctxless(args: &Value) -> Result<ToolsCallResult> {
 pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     let start = Instant::now();
     let req = validate_args(args)?;
-    let response = architecture(ctx.store().as_ref(), &req)?;
+    let response = architecture(ctx.try_store()?.as_ref(), &req)?;
 
     let mut payload = json!({
         "tool": "ga_architecture",

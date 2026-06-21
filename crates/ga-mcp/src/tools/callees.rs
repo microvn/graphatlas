@@ -54,7 +54,7 @@ pub(super) fn ctxless(args: &Value) -> Result<ToolsCallResult> {
 pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     let start = Instant::now();
     let (symbol, file) = validate_symbol_file_args(args, "ga_callees")?;
-    let mut response = ga_query::callees(ctx.store().as_ref(), symbol, file)?;
+    let mut response = ga_query::callees(ctx.try_store()?.as_ref(), symbol, file)?;
 
     // P1.3 (2026-05-22) — drop conf < 1.0 entries unless caller opts in.
     let include_uncertain = super::common::wants_include_uncertain(args);

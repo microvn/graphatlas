@@ -64,7 +64,7 @@ pub(super) fn ctxless(args: &Value) -> Result<ToolsCallResult> {
 pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     let start = Instant::now();
     let (pattern, mode) = validate_args(args)?;
-    let response = ga_query::symbols(ctx.store().as_ref(), pattern, mode)?;
+    let response = ga_query::symbols(ctx.try_store()?.as_ref(), pattern, mode)?;
 
     // P1.5 (2026-05-22) — Markdown opt-in.
     if crate::markdown::wants_markdown(args) {

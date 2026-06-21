@@ -374,7 +374,10 @@ pub fn reindex_once(ctx: &crate::context::McpContext, repo_root: &Path) -> ga_co
 /// the watcher dispatches in-process. Errors are logged and dropped;
 /// the watcher MUST NOT crash the MCP on transient reindex failures.
 fn dispatch_reindex(ctx: &crate::context::McpContext, repo_root: &Path) -> ga_core::Result<()> {
-    let cache_dir = ctx.store().layout().dir().to_path_buf();
+    // Independent of the store cell so the watcher can reindex (and recover)
+    // a bricked cell instead of panicking on its own thread.
+    // docs/investigate/mcp-store-brick-hang-2026-06-21.md (action 3).
+    let cache_dir = ctx.cache_dir();
     let lock_arc = ctx.reindex_lock_for(&cache_dir);
     let _guard = lock_arc.lock().expect("L1 reindex mutex");
     if let Err(e) = ctx.check_reindex_cooldown(&cache_dir) {

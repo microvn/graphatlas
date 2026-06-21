@@ -67,7 +67,11 @@ pub fn handle_tools_call_with_ctx(
     // Read indexed_root_hash from metadata. Empty hash = "never committed"
     // sentinel — treat as fresh (no anchor to compare against, no drift
     // claim possible).
-    let store_for_hash = ctx.store();
+    // Graceful on a bricked cell: surface ReindexBuildFailed to the client
+    // instead of panicking (a panic here unwinds the rmcp call_tool task with
+    // no response → client hangs forever).
+    // docs/investigate/mcp-store-brick-hang-2026-06-21.md (action 2).
+    let store_for_hash = ctx.try_store()?;
     let indexed_hex = &store_for_hash.metadata().indexed_root_hash;
     if indexed_hex.len() == 64 {
         // Decode hex → [u8; 32]. If the on-disk value is malformed,
@@ -176,7 +180,11 @@ fn tier2_dirty_paths_with_cache(ctx: &crate::context::McpContext) -> Vec<std::pa
     if let Some(cached) = ctx.staleness.tier2_lookup() {
         return cached;
     }
-    let store = ctx.store();
+    // Degrade open on a bricked cell: skip the dirty-paths walk rather than
+    // panic (this runs inside the staleness gate for every tool call).
+    let Ok(store) = ctx.try_store() else {
+        return Vec::new();
+    };
     let repo_root = ctx.staleness.repo_root();
     match ga_query::incremental::dirty_paths(store.as_ref(), repo_root) {
         Ok(paths) => {

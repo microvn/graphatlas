@@ -38,7 +38,7 @@ pub(super) fn ctxless(args: &Value) -> Result<ToolsCallResult> {
 pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     let start = Instant::now();
     let path = validate_path_arg(args, "ga_file_summary")?;
-    let summary = ga_query::file_summary(ctx.store().as_ref(), path)?;
+    let summary = ga_query::file_summary(ctx.try_store()?.as_ref(), path)?;
     let mut payload = json!({
         "tool": "ga_file_summary",
         "path": summary.path,

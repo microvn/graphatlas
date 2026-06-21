@@ -145,7 +145,7 @@ pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     let start = Instant::now();
     let req = validate_args(args)?;
 
-    let response = large_functions(ctx.store().as_ref(), &req)?;
+    let response = large_functions(ctx.try_store()?.as_ref(), &req)?;
 
     let mut payload = json!({
         "tool": "ga_large_functions",

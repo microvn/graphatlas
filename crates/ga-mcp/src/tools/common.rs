@@ -21,10 +21,14 @@ pub(super) fn inject_common_meta(payload: &mut Value, ctx: &McpContext, start: I
             json!(start.elapsed().as_millis() as u64),
         );
         meta.insert("cache_hit".into(), json!(false));
-        meta.insert(
-            "graph_version".into(),
-            json!(ctx.store().metadata().schema_version),
-        );
+        // Best-effort: omit graph_version rather than panic if the store cell
+        // was bricked between the tool's query and this meta injection.
+        if let Ok(store) = ctx.try_store() {
+            meta.insert(
+                "graph_version".into(),
+                json!(store.metadata().schema_version),
+            );
+        }
     }
 }
 

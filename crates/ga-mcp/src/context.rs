@@ -11,10 +11,11 @@
 //! read mode — concurrent reads remain lock-free at the lbug layer.
 
 use ga_core::{Error, Result};
+use ga_index::cache::CacheLayout;
 use ga_index::Store;
 use ga_parser::staleness::StalenessChecker;
 use std::collections::HashMap;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::sync::{Arc, Mutex, RwLock};
 use std::time::Instant;
 
@@ -50,6 +51,21 @@ pub struct McpContext {
     /// instant short-circuit with `Error::AlreadyReindexing` rather than
     /// running a redundant rebuild.
     pub last_reindex_at: Arc<Mutex<HashMap<PathBuf, Instant>>>,
+    /// Cache root (typically `~/.graphatlas`) captured at construction,
+    /// INDEPENDENT of the store cell. Lets `rebuild_via` reopen the
+    /// on-disk cache — to self-heal a busy/peer-lock failure, or to
+    /// rebuild a previously-bricked (`None`) cell — without needing a
+    /// live `Store` to read `repo_root`/`layout` from. The repo root is
+    /// available via `self.staleness.repo_root()`.
+    cache_root: Arc<PathBuf>,
+}
+
+/// Derive the cache root from a store's resolved layout: the layout dir is
+/// `<cache_root>/<repo>-<hash>`, so its parent is the cache root. Falls back
+/// to the layout dir itself if it has no parent (defensive; never expected).
+fn cache_root_of(store: &Store) -> PathBuf {
+    let dir = store.layout().dir();
+    dir.parent().unwrap_or(dir).to_path_buf()
 }
 
 impl McpContext {
@@ -58,24 +74,45 @@ impl McpContext {
     /// existing test fixtures that didn't yet pass an explicit checker.
     pub fn new(store: Arc<Store>) -> Self {
         let repo_root = std::path::PathBuf::from(&store.metadata().repo_root);
+        let cache_root = Arc::new(cache_root_of(&store));
         let staleness = Arc::new(StalenessChecker::new(repo_root));
         Self {
             store_cell: Arc::new(RwLock::new(Some(store))),
             staleness,
             reindex_locks: Arc::new(Mutex::new(HashMap::new())),
             last_reindex_at: Arc::new(Mutex::new(HashMap::new())),
+            cache_root,
         }
     }
 
     /// Test/integration construct with an injected StalenessChecker so
     /// callers can control the repo_root + TTL behavior independently.
     pub fn with_staleness(store: Arc<Store>, staleness: Arc<StalenessChecker>) -> Self {
+        let cache_root = Arc::new(cache_root_of(&store));
         Self {
             store_cell: Arc::new(RwLock::new(Some(store))),
             staleness,
             reindex_locks: Arc::new(Mutex::new(HashMap::new())),
             last_reindex_at: Arc::new(Mutex::new(HashMap::new())),
+            cache_root,
         }
+    }
+
+    /// Cache root (typically `~/.graphatlas`) captured at construction,
+    /// independent of the store cell. Stays valid even when the cell is
+    /// `None` after a failed rebuild.
+    pub fn cache_root(&self) -> &Path {
+        self.cache_root.as_ref()
+    }
+
+    /// Resolved cache directory for this repo (`<cache_root>/<repo>-<hash>`),
+    /// computed from the cache root + the staleness checker's repo root.
+    /// Available even when the store cell is `None` — used by `ga_reindex`
+    /// so it can serialize + recover a bricked cell without a live `Store`.
+    pub fn cache_dir(&self) -> PathBuf {
+        CacheLayout::for_repo(self.cache_root.as_ref(), self.staleness.repo_root())
+            .dir()
+            .to_path_buf()
     }
 
     /// PR6.1b R1b-S001.AS-001 — fetch the current `Arc<Store>` for a tool
@@ -117,9 +154,20 @@ impl McpContext {
         F: FnOnce(Store) -> Result<Store>,
     {
         let mut guard = self.store_cell.write().expect("store_cell rwlock poisoned");
-        let arc_store = guard.take().ok_or_else(|| Error::ReindexBuildFailed {
-            reason: "store cell already empty before rebuild".to_string(),
-        })?;
+        // Recover a previously-bricked (None) cell instead of refusing: open
+        // a fresh handle from disk so the rebuild closure has a Store to work
+        // with. This is what makes `ga_reindex` an actual recovery path for a
+        // bricked server (docs/investigate/mcp-store-brick-hang-2026-06-21.md,
+        // action 3) rather than itself failing on the empty cell.
+        let arc_store = match guard.take() {
+            Some(s) => s,
+            None => Arc::new(
+                self.open_from_disk()
+                    .map_err(|e| Error::ReindexBuildFailed {
+                        reason: format!("recover bricked cell: reopen cache failed: {e}"),
+                    })?,
+            ),
+        };
         let store = match Arc::try_unwrap(arc_store) {
             Ok(s) => s,
             Err(still_shared) => {
@@ -147,15 +195,44 @@ impl McpContext {
                     || lower.contains("flock")
                     || (lower.contains("lock") && !lower.contains("deadlock"));
                 if busy_signature {
+                    // A peer holds the writer lock; OUR committed graph on
+                    // disk is still valid. Reopen it read-only and restore
+                    // the cell so this server keeps serving instead of
+                    // bricking (action 1). Only leave the cell None if even
+                    // the reopen fails — then `try_store()` surfaces the
+                    // error gracefully and a later `ga_reindex` recovers.
+                    match self.open_from_disk() {
+                        Ok(reopened) => *guard = Some(Arc::new(reopened)),
+                        Err(reopen_err) => tracing::warn!(
+                            target: "ga_mcp::context",
+                            "busy rebuild: reopen-to-self-heal failed, cell left empty: {reopen_err}"
+                        ),
+                    }
                     Err(Error::AlreadyReindexing {
                         hint: format!("peer process holds cache lock: {msg}"),
                     })
                 } else {
-                    // Leave cell None — next store() returns ReindexBuildFailed.
+                    // Genuine build failure: the on-disk cache was nuked by
+                    // the failed rebuild, so there is nothing valid to reopen.
+                    // Leave cell None — next try_store() returns
+                    // ReindexBuildFailed; ga_reindex can rebuild from scratch.
                     Err(Error::ReindexBuildFailed { reason: msg })
                 }
             }
         }
+    }
+
+    /// Open the on-disk cache for this repo, sealed read-only for serving.
+    /// Used by `rebuild_via` to self-heal a busy failure or recover a
+    /// bricked cell. Caller holds the store-cell write lock; this touches
+    /// only the filesystem + lbug, so there is no lock re-entrancy.
+    fn open_from_disk(&self) -> Result<Store> {
+        let repo_root = self.staleness.repo_root().to_path_buf();
+        let mut store = Store::open_with_root(self.cache_root.as_ref(), &repo_root)?;
+        // Best-effort seal: a fresh writer handle is fine to serve reads
+        // from too, so a seal failure is not fatal to recovery.
+        let _ = store.seal_for_serving();
+        Ok(store)
     }
 
     /// v1.5 PR6.1 (multi-mcp) H-4 — try to reopen the Store's lbug handle

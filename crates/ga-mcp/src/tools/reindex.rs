@@ -97,7 +97,11 @@ pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     // guard `prepare_store_for_mcp::is_bench_fixture_path` should already
     // have refused, but tool-level refusal protects callers that may have
     // bypassed boot).
-    let repo_root = std::path::PathBuf::from(&ctx.store().metadata().repo_root);
+    // Read repo_root from the staleness checker (captured at boot),
+    // NOT from the store — ga_reindex must work when the cell is bricked
+    // (None) so it can recover it.
+    // docs/investigate/mcp-store-brick-hang-2026-06-21.md (action 3).
+    let repo_root = ctx.staleness.repo_root().to_path_buf();
     if is_bench_fixture_path(&repo_root) {
         return Err(Error::Other(anyhow::anyhow!(
             "ga_reindex refused: bench fixture path detected ({}). \
@@ -109,7 +113,7 @@ pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     // AS-009/010: acquire per-repo serialization mutex. Cross-repo
     // reindexes use distinct Mutex<()> instances (proven by the
     // `reindex_lock_for` registry tests in tests/reindex_tool.rs).
-    let cache_dir = ctx.store().layout().dir().to_path_buf();
+    let cache_dir = ctx.cache_dir();
     let lock_arc = ctx.reindex_lock_for(&cache_dir);
     let _guard = lock_arc.lock().expect("per-repo reindex mutex");
 
@@ -122,7 +126,12 @@ pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     // R1b-S002.AS-003 — actual close-rm-init rebuild via the RwLock-wrapped
     // store cell. We snapshot generation_before from the live store *before*
     // surrendering it to rebuild_via (the closure consumes it by value).
-    let gen_before = ctx.store().metadata().graph_generation;
+    // Snapshot generation from the live store if present; a bricked cell
+    // has no current generation (recovery rebuild), so default to 0.
+    let gen_before = ctx
+        .try_store()
+        .map(|s| s.metadata().graph_generation)
+        .unwrap_or(0);
     let started = std::time::Instant::now();
     let mut files_indexed: u64 = 0;
     let new_store = ctx.rebuild_via(|store| {

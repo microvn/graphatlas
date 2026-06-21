@@ -135,7 +135,20 @@ impl ServerHandler for GaServerHandler {
             name: name.to_string(),
             arguments: args.clone(),
         };
-        let dispatch_result = handlers::handle_tools_call_with_ctx(&ctx, &params);
+        // Defense-in-depth backstop: rmcp 1.6 does not catch_unwind around
+        // call_tool, so any panic in dispatch unwinds this spawned task with
+        // NO response sent → the client hangs forever. Convert a panic into a
+        // JSON-RPC error response instead.
+        // docs/investigate/mcp-store-brick-hang-2026-06-21.md (action 4).
+        let dispatch_result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            handlers::handle_tools_call_with_ctx(&ctx, &params)
+        }))
+        .unwrap_or_else(|payload| {
+            Err(GaError::Other(anyhow::anyhow!(
+                "internal panic during tool dispatch: {}",
+                panic_payload_message(payload.as_ref())
+            )))
+        });
         let elapsed = started.elapsed();
 
         match dispatch_result {
@@ -181,6 +194,18 @@ impl ServerHandler for GaServerHandler {
 fn ga_core_error_to_mcp(err: &GaError) -> McpError {
     let code = ErrorCode(err.jsonrpc_code());
     McpError::new(code, format!("{err}"), None)
+}
+
+/// Extract a human-readable message from a `catch_unwind` panic payload.
+/// Panics carry either `&'static str` or `String`; anything else is opaque.
+fn panic_payload_message(payload: &(dyn std::any::Any + Send)) -> String {
+    if let Some(s) = payload.downcast_ref::<&'static str>() {
+        (*s).to_string()
+    } else if let Some(s) = payload.downcast_ref::<String>() {
+        s.clone()
+    } else {
+        "non-string panic payload".to_string()
+    }
 }
 
 /// Start an rmcp server over the supplied duplex streams. Used by

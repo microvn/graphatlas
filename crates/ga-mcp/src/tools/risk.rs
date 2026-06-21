@@ -116,9 +116,9 @@ pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     let start = Instant::now();
     let req = validate_args(args)?;
 
-    let repo_root: PathBuf = ctx.store().metadata().repo_root.clone().into();
+    let repo_root: PathBuf = ctx.try_store()?.metadata().repo_root.clone().into();
     let miner = GitLogMiner::new(&repo_root);
-    let response = risk(ctx.store().as_ref(), &miner, &req)?;
+    let response = risk(ctx.try_store()?.as_ref(), &miner, &req)?;
 
     let mut payload = json!({
         "tool": "ga_risk",

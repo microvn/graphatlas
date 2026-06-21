@@ -68,7 +68,7 @@ pub(super) fn ctxless(args: &Value) -> Result<ToolsCallResult> {
 pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     let start = Instant::now();
     let req = validate_args(args)?;
-    let response = ga_query::impact(ctx.store().as_ref(), &req)?;
+    let response = ga_query::impact(ctx.try_store()?.as_ref(), &req)?;
     // P1.5 (2026-05-22) — Markdown opt-in for impact summaries.
     if crate::markdown::wants_markdown(args) {
         let seed_label = req.symbol.as_deref().unwrap_or_else(|| {

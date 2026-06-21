@@ -106,7 +106,7 @@ pub(super) fn ctxless(args: &Value) -> Result<ToolsCallResult> {
 pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     let start = Instant::now();
     let req = validate_args(args)?;
-    let response = minimal_context(ctx.store().as_ref(), &req)?;
+    let response = minimal_context(ctx.try_store()?.as_ref(), &req)?;
 
     let mut payload = json!({
         "tool": "ga_minimal_context",

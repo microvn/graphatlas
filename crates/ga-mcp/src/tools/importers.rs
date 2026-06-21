@@ -39,7 +39,7 @@ pub(super) fn ctxless(args: &Value) -> Result<ToolsCallResult> {
 pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     let start = Instant::now();
     let file = validate_file_arg(args, "ga_importers")?;
-    let response = ga_query::importers(ctx.store().as_ref(), file)?;
+    let response = ga_query::importers(ctx.try_store()?.as_ref(), file)?;
     let mut payload = json!({
         "tool": "ga_importers",
         "file": file,

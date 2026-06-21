@@ -127,7 +127,7 @@ pub(super) fn call(ctx: &McpContext, args: &Value) -> Result<ToolsCallResult> {
     let start = Instant::now();
     let req = validate_args(args)?;
 
-    let response = bridges(ctx.store().as_ref(), &req)?;
+    let response = bridges(ctx.try_store()?.as_ref(), &req)?;
 
     let mut payload = json!({
         "tool": "ga_bridges",
