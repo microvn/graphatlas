@@ -27,7 +27,7 @@ jobs:
     name: Check upstream grammar repos for archival
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Iterate grammar-pins.toml and call gh api repos/<upstream>
         id: scan
